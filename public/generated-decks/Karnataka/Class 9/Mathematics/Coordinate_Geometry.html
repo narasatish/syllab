@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Coordinate</span> Geometry!</h2>
-          <ul><li>Explore the world of points and lines.</li><li>Learn to locate anything on a plane.</li><li>A powerful tool in Mathematics!</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey into Coordinate Geometry. It's like learning to read a special map that helps us find exact locations for everything!</p>
+          <span class="num">1 / 30</span>
+          <h2>Welcome to <span class="hl">Coordinate Geometry</span>!</h2>
+          
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Coordinate Geometry, a powerful tool in mathematics that helps us locate points and understand shapes.</p>
         </div>
         
       </div>
@@ -71,70 +77,94 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2><span class="hl">What</span> is Coordinate Geometry?</h2>
-          <ul><li>It's a branch of mathematics.</li><li>Combines algebra and geometry.</li><li>Helps us describe positions using numbers.</li></ul>
-          <p class="notes">🎙️ Imagine you want to tell someone exactly where something is. Coordinate Geometry gives us a system, a 'math map', to do just that, using numbers to define locations.</p>
+          <span class="num">2 / 30</span>
+          <h2><span class="hl">Where</span> Are You? Finding Your Way!</h2>
+          <ul><li>How do you tell someone your exact location in a big place?</li><li>Think about finding a specific seat in a cinema hall or locating a place on a map.</li></ul>
+          <p class="notes">🎙️ Imagine you are trying to find your friend in a crowded market or locate a specific shop in a mall. How would you give precise directions to them so they can find you easily?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Math Map</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Finding Places</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>Our <span class="hl">Journey</span> Ahead: What You'll Learn</h2>
+          <ul><li>Understand the Cartesian Coordinate System.</li><li>Locate and plot points in a plane accurately.</li><li>Appreciate real-world applications of coordinates.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to confidently describe the position of any point using coordinates and understand its importance in various fields.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2><span class="hl">Why</span> do we need it?</h2>
-          <ul><li>Finding places on a map.</li><li>Designing games and apps.</li><li>Plotting graphs in science.</li></ul>
-          <p class="notes">🎙️ Think about using Google Maps or playing a video game. How do they know where everything is? It's all thanks to Coordinate Geometry! It's super useful in real life.</p>
+          <span class="num">4 / 30</span>
+          <h2>Analogy: <span class="hl">Cinema</span> Seating</h2>
+          <ul><li>To find your seat, you look for a 'Row' number and a 'Seat' number.</li><li>Example: Row 5, Seat 12 uniquely identifies your position.</li></ul>
+          <p class="notes">🎙️ Just like finding your seat in a cinema hall requires two pieces of information – the row and the seat number – we use a similar idea to locate points in geometry.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📍</span><span>📍</span><span>📍</span><span>📍</span><span>📍</span></div><div class="vcap">Finding Locations</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💺</span><span>💺</span><span>💺</span><span>💺</span><span>💺</span><span>💺</span><span>💺</span><span>💺</span></div><div class="vcap">Seats in a Row</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>The <span class="hl">Cartesian</span> Plane</h2>
-          <ul><li>Named after René Descartes.</li><li>A flat surface where we plot points.</li><li>Formed by two perpendicular lines.</li></ul>
-          <p class="notes">🎙️ The Cartesian Plane is our main playground. It's a flat surface, like a blackboard or a piece of paper, where we will place all our mathematical 'addresses'.</p>
+          <span class="num">5 / 30</span>
+          <h2>The <span class="hl">Need</span> for Coordinates</h2>
+          <ul><li>A single number line is not enough to locate a point on a flat surface (2D plane).</li><li>We need *two* independent pieces of information to pinpoint a location precisely.</li></ul>
+          <p class="notes">🎙️ On a line, one number is enough to tell us where something is. But for a flat surface, like a blackboard or a map, we need a system that gives us two directions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">The Plane</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Pinpoint Location</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>The <span class="hl">X-axis</span>: The Horizontal Road</h2>
-          <ul><li>The horizontal number line.</li><li>Goes left and right.</li><li>Positive numbers to the right, negative to the left.</li></ul>
-          <p class="notes">🎙️ Our first road is the X-axis. It runs horizontally, just like a straight road. Positive values are to your right, and negative values are to your left.</p>
+          <span class="num">6 / 30</span>
+          <h2>Introducing: The <span class="hl">Horizontal</span> Number Line (X-axis)</h2>
+          <ul><li>We use a number line laid horizontally as our first reference.</li><li>Positive numbers are to the right of zero, negative numbers to the left.</li></ul>
+          <p class="notes">🎙️ Recall the number line you've studied in earlier classes. We'll use one such line, laid horizontally, as our first reference line in our coordinate system.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Left and Right</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Left &amp; Right Movement</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>The <span class="hl">Y-axis</span>: The Vertical Road</h2>
-          <ul><li>The vertical number line.</li><li>Goes up and down.</li><li>Positive numbers upwards, negative downwards.</li></ul>
-          <p class="notes">🎙️ Next, we have the Y-axis, which is our vertical road. Positive values go upwards, and negative values go downwards. Together, these two axes form our coordinate system.</p>
+          <span class="num">7 / 30</span>
+          <h2>Introducing: The <span class="hl">Vertical</span> Number Line (Y-axis)</h2>
+          <ul><li>We use another number line, standing vertically, as our second reference.</li><li>Positive numbers are upwards from zero, negative numbers downwards.</li></ul>
+          <p class="notes">🎙️ Now, imagine another number line, standing upright. This will be our second reference line, and it is placed perpendicular to the horizontal one.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Up and Down</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Up &amp; Down Movement</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>The <span class="hl">Origin</span> (0,0)</h2>
-          <ul><li>Where the X-axis and Y-axis meet.</li><li>The starting point for all coordinates.</li><li>Its coordinates are (0,0).</li></ul>
-          <p class="notes">🎙️ The point where the X-axis and Y-axis cross is very special. We call it the Origin, and it's our central reference point, like the center of a map. Its address is always (0,0).</p>
+          <span class="num">8 / 30</span>
+          <h2>The <span class="hl">Cartesian Plane</span>: Axes</h2>
+          <ul><li>The horizontal line is called the X-axis.</li><li>The vertical line is called the Y-axis.</li><li>Together, they form the Coordinate Axes, creating a grid.</li></ul>
+          <p class="notes">🎙️ These two perpendicular lines create a grid-like system called the Cartesian plane, named after the French mathematician René Descartes, who introduced this concept.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">X-axis</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Y-axis</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>The <span class="hl">Origin</span>: Our Starting Point</h2>
+          <ul><li>The point where the X-axis and Y-axis intersect is called the Origin.</li><li>Its coordinates are always (0, 0).</li><li>It's our central reference for all measurements.</li></ul>
+          <p class="notes">🎙️ Just like the 'zero' on a measuring tape, the origin is the central point from which all distances and directions are measured in our coordinate system.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Starting Point</div></div></div>
       </div>
@@ -143,190 +173,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2><span class="hl">Ordered Pairs</span> (x,y): Our Address System</h2>
-          <ul><li>A point's location is given by two numbers.</li><li>Always written as (x-coordinate, y-coordinate).</li><li>The order matters! (2,3) is different from (3,2).</li></ul>
-          <p class="notes">🎙️ Every point on our plane has a unique address, called an ordered pair. The first number tells us how far along the X-axis, and the second tells us how far along the Y-axis. Remember, the order is crucial!</p>
+          <span class="num">10 / 30</span>
+          <h2>Dividing the Plane: <span class="hl">Quadrants</span></h2>
+          <ul><li>The coordinate axes divide the plane into four distinct regions.</li><li>These regions are called Quadrants, numbered I, II, III, and IV counter-clockwise.</li></ul>
+          <p class="notes">🎙️ The intersection of the X and Y axes creates four distinct sections, much like dividing a cake into four slices. We number them counter-clockwise starting from the top-right.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Point's Address</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Quadrants</span>: Dividing Our Map</h2>
-          <ul><li>The axes divide the plane into four regions.</li><li>These regions are called quadrants.</li><li>Numbered I, II, III, IV in anti-clockwise direction.</li></ul>
-          <p class="notes">🎙️ Our X and Y axes cut the entire plane into four distinct parts, like four different neighborhoods on our map. We call these Quadrants, and they are numbered in a specific counter-clockwise order.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Q1</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Q2</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Q3</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Q4</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Quadrant I</span>: Top-Right Section</h2>
-          <ul><li>Both x and y coordinates are positive.</li><li>Example: (3, 5)</li><li>Moves right from origin, then up.</li></ul>
-          <p class="notes">🎙️ Quadrant I is the top-right section. Here, both the x-coordinate and the y-coordinate will always be positive numbers. Think of it as moving right and then up from the origin.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span></div><div class="vcap">Positive, Positive</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2><span class="hl">Quadrant II</span>: Top-Left Section</h2>
-          <ul><li>x-coordinate is negative, y-coordinate is positive.</li><li>Example: (-2, 4)</li><li>Moves left from origin, then up.</li></ul>
-          <p class="notes">🎙️ Moving anti-clockwise, we reach Quadrant II, the top-left part. In this quadrant, the x-coordinate is negative, but the y-coordinate remains positive. We move left, then up.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➖</span></div><div class="vcap">Negative, Positive</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2><span class="hl">Quadrant III</span>: Bottom-Left Section</h2>
-          <ul><li>Both x and y coordinates are negative.</li><li>Example: (-6, -1)</li><li>Moves left from origin, then down.</li></ul>
-          <p class="notes">🎙️ Quadrant III is the bottom-left section. Here, both the x-coordinate and the y-coordinate are negative. So, we move left from the origin and then move downwards.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➖</span><span>➖</span></div><div class="vcap">Negative, Negative</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Quadrant IV</span>: Bottom-Right Section</h2>
-          <ul><li>x-coordinate is positive, y-coordinate is negative.</li><li>Example: (5, -3)</li><li>Moves right from origin, then down.</li></ul>
-          <p class="notes">🎙️ Finally, Quadrant IV is the bottom-right section. In this part, the x-coordinate is positive, but the y-coordinate is negative. We move right from the origin and then downwards.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span></div><div class="vcap">Positive, Negative</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">Plotting</span> Points: How to Find an Address</h2>
-          <ul><li>Start at the Origin (0,0).</li><li>Move horizontally (left/right) according to x.</li><li>Then move vertically (up/down) according to y.</li></ul>
-          <p class="notes">🎙️ Let's learn how to plot a point. It's like following directions. Always start at the origin, then follow the x-direction, and finally the y-direction to mark your spot.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start (0,0)</span></div><div class="step"><span class="snum">2</span><span>Move X</span></div><div class="step"><span class="snum">3</span><span>Move Y</span></div><div class="step"><span class="snum">4</span><span>Mark Point</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Worked Example: Plotting <span class="hl">(2,3)</span></h2>
-          <ul><li>Start at (0,0).</li><li>Move 2 units right (positive x).</li><li>Move 3 units up (positive y).</li></ul>
-          <p class="notes">🎙️ To plot (2,3), we start at the origin. Since x is 2 (positive), we move 2 steps to the right. Then, since y is 3 (positive), we move 3 steps upwards. That's our point!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️➡️</div><div class="vcap">Right &amp; Up</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Worked Example: Plotting <span class="hl">(-4,1)</span></h2>
-          <ul><li>Start at (0,0).</li><li>Move 4 units left (negative x).</li><li>Move 1 unit up (positive y).</li></ul>
-          <p class="notes">🎙️ For (-4,1), we begin at the origin. x is -4, so we move 4 steps to the left. Then, y is 1, so we move 1 step upwards. This point is in Quadrant II.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️⬅️</div><div class="vcap">Left &amp; Up</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Worked Example: Plotting <span class="hl">(3,-2)</span></h2>
-          <ul><li>Start at (0,0).</li><li>Move 3 units right (positive x).</li><li>Move 2 units down (negative y).</li></ul>
-          <p class="notes">🎙️ Let's plot (3,-2). From the origin, x is 3, so we go 3 steps to the right. Then, y is -2, so we go 2 steps downwards. This point will be in Quadrant IV.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️➡️</div><div class="vcap">Right &amp; Down</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Worked Example: Plotting <span class="hl">(-1,-3)</span></h2>
-          <ul><li>Start at (0,0).</li><li>Move 1 unit left (negative x).</li><li>Move 3 units down (negative y).</li></ul>
-          <p class="notes">🎙️ Finally, for (-1,-3), we start at the origin. x is -1, so 1 step left. y is -3, so 3 steps down. This point belongs to Quadrant III.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️⬅️</div><div class="vcap">Left &amp; Down</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Points on the <span class="hl">X-axis</span>: Always (x, 0)</h2>
-          <ul><li>Any point on the X-axis has its y-coordinate as 0.</li><li>Example: (5,0), (-3,0).</li><li>It does not move up or down from the axis.</li></ul>
-          <p class="notes">🎙️ What about points that lie directly on the axes? If a point is on the X-axis, it means it hasn't moved up or down, so its y-coordinate is always zero, like (5,0).</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">No Vertical Move</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Points on the <span class="hl">Y-axis</span>: Always (0, y)</h2>
-          <ul><li>Any point on the Y-axis has its x-coordinate as 0.</li><li>Example: (0,4), (0,-2).</li><li>It does not move left or right from the axis.</li></ul>
-          <p class="notes">🎙️ Similarly, if a point is on the Y-axis, it means it hasn't moved left or right from the origin along the X-axis. So, its x-coordinate is always zero, like (0,4).</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">No Horizontal Move</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span></div><div class="vcap">Four Regions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick Check 1: Which <span class="hl">Quadrant</span>?</h2>
-          <ul><li>In which quadrant does the point (-5, 2) lie?</li><li>Think about the signs of x and y.</li></ul>
-          <p class="notes">🎙️ Alright, let's test your understanding. Take a moment to think: if we have the point (-5, 2), which quadrant would you find it in? Remember the sign rules for each quadrant.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check 2: <span class="hl">Plotting</span> Practice</h2>
-          <ul><li>Describe the steps to plot the point (0, 4).</li><li>Where would this point be located?</li></ul>
-          <p class="notes">🎙️ Now, how would you plot the point (0, 4)? What's special about its x-coordinate? Where would this point end up on our Cartesian plane?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick Check 3: The <span class="hl">Special Point</span></h2>
-          <ul><li>What are the coordinates of the Origin?</li><li>This is our central reference point.</li></ul>
-          <p class="notes">🎙️ And a final quick check: What are the coordinates of that very important starting point, where both axes intersect? The one we always begin our plotting from?</p>
+          <span class="num">11 / 30</span>
+          <h2>Quick Check 1: Quadrant <span class="hl">Challenge</span></h2>
+          <ul><li>In which quadrant would a point with coordinates (+, -) lie?</li><li>What are the signs of both coordinates in Quadrant II?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of the quadrants. Remember the signs of X and Y values in each section to identify them correctly.</p>
         </div>
         
       </div>
@@ -335,24 +197,228 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Applications</span>: Where Else Do We Use It?</h2>
-          <ul><li>Computer Graphics and Animation.</li><li>Engineering and Architecture designs.</li><li>Navigation systems (GPS).</li></ul>
-          <p class="notes">🎙️ Coordinate Geometry isn't just for math class! It's fundamental in many fields. From creating stunning animations on screen to designing buildings and even guiding your phone's GPS, it's everywhere!</p>
+          <span class="num">12 / 30</span>
+          <h2><span class="hl">Coordinates</span> of a Point: (x, y)</h2>
+          <ul><li>Every point in the plane has a unique pair of numbers (x, y) as its address.</li><li>The 'x' is the x-coordinate (Abscissa), representing horizontal distance.</li><li>The 'y' is the y-coordinate (Ordinate), representing vertical distance.</li></ul>
+          <p class="notes">🎙️ This pair of numbers, always written as (x, y), acts like the unique address of a point, telling us exactly where it is located on the Cartesian plane.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💻</div><div class="vcap">Real-World Uses</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Number Pair</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Analogy: The '<span class="hl">Walk then Climb</span>' Rule</h2>
+          <ul><li>Think of the 'x' coordinate as walking horizontally (left/right) from the origin.</li><li>Think of the 'y' coordinate as climbing/descending vertically (up/down) from that horizontal position.</li><li>Always move along the X-axis first, then along the Y-axis.</li></ul>
+          <p class="notes">🎙️ This simple rule helps to correctly plot points. First, find your horizontal position according to the x-coordinate, and then your vertical position according to the y-coordinate.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Walk (X-axis)</span></div><div class="step"><span class="snum">2</span><span>2. Climb (Y-axis)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Worked Example: <span class="hl">Plotting (3, 2)</span> - Step 1</h2>
+          <ul><li>Start at the Origin (0,0).</li><li>The x-coordinate is 3, so move 3 units to the right along the X-axis (positive x direction).</li></ul>
+          <p class="notes">🎙️ Let's plot our first point. The x-coordinate is positive 3, so we start at the origin and move 3 units in the positive X direction, which is to the right.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Move Right 3</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Worked Example: <span class="hl">Plotting (3, 2)</span> - Step 2</h2>
+          <ul><li>From the position (3, 0), the y-coordinate is 2.</li><li>Move 2 units upwards, parallel to the Y-axis (positive y direction). This is the point (3, 2).</li></ul>
+          <p class="notes">🎙️ Now, from our current position at (3,0), the y-coordinate is positive 2, so we move 2 units straight up. That's where our point (3,2) lies!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Move Up 2</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Worked Example: <span class="hl">Plotting (-2, 4)</span> - Step 1</h2>
+          <ul><li>Start at the Origin (0,0).</li><li>The x-coordinate is -2, so move 2 units to the left along the X-axis (negative x direction).</li></ul>
+          <p class="notes">🎙️ Let's try a point with a negative x-coordinate. For (-2, 4), we first move 2 units to the left from the origin, along the X-axis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬅️</div><div class="vcap">Move Left 2</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Worked Example: <span class="hl">Plotting (-2, 4)</span> - Step 2</h2>
+          <ul><li>From the position (-2, 0), the y-coordinate is 4.</li><li>Move 4 units upwards, parallel to the Y-axis (positive y direction). This is the point (-2, 4).</li></ul>
+          <p class="notes">🎙️ And from that position, since the y-coordinate is positive 4, we move 4 units upwards. This point is located in the second quadrant.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Move Up 4</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Special Case: Points on the X-axis</h2>
+          <ul><li>Any point that lies on the X-axis has its y-coordinate as 0.</li><li>It will always be in the form (x, 0).</li><li>Example: (5, 0), (-3, 0).</li></ul>
+          <p class="notes">🎙️ If you're only walking left or right and not climbing up or down, your vertical position (y-coordinate) will always be zero. These points lie directly on the X-axis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Only Horizontal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Special Case: Points on the Y-axis</h2>
+          <ul><li>Any point that lies on the Y-axis has its x-coordinate as 0.</li><li>It will always be in the form (0, y).</li><li>Example: (0, 7), (0, -2).</li></ul>
+          <p class="notes">🎙️ Similarly, if you're only moving up or down and not walking left or right, your horizontal position (x-coordinate) will be zero. These points lie directly on the Y-axis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Only Vertical</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Recap: Our <span class="hl">Journey</span> Through Coordinate Geometry</h2>
-          <ul><li>Understood the Cartesian plane and axes.</li><li>Learned about the Origin and Quadrants.</li><li>Mastered plotting points using ordered pairs.</li></ul>
-          <p class="notes">🎙️ Today, we've laid the foundation for Coordinate Geometry. You now know how to locate any point on a plane using our special address system. Keep practicing, and you'll become a master of coordinates!</p>
+          <span class="num">20 / 30</span>
+          <h2>Quick Check 2: Plotting <span class="hl">Practice</span></h2>
+          <ul><li>Plot the points: A(4, 0), B(0, -3), C(-1, -2).</li><li>On which axis does point A lie?</li></ul>
+          <p class="notes">🎙️ Take a moment to plot these points on your mental grid or on paper. This helps solidify your understanding of how to use the coordinates to find a point.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Real-world Application: <span class="hl">Map Reading</span></h2>
+          <ul><li>Maps often use grids similar to coordinate planes to locate places.</li><li>Cities, landmarks, or even treasure can be located using coordinates.</li><li>Think of latitude and longitude on a global map!</li></ul>
+          <p class="notes">🎙️ Coordinate geometry isn't just for textbooks! GPS systems in our phones, city planning, and even video games rely heavily on this concept to precisely locate objects and navigate.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Positioning</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Concept Extension: <span class="hl">Reflection</span> (Mirror Image)</h2>
+          <ul><li>Just like a mirror, points can be 'reflected' across an axis.</li><li>If reflecting across the X-axis, the y-coordinate changes sign.</li><li>If reflecting across the Y-axis, the x-coordinate changes sign.</li></ul>
+          <p class="notes">🎙️ This is a fun extension! Imagine the X-axis as a mirror. A point above it will have its reflection below it, and vice-versa, maintaining the same horizontal distance from the axis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪞</div><div class="vcap">Mirror Image</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Worked Example: Reflection of (2, 3)</h2>
+          <ul><li>Reflect (2, 3) across the X-axis: The new point is (2, -3).</li><li>Reflect (2, 3) across the Y-axis: The new point is (-2, 3).</li></ul>
+          <p class="notes">🎙️ Notice how only one coordinate changes its sign depending on which axis you are reflecting across. The absolute distance from the axis remains the same.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(2,3)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(2,-3)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(-2,3)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Quick Check 3: Coordinate <span class="hl">Properties</span></h2>
+          <ul><li>What are the coordinates of the origin?</li><li>If a point has coordinates (a, b), what is its abscissa?</li><li>If a point lies on the Y-axis, what is its x-coordinate?</li></ul>
+          <p class="notes">🎙️ These are fundamental properties that you should know by heart. Make sure you can answer them quickly and confidently to show your understanding.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>The <span class="hl">Special Point</span>: (0,0)</h2>
+          <ul><li>The origin (0,0) is the only point that lies on BOTH the X-axis and the Y-axis.</li><li>Its abscissa (x-coordinate) and ordinate (y-coordinate) are both zero.</li></ul>
+          <p class="notes">🎙️ The origin is a unique and very important point in the coordinate system, acting as the central reference for all other points and measurements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭐</div><div class="vcap">Unique Origin</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span>: Watch Out!</h2>
+          <ul><li>Confusing (x, y) with (y, x) when plotting points.</li><li>Incorrectly assigning positive/negative signs in different quadrants.</li><li>Forgetting that points on axes have one coordinate as zero.</li></ul>
+          <p class="notes">🎙️ Many students make these small errors. Always remember the 'walk then climb' rule and double-check your signs for coordinates in different quadrants to avoid them!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Common Errors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: Scoring Big!</h2>
+          <ul><li>Practice plotting points accurately on graph paper for precision.</li><li>Understand the properties of points on axes and in all four quadrants.</li><li>Questions are often direct plotting or identifying coordinates/quadrants, which are easy to score.</li></ul>
+          <p class="notes">🎙️ Coordinate geometry questions are generally scoring if you have a clear understanding of the basics. Focus on precision in plotting and conceptual clarity for these questions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💯</div><div class="vcap">Score High</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Quick Check 4: <span class="hl">Mixed Bag</span></h2>
+          <ul><li>A point P has coordinates (-5, 2). In which quadrant does it lie?</li><li>What is the ordinate of the point (3, -7)?</li><li>If a point is reflected across the Y-axis, which coordinate changes its sign?</li></ul>
+          <p class="notes">🎙️ This final quick check combines various concepts we've learned throughout the lesson. See how well you can navigate through these questions and apply your knowledge.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Recap</span>: Our Coordinate Journey</h2>
+          <ul><li>We use the Cartesian plane (X &amp; Y axes) to precisely locate points.</li><li>Points are represented by unique (x, y) coordinates, with the origin at (0,0).</li><li>The plane is divided into four quadrants based on coordinate signs.</li></ul>
+          <p class="notes">🎙️ Today, we've explored how to give precise addresses to points in a plane, a fundamental concept that opens doors to many advanced topics in mathematics and real-world applications.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Keep <span class="hl">Exploring</span>! The Future of Math!</h2>
+          <ul><li>Think about how these coordinates can be used to draw complex shapes and graphs!</li><li>Coordinate geometry is the foundation for understanding functions and their visual representation.</li><li>Keep practicing and observing coordinates in the world around you!</li></ul>
+          <p class="notes">🎙️ The journey of mathematics is endless. Coordinate geometry is just the beginning of understanding how algebra and geometry are beautifully connected. Keep learning and exploring!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Future Math</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

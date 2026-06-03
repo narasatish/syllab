@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2><span class="hl">Mensuration</span>: Exploring Shapes and Spaces</h2>
-          <ul><li>Welcome to the world of measurements!</li><li>Discovering areas and volumes of 3D shapes.</li></ul>
-          <p class="notes">🎙️ Good morning, students! Today, we embark on an exciting journey into the world of Mensuration. We'll explore how to measure the space and surfaces of various shapes around us.</p>
+          <span class="num">1 / 30</span>
+          <h2><span class="hl">Mensuration</span>: Exploring Shapes and Sizes</h2>
+          <ul><li>Class 10 Mathematics</li><li>TS Board Syllabus</li></ul>
+          <p class="notes">🎙️ Namaste students! Welcome to an exciting chapter in Mathematics – Mensuration. Today, we'll dive deep into understanding the space and surfaces of various shapes around us.</p>
         </div>
         
       </div>
@@ -71,286 +77,346 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>What is <span class="hl">Mensuration</span>?</h2>
-          <ul><li>Branch of mathematics.</li><li>Deals with measurement of geometric figures.</li><li>Calculates length, area, and volume.</li></ul>
-          <p class="notes">🎙️ Mensuration is a branch of mathematics that deals with the measurement of geometric figures. It helps us calculate length, area, and volume of different shapes in our environment.</p>
+          <span class="num">2 / 30</span>
+          <h2>The World Around Us: <span class="hl">How Much</span> Do We Need?</h2>
+          <ul><li>Painting a room: How much paint?</li><li>Filling a water tank: How much water?</li><li>Wrapping a gift: How much paper?</li></ul>
+          <p class="notes">🎙️ Look around you. From the paint on your walls to the water in your tank, everything involves measuring space. Mensuration helps us answer these practical questions in our daily lives.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measurement</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span><span>🏠</span><span>🏠</span></div><div class="vcap">Paint, Water, Wrap!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Recap: <span class="hl">2D Shapes</span> - Area &amp; Perimeter</h2>
-          <ul><li>Perimeter: Distance around a shape.</li><li>Area: Space covered by a flat shape.</li><li>Examples: squares, rectangles, circles.</li></ul>
-          <p class="notes">🎙️ Before diving into 3D, let's quickly recall 2D shapes. Remember, perimeter is the distance around a shape, while area is the space it covers on a flat surface.</p>
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Explore</span> Today</h2>
+          <ul><li>Calculate Surface Areas &amp; Volumes of Combined Solids</li><li>Understand Conversion of Solids</li><li>Learn about the Frustum of a Cone</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to calculate surface areas and volumes of complex shapes, understand how solids change forms, and work with a special shape called a frustum.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">2D Geometry</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Learning Goals</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Introduction to <span class="hl">3D Shapes</span></h2>
-          <ul><li>Have length, breadth, and height.</li><li>Occupy space in three dimensions.</li><li>Have volume and surface area.</li></ul>
-          <p class="notes">🎙️ Unlike 2D shapes, 3D shapes have depth, making them solid objects. They occupy space and have a volume, which is how much space they contain.</p>
+          <span class="num">4 / 30</span>
+          <h2>Revisiting <span class="hl">2D vs. 3D</span> Shapes</h2>
+          <ul><li>2D: Flat shapes, have area (e.g., square, circle)</li><li>3D: Solid objects, have surface area and volume (e.g., cube, sphere)</li></ul>
+          <p class="notes">🎙️ Before we tackle complex shapes, let's quickly recall the difference between 2D and 3D figures. 2D shapes are flat, while 3D shapes have depth and occupy space.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Solid Object</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Square (2D)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cube (3D)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2><span class="hl">Cuboid</span>: Definition &amp; Properties</h2>
-          <ul><li>Six rectangular faces.</li><li>12 edges, 8 vertices.</li><li>Length (l), Breadth (b), Height (h).</li></ul>
-          <p class="notes">🎙️ A cuboid is a 3D shape with six rectangular faces. Think of a brick or a shoebox. It has distinct length, breadth, and height.</p>
+          <span class="num">5 / 30</span>
+          <h2>Common <span class="hl">3D Shapes</span> We Know</h2>
+          <ul><li>Cuboid, Cube, Cylinder</li><li>Cone, Sphere, Hemisphere</li></ul>
+          <p class="notes">🎙️ We've already studied individual 3D shapes like cuboids, cylinders, and spheres. Remember their basic surface area and volume formulas? They will be crucial today.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Brick Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">Familiar Forms</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Cuboid: <span class="hl">Surface Area</span> (TSA &amp; LSA)</h2>
-          <ul><li>TSA = 2(lb + bh + hl) square units.</li><li>LSA = 2h(l + b) square units.</li><li>TSA: Total surface, LSA: Side surfaces.</li></ul>
-          <p class="notes">🎙️ The Total Surface Area (TSA) is the sum of the areas of all six faces. The Lateral Surface Area (LSA) is the sum of the areas of the four side faces, excluding top and bottom.</p>
+          <span class="num">6 / 30</span>
+          <h2>Understanding Surface Area: The <span class="hl">Gift Wrap</span> Analogy</h2>
+          <ul><li>It's the total area of all the surfaces of a 3D object.</li><li>Imagine wrapping a gift box – the amount of wrapping paper needed is its surface area.</li></ul>
+          <p class="notes">🎙️ Think of surface area as the 'skin' of an object. If you want to paint a toy or wrap a gift, you're dealing with its surface area. It's measured in square units.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Area to cover</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎁</div><div class="vcap">Wrapping a Present</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Cuboid: <span class="hl">Volume</span></h2>
-          <ul><li>Space occupied by the cuboid.</li><li>Volume = l × b × h cubic units.</li><li>Represents capacity.</li></ul>
-          <p class="notes">🎙️ Volume tells us how much space a cuboid occupies or how much it can hold. It's calculated by multiplying its length, breadth, and height.</p>
+          <span class="num">7 / 30</span>
+          <h2>Understanding Volume: The <span class="hl">Water Bottle</span> Analogy</h2>
+          <ul><li>It's the amount of space occupied by a 3D object.</li><li>Imagine filling a water bottle – the amount of water it holds is its volume.</li></ul>
+          <p class="notes">🎙️ Volume, on the other hand, is about the 'capacity' of an object. How much sand can a bucket hold? How much air is inside a balloon? That's volume, measured in cubic units.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Capacity</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Filling a Container</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Real-life Example: The <span class="hl">Classroom</span></h2>
-          <ul><li>Our classroom is a cuboid.</li><li>Calculating paint for walls (LSA).</li><li>Calculating air capacity (Volume).</li></ul>
-          <p class="notes">🎙️ Imagine our classroom as a cuboid. We can calculate the paint needed for the walls (LSA) or how much air it holds (Volume) using these formulas.</p>
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Combining</span> Solids: Building New Shapes</h2>
+          <ul><li>Many objects around us are combinations of basic 3D shapes.</li><li>Think of a rocket, a tent, or even a 'gulab jamun' – they are formed by joining simple solids.</li></ul>
+          <p class="notes">🎙️ In real life, objects aren't always simple cubes or spheres. Often, they are made by joining two or more basic solids. We will learn how to find their surface areas and volumes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Books in a box</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cylinder</span></div><div class="step"><span class="snum">2</span><span>+ Cone</span></div><div class="step"><span class="snum">3</span><span>= Rocket</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Cuboid</h2>
-          <ul><li>Find TSA and Volume.</li><li>l = 5 cm, b = 3 cm, h = 2 cm.</li></ul>
-          <p class="notes">🎙️ Let's work through an example. If a cuboid has length 5cm, breadth 3cm, and height 2cm, we can find its volume and surface area step-by-step.</p>
+          <span class="num">9 / 30</span>
+          <h2>Surface Area of Combined Solids: <span class="hl">Exposed Surfaces</span></h2>
+          <ul><li>When solids are combined, some surfaces disappear (are hidden).</li><li>We calculate the surface area of only the *exposed* parts of each solid.</li></ul>
+          <p class="notes">🎙️ This is crucial! Don't just add the individual surface areas. Identify which surfaces are touching and therefore hidden. Only the parts visible from the outside contribute to the total surface area.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify l, b, h</span></div><div class="step"><span class="snum">2</span><span>Apply Formula</span></div><div class="step"><span class="snum">3</span><span>Calculate</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Measuring Exposed Parts</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Cube</span>: Definition &amp; Formulas</h2>
-          <ul><li>Special cuboid, all faces are squares.</li><li>All sides (edges) are equal, let side = 'a'.</li><li>TSA = 6a²; LSA = 4a²; Volume = a³.</li></ul>
-          <p class="notes">🎙️ A cube is a special type of cuboid where all its faces are squares, meaning all its sides (edges) are equal. Its formulas are simpler due to this equality.</p>
+          <span class="num">10 / 30</span>
+          <h2>Example: Surface Area of a <span class="hl">Toy</span></h2>
+          <ul><li>A toy is in the form of a cone mounted on a hemisphere.</li><li>We need to find the total surface area of this toy.</li></ul>
+          <p class="notes">🎙️ Imagine a child's toy, shaped like an ice cream cone. It's a combination of a cone and a hemisphere. Let's see how to calculate its total surface area.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">Ice Cube</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍦</span></div><div class="vcap">Ice Cream Cone Toy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2><span class="hl">Cylinder</span>: Definition &amp; Properties</h2>
-          <ul><li>Two circular bases.</li><li>One curved surface.</li><li>Radius (r) and Height (h).</li></ul>
-          <p class="notes">🎙️ A cylinder is a 3D shape with two circular bases and a curved surface. Think of a soft drink can or a pipe. It has a radius and a height.</p>
+          <span class="num">11 / 30</span>
+          <h2>Calculating Toy's Surface Area - <span class="hl">Step-by-Step</span></h2>
+          <ul><li>Identify components: Cone and Hemisphere.</li><li>Lateral Surface Area of Cone (CSA): πrl</li><li>Curved Surface Area of Hemisphere (CSA): 2πr²</li><li>Total SA = CSA of Cone + CSA of Hemisphere</li></ul>
+          <p class="notes">🎙️ First, find the curved surface area of the cone. Then, find the curved surface area of the hemisphere. Notice we don't include the base of the cone or the flat top of the hemisphere, as they are joined!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛢️</div><div class="vcap">Cylindrical Drum</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>CSA of Cone</span></div><div class="step"><span class="snum">2</span><span>+ CSA of Hemisphere</span></div><div class="step"><span class="snum">3</span><span>= Total SA</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Cylinder: <span class="hl">Surface Area</span> (TSA &amp; CSA)</h2>
-          <ul><li>CSA = 2πrh square units.</li><li>TSA = 2πr(r + h) square units.</li><li>CSA: Curved surface, TSA: Total surface.</li></ul>
-          <p class="notes">🎙️ The Curved Surface Area (CSA) is the area of the curved part. The Total Surface Area (TSA) includes the CSA plus the areas of the two circular bases.</p>
+          <span class="num">12 / 30</span>
+          <h2>Quick Check: <span class="hl">Pencil's</span> Surface Area</h2>
+          <ul><li>A sharpened pencil is a combination of which two solids?</li><li>What surfaces would you consider for its total surface area?</li></ul>
+          <p class="notes">🎙️ Think about a freshly sharpened pencil. It has a cylindrical body and a conical tip. How would you approach finding its total surface area?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Curved Surface</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✏️</div><div class="vcap">Think about a Pencil</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Cylinder: <span class="hl">Volume</span></h2>
-          <ul><li>Volume = Area of base × height.</li><li>Volume = πr²h cubic units.</li><li>Capacity of the cylinder.</li></ul>
-          <p class="notes">🎙️ The volume of a cylinder represents how much liquid it can hold or the space it occupies. It's calculated by multiplying the area of its base by its height.</p>
+          <span class="num">13 / 30</span>
+          <h2>Volume of Combined Solids: <span class="hl">Simply Add</span> Them Up!</h2>
+          <ul><li>Unlike surface area, when calculating volume, the space occupied by each solid is independent.</li><li>Total Volume = Volume of Solid 1 + Volume of Solid 2 + ...</li></ul>
+          <p class="notes">🎙️ Calculating volume for combined solids is generally simpler. Since volume is the space occupied, we simply add the volumes of the individual components, as no space is 'hidden' or 'disappears'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥤</div><div class="vcap">Drinking Glass</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding Volumes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Real-life Example: <span class="hl">Water Tank</span></h2>
-          <ul><li>Cylindrical water tanks.</li><li>Calculating water storage (Volume).</li><li>Calculating paint for surface (TSA).</li></ul>
-          <p class="notes">🎙️ Consider a cylindrical water tank. We can calculate how much water it can store (volume) or the amount of paint needed to cover its outer surface (TSA).</p>
+          <span class="num">14 / 30</span>
+          <h2>Example: Volume of a <span class="hl">Gulab Jamun</span></h2>
+          <ul><li>A gulab jamun is shaped like a cylinder with two hemispherical ends.</li><li>We need to find the total volume of this sweet treat.</li></ul>
+          <p class="notes">🎙️ Our favourite Indian sweet, the gulab jamun, is a perfect example. It's essentially a cylinder with a hemisphere on each end. Let's calculate how much syrup it can hold, which relates to its volume.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water drops</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍩</span><span>🍩</span><span>🍩</span></div><div class="vcap">Sweet Spheres</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Cylinder</h2>
-          <ul><li>Find CSA and Volume.</li><li>r = 7 cm, h = 10 cm.</li></ul>
-          <p class="notes">🎙️ Let's solve a problem. If a cylinder has a radius of 7cm and a height of 10cm, we can find its CSA and volume using the respective formulas.</p>
+          <span class="num">15 / 30</span>
+          <h2>Calculating Gulab Jamun's Volume - <span class="hl">Step-by-Step</span></h2>
+          <ul><li>Identify components: Cylinder and two Hemispheres.</li><li>Volume of Cylinder: πr²h</li><li>Volume of Hemisphere: (2/3)πr³</li><li>Total Volume = Volume of Cylinder + 2 × Volume of Hemisphere</li></ul>
+          <p class="notes">🎙️ Here, we calculate the volume of the cylindrical part and then add the volumes of the two hemispherical ends. Remember to use the correct formulas for each component.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify r, h</span></div><div class="step"><span class="snum">2</span><span>Apply Formula</span></div><div class="step"><span class="snum">3</span><span>Calculate</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Volume of Cylinder</span></div><div class="step"><span class="snum">2</span><span>+ 2 × Volume of Hemisphere</span></div><div class="step"><span class="snum">3</span><span>= Total Volume</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Cone</span>: Definition &amp; Properties</h2>
-          <ul><li>Circular base, single vertex.</li><li>Radius (r), Height (h), Slant Height (l).</li><li>l² = r² + h².</li></ul>
-          <p class="notes">🎙️ A cone is a 3D shape with a circular base and a single vertex at the top. Think of an ice cream cone or a party hat. It has radius, height, and slant height.</p>
+          <span class="num">16 / 30</span>
+          <h2>Quick Check: <span class="hl">Water Tank</span> Volume</h2>
+          <ul><li>A water tank is cylindrical with a hemispherical top.</li><li>How would you calculate the total volume of water it can hold?</li></ul>
+          <p class="notes">🎙️ Imagine a large water storage tank. It's a cylinder with a dome-shaped top. How would you combine the volumes of these two shapes to find the tank's total capacity?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍦</div><div class="vcap">Ice Cream Cone</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛢️</div><div class="vcap">Storage Tank</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Cone: <span class="hl">Surface Area</span> (TSA &amp; CSA)</h2>
-          <ul><li>CSA = πrl square units.</li><li>TSA = πr(l + r) square units.</li><li>CSA: Curved surface, TSA: Total surface.</li></ul>
-          <p class="notes">🎙️ The Curved Surface Area (CSA) of a cone involves its slant height. The Total Surface Area (TSA) also includes the area of its circular base.</p>
+          <span class="num">17 / 30</span>
+          <h2>Conversion of Solids: <span class="hl">Reshaping</span> Materials</h2>
+          <ul><li>What happens if we melt a solid and recast it into another shape?</li><li>Think of a blacksmith reshaping iron or a potter molding clay.</li></ul>
+          <p class="notes">🎙️ Sometimes, we encounter situations where a solid is melted, molded, or reshaped into a different form. This process is called conversion of solids.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Triangular Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Changing Forms</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Cone: <span class="hl">Volume</span></h2>
-          <ul><li>Volume = (1/3) × Area of base × height.</li><li>Volume = (1/3)πr²h cubic units.</li><li>One-third of a cylinder's volume.</li></ul>
-          <p class="notes">🎙️ The volume of a cone is related to the volume of a cylinder with the same base and height. It's exactly one-third of the cylinder's volume.</p>
+          <span class="num">18 / 30</span>
+          <h2>The Golden Rule: <span class="hl">Volume Stays</span> the Same!</h2>
+          <ul><li>When a solid is converted from one shape to another, its mass and volume remain constant.</li><li>The amount of material doesn't change, only its form does.</li></ul>
+          <p class="notes">🎙️ This is a fundamental principle: the total amount of material does not change during conversion. Therefore, the volume of the original solid will always be equal to the total volume of the new solid(s) formed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Mountain Peak</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Same Water, Different Shapes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2><span class="hl">Sphere</span>: Definition &amp; Formulas</h2>
-          <ul><li>Perfectly round 3D object.</li><li>Every point equidistant from center.</li><li>Surface Area = 4πr²; Volume = (4/3)πr³.</li></ul>
-          <p class="notes">🎙️ A sphere is a perfectly round 3D object, where every point on its surface is equidistant from its center. Think of a ball. It only has a radius.</p>
+          <span class="num">19 / 30</span>
+          <h2>Example: <span class="hl">Sphere</span> to Smaller Cylinders</h2>
+          <ul><li>A metallic sphere is melted and recast into several smaller cylindrical coins.</li><li>How many such coins can be formed?</li></ul>
+          <p class="notes">🎙️ Imagine melting a large metal ball and then making many smaller cylindrical coins from that metal. The total volume of all the coins must be equal to the volume of the original sphere.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Globe</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sphere</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Cylinders</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Hemisphere</span>: Definition &amp; Formulas</h2>
-          <ul><li>Exactly half of a sphere.</li><li>Curved surface + flat circular base.</li><li>CSA = 2πr²; TSA = 3πr²; Volume = (2/3)πr³.</li></ul>
-          <p class="notes">🎙️ A hemisphere is exactly half of a sphere. It has a flat circular base and a curved surface. Its formulas are derived from those of a sphere.</p>
+          <span class="num">20 / 30</span>
+          <h2>Calculating Number of Cylinders - <span class="hl">Step-by-Step</span></h2>
+          <ul><li>Volume of Sphere = (4/3)πR³</li><li>Volume of one Cylinder = πr²h</li><li>Number of Cylinders = (Volume of Sphere) / (Volume of one Cylinder)</li></ul>
+          <p class="notes">🎙️ First, calculate the volume of the original sphere. Then, calculate the volume of a single cylindrical coin. Finally, divide the total volume by the volume of one coin to find out how many can be made.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥣</div><div class="vcap">Bowl Shape</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Calculate V_sphere</span></div><div class="step"><span class="snum">2</span><span>Calculate V_cylinder</span></div><div class="step"><span class="snum">3</span><span>Divide V_sphere by V_cylinder</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Quick Check: <span class="hl">Clay Cuboid</span> to Cylinder</h2>
+          <ul><li>A cuboid of clay is reshaped into a cylinder.</li><li>Which quantity remains unchanged during this process: Surface Area or Volume?</li></ul>
+          <p class="notes">🎙️ If you take a block of clay and mold it into a different shape, like a cylinder, what property of the clay remains exactly the same? Is it the amount of surface you can touch, or the amount of clay itself?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Clay Transformation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Introducing the <span class="hl">Frustum</span> of a Cone</h2>
+          <ul><li>It's a part of a cone when its top is cut off by a plane parallel to its base.</li><li>Think of a bucket, a glass, or a lampshade – these are frustums!</li></ul>
+          <p class="notes">🎙️ The frustum is a very common shape in daily life. Imagine a full cone, and then slice off its top part parallel to the base. The remaining lower portion is called a frustum.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗑️</div><div class="vcap">A Bucket Shape</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Frustum of a Cone: Key <span class="hl">Formulae</span></h2>
+          <ul><li>Volume = (1/3)πh (R² + r² + Rr)</li><li>Curved Surface Area (CSA) = πl (R + r)</li><li>Total Surface Area (TSA) = CSA + Area of top base + Area of bottom base</li></ul>
+          <p class="notes">🎙️ The frustum has two circular bases of different radii (R and r) and a height (h). 'l' is the slant height. These formulas are derived from the cone formulas, so they might look familiar.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Full Cone</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Frustum</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Example: Volume and SA of a <span class="hl">Bucket</span></h2>
+          <ul><li>A bucket is in the shape of a frustum of a cone.</li><li>We need to calculate its capacity (volume) and the metal sheet required (surface area).</li></ul>
+          <p class="notes">🎙️ A common bucket is a perfect example of a frustum. We can use the frustum formulas to find out how much water it can hold and how much material was used to make it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧺</span></div><div class="vcap">A Daily Use Frustum</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Calculating Bucket's Volume &amp; SA - <span class="hl">Step-by-Step</span></h2>
+          <ul><li>Identify radii (R, r), height (h), and slant height (l).</li><li>Apply Volume formula: (1/3)πh (R² + r² + Rr)</li><li>Apply CSA formula: πl (R + r)</li><li>Total SA (if applicable) = CSA + Area of base(s)</li></ul>
+          <p class="notes">🎙️ Carefully identify the large radius (R), small radius (r), and the height (h). Don't forget to calculate the slant height 'l' if it's not given, using Pythagoras theorem. Then apply the formulas.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify R, r, h, l</span></div><div class="step"><span class="snum">2</span><span>Calculate Volume</span></div><div class="step"><span class="snum">3</span><span>Calculate CSA</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Quick Check: <span class="hl">Cone Slice</span></h2>
+          <ul><li>If a cone is cut by a plane parallel to its base, what is the lower part of the cone called?</li><li>Can you name an object in your home that is a frustum?</li></ul>
+          <p class="notes">🎙️ Imagine slicing off the top of an ice cream cone with a knife, parallel to its base. What shape does the remaining bottom part form? Think of everyday items for examples.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔪</div><div class="vcap">Cutting a Cone</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Avoid These Common <span class="hl">Mistakes</span>!</h2>
+          <ul><li>Forgetting to exclude hidden surfaces for SA of combined solids.</li><li>Mixing up Surface Area and Volume formulas.</li><li>Errors in unit conversion (e.g., cm to m).</li><li>Incorrectly calculating slant height for cones/frustums.</li></ul>
+          <p class="notes">🎙️ Many students make these errors, so be extra careful! Always visualize the shape, double-check your formulas, and pay attention to units in your calculations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Watch Out!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Ace</span> Your Mensuration Exams!</h2>
+          <ul><li>Read questions carefully: SA or Volume? Combined, conversion, or frustum?</li><li>Draw diagrams: Visualise the problem.</li><li>Write down formulas first: Helps avoid errors.</li><li>Show step-by-step calculations with units.</li></ul>
+          <p class="notes">🎙️ Mensuration problems often involve multiple steps. A clear, systematic approach will help you score well. Practice drawing diagrams and writing out all your steps.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Exam Strategy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Mensuration: What We've <span class="hl">Learned</span></h2>
+          <ul><li>Surface Area of Combined Solids: Sum of exposed areas.</li><li>Volume of Combined Solids: Sum of individual volumes.</li><li>Conversion of Solids: Volume remains constant.</li><li>Frustum of a Cone: A cut cone with specific formulas.</li></ul>
+          <p class="notes">🎙️ Today, we've covered how to deal with complex shapes by breaking them down into simpler ones. Remember the key difference between SA and Volume for combined solids, and the special case of the frustum.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Key Takeaways</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2><span class="hl">Quick Check</span> 1: Cuboid &amp; Cube</h2>
-          <ul><li>What is the volume of a cube with a side of 4 cm?</li><li>How many faces does a cuboid have?</li></ul>
-          <p class="notes">🎙️ Let's test our understanding of cuboids and cubes. What is the volume of a cube with a side of 4 cm? Think about the formula we just learned.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Quick Check</span> 2: Cylinder &amp; Cone</h2>
-          <ul><li>If a cylinder and a cone have same r and h, how are their volumes related?</li><li>What is the formula for the Curved Surface Area of a cylinder?</li></ul>
-          <p class="notes">🎙️ Time for another quick question. If a cylinder and a cone have the same radius and height, how are their volumes related? Recall the cone's volume formula.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2><span class="hl">Quick Check</span> 3: Sphere &amp; Hemisphere</h2>
-          <ul><li>What is the surface area of a sphere with radius 'r'?</li><li>How many curved surfaces does a hemisphere have?</li></ul>
-          <p class="notes">🎙️ Last quick check! What is the surface area of a sphere with radius 'r'? And how does the surface area of a hemisphere compare to it? Remember the curved and flat parts.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Combinations</span> of Solids: A Glimpse</h2>
-          <ul><li>Real-life objects are often combined shapes.</li><li>Calculate surface area/volume by breaking them down.</li><li>E.g., a toy (cone on a cylinder).</li></ul>
-          <p class="notes">🎙️ In real life, objects are often combinations of these basic shapes, like a toy made of a cone on a cylinder. We learn to find their surface areas and volumes by breaking them down.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building Structures</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Our Mensuration Journey</h2>
-          <ul><li>Explored 3D shapes: Cuboid, Cube, Cylinder, Cone, Sphere, Hemisphere.</li><li>Learned about Surface Area (TSA, LSA/CSA) and Volume.</li><li>Formulas are key to real-world problems.</li></ul>
-          <p class="notes">🎙️ Today, we explored surface areas and volumes of cuboids, cubes, cylinders, cones, spheres, and hemispheres. Mastering these formulas is key to solving real-world measurement problems. Keep practicing!</p>
+          <span class="num">30 / 30</span>
+          <h2>Keep <span class="hl">Practicing</span> and Exploring!</h2>
+          <ul><li>Practice problems from your textbook.</li><li>Look for 3D shapes around you and try to identify their components.</li><li>Mensuration is all about application!</li></ul>
+          <p class="notes">🎙️ Mensuration is a highly practical chapter. The more you practice, the better you'll become at visualizing and solving these problems. Keep exploring the shapes around you!</p>
         </div>
         
       </div>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

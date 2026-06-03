@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>The Value of Work — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>The Value of <span class="hl">Work</span>: Building a Better World Together</h2>
+          <ul><li>Class 6 Social Science</li><li>Chapter: The Value of Work</li><li>CBSE Board</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're going to explore a very important topic: the value of work. We'll understand why every job, big or small, contributes to our society.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Imagine a Day in Our <span class="hl">Village</span>...</h2>
+          <ul><li>The farmer grows our food.</li><li>The tailor stitches our clothes.</li><li>The teacher helps us learn.</li><li>What if no one did their job?</li></ul>
+          <p class="notes">🎙️ Think about your own village or town. Who makes sure you have food? Who builds your house? Every person plays a crucial role. What would happen if suddenly, no one wanted to do their work?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🌾🧑‍🔧🧑‍🏫</span><span>🧑‍🌾🧑‍🔧🧑‍🏫</span><span>🧑‍🌾🧑‍🔧🧑‍🏫</span></div><div class="vcap">Our community at work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today</h2>
+          <ul><li>Define 'work' and its different types.</li><li>Understand the 'dignity of labour'.</li><li>Recognize the importance of work for individuals and society.</li><li>Appreciate the contribution of all community helpers.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll have a clear understanding of what work is, why it's so important, and why we must respect every type of work and every worker. Let's begin our journey of discovery!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>What Exactly is '<span class="hl">Work</span>'?</h2>
+          <ul><li>Any activity performed to achieve a goal.</li><li>Often involves effort, skill, or time.</li><li>Can be paid or unpaid.</li><li>Essential for daily life and societal progress.</li></ul>
+          <p class="notes">🎙️ In simple terms, work is anything we do to get something done. Whether you're studying for an exam or helping your parents with chores, you are doing work. It's about putting in effort to achieve a result.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">The mechanism of work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Analogy: Our Body as a <span class="hl">Team</span></h2>
+          <ul><li>Our body has many parts: heart, brain, hands, legs.</li><li>Each part does a different, vital job.</li><li>They all work together for the body to function.</li><li>Society is like a body; every worker is a vital part.</li></ul>
+          <p class="notes">🎙️ Just like your heart pumps blood and your brain thinks, different people in society do different jobs. If one part stops working, the whole system suffers. This shows how interdependent we all are.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🤝‍🧑</div><div class="vcap">Working together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2><span class="hl">Types</span> of Work: Manual vs. Intellectual</h2>
+          <ul><li>Manual Work: Involves physical strength and effort.</li><li>Intellectual Work: Involves mental effort, knowledge, and problem-solving.</li><li>Both are equally important for society's functioning.</li></ul>
+          <p class="notes">🎙️ Some jobs require a lot of physical strength, like lifting heavy objects. Others require a lot of thinking and planning. Both types of work are crucial and contribute to our daily lives.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Manual Effort</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Intellectual Effort</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Indian <span class="hl">Example</span>: Farmer vs. Software Engineer</h2>
+          <ul><li>Farmer: Manual work, tilling fields, harvesting crops.</li><li>Software Engineer: Intellectual work, coding, designing apps.</li><li>Both are essential for India's progress and economy.</li></ul>
+          <p class="notes">🎙️ A farmer in Punjab provides food for millions, a vital manual task. A software engineer in Bengaluru creates applications that connect the world, an intellectual task. Both contribute immensely to India's economy and well-being.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Farmer's Contribution</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Engineer's Contribution</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Quick <span class="hl">Check</span> 1: Identify the Type of Work</h2>
+          <ul><li>Is a construction worker's job manual or intellectual?</li><li>What about a scientist researching a cure for disease?</li><li>Is a chef's job more manual or intellectual?</li></ul>
+          <p class="notes">🎙️ Think carefully about the primary effort involved in each profession. A construction worker uses physical strength, while a scientist uses their mind. A chef uses both, but preparing food often involves significant manual dexterity and effort.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Types</span> of Work: Skilled vs. Unskilled</h2>
+          <ul><li>Skilled Work: Requires specific training, education, or talent.</li><li>Unskilled Work: Does not require specialized training.</li><li>All work requires some level of effort and dedication.</li></ul>
+          <p class="notes">🎙️ Skilled jobs often take years of learning, like becoming a doctor or an electrician. Unskilled jobs, while not requiring formal training, are still essential and contribute valuable services to our communities.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Skilled Work</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Unskilled Work</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Indian <span class="hl">Example</span>: Doctor vs. Labourer</h2>
+          <ul><li>Doctor: Skilled work, requires years of medical education and practice.</li><li>Daily Wage Labourer: Often unskilled, performs physical tasks like digging.</li><li>Both are important for health and infrastructure development.</li></ul>
+          <p class="notes">🎙️ A doctor saves lives through specialized knowledge, while a labourer helps build our roads and buildings with their physical effort. Imagine a city without either of them – it simply wouldn't function.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Doctor</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Labourer</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Dignity</span> of Labour: Respecting Every Job</h2>
+          <ul><li>The belief that all types of work are equally respectable.</li><li>No job is superior or inferior.</li><li>Every profession contributes to society's well-being.</li><li>Treat all workers with respect and gratitude.</li></ul>
+          <p class="notes">🎙️ Dignity of labour means that whether someone is cleaning our streets or leading a country, their work deserves respect. It's about valuing the effort and contribution, not judging the type of work.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Respect for all</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Historical Context: Mahatma <span class="hl">Gandhi's View</span></h2>
+          <ul><li>Mahatma Gandhi strongly advocated for the dignity of labour.</li><li>He believed in 'bread labour' – everyone should do some physical work.</li><li>He often cleaned toilets himself to show that no work is demeaning.</li><li>His philosophy promoted equality and respect for all workers.</li></ul>
+          <p class="notes">🎙️ Mahatma Gandhi set a powerful example for us. He lived by the principle that all work, especially manual labour, is noble. His actions taught us to break down social barriers and treat everyone with equal reverence.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Gandhi's teachings</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Why is Work Important? (For <span class="hl">Individuals</span>)</h2>
+          <ul><li>Self-reliance: Ability to provide for oneself.</li><li>Income: Earning money to meet needs and wants.</li><li>Purpose: Gives a sense of achievement and meaning.</li><li>Skill Development: Helps in learning new abilities.</li></ul>
+          <p class="notes">🎙️ Work gives us independence. When we work, we earn money to buy food, clothes, and shelter. It also gives us a sense of purpose and helps us grow by developing new skills.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Empowerment through work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Why is Work Important? (For <span class="hl">Society</span>)</h2>
+          <ul><li>Progress: Drives innovation and development.</li><li>Services: Provides essential facilities (healthcare, transport).</li><li>Economy: Creates goods and services, generates wealth.</li><li>Community Building: Connects people and fosters cooperation.</li></ul>
+          <p class="notes">🎙️ On a larger scale, work is the engine of society. It builds our cities, educates our children, heals the sick, and keeps our economy running. Without collective work, society cannot progress or thrive.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏘️</div><div class="vcap">Society's foundation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Our Community Helpers: The Unsung <span class="hl">Heroes</span></h2>
+          <ul><li>People who provide essential services to make our lives easier.</li><li>They work tirelessly for the benefit of the community.</li><li>Examples: Doctors, police, teachers, sanitation workers, bus drivers.</li><li>Every helper is crucial for a smooth-functioning society.</li></ul>
+          <p class="notes">🎙️ Think about all the people who help you every day. The person who delivers your milk, the one who keeps your school clean, or the police officer who keeps you safe. These are our community helpers, and their work is invaluable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👮‍♀️👩‍⚕️🧑‍🚒</span><span>👮‍♀️👩‍⚕️🧑‍🚒</span><span>👮‍♀️👩‍⚕️🧑‍🚒</span></div><div class="vcap">Diverse community roles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Example: The <span class="hl">Postman's Role</span></h2>
+          <ul><li>Delivers letters, parcels, and important documents.</li><li>Connects people across distances, both personal and official.</li><li>Ensures communication flow in villages and cities.</li><li>A vital link in our communication system.</li></ul>
+          <p class="notes">🎙️ Even in the age of digital communication, the postman remains an important community helper, especially in rural areas. They brave all weather conditions to ensure messages and goods reach their destinations, connecting families and businesses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✉️</div><div class="vcap">Connecting lives</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Example: The <span class="hl">Sanitation Worker</span>'s Role</h2>
+          <ul><li>Keeps our streets, homes, and public places clean.</li><li>Prevents the spread of diseases and maintains hygiene.</li><li>Their work is crucial for public health and well-being.</li><li>Often overlooked, but their contribution is immense.</li></ul>
+          <p class="notes">🎙️ Imagine a city where no one cleans the garbage. It would quickly become unhealthy and unliveable. Sanitation workers perform a difficult but absolutely essential job that directly impacts our health and quality of life. We must always appreciate them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧹</div><div class="vcap">Keeping our environment clean</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Quick Check 2: Name 3 Community <span class="hl">Helpers</span></h2>
+          <ul><li>Think of people who help you or your family daily.</li><li>What specific service do they provide?</li><li>How would your life be different without them?</li></ul>
+          <p class="notes">🎙️ Take a moment to identify three community helpers. It could be your school bus driver, the security guard at your building, or the person who runs the local grocery store. Reflect on their contribution.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Impact of Not Working: <span class="hl">Unemployment</span></h2>
+          <ul><li>When people are willing and able to work but cannot find jobs.</li><li>Leads to financial hardship for individuals and families.</li><li>Slows down economic growth and societal progress.</li><li>A major challenge for many countries, including India.</li></ul>
+          <p class="notes">🎙️ If many people are unable to find work, it creates serious problems. Families struggle to meet their basic needs, and the country's economy suffers because fewer goods and services are being produced.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Economic downturn</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>A Serious Issue: <span class="hl">Child Labour</span></h2>
+          <ul><li>Children forced to work instead of going to school.</li><li>Deprives them of education, health, and a normal childhood.</li><li>Illegal and harmful for a child's development.</li><li>India has laws against child labour (e.g., Child Labour Act, 1986).</li></ul>
+          <p class="notes">🎙️ Child labour is a grave injustice. Every child deserves to learn, play, and grow up in a safe environment, not be forced into work. It's important to understand that this practice is against the law and harms the future of our children.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Child rights</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Government <span class="hl">Initiatives</span> Against Child Labour</h2>
+          <ul><li>Laws like the Child Labour (Prohibition and Regulation) Act, 1986.</li><li>Schemes like 'Sarva Shiksha Abhiyan' to promote education.</li><li>Awareness campaigns to educate parents and communities.</li><li>'Beti Bachao, Beti Padhao' also aims to keep girls in school.</li></ul>
+          <p class="notes">🎙️ The Indian government has taken many steps to combat child labour. By making education accessible and creating awareness, they aim to ensure that children are in schools, not factories or fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Government action</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2><span class="hl">Respect</span> for All Professions: A Core Value</h2>
+          <ul><li>Every person's work, big or small, contributes to society.</li><li>Judging people based on their profession is unfair and wrong.</li><li>A society that respects all work is a harmonious society.</li><li>Treat everyone with courtesy and appreciation.</li></ul>
+          <p class="notes">🎙️ This is perhaps the most important lesson: true progress comes from respecting everyone's contribution. When we value all professions equally, we build a society where everyone feels valued and motivated to contribute their best.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🙏</div><div class="vcap">Universal respect</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Steps to Show <span class="hl">Respect</span> for Workers</h2>
+          <ul><li>Be polite and courteous to everyone.</li><li>Acknowledge their effort and thank them.</li><li>Do not create extra work for them (e.g., littering).</li><li>Understand their challenges and be empathetic.</li></ul>
+          <p class="notes">🎙️ Showing respect doesn't require grand gestures. Simple acts of kindness, like saying 'thank you' to your bus driver or not throwing waste on the street, go a long way in acknowledging their hard work.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Be Polite</span></div><div class="step"><span class="snum">2</span><span>Thank Them</span></div><div class="step"><span class="snum">3</span><span>Don't Litter</span></div><div class="step"><span class="snum">4</span><span>Show Empathy</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>The <span class="hl">Economy</span> and Work: How it Connects</h2>
+          <ul><li>Work creates goods and services that people buy.</li><li>Buying and selling these goods and services forms the economy.</li><li>More work means more production, leading to economic growth.</li><li>Work generates income, which boosts consumption and investment.</li></ul>
+          <p class="notes">🎙️ Every time someone works, they contribute to the economy. A farmer's produce feeds us, a factory worker's efforts create products, and a teacher's knowledge builds future generations. All these activities are intertwined and fuel our nation's economic engine.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Work drives the economy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Indian Economy &amp; Workforce <span class="hl">Sectors</span></h2>
+          <ul><li>Primary Sector: Agriculture, fishing, mining (e.g., farmers).</li><li>Secondary Sector: Manufacturing, industry (e.g., factory workers).</li><li>Tertiary Sector: Services (e.g., teachers, doctors, transport).</li><li>Each sector relies on the others for overall development.</li></ul>
+          <p class="notes">🎙️ Our economy is broadly divided into three sectors. Farmers work in the primary sector, factory workers in the secondary, and teachers or doctors in the tertiary. All are crucial, and the service sector is currently the largest contributor to India's GDP.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Agriculture</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Industry</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Services</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Quick Check 3: Why is respecting all work important?</h2>
+          <ul><li>How does it affect individuals?</li><li>How does it affect society?</li><li>What happens if we don't respect certain jobs?</li></ul>
+          <p class="notes">🎙️ Consider the consequences of disrespect. It can lead to demotivation, social division, and a lack of essential services. A society that respects all work is a stronger, more equitable, and more productive society.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> Students Make</h2>
+          <ul><li>Believing some jobs are 'better' than others.</li><li>Not understanding the interdependence of different professions.</li><li>Confusing 'unskilled' with 'unimportant'.</li><li>Forgetting to mention concrete Indian examples in answers.</li></ul>
+          <p class="notes">🎙️ It's easy to fall into the trap of thinking certain jobs are more prestigious. Remember, every job serves a purpose. Also, always try to back up your points with real-world Indian examples to show your understanding.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid these errors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: Answering 'Why' and 'How' Questions</h2>
+          <ul><li>Explain 'WHY' by focusing on consequences and benefits (e.g., Why is dignity of labour important? → leads to harmony, productivity).</li><li>Explain 'HOW' by outlining steps or processes (e.g., How does work contribute to society? → provides services, drives economy).</li><li>Use clear, concise points and relevant examples.</li><li>Structure your answers logically for full marks.</li></ul>
+          <p class="notes">🎙️ For 'why' questions, think about the positive and negative impacts. For 'how' questions, describe the mechanism or steps involved. Always aim for clarity and support your arguments with examples discussed in class.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Ace your exams</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Work is any activity with a purpose, essential for life.</li><li>Types of work: Manual/Intellectual, Skilled/Unskilled.</li><li>Dignity of Labour: All work is equally respectable.</li><li>Work is vital for individual growth and societal progress.</li><li>Community helpers are indispensable; child labour is illegal.</li><li>Respect all professions for a harmonious society.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that every person's effort, no matter how small it seems, contributes to the bigger picture of our society. Let's carry this understanding forward.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Value</span> Every Contribution, Build a Better India!</h2>
+          <ul><li>Recognize the hard work of those around you.</li><li>Treat all workers with respect and gratitude.</li><li>Your future work will also contribute to our nation.</li><li>Be a responsible and empathetic citizen.</li></ul>
+          <p class="notes">🎙️ As young citizens of India, you have the power to shape our future. By valuing every contribution and respecting every worker, you contribute to building a stronger, more inclusive, and prosperous India. Thank you!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">A brighter future</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 6 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

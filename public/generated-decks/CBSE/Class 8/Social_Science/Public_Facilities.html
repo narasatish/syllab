@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Public Facilities: Our Lifelines — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Public Facilities: Our <span class="hl">Lifelines</span></h2>
+          <ul><li>Understanding essential services for all citizens.</li><li>Exploring the role of government and citizens in their provision.</li><li>Examining challenges and solutions in the Indian context.</li></ul>
+          <p class="notes">🎙️ Welcome, Class 8! Today, we embark on a crucial journey to understand 'Public Facilities'. These are the services that form the very backbone of our daily lives and are essential for a healthy, productive society.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Imagine a Day <span class="hl">Without</span>...</h2>
+          <ul><li>No clean water from your tap.</li><li>No electricity for lights or fans.</li><li>No roads to travel, no schools to learn.</li><li>No hospitals for when you're unwell.</li></ul>
+          <p class="notes">🎙️ Just pause for a moment and imagine a day where these basic services are unavailable. How would your life change? This thought experiment helps us grasp the immense importance of public facilities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚫</span><span>🚫</span><span>🚫</span><span>🚫</span></div><div class="vcap">Essentials for daily life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Explore</span> Today</h2>
+          <ul><li>Define public facilities and their key characteristics.</li><li>Understand the government's role in providing these services.</li><li>Examine challenges and citizen participation in India.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you will not only be able to define public facilities but also critically analyze their provision in India, understanding both the 'why' and the 'how'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>Understanding <span class="hl">Public Facilities</span></h2>
+          <ul><li>Services essential for all people in a society.</li><li>Provided by the government for collective benefit.</li><li>Cannot be easily denied to anyone.</li></ul>
+          <p class="notes">🎙️ Think of public facilities like a shared garden in your apartment complex. Everyone can use it, and it benefits the entire community. Similarly, public facilities are services like water, sanitation, and healthcare that are crucial for everyone's well-being.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤝</span><span>🤝</span><span>🤝</span><span>🤝</span><span>🤝</span></div><div class="vcap">Shared resources for everyone</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Core <span class="hl">Features</span> of Public Facilities</h2>
+          <ul><li>Non-excludable: Cannot prevent anyone from using them.</li><li>Non-rivalrous: One person's use doesn't diminish another's.</li><li>Collective consumption: Benefits everyone, not just individuals.</li></ul>
+          <p class="notes">🎙️ These features are what truly distinguish public facilities. For example, a public park or street light benefits everyone passing by, and one person using it doesn't stop another. This 'universal access' is key to their definition.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Universal Access</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Public Facilities <span class="hl">Around Us</span></h2>
+          <ul><li>Water supply and sanitation (e.g., municipal water, public toilets).</li><li>Healthcare (e.g., government hospitals, PHCs).</li><li>Education (e.g., government schools, public libraries).</li><li>Electricity, public transport, roads, parks.</li></ul>
+          <p class="notes">🎙️ From the water you drink to the roads you travel on, public facilities are deeply integrated into our daily lives. In India, examples range from the local government school to the city bus service and community health centers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏥💧📚💡</span><span>🏥💧📚💡</span><span>🏥💧📚💡</span><span>🏥💧📚💡</span></div><div class="vcap">Everyday essential services</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Why Public Facilities <span class="hl">Matter</span></h2>
+          <ul><li>Ensure basic human needs are met (Right to Life, Article 21).</li><li>Promote equity and social justice by serving all sections.</li><li>Contribute to economic development and human capital.</li><li>Prevent diseases and improve overall quality of life.</li></ul>
+          <p class="notes">🎙️ Public facilities are not just conveniences; they are fundamental for a dignified life. They directly uphold our constitutional rights, like the Right to Life, by ensuring access to essentials. This is why their provision is a moral and legal imperative.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Rights and Well-being</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which of these is NOT a characteristic of public facilities?</li><li>A) Non-excludable B) Provided for profit C) Collective consumption D) Essential for all</li></ul>
+          <p class="notes">🎙️ Take a moment to recall what we just discussed. The answer lies in understanding the core purpose and nature of these services. Think about who provides them and why.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Who Provides</span> Public Facilities?</h2>
+          <ul><li>Primarily the government (central, state, local).</li><li>Private companies have limited roles, often for profit.</li><li>Government ensures universal access, regardless of ability to pay.</li></ul>
+          <p class="notes">🎙️ Unlike private goods which are sold for profit, public facilities are typically provided by the government. This is because private markets often fail to provide these essential services adequately or affordably to everyone, especially the poor.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Government's Responsibility</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>How are Public Facilities <span class="hl">Funded</span>?</h2>
+          <ul><li>Through taxes collected from citizens.</li><li>Government budgets allocate funds for different sectors.</li><li>User charges (e.g., for electricity, water) cover some costs.</li></ul>
+          <p class="notes">🎙️ The money for building and maintaining public facilities comes from us, the citizens, through various taxes. The government then strategically allocates these funds in its annual budget to ensure these services reach everyone.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Taxes &amp; Budget</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Water</span>: A Fundamental Public Facility</h2>
+          <ul><li>Essential for survival, hygiene, and health.</li><li>Provided by Municipal Corporations (urban) and Panchayats (rural).</li><li>Jal Jeevan Mission aims to provide tap water to all rural households by 2024.</li></ul>
+          <p class="notes">🎙️ Access to clean drinking water is perhaps the most basic public facility. In India, local bodies are primarily responsible for its provision. The Jal Jeevan Mission is a significant government effort to ensure this reaches every home.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Clean water for everyone</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>The <span class="hl">Right to Water</span>: A Constitutional Mandate</h2>
+          <ul><li>Supreme Court of India interpreted Article 21 (Right to Life) to include the Right to Water.</li><li>Case: Subhash Kumar vs. State of Bihar (1991) affirmed clean water as fundamental.</li><li>Government is constitutionally bound to ensure access to safe drinking water.</li></ul>
+          <p class="notes">🎙️ It's not just a need; it's a right! The Supreme Court's interpretation means that the government cannot deny citizens access to clean water, making it a legally enforceable right vital for protecting democracy and citizen well-being.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Legal Protection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2><span class="hl">Unequal Access</span> to Water in India</h2>
+          <ul><li>Urban areas often have better piped water access than rural areas.</li><li>Slums and poorer localities face severe shortages and higher costs.</li><li>Privatisation attempts (e.g., in Chennai) often exclude the poor.</li></ul>
+          <p class="notes">🎙️ Despite the right to water, significant disparities exist. Urban wealthy areas might have 24/7 supply, while many rural homes or urban slums struggle daily. This inequality highlights the challenges in equitable distribution.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Urban Households with Piped Water</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Rural Households with Piped Water</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Swachh Bharat Abhiyan</span>: A Cleanliness Revolution</h2>
+          <ul><li>Launched in 2014 to achieve open-defecation free (ODF) India.</li><li>Focuses on constructing individual and community toilets.</li><li>Promotes behavioural change towards sanitation and hygiene.</li><li>Aims to improve public health and dignity, especially for women.</li></ul>
+          <p class="notes">🎙️ Sanitation is another critical public facility. The Swachh Bharat Abhiyan is a massive national effort to provide clean sanitation facilities, fundamentally improving public health and dignity across India, particularly in rural areas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚽</div><div class="vcap">Sanitation for All</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>The Right to Water in India is derived from which Article of the Constitution?</li><li>A) Article 14 B) Article 19 C) Article 21 D) Article 32</li></ul>
+          <p class="notes">🎙️ This question tests your understanding of the legal basis for access to public facilities. Remember the fundamental rights guaranteed to every citizen.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">Healthcare</span>: Ensuring Well-being for All</h2>
+          <ul><li>Public health system includes Primary Health Centers (PHCs), district hospitals.</li><li>Provides affordable or free medical treatment, vaccinations.</li><li>Government schemes like Ayushman Bharat offer health insurance.</li></ul>
+          <p class="notes">🎙️ A robust public healthcare system is vital for a nation's health. Government hospitals and PHCs form the backbone, offering essential services. Ayushman Bharat is a recent initiative to extend health coverage to vulnerable families.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏥</div><div class="vcap">Public Health System</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Education</span>: Building Future Generations</h2>
+          <ul><li>Government schools provide education from primary to secondary levels.</li><li>Right to Education (RTE) Act, 2009, makes education free and compulsory for ages 6-14.</li><li>Mid-day Meal Scheme boosts enrolment and nutrition in government schools.</li></ul>
+          <p class="notes">🎙️ Education is the cornerstone of progress. The RTE Act ensures every child's right to elementary education, a crucial step towards empowering future generations and fostering an informed citizenry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Right to Learn</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>More <span class="hl">Essential</span> Public Facilities</h2>
+          <ul><li>Electricity: Powers homes, industries, and public services.</li><li>Public Transport: Buses (e.g., DTC in Delhi), trains (Indian Railways).</li><li>Roads: Connect cities, villages, and facilitate trade.</li><li>Parks and Recreation: Spaces for community well-being.</li></ul>
+          <p class="notes">🎙️ Beyond water, health, and education, many other facilities are crucial. Imagine life without reliable electricity or public transport. These services are the arteries and veins of our society, enabling growth and connectivity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛣️💡🚌</span><span>🛣️💡🚌</span><span>🛣️💡🚌</span></div><div class="vcap">Connecting and empowering services</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Government vs. <span class="hl">Private Providers</span></h2>
+          <ul><li>Government: Focus on universal access, equity, non-profit.</li><li>Private: Focus on profit, may exclude those who can't pay.</li><li>Sometimes, private companies assist government or operate under regulation.</li></ul>
+          <p class="notes">🎙️ While the government is the primary provider, private companies do exist in some sectors. The key difference lies in their motive: the government aims for broad public welfare, while private entities prioritize financial returns.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Government (Access)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Private (Profit)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>When Do <span class="hl">Private Companies</span> Step In?</h2>
+          <ul><li>Often in sectors like telecommunications, some healthcare, education.</li><li>May offer better efficiency or advanced technology.</li><li>Risk of affordability issues and exclusion for the poor.</li><li>Government regulation is crucial to prevent exploitation.</li></ul>
+          <p class="notes">🎙️ Private companies can sometimes complement government efforts, especially where specialized skills or large investments are needed. However, their profit motive means the government must regulate them to ensure services remain accessible and affordable for all.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏢</div><div class="vcap">Private Sector Role</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Hurdles</span> in Delivering Public Facilities</h2>
+          <ul><li>Insufficient funding: Large population, limited resources.</li><li>Unequal distribution: Urban-rural divide, rich-poor disparity.</li><li>Poor maintenance: Lack of upkeep, leading to deterioration.</li><li>Corruption and inefficiency in implementation.</li></ul>
+          <p class="notes">🎙️ Providing public facilities to a vast and diverse country like India comes with significant challenges. From securing adequate funds to ensuring fair distribution and efficient management, there are many obstacles to overcome.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Challenges Ahead</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Bridging the Gap: Ensuring <span class="hl">Equitable Access</span></h2>
+          <ul><li>Targeted schemes for vulnerable groups (e.g., PDS, Janani Shishu Suraksha Karyakram).</li><li>Public-Private Partnerships (PPPs) with strict government oversight.</li><li>Community participation in planning and monitoring.</li><li>Strengthening local self-governance (Panchayats, Municipalities).</li></ul>
+          <p class="notes">🎙️ To ensure everyone benefits, governments implement targeted programs and explore partnerships. However, robust oversight is essential to prevent private interests from overshadowing public welfare. Empowering local bodies also plays a crucial role.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🤝‍🧑</div><div class="vcap">Inclusive Development</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Our Role: <span class="hl">Citizens</span> as Stakeholders</h2>
+          <ul><li>Pay taxes honestly to fund facilities.</li><li>Use facilities responsibly and avoid wastage.</li><li>Demand accountability from government (RTI, public hearings).</li><li>Participate in local governance and community initiatives.</li></ul>
+          <p class="notes">🎙️ Public facilities are 'our' facilities. As citizens, we have a vital role beyond just being beneficiaries. Responsible use, active participation, and demanding accountability are crucial for improving these services.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Active Participation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Citizen Participation: The <span class="hl">Jan Sunwai</span> Example</h2>
+          <ul><li>Step 1: Citizens raise issues/grievances regarding public services.</li><li>Step 2: Public hearing organized with officials and community members.</li><li>Step 3: Issues discussed, evidence presented, solutions proposed.</li><li>Step 4: Officials commit to actions, follow-up mechanism established.</li></ul>
+          <p class="notes">🎙️ Jan Sunwai, or public hearings, are powerful tools for citizen participation. They provide a direct platform for people to voice concerns about public facilities and hold officials accountable, strengthening local democracy.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Raise Issue</span></div><div class="step"><span class="snum">2</span><span>Organize Hearing</span></div><div class="step"><span class="snum">3</span><span>Discuss &amp; Propose</span></div><div class="step"><span class="snum">4</span><span>Action &amp; Follow-up</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Why is citizen participation crucial for effective public facilities?</li><li>A) Reduces government workload B) Ensures services meet local needs C) Provides free labour D) Increases government revenue</li></ul>
+          <p class="notes">🎙️ Think about the benefits of citizens being involved in the planning and monitoring of services. What unique perspective do they bring?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Common <span class="hl">Misconceptions</span> About Public Facilities</h2>
+          <ul><li>Myth: 'Only the government is responsible.' Fact: Citizens have a crucial role in responsible use and accountability.</li><li>Myth: 'Private companies are always better.' Fact: While efficient, they may exclude the poor due to profit motive.</li><li>Myth: 'Public facilities are free.' Fact: They are funded by taxes, meaning citizens pay for them indirectly.</li></ul>
+          <p class="notes">🎙️ It's important to clear up common misunderstandings. Public facilities are a shared responsibility, not just the government's. Also, remember that 'free' services are actually funded by our collective taxes.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Ace Your <span class="hl">Exams</span>: Scoring High on Public Facilities</h2>
+          <ul><li>Focus on 'Why' and 'How': Why are they important? How are they provided?</li><li>Use Indian examples: Swachh Bharat, Jal Jeevan Mission, RTE Act.</li><li>Explain the role of government AND citizens clearly.</li><li>Structure answers with definitions, examples, and implications.</li></ul>
+          <p class="notes">🎙️ For your exams, don't just list facts. Explain the underlying reasons and processes. Use specific Indian examples to illustrate your points and demonstrate a deeper understanding of the subject.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Key <span class="hl">Takeaways</span>: Public Facilities</h2>
+          <ul><li>Definition: Services essential for all, provided by government.</li><li>Importance: Uphold rights, promote equity, foster development.</li><li>Government's Role: Primary provider, funded by taxes, ensures access.</li><li>Challenges: Funding, unequal access, maintenance.</li><li>Citizen's Role: Responsible use, demand accountability, participation.</li></ul>
+          <p class="notes">🎙️ Let's quickly recap the most important points from today's lesson. Remember the definition, the 'why' behind their importance, the government's key role, the challenges faced, and our own responsibilities as citizens.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Towards a Better India: Collective <span class="hl">Responsibility</span></h2>
+          <ul><li>Public facilities are a cornerstone of a just and equitable society.</li><li>Their effective provision requires continuous effort from government.</li><li>Active and responsible citizenship is equally vital for success.</li><li>Together, we can ensure access to essential services for all.</li></ul>
+          <p class="notes">🎙️ Improving public facilities is a journey, not a destination. It requires constant engagement from both the government and every single citizen. Let's pledge to be responsible users and active participants in building a better India.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Our Nation, Our Services</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Any Questions?</li><li>Continue exploring and discussing these vital topics!</li></ul>
+          <p class="notes">🎙️ Thank you for your attention and active participation today. I encourage you to observe public facilities around you and think critically about their provision and your role in their upkeep. Keep learning!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 8 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

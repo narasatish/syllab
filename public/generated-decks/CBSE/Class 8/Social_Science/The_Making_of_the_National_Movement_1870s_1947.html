@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>The Making of the National Movement: 1870s-1947 — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>The Making of the <span class="hl">National Movement</span>: 1870s-1947</h2>
+          <ul><li>A journey from scattered discontent to a unified struggle.</li><li>Understanding India's path to independence.</li><li>Exploring key events, leaders, and ideologies.</li></ul>
+          <p class="notes">🎙️ Welcome to our exciting chapter on 'The Making of the National Movement'. We'll explore how India transformed from a land under colonial rule to an independent nation, tracing the crucial period from the 1870s to 1947.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2><span class="hl">Imagine</span> India Before 1947...</h2>
+          <ul><li>No single Indian government, only British rule.</li><li>Diverse communities, languages, and cultures.</li><li>How did such a vast, varied land unite to fight for freedom?</li></ul>
+          <p class="notes">🎙️ Think about it: India wasn't a single political entity before 1947. How did people from different regions and backgrounds come together under one banner to demand Swaraj? This is the central question we'll answer today.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">A Nation's Question</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today</h2>
+          <ul><li>The early stirrings of nationalism and its causes.</li><li>Key events, acts, and movements that shaped the struggle.</li><li>The pivotal roles of various leaders and their strategies.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll understand the 'why' and 'how' behind India's freedom struggle. We'll cover the economic, social, and political factors that ignited the movement and the different phases it went through.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>The <span class="hl">Seeds</span> of Change: Early Discontent</h2>
+          <ul><li>Just like a small stream grows into a mighty river, initial grievances became a national movement.</li><li>British policies created widespread dissatisfaction among Indians.</li><li>This discontent was the fertile ground for nationalist ideas.</li></ul>
+          <p class="notes">🎙️ Imagine a tiny seed. It needs the right conditions to grow into a large plant. Similarly, the early discontent among Indians was like a seed, nurtured by British policies, eventually blossoming into a full-fledged national movement.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Growing Discontent</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>What Did '<span class="hl">Nation</span>' Mean to Indians?</h2>
+          <ul><li>Before British rule, India was a collection of princely states, not a unified 'nation'.</li><li>Colonial rule, ironically, created a shared sense of identity and grievance.</li><li>People began to realise they were 'Indians' exploited by a foreign power.</li></ul>
+          <p class="notes">🎙️ The concept of 'India' as a single nation was largely a product of colonial rule. People from different regions, facing similar exploitation, started seeing themselves as part of a larger Indian identity, united against the British.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👥</span><span>👥</span><span>👥</span><span>👥</span><span>👥</span><span>👥</span><span>👥</span></div><div class="vcap">Diverse People, Common Goal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Causes: <span class="hl">Economic Exploitation</span> by the British</h2>
+          <ul><li>British policies systematically drained India's wealth and resources.</li><li>Indian industries suffered due to unfair competition with British goods.</li><li>Farmers were burdened with high taxes and forced to grow cash crops.</li></ul>
+          <p class="notes">🎙️ One of the biggest reasons for resentment was economic exploitation. The British treated India as a source of raw materials and a market for their finished goods, severely impacting Indian artisans, farmers, and traders.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Drain of Wealth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Causes: Administrative <span class="hl">Unification</span> (Unintended)</h2>
+          <ul><li>British introduced railways, postal services, and a common administration.</li><li>This facilitated communication and travel across India.</li><li>Ironically, it helped Indians connect and organise their resistance.</li></ul>
+          <p class="notes">🎙️ While the British aimed to consolidate their control, their administrative reforms had an unintended consequence. Railways and postal services, meant for British benefit, ended up connecting Indians and fostering a sense of shared experience.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚂</div><div class="vcap">Connecting India</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Causes: Socio-Religious <span class="hl">Reform Movements</span></h2>
+          <ul><li>Movements like Brahmo Samaj, Arya Samaj, and Ramakrishna Mission emerged.</li><li>They promoted social justice, equality, and pride in Indian heritage.</li><li>These movements awakened national consciousness and challenged colonial narratives.</li></ul>
+          <p class="notes">🎙️ Reformers like Raja Ram Mohan Roy and Swami Dayanand Saraswati worked to eradicate social evils and instill pride in Indian culture. This intellectual awakening was crucial in preparing people to question foreign rule.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🙏</div><div class="vcap">Awakening Consciousness</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Key Event: The Arms Act (1878) &amp; Vernacular Press Act (1878)</h2>
+          <ul><li>Arms Act: Disarmed Indians, making it a criminal offence to carry arms without a license.</li><li>Vernacular Press Act: Allowed the government to confiscate assets of newspapers publishing 'objectionable' material.</li><li>These acts were direct attempts to suppress Indian dissent and freedom of expression.</li></ul>
+          <p class="notes">🎙️ These two acts by Lord Lytton's administration were highly discriminatory. The Arms Act targeted Indians specifically, while the Vernacular Press Act gagged the Indian press, showing the British fear of growing nationalist sentiment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Suppression of Rights</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Key Event: The <span class="hl">Ilbert Bill</span> Controversy (1883)</h2>
+          <ul><li>Proposed by Lord Ripon, it allowed Indian judges to try Europeans in court.</li><li>Europeans in India vehemently opposed it, forcing its withdrawal.</li><li>Exposed the deep-seated racial prejudice of the British in India.</li></ul>
+          <p class="notes">🎙️ The Ilbert Bill aimed to bring judicial equality but faced immense backlash from the European community. Its withdrawal clearly showed Indians that racial discrimination was deeply ingrained in British rule and that they needed to fight for their rights.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Racial Discrimination</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Quick Check</span>! 🤔</h2>
+          <ul><li>Which act allowed the British to confiscate newspapers' assets?</li><li>What did the Ilbert Bill controversy reveal about British attitudes?</li><li>Name one unintended consequence of British administrative unification.</li></ul>
+          <p class="notes">🎙️ Take a moment to quickly recall the information we just covered. These questions will help you solidify your understanding of the early causes and events that led to the national movement.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Birth of the Indian National Congress (1885)</h2>
+          <ul><li>Formed in Bombay by Allan Octavian Hume, a retired British civil servant, and Indian leaders.</li><li>Aimed to bring together Indians from different regions on a common political platform.</li><li>Initially sought reforms within the British system, not complete independence.</li></ul>
+          <p class="notes">🎙️ The formation of the INC was a landmark event. It provided a much-needed platform for Indians to articulate their grievances and demands to the British government in a more organised manner, marking the beginning of organised nationalism.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">A Unified Voice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Early Phase of INC: The <span class="hl">Moderates</span> (1885-1905)</h2>
+          <ul><li>Believed in constitutional agitation and gradual reforms.</li><li>Methods included petitions, resolutions, public meetings, and sending delegations to Britain.</li><li>Aimed for greater Indian representation in legislative councils and civil services.</li></ul>
+          <p class="notes">🎙️ The early leaders of the INC, known as Moderates, believed in appealing to the British sense of justice and fair play. They used peaceful and constitutional means, hoping to achieve reforms through dialogue and negotiation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✉️</div><div class="vcap">Petitions and Appeals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Key <span class="hl">Moderate Leaders</span></h2>
+          <ul><li>Dadabhai Naoroji: 'Grand Old Man of India', propounded the 'Drain of Wealth' theory.</li><li>Gopal Krishna Gokhale: Political guru of Mahatma Gandhi, focused on social reform.</li><li>Surendranath Banerjee: Advocated for administrative reforms and Indianisation of services.</li></ul>
+          <p class="notes">🎙️ These leaders were intellectuals and statesmen who laid the foundation for the national movement. Their rigorous analysis of British policies, especially Naoroji's 'Drain Theory', exposed the exploitative nature of colonial rule.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍🎓</span><span>👨‍🎓</span><span>👨‍🎓</span></div><div class="vcap">Pioneers of Protest</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Rise of <span class="hl">Extremists</span> (1905 onwards): Why and How?</h2>
+          <ul><li>Frustration with the slow pace of Moderate reforms and British indifference.</li><li>Believed in more assertive methods: Swadeshi, Boycott, National Education.</li><li>Aimed for 'Swaraj' (self-rule) as a birthright, not just reforms.</li></ul>
+          <p class="notes">🎙️ As the Moderates' approach yielded limited results, a new generation of leaders emerged. They felt that self-reliance and direct action were necessary, rather than just appealing to the British. This marked a significant shift in the movement's strategy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✊</div><div class="vcap">Assertive Nationalism</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Key Extremist Leaders: <span class="hl">Lal-Bal-Pal</span></h2>
+          <ul><li>Lala Lajpat Rai (Punjab): 'Lion of Punjab', strong advocate for Swadeshi.</li><li>Bal Gangadhar Tilak (Maharashtra): 'Swaraj is my birthright, and I shall have it!'</li><li>Bipin Chandra Pal (Bengal): Propagated radical nationalism through his writings.</li></ul>
+          <p class="notes">🎙️ These three leaders, famously known as Lal-Bal-Pal, galvanized the masses with their fiery speeches and writings. They popularised the idea of Swaraj and encouraged active participation of the common people in the freedom struggle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦁</span><span>🦁</span><span>🦁</span></div><div class="vcap">Fighters for Swaraj</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Quick Check</span>! 🤔</h2>
+          <ul><li>What was the main difference in methods between Moderates and Extremists?</li><li>Who coined the 'Drain of Wealth' theory?</li><li>When was the Indian National Congress formed?</li></ul>
+          <p class="notes">🎙️ Let's pause again for a quick check. Understanding the distinction between the Moderate and Extremist phases is crucial for grasping the evolution of the national movement.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Partition of Bengal</span> (1905): A Turning Point</h2>
+          <ul><li>Lord Curzon partitioned Bengal, claiming administrative convenience.</li><li>Real motive: to weaken Bengali nationalism and 'divide and rule'.</li><li>Sparked the powerful Swadeshi and Boycott Movement across India.</li></ul>
+          <p class="notes">🎙️ The Partition of Bengal was a calculated move by the British to break the unity of the Bengali people, who were at the forefront of nationalist activities. However, it backfired spectacularly, igniting widespread protests and the Swadeshi movement.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Dividing and Ruling</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Emergence of <span class="hl">Mahatma Gandhi</span> (1915)</h2>
+          <ul><li>Returned to India from South Africa in 1915, bringing his unique method of Satyagraha.</li><li>Early experiments: Champaran (1917), Kheda (1918), Ahmedabad Mill Strike (1918).</li><li>These local struggles honed his techniques and gained him national recognition.</li></ul>
+          <p class="notes">🎙️ Gandhi's arrival marked a new era. His philosophy of non-violent resistance, or Satyagraha, had been successfully tested in South Africa. He applied these methods in local struggles in India, connecting with the common people and proving their effectiveness.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">A New Leader Arrives</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Rowlatt Act (1919) &amp; <span class="hl">Jallianwala Bagh</span> Massacre (1919)</h2>
+          <ul><li>Rowlatt Act: Allowed arrest without trial, curbing political activities.</li><li>Protest against the Act led to a peaceful gathering in Jallianwala Bagh, Amritsar.</li><li>General Dyer ordered troops to fire, killing hundreds of unarmed civilians, shocking the nation.</li></ul>
+          <p class="notes">🎙️ The Rowlatt Act was a blatant attack on civil liberties. The horrific Jallianwala Bagh Massacre, in response to protests against it, exposed the brutal face of British rule and solidified Indian resolve for complete freedom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🩸</div><div class="vcap">Brutal Repression</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Non-Cooperation</span> Movement (1920-22)</h2>
+          <ul><li>Launched by Gandhi after Jallianwala Bagh and the Khilafat injustice.</li><li>Aimed to boycott British institutions: schools, courts, foreign goods.</li><li>Widespread participation from all sections of society, including women and students.</li></ul>
+          <p class="notes">🎙️ This was the first nationwide mass movement under Gandhi's leadership. It demonstrated the power of collective non-cooperation and united Hindus and Muslims on a common platform, challenging British authority like never before.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Boycott British</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2><span class="hl">Quick Check</span>! 🤔</h2>
+          <ul><li>What was the real motive behind the Partition of Bengal?</li><li>Name two of Gandhi's early Satyagraha movements in India.</li><li>What was the immediate cause of the Jallianwala Bagh Massacre?</li></ul>
+          <p class="notes">🎙️ These events are crucial turning points. Make sure you understand their causes, key figures, and immediate impacts. They laid the groundwork for future mass movements.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Simon Commission (1927) &amp; Lahore Session (1929)</h2>
+          <ul><li>Simon Commission: All-British committee to review India's constitutional progress, met with 'Go Back Simon' protests.</li><li>Lahore Session (1929): Under Jawaharlal Nehru, INC declared 'Purna Swaraj' (complete independence) as its goal.</li><li>January 26, 1930, was declared 'Independence Day'.</li></ul>
+          <p class="notes">🎙️ The exclusion of Indians from the Simon Commission deeply offended nationalist sentiments. This led to the historic Lahore Session, where the demand shifted from self-rule within the Empire to complete independence, a momentous declaration.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Demand for Full Freedom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Dandi March &amp; <span class="hl">Civil Disobedience</span> Movement (1930)</h2>
+          <ul><li>Gandhi's iconic Dandi March challenged the British salt monopoly.</li><li>Symbolised defiance against unjust laws and inspired widespread civil disobedience.</li><li>Millions broke salt laws, boycotted foreign goods, and refused to pay taxes.</li></ul>
+          <p class="notes">🎙️ The Salt Satyagraha was a brilliant move by Gandhi. Salt was a basic necessity, and the British monopoly affected everyone. The Dandi March became a powerful symbol of resistance, drawing global attention and mass participation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧂</div><div class="vcap">Salt of Freedom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Quit India</span> Movement (1942): 'Do or Die'</h2>
+          <ul><li>Launched during World War II, demanding immediate British withdrawal from India.</li><li>Gandhi's call: 'Do or Die' for India's freedom.</li><li>Massive, spontaneous movement; leaders arrested, but people continued the struggle.</li></ul>
+          <p class="notes">🎙️ The Quit India Movement was the final major push. With the British preoccupied with WWII, Gandhi saw an opportunity to demand immediate independence. Despite severe repression, the movement showed the unwavering resolve of the Indian people.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Final Push for Freedom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Towards <span class="hl">Independence</span> &amp; Partition (1947)</h2>
+          <ul><li>Post-WWII, British power waned, and India's independence became inevitable.</li><li>Cabinet Mission Plan (1946) failed to resolve Hindu-Muslim differences.</li><li>Mountbatten Plan (1947) led to the partition of India and Pakistan, and independence on August 15, 1947.</li></ul>
+          <p class="notes">🎙️ The path to independence was complex, fraught with challenges, including the tragic partition. While India gained freedom, it came at the cost of communal violence and the division of the subcontinent, a legacy that continues to impact us.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>WWII Ends</span></div><div class="step"><span class="snum">2</span><span>Cabinet Mission</span></div><div class="step"><span class="snum">3</span><span>Mountbatten Plan</span></div><div class="step"><span class="snum">4</span><span>Independence</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> Students Make</h2>
+          <ul><li>Confusing Moderates' and Extremists' methods and goals.</li><li>Misremembering the sequence of major events (e.g., Jallianwala Bagh before Rowlatt Act).</li><li>Underestimating the role of early nationalist leaders and their contributions.</li></ul>
+          <p class="notes">🎙️ It's easy to mix up the details in such a rich historical period. Pay close attention to the timelines and the specific objectives of different groups and movements to avoid these common errors.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: How to Score Well</h2>
+          <ul><li>Focus on 'Why' and 'How': Explain the causes and effects of movements.</li><li>Master timelines: Chronological order of events is crucial for sequence-based questions.</li><li>Know key figures: Understand their contributions and ideologies.</li></ul>
+          <p class="notes">🎙️ For your exams, don't just memorise facts. Understand the underlying reasons and consequences. Practice writing answers that explain the 'why' and 'how' behind historical developments, using specific examples and dates.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Recap</span>: The National Movement at a Glance</h2>
+          <ul><li>Early nationalism grew from economic exploitation and discriminatory acts.</li><li>INC emerged with Moderates seeking reforms, followed by Extremists demanding Swaraj.</li><li>Gandhi's Satyagraha, Non-Cooperation, Civil Disobedience, and Quit India movements led to independence.</li></ul>
+          <p class="notes">🎙️ We've covered a vast and transformative period in Indian history. Remember the journey from early discontent to unified struggle, the different phases, and the sacrifices that led to India's freedom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Key Milestones</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>The <span class="hl">Legacy</span> of Our Freedom Fighters</h2>
+          <ul><li>Their sacrifices shaped the India we live in today.</li><li>The principles of justice, equality, and self-determination remain vital.</li><li>Understand your history to appreciate your present and build your future.</li></ul>
+          <p class="notes">🎙️ The national movement wasn't just about gaining independence; it was about defining India's soul. The values championed by our freedom fighters continue to inspire us and guide our nation's progress. Cherish this legacy.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 8 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

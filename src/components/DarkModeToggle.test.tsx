@@ -60,6 +60,16 @@ describe('DarkModeToggle Component', () => {
     expect(localStorage.getItem('syllab_dark_mode')).toBe('false');
   });
 
+  it('defaults to LIGHT even when the OS prefers dark (no saved pref)', () => {
+    (window.matchMedia as unknown as ReturnType<typeof vi.fn>).mockImplementation(() => ({
+      matches: true, // OS prefers dark
+      addListener: vi.fn(), removeListener: vi.fn(), addEventListener: vi.fn(), removeEventListener: vi.fn(),
+    }));
+    render(<DarkModeToggle />);
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
+    expect(screen.getByTestId('moon-icon')).toBeInTheDocument();
+  });
+
   it('reads saved preference on mount', () => {
     localStorage.setItem('syllab_dark_mode', 'true');
     render(<DarkModeToggle />);

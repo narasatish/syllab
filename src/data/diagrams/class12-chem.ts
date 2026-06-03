@@ -254,7 +254,7 @@ export const class12ChemDiagrams: Diagram[] = [
     subject: 'chemistry',
     classRange: 'Class 12',
     classNumber: 12,
-    imageUrl: 'https://en.wikipedia.org/wiki/Special:FilePath/Aromatic_substitution.svg?width=500',
+    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Reaction_mechanism_for_electrophilic_aromatic_substitution.svg?width=500',
     fallbackGradient: 'from-purple-100 to-violet-200',
     emoji: '⚗️',
     summary: 'Benzene undergoes electrophilic aromatic substitution via arenium ion intermediate; directing effects and reactivity determined by substituents.',

@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2><span class="hl">Probability</span>: Understanding Chance</h2>
-          <ul><li>Welcome to Class 11 Mathematics!</li><li>Mastering the concepts of uncertainty.</li><li>Essential for CBSE exams and beyond.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today we embark on a fascinating journey into the world of Probability. This chapter is not just crucial for your CBSE exams but also helps you understand real-life situations involving chance.</p>
+          <span class="num">1 / 30</span>
+          <h2>Unlocking the Secrets of Chance: <span class="hl">Probability</span></h2>
+          <ul><li>Ever wondered about the likelihood of events?</li><li>Let's explore the mathematics of uncertainty!</li></ul>
+          <p class="notes">🎙️ Good morning, everyone! Today, we embark on an exciting journey into the world of Probability. It's a fundamental concept that helps us understand and quantify uncertainty in our daily lives and in science.</p>
         </div>
         
       </div>
@@ -71,178 +77,106 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>The World of <span class="hl">Uncertainty</span>: Why Probability Matters</h2>
-          <ul><li>Predicting weather patterns.</li><li>Analyzing game outcomes.</li><li>Making informed business decisions.</li><li>Understanding medical test results.</li></ul>
-          <p class="notes">🎙️ From predicting the next monsoon to understanding stock market fluctuations, probability is everywhere. It equips us with tools to quantify uncertainty and make better decisions in daily life.</p>
+          <span class="num">2 / 30</span>
+          <h2>The Cricket Match <span class="hl">Dilemma</span></h2>
+          <ul><li>India is playing Australia in the World Cup final!</li><li>What are the chances India wins?</li><li>How do we quantify this 'chance' or 'likelihood'?</li></ul>
+          <p class="notes">🎙️ Imagine a crucial cricket match. Before it begins, everyone wonders, 'Will India win?' This 'will' or 'will not' is at the heart of probability. We use it constantly, even without realizing it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Chance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏏</span><span>🏏</span></div><div class="vcap">India vs. Australia</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2><span class="hl">Random Experiment</span>: The Foundation</h2>
-          <ul><li>An experiment with multiple possible outcomes.</li><li>Cannot predict the exact outcome beforehand.</li><li>Can be repeated under identical conditions.</li></ul>
-          <p class="notes">🎙️ A random experiment is the starting point for any probability problem. Think of tossing a coin or rolling a die – you know the possible results, but not which one will occur on a given trial.</p>
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today!</h2>
+          <ul><li>Define Random Experiments, Sample Space, and Events.</li><li>Understand different types of Events.</li><li>Calculate Probability using the Axiomatic Approach.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll have a strong foundation in probability, enabling you to solve various problems and understand its applications.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Repeatable</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Learning Objectives</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Outcome and <span class="hl">Sample Space</span>: Defining Possibilities</h2>
-          <ul><li>Outcome: A single possible result of a random experiment.</li><li>Sample Space (S): The set of all possible outcomes.</li><li>Represented by 'S' and enclosed in curly braces { }.</li></ul>
-          <p class="notes">🎙️ Every time you perform a random experiment, a specific outcome occurs. The collection of all such possible outcomes forms the sample space, which is fundamental to calculating probabilities.</p>
+          <span class="num">4 / 30</span>
+          <h2><span class="hl">Uncertainty</span>: The Core of Probability</h2>
+          <ul><li>Many events in life are not certain to happen.</li><li>Predicting weather, exam scores, or traffic.</li><li>Probability helps us measure this 'degree of uncertainty'.</li></ul>
+          <p class="notes">🎙️ From daily decisions to scientific research, understanding uncertainty is crucial. Probability provides a mathematical framework to deal with situations where outcomes are not fixed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">All Outcomes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">What might happen?</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Example: Tossing a <span class="hl">Single Coin</span></h2>
-          <ul><li>Experiment: Tossing a fair coin once.</li><li>Possible Outcomes: Head (H), Tail (T).</li><li>Sample Space (S) = {H, T}.</li></ul>
-          <p class="notes">🎙️ This is a classic example. When you toss a coin, you can either get a Head or a Tail. These are the only two possibilities, forming our sample space.</p>
+          <span class="num">5 / 30</span>
+          <h2><span class="hl">Random Experiment</span>: The Starting Point</h2>
+          <ul><li>An experiment with well-defined outcomes.</li><li>The exact outcome cannot be predicted in advance.</li><li>It can be repeated under identical conditions.</li></ul>
+          <p class="notes">🎙️ Think of rolling a fair die. You know the possible outcomes (1, 2, 3, 4, 5, 6), but you can't say for sure which number will appear on any given roll. This is a classic random experiment.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span></div><div class="vcap">H, T</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span></div><div class="vcap">Rolling a Die</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Example: Rolling a <span class="hl">Single Die</span></h2>
-          <ul><li>Experiment: Rolling a standard six-sided die once.</li><li>Possible Outcomes: 1, 2, 3, 4, 5, 6.</li><li>Sample Space (S) = {1, 2, 3, 4, 5, 6}.</li></ul>
-          <p class="notes">🎙️ Similarly, when you roll a die, there are six equally likely outcomes. Understanding how to list all outcomes is crucial for defining events later on.</p>
+          <span class="num">6 / 30</span>
+          <h2>Example: <span class="hl">Identifying</span> Random Experiments</h2>
+          <ul><li>Tossing a coin: Random (Heads/Tails, unpredictable).</li><li>Dropping a stone: Not Random (Always falls down).</li><li>Drawing a card from a shuffled deck: Random.</li></ul>
+          <p class="notes">🎙️ It's important to distinguish between experiments where outcomes are uncertain and those where they are predetermined. Only the former fall under the domain of probability.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span></div><div class="vcap">1 to 6</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Coin Toss</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Stone Drop</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Event</span>: A Subset of the Sample Space</h2>
-          <ul><li>An event (E) is a subset of the sample space (S).</li><li>It's a collection of one or more outcomes.</li><li>We are interested in the probability of an event occurring.</li></ul>
-          <p class="notes">🎙️ An event is essentially what we are looking for within our experiment. For example, rolling an even number on a die is an event, comprising outcomes {2, 4, 6}.</p>
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Sample Space</span>: All Possibilities</h2>
+          <ul><li>The set of all possible outcomes of a random experiment.</li><li>Represented by 'S' or 'Ω'.</li><li>Each outcome is called a 'sample point'.</li></ul>
+          <p class="notes">🎙️ The sample space is like a complete list of everything that could possibly happen in an experiment. It's the universe of outcomes we are working with.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Specific Outcomes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Listing Outcomes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Classifying Events: Different Types</h2>
-          <ul><li>Impossible Event (∅): No outcomes.</li><li>Sure Event (S): All outcomes.</li><li>Simple Event: Only one outcome.</li><li>Compound Event: More than one outcome.</li></ul>
-          <p class="notes">🎙️ Events can be categorized based on the number of outcomes they contain. An impossible event can never happen, while a sure event is guaranteed to happen.</p>
+          <span class="num">8 / 30</span>
+          <h2>Worked Example: Sample Space - <span class="hl">Coin Toss</span></h2>
+          <ul><li>1 Coin: S = {H, T}</li><li>2 Coins: S = {HH, HT, TH, TT}</li><li>3 Coins: S = {HHH, HHT, HTH, THH, HTT, THT, TTH, TTT}</li></ul>
+          <p class="notes">🎙️ Notice how the number of outcomes doubles with each additional coin. This systematic listing helps ensure we don't miss any possibilities.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Impossible</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Simple</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Compound</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sure</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1 Coin: {H, T}</span></div><div class="step"><span class="snum">2</span><span>2 Coins: {HH, HT, TH, TT}</span></div><div class="step"><span class="snum">3</span><span>3 Coins: {HHH, ..., TTT}</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Algebra</span> of Events: Combining Events</h2>
-          <ul><li>Union (A U B): A or B or both.</li><li>Intersection (A ∩ B): A and B both.</li><li>Complement (A'): Not A (outcomes not in A).</li><li>These are similar to set operations.</li></ul>
-          <p class="notes">🎙️ Just like with sets, we can combine events using operations like union, intersection, and complement. These are powerful tools for describing complex scenarios.</p>
+          <span class="num">9 / 30</span>
+          <h2>Worked Example: Sample Space - <span class="hl">Die Roll</span></h2>
+          <ul><li>Single Die: S = {1, 2, 3, 4, 5, 6}</li><li>Two Dice (sum): S = {2, 3, ..., 12} (36 pairs in total)</li><li>Two Dice (pairs): S = {(1,1), (1,2), ..., (6,6)}</li></ul>
+          <p class="notes">🎙️ When dealing with multiple dice, it's often useful to list the individual outcomes as ordered pairs to avoid confusion and ensure all combinations are covered.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Set Operations</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Mutually Exclusive</span> Events: No Common Outcomes</h2>
-          <ul><li>Two events A and B are mutually exclusive if A ∩ B = ∅.</li><li>They cannot occur simultaneously.</li><li>Example: Getting a Head AND a Tail on a single coin toss.</li></ul>
-          <p class="notes">🎙️ Mutually exclusive events are crucial. If two events cannot happen at the same time, their intersection is empty. Understanding this helps in applying the addition theorem correctly.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">No Overlap</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2><span class="hl">Exhaustive</span> Events: Covering All Possibilities</h2>
-          <ul><li>A set of events E1, E2, ..., En is exhaustive if E1 U E2 U ... U En = S.</li><li>Together, they cover the entire sample space.</li><li>Example: Getting an even number OR an odd number on a die roll.</li></ul>
-          <p class="notes">🎙️ Exhaustive events ensure that all possible outcomes are accounted for. If events are both mutually exclusive and exhaustive, they form a partition of the sample space.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Full Coverage</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2><span class="hl">Classical Definition</span>: The 'Favorable' Approach</h2>
-          <ul><li>Assumes all outcomes are equally likely.</li><li>P(E) = (Number of favorable outcomes) / (Total number of outcomes).</li><li>Also known as a priori probability.</li></ul>
-          <p class="notes">🎙️ This is the most intuitive definition of probability, often used when dealing with fair coins, dice, or well-shuffled cards. It's the ratio of what we want to what's possible.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Fair Chance</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Calculating</span> Probability: Step-by-Step</h2>
-          <ul><li>Step 1: Identify the random experiment.</li><li>Step 2: Determine the Sample Space (S) and n(S).</li><li>Step 3: Identify the Event (E) and n(E).</li><li>Step 4: Apply the formula P(E) = n(E) / n(S).</li></ul>
-          <p class="notes">🎙️ Following these steps systematically helps avoid errors. Always start by clearly defining your sample space and then the specific event you are interested in.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Experiment</span></div><div class="step"><span class="snum">2</span><span>Sample Space</span></div><div class="step"><span class="snum">3</span><span>Event</span></div><div class="step"><span class="snum">4</span><span>Formula</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span><span>🎲</span></div><div class="vcap">Two Dice Rolling</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Basic Probability</h2>
-          <ul><li>What is the probability of drawing a King from a well-shuffled deck of 52 cards?</li><li>Assume standard deck.</li><li>Think about n(S) and n(E).</li></ul>
-          <p class="notes">🎙️ Take a moment to apply the classical definition. Remember how many kings are in a deck and the total number of cards. This is a common introductory problem.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Worked Example 1: Two Coin Tosses</h2>
-          <ul><li>Experiment: Tossing two fair coins.</li><li>Sample Space (S) = {HH, HT, TH, TT}, so n(S) = 4.</li><li>Event E: Getting exactly one Head = {HT, TH}, so n(E) = 2.</li><li>P(E) = n(E)/n(S) = 2/4 = 1/2.</li></ul>
-          <p class="notes">🎙️ When dealing with multiple items, ensure you list all unique outcomes in the sample space. Here, HT is different from TH, as they represent the order of outcomes on the first and second coin.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Worked Example 2: Rolling <span class="hl">Two Dice</span></h2>
-          <ul><li>Experiment: Rolling two fair dice simultaneously.</li><li>n(S) = 6 * 6 = 36 (all pairs (x,y)).</li><li>Event E: Sum of numbers is 7 = {(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)}, so n(E) = 6.</li><li>P(E) = n(E)/n(S) = 6/36 = 1/6.</li></ul>
-          <p class="notes">🎙️ Listing the sample space for two dice can be tedious, but understanding n(S) = 6^2 is key. Then carefully identify all pairs that satisfy the event condition.</p>
+          <span class="num">10 / 30</span>
+          <h2><span class="hl">Quick Check</span> 1: Sample Space</h2>
+          <ul><li>What is the sample space for drawing a single card from a standard deck of 52 playing cards?</li><li>How many sample points are there?</li></ul>
+          <p class="notes">🎙️ Take a moment to think about all the possible cards you could draw. Remember, a standard deck has 4 suits and 13 ranks in each suit.</p>
         </div>
         
       </div>
@@ -251,46 +185,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">Axiomatic Approach</span>: A More Formal Definition</h2>
-          <ul><li>Based on a set of axioms (postulates).</li><li>Does not rely on equally likely outcomes.</li><li>More general and mathematically rigorous.</li><li>Probability is a real number P(E) assigned to each event E.</li></ul>
-          <p class="notes">🎙️ While the classical definition is intuitive, the axiomatic approach provides a robust mathematical framework. It defines probability as a function satisfying certain fundamental rules.</p>
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Event</span>: A Specific Outcome of Interest</h2>
+          <ul><li>An event is a subset of the sample space (S).</li><li>It's a collection of one or more sample points.</li><li>Often denoted by capital letters like A, B, E.</li></ul>
+          <p class="notes">🎙️ While the sample space lists everything, an event focuses on particular outcomes we are interested in. For example, 'getting an even number' when rolling a die is an event.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Formal</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Targeted Outcomes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Key <span class="hl">Properties</span> of Probability</h2>
-          <ul><li>For any event E, 0 ≤ P(E) ≤ 1.</li><li>P(S) = 1 (Probability of the sure event is 1).</li><li>P(∅) = 0 (Probability of the impossible event is 0).</li><li>If E and F are mutually exclusive, P(E U F) = P(E) + P(F).</li></ul>
-          <p class="notes">🎙️ These are the fundamental axioms and properties derived from them. Remember, probability can never be negative or greater than 1. The sum of probabilities of all possible outcomes is always 1.</p>
+          <span class="num">12 / 30</span>
+          <h2>Types of Events: <span class="hl">Impossible</span> &amp; Sure Events</h2>
+          <ul><li>Impossible Event (Ø): An event that cannot occur. P(Ø) = 0.</li><li>Sure Event (S): An event that is certain to occur. P(S) = 1.</li><li>Example: Rolling a 7 on a 6-sided die (Impossible).</li></ul>
+          <p class="notes">🎙️ These are the two extremes of probability. An impossible event has zero chance, while a sure event is guaranteed to happen. All other probabilities lie between 0 and 1.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✔️</div><div class="vcap">Rules</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Impossible (0)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sure (1)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2><span class="hl">Addition Theorem</span>: Probability of 'A or B'</h2>
-          <ul><li>For any two events A and B: P(A U B) = P(A) + P(B) - P(A ∩ B).</li><li>If A and B are mutually exclusive, P(A ∩ B) = 0, so P(A U B) = P(A) + P(B).</li><li>This formula accounts for overlaps.</li></ul>
-          <p class="notes">🎙️ This theorem is vital when dealing with events that might overlap. We subtract P(A ∩ B) to avoid double-counting the outcomes common to both A and B.</p>
+          <span class="num">13 / 30</span>
+          <h2>Types of Events: <span class="hl">Simple</span> &amp; Compound Events</h2>
+          <ul><li>Simple Event: Contains only one sample point.</li><li>Example: Getting a '3' when rolling a single die.</li><li>Compound Event: Contains more than one sample point.</li><li>Example: Getting an 'even number' (2, 4, 6) when rolling a die.</li></ul>
+          <p class="notes">🎙️ The distinction helps in understanding the complexity of events. Simple events are the basic building blocks, while compound events combine several simple events.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Combining</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Single vs Multiple</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Types of Events: <span class="hl">Mutually Exclusive</span> Events</h2>
+          <ul><li>Events that cannot occur simultaneously.</li><li>Their intersection is empty (A ∩ B = Ø).</li><li>Example: Getting a 'Head' and a 'Tail' on a single coin toss.</li></ul>
+          <p class="notes">🎙️ If two events are mutually exclusive, the occurrence of one completely prevents the occurrence of the other. They are disjoint sets in terms of sample points.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚫</span><span>🚫</span></div><div class="vcap">No Overlap</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Types of Events: <span class="hl">Exhaustive</span> Events</h2>
+          <ul><li>A set of events whose union is the entire sample space (S).</li><li>At least one of them must occur in any trial.</li><li>Example: Getting an 'even number' or an 'odd number' on a die roll.</li></ul>
+          <p class="notes">🎙️ Exhaustive events collectively cover all possible outcomes of an experiment. They ensure that no outcome is left out when considering a set of events.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Covering all outcomes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Worked Example: <span class="hl">Identifying</span> Event Types</h2>
+          <ul><li>Experiment: Rolling a die. S = {1, 2, 3, 4, 5, 6}</li><li>Event A: Getting an even number = {2, 4, 6}</li><li>Event B: Getting an odd number = {1, 3, 5}</li><li>Event C: Getting a number greater than 4 = {5, 6}</li></ul>
+          <p class="notes">🎙️ Here, A and B are mutually exclusive and exhaustive. A and C are neither mutually exclusive (as 6 is common) nor exhaustive (as 1,3 are not covered by A U C).</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>A = {2,4,6}</span></div><div class="step"><span class="snum">2</span><span>B = {1,3,5}</span></div><div class="step"><span class="snum">3</span><span>C = {5,6}</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Worked Example 3: Applying <span class="hl">Addition Theorem</span></h2>
-          <ul><li>In a class, 30% students passed Math (M), 20% passed Physics (P), and 10% passed both.</li><li>Find the probability that a randomly chosen student passed Math or Physics.</li><li>P(M)=0.30, P(P)=0.20, P(M ∩ P)=0.10.</li><li>P(M U P) = P(M) + P(P) - P(M ∩ P) = 0.30 + 0.20 - 0.10 = 0.40.</li></ul>
-          <p class="notes">🎙️ This example clearly shows why subtracting the intersection is necessary. Without it, students who passed both subjects would be counted twice.</p>
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Quick Check</span> 2: Event Types</h2>
+          <ul><li>From a deck of cards, are 'drawing a red card' and 'drawing a spade' mutually exclusive?</li><li>Are they exhaustive?</li></ul>
+          <p class="notes">🎙️ Recall the composition of a standard deck. A spade is a black suit. Consider if there's any overlap or if they cover all possibilities.</p>
         </div>
         
       </div>
@@ -299,22 +269,106 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2><span class="hl">Complementary Event</span>: The 'Not' Probability</h2>
-          <ul><li>The complement of an event E, denoted E', includes all outcomes in S that are not in E.</li><li>P(E') = 1 - P(E).</li><li>E and E' are mutually exclusive and exhaustive.</li><li>Example: If P(rain) = 0.6, then P(no rain) = 1 - 0.6 = 0.4.</li></ul>
-          <p class="notes">🎙️ This property is incredibly useful for calculating the probability of an event not happening. Sometimes it's easier to calculate P(E) by finding 1 - P(E').</p>
+          <span class="num">18 / 30</span>
+          <h2>Probability: The <span class="hl">Classical Approach</span> (Brief)</h2>
+          <ul><li>Assumes all outcomes are equally likely.</li><li>P(E) = (Number of Favorable Outcomes) / (Total Number of Outcomes in S).</li><li>Simple and intuitive for many basic problems.</li></ul>
+          <p class="notes">🎙️ This is often the first way we learn about probability. It's very useful when outcomes have an equal chance of occurring, like a fair coin or a balanced die.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Opposite</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Ratio of Outcomes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Probability: <span class="hl">Axiomatic Approach</span> - The Foundation</h2>
+          <ul><li>A more rigorous and general definition of probability.</li><li>Based on three fundamental axioms (postulates).</li><li>Applies even when outcomes are not equally likely.</li></ul>
+          <p class="notes">🎙️ While the classical approach is good for simple cases, the axiomatic approach provides a robust mathematical framework that works for all types of random experiments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mathematical Rigor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2><span class="hl">Axioms</span> of Probability</h2>
+          <ul><li>Axiom 1: For any event E, 0 ≤ P(E) ≤ 1.</li><li>Axiom 2: The probability of the sure event S is 1, i.e., P(S) = 1.</li><li>Axiom 3: For any two mutually exclusive events A and B, P(A ∪ B) = P(A) + P(B).</li></ul>
+          <p class="notes">🎙️ These three axioms are the bedrock of probability theory. All other rules and theorems in probability can be derived from these fundamental statements.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>0 ≤ P(E) ≤ 1</span></div><div class="step"><span class="snum">2</span><span>P(S) = 1</span></div><div class="step"><span class="snum">3</span><span>P(A ∪ B) = P(A) + P(B)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Derived Results</span> from Axioms</h2>
+          <ul><li>Probability of Impossible Event: P(Ø) = 0.</li><li>Complement Rule: P(A') = 1 - P(A) (where A' is 'not A').</li><li>General Addition Rule: P(A ∪ B) = P(A) + P(B) - P(A ∩ B).</li></ul>
+          <p class="notes">🎙️ These are incredibly useful formulas derived from the axioms. The General Addition Rule is especially important when events are not mutually exclusive.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>P(Ø) = 0</span></div><div class="step"><span class="snum">2</span><span>P(A') = 1 - P(A)</span></div><div class="step"><span class="snum">3</span><span>P(A ∪ B) = P(A) + P(B) - P(A ∩ B)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Worked Example: Basic Probability Calculation</h2>
+          <ul><li>Experiment: Tossing a fair coin. S = {H, T}.</li><li>Event E: Getting a Head. E = {H}.</li><li>P(E) = Number of favorable outcomes / Total outcomes = 1/2.</li></ul>
+          <p class="notes">🎙️ This simple example demonstrates the application of the classical definition, which is consistent with the axiomatic approach for equally likely outcomes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span></div><div class="vcap">Tossing a Coin</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Worked Example: Using <span class="hl">Addition Rule</span></h2>
+          <ul><li>Experiment: Drawing a card from 52 cards.</li><li>Event A: Drawing a King. P(A) = 4/52.</li><li>Event B: Drawing a Spade. P(B) = 13/52.</li><li>Event A ∩ B: Drawing a King of Spade. P(A ∩ B) = 1/52.</li></ul>
+          <p class="notes">🎙️ P(A ∪ B) = P(A) + P(B) - P(A ∩ B) = 4/52 + 13/52 - 1/52 = 16/52. We subtract the intersection to avoid double-counting the King of Spades.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Combining Probabilities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Worked Example: <span class="hl">Complement Rule</span></h2>
+          <ul><li>Experiment: Rolling a fair die. S = {1, 2, 3, 4, 5, 6}.</li><li>Event E: Getting a 6. P(E) = 1/6.</li><li>Event E': Not getting a 6. E' = {1, 2, 3, 4, 5}.</li><li>P(E') = 1 - P(E) = 1 - 1/6 = 5/6.</li></ul>
+          <p class="notes">🎙️ The complement rule is very powerful, especially when it's easier to calculate the probability of an event *not* happening than the event itself.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span></div><div class="vcap">Not a 6!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check: <span class="hl">Applying Theorems</span></h2>
-          <ul><li>A bag contains 5 red and 3 blue balls. A ball is drawn at random.</li><li>What is the probability that the ball drawn is NOT red?</li><li>Use the complementary event concept.</li></ul>
-          <p class="notes">🎙️ Consider the total number of balls and the number of red balls. Then, think about how to find the probability of 'not red' using the complementary rule.</p>
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Quick Check</span> 3: Axiomatic Probability</h2>
+          <ul><li>If P(A) = 0.6, P(B) = 0.3, and P(A ∩ B) = 0.2.</li><li>Find P(A ∪ B).</li></ul>
+          <p class="notes">🎙️ Apply the General Addition Rule we just discussed. Remember to account for any overlap between events A and B.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Quick Check</span> 4: Problem Solving</h2>
+          <ul><li>A bag contains 5 red, 3 blue, and 2 green balls.</li><li>What is the probability of drawing a red OR a blue ball?</li></ul>
+          <p class="notes">🎙️ First, find the total number of balls. Then, identify the favorable outcomes for drawing a red ball and a blue ball. Are these events mutually exclusive?</p>
         </div>
         
       </div>
@@ -323,36 +377,48 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2><span class="hl">Common Mistakes</span> in Probability</h2>
-          <ul><li>Incorrectly identifying sample space (e.g., HT vs TH).</li><li>Forgetting to subtract intersection in Addition Theorem.</li><li>Assuming events are mutually exclusive when they are not.</li><li>Using P(E) &gt; 1 or P(E) &lt; 0.</li></ul>
-          <p class="notes">🎙️ These errors frequently cost marks in exams. Always double-check your sample space, event definitions, and ensure your probabilities fall within the valid range of 0 to 1.</p>
+          <span class="num">27 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> in Probability</h2>
+          <ul><li>Incorrectly identifying the Sample Space (S).</li><li>Double-counting outcomes in non-mutually exclusive events.</li><li>Confusing P(A') with P(A).</li><li>Assuming outcomes are equally likely when they are not.</li></ul>
+          <p class="notes">🎙️ Pay close attention to these common pitfalls. A small error in defining the sample space or applying the wrong formula can lead to incorrect results.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Be Careful!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid These!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Exam Tips</span> &amp; Strategy for Probability</h2>
+          <ul><li>Read questions carefully to identify the experiment and event.</li><li>Systematically list sample space (if small) or its size.</li><li>Clearly define events and use correct formulas.</li><li>Practice diverse problems to master concepts.</li></ul>
+          <p class="notes">🎙️ For CBSE exams, clarity in defining events and showing your steps is crucial. Understanding the underlying concepts, not just memorizing formulas, will help you tackle complex problems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Ace Your Exams!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Essential Concepts</h2>
-          <ul><li>Random Experiment, Outcome, Sample Space.</li><li>Event: Subset of Sample Space.</li><li>Types of Events: Mutually Exclusive, Exhaustive.</li><li>Classical and Axiomatic Probability Definitions.</li><li>Key Theorems: Addition, Complementary Event.</li></ul>
-          <p class="notes">🎙️ We've covered a lot of ground today! Remember these core definitions and formulas. A strong grasp of these fundamentals is key to solving complex probability problems.</p>
+          <span class="num">29 / 30</span>
+          <h2>Quick Check 5: <span class="hl">Challenge</span> Question</h2>
+          <ul><li>Two fair dice are rolled. What is the probability that the sum of the numbers is 7?</li><li>List the favorable outcomes.</li></ul>
+          <p class="notes">🎙️ Remember the sample space for rolling two dice has 36 outcomes. Systematically list the pairs that sum to 7 to find the favorable outcomes.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Exam Focus</span> &amp; Next Steps</h2>
-          <ul><li>Practice problems from NCERT and reference books.</li><li>Pay attention to 'at least', 'at most' type questions.</li><li>Understand the difference between 'with replacement' and 'without replacement'.</li><li>Master conditional probability and Bayes' Theorem (upcoming topics).</li></ul>
-          <p class="notes">🎙️ Probability is a scoring chapter, but it requires consistent practice. Make sure you understand the nuances of problem statements. This foundation will be vital for future topics like conditional probability.</p>
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Probability quantifies uncertainty in Random Experiments.</li><li>Sample Space (S) = all outcomes; Event (E) = subset of S.</li><li>Types of Events: Simple, Compound, Mutually Exclusive, Exhaustive, Impossible, Sure.</li><li>Axiomatic Probability (0 ≤ P(E) ≤ 1, P(S)=1, Addition Rule).</li></ul>
+          <p class="notes">🎙️ We've covered the fundamental concepts of probability today. These building blocks will be essential as you delve deeper into more advanced topics in statistics and probability.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Probability Essentials</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

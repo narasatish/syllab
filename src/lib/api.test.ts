@@ -90,7 +90,7 @@ describe('API Layer', () => {
           }, 10);
         });
       });
-      global.fetch = mockFetch;
+      global.fetch = mockFetch as unknown as typeof fetch;
 
       await expect(askTutor('test', [], 100)).rejects.toThrow();
     });

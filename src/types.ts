@@ -5,6 +5,7 @@ export type Subject =
   | "Mathematics"
   | "Science"
   | "English"
+  | "Social Science"
   | "The World Around Us"
   | "Financial Literacy";
 export type ClassLevel = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12";

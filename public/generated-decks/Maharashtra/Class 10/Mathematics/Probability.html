@@ -54,15 +54,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to the World of <span class="hl">Probability</span>!</h2>
-          <ul><li>What are the chances?</li><li>Let's explore uncertainty in numbers!</li></ul>
-          <p class="notes">🎙️ Greetings, everyone! Today, we're going to embark on an exciting journey into the world of Probability. Have you ever wondered about the chances of something happening? We'll learn how to measure that.</p>
+          <span class="num">1 / 30</span>
+          <h2>Unlocking the World of <span class="hl">Probability</span>!</h2>
+          <ul><li>Understand the language of chance</li><li>Predicting the unpredictable</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we're going to explore a fascinating branch of mathematics called Probability. It's all about understanding chance and making predictions!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Will it <span class="hl">rain</span> today?</h2>
+          <ul><li>How certain are you?</li><li>What factors influence your guess?</li></ul>
+          <p class="notes">🎙️ Every day, we make predictions. Will India win the match? Will I get good marks? Probability helps us quantify how likely these events are. Let's see how!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today!</h2>
+          <ul><li>Define Random Experiment, Outcome, Sample Space, and Event.</li><li>Calculate the probability of an event using the formula.</li><li>Understand different types of events and their properties.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to confidently talk about chance, understand key terms, and calculate probabilities for various situations.</p>
         </div>
         
       </div>
@@ -71,70 +101,238 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
+          <span class="num">4 / 30</span>
           <h2>What is <span class="hl">Probability</span>?</h2>
-          <ul><li>It's a measure of how likely an event is to occur.</li><li>Expressed as a number between 0 and 1.</li><li>0 means impossible, 1 means certain.</li></ul>
-          <p class="notes">🎙️ Probability helps us quantify uncertainty. It tells us how often we can expect an event to happen if we repeat an experiment many times, giving us a numerical value for its likelihood.</p>
+          <ul><li>The measure of how likely an event is to occur.</li><li>Deals with uncertainty and chance.</li></ul>
+          <p class="notes">🎙️ Imagine a cricket match coin toss. You don't know if it's heads or tails, but you know there's a chance for both. Probability gives us a number for that chance.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Likelihood Scale</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Measuring Likelihood</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Key Terms: <span class="hl">Experiment</span> &amp; Outcome</h2>
-          <ul><li>Experiment: An action with well-defined results.</li><li>Outcome: A possible result of an experiment.</li><li>Example: Tossing a coin is an experiment. Getting Heads is an outcome.</li></ul>
-          <p class="notes">🎙️ To understand probability, we first need to define what we are observing. An experiment is any activity where we can clearly list all possible results, and each result is called an outcome.</p>
+          <span class="num">5 / 30</span>
+          <h2>Understanding "<span class="hl">Chance</span>"</h2>
+          <ul><li>Everyday situations where outcomes are not fixed.</li><li>From weather forecasts to winning a lottery.</li></ul>
+          <p class="notes">🎙️ Think about guessing the answer in a multiple-choice quiz. There's a 'chance' you'll pick the right one. Probability helps us put a numerical value to that 'chance'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪙</div><div class="vcap">Coin Toss</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Roll of the Dice</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Key Terms: <span class="hl">Sample Space</span> (S)</h2>
-          <ul><li>The set of all possible outcomes of an experiment.</li><li>Represented by 'S' or 'Ω' (Omega).</li><li>Example: Tossing a coin: S = {Heads, Tails}.</li></ul>
-          <p class="notes">🎙️ When you perform an experiment, there's a list of every single thing that could happen. This complete list of all possible outcomes is called the sample space, and it's crucial for calculating probability.</p>
+          <span class="num">6 / 30</span>
+          <h2><span class="hl">Random Experiment</span></h2>
+          <ul><li>An experiment where all possible outcomes are known.</li><li>But the exact outcome cannot be predicted beforehand.</li></ul>
+          <p class="notes">🎙️ Flipping a coin is a random experiment. You know it will be heads or tails, but you can't say for sure which one before you flip it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➡️</span><span>➡️</span></div><div class="vcap">All Possible Paths</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Unpredictable Outcome</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Key Terms: <span class="hl">Event</span> (E)</h2>
-          <ul><li>A subset of the sample space.</li><li>A collection of one or more outcomes.</li><li>Example: Getting a 'Head' when tossing a coin is an event.</li></ul>
-          <p class="notes">🎙️ An event is simply what we are interested in observing. It's a specific outcome or a group of outcomes from our sample space, forming a part of the total possibilities.</p>
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Outcome</span></h2>
+          <ul><li>A single result of a random experiment.</li><li>What actually happens when you perform the experiment.</li></ul>
+          <p class="notes">🎙️ If you flip a coin, getting a 'Head' is one outcome. If you roll a die, getting a '3' is an outcome. Each distinct result is an outcome.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Specific Outcome</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">A Single Result</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Types of Events: <span class="hl">Certain</span> Event</h2>
-          <ul><li>An event that is sure to happen.</li><li>Its probability is 1 (or 100%).</li><li>Example: The sun will rise tomorrow.</li></ul>
-          <p class="notes">🎙️ A certain event is one that will always occur. There's no doubt about it, and its probability is the highest possible value, which is 1, indicating absolute certainty.</p>
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Sample Space</span> (S)</h2>
+          <ul><li>The set of ALL possible outcomes of a random experiment.</li><li>Represented by 'S'.</li></ul>
+          <p class="notes">🎙️ For a coin toss, the sample space S contains {Head, Tail}. It's like listing every single thing that could possibly happen.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Always Happens</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">All Possibilities</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Types of Events: <span class="hl">Impossible</span> Event</h2>
-          <ul><li>An event that cannot happen.</li><li>Its probability is 0.</li><li>Example: Rolling a 7 on a standard six-sided die.</li></ul>
-          <p class="notes">🎙️ An impossible event is the opposite of a certain event. It's something that can never occur in a given experiment, and its probability is 0, meaning there's no chance of it happening.</p>
+          <span class="num">9 / 30</span>
+          <h2>Sample Space: <span class="hl">Two Coins</span></h2>
+          <ul><li>Experiment: Tossing two coins simultaneously.</li><li>Possible outcomes: HH, HT, TH, TT.</li></ul>
+          <p class="notes">🎙️ When tossing two coins, remember to list all combinations carefully. It's not just two heads or two tails; the order matters if the coins are distinct or tossed one after another.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span></div><div class="vcap">HH, HT, TH, TT</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Sample Space: <span class="hl">Rolling a Die</span></h2>
+          <ul><li>Experiment: Rolling a standard six-sided die.</li><li>Possible outcomes: 1, 2, 3, 4, 5, 6.</li></ul>
+          <p class="notes">🎙️ A standard die has six faces, each showing a number from 1 to 6. So, the sample space for rolling one die is simply the set of these six numbers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span></div><div class="vcap">1, 2, 3, 4, 5, 6</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">n(S)</span>: Number of Sample Points</h2>
+          <ul><li>The total count of distinct outcomes in the sample space.</li><li>Represented as n(S).</li></ul>
+          <p class="notes">🎙️ For a single coin toss, S = {H, T}, so n(S) = 2. For rolling a die, S = {1, 2, 3, 4, 5, 6}, so n(S) = 6. It's simply the size of your sample space.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Total Count</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the sample space S and n(S) for picking a card from a deck of 52 cards?</li><li>What is n(S) for tossing three coins?</li></ul>
+          <p class="notes">🎙️ Take a moment to think about these. Remember, the sample space lists all possible outcomes, and n(S) is simply how many there are.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2><span class="hl">Event</span> (E)</h2>
+          <ul><li>A specific outcome or a set of desired outcomes.</li><li>It is a subset of the Sample Space (S).</li></ul>
+          <p class="notes">🎙️ In a game, an 'event' might be getting a specific number on a die to move your piece. It's what you are interested in happening.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Desired Outcome</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">n(E)</span>: Number of Event Outcomes</h2>
+          <ul><li>The count of outcomes that satisfy the conditions of the event.</li><li>Represented as n(E).</li></ul>
+          <p class="notes">🎙️ If the event is 'getting an even number' when rolling a die, then E = {2, 4, 6}. So, n(E) would be 3. It's the number of ways your event can occur.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Count of Favorable Outcomes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Event Example: <span class="hl">Even Number</span></h2>
+          <ul><li>Experiment: Rolling a single die.</li><li>Sample Space S = {1, 2, 3, 4, 5, 6}, n(S) = 6.</li><li>Event E: Getting an even number.</li></ul>
+          <p class="notes">🎙️ Here, our desired outcomes are 2, 4, and 6. So, E = {2, 4, 6}. Counting these, we find n(E) = 3. Simple, right?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>2️⃣</span><span>2️⃣</span><span>2️⃣</span></div><div class="vcap">{2, 4, 6}</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Event Example: <span class="hl">Prime Number</span></h2>
+          <ul><li>Experiment: Rolling a single die.</li><li>Sample Space S = {1, 2, 3, 4, 5, 6}, n(S) = 6.</li><li>Event E: Getting a prime number.</li></ul>
+          <p class="notes">🎙️ Remember, prime numbers are numbers greater than 1 that have only two factors: 1 and themselves. So, for a die, the prime numbers are 2, 3, and 5. This gives us n(E) = 3.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>7️⃣</span><span>7️⃣</span><span>7️⃣</span></div><div class="vcap">{2, 3, 5}</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>For tossing two coins, what is the event 'getting at least one head' and its n(E)?</li><li>For rolling a die, what is the event 'getting a number greater than 4' and its n(E)?</li></ul>
+          <p class="notes">🎙️ Carefully list the outcomes for each event based on the respective sample spaces. 'At least one head' means one head or two heads.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Defining Probability: The <span class="hl">Formula</span>!</h2>
+          <ul><li>Probability of an Event P(E) = n(E) / n(S)</li><li>It's the ratio of favorable outcomes to total outcomes.</li></ul>
+          <p class="notes">🎙️ This is the most important formula in probability! It tells us how likely an event is by comparing how many ways it can happen to how many total possibilities there are.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Favorable / Total</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Worked Example: Probability of <span class="hl">Heads</span></h2>
+          <ul><li>Experiment: Tossing a single coin.</li><li>Event E: Getting a Head.</li></ul>
+          <p class="notes">🎙️ Step 1: S = {H, T}, n(S) = 2. Step 2: E = {H}, n(E) = 1. Step 3: P(E) = 1/2. This means there's a 50% chance of getting a head.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Find S and n(S)</span></div><div class="step"><span class="snum">2</span><span>2. Find E and n(E)</span></div><div class="step"><span class="snum">3</span><span>3. Apply P(E) = n(E)/n(S)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Worked Example: Probability of <span class="hl">Even Number</span></h2>
+          <ul><li>Experiment: Rolling a single die.</li><li>Event E: Getting an even number.</li></ul>
+          <p class="notes">🎙️ Step 1: S = {1, 2, 3, 4, 5, 6}, n(S) = 6. Step 2: E = {2, 4, 6}, n(E) = 3. Step 3: P(E) = 3/6 = 1/2. Again, a 50% chance!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Find S and n(S)</span></div><div class="step"><span class="snum">2</span><span>2. Find E and n(E)</span></div><div class="step"><span class="snum">3</span><span>3. Apply P(E) = n(E)/n(S)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Properties</span> of Probability</h2>
+          <ul><li>The probability of any event E is always between 0 and 1 (inclusive).</li><li>0 ≤ P(E) ≤ 1.</li></ul>
+          <p class="notes">🎙️ A probability of 0 means the event is impossible, and 1 means it's certain. You'll never get a probability like -0.5 or 1.2. Always check your answers!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Probability Scale</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2><span class="hl">Certain Event</span> (Sure Event)</h2>
+          <ul><li>An event that is guaranteed to happen.</li><li>Its probability is 1.</li></ul>
+          <p class="notes">🎙️ The event 'the sun will rise from the East tomorrow' is a certain event. P(E) = 1. The event E is equal to the sample space S.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Guaranteed to Happen</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Impossible Event</span></h2>
+          <ul><li>An event that cannot happen.</li><li>Its probability is 0.</li></ul>
+          <p class="notes">🎙️ The event 'rolling a 7 on a standard six-sided die' is an impossible event. P(E) = 0. The event E is an empty set.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Cannot Happen</div></div></div>
       </div>
@@ -143,82 +341,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Types of Events: <span class="hl">Elementary</span> Event</h2>
-          <ul><li>An event with only one outcome.</li><li>Also called a simple event.</li><li>Example: Getting a '3' when rolling a single die.</li></ul>
-          <p class="notes">🎙️ An elementary event is the most basic kind of event. It consists of just one specific result from the experiment, making it a single point in the sample space.</p>
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">Complementary</span> Events</h2>
+          <ul><li>If E is an event, then 'not E' (denoted as E' or Eᶜ) is its complementary event.</li><li>P(E) + P(E') = 1, or P(E') = 1 - P(E).</li></ul>
+          <p class="notes">🎙️ If the probability of rain is 0.3, then the probability of 'not rain' is 1 - 0.3 = 0.7. These two events cover all possibilities and sum up to 1.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>1️⃣</span></div><div class="vcap">Single Outcome</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Types of Events: <span class="hl">Complementary</span> Event (E')</h2>
-          <ul><li>The event that 'E does not happen'.</li><li>P(E) + P(E') = 1.</li><li>Example: If E is getting Heads, E' is getting Tails.</li></ul>
-          <p class="notes">🎙️ A complementary event includes all the outcomes that are not in the original event. The probabilities of an event and its complement always add up to 1, representing all possible outcomes.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">P(E)</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">P(E')</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>The Probability <span class="hl">Formula</span></h2>
-          <ul><li>P(E) = (Number of favourable outcomes) / (Total number of outcomes in S)</li><li>Remember: Favourable means what we want to happen!</li></ul>
-          <p class="notes">🎙️ This is the core formula for calculating probability. We simply divide the number of ways our desired event can happen by the total number of possible outcomes in the sample space.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Ratio for Probability</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Probability <span class="hl">Range</span>: 0 to 1</h2>
-          <ul><li>The probability of any event E is always between 0 and 1.</li><li>0 ≤ P(E) ≤ 1.</li><li>A probability cannot be negative or greater than 1.</li></ul>
-          <p class="notes">🎙️ It's very important to remember that all probabilities must fall within this range. If you calculate a probability outside of 0 and 1, you know you've made a mistake in your calculation.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Impossible (0)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Likely (0.5)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Certain (1)</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Worked Example: <span class="hl">Coin Toss</span></h2>
-          <ul><li>Experiment: Tossing a fair coin.</li><li>Sample Space (S) = {Heads, Tails}, n(S) = 2.</li><li>Event (E): Getting a Head. Favourable outcomes = {Heads}, n(E) = 1.</li><li>P(E) = n(E) / n(S) = 1 / 2.</li></ul>
-          <p class="notes">🎙️ Let's apply our formula. For a coin toss, there are two equally likely outcomes. If we want a Head, there's only one way to get it, so the probability is a clear 1/2.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span></div><div class="vcap">Two Outcomes</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Worked Example: <span class="hl">Dice Roll</span></h2>
-          <ul><li>Experiment: Rolling a standard six-sided die.</li><li>Sample Space (S) = {1, 2, 3, 4, 5, 6}, n(S) = 6.</li><li>Event (E): Getting an even number. Favourable outcomes = {2, 4, 6}, n(E) = 3.</li><li>P(E) = n(E) / n(S) = 3 / 6 = 1 / 2.</li></ul>
-          <p class="notes">🎙️ With a die, we have six possible outcomes. If we're looking for an even number, we can count how many of those outcomes fit our criteria, leading to a probability of 1/2.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span></div><div class="vcap">Six Faces</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Event E</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Not E (E')</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Quick <span class="hl">Question</span> 1</h2>
-          <ul><li>What is the probability of picking a red ball from a bag containing 5 red and 5 blue balls?</li><li>(a) 1/5</li><li>(b) 1/2</li><li>(c) 5/10</li><li>(d) Both (b) and (c)</li></ul>
-          <p class="notes">🎙️ Take a moment to think about the total number of balls and the number of red balls. Use the probability formula we just learned to find the correct answer.</p>
+          <span class="num">25 / 30</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>A bag contains 3 red and 2 blue balls. What is the probability of drawing a red ball?</li><li>What is the probability of not drawing a red ball?</li></ul>
+          <p class="notes">🎙️ First, find n(S). Then, find n(E) for drawing a red ball. Use the formula. For the second part, you can use the complementary event concept.</p>
         </div>
         
       </div>
@@ -227,58 +365,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Quick <span class="hl">Question</span> 2</h2>
-          <ul><li>If P(E) = 0.7, what is P(E')?</li><li>(a) 0.3</li><li>(b) 0.7</li><li>(c) 1</li><li>(d) 0</li></ul>
-          <p class="notes">🎙️ Remember the relationship between an event and its complementary event. Their probabilities always add up to a specific value, which is key to solving this.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Worked Example: <span class="hl">Deck of Cards</span></h2>
-          <ul><li>Experiment: Drawing one card from a well-shuffled deck of 52 cards.</li><li>Sample Space (S): 52 cards, n(S) = 52.</li><li>Event (E): Drawing a King. Favourable outcomes = {4 Kings}, n(E) = 4.</li><li>P(E) = n(E) / n(S) = 4 / 52 = 1 / 13.</li></ul>
-          <p class="notes">🎙️ A standard deck has 52 cards. There are 4 suits, and each suit has one King. So, there are 4 Kings in total, making the probability of drawing one 4/52.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span></div><div class="vcap">Four Kings</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Worked Example: <span class="hl">Marbles</span> in a Bag</h2>
-          <ul><li>A bag contains 3 red, 2 blue, and 5 green marbles.</li><li>Total marbles (S) = 3 + 2 + 5 = 10, n(S) = 10.</li><li>Event (E1): Picking a red marble. n(E1) = 3. P(E1) = 3/10.</li><li>Event (E2): Picking a green marble. n(E2) = 5. P(E2) = 5/10 = 1/2.</li></ul>
-          <p class="notes">🎙️ Here, we first find the total number of marbles. Then, for each event, we count the number of marbles that satisfy the condition and apply our probability formula.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟢</span><span>🟢</span><span>🟢</span><span>🟢</span><span>🟢</span></div><div class="vcap">Green Marbles</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Worked Example: <span class="hl">Days</span> of the Week</h2>
-          <ul><li>Experiment: Randomly choosing a day of the week.</li><li>Sample Space (S) = {Mon, Tue, Wed, Thu, Fri, Sat, Sun}, n(S) = 7.</li><li>Event (E): Choosing a day starting with 'S'. Favourable outcomes = {Saturday, Sunday}, n(E) = 2.</li><li>P(E) = n(E) / n(S) = 2 / 7.</li></ul>
-          <p class="notes">🎙️ When considering days of the week, remember there are 7 distinct days. We then count how many of them fit our criteria, like starting with the letter 'S', to find the probability.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">Calendar Days</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Quick <span class="hl">Question</span> 3</h2>
-          <ul><li>What is the probability of getting an odd number when rolling a single die?</li><li>(a) 1/6</li><li>(b) 1/3</li><li>(c) 1/2</li><li>(d) 2/3</li></ul>
-          <p class="notes">🎙️ Think about the numbers on a die that are odd. How many are there, and what's the total number of outcomes? This will help you find the correct probability.</p>
+          <span class="num">26 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span></h2>
+          <ul><li>Incorrectly identifying Sample Space (S) or Event (E).</li><li>Calculation errors (e.g., simplifying fractions wrong).</li><li>Stating probability values outside the range [0, 1].</li></ul>
+          <p class="notes">🎙️ Always double-check your list of all possible outcomes and your desired outcomes. Ensure your final answer is a fraction or decimal between 0 and 1.</p>
         </div>
         
       </div>
@@ -287,10 +377,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Question</span> 4</h2>
-          <ul><li>Which of these cannot be a probability?</li><li>(a) 0.5</li><li>(b) 1.2</li><li>(c) 0</li><li>(d) 1</li></ul>
-          <p class="notes">🎙️ Recall the range within which all probabilities must lie. This is a very important rule to remember and will quickly tell you which option is incorrect.</p>
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Exam Tips</span> for Probability</h2>
+          <ul><li>Clearly list S and E with n(S) and n(E) for full marks.</li><li>Show all steps, especially the formula P(E) = n(E)/n(S).</li><li>Simplify fractions to their lowest terms.</li></ul>
+          <p class="notes">🎙️ Examiners look for clear, logical steps. Even if your final answer is wrong, you can get partial marks for correctly identifying S, E, n(S), and n(E).</p>
         </div>
         
       </div>
@@ -299,58 +389,34 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Probability in <span class="hl">Real Life</span></h2>
-          <ul><li>Weather Forecasting: Chance of rain.</li><li>Sports: Predicting game outcomes.</li><li>Insurance: Calculating risks.</li><li>Medical Diagnosis: Likelihood of a disease.</li></ul>
-          <p class="notes">🎙️ Probability isn't just for textbooks! It's used every day in various fields to make informed decisions and understand risks. From predicting the weather to medical research, it's everywhere.</p>
+          <span class="num">28 / 30</span>
+          <h2>Worked Example: Drawing a <span class="hl">King</span></h2>
+          <ul><li>Experiment: Drawing one card from a well-shuffled deck of 52 cards.</li><li>Event E: Drawing a King.</li></ul>
+          <p class="notes">🎙️ A standard deck has 52 cards, so n(S) = 52. There are 4 Kings (King of Spades, Hearts, Diamonds, Clubs), so n(E) = 4. P(E) = 4/52 = 1/13.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Applications</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Find S and n(S)</span></div><div class="step"><span class="snum">2</span><span>2. Find E and n(E)</span></div><div class="step"><span class="snum">3</span><span>3. Calculate P(E)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Common <span class="hl">Misconceptions</span></h2>
-          <ul><li>"Gambler's Fallacy": Believing past events affect future independent ones.</li><li>Small Sample Size: Assuming probability holds true in very few trials.</li></ul>
-          <p class="notes">🎙️ It's easy to fall into traps when thinking about probability. Remember that independent events don't 'remember' what happened before, and probability describes long-term trends, not necessarily short bursts.</p>
+          <span class="num">29 / 30</span>
+          <h2>Worked Example: Bag of <span class="hl">Balls</span></h2>
+          <ul><li>A bag contains 5 red, 3 blue, and 2 green balls.</li><li>Event E: Drawing a blue ball.</li></ul>
+          <p class="notes">🎙️ Total balls n(S) = 5+3+2 = 10. Number of blue balls n(E) = 3. So, P(E) = 3/10. It's crucial to correctly identify the total number of items.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Avoid These Traps</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Summary: Key <span class="hl">Takeaways</span></h2>
-          <ul><li>Probability measures likelihood.</li><li>P(E) = Favourable Outcomes / Total Outcomes.</li><li>0 ≤ P(E) ≤ 1.</li><li>P(E) + P(E') = 1.</li></ul>
-          <p class="notes">🎙️ Let's quickly recap the most important points from today's lesson. If you remember these four key ideas, you've grasped the fundamentals of probability and are ready for more complex problems.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Define Experiment &amp; S</span></div><div class="step"><span class="snum">2</span><span>Identify Event E &amp; n(E)</span></div><div class="step"><span class="snum">3</span><span>Apply Formula</span></div><div class="step"><span class="snum">4</span><span>Check Range</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Practice</span> Problem</h2>
-          <ul><li>A box contains 90 discs numbered 1 to 90.</li><li>If one disc is drawn at random, find the probability that it bears:</li><li>(i) a two-digit number</li><li>(ii) a perfect square number</li></ul>
-          <p class="notes">🎙️ This problem requires you to identify the total outcomes, then carefully count the favourable outcomes for each part. Take your time to solve this and apply all the concepts we learned.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Numbered Discs</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Find S and n(S)</span></div><div class="step"><span class="snum">2</span><span>2. Find E and n(E)</span></div><div class="step"><span class="snum">3</span><span>3. Calculate P(E)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Thank <span class="hl">You</span>!</h2>
-          <ul><li>Keep practicing probability!</li><li>It's a foundational concept in mathematics and real life.</li></ul>
-          <p class="notes">🎙️ That brings us to the end of our lesson on Probability. I hope you found it clear and engaging. Keep exploring and applying these concepts – the more you practice, the better you'll become!</p>
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways!</h2>
+          <ul><li>Probability measures the likelihood of an event.</li><li>P(E) = n(E) / n(S).</li><li>0 ≤ P(E) ≤ 1, where P(E)=0 for impossible and P(E)=1 for certain events.</li></ul>
+          <p class="notes">🎙️ Today, we learned the core concepts of probability, from understanding random experiments to calculating the chances of an event. Keep practicing, and you'll master it!</p>
         </div>
         
       </div>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

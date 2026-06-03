@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Agriculture: The Lifeline of India — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Agriculture: The <span class="hl">Lifeline</span> of India</h2>
+          <ul><li>Class: 10th Social Science</li><li>Chapter: Agriculture</li><li>Board: CBSE</li></ul>
+          <p class="notes">🎙️ Welcome, students! Today, we embark on a fascinating journey to understand agriculture, a sector that is truly the lifeline of our incredible nation, India. Get ready to explore how food reaches your plate!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Your Daily Meal: A <span class="hl">Farmer's Journey</span> 🍚</h2>
+          <ul><li>Think about your breakfast, lunch, or dinner.</li><li>Where do the rice, wheat, vegetables, or milk come from?</li><li>It all begins with a farmer, working tirelessly on their land.</li></ul>
+          <p class="notes">🎙️ Every morsel of food you eat has a story, a journey from the farm to your table. This journey is made possible by millions of farmers across India, who are the backbone of our food security.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span></div><div class="vcap">Food on your plate!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Learn Today</span></h2>
+          <ul><li>Understand the importance and types of farming in India.</li><li>Explore major cropping seasons and key crops.</li><li>Identify challenges and the significance of agriculture for India.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll have a comprehensive understanding of India's agricultural landscape, from the different ways farmers cultivate land to the various crops that sustain our population.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>The Art of Growing: What is <span class="hl">Agriculture</span>? 🧑‍🌾</h2>
+          <ul><li>Imagine growing a small kitchen garden with herbs and vegetables.</li><li>Agriculture is similar, but on a much larger scale!</li><li>It's the science and art of cultivating soil, raising crops, and rearing livestock.</li></ul>
+          <p class="notes">🎙️ Just like you might tend to a small plant, agriculture involves carefully preparing the land, planting seeds, nurturing them, and harvesting food. It also includes raising animals for food or other products.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🌾</div><div class="vcap">Cultivating the land</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Why Agriculture <span class="hl">Matters</span> to India 💰</h2>
+          <ul><li>**Food Security:** Feeds over 1.4 billion people daily.</li><li>**Employment:** Provides livelihoods to nearly 50% of India's population.</li><li>**Economic Backbone:** Contributes significantly to India's GDP and exports.</li></ul>
+          <p class="notes">🎙️ Agriculture isn't just about food; it's the foundation of our economy and society. It ensures that every Indian has access to food, provides jobs to a vast number of people, and earns foreign exchange for the country.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Economic Impact</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Quick Check: <span class="hl">Importance</span>!</h2>
+          <ul><li>Which of the following is NOT a primary reason for agriculture's importance in India?</li><li>A) Food security for the population</li><li>B) Providing raw materials for industries</li><li>C) Generating significant foreign tourism revenue</li><li>D) Livelihood for a large percentage of the population</li></ul>
+          <p class="notes">🎙️ Take a moment to think about the multiple roles agriculture plays. Can you identify the option that doesn't directly relate to its core importance?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Farming for Survival: <span class="hl">Primitive Subsistence</span> 🛖</h2>
+          <ul><li>Imagine a small family farming only enough food for themselves.</li><li>This is 'Primitive Subsistence Farming' - oldest form of agriculture.</li><li>Practiced on small patches of land with simple tools and family labour.</li></ul>
+          <p class="notes">🎙️ Primitive subsistence farming is often seen in isolated communities. It's about self-sufficiency, where the entire output is consumed by the farming family, with little or no surplus for sale.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛖</div><div class="vcap">Small family farm</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Slash and Burn</span>: Features of Primitive Farming 🔥</h2>
+          <ul><li>Farmers clear a patch of land by felling trees and burning vegetation.</li><li>Ash adds nutrients to the soil for a few years.</li><li>When soil fertility decreases, they abandon the land and move to a new patch.</li></ul>
+          <p class="notes">🎙️ This 'slash and burn' method, also known as 'Jhumming' in India, is environmentally sensitive as it leads to deforestation. It relies entirely on monsoon, natural fertility, and environmental suitability.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Clear Land</span></div><div class="step"><span class="snum">2</span><span>Cultivate</span></div><div class="step"><span class="snum">3</span><span>Move On</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Primitive Farming: <span class="hl">Where in India</span>? 🗺️</h2>
+          <ul><li>Mainly practiced by tribal communities in remote areas.</li><li>Found in North-Eastern states like Assam, Meghalaya, Mizoram, Nagaland.</li><li>Also in parts of Manipur, Andhra Pradesh, and Madhya Pradesh.</li></ul>
+          <p class="notes">🎙️ These regions often have dense forests and a strong reliance on traditional farming methods. The local names for Jhumming vary, such as 'Bewar' or 'Dahiya' in Madhya Pradesh, and 'Podu' or 'Penda' in Andhra Pradesh.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Regions in India</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Farming for Many: <span class="hl">Intensive Subsistence</span> 👨‍👩‍👧‍👦</h2>
+          <ul><li>Imagine a family with a small plot, but many mouths to feed.</li><li>This farming aims to produce maximum output from a small area.</li><li>Prevalent in densely populated regions of India.</li></ul>
+          <p class="notes">🎙️ Intensive subsistence farming is a characteristic of countries like India, where landholdings are often small due to inheritance laws, and the population pressure is high. Farmers work hard to get the most from their land.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span></div><div class="vcap">Many people, small land</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Maximising Output</span>: Features of Intensive Farming ⬆️</h2>
+          <ul><li>High doses of biochemical inputs (fertilizers, pesticides).</li><li>Irrigation facilities are extensively used.</li><li>Aim is to achieve higher production per unit of land.</li></ul>
+          <p class="notes">🎙️ Unlike primitive farming, intensive farming uses modern inputs to boost yields. This often involves significant investment in seeds, fertilizers, and water management, making it more capital-intensive.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">High production</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Primitive vs. Intensive: A <span class="hl">Comparison</span></h2>
+          <ul><li>Primitive: Small patches, simple tools, family labour, low output.</li><li>Intensive: Small plots, modern inputs, high labour, high output.</li><li>Primitive: Environment-dependent, 'slash and burn'.</li><li>Intensive: Irrigation, fertilizers, focuses on productivity.</li></ul>
+          <p class="notes">🎙️ The key difference lies in the inputs and the purpose. Primitive is for self-sustenance with minimal external help, while intensive aims to feed more people from limited land using advanced techniques.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Primitive Farming</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Intensive Farming</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Farming for Market: <span class="hl">Commercial Agriculture</span> 🛒</h2>
+          <ul><li>Imagine a large farm growing crops specifically to sell in the market.</li><li>This is 'Commercial Farming' - focused on high yields for sale.</li><li>Uses modern inputs like HYV seeds, fertilizers, pesticides, and machinery.</li></ul>
+          <p class="notes">🎙️ Commercial farming is driven by profit. Farmers invest heavily in technology and inputs to maximize production, which is then sold to consumers or industries, both domestically and internationally.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Market-oriented</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>High Tech, <span class="hl">High Yield</span>: Features of Commercial Farming 🚜</h2>
+          <ul><li>High Yielding Variety (HYV) seeds are crucial for increased production.</li><li>Extensive use of chemical fertilizers and insecticides.</li><li>Mechanisation of farming operations (tractors, harvesters).</li></ul>
+          <p class="notes">🎙️ The degree of commercialisation varies from region to region. For example, rice is a commercial crop in Punjab and Haryana, but a subsistence crop in Odisha, showing regional differences in farming practices.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚜</div><div class="vcap">Modern machinery</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Special Commercial Farming: <span class="hl">Plantations</span> ☕</h2>
+          <ul><li>A type of commercial farming where a single crop is grown on a large area.</li><li>Examples: Tea in Assam and North Bengal, Coffee in Karnataka.</li><li>It's an interface of agriculture and industry, with processing often done on-site.</li></ul>
+          <p class="notes">🎙️ Plantations require large capital investment and migrant labour. The produce is primarily used as raw material in various industries, making it a significant contributor to the economy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☕</span><span>☕</span><span>☕</span><span>☕</span><span>☕</span><span>☕</span></div><div class="vcap">Tea and Coffee</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Quick Check: <span class="hl">Farming Types</span>!</h2>
+          <ul><li>Which type of farming is characterized by 'slash and burn' agriculture?</li><li>A) Commercial Farming</li><li>B) Intensive Subsistence Farming</li><li>C) Primitive Subsistence Farming</li><li>D) Plantation Agriculture</li></ul>
+          <p class="notes">🎙️ Recall the unique features of each farming type we discussed. This question tests your understanding of the traditional methods of cultivation.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>India's Farming Calendar: <span class="hl">Cropping Seasons</span> 🗓️</h2>
+          <ul><li>India has three distinct cropping seasons: Rabi, Kharif, and Zaid.</li><li>These seasons are primarily determined by the monsoon and other climatic conditions.</li><li>Each season dictates specific crops that can be grown.</li></ul>
+          <p class="notes">🎙️ Understanding these seasons is crucial because they influence what crops are cultivated, when they are sown, and when they are harvested, directly impacting the country's food supply.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">Agricultural calendar</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Winter Wonders: <span class="hl">Rabi Crops</span> 🌾</h2>
+          <ul><li>**Sowing:** October to December (winter months).</li><li>**Harvesting:** April to June (summer months).</li><li>**Key Crops:** Wheat, barley, peas, gram, mustard.</li><li>**Regions:** Punjab, Haryana, Himachal Pradesh, Jammu &amp; Kashmir, Uttarakhand, Uttar Pradesh.</li></ul>
+          <p class="notes">🎙️ Rabi crops are largely dependent on winter rainfall from western temperate cyclones. The success of these crops, especially wheat, is vital for food security in North India.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span></div><div class="vcap">Rabi Grains</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Monsoon Magic: <span class="hl">Kharif Crops</span> 🌧️</h2>
+          <ul><li>**Sowing:** With the onset of monsoon (June to July).</li><li>**Harvesting:** September to October.</li><li>**Key Crops:** Paddy (rice), maize, jowar, bajra, tur (arhar), moong, urad, cotton, jute, groundnut, soyabean.</li><li>**Regions:** Assam, West Bengal, coastal regions of Odisha, Andhra Pradesh, Telangana, Tamil Nadu, Kerala, Maharashtra, Uttar Pradesh, Bihar.</li></ul>
+          <p class="notes">🎙️ Kharif crops are heavily reliant on the South-West monsoon. A good monsoon season ensures a bountiful harvest, especially of rice, which is a staple food for a large part of India.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌧️</span><span>🌧️</span><span>🌧️</span><span>🌧️</span><span>🌧️</span></div><div class="vcap">Monsoon Crops</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Summer Shorties: <span class="hl">Zaid Crops</span> 🍉</h2>
+          <ul><li>**Sowing:** Short season between Rabi and Kharif (March to June).</li><li>**Key Crops:** Watermelon, muskmelon, cucumber, vegetables, fodder crops.</li><li>**Importance:** Provides quick income to farmers and fresh produce during summer.</li></ul>
+          <p class="notes">🎙️ The Zaid season is a brief but important period for growing crops that mature quickly. It helps farmers utilize their land and irrigation facilities during the hot summer months, diversifying their income.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍉</span><span>🍉</span><span>🍉</span><span>🍉</span></div><div class="vcap">Summer Refreshments</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Seasons Compared</span>: Rabi, Kharif, Zaid</h2>
+          <ul><li>Rabi: Winter sowing, summer harvest (Wheat).</li><li>Kharif: Monsoon sowing, autumn harvest (Rice).</li><li>Zaid: Summer sowing and harvest (Watermelon).</li></ul>
+          <p class="notes">🎙️ This comparison helps us visualize the distinct timing and typical crops associated with each agricultural season in India, driven by climatic patterns.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Rabi</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Kharif</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Zaid</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Quick Check: <span class="hl">Cropping Seasons</span>!</h2>
+          <ul><li>Which of the following is a Zaid crop?</li><li>A) Wheat</li><li>B) Rice</li><li>C) Mustard</li><li>D) Watermelon</li></ul>
+          <p class="notes">🎙️ Think about the short duration and specific types of crops grown during the summer months. This will help you identify the correct answer.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>India's Staple: <span class="hl">Rice Cultivation</span> 🍚</h2>
+          <ul><li>**Conditions:** High temperature (above 25°C), high humidity, annual rainfall above 100 cm.</li><li>**Regions:** Plains of north and north-eastern India, coastal areas, deltaic regions.</li><li>**Significance:** Staple food crop for the majority of Indians, especially in the south and east.</li></ul>
+          <p class="notes">🎙️ Rice is a Kharif crop and India is the second-largest producer of rice in the world after China. Its cultivation requires flooded fields, making monsoon rainfall crucial for its growth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍚</div><div class="vcap">Rice grain</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>North India's Grain: <span class="hl">Wheat Cultivation</span> 🍞</h2>
+          <ul><li>**Conditions:** Cool growing season, bright sunshine at harvest, 50-75 cm annual rainfall.</li><li>**Regions:** Ganga-Satluj plains, north-western parts of India (Punjab, Haryana, UP, MP, Bihar, Rajasthan).</li><li>**Significance:** Second most important cereal crop, staple food in north and north-western India.</li></ul>
+          <p class="notes">🎙️ Wheat is a Rabi crop. The success of the Green Revolution in the 1960s significantly boosted wheat production in India, making the country self-sufficient in this vital grain.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍞</div><div class="vcap">Wheat bread</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Beyond Rice &amp; Wheat: <span class="hl">Millets &amp; Pulses</span> 🌱</h2>
+          <ul><li>**Millets (Jowar, Bajra, Ragi):** Coarse grains, highly nutritious, rain-fed crops.</li><li>**Pulses (Arhar, Moong, Masur, Urad, Gram):** Major source of protein, grown as rotation crops.</li><li>**Significance:** Essential for food security, soil fertility, and nutritional balance.</li></ul>
+          <p class="notes">🎙️ Millets are hardy crops, thriving in dry regions, making them important for farmers in arid areas. Pulses are leguminous plants that help restore soil fertility by fixing nitrogen, making them crucial for sustainable agriculture.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Healthy grains &amp; legumes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Farm to Factory: <span class="hl">Non-Food Crops</span> 🧵</h2>
+          <ul><li>**Cotton:** Kharif crop, requires high temperature, light rainfall, 210 frost-free days.</li><li>**Jute:** Also known as the 'Golden Fibre', requires high temperature, heavy rainfall.</li><li>**Significance:** Raw material for textile industries (cotton) and packaging (jute).</li></ul>
+          <p class="notes">🎙️ These crops are vital for India's industrial sector. Cotton is grown in Maharashtra, Gujarat, MP, Karnataka. Jute is primarily grown in West Bengal, Bihar, Assam, and Odisha, providing livelihoods and supporting industries.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧵</div><div class="vcap">Fibre crops</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Avoid These Pitfalls! <span class="hl">Common Mistakes</span></h2>
+          <ul><li>Confusing Rabi and Kharif crops: Remember 'Rabi = Winter' (Wheat) and 'Kharif = Monsoon' (Rice).</li><li>Misunderstanding 'Primitive' vs 'Intensive': Primitive is basic, Intensive uses more inputs for higher yield.</li><li>Forgetting the 'WHY': Always explain the significance or reason behind a concept, not just the facts.</li></ul>
+          <p class="notes">🎙️ Students often mix up the cropping seasons or the characteristics of different farming types. Pay close attention to the examples and conditions for each to avoid these common errors.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Ace Your Exams! Key Tips for Agriculture</h2>
+          <ul><li>**Map Work:** Practice identifying major crop-producing regions on India's political map.</li><li>**Why/How Questions:** Focus on explaining the reasons (e.g., 'Why is rice a Kharif crop?') and processes (e.g., 'How is Jhumming practiced?').</li><li>**Keywords:** Use terms like 'HYV seeds', 'monsoon', 'irrigation', 'subsistence', 'commercial' in your answers.</li></ul>
+          <p class="notes">🎙️ Agriculture is a high-scoring chapter. Questions often involve map skills, analytical thinking, and direct recall. Make sure you can articulate the 'why' and 'how' behind each agricultural practice and crop.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>What We Learnt: A <span class="hl">Quick Recap</span>!</h2>
+          <ul><li>Agriculture is India's backbone, providing food and livelihoods.</li><li>Farming types: Primitive, Intensive, Commercial, Plantations.</li><li>Cropping seasons: Rabi (winter), Kharif (monsoon), Zaid (summer).</li><li>Major crops: Rice, Wheat, Millets, Pulses, Cotton, Jute.</li></ul>
+          <p class="notes">🎙️ Today, we've covered the vast landscape of Indian agriculture, from the basic practices to modern techniques, and the crucial crops that sustain our nation. Remember these key concepts as they form the foundation of our food system.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>The Future of Farming: <span class="hl">Your Role</span>?</h2>
+          <ul><li>Agriculture faces challenges: climate change, water scarcity, farmer welfare.</li><li>As citizens, how can we support sustainable farming practices?</li><li>What innovations do you think can transform Indian agriculture?</li></ul>
+          <p class="notes">🎙️ Agriculture is not just a subject, but a living, evolving system. It's crucial for all of us to appreciate the efforts of farmers and think about how we can contribute to a more sustainable and prosperous agricultural future for India.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 10 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Food Security in India — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2><span class="hl">Food Security</span> in India: Ensuring Every Plate is Full</h2>
+          <ul><li>Why is food security a critical concern for a developing nation like India?</li><li>How do we ensure access to nutritious food for everyone?</li><li>Explore the challenges and solutions in achieving food security.</li></ul>
+          <p class="notes">🎙️ Welcome to our lesson on Food Security in India. Today, we'll delve into a topic that affects every single person – the availability and accessibility of food. We'll explore why it's so vital for a nation's well-being.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>The Story of <span class="hl">Radha's Family</span>: A Glimpse into Food Insecurity</h2>
+          <ul><li>Radha, a daily wage labourer in rural Bihar, faces uncertainty every monsoon.</li><li>Heavy rains destroy crops, leading to job losses and soaring food prices.</li><li>Her family often goes hungry, struggling to afford even basic rice and lentils.</li><li>This struggle highlights the harsh reality of food insecurity for millions.</li></ul>
+          <p class="notes">🎙️ Imagine Radha's situation. For many, food is not a given; it's a daily battle. This story isn't unique; it reflects the challenges faced by countless families, especially during crises. It's a powerful introduction to why food security is so crucial.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span></div><div class="vcap">Families facing food insecurity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Learn Today!</span></h2>
+          <ul><li>Define Food Security and its three key dimensions.</li><li>Identify the most vulnerable groups suffering from food insecurity.</li><li>Understand the role of government schemes like PDS and Buffer Stock.</li><li>Discover how cooperatives contribute to food security in India.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll have a comprehensive understanding of food security. We'll break down complex ideas into simple, digestible concepts, ensuring you grasp the 'why' and 'how' behind each topic.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>What is <span class="hl">Food Security</span>? Your Family's Pantry Analogy</h2>
+          <ul><li>Imagine your home has a well-stocked pantry, always full of food.</li><li>You can easily reach and afford whatever you need, whenever you need it.</li><li>Food Security means all people, at all times, have physical, social, and economic access to sufficient, safe, and nutritious food.</li><li>It's about ensuring a healthy and active life for everyone.</li></ul>
+          <p class="notes">🎙️ Just like your pantry ensures your family never goes hungry, food security aims to provide this stability for an entire nation. It's not just about having food, but having the right kind of food, consistently.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">A well-stocked pantry</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Dimension 1: Food <span class="hl">Availability</span> - Is There Enough?</h2>
+          <ul><li>Definition: Food production within the country, food imports, and government buffer stocks.</li><li>How it works: Adequate food supply from farms, international trade, and emergency reserves.</li><li>Why it matters: A nation must produce or acquire enough food to feed its population.</li></ul>
+          <p class="notes">🎙️ Availability is the most basic dimension. Are there enough grains, fruits, and vegetables produced? If not, can we import them, or do we have reserves? It's about the sheer quantity of food present in the system.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Crops and Harvest</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Availability in India: The <span class="hl">Green Revolution</span>'s Impact</h2>
+          <ul><li>The Green Revolution (1960s-70s) dramatically increased food grain production in India.</li><li>High-yielding varieties (HYVs) of wheat and rice, better irrigation, and fertilizers were key.</li><li>Result: India moved from food scarcity to self-sufficiency in food grains.</li><li>This ensured a larger 'pool' of food was available nationwide.</li></ul>
+          <p class="notes">🎙️ The Green Revolution is a prime example of how a strategic approach can boost food availability. It transformed India's agricultural landscape, preventing widespread famine and laying the foundation for our current food reserves.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Growth of crops</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Dimension 2: Food <span class="hl">Accessibility</span> - Can Everyone Reach It?</h2>
+          <ul><li>Definition: Food is within reach of every person, physically and geographically.</li><li>How it works: Efficient transport, functional markets, and distribution networks.</li><li>Why it matters: Even if food is available, it's useless if people in remote areas cannot get it.</li></ul>
+          <p class="notes">🎙️ Think of it this way: a warehouse full of food is great, but if the roads are bad or there are no shops nearby, that food might as well not exist for many. Accessibility ensures that food physically reaches all corners of the country.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚚</div><div class="vcap">Food transport</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Accessibility in India: Bridging the <span class="hl">Rural-Urban Divide</span></h2>
+          <ul><li>Remote tribal villages or disaster-struck areas often struggle with physical access.</li><li>Road connectivity, storage facilities, and fair price shops are crucial links.</li><li>Example: Government initiatives to open ration shops in remote areas improve access.</li><li>Despite progress, challenges remain in reaching the 'last mile'.</li></ul>
+          <p class="notes">🎙️ India's vast geography presents unique accessibility challenges. The government and NGOs work tirelessly to ensure food reaches even the most isolated communities, often through initiatives like mobile fair price shops or special relief efforts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Reaching remote areas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Dimension 3: Food <span class="hl">Affordability</span> - Can Everyone Buy It?</h2>
+          <ul><li>Definition: An individual has enough money to buy sufficient, safe, and nutritious food.</li><li>How it works: Stable prices, adequate income, and government subsidies.</li><li>Why it matters: Poverty prevents many from purchasing food, even if it's available and accessible.</li></ul>
+          <p class="notes">🎙️ This dimension addresses the economic barrier. Even if food is available and accessible, if people don't have the money to buy it, they remain food insecure. This is where income levels and government support play a crucial role.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Purchasing power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Affordability in India: The Role of <span class="hl">Subsidies</span></h2>
+          <ul><li>For families below the poverty line (BPL), market prices are often too high.</li><li>Government provides food grains (rice, wheat) at highly subsidised rates through ration shops.</li><li>Example: Under PDS, a BPL family can buy rice at ₹3/kg, much lower than market price.</li><li>This makes essential food items affordable for the poorest sections.</li></ul>
+          <p class="notes">🎙️ Subsidies are a direct intervention to tackle affordability. By reducing the cost of staple foods, the government ensures that economic hardship doesn't translate into hunger for the most vulnerable citizens. It's a lifeline for millions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span></div><div class="vcap">Affordable food grains</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>Why Food Security <span class="hl">Matters</span>: Beyond Just Filling Stomachs</h2>
+          <ul><li>Human Dignity: It's a fundamental human right to have adequate food.</li><li>Health &amp; Nutrition: Prevents malnutrition, stunting, and improves public health.</li><li>Economic Development: A healthy workforce is more productive, boosting growth.</li><li>Social Stability: Reduces unrest and strengthens community resilience during crises.</li></ul>
+          <p class="notes">🎙️ Food security is not just about survival; it's about thriving. It underpins a nation's health, economy, and social fabric. When people are well-fed, they can learn, work, and contribute to society, leading to overall development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🤝‍🧑</div><div class="vcap">Healthy, productive citizens</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Understanding Food Security</h2>
+          <ul><li>Which of the following is NOT a dimension of food security? (A) Availability (B) Affordability (C) Accountability (D) Accessibility</li><li>Why is the Green Revolution significant for food availability in India?</li><li>Give one example of how the government improves food affordability.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Pause and think about these questions. They'll help you consolidate your understanding of the core concepts we've covered so far about the dimensions of food security.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Who are the <span class="hl">Food Insecure</span>? Vulnerability and Hunger</h2>
+          <ul><li>Food insecurity is not evenly distributed; certain groups are more vulnerable.</li><li>It's often linked to poverty, lack of resources, and social exclusion.</li><li>Rural areas: Landless labourers, small farmers, traditional artisans, casual workers.</li><li>Urban areas: Casual labourers, slum dwellers, migrant workers.</li></ul>
+          <p class="notes">🎙️ Understanding *who* is food insecure is crucial for designing effective policies. These are the people who often lack stable income, assets, and social safety nets, making them highly susceptible to hunger and malnutrition.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💔</div><div class="vcap">Vulnerable populations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Vulnerable Groups: <span class="hl">Rural India's Struggle</span></h2>
+          <ul><li>Landless Labourers: Depend on daily wages, highly susceptible to crop failures and unemployment.</li><li>Small &amp; Marginal Farmers: Own tiny plots, vulnerable to weather, market price fluctuations.</li><li>Traditional Artisans: Weavers, potters, often lose livelihood to industrialisation.</li><li>SC/ST/OBCs: Historically disadvantaged, often lack land and stable employment.</li></ul>
+          <p class="notes">🎙️ In rural India, the lack of secure livelihoods and dependence on agriculture makes many highly vulnerable. A bad harvest or a fall in market prices can push entire families into severe food insecurity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🌾</span><span>🧑‍🌾</span><span>🧑‍🌾</span><span>🧑‍🌾</span></div><div class="vcap">Rural workers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Vulnerable Groups: <span class="hl">Urban India's Hidden Hunger</span></h2>
+          <ul><li>Casual Labourers: Daily wage earners, no job security, no social benefits.</li><li>Slum Dwellers: Live in crowded, unsanitary conditions, often migrants with no fixed income.</li><li>Migrant Workers: Often exploited, low wages, lack access to government schemes in new cities.</li><li>Street Vendors/Rag Pickers: Irregular income, constant threat of displacement.</li></ul>
+          <p class="notes">🎙️ Urban areas, despite seeming prosperous, hide significant food insecurity. The urban poor often live precariously, with no safety net. A single illness or job loss can mean going hungry for days.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏙️</span><span>🏙️</span><span>🏙️</span><span>🏙️</span></div><div class="vcap">Urban poor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">Types of Hunger</span>: Seasonal vs. Chronic</h2>
+          <ul><li>Seasonal Hunger: Linked to cycles of food growing and harvesting (e.g., 'lean season').</li><li>Chronic Hunger: Persistent, long-term hunger due to low income and inadequate diet.</li><li>Seasonal is temporary, affects rural labourers during off-season; Chronic is continuous.</li><li>Chronic hunger leads to malnutrition and poor health over time.</li></ul>
+          <p class="notes">🎙️ It's important to distinguish between these two types. Seasonal hunger is cyclical and predictable, often affecting specific occupations. Chronic hunger, however, is a much deeper problem, reflecting systemic poverty and deprivation.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Seasonal Hunger</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Chronic Hunger</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>The <span class="hl">Reality of Hunger</span> in India: A Snapshot</h2>
+          <ul><li>India ranks 111th out of 125 countries in the Global Hunger Index 2023.</li><li>A significant portion of the population, especially children, suffers from malnutrition.</li><li>National Family Health Survey (NFHS-5) shows high rates of stunting and wasting.</li><li>Despite progress, ensuring adequate nutrition for all remains a major challenge.</li></ul>
+          <p class="notes">🎙️ While India has made strides in food production, the statistics on hunger and malnutrition remind us of the persistent challenges. These numbers highlight the urgent need for robust policies and effective implementation to improve nutritional outcomes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Hunger Index</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Vulnerable Groups &amp; Hunger</h2>
+          <ul><li>List two vulnerable groups in rural areas and two in urban areas.</li><li>Explain the difference between seasonal hunger and chronic hunger.</li><li>Why are migrant workers particularly vulnerable to food insecurity?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of who is most affected. These questions help reinforce the social and economic factors that contribute to food insecurity among different segments of our society.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Why <span class="hl">Government Intervention</span>? Ensuring Food for All</h2>
+          <ul><li>Market failures: Private markets don't always ensure food for the poor.</li><li>Social Justice: Food is a basic right, not just a commodity.</li><li>Economic Stability: Prevents social unrest and ensures a healthy workforce.</li><li>Disaster Relief: Government is crucial during famines, droughts, or floods.</li></ul>
+          <p class="notes">🎙️ The government plays an indispensable role because food security is too critical to be left solely to market forces. It steps in to protect the most vulnerable and ensure stability, especially during times of crisis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Government's role</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Government's Strategy: The <span class="hl">Buffer Stock</span> - Our Grain Bank</h2>
+          <ul><li>Definition: Stock of food grains (wheat, rice) procured by the government through FCI.</li><li>Purpose 1: To distribute food grains in deficit areas or among poorer strata.</li><li>Purpose 2: To stabilise food prices during periods of shortage.</li><li>It acts like an emergency reserve, preventing food crises.</li></ul>
+          <p class="notes">🎙️ Think of the buffer stock as a national savings account of food. The government buys grains when there's a surplus, stores them, and releases them when needed, ensuring a steady supply and preventing price hikes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span></div><div class="vcap">Stored food grains</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">FCI</span>: The Backbone of India's Food Management</h2>
+          <ul><li>Established in 1965, FCI is the primary agency for food grain procurement and distribution.</li><li>Procurement: Buys grains from farmers at Minimum Support Price (MSP).</li><li>Storage: Manages vast warehouses across the country to store buffer stock.</li><li>Distribution: Supplies grains to states for Public Distribution System (PDS).</li></ul>
+          <p class="notes">🎙️ FCI is a massive logistical operation. It ensures farmers get a fair price, and then takes on the monumental task of storing and distributing food to millions. It's the engine driving India's food security programs.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Procure from farmers (MSP)</span></div><div class="step"><span class="snum">2</span><span>Store in warehouses</span></div><div class="step"><span class="snum">3</span><span>Distribute to states (PDS)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2><span class="hl">PDS</span>: Fair Price Shops for Food Security</h2>
+          <ul><li>Definition: Government-sponsored network of 'ration shops' or 'Fair Price Shops' (FPS).</li><li>How it works: Distributes essential commodities (rice, wheat, sugar, kerosene) at subsidised prices.</li><li>Targeted beneficiaries: Families identified as Below Poverty Line (BPL) and Above Poverty Line (APL).</li><li>Aims to shield the poor from market price volatility and ensure basic food access.</li></ul>
+          <p class="notes">🎙️ The PDS is perhaps the most visible aspect of India's food security net. It's designed to make essential food items affordable and accessible, particularly for those who can least afford market prices. It's a critical safety net.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏬</div><div class="vcap">Ration shop</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Evolution</span> of PDS: From Universal to Targeted</h2>
+          <ul><li>Early PDS (pre-1992): Universal scheme, available to all without income criteria.</li><li>Revamped PDS (1992): Focused on remote and backward areas, but still universal.</li><li>Targeted PDS (TPDS, 1997): Categorised beneficiaries into BPL and APL, with different prices.</li><li>Antyodaya Anna Yojana (AAY, 2000): For the 'poorest of the poor', highly subsidised food (35 kg per family).</li></ul>
+          <p class="notes">🎙️ The PDS has evolved significantly to become more focused and effective. The shift from universal to targeted aimed to ensure that subsidies primarily benefit those who need them most, like the 'poorest of the poor' under AAY.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Universal PDS (pre-1992)</span></div><div class="step"><span class="snum">2</span><span>Revamped PDS (1992)</span></div><div class="step"><span class="snum">3</span><span>Targeted PDS (1997)</span></div><div class="step"><span class="snum">4</span><span>Antyodaya Anna Yojana (2000)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>PDS <span class="hl">Challenges</span>: Gaps in the Safety Net</h2>
+          <ul><li>Leakage &amp; Diversion: Grains sometimes diverted to open market, not reaching beneficiaries.</li><li>Poor Quality: Complaints about sub-standard grains at ration shops.</li><li>Ghost Beneficiaries: Fake ration cards leading to siphoning off grains.</li><li>Storage Issues: Grains rotting due to inadequate storage infrastructure (FCI).</li></ul>
+          <p class="notes">🎙️ Despite its noble intent, the PDS faces significant challenges. Addressing these issues is vital to ensure that the system truly serves its purpose and that every rupee spent translates into food for those in need.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Inefficiencies</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Cooperatives</span>: Community-Led Food Security</h2>
+          <ul><li>Definition: Organisations owned and controlled by their members for mutual benefit.</li><li>How they help: Procure food, set up fair price shops, run milk unions, provide micro-credit.</li><li>Example: Amul (Gujarat) for milk and dairy products, Mother Dairy (Delhi) for milk and vegetables.</li><li>Empower local communities and ensure better access and fairer prices for members.</li></ul>
+          <p class="notes">🎙️ Cooperatives demonstrate a powerful, community-driven approach to food security. By pooling resources and working together, members can overcome market inefficiencies and ensure better access to food, often at fairer prices.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Community cooperation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Government &amp; Cooperative Roles</h2>
+          <ul><li>What is the primary role of the Food Corporation of India (FCI)?</li><li>How has the PDS evolved since its inception?</li><li>Give an example of a cooperative contributing to food security in India.</li></ul>
+          <p class="notes">🎙️ Let's review the government's role and the contribution of cooperatives. These questions will help you remember the key institutions and their functions in ensuring food security.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Common Mistakes</span> to Avoid!</h2>
+          <ul><li>Confusing Availability with Accessibility: 'Having food' vs. 'Being able to get food'.</li><li>Mixing up Seasonal and Chronic Hunger: One is temporary, the other long-term.</li><li>Forgetting the 'Why': Don't just state facts; explain the *reasons* for policies.</li><li>Ignoring Challenges: Acknowledge the problems with PDS, not just its benefits.</li></ul>
+          <p class="notes">🎙️ Students often make these errors. Remember to clearly distinguish between the dimensions of food security and the types of hunger. Always provide context and explain the underlying causes and effects.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: Scoring High on Food Security</h2>
+          <ul><li>Keywords: Use terms like 'buffer stock', 'MSP', 'PDS', 'AAY', 'dimensions'.</li><li>Structure: Define, explain 'how', give Indian examples, discuss 'why it matters'.</li><li>Why/How Questions: Be prepared to explain the rationale behind policies.</li><li>Concrete Examples: Mention specific dates (Green Revolution), names (FCI, Amul).</li></ul>
+          <p class="notes">🎙️ To score well, focus on using precise terminology and structuring your answers logically. Examiners look for a deep understanding, not just memorisation. Always connect concepts to real-world Indian examples.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways from Food Security</h2>
+          <ul><li>Food Security: Availability, Accessibility, Affordability for all, at all times.</li><li>Vulnerable Groups: Rural (landless, small farmers), Urban (casual labourers, slum dwellers).</li><li>Government's Role: Buffer Stock (FCI), Public Distribution System (PDS) with targeted schemes.</li><li>Cooperatives: Community-led efforts like Amul and Mother Dairy.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember these core concepts. Food security is a multi-faceted challenge requiring continuous effort from government, communities, and individuals to ensure no one goes hungry.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Towards a <span class="hl">Food Secure India</span>: A Collective Responsibility</h2>
+          <ul><li>Achieving food security is an ongoing journey, vital for national development.</li><li>It requires robust policies, efficient implementation, and community participation.</li><li>Every citizen has a role to play in reducing food waste and supporting sustainable practices.</li><li>Let's strive for an India where every plate is full, and every person thrives.</li></ul>
+          <p class="notes">🎙️ Food security is not just a government's responsibility; it's a collective one. By understanding its importance and contributing in our own ways, we can all work towards a healthier, happier, and more secure India for future generations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🇮🇳</span></div><div class="vcap">Food Secure India</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 9 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

@@ -10,6 +10,7 @@ import {
 import SEO from '../components/SEO';
 import WhatsAppShare from '../components/WhatsAppShare';
 import RewardsPanel from '../components/RewardsPanel';
+import ProgressBadgesCard from '../components/ProgressBadgesCard';
 import { UserStats } from '../types';
 import { cn } from '../lib/utils';
 import { logout } from '../lib/firebase';
@@ -70,6 +71,17 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
   const [profile, setProfile] = useState<ExtendedUserProfile>(DEFAULT_EXTENDED_PROFILE);
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState<string | null>(null);
+  // Appearance: default light; choice persists permanently on this device.
+  const [theme, setThemeState] = useState<'light' | 'dark'>(() => {
+    try { return localStorage.getItem('syllab_dark_mode') === 'true' ? 'dark' : 'light'; } catch { return 'light'; }
+  });
+  const applyTheme = (t: 'light' | 'dark') => {
+    setThemeState(t);
+    try {
+      document.documentElement.classList.toggle('dark', t === 'dark');
+      localStorage.setItem('syllab_dark_mode', String(t === 'dark'));
+    } catch { /* ignore */ }
+  };
   const [pwOld, setPwOld] = useState('');
   const [pwNew, setPwNew] = useState('');
   const [pwMsg, setPwMsg] = useState<string | null>(null);
@@ -217,6 +229,7 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
             <h2 className="text-xl font-black text-slate-900 mb-4">🎮 Your Rewards</h2>
             <RewardsPanel xp={stats.xp || 0} />
           </div>
+          <ProgressBadgesCard xp={stats.xp || 0} />
           <div className="border-t border-slate-100 pt-5" />
           <h2 className="text-xl font-black text-slate-900">Personal Details</h2>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -368,6 +381,28 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
           {profile.learning.primaryClass && parseInt(profile.learning.primaryClass) >= 6 && parseInt(profile.learning.primaryClass) <= 10 && (
             <div className="rounded-2xl bg-sky-50 border border-sky-100 px-4 py-3 text-sm font-bold text-sky-700">Class {profile.learning.primaryClass} — Olympiad exams are highlighted for you in the Exams section.</div>
           )}
+          <div className="space-y-2 border-t border-slate-100 pt-5">
+            <h3 className="text-sm font-black uppercase tracking-wide text-slate-700">Appearance</h3>
+            <p className="text-sm font-medium text-slate-500">Syllab uses a bright theme by default. Pick a theme — your choice is saved permanently on this device.</p>
+            <div className="flex gap-3 pt-1">
+              {(['light', 'dark'] as const).map((t) => (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => applyTheme(t)}
+                  className={cn(
+                    'rounded-xl px-5 py-2.5 text-sm font-bold capitalize transition-colors border',
+                    theme === t
+                      ? 'border-indigo-300 bg-indigo-50 text-indigo-700'
+                      : 'border-slate-200 bg-white text-slate-500 hover:bg-slate-50',
+                  )}
+                  aria-pressed={theme === t}
+                >
+                  {t === 'light' ? '☀️ Light' : '🌙 Dark'}
+                </button>
+              ))}
+            </div>
+          </div>
           <button type="button" disabled={saving} onClick={() => save({ learning: profile.learning })} className="btn-primary px-8 py-3 text-xs font-black uppercase tracking-widest disabled:opacity-50">
             {saving ? 'Saving…' : 'Save Preferences'}
           </button>

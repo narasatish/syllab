@@ -19,6 +19,9 @@ import Mascot, { MascotMood } from './Mascot';
 import { playCorrect, playWrong, playPage, playCelebrate, isSoundMuted, setSoundMuted } from '../lib/soundFx';
 import { pickSlideImage, LessonImage } from '../lib/lessonImages';
 import { getNaturalAudioUrl, TTS_LANGUAGES, TtsLang, TtsVoice } from '../lib/ttsApi';
+import SlideDoubtBox from './SlideDoubtBox';
+import { MessageCircleQuestion } from 'lucide-react';
+import { markStep } from '../lib/mastery';
 
 /* ─── Markdown cleanup ───────────────────────────────────────────────────────── */
 // The AI returns markdown like "**Reflection** is ...". We render bold properly
@@ -277,6 +280,9 @@ export default function LessonViewer({
   const [lang, setLang]         = useState<TtsLang>('en');
   const [langOpen, setLangOpen] = useState(false);
   const [audioLoading, setAudioLoading] = useState(false);
+  const [doubtOpen, setDoubtOpen] = useState(false);
+  // Mastery loop: opening a lesson completes the "Learn" step for this chapter.
+  useEffect(() => { if (chapterId) markStep(chapterId, 'learn'); }, [chapterId]);
   const currentRef = useRef(current);
   currentRef.current = current;
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -466,6 +472,10 @@ export default function LessonViewer({
                   className="rounded-xl bg-white/15 px-2 text-white hover:bg-white/25 transition-colors touch-manipulation text-xs font-black">
                   {muted ? '🔇' : '🔊'}
                 </button>
+                <button onClick={() => setDoubtOpen(o => !o)} title="Ask the AI tutor about this slide"
+                  className={`rounded-xl p-2 transition-colors touch-manipulation ${doubtOpen ? 'bg-white text-indigo-700' : 'bg-white/15 text-white hover:bg-white/25'}`}>
+                  <MessageCircleQuestion size={14} />
+                </button>
                 <button onClick={() => { stopAll(); onClose(); }}
                   className="rounded-xl bg-white/15 p-2 text-white hover:bg-white/25 transition-colors touch-manipulation">
                   <X size={14} />
@@ -511,6 +521,25 @@ export default function LessonViewer({
             </div>
           </motion.div>
         </AnimatePresence>
+
+        {/* Inline AI doubt-solving — free, instant, on every slide */}
+        {doubtOpen && (
+          <div className="absolute bottom-0 left-0 right-0 z-30 max-h-[58%] overflow-y-auto rounded-t-3xl bg-white/95 p-4 shadow-2xl backdrop-blur dark:bg-slate-900/95">
+            <div className="mx-auto max-w-3xl">
+              <div className="mb-1 flex items-center justify-between">
+                <p className="text-xs font-black uppercase tracking-wide text-indigo-500">Ask about: {slide.title}</p>
+                <button onClick={() => setDoubtOpen(false)} className="rounded-lg p-1 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"><X size={16} /></button>
+              </div>
+              <SlideDoubtBox
+                subject={subject}
+                chapter={chapterName}
+                classLevel={classLevel}
+                slideTitle={slide.title}
+                slideText={slide.body || (slide.bullets || []).join('. ')}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

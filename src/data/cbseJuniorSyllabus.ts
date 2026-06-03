@@ -84,6 +84,14 @@ const subjectOverview: Record<Subject, { explanation: string; example: string; e
     examInsight:
       "Learn the term, see a real example, then try a small calculation — that's how money skills stick.",
   },
+  "Social Science": {
+    explanation:
+      "A CBSE NCERT Social Science chapter spanning History, Geography, Civics and Economics — built on causes and effects, maps, timelines and India's people, places and institutions.",
+    example:
+      "Students connect ideas to Indian history, maps of India, the Constitution, elections, markets, and everyday civic life.",
+    examInsight:
+      "Learn the key dates/terms, study the map or timeline, then answer 'why' and 'how' questions — that is how Social Science marks are scored.",
+  },
 };
 
 const toSlug = (value: string) =>
@@ -101,6 +109,7 @@ const subjectSlug: Record<Subject, string> = {
   Chemistry: "chem",
   Biology: "bio",
   "Financial Literacy": "fin",
+  "Social Science": "sst",
 };
 
 const buildTopics = (chapterTitle: string, subject: Subject, sourceBook: string) => {

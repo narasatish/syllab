@@ -13,9 +13,13 @@ export default defineConfig({
     // browser-API code like window.setTimeout, window.SpeechSynthesis, etc.)
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
-    environmentMatchGlobs: [
-      // Keep node environment only for pure Firebase/Node tests
-      ['src/lib/firebase.test.ts', 'node'],
-    ],
+    // environmentMatchGlobs is valid at runtime but not in this vitest version's
+    // exported config type — cast to keep the typecheck clean.
+    ...( {
+      environmentMatchGlobs: [
+        // Keep node environment only for pure Firebase/Node tests
+        ['src/lib/firebase.test.ts', 'node'],
+      ],
+    } as Record<string, unknown> ),
   },
 });

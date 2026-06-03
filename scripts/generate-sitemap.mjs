@@ -88,9 +88,11 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: p, priority: 0.8, changefreq: 'weekly' });
   }
 
-  // Static pages — medium
-  for (const p of ['/parent', '/profile', '/about', '/contact', '/sitemap',
-                   '/blog', '/dashboard', '/terms', '/privacy']) {
+  // Static pages — medium. NOTE: /parent, /profile, /dashboard are private
+  // (auth-gated, user-specific) and /sitemap is the in-app HTML sitemap — none
+  // are prerendered, so they're intentionally EXCLUDED from the public sitemap
+  // (listing them = soft-404s for crawlers).
+  for (const p of ['/about', '/contact', '/blog', '/terms', '/privacy']) {
     urls.push({ loc: p, priority: 0.6, changefreq: 'monthly' });
   }
 
@@ -123,7 +125,16 @@ function buildUrls({ languages, topicsByLang }) {
     }
   }
 
-  return urls;
+  // De-duplicate by loc — a topic id can appear under more than one language
+  // list, which previously produced duplicate <url> entries.
+  const deduped = [];
+  const seenLoc = new Set();
+  for (const u of urls) {
+    if (seenLoc.has(u.loc)) continue;
+    seenLoc.add(u.loc);
+    deduped.push(u);
+  }
+  return deduped;
 }
 
 // ─── XML serialization ───────────────────────────────────────────────────────

@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Development: Understanding Progress for Class 10 Social Science (CBSE) — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2><span class="hl">Development</span>: Understanding Progress</h2>
+          <ul><li>What does 'development' truly mean for India?</li><li>How do we measure a nation's journey towards a better future?</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on a fascinating journey to understand 'Development' – a term we hear often, but what does it really entail for a nation like India? We'll explore its meaning, how it's measured, and why it's so crucial for our collective future.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>The Story of <span class="hl">Rohan &amp; Priya</span>: Different Dreams</h2>
+          <ul><li>Rohan, a farmer in rural Bihar, dreams of irrigation, better crop prices, and a local school for his children.</li><li>Priya, an urban student in Bengaluru, dreams of higher education abroad, a secure job in tech, and a clean, green city.</li></ul>
+          <p class="notes">🎙️ Imagine Rohan, dependent on monsoons, wanting a canal. Now imagine Priya, studying hard, wanting a global career. Are their 'development goals' the same? This story highlights how diverse aspirations shape our understanding of development.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Human_Development_Index%2C_OWID.svg?width=640" data-fb="📘" alt="HDI measures development beyond income: health, education, living standards." loading="lazy" onerror="syllabImgFail(this)"/><div class="vcap">HDI measures development beyond income: health, education, living standards.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>Our <span class="hl">Learning Journey</span></h2>
+          <ul><li>Define 'development' and its diverse goals.</li><li>Understand how national development is measured, beyond just income.</li><li>Explore the critical importance of sustainable development for the future.</li></ul>
+          <p class="notes">🎙️ By the end of this chapter, you'll be able to articulate what development means, how we measure a nation's progress, and why thinking about the future is crucial for today's growth. Get ready to explore!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>What is <span class="hl">Development</span>? More Than Just Growth</h2>
+          <ul><li>It's about aspirations for a better life and well-being for all.</li><li>Involves progress, improvement, and positive change in various aspects of life.</li><li>It's a dynamic concept, not a static one.</li></ul>
+          <p class="notes">🎙️ Development isn't just about things getting bigger; it's about things getting better. Think of a sapling growing into a strong tree – it's not just size, but strength, resilience, and fruitfulness. It's about fulfilling potential.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Growth &amp; Progress</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Different People, Different Goals</h2>
+          <ul><li>A landless rural labourer wants more days of work and better wages.</li><li>A wealthy urban family wants quality education for children and a luxury car.</li><li>A tribal person wants land rights, protection of their culture, and access to forests.</li></ul>
+          <p class="notes">🎙️ Just like Rohan and Priya, a landless labourer's goal might be daily wages, while a rich farmer might want higher support prices for crops. Their specific needs and circumstances shape their unique ideas of development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👤</span><span>👤</span><span>👤</span><span>👤</span><span>👤</span></div><div class="vcap">Many Perspectives</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>When Development Goals <span class="hl">Clash</span></h2>
+          <ul><li>Building a large dam brings electricity but displaces thousands of villagers (e.g., Narmada Bachao Andolan).</li><li>Industrial growth creates jobs but can cause air and water pollution, harming local communities.</li><li>Road expansion improves connectivity but might cut through forests, impacting wildlife and tribal livelihoods.</li></ul>
+          <p class="notes">🎙️ Sometimes, what is development for one might not be for another. A new factory brings jobs but might pollute a local river, affecting fishermen. These conflicts highlight the complex trade-offs in development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚔️</div><div class="vcap">Conflicting Interests</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Quick Check 1: <span class="hl">Reflect!</span></h2>
+          <ul><li>Why might a factory owner's development goals differ significantly from an environmental activist's?</li></ul>
+          <p class="notes">🎙️ Take a moment to consider this. What drives their different perspectives? One focuses on economic growth and profit, the other on ecological balance and long-term sustainability. These are often opposing viewpoints.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>From Personal to <span class="hl">National Progress</span></h2>
+          <ul><li>What constitutes development for an entire nation?</li><li>It's about balancing diverse individual and group goals for the collective good.</li><li>Requires thinking about fair distribution, social welfare, and overall societal advancement.</li></ul>
+          <p class="notes">🎙️ If individuals have different goals, how do we decide what 'national development' means? It's a complex task, requiring us to consider the well-being of all citizens, not just a few. It involves collective vision and planning.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">India's Progress</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>The First Metric: <span class="hl">Income</span> for Comparison</h2>
+          <ul><li>For comparing countries, total income is often used as a primary indicator.</li><li>Countries with higher income are generally considered more developed.</li><li>This total income is often referred to as Gross Domestic Product (GDP).</li></ul>
+          <p class="notes">🎙️ When we compare countries, a common starting point is their income. A country earning more is generally seen as having more resources and opportunities for its people. It's a simple, quantifiable measure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Economic Yardstick</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Income Per Person: <span class="hl">Per Capita Income</span> (PCI)</h2>
+          <ul><li>Definition: Total income of a country divided by its total population.</li><li>How it works: Gives an average income per person, making comparisons fairer.</li><li>Why it matters: Helps compare countries with different population sizes more accurately.</li></ul>
+          <p class="notes">🎙️ Simply using total income can be misleading if countries have vastly different populations. Per Capita Income gives us a better idea of what an average person in that country earns, making cross-country comparisons more meaningful.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Average Share</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>PCI - <span class="hl">India's</span> Example (2022-23 Estimates)</h2>
+          <ul><li>India's PCI (nominal) was approximately ₹1,72,000 in 2022-23.</li><li>This translates to roughly $2,100 annually (for comparison).</li><li>World Bank classifications: High-Income (PCI $12,695+), Low-Income (PCI $1,085 or less).</li></ul>
+          <p class="notes">🎙️ While India's PCI has grown significantly, compared to high-income countries, we still have a long way to go. This average helps position us globally and indicates our economic standing.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">India</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">High-Income</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Low-Income</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>The Catch with Per Capita Income: <span class="hl">Limitations</span></h2>
+          <ul><li>Hides Disparities: Wealth isn't evenly distributed; a high average can mask poverty.</li><li>Ignores Non-Monetary Factors: Doesn't account for health, education, or peace.</li><li>Excludes Environmental Costs: Ignores pollution and resource depletion from income generation.</li></ul>
+          <p class="notes">🎙️ PCI is a useful average, but it's like saying everyone in a class scored 70% when half failed and half got 100%. It doesn't tell us about the quality of life, equality, or environmental health within a nation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎭</div><div class="vcap">Hidden Realities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Quick Check 2: Critically <span class="hl">Evaluate!</span></h2>
+          <ul><li>Why is Per Capita Income alone NOT considered a sufficient measure for a country's development?</li></ul>
+          <p class="notes">🎙️ Think back to the 'hidden realities' we just discussed. What important aspects of life and well-being does PCI fail to capture? This is a common exam question, so understand it well.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Beyond Income: A <span class="hl">Holistic View</span> of Development</h2>
+          <ul><li>Development also considers health, education, and access to public services.</li><li>These factors directly impact the quality of life and opportunities for citizens.</li><li>They reflect a society's investment in its people and their future.</li></ul>
+          <p class="notes">🎙️ A truly developed nation isn't just rich; its citizens are healthy, educated, and have access to essential services. These non-income factors are equally, if not more, important for a fulfilling life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Broader Metrics</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Health Indicator: <span class="hl">Infant Mortality</span> Rate (IMR)</h2>
+          <ul><li>Definition: Number of children dying before the age of one per 1000 live births.</li><li>How it works: A low IMR reflects good healthcare, nutrition, and maternal care.</li><li>Indian Example: India's IMR was 28 per 1000 live births in 2020 (SRS).</li></ul>
+          <p class="notes">🎙️ A low IMR signifies good healthcare, access to clean water, and proper nutrition – fundamental aspects of a developed society. India has made progress, but there's still work to do to reduce this number further.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span></div><div class="vcap">28 out of 1000</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Education Indicator: <span class="hl">Literacy</span> Rate</h2>
+          <ul><li>Definition: Proportion of the literate population in the 7+ age group.</li><li>How it works: Higher literacy leads to better job prospects and informed citizens.</li><li>Indian Example: India's literacy rate was 77.7% in 2022 (NSSO).</li></ul>
+          <p class="notes">🎙️ Literacy opens doors to better jobs, informed decisions, and active participation in society. A high literacy rate is a cornerstone of national development, empowering individuals and strengthening the nation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Knowledge is Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Education Indicator: Net <span class="hl">Attendance Ratio</span> (NAR)</h2>
+          <ul><li>Definition: Total number of children of age group 6-10 attending school as a percentage of total children in that age group.</li><li>How it works: Shows actual school enrollment, not just eligibility, indicating access to education.</li><li>Indian Example: India's NAR for Primary (6-10 years) was 89.3% in 2019-20 (UDISE+).</li></ul>
+          <p class="notes">🎙️ NAR tells us if children are actually going to school, not just if schools exist. It's a key indicator of access to and participation in primary education, which is crucial for foundational learning.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏫</div><div class="vcap">Children in School</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Collective Well-being: <span class="hl">Public Facilities</span></h2>
+          <ul><li>Definition: Services provided by the government for collective benefit, like healthcare and education.</li><li>How they work: Ensure basic goods and services are accessible to all, especially those who cannot afford private options.</li><li>Why they matter: Crucial for improving health, education, and overall quality of life for the masses.</li></ul>
+          <p class="notes">🎙️ Imagine trying to buy a clean environment or disease prevention individually. Public facilities like the Public Distribution System (PDS) for food security or government hospitals are vital for the well-being of all, especially the poor, ensuring equitable access.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏥</div><div class="vcap">Shared Services</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Development Models: Kerala vs. Punjab</h2>
+          <ul><li>Punjab: High Per Capita Income, but relatively higher IMR (19) and lower literacy (83.7%) than Kerala.</li><li>Kerala: Lower Per Capita Income, but very low IMR (6) and high literacy (94%) due to strong public facilities.</li><li>Why it matters: Shows that income alone doesn't guarantee overall development; investment in human capital is key.</li></ul>
+          <p class="notes">🎙️ This classic Indian example proves our point. Punjab is economically richer, but Kerala's consistent investment in health and education through public facilities has resulted in superior human development indicators. This is why public facilities matter.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Punjab (PCI)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Kerala (IMR)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Kerala (Literacy)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Quick Check 3: Apply Your <span class="hl">Knowledge!</span></h2>
+          <ul><li>Give two non-income indicators used to measure a country's development and explain why they are important.</li></ul>
+          <p class="notes">🎙️ Think about what makes a life good, beyond just money. Why are health and education so critical for a nation's progress and the well-being of its citizens? Provide specific reasons for each indicator.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>The <span class="hl">Human Development</span> Report (HDR)</h2>
+          <ul><li>Definition: An annual report published by the United Nations Development Programme (UNDP).</li><li>How it works: Compares countries based on educational levels, health status, and Per Capita Income.</li><li>Why it matters: Offers a comprehensive view of development, moving beyond purely economic measures.</li></ul>
+          <p class="notes">🎙️ Recognizing the limitations of PCI, the UNDP introduced the HDR. It's a global benchmark that helps us understand the true state of human well-being across nations, providing a more balanced perspective on progress.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌎</div><div class="vcap">Global Report</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>The HDI: A <span class="hl">Composite Index</span> for Human Progress</h2>
+          <ul><li>Definition: Human Development Index (HDI) combines three key dimensions:</li><li>1. Health (Life Expectancy at Birth)</li><li>2. Education (Mean years of schooling, Expected years of schooling)</li><li>3. Standard of Living (Per Capita Income)</li></ul>
+          <p class="notes">🎙️ The HDI is a powerful tool because it doesn't just look at one factor. It combines these three crucial aspects – health, education, and living standards – to give a more balanced picture of human progress and well-being.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Health</span></div><div class="step"><span class="snum">2</span><span>Education</span></div><div class="step"><span class="snum">3</span><span>Living Standard</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">India's Position</span> in HDI (2021-22)</h2>
+          <ul><li>In 2021-22, India ranked 132 out of 191 countries in the Human Development Index.</li><li>This places India in the 'Medium Human Development' category.</li><li>Why it matters: Shows areas where India needs to improve, especially in health and education outcomes, to enhance human well-being.</li></ul>
+          <p class="notes">🎙️ While India has made strides, its ranking indicates that significant efforts are still needed to improve health and education outcomes for all citizens to move into the 'High Human Development' category. It's a call to action for further development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Progress &amp; Potential</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Development for Today AND Tomorrow: <span class="hl">Sustainability</span></h2>
+          <ul><li>Definition: Development must meet the needs of the present.</li><li>Without compromising the ability of future generations to meet their own needs.</li><li>Why it matters: Ensures long-term well-being by balancing economic growth with environmental protection.</li></ul>
+          <p class="notes">🎙️ What if our development today depletes resources or harms the environment so much that future generations suffer? Sustainable development is about ensuring progress without mortgaging our children's future. It's about responsible growth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Future-Proof Growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>The Cost of <span class="hl">Unsustainable Growth</span>: Environmental Degradation</h2>
+          <ul><li>Over-extraction of groundwater for agriculture (e.g., Punjab, Haryana).</li><li>Depletion of natural resources (e.g., illegal mining in Goa, sand mining in rivers).</li><li>Severe air and water pollution (e.g., Delhi smog, industrial waste in rivers like Ganga and Yamuna).</li></ul>
+          <p class="notes">🎙️ India faces many environmental challenges due to unsustainable practices. The drying up of wells, polluted rivers, and smog-filled cities are stark reminders of this cost. Our current development path often has severe ecological consequences.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏭</span><span>🏭</span><span>🏭</span></div><div class="vcap">Environmental Threats</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Global Blueprint: The Sustainable Development Goals (<span class="hl">SDGs</span>)</h2>
+          <ul><li>Definition: 17 interconnected goals adopted by UN member states in 2015.</li><li>How they work: Address global challenges like poverty, hunger, health, education, climate change, etc.</li><li>Why they matter: Aim to achieve a better and more sustainable future for all by 2030, guiding national policies.</li></ul>
+          <p class="notes">🎙️ The SDGs provide a universal framework for countries to work towards. From 'No Poverty' to 'Clean Water and Sanitation,' these goals guide nations, including India, towards a sustainable and equitable future for everyone.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Global Commitments</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Avoid These <span class="hl">Pitfalls!</span> Common Mistakes</h2>
+          <ul><li>Confusing 'economic growth' with 'development' (GDP vs. HDI).</li><li>Assuming all development goals are universal or identical for everyone.</li><li>Forgetting the crucial importance of public facilities in achieving holistic development.</li></ul>
+          <p class="notes">🎙️ Students often think economic growth equals development. Remember, development is a much broader concept. Also, don't assume everyone wants the same things, or that private services can effectively replace essential public ones.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Ace Your Exams: <span class="hl">Scoring Strategies</span></h2>
+          <ul><li>Focus on 'Why' and 'How' questions (e.g., 'Why is PCI not enough?' 'How do public facilities promote development?').</li><li>Use concrete Indian examples (like Kerala-Punjab) to support your answers and make them relatable.</li><li>Compare and contrast different development indicators effectively, highlighting their strengths and weaknesses.</li></ul>
+          <p class="notes">🎙️ For this chapter, focus on understanding the 'why' and 'how'. Always back up your points with relevant examples from India. Clearly explain the implications of each indicator and the interconnections between them for better scores.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Development Unpacked: Key Takeaways</h2>
+          <ul><li>Development is a multi-faceted concept, with diverse and sometimes conflicting goals.</li><li>Per Capita Income (PCI) is a primary metric but has significant limitations.</li><li>Health, education, and public facilities are vital non-income indicators for holistic development.</li><li>Sustainable development is crucial to ensure progress for both present and future generations.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that development is multi-faceted, requires a holistic view, and must consider the well-being of future generations. It's about progress that lasts and benefits everyone.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Be a Part of India's Development!</h2>
+          <ul><li>What small steps can you take in your daily life to contribute to sustainable development?</li><li>How can you advocate for better public facilities or environmental protection in your locality?</li></ul>
+          <p class="notes">🎙️ Development isn't just a government's job; it's a collective responsibility. Reflect on how you, as a responsible citizen, can contribute to a better, more sustainable India. Your actions, big or small, matter!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 10 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

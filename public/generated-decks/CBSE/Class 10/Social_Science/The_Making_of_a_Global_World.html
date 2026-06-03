@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>The Making of a Global World — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Welcome to 'The Making of a <span class="hl">Global World</span>'</h2>
+          <ul><li>Class 10 Social Science: History Chapter</li><li>Understanding our interconnected past and present</li><li>CBSE Board Curriculum</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on a fascinating journey to understand how our world became so interconnected. Get ready to explore the historical threads that weave our global tapestry.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>A World <span class="hl">Without Borders</span>? Imagine This...</h2>
+          <ul><li>How did tea from India reach Britain?</li><li>Why did potatoes become a staple in Europe?</li><li>What made Indians travel to distant Caribbean islands?</li></ul>
+          <p class="notes">🎙️ Have you ever wondered about the origins of your favourite dishes or how products from far-off lands reach your local market? Our chapter will answer these intriguing questions and more, revealing a world that has always been connected.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Curiosity Corner</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today</h2>
+          <ul><li>The interconnectedness of the pre-modern world</li><li>The impact of 19th-century globalisation on India</li><li>How global economic forces shaped the 20th century</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you will gain a deep understanding of historical globalisation, its key drivers, and its profound effects, especially on our own country, India. We'll look at the 'why' and 'how' behind these global shifts.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>What is '<span class="hl">Globalisation</span>'?</h2>
+          <ul><li>Analogy: A family living in different cities</li><li>Connected by phone calls, visits, shared traditions</li><li>Globalisation: Interconnectedness of nations</li></ul>
+          <p class="notes">🎙️ Just like a family spread across different cities stays connected, globalisation describes how countries become increasingly linked through trade, migration, and the exchange of ideas. It's a process, not just an event.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">The Global Village</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Pre-Modern World: The <span class="hl">Silk Routes</span></h2>
+          <ul><li>Ancient trade networks connecting Asia, Europe, and Africa</li><li>Existed from before the Christian era</li><li>More than just silk: pottery, spices, textiles travelled</li></ul>
+          <p class="notes">🎙️ Long before modern transport, the Silk Routes were like ancient superhighways. They were crucial for the movement of goods, people, and knowledge, demonstrating early forms of global interaction. Think of it as the internet of the ancient world!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Trade</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Beyond Goods: <span class="hl">Ideas</span>, Disease, and Culture</h2>
+          <ul><li>Buddhism spread from India to China via these routes</li><li>Early Christian missionaries and Muslim preachers travelled</li><li>Germs and diseases also spread along these paths</li></ul>
+          <p class="notes">🎙️ The Silk Routes were not just about economic exchange; they were vibrant channels for cultural diffusion. Philosophies, religions, and even technologies moved across continents, shaping diverse societies. Unfortunately, pathogens also found easy passage.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Cultural Exchange</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Food Travels</span>: A Global Kitchen</h2>
+          <ul><li>Many common foods originated elsewhere</li><li>Potatoes, maize, tomatoes, chillies, groundnuts, sweet potatoes</li><li>Introduced to Asia and Europe after Columbus discovered America</li></ul>
+          <p class="notes">🎙️ Imagine Italian food without tomatoes, or Indian cuisine without chillies! These staples, essential to global diets today, were unknown in many parts of the world just a few centuries ago. Their introduction dramatically altered food habits and life expectancy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥔</div><div class="vcap">New Foods</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>The Age of Discovery and <span class="hl">Conquest</span></h2>
+          <ul><li>16th century: European sailors find sea routes to America</li><li>Vasco da Gama reached India, Columbus found America</li><li>New lands, new resources, new markets opened up</li></ul>
+          <p class="notes">🎙️ This era marked a massive shift. The discovery of sea routes to America and Asia by European explorers fundamentally changed global power dynamics. It led to vast expansion of trade and, unfortunately, conquest.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚢</div><div class="vcap">New Sea Routes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Disease: The <span class="hl">Silent Conqueror</span> in America</h2>
+          <ul><li>European conquest of America was not just military</li><li>Smallpox, a European disease, devastated native populations</li><li>Native Americans had no immunity to these diseases</li></ul>
+          <p class="notes">🎙️ The most powerful weapon the Spanish conquerors had was not their firearms, but germs. Smallpox decimated indigenous communities, making it easier for Europeans to establish control over vast territories. This highlights how interconnectedness can have unforeseen, devastating consequences.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Smallpox's Impact</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2><span class="hl">Quick Check</span> 1: Early Global Connections</h2>
+          <ul><li>Which ancient trade route connected Asia, Europe, and Africa?</li><li>Name two food items introduced to Asia/Europe after Columbus's discovery.</li><li>How did disease play a role in European conquest of America?</li></ul>
+          <p class="notes">🎙️ Time for a quick recap! Think about the first few slides. These questions will help you consolidate your understanding of the pre-modern global world. Jot down your answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>The 19th Century (1815-1914): A World <span class="hl">Transformed</span></h2>
+          <ul><li>Rapid economic, political, social, cultural changes</li><li>Three key 'flows': trade, labour, capital</li><li>Industrial Revolution and European colonialism intensified globalisation</li></ul>
+          <p class="notes">🎙️ The 19th century was a period of unprecedented transformation. It saw the emergence of a truly global economy driven by industrialisation and imperialism, leading to massive movements of goods, people, and money across continents.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Industrial Age</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Flow 1: Trade – The <span class="hl">Corn Laws</span></h2>
+          <ul><li>British government restricted import of corn (grains)</li><li>Kept food prices high, benefiting landlords</li><li>Abolition led to cheaper food, industrial growth, but agricultural decline</li></ul>
+          <p class="notes">🎙️ The Corn Laws are a classic example of how domestic policies can impact global trade. Their abolition in Britain, driven by industrial interests, led to a huge influx of cheaper food, impacting British farmers but also fostering global agricultural trade.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Grain Trade</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Flow 2: Labour – <span class="hl">Indentured Migration</span> from India</h2>
+          <ul><li>Analogy: Modern-day migrant workers seeking jobs abroad</li><li>Indians migrated under contract for work in plantations and mines</li><li>Often called 'new system of slavery'</li></ul>
+          <p class="notes">🎙️ During the 19th century, millions of Indians migrated as indentured labourers, particularly from Uttar Pradesh, Bihar, and Tamil Nadu. They were seeking better opportunities but often faced harsh conditions, highlighting the human cost of this 'globalisation of labour'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">Migrant Workers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Destinations</span> and Conditions of Indentured Labour</h2>
+          <ul><li>Caribbean islands (Trinidad, Guyana), Fiji, Mauritius, Ceylon, Malaya</li><li>Recruitment by agents, often deceptive promises</li><li>Harsh living and working conditions; limited legal rights</li></ul>
+          <p class="notes">🎙️ These Indian labourers were instrumental in building economies in various British colonies. However, their experiences were often traumatic, marked by long voyages, exploitative contracts, and cultural displacement. Their descendants form significant diaspora communities today.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Global Journeys</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2><span class="hl">Abolition</span> of Indentured Labour</h2>
+          <ul><li>Grew into a system of abuse and exploitation</li><li>Protests and activism, including by Mahatma Gandhi</li><li>Abolished in 1921 by the British government</li></ul>
+          <p class="notes">🎙️ The 'new system of slavery' faced increasing criticism both in India and abroad. Leaders like Mahatma Gandhi, who first experienced racial discrimination in South Africa, played a key role in raising awareness and advocating for its end, leading to its eventual abolition.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Justice Prevails</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Flow 3: <span class="hl">Capital</span> – European Imperialism</h2>
+          <ul><li>European powers invested capital in colonies</li><li>Built railways, mines, plantations to extract resources</li><li>India became a major market for British manufactured goods</li></ul>
+          <p class="notes">🎙️ European capital flowed into colonies not for their development, but for exploitation. Investments in infrastructure like railways facilitated the extraction of raw materials and penetration of colonial markets, further integrating them into the global capitalist system.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Colonial Investments</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Quick Check</span> 2: The Three Flows</h2>
+          <ul><li>Name the three key 'flows' that characterised 19th-century globalisation.</li><li>What were the Corn Laws in Britain?</li><li>Where did Indian indentured labourers primarily migrate?</li></ul>
+          <p class="notes">🎙️ Let's pause and ensure we've grasped the core ideas of 19th-century globalisation. Understanding these three flows is crucial for comprehending the era's dynamics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>The <span class="hl">First World War</span> (1914-1918): A Global Conflict</h2>
+          <ul><li>Fought primarily in Europe but with global impact</li><li>Allies (Britain, France, Russia, US) vs. Central Powers (Germany, Austria-Hungary)</li><li>Massive destruction, death, and economic disruption</li></ul>
+          <p class="notes">🎙️ The First World War was a devastating event that fundamentally reshaped the global order. It involved colonial armies, including Indian soldiers, fighting far from home, demonstrating the deep interconnectedness of the imperial world.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚔️</div><div class="vcap">Global Conflict</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Post-War Recovery and Economic <span class="hl">Instability</span></h2>
+          <ul><li>War debt, reparations, and economic boom-bust cycles</li><li>Agricultural overproduction led to falling prices</li><li>US emerged as a major economic power and creditor</li></ul>
+          <p class="notes">🎙️ The war left Europe in ruins and heavily indebted. The post-war period was marked by attempts at recovery, but underlying economic weaknesses, particularly in agriculture, set the stage for a much larger crisis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Economic Downturn</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>The <span class="hl">Great Depression</span> (1929-1930s): Causes</h2>
+          <ul><li>Agricultural overproduction and falling prices</li><li>US withdrawal of loans to European countries</li><li>Stock market crash in 1929 in the US</li></ul>
+          <p class="notes">🎙️ The Great Depression was a global economic catastrophe. It wasn't just a US problem; its causes were interconnected, showing how a crisis in one part of the world could quickly spread due to global financial linkages.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Overproduction</span></div><div class="step"><span class="snum">2</span><span>Loan Withdrawal</span></div><div class="step"><span class="snum">3</span><span>Stock Market Crash</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>The Great Depression: <span class="hl">Impact on India</span></h2>
+          <ul><li>Indian exports and imports almost halved (1928-1934)</li><li>Agricultural prices fell sharply, but colonial taxes remained high</li><li>Peasants and farmers suffered immensely, leading to unrest</li></ul>
+          <p class="notes">🎙️ India, as a colonial economy, was severely hit. The sharp fall in agricultural prices devastated farmers, who found it impossible to sell their produce and pay taxes. This period fueled nationalist sentiments against British rule.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Exports (Pre-Depression)</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Exports (Depression)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2><span class="hl">Quick Check</span> 3: Economic Crises</h2>
+          <ul><li>When did the First World War take place?</li><li>Name two major causes of the Great Depression.</li><li>How did the Great Depression affect Indian farmers?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of the inter-war period. These events had profound and lasting impacts on global politics and economics, setting the stage for the next major conflict.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Rebuilding a Global Economy: <span class="hl">Bretton Woods</span></h2>
+          <ul><li>Post-WW2 conference (1944) in Bretton Woods, USA</li><li>Aimed to ensure global economic stability and full employment</li><li>Established the International Monetary Fund (IMF) and World Bank</li></ul>
+          <p class="notes">🎙️ After two devastating world wars and the Great Depression, leaders realised the need for a stable international economic order. The Bretton Woods institutions were designed to prevent future economic crises and foster global cooperation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">New Institutions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Bretton Woods Institutions: <span class="hl">IMF and World Bank</span></h2>
+          <ul><li>IMF: To deal with external surpluses and deficits of member nations</li><li>World Bank: To finance post-war reconstruction and development</li><li>Both institutions began operations in 1947</li></ul>
+          <p class="notes">🎙️ The IMF and World Bank became the pillars of the post-war global financial system. They provided loans and guidance, aiming to stabilise currencies and fund development projects, particularly in developing countries.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">IMF Role</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">World Bank Role</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Decolonisation</span> and Globalisation</h2>
+          <ul><li>Many countries gained independence after WW2 (e.g., India in 1947)</li><li>These new nations faced challenges of poverty and lack of resources</li><li>They needed assistance for economic development</li></ul>
+          <p class="notes">🎙️ The post-war era also saw a wave of decolonisation, as India and many other nations gained freedom. These newly independent countries, often poor and underdeveloped due to colonial exploitation, sought to catch up with the industrialised world.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Independent Nations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>The <span class="hl">G-77</span>: Demand for a NIEO</h2>
+          <ul><li>Group of 77 developing countries formed for collective bargaining</li><li>Demanded a New International Economic Order (NIEO)</li><li>Aimed for fairer prices for raw materials, better access to markets</li></ul>
+          <p class="notes">🎙️ The G-77 represented the collective voice of developing nations, seeking to reform the global economic system that they felt was biased towards the rich industrialised countries. They pushed for a more equitable distribution of global resources and opportunities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤝</span><span>🤝</span><span>🤝</span><span>🤝</span><span>🤝</span><span>🤝</span><span>🤝</span></div><div class="vcap">Developing Nations Unite</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Common Mistakes</span> to Avoid</h2>
+          <ul><li>Confusing pre-modern with modern globalisation</li><li>Forgetting specific dates for key events (e.g., Depression)</li><li>Not linking events to their 'why' and 'how' impacts</li></ul>
+          <p class="notes">🎙️ Students often make these mistakes. Remember, pre-modern globalisation was slower and less intense. Always understand the cause-and-effect relationships and the specific timeline of events to score well.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Learn from Errors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: How to Score Well</h2>
+          <ul><li>Focus on 'Why' and 'How' questions (causes, effects, significance)</li><li>Use concrete examples (e.g., Indian indentured labour, Corn Laws)</li><li>Structure answers with clear introductions, body, and conclusions</li></ul>
+          <p class="notes">🎙️ For history, examiners look for analytical answers, not just factual recall. Explain the processes and impacts. Use the exact dates and names mentioned in the chapter to add precision to your answers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Ace Your Exams</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Recap</span>: Our Global Journey</h2>
+          <ul><li>Pre-modern world connected by Silk Routes and sea voyages</li><li>19th century: trade, labour, capital flows intensified globalisation</li><li>20th century: wars, depression, and the rise of new global institutions</li></ul>
+          <p class="notes">🎙️ We've covered centuries of global interconnectedness, from ancient trade routes to the modern economic order. Remember, globalisation is a continuous, evolving process with profound historical roots and consequences.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Final Question: <span class="hl">India</span> in a Global World</h2>
+          <ul><li>How has India been both a contributor and recipient in the making of a global world?</li><li>Think about trade, migration, and economic policies.</li><li>Reflect on its past and present role.</li></ul>
+          <p class="notes">🎙️ This question encourages you to think critically about India's unique position. From being a source of goods and labour to advocating for a fairer global order, India's journey is a microcosm of the global story. Thank you!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">India's Global Role</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 10 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,follow"/>
-<title>Determinants: Your Key to Success in Class 12 Maths! — Syllab.in</title>
+<title>Determinants: Unlocking Matrix Secrets — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 26</span>
-          <h2>Welcome to <span class="hl">Determinants</span>!</h2>
-          <ul><li>A crucial chapter for CBSE Class 12 Maths.</li><li>Foundation for solving systems of linear equations.</li><li>Essential for various advanced mathematical concepts.</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today we begin our journey into 'Determinants', a very important topic in Class 12 Mathematics. Understanding determinants is key for many future topics and for your board exams.</p>
+          <span class="num">1 / 30</span>
+          <h2>Welcome to <span class="hl">Determinants</span>: The Heart of Matrices!</h2>
+          <ul><li>A crucial concept in linear algebra.</li><li>Essential for solving systems of equations.</li><li>Forms the basis for advanced mathematical topics.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Determinants. This topic is not just theoretical; it's a powerful tool with many practical applications.</p>
         </div>
         
       </div>
@@ -71,58 +77,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 26</span>
-          <h2>What is a <span class="hl">Determinant</span>?</h2>
-          <ul><li>A scalar value associated with a square matrix.</li><li>Represented by |A| or det(A).</li><li>It's a unique number, not another matrix.</li></ul>
-          <p class="notes">🎙️ Simply put, a determinant is a special number calculated from the elements of a square matrix. Think of it as a fingerprint for a matrix – unique and characteristic. It's always a scalar, a single number.</p>
+          <span class="num">2 / 30</span>
+          <h2>The Puzzle: How Do We <span class="hl">Solve Complex Systems</span>?</h2>
+          <ul><li>Imagine managing resources for multiple projects.</li><li>How can we efficiently find unique solutions?</li><li>Determinants provide a systematic approach.</li></ul>
+          <p class="notes">🎙️ Think about real-world scenarios – like balancing chemical equations, optimizing production, or even predicting market trends. Many of these involve systems of linear equations. How do we ensure a unique solution exists, and how do we find it systematically? Determinants hold the key!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Scalar Value</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">3 / 26</span>
-          <h2>Determinants vs. Matrices: Key <span class="hl">Differences</span></h2>
-          <ul><li>Matrices are arrangements of numbers.</li><li>Determinants are scalar values.</li><li>Only square matrices have determinants.</li></ul>
-          <p class="notes">🎙️ It's vital not to confuse matrices with determinants. A matrix is a rectangular array, while a determinant is a single numerical value derived from a square matrix. Not all matrices have determinants.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Matrix</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Determinant</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">4 / 26</span>
-          <h2>Determinant of a Matrix of <span class="hl">Order 1</span></h2>
-          <ul><li>For A = [a], det(A) = a.</li><li>The simplest case.</li><li>The value is just the element itself.</li></ul>
-          <p class="notes">🎙️ Let's start with the basics. If you have a 1x1 matrix, say A with element 'a', its determinant is simply 'a'. This is straightforward and forms the base for understanding higher orders.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">1️⃣</div><div class="vcap">Single Element</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">5 / 26</span>
-          <h2>Determinant of a Matrix of <span class="hl">Order 2</span></h2>
-          <ul><li>For A = [[a, b], [c, d]], det(A) = ad - bc.</li><li>Diagonal product difference.</li><li>Always remember the 'ad minus bc' formula.</li></ul>
-          <p class="notes">🎙️ This is where it gets interesting. For a 2x2 matrix, the determinant is calculated by multiplying the elements of the main diagonal and subtracting the product of the elements of the off-diagonal. This formula is critical.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Multiply diagonals (ad)</span></div><div class="step"><span class="snum">2</span><span>Multiply off-diagonals (bc)</span></div><div class="step"><span class="snum">3</span><span>Subtract (ad - bc)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Solving the Puzzle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">6 / 26</span>
-          <h2>Worked <span class="hl">Example</span>: Order 2 Determinant</h2>
-          <ul><li>Calculate det(A) for A = [[3, 2], [1, 5]].</li><li>Solution: (3 * 5) - (2 * 1)</li><li>= 15 - 2 = 13.</li></ul>
-          <p class="notes">🎙️ Let's try an example. Given the matrix A, we apply the formula: (3 times 5) minus (2 times 1). This gives us 15 minus 2, which results in 13. Simple, right?</p>
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today</h2>
+          <ul><li>Define and calculate determinants of various orders.</li><li>Understand and apply key properties of determinants.</li><li>Use determinants to find matrix inverse and solve linear equations.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to confidently calculate determinants, leverage their properties to simplify complex problems, and apply them to solve systems of equations, which is a common exam question.</p>
         </div>
         
       </div>
@@ -131,34 +101,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 26</span>
-          <h2>Determinant of a Matrix of <span class="hl">Order 3</span></h2>
-          <ul><li>Expanded along a row or column.</li><li>Involves minors and cofactors.</li><li>More complex, but systematic.</li></ul>
-          <p class="notes">🎙️ Calculating the determinant of a 3x3 matrix requires a systematic approach, involving what we call minors and cofactors. You can expand along any row or column, and the result will be the same. Let's learn how.</p>
+          <span class="num">4 / 30</span>
+          <h2>What is a Determinant? The Matrix's '<span class="hl">Fingerprint</span>'</h2>
+          <ul><li>A determinant is a special number associated with every square matrix.</li><li>It's like a unique identifying value for the matrix.</li><li>Denoted by det(A) or |A|.</li></ul>
+          <p class="notes">🎙️ Just as every person has a unique fingerprint, every square matrix has a unique determinant value. This single number reveals a lot about the matrix, especially its invertibility and the nature of solutions to associated linear systems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">3️⃣</div><div class="vcap">Expansion Method</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🆔</div><div class="vcap">Unique Identity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 26</span>
-          <h2><span class="hl">Minors and Cofactors</span></h2>
-          <ul><li>Minor (M_ij): Determinant of submatrix after removing row 'i' and column 'j'.</li><li>Cofactor (A_ij): (-1)^(i+j) * M_ij.</li><li>The sign depends on the position (i+j).</li></ul>
-          <p class="notes">🎙️ Minors are determinants of smaller matrices. For a 3x3 matrix, a minor will be a 2x2 determinant. Cofactors are minors with an attached sign, determined by the position of the element. Pay close attention to the (-1)^(i+j) part.</p>
+          <span class="num">5 / 30</span>
+          <h2>Calculating Determinant of a <span class="hl">2x2 Matrix</span></h2>
+          <ul><li>For a matrix A = [[a, b], [c, d]].</li><li>det(A) = ad - bc.</li><li>Multiply diagonals and subtract.</li></ul>
+          <p class="notes">🎙️ Let's start with the simplest case: a 2x2 matrix. The calculation is straightforward: multiply the elements on the main diagonal and subtract the product of elements on the anti-diagonal. Remember this formula, it's fundamental.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Sub-Determinants</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify elements a, b, c, d</span></div><div class="step"><span class="snum">2</span><span>Calculate product of main diagonal (ad)</span></div><div class="step"><span class="snum">3</span><span>Calculate product of anti-diagonal (bc)</span></div><div class="step"><span class="snum">4</span><span>Subtract: ad - bc</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Worked <span class="hl">Example 1</span>: 2x2 Determinant</h2>
+          <ul><li>Find the determinant of A = [[3, 2], [1, 4]].</li><li>det(A) = (3 * 4) - (2 * 1)</li><li>det(A) = 12 - 2 = 10.</li></ul>
+          <p class="notes">🎙️ Here’s a practical application of the formula. We have matrix A. Following the rule, we multiply 3 by 4, which gives 12. Then, we multiply 2 by 1, which gives 2. Subtracting 2 from 12 yields 10. Simple, right?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Step-by-step Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Calculating Determinant of a 3x3 Matrix: The '<span class="hl">Ripple Effect</span>'</h2>
+          <ul><li>More involved, but follows a pattern.</li><li>Expand along any row or column.</li><li>Involves minors and cofactors.</li></ul>
+          <p class="notes">🎙️ For a 3x3 matrix, the calculation is a bit like a ripple effect. You pick an element, and it expands to a smaller determinant. This expansion can be done along any row or column, but you need to understand minors and cofactors first.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Expanding from a Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Minors and Cofactors</span>: Building Blocks for 3x3</h2>
+          <ul><li>Minor (M_ij): Determinant of the submatrix after removing row i, column j.</li><li>Cofactor (A_ij): C_ij = (-1)^(i+j) * M_ij.</li><li>The sign depends on the position (i+j even or odd).</li></ul>
+          <p class="notes">🎙️ Minors are simply the determinants of smaller matrices formed by 'crossing out' a row and column. Cofactors add a sign based on the position of the element. Remember the alternating sign pattern: plus, minus, plus, etc.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Select element (i,j)</span></div><div class="step"><span class="snum">2</span><span>Remove row i, col j</span></div><div class="step"><span class="snum">3</span><span>Calculate determinant of remaining submatrix (Minor)</span></div><div class="step"><span class="snum">4</span><span>Apply sign rule for Cofactor</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Worked <span class="hl">Example 2</span>: 3x3 Determinant Expansion</h2>
+          <ul><li>Calculate det of A = [[1,2,3], [0,1,4], [5,6,0]].</li><li>Expand along R1: 1*C_11 + 2*C_12 + 3*C_13.</li><li>C_11 = 1*det([[1,4],[6,0]]) = 1*(0-24) = -24.</li><li>C_12 = -1*det([[0,4],[5,0]]) = -1*(0-20) = 20.</li><li>C_13 = 1*det([[0,1],[5,6]]) = 1*(0-5) = -5.</li><li>det(A) = 1*(-24) + 2*(20) + 3*(-5) = -24 + 40 - 15 = 1.</li></ul>
+          <p class="notes">🎙️ Let's walk through this example step-by-step. We choose to expand along the first row. For each element, we find its cofactor by calculating the minor and applying the sign. Then, we sum these products to get the determinant. Notice how the signs change.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Detailed 3x3 Calculation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">9 / 26</span>
-          <h2>Worked <span class="hl">Example</span>: Minors and Cofactors</h2>
-          <ul><li>For A = [[1,2,3],[4,5,6],[7,8,9]], find M_11 and A_11.</li><li>M_11 = det([[5,6],[8,9]]) = (5*9)-(6*8) = 45-48 = -3.</li><li>A_11 = (-1)^(1+1) * M_11 = 1 * (-3) = -3.</li></ul>
-          <p class="notes">🎙️ Let's find the minor and cofactor for element at (1,1). We remove the first row and first column, calculate the 2x2 determinant. Then, apply the sign rule. Here, it's positive, so A_11 is -3.</p>
+          <span class="num">10 / 30</span>
+          <h2><span class="hl">Quick Check 1</span>: Calculate the Determinant</h2>
+          <ul><li>Find the determinant of the matrix: [[2, -1], [4, 3]].</li><li>Is it (2*3) - (-1*4) or (2*3) + (-1*4)?</li><li>What is the final value?</li></ul>
+          <p class="notes">🎙️ Take a moment to solve this. It's a fundamental 2x2 determinant. Pay attention to the signs. Remember, it's the product of the main diagonal minus the product of the anti-diagonal. The correct answer is 10.</p>
         </div>
         
       </div>
@@ -167,118 +185,94 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 26</span>
-          <h2><span class="hl">Expansion</span> using Cofactors (Order 3)</h2>
-          <ul><li>det(A) = a_11 A_11 + a_12 A_12 + a_13 A_13 (along R1).</li><li>Can be expanded along any row or column.</li><li>Sum of products of elements with their cofactors.</li></ul>
-          <p class="notes">🎙️ To find the determinant of a 3x3 matrix, you pick a row or column, multiply each element by its corresponding cofactor, and then sum these products. This method guarantees the correct determinant value.</p>
+          <span class="num">11 / 30</span>
+          <h2>Properties of Determinants: The '<span class="hl">Game Rules</span>'</h2>
+          <ul><li>Simplify calculations and solve problems faster.</li><li>Avoid lengthy expansions for complex matrices.</li><li>Crucial for exam-oriented problem-solving.</li></ul>
+          <p class="notes">🎙️ Just like any game has rules that make it interesting and efficient, determinants have properties that simplify their evaluation. Mastering these properties is key to scoring well in exams, as many questions test your understanding of them rather than just brute-force calculation.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose a row/column</span></div><div class="step"><span class="snum">2</span><span>Find cofactors for its elements</span></div><div class="step"><span class="snum">3</span><span>Multiply elements by cofactors</span></div><div class="step"><span class="snum">4</span><span>Sum the products</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">11 / 26</span>
-          <h2>Worked <span class="hl">Example</span>: Order 3 Determinant</h2>
-          <ul><li>Calculate det(A) for A = [[1, 2, 3], [0, 1, 0], [4, 5, 6]].</li><li>Expand along R2 (due to '0's):</li><li>det(A) = 0*A_21 + 1*A_22 + 0*A_23 = 1*A_22.</li></ul>
-          <p class="notes">🎙️ Let's calculate A_22. M_22 = det([[1,3],[4,6]]) = (1*6)-(3*4) = 6-12 = -6. A_22 = (-1)^(2+2)*M_22 = 1*(-6) = -6. So, det(A) = -6. Choosing a row/column with zeros simplifies calculations significantly!</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Rules for Determinants</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 26</span>
-          <h2>Common Mistake: <span class="hl">Sign Errors</span> in Cofactors</h2>
-          <ul><li>For A_ij, the sign is (-1)^(i+j).</li><li>Alternating signs: + - + / - + - / + - +.</li><li>Double-check signs, especially during expansion.</li></ul>
-          <p class="notes">🎙️ A very common mistake students make is with the signs of cofactors. Remember the alternating pattern. A simple error here can lead to a completely wrong determinant. Always be vigilant with the signs!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Check Signs!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 26</span>
+          <span class="num">12 / 30</span>
           <h2>Property 1: Row/Column <span class="hl">Interchange</span></h2>
-          <ul><li>If any two rows or columns are interchanged, the sign of the determinant changes.</li><li>Magnitude remains the same.</li><li>det(B) = -det(A) if B is from A by R_i ↔ R_j.</li></ul>
-          <p class="notes">🎙️ This is a fundamental property. Swapping any two parallel lines (rows or columns) in a matrix will flip the sign of its determinant, but the absolute value stays the same. Understand this well for problem-solving.</p>
+          <ul><li>If any two rows (or columns) of a determinant are interchanged, the sign of the determinant changes.</li><li>The absolute value remains the same.</li><li>Example: R1 ↔ R2 changes |A| to -|A|.</li></ul>
+          <p class="notes">🎙️ This is a simple yet powerful property. If you swap any two rows or any two columns, the determinant's value flips its sign. If you swap again, it flips back. Remember this for simplifying matrices before calculation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Sign Flip</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Swapping Rows/Columns</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 26</span>
-          <h2>Property 2: Identical Rows/Columns or Zero Row/Column</h2>
-          <ul><li>If any two rows or columns are identical, det(A) = 0.</li><li>If a row or column consists of all zeros, det(A) = 0.</li><li>These are quick ways to identify a zero determinant.</li></ul>
-          <p class="notes">🎙️ These properties are powerful shortcuts. If you spot two identical rows or columns, or an entire row/column of zeros, you immediately know the determinant is zero without any calculation. This saves valuable exam time.</p>
+          <span class="num">13 / 30</span>
+          <h2>Property 2: <span class="hl">Identical</span> Rows/Columns</h2>
+          <ul><li>If any two rows (or columns) of a determinant are identical, then the value of the determinant is zero.</li><li>No need for calculation if you spot this!</li><li>A common trick in exam questions.</li></ul>
+          <p class="notes">🎙️ This is a fantastic shortcut! If you ever see a matrix where two rows are exactly the same, or two columns are exactly the same, its determinant is immediately zero. This saves a lot of calculation time in exams.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">0️⃣</div><div class="vcap">Zero Result</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👯‍♀️</span><span>👯‍♀️</span></div><div class="vcap">Two Identical Rows</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 26</span>
-          <h2>Property 3: <span class="hl">Scalar</span> Multiplication</h2>
-          <ul><li>If each element of a row/column is multiplied by 'k', det(A) is multiplied by 'k'.</li><li>det(kA) = k^n * det(A) for an n x n matrix.</li><li>Important for factoring out common terms.</li></ul>
-          <p class="notes">🎙️ When you multiply a matrix by a scalar 'k', each element is multiplied. However, for a determinant, if only one row or column is multiplied by 'k', the determinant itself is multiplied by 'k'. If the whole matrix A is multiplied by k, the determinant becomes k to the power n times det(A).</p>
+          <span class="num">14 / 30</span>
+          <h2>Property 3: <span class="hl">Scalar Multiplication</span> of a Row/Column</h2>
+          <ul><li>If each element of a row (or column) is multiplied by a constant 'k', then the determinant is multiplied by 'k'.</li><li>det(kA) = k^n * det(A) for an n x n matrix.</li><li>Important distinction: det(kA) vs. k*det(A).</li></ul>
+          <p class="notes">🎙️ Be careful with this property. If you multiply *one* row or column by 'k', the determinant becomes 'k' times the original. However, if the entire matrix 'A' is multiplied by 'k', then det(kA) becomes k raised to the power of the matrix order (n) times det(A).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiply by k</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiplying a Row</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 26</span>
-          <h2>Property 4: <span class="hl">Sum</span> of Elements (Distribution)</h2>
-          <ul><li>If elements of a row/column are sum of two terms, determinant can be expressed as sum of two determinants.</li><li>Example: det([[a+x, b],[c+y, d]]) = det([[a,b],[c,d]]) + det([[x,b],[y,d]]).</li><li>Useful for splitting complex determinants.</li></ul>
-          <p class="notes">🎙️ This property allows us to break down complex determinants into simpler ones. If an element in a row or column is a sum of two terms, you can express the original determinant as the sum of two determinants, each containing one of those terms.</p>
+          <span class="num">15 / 30</span>
+          <h2>Property 4: <span class="hl">Sum of Elements</span> in a Row/Column</h2>
+          <ul><li>If elements of a row (or column) are expressed as a sum of two terms, the determinant can be expressed as a sum of two determinants.</li><li>This helps in breaking down complex determinants.</li><li>Example: [[a+x, b], [c+y, d]] = [[a,b],[c,d]] + [[x,b],[y,d]].</li></ul>
+          <p class="notes">🎙️ This property allows us to decompose a determinant into a sum of two simpler determinants if one of its rows or columns is a sum of two terms. It's a useful technique for simplifying expressions or proving identities.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Split &amp; Sum</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Breaking Down Sums</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 26</span>
-          <h2>Property 5: Row/Column <span class="hl">Operations</span> (R_i → R_i + kR_j)</h2>
-          <ul><li>If to elements of any row/column, corresponding elements of another row/column are added (multiplied by a constant 'k'), det(A) remains unchanged.</li><li>det(A) = det(B) where B is obtained by R_i → R_i + kR_j.</li><li>Most powerful property for simplification.</li></ul>
-          <p class="notes">🎙️ This is arguably the most important property for solving problems efficiently. Performing elementary row or column operations of the type R_i -&gt; R_i + kR_j does not change the value of the determinant. Use this to create zeros and simplify calculations.</p>
+          <span class="num">16 / 30</span>
+          <h2>Property 5: Row/Column <span class="hl">Operations</span></h2>
+          <ul><li>If we apply R_i → R_i + kR_j (or C_i → C_i + kC_j), the value of the determinant remains unchanged.</li><li>This is the most powerful property for simplification.</li><li>Use it to create zeros in rows/columns.</li></ul>
+          <p class="notes">🎙️ This is your go-to property for simplifying determinants, especially 3x3 or higher. By adding a multiple of one row to another (or column to another), you can create zeros, making the expansion much easier. The determinant's value does not change, which is incredibly useful.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Invariant Value</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Transforming Determinants</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 26</span>
-          <h2>Application: <span class="hl">Area</span> of a Triangle</h2>
-          <ul><li>Area of triangle with vertices (x1, y1), (x2, y2), (x3, y3).</li><li>Area = 1/2 | det([[x1, y1, 1], [x2, y2, 1], [x3, y3, 1]]) |.</li><li>The determinant value can be negative, so take absolute value.</li></ul>
-          <p class="notes">🎙️ Determinants have practical applications in geometry. You can find the area of a triangle given its vertices using this determinant formula. Remember, area is always positive, so we take the absolute value of the determinant.</p>
+          <span class="num">17 / 30</span>
+          <h2>Worked Example 3: Using Properties to <span class="hl">Simplify</span></h2>
+          <ul><li>Evaluate det([[1, a, a^2], [1, b, b^2], [1, c, c^2]]).</li><li>Apply R2 → R2 - R1 and R3 → R3 - R1.</li><li>Factor out (b-a) and (c-a).</li><li>Expand the resulting 2x2 determinant.</li><li>Result: (b-a)(c-a)(c-b).</li></ul>
+          <p class="notes">🎙️ This is a classic problem. Instead of direct expansion, which would be tedious, we use row operations to create zeros in the first column. This allows us to factor out common terms and reduce it to a simpler 2x2 determinant, leading to an elegant solution.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Geometric Use</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Smart Simplification</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">19 / 26</span>
-          <h2>Worked <span class="hl">Example</span>: Area of Triangle</h2>
-          <ul><li>Find area of triangle with vertices (1,0), (6,0), (4,3).</li><li>det = [[1,0,1],[6,0,1],[4,3,1]] = 1(0-3) - 0(6-4) + 1(18-0).</li><li>det = -3 + 18 = 15. Area = 1/2 * |15| = 7.5 sq. units.</li></ul>
-          <p class="notes">🎙️ Let's apply the formula. We set up the determinant and expand it. Notice expanding along the second column would be fastest due to the zeros. The calculated determinant is 15, so the area is 7.5 square units.</p>
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Quick Check 2</span>: Property Application</h2>
+          <ul><li>Which property states that if R1 = R2, the determinant is zero?</li><li>If you swap two rows, how does the determinant change?</li><li>If you multiply R1 by 5, what happens to the determinant?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of the properties. Quickly recall the rules for identical rows, row interchange, and scalar multiplication. These are direct questions that often appear in objective type exams.</p>
         </div>
         
       </div>
@@ -287,58 +281,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 26</span>
-          <h2>Application: <span class="hl">Collinearity</span> of Three Points</h2>
-          <ul><li>Three points (x1, y1), (x2, y2), (x3, y3) are collinear if area of triangle is 0.</li><li>Condition: det([[x1, y1, 1], [x2, y2, 1], [x3, y3, 1]]) = 0.</li><li>A quick test for points lying on a straight line.</li></ul>
-          <p class="notes">🎙️ This is a direct consequence of the area formula. If three points lie on a straight line, they cannot form a triangle, meaning the area enclosed by them is zero. Thus, the determinant value must be zero for collinear points.</p>
+          <span class="num">19 / 30</span>
+          <h2>Application 1: <span class="hl">Area of a Triangle</span> using Determinants</h2>
+          <ul><li>Coordinates (x1, y1), (x2, y2), (x3, y3).</li><li>Area = 1/2 * |det([[x1, y1, 1], [x2, y2, 1], [x3, y3, 1]])|.</li><li>If area is 0, points are collinear.</li></ul>
+          <p class="notes">🎙️ Determinants aren't just abstract numbers; they have real geometric meaning. One beautiful application is calculating the area of a triangle given its vertices. If the determinant turns out to be zero, it means the three points are collinear, forming a 'degenerate' triangle with no area.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Straight Line</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Geometric Application</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Worked <span class="hl">Example 4</span>: Area of Triangle</h2>
+          <ul><li>Find area of triangle with vertices (1,0), (6,0), (4,3).</li><li>Form the determinant: [[1,0,1], [6,0,1], [4,3,1]].</li><li>Expand along C2 (since it has two zeros): 0 - 0 + 3*det([[1,1],[6,1]]) = 3*(1-6) = -15.</li><li>Area = 1/2 * |-15| = 7.5 square units.</li></ul>
+          <p class="notes">🎙️ Here, we substitute the coordinates into the determinant formula. Notice how choosing to expand along the second column, which has two zeros, simplifies the calculation dramatically. The absolute value ensures the area is always positive.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Area Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Adjoint</span> of a Matrix: The 'Helper' Matrix</h2>
+          <ul><li>The adjoint of a square matrix A, denoted adj(A), is the transpose of its cofactor matrix.</li><li>First, find all cofactors (A_ij).</li><li>Form the cofactor matrix, then transpose it.</li></ul>
+          <p class="notes">🎙️ The adjoint matrix is crucial for finding the inverse. It's built directly from the cofactors of the original matrix. Remember, after finding all cofactors and arranging them into a matrix, you must transpose it to get the adjoint.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find all minors (M_ij)</span></div><div class="step"><span class="snum">2</span><span>Calculate all cofactors (A_ij)</span></div><div class="step"><span class="snum">3</span><span>Form the cofactor matrix</span></div><div class="step"><span class="snum">4</span><span>Transpose the cofactor matrix</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Worked <span class="hl">Example 5</span>: Finding Adjoint</h2>
+          <ul><li>Find adj(A) for A = [[1,2], [3,4]].</li><li>Cofactors: A_11=4, A_12=-3, A_21=-2, A_22=1.</li><li>Cofactor matrix = [[4,-3], [-2,1]].</li><li>adj(A) = [[4,-2], [-3,1]].</li></ul>
+          <p class="notes">🎙️ For a 2x2 matrix, finding the adjoint is quite simple: swap the main diagonal elements and change the sign of the anti-diagonal elements. For larger matrices, you need to follow the cofactor and transpose steps carefully.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Adjoint Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Application 2: <span class="hl">Inverse</span> of a Matrix using Determinants</h2>
+          <ul><li>A square matrix A is invertible if and only if det(A) ≠ 0.</li><li>Inverse A⁻¹ = (1/det(A)) * adj(A).</li><li>If det(A) = 0, the matrix is singular and no inverse exists.</li></ul>
+          <p class="notes">🎙️ The inverse of a matrix is like its reciprocal. It allows us to 'undo' matrix multiplication. A matrix has an inverse only if its determinant is non-zero. This formula elegantly combines the determinant and adjoint to find the inverse.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↩️</div><div class="vcap">Reversing the Matrix</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Worked <span class="hl">Example 6</span>: Finding Inverse</h2>
+          <ul><li>Find A⁻¹ for A = [[1,2], [3,4]].</li><li>det(A) = (1*4) - (2*3) = 4 - 6 = -2.</li><li>adj(A) = [[4,-2], [-3,1]] (from previous example).</li><li>A⁻¹ = (1/-2) * [[4,-2], [-3,1]] = [[-2,1], [3/2,-1/2]].</li></ul>
+          <p class="notes">🎙️ Building on our previous adjoint example, we first calculate the determinant. Since it's -2 (non-zero), an inverse exists. Then, we simply divide the adjoint matrix by the determinant. This gives us the inverse matrix.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Inverse Calculation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">21 / 26</span>
-          <h2>Quick <span class="hl">Question 1</span></h2>
-          <ul><li>What is the determinant of [[5, -2], [3, 4]]?</li><li>A) 14</li><li>B) 26</li><li>C) -14</li><li>D) -26</li></ul>
-          <p class="notes">🎙️ Time for a quick check. Calculate this 2x2 determinant. Remember the formula 'ad - bc'. Take a moment to solve it before I reveal the answer.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 26</span>
-          <h2>Quick Question 1 - <span class="hl">Answer</span></h2>
-          <ul><li>det = (5 * 4) - (-2 * 3)</li><li>= 20 - (-6)</li><li>= 20 + 6 = 26.</li><li>The correct answer is B) 26.</li></ul>
-          <p class="notes">🎙️ The correct answer is 26. Did you get it right? If not, review the 2x2 determinant calculation. Pay attention to the negative signs!</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 26</span>
-          <h2>Quick <span class="hl">Question 2</span></h2>
-          <ul><li>If a matrix A has two identical rows, what is det(A)?</li><li>A) 1</li><li>B) -1</li><li>C) 0</li><li>D) Undefined</li></ul>
-          <p class="notes">🎙️ Here's a question based on properties. If a matrix has two identical rows, what does that tell us about its determinant? Recall the properties we just discussed.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">24 / 26</span>
-          <h2>Quick Question 2 - <span class="hl">Answer</span></h2>
-          <ul><li>Property: If any two rows or columns are identical, the determinant is 0.</li><li>This is a direct application of Property 2.</li><li>The correct answer is C) 0.</li></ul>
-          <p class="notes">🎙️ The answer is 0. This is one of the key properties that can save you time in exams. Always look for identical rows or columns before starting lengthy calculations.</p>
+          <span class="num">25 / 30</span>
+          <h2>Quick Check 3: <span class="hl">Singular Matrix</span></h2>
+          <ul><li>What is the determinant of a singular matrix?</li><li>Can a singular matrix have an inverse?</li><li>Why is the determinant crucial for invertibility?</li></ul>
+          <p class="notes">🎙️ This is a key concept for exams. Understanding the relationship between the determinant and a matrix being singular or non-singular is fundamental. Think about the inverse formula and what happens if the denominator is zero.</p>
         </div>
         
       </div>
@@ -347,24 +365,60 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 26</span>
-          <h2><span class="hl">Recap</span>: Key Concepts of Determinants</h2>
-          <ul><li>Definition and calculation for orders 1, 2, 3.</li><li>Minors and Cofactors (and their signs!).</li><li>Properties of Determinants (5 crucial ones).</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! From understanding what a determinant is, to calculating it for different orders, and exploring its powerful properties and applications. This forms the backbone of the chapter.</p>
+          <span class="num">26 / 30</span>
+          <h2>Application 3: Solving System of Linear Equations (<span class="hl">Cramer's Rule</span>)</h2>
+          <ul><li>A method to solve systems of linear equations using determinants.</li><li>For a system Ax = B, x_i = det(A_i) / det(A).</li><li>A_i is matrix A with i-th column replaced by B.</li></ul>
+          <p class="notes">🎙️ Cramer's Rule provides an elegant way to solve systems of linear equations, especially useful for 2x2 or 3x3 systems. It involves calculating several determinants. Remember, this rule only works if the determinant of the coefficient matrix (det(A)) is non-zero.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Summary</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing Equations</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">26 / 26</span>
-          <h2><span class="hl">Exam Tips</span> &amp; Next Steps!</h2>
-          <ul><li>Practice consistently, especially properties-based questions.</li><li>Master sign conventions for cofactors.</li><li>Utilize properties to simplify calculations.</li></ul>
-          <p class="notes">🎙️ To ace this chapter, practice is paramount. Work through a variety of problems, focusing on using properties strategically. Accuracy in signs and calculations will ensure you score full marks in determinant questions. Keep practicing!</p>
+          <span class="num">27 / 30</span>
+          <h2>Worked <span class="hl">Example 7</span>: Solving Equations with Cramer's Rule</h2>
+          <ul><li>Solve: x + 2y = 8, 3x + y = 9.</li><li>A = [[1,2],[3,1]], B = [[8],[9]].</li><li>det(A) = (1*1) - (2*3) = 1 - 6 = -5.</li><li>A_x = [[8,2],[9,1]], det(A_x) = (8*1) - (2*9) = 8 - 18 = -10.</li><li>A_y = [[1,8],[3,9]], det(A_y) = (1*9) - (8*3) = 9 - 24 = -15.</li><li>x = det(A_x)/det(A) = -10/-5 = 2.</li><li>y = det(A_y)/det(A) = -15/-5 = 3.</li></ul>
+          <p class="notes">🎙️ Here's Cramer's Rule in practice. We first find the determinant of the coefficient matrix. Then, for each variable, we replace its column in the coefficient matrix with the constant terms and calculate the new determinant. Finally, we divide these by the original determinant.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Success Ahead!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Cramer's Rule in Action</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Common Mistakes</span> to Avoid</h2>
+          <ul><li>Sign errors in cofactor calculations.</li><li>Incorrectly applying properties (e.g., det(kA) vs. k det(A)).</li><li>Calculation errors in 3x3 expansions.</li><li>Forgetting to take absolute value for Area of Triangle.</li><li>Not transposing the cofactor matrix for adjoint.</li></ul>
+          <p class="notes">🎙️ Students often lose marks due to these common errors. Always double-check your signs, especially for cofactors. Understand the nuances of properties, and be meticulous with your calculations. A small error can cascade and lead to an incorrect final answer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Pitfalls to Avoid</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Exam Tips</span> for Determinants</h2>
+          <ul><li>Practice properties extensively; they are scoring.</li><li>Master 3x3 determinant expansion (focus on choosing rows/columns with zeros).</li><li>Practice inverse and Cramer's Rule problems.</li><li>Time management: properties questions are quick if you know them.</li><li>Show all steps clearly for full marks.</li></ul>
+          <p class="notes">🎙️ Determinants are high-scoring if you prepare well. Focus on understanding the 'why' behind each property, not just memorizing. Practice makes perfect, especially for multi-step problems like finding inverses or solving systems. Always present your solutions clearly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Ace Your Exams</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways from Determinants</h2>
+          <ul><li>Determinants are scalar values of square matrices.</li><li>Properties simplify calculations and reveal matrix characteristics.</li><li>Used for Area of Triangle, Matrix Inverse, and solving Linear Equations.</li><li>Singular matrix (det=0) means no inverse and no unique solution.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember, determinants are powerful mathematical tools. They give us insight into matrix invertibility and provide systematic ways to solve linear systems. Keep practicing, and you'll master this topic in no time. Thank you!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -375,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

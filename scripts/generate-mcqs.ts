@@ -22,7 +22,7 @@ import { SYLLABUS } from '../src/data/syllabus';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const OUT = path.join(ROOT, 'src', 'data', 'questions', 'generated.json');
+const OUT = path.join(ROOT, 'public', 'data', 'generated-mcqs.json');
 
 const args = Object.fromEntries(
   process.argv.slice(2).flatMap((a, i, arr) =>
@@ -34,6 +34,12 @@ const wantAll = !!args.all;
 const limit = args.limit ? parseInt(args.limit as string, 10) : Infinity;
 const KEY = process.env.GEMINI_API_KEY;
 if (!KEY) { console.error('Set GEMINI_API_KEY'); process.exit(1); }
+// Cost guard: this calls the Gemini API and can incur charges on a PAID-tier key.
+// Disabled unless explicitly allowed. Prefer a FREE-TIER key (no billing linked).
+if (process.env.ALLOW_PAID_GEMINI !== '1') {
+  console.error('\n⛔ generate-mcqs is disabled to prevent surprise charges.\n   It calls the Gemini API (costs money on a paid key).\n   Content is already generated — you likely do NOT need to run this.\n   To run intentionally on a FREE-TIER key: set ALLOW_PAID_GEMINI=1\n');
+  process.exit(1);
+}
 
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
 const dailyCategory = (cls: string) => (['1', '2', '3', '4'].includes(cls) ? 'Classes 1-4' : 'Classes 5-10');
@@ -58,8 +64,9 @@ const unique = chapters.filter(ch => {
 async function gen(ch: typeof SYLLABUS[number]): Promise<any[] | null> {
   const prompt = `Generate ${PER} high-quality multiple-choice questions for an Indian student.
 Class: ${ch.classLevel}. Subject: ${ch.subject}. Chapter: "${ch.title}".
-Rules: exam-relevant, factually correct, 4 options each, exactly one correct, a clear 1-2 sentence explanation. Mix difficulty (easy/medium/hard).
-Return ONLY a JSON array, each item: {"question": string, "options": [4 strings], "correct": 0-3, "explanation": string, "difficulty": "easy"|"medium"|"hard"}.`;
+Rules: exam-relevant, factually correct, 4 options each, exactly one correct. Mix difficulty (easy/medium/hard).
+For EACH question also give a BYJU's-style step-by-step "solution": an array of 2-5 short steps that teach HOW to reach the answer (reasoning/working), not just restating it. "explanation" stays a 1-2 sentence summary of why the answer is correct.
+Return ONLY a JSON array, each item: {"question": string, "options": [4 strings], "correct": 0-3, "explanation": string, "solution": [string steps], "difficulty": "easy"|"medium"|"hard"}.`;
   try {
     const res = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`,
@@ -107,6 +114,7 @@ async function main() {
       options: (q.options || []).slice(0, 4).map((o: any) => String(o)),
       correct: Math.max(0, Math.min(3, Number(q.correct) || 0)),
       explanation: String(q.explanation || '').trim(),
+      solution: Array.isArray(q.solution) ? q.solution.map((s: any) => String(s).trim()).filter(Boolean).slice(0, 6) : undefined,
       difficulty: ['easy', 'medium', 'hard'].includes(q.difficulty) ? q.difficulty : 'medium',
       chapter: ch.title,
     })).filter((q: any) => q.question && q.options.length === 4 && !seenQ.has(q.question.toLowerCase()));

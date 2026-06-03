@@ -120,7 +120,7 @@ const validatePassword = (password: string) => {
   return password;
 };
 
-const normalizeAuthError = (error: unknown, mapper = mapError) => {
+const normalizeAuthError = (error: unknown, mapper: (code?: string) => string = mapError) => {
   if (error instanceof Error && !('code' in (error as unknown as Record<string, unknown>))) {
     return error;
   }

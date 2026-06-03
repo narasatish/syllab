@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Linear Programming</span>!</h2>
-          <ul><li>A powerful tool in mathematics</li><li>Solve real-world optimization problems</li><li>Crucial for Class 12 CBSE exams</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on a very important chapter: Linear Programming. It's a fascinating area of mathematics that helps us make the best decisions when resources are limited. This topic is not just academic; it has vast practical applications and is a guaranteed scoring section in your board exams.</p>
+          <span class="num">1 / 31</span>
+          <h2><span class="hl">Optimise</span> Your Decisions: Introduction to Linear Programming</h2>
+          <ul><li>What is Linear Programming (LPP)?</li><li>Why is it important in real life?</li><li>Your first step into optimization!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on a fascinating journey into Linear Programming, a powerful tool for making the best decisions when resources are limited. Ever wondered how companies decide what to produce or how much to invest? LPP holds the key!</p>
         </div>
         
       </div>
@@ -71,106 +77,142 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>Why Linear Programming <span class="hl">Matters</span>?</h2>
-          <ul><li>Optimize resource allocation</li><li>Maximize profit, minimize cost</li><li>Used in business, industry, logistics</li></ul>
-          <p class="notes">🎙️ Think about a factory trying to produce the most goods with limited raw materials, or a company wanting to deliver products using the shortest routes. LPP provides a systematic way to find the 'best' solution, whether it's maximizing profit, minimizing cost, or efficiently using resources. It's a core skill for future engineers and managers.</p>
+          <span class="num">2 / 31</span>
+          <h2>The 'Sweet' <span class="hl">Dilemma</span>: A Mithai Shop Story</h2>
+          <ul><li>Mrs. Sharma's mithai shop</li><li>Limited flour, sugar, and time</li><li>Laddoos vs. Barfis: Maximizing profit</li></ul>
+          <p class="notes">🎙️ Imagine a mithai shop owner, Mrs. Sharma. She makes Laddoos and Barfis. She has limited flour, sugar, and time. Each mithai needs different amounts of ingredients and sells for a different profit. How can she decide how many of each to make to maximize her profit? This is a classic Linear Programming problem!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Optimization</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Delicious Mithai</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>What is a Linear Programming Problem (<span class="hl">LPP</span>)?</h2>
-          <ul><li>Mathematical method for optimal resource allocation</li><li>Involves linear relationships only</li><li>Aims to achieve best outcome (max/min)</li></ul>
-          <p class="notes">🎙️ An LPP is essentially a mathematical model where we try to optimize a linear function, called the objective function, subject to a set of linear inequalities or equations, known as constraints. The key word here is 'linear' – all relationships must be straight lines or planes, making it solvable using specific techniques.</p>
+          <span class="num">3 / 31</span>
+          <h2>Your <span class="hl">Learning</span> Path Today</h2>
+          <ul><li>Understand LPP components</li><li>Formulate real-world problems</li><li>Solve LPPs graphically</li></ul>
+          <p class="notes">🎙️ By the end of this session, you'll be able to formulate real-world problems into Linear Programming Problems, understand their components, and solve them graphically to find optimal solutions. Get ready to think like a problem-solver!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Linear Relationships</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Formulate LPPs</span></div><div class="step"><span class="snum">2</span><span>Solve Graphically</span></div><div class="step"><span class="snum">3</span><span>Identify Key Terms</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Key Component 1: <span class="hl">Objective Function</span></h2>
-          <ul><li>Function to be maximized or minimized</li><li>Expressed as Z = ax + by</li><li>Represents profit, cost, output, etc.</li></ul>
-          <p class="notes">🎙️ The objective function is the heart of any LPP. It's what you're trying to achieve – your goal. For instance, if you're a manufacturer, your objective might be to maximize profit, or if you're planning a diet, you might want to minimize cost while meeting nutritional needs. It's always a linear expression of your decision variables.</p>
+          <span class="num">4 / 31</span>
+          <h2>What is <span class="hl">Linear Programming</span> (LPP)?</h2>
+          <ul><li>Mathematical technique for optimization</li><li>Maximize or minimize a linear function</li><li>Subject to linear constraints</li></ul>
+          <p class="notes">🎙️ Linear Programming is a mathematical technique used to optimize (maximize or minimize) a linear objective function, subject to linear equality and inequality constraints. Think of it as finding the 'best' possible outcome given a set of limitations or rules.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Goal Setting</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Finding the Best</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Key Component 2: <span class="hl">Decision Variables</span></h2>
-          <ul><li>Quantities to be determined</li><li>Represent factors under control</li><li>e.g., number of products, amount of resources</li></ul>
-          <p class="notes">🎙️ Decision variables are the unknown quantities in your problem that you need to find. These are the choices you can make, like how many units of product A to produce, or how many hours to allocate to machine B. They directly influence the value of your objective function and must be non-negative in most practical scenarios.</p>
+          <span class="num">5 / 31</span>
+          <h2>The <span class="hl">Pillars</span> of LPP</h2>
+          <ul><li>Objective Function: What to optimize?</li><li>Constraints: The limitations</li><li>Non-negativity: Realistic values</li></ul>
+          <p class="notes">🎙️ Every LPP stands on three main pillars: the Objective Function, which tells us what we want to optimize; the Constraints, which are the limitations; and Non-negativity Restrictions, ensuring our variables make sense in the real world.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">What to Decide?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building Blocks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Key Component 3: <span class="hl">Constraints</span></h2>
-          <ul><li>Limitations or restrictions on resources</li><li>Expressed as linear inequalities/equations</li><li>e.g., available raw material, machine hours</li></ul>
-          <p class="notes">🎙️ Constraints are the boundaries within which you must operate. They represent the limitations of your resources, such as the maximum number of labor hours available, the limited supply of raw materials, or the capacity of a machine. These are typically expressed as linear inequalities, reflecting 'less than or equal to' or 'greater than or equal to' limits.</p>
+          <span class="num">6 / 31</span>
+          <h2>Component 1: The <span class="hl">Goal</span> - Objective Function</h2>
+          <ul><li>Expression to maximize or minimize</li><li>Always a linear function</li><li>E.g., Profit, Cost, Sales, Time</li></ul>
+          <p class="notes">🎙️ This is the mathematical expression that represents the quantity we want to maximize (like profit or sales) or minimize (like cost or time). It's always a linear function of the decision variables. For Mrs. Sharma, it would be her total profit from Laddoos and Barfis.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Resource Limits</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Maximize Profit/Minimize Cost</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Key Component 4: <span class="hl">Non-negativity</span> Restrictions</h2>
-          <ul><li>Decision variables cannot be negative</li><li>x ≥ 0, y ≥ 0</li><li>Logical for real-world quantities</li></ul>
-          <p class="notes">🎙️ This is a fundamental and often implicit constraint. In most real-world scenarios, quantities like the number of items produced or the amount of resources used cannot be negative. You can't produce -5 shirts! So, decision variables are always assumed to be greater than or equal to zero. This restricts our solution to the first quadrant in a 2D graph.</p>
+          <span class="num">7 / 31</span>
+          <h2>Component 2: The <span class="hl">Boundaries</span> - Constraints</h2>
+          <ul><li>Limitations on resources or conditions</li><li>Expressed as linear inequalities/equalities</li><li>E.g., limited raw materials, machine hours</li></ul>
+          <p class="notes">🎙️ Constraints are the limitations or restrictions on the resources or conditions. These are expressed as linear inequalities or equalities. For Mrs. Sharma, these are her limited flour, sugar, and time available for making mithai.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Positive Values Only</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Resource Limitations</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Steps to <span class="hl">Formulate</span> an LPP</h2>
-          <ul><li>Identify decision variables</li><li>Define objective function (max/min)</li><li>Write down all constraints</li></ul>
-          <p class="notes">🎙️ Formulating an LPP from a word problem is a crucial first step. It involves carefully reading the problem, identifying what needs to be decided (variables), what goal needs to be achieved (objective function), and what limitations exist (constraints). Don't forget the non-negativity restrictions!</p>
+          <span class="num">8 / 31</span>
+          <h2>Component 3: <span class="hl">Realistic</span> Choices - Non-negativity Restrictions</h2>
+          <ul><li>Decision variables cannot be negative</li><li>Always x ≥ 0, y ≥ 0</li><li>Ensures practical solutions</li></ul>
+          <p class="notes">🎙️ Decision variables (like the number of Laddoos or Barfis) cannot be negative in real-world scenarios. You can't make -5 Laddoos! So, all decision variables must be greater than or equal to zero. This is a crucial, often implicit, constraint.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Variables</span></div><div class="step"><span class="snum">2</span><span>Objective</span></div><div class="step"><span class="snum">3</span><span>Constraints</span></div><div class="step"><span class="snum">4</span><span>Non-negativity</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Positive Quantities</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Example 1: <span class="hl">Manufacturing</span> Problem</h2>
-          <ul><li>Company makes two products, A and B</li><li>Limited resources: labor hours, raw material</li><li>Goal: Maximize profit</li></ul>
-          <p class="notes">🎙️ Let's consider a classic problem. A company produces two types of toys. Each toy requires different amounts of plastic and assembly time. The company has limited plastic and limited assembly hours. Each toy also yields a different profit. Our task is to formulate an LPP to decide how many of each toy to produce to maximize total profit.</p>
+          <span class="num">9 / 31</span>
+          <h2><span class="hl">Formulating</span> an LPP: A Step-by-Step Guide</h2>
+          <ul><li>Define decision variables</li><li>Formulate the objective function</li><li>Write down all constraints</li><li>Add non-negativity restrictions</li></ul>
+          <p class="notes">🎙️ Formulating an LPP means translating a word problem into a mathematical model. First, identify what you need to decide (variables). Second, state what you want to achieve (objective). Third, list all limitations (constraints). Finally, remember the non-negativity!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏭</span><span>🏭</span><span>🏭</span></div><div class="vcap">Factory Production</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Variables</span></div><div class="step"><span class="snum">2</span><span>Define Objective</span></div><div class="step"><span class="snum">3</span><span>List Constraints</span></div><div class="step"><span class="snum">4</span><span>Add Non-negativity</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 31</span>
+          <h2>Worked Example 1: <span class="hl">Crafting</span> Chairs &amp; Tables</h2>
+          <ul><li>Manufacturer makes chairs and tables</li><li>Limited machine hours (Machine A &amp; B)</li><li>Goal: Maximize profit</li></ul>
+          <p class="notes">🎙️ A manufacturer produces chairs and tables. Each chair requires 2 hours on Machine A and 3 hours on Machine B. Each table requires 3 hours on Machine A and 2 hours on Machine B. Machine A is available for 120 hours, and Machine B for 150 hours. Profit per chair is ₹200, per table is ₹300. Formulate an LPP to maximize profit.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span></div><div class="vcap">Furniture Making</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 31</span>
+          <h2>Example 1 <span class="hl">Solution</span>: Variables &amp; Objective Function</h2>
+          <ul><li>Let x = number of chairs</li><li>Let y = number of tables</li><li>Maximize Z = 200x + 300y</li></ul>
+          <p class="notes">🎙️ Let 'x' be the number of chairs and 'y' be the number of tables. Our goal is to maximize profit. So, the Objective Function is Z = 200x + 300y. This is what we want to make as large as possible.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✏️</div><div class="vcap">Setting Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 31</span>
+          <h2>Example 1 Solution: <span class="hl">Constraints</span> &amp; Non-negativity</h2>
+          <ul><li>Machine A: 2x + 3y ≤ 120</li><li>Machine B: 3x + 2y ≤ 150</li><li>Non-negativity: x ≥ 0, y ≥ 0</li></ul>
+          <p class="notes">🎙️ For Machine A: 2x + 3y ≤ 120 (total hours cannot exceed 120). For Machine B: 3x + 2y ≤ 150 (total hours cannot exceed 150). And, critically, x ≥ 0, y ≥ 0 because we can't produce negative furniture pieces. This completes our LPP formulation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing Resources</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Quick Check</span>: LPP Components</h2>
-          <ul><li>What are the decision variables?</li><li>Is it a maximization or minimization problem?</li><li>Identify one constraint from the problem.</li></ul>
-          <p class="notes">🎙️ Based on the previous manufacturing example, take a moment to identify the key components. What are we trying to decide? What's our ultimate goal? And what are the limitations we're working with? This helps solidify your understanding of LPP formulation.</p>
+          <span class="num">13 / 31</span>
+          <h2><span class="hl">Quick Check</span>! Formulate This:</h2>
+          <ul><li>Baker makes cakes A and B</li><li>Limited flour (5kg) and sugar (1kg)</li><li>Cake A: 200g flour, 25g sugar, ₹50 profit</li><li>Cake B: 100g flour, 50g sugar, ₹30 profit</li></ul>
+          <p class="notes">🎙️ A baker makes two types of cakes, A and B. Cake A needs 200g flour and 25g sugar. Cake B needs 100g flour and 50g sugar. He has 5kg flour and 1kg sugar. Profit for Cake A is ₹50, for Cake B is ₹30. Formulate an LPP to maximize profit.</p>
         </div>
         
       </div>
@@ -179,130 +221,94 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Solving LPP: The <span class="hl">Graphical Method</span></h2>
-          <ul><li>Applicable for LPPs with two variables</li><li>Visualize the feasible region</li><li>Find optimal solution at corner points</li></ul>
-          <p class="notes">🎙️ For LPPs with only two decision variables, the graphical method is a very intuitive and powerful way to find the optimal solution. We plot the constraints as lines on a graph, identify the region that satisfies all constraints, and then evaluate our objective function at specific points within that region.</p>
+          <span class="num">14 / 31</span>
+          <h2>Solving LPP Graphically: The <span class="hl">Feasible Region</span></h2>
+          <ul><li>Used for problems with two variables</li><li>Intersection of all constraints</li><li>Contains all possible valid solutions</li></ul>
+          <p class="notes">🎙️ For problems with two variables, we can solve LPPs graphically. Each constraint defines a half-plane. The intersection of all these half-planes, including non-negativity, forms a region called the Feasible Region. This region contains all possible solutions that satisfy the constraints.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Visual Solution</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Area of Possibilities</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Understanding the <span class="hl">Feasible Region</span></h2>
-          <ul><li>Area satisfying ALL constraints simultaneously</li><li>Represents all possible valid solutions</li><li>Optimal solution lies within this region</li></ul>
-          <p class="notes">🎙️ The feasible region is the most critical part of the graphical method. It's the area on your graph where every single constraint is satisfied. Any point within this region is a 'feasible solution' – meaning it's a possible way to operate within your limits. Our optimal solution will always be found at one of the 'corners' of this region.</p>
+          <span class="num">15 / 31</span>
+          <h2>The <span class="hl">Corner Point</span> Theorem: Finding the Optimum</h2>
+          <ul><li>Crucial for graphical solutions</li><li>Optimal solution lies at a vertex</li><li>Check objective function at each corner</li></ul>
+          <p class="notes">🎙️ A fundamental theorem states that if an optimal solution exists for a linear programming problem, it must occur at a corner point (vertex) of the feasible region. This significantly narrows down our search for the best solution!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Valid Solutions</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Optimal at a Vertex</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>The <span class="hl">Corner Point</span> Method (Fundamental Theorem)</h2>
-          <ul><li>Optimal solution occurs at a corner point</li><li>Corner points are vertices of feasible region</li><li>Evaluate Z at each corner point</li></ul>
-          <p class="notes">🎙️ The Fundamental Theorem of Linear Programming states that if an optimal solution exists, it will always occur at a corner point (vertex) of the feasible region. This simplifies our search considerably. Instead of checking every point in the region, we only need to evaluate the objective function at these specific corner points to find the maximum or minimum value.</p>
+          <span class="num">16 / 31</span>
+          <h2>Graphical Solution: <span class="hl">Step-by-Step</span></h2>
+          <ul><li>Graph all constraints</li><li>Identify and shade the feasible region</li><li>Find coordinates of all corner points</li><li>Evaluate objective function at each point</li></ul>
+          <p class="notes">🎙️ First, plot all inequalities as lines and shade the feasible region. Then, identify the coordinates of all corner points of this region. Finally, substitute these coordinates into the objective function to find the maximum or minimum value. The point giving the optimal value is our solution.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Vertices are Key</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Graph Constraints</span></div><div class="step"><span class="snum">2</span><span>Identify Feasible Region</span></div><div class="step"><span class="snum">3</span><span>Find Corner Points</span></div><div class="step"><span class="snum">4</span><span>Evaluate Objective Function</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Example 2: <span class="hl">Maximization</span> Problem</h2>
-          <ul><li>Maximize Z = 3x + 2y</li><li>Subject to: x + y ≤ 4, x - y ≥ 0, x ≥ 0, y ≥ 0</li><li>Step 1: Graph the constraints</li></ul>
-          <p class="notes">🎙️ Let's work through a maximization problem. First, we'll convert the inequalities into equations to draw the lines. Then, we'll determine the region that satisfies each inequality. Remember to shade the correct side of each line to identify the feasible region. The non-negativity constraints mean we'll be working in the first quadrant.</p>
+          <span class="num">17 / 31</span>
+          <h2>Worked Example 2: <span class="hl">Maximizing</span> Profit Graphically</h2>
+          <ul><li>Objective: Maximize Z = x + y</li><li>Constraints: x + 2y ≤ 10, 3x + y ≤ 15</li><li>Non-negativity: x ≥ 0, y ≥ 0</li></ul>
+          <p class="notes">🎙️ Let's solve: Maximize Z = x + y, subject to x + 2y ≤ 10, 3x + y ≤ 15, x ≥ 0, y ≥ 0. We'll start by converting these inequalities into equations to draw the lines.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Plotting Lines</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Upward Trend</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Example 2: Finding the <span class="hl">Optimal Solution</span></h2>
-          <ul><li>Identify corner points of feasible region</li><li>Evaluate Z at each corner point</li><li>Select point yielding maximum Z</li></ul>
-          <p class="notes">🎙️ Once the feasible region is identified, list all its corner points. These are the intersections of the constraint lines. Substitute the coordinates of each corner point into the objective function Z = 3x + 2y. The point that gives the highest value for Z is your optimal solution, and that maximum value is the answer.</p>
+          <span class="num">18 / 31</span>
+          <h2>Example 2 Solution: <span class="hl">Plotting</span> the Lines</h2>
+          <ul><li>Line 1: x + 2y = 10 (points: (0,5), (10,0))</li><li>Line 2: 3x + y = 15 (points: (0,15), (5,0))</li><li>Include x=0 (y-axis) and y=0 (x-axis)</li></ul>
+          <p class="notes">🎙️ For x + 2y = 10: points are (0,5) and (10,0). For 3x + y = 15: points are (0,15) and (5,0). Also, x=0 (y-axis) and y=0 (x-axis) for non-negativity. We then shade the region satisfying all inequalities.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:18%"></div><div class="clabel">(0,0)</div></div><div class="ccard"><div class="cbar" style="width:83%"></div><div class="clabel">(2,2)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(4,0)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Drawing Lines</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Example 3: <span class="hl">Minimization</span> Problem</h2>
-          <ul><li>Minimize Z = 2x + 3y</li><li>Subject to: x + y ≥ 6, 2x + y ≥ 8, x ≥ 0, y ≥ 0</li><li>Step 1: Graph the constraints</li></ul>
-          <p class="notes">🎙️ Now, let's tackle a minimization problem. The process is very similar: graph the constraints, identify the feasible region. The key difference here is that the feasible region often extends outwards, and we are looking for the lowest value of Z among the corner points. Pay close attention to the direction of inequalities.</p>
+          <span class="num">19 / 31</span>
+          <h2>Example 2 Solution: Feasible Region &amp; <span class="hl">Vertices</span></h2>
+          <ul><li>Feasible region is a polygon</li><li>Corner points: (0,0), (5,0), (0,5)</li><li>Intersection of lines: (4,3)</li></ul>
+          <p class="notes">🎙️ The feasible region will be a polygon bounded by the axes and the two lines. The corner points are (0,0), (5,0), (0,5) and the intersection of x + 2y = 10 and 3x + y = 15. Solving these simultaneously gives (4,3).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Plotting Lines</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Identifying Corners</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Example 3: Finding the <span class="hl">Optimal Solution</span></h2>
-          <ul><li>Identify corner points of feasible region</li><li>Evaluate Z at each corner point</li><li>Select point yielding minimum Z</li></ul>
-          <p class="notes">🎙️ After plotting and identifying the feasible region, list its corner points. Substitute these coordinates into the objective function Z = 2x + 3y. The point that gives the smallest value for Z is your optimal solution. Remember, for minimization, the feasible region is usually unbounded, but the optimal solution will still be at a corner point.</p>
+          <span class="num">20 / 31</span>
+          <h2>Example 2 Solution: Finding the <span class="hl">Maximum</span></h2>
+          <ul><li>Evaluate Z = x + y at each corner point</li><li>(0,0) -&gt; Z = 0</li><li>(5,0) -&gt; Z = 5</li><li>(0,5) -&gt; Z = 5</li><li>(4,3) -&gt; Z = 7</li></ul>
+          <p class="notes">🎙️ Now, substitute these corner points into Z = x + y: At (0,0), Z = 0. At (5,0), Z = 5. At (0,5), Z = 5. At (4,3), Z = 4 + 3 = 7. The maximum value of Z is 7, occurring at (4,3).</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(0,8)</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">(2,4)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">(6,0)</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Special Case 1: <span class="hl">Unbounded</span> Feasible Region</h2>
-          <ul><li>Feasible region extends infinitely</li><li>Optimal solution may or may not exist</li><li>Check if objective function can be infinitely improved</li></ul>
-          <p class="notes">🎙️ Sometimes, the feasible region is not enclosed on all sides; it's unbounded. In such cases, a minimization problem might have an optimal solution at a corner point, but a maximization problem might not have one if the objective function can increase indefinitely within the region. Always check the graph carefully.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♾️</div><div class="vcap">Infinite Possibilities</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Special Case 2: <span class="hl">No Feasible Region</span></h2>
-          <ul><li>Constraints contradict each other</li><li>No point satisfies all conditions</li><li>No solution exists for the LPP</li></ul>
-          <p class="notes">🎙️ It's possible that the constraints are so restrictive or contradictory that there is no region where all of them are satisfied simultaneously. In such a scenario, there is no feasible solution, and therefore, no optimal solution. This often happens if, for example, you have constraints like x + y &lt;= 5 and x + y &gt;= 10.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Conflicting Constraints</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Special Case 3: Multiple Optimal Solutions</h2>
-          <ul><li>Objective function parallel to a constraint line</li><li>All points on that line segment are optimal</li><li>Same optimal Z value at two corner points</li></ul>
-          <p class="notes">🎙️ If the objective function line is parallel to one of the boundary lines of the feasible region, and that boundary forms part of the optimal solution, then every point on that segment of the boundary will yield the same optimal value. This means there are infinitely many optimal solutions, all giving the same maximum or minimum Z.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Equivalent Choices</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:18%"></div><div class="clabel">(0,0)</div></div><div class="ccard"><div class="cbar" style="width:71%"></div><div class="clabel">(5,0)</div></div><div class="ccard"><div class="cbar" style="width:71%"></div><div class="clabel">(0,5)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(4,3)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick Check: Identifying <span class="hl">Solution Types</span></h2>
-          <ul><li>What if the feasible region is empty?</li><li>When do we have an unbounded solution?</li><li>How to identify multiple optimal solutions?</li></ul>
-          <p class="notes">🎙️ These special cases are important for conceptual understanding and for exam questions. Review the conditions for each. An empty feasible region means no solution. An unbounded solution means the objective function can be improved infinitely (usually in maximization). Multiple optimal solutions occur when the objective function aligns with a boundary.</p>
+          <span class="num">21 / 31</span>
+          <h2>Quick Check! Which Region is <span class="hl">Feasible</span>?</h2>
+          <ul><li>Constraints: x + y ≤ 4, x ≥ 0, y ≥ 0</li><li>What shape is the feasible region?</li><li>What are its corner points?</li></ul>
+          <p class="notes">🎙️ Consider the constraints: x + y ≤ 4, x ≥ 0, y ≥ 0. Describe the shape of the feasible region. Is it a triangle, square, or something else? What are its corner points? (Think about the graph in your mind!)</p>
         </div>
         
       </div>
@@ -311,48 +317,120 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
+          <span class="num">22 / 31</span>
+          <h2>Feasible Regions: <span class="hl">Bounded</span> or Unbounded?</h2>
+          <ul><li>Bounded: Can be enclosed in a circle</li><li>Unbounded: Extends indefinitely</li><li>Optimal solution may not exist for unbounded</li></ul>
+          <p class="notes">🎙️ A feasible region is 'bounded' if it can be enclosed within a circle. If it extends indefinitely in any direction, it's 'unbounded'. For unbounded regions, an optimal solution may or may not exist. If it exists, it will still be at a corner point.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bounded</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Unbounded</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 31</span>
+          <h2>Worked Example 3: <span class="hl">Minimizing</span> Cost Graphically</h2>
+          <ul><li>Objective: Minimize Z = 3x + 2y</li><li>Constraints: x + y ≥ 8, 3x + 5y ≥ 15</li><li>Non-negativity: x ≥ 0, y ≥ 0</li></ul>
+          <p class="notes">🎙️ Let's solve: Minimize Z = 3x + 2y, subject to x + y ≥ 8, 3x + 5y ≥ 15, x ≥ 0, y ≥ 0. Notice the 'greater than or equal to' signs, which will affect our feasible region.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Downward Trend</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 31</span>
+          <h2>Example 3 Solution: Plotting &amp; <span class="hl">Vertices</span></h2>
+          <ul><li>Line 1: x + y = 8 (points: (0,8), (8,0))</li><li>Line 2: 3x + 5y = 15 (points: (0,3), (5,0))</li><li>Feasible region is unbounded</li><li>Corner points: (0,8), (5,0), (6.25, 1.75)</li></ul>
+          <p class="notes">🎙️ For x + y = 8: points (0,8), (8,0). For 3x + 5y = 15: points (0,3), (5,0). The feasible region will be unbounded towards the positive infinity. The corner points are (0,8), (5,0), and the intersection of x + y = 8 and 3x + 5y = 15, which is (6.25, 1.75).</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Open Region</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 31</span>
+          <h2>Example 3 Solution: Finding the <span class="hl">Minimum</span></h2>
+          <ul><li>Evaluate Z = 3x + 2y at each corner point</li><li>(0,8) -&gt; Z = 16</li><li>(5,0) -&gt; Z = 15</li><li>(6.25, 1.75) -&gt; Z = 22.25</li><li>Smallest value is 15 at (5,0)</li></ul>
+          <p class="notes">🎙️ At (0,8), Z = 16. At (5,0), Z = 15. At (6.25, 1.75), Z = 3(6.25) + 2(1.75) = 18.75 + 3.5 = 22.25. The minimum value appears to be 15 at (5,0). However, for unbounded regions, we must check if Z can be made smaller. Draw the line 3x + 2y &lt; 15. If this region overlaps with the feasible region, no minimum exists. Here, it does not, so 15 is the minimum.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:72%"></div><div class="clabel">(0,8)</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">(5,0)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(6.25, 1.75)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 31</span>
           <h2>Common <span class="hl">Mistakes</span> in LPP</h2>
-          <ul><li>Incorrectly shading feasible region</li><li>Missing a corner point</li><li>Errors in calculating coordinates of intersection</li></ul>
-          <p class="notes">🎙️ Students often make mistakes in plotting lines, identifying the correct side for inequalities, or calculating intersection points. Double-check your graph and your algebra. A small error in plotting can lead to an entirely different feasible region and, consequently, an incorrect optimal solution.</p>
+          <ul><li>Incorrectly shading feasible region</li><li>Errors in finding intersection points</li><li>Forgetting non-negativity constraints</li><li>Not checking for unbounded solutions</li></ul>
+          <p class="notes">🎙️ Students often make errors in: 1. Incorrectly shading the feasible region. 2. Miscalculating intersection points of lines. 3. Forgetting non-negativity constraints. 4. Not checking for unbounded solutions in minimization problems. Always double-check your graph and calculations!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Be Careful!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Avoid These Pitfalls</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Real-Life Application: The <span class="hl">Diet Problem</span></h2>
-          <ul><li>Minimize cost of food items</li><li>Subject to nutritional requirements</li><li>Ensure minimum vitamins, calories, etc.</li></ul>
-          <p class="notes">🎙️ The diet problem is a classic LPP application. Imagine needing to create a meal plan that meets specific nutritional requirements (like minimum calories, protein, vitamins) but at the lowest possible cost. LPP helps determine the optimal quantities of different food items to achieve this balance efficiently. This shows how LPP impacts daily life.</p>
+          <span class="num">27 / 31</span>
+          <h2>Ace Your Exams: LPP <span class="hl">Exam Tips</span></h2>
+          <ul><li>High-scoring topic (5-6 marks)</li><li>Focus on Formulation problems</li><li>Master Graphical Solution problems</li></ul>
+          <p class="notes">🎙️ LPP questions are high-scoring! You'll typically find a 5 or 6-mark question. Focus on two main types: Formulation problems (translating words to equations) and Graphical Solution problems (plotting, finding feasible region, corner points, and optimum). Practice both extensively.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥦</span><span>🥦</span><span>🥦</span><span>🥦</span><span>🥦</span></div><div class="vcap">Balanced Nutrition</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Winning Strategy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 31</span>
+          <h2>Exam Tips: Definitions &amp; <span class="hl">Presentation</span></h2>
+          <ul><li>Clearly define LPP terms</li><li>Show all steps in graphical solutions</li><li>Label axes, lines, and region on graph</li><li>Present final answer clearly</li></ul>
+          <p class="notes">🎙️ Be clear with your definitions: objective function, constraints, feasible region, optimal solution. Show all steps clearly in graphical solutions: table for points, clear graph with shaded region, list of corner points, and evaluation of the objective function at each. Label axes and lines properly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Clear &amp; Concise</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 31</span>
+          <h2>Beyond the Classroom: LPP in <span class="hl">Action</span></h2>
+          <ul><li>Production planning &amp; resource allocation</li><li>Transportation &amp; logistics</li><li>Diet problems &amp; financial planning</li><li>Optimizing supply chains</li></ul>
+          <p class="notes">🎙️ LPP is not just for exams! It's widely used in industries for production planning, resource allocation, transportation, diet problems, and even financial planning. From optimizing supply chains to scheduling flights, LPP helps businesses make efficient decisions and save millions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏭</span><span>🏭</span><span>🏭</span><span>🏭</span></div><div class="vcap">Industry &amp; Beyond</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 31</span>
+          <h2><span class="hl">Recap</span>: Your LPP Journey So Far</h2>
+          <ul><li>Formulated LPPs from word problems</li><li>Understood objective function, constraints, non-negativity</li><li>Solved LPPs graphically using corner point method</li><li>Identified optimal solutions in bounded and unbounded regions</li></ul>
+          <p class="notes">🎙️ Today, we've learned to formulate LPPs, identify their components, and solve them graphically using the corner point method, considering both bounded and unbounded regions. Remember, practice is key to mastering this topic. Keep solving problems!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Formulated LPPs</span></div><div class="step"><span class="snum">2</span><span>Understood Components</span></div><div class="step"><span class="snum">3</span><span>Solved Graphically</span></div><div class="step"><span class="snum">4</span><span>Identified Optimum</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: What We've Learned</h2>
-          <ul><li>Components of LPP (Objective, Variables, Constraints)</li><li>Formulation of LPP</li><li>Graphical method for 2 variables</li></ul>
-          <p class="notes">🎙️ Today, we covered the foundational aspects of Linear Programming: understanding its components, how to formulate a real-world problem into an LPP, and the graphical method for solving problems with two variables. Remember the importance of the feasible region and the corner point method.</p>
+          <span class="num">31 / 31</span>
+          <h2>Keep <span class="hl">Practicing</span>! Your Path to Mastery</h2>
+          <ul><li>Solve a variety of problems</li><li>Focus on clear graphical representation</li><li>Review common mistakes</li><li>You've got this!</li></ul>
+          <p class="notes">🎙️ Linear Programming is a skill that improves with practice. Don't hesitate to tackle more problems from your textbook and past papers. The more you practice, the more confident you'll become in formulating and solving these optimization challenges. All the best!</p>
         </div>
         
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Practice</span> &amp; Prepare!</h2>
-          <ul><li>Practice formulation problems</li><li>Solve more graphical method examples</li><li>Master the concepts for exams!</li></ul>
-          <p class="notes">🎙️ Linear Programming is a scoring chapter. Consistent practice is key to mastering it. Work through various problems from your textbook, especially those involving formulation and the graphical method. Pay attention to the details and avoid common pitfalls. All the best for your exams!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Apply Your Knowledge</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -363,6 +441,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

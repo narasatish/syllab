@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Economic Activities Around Us — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2><span class="hl">Economic Activities</span> Around Us</h2>
+          <ul><li>Explore how people earn and live.</li><li>Understand different types of work.</li><li>See how everything is connected.</li></ul>
+          <p class="notes">🎙️ Namaste, young learners! Today, we're going on an exciting journey to explore the world of 'Economic Activities Around Us'. We'll discover how people work to meet their needs and how these activities shape our lives and communities.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>A Day in <span class="hl">Rohan's Life</span></h2>
+          <ul><li>Rohan wakes up, drinks milk.</li><li>Wears clothes, eats bread.</li><li>Travels to school by bus.</li><li>Who made all these possible?</li></ul>
+          <p class="notes">🎙️ Imagine Rohan's day. He drinks milk, eats bread, wears clothes, and travels to school. Have you ever wondered who provides the milk, bakes the bread, stitches the clothes, or drives the bus? All these people are engaged in 'economic activities'!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🏫</span></div><div class="vcap">Who helps Rohan?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Learn Today!</span></h2>
+          <ul><li>Define economic activities and their importance.</li><li>Identify the three main sectors: Primary, Secondary, Tertiary.</li><li>Understand the interdependence of these sectors.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to explain what economic activities are, classify them into different sectors, and understand how these sectors work together to build our economy. Get ready to learn some fascinating concepts!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>What Are <span class="hl">Economic Activities</span>?</h2>
+          <ul><li>Actions taken to earn money.</li><li>Produce, distribute, consume goods/services.</li><li>Satisfy human needs and wants.</li></ul>
+          <p class="notes">🎙️ Simply put, economic activities are all the actions people take to earn a living and provide for themselves and their families. Whether it's growing food, making things, or offering services, these activities help us get what we need and want.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Earning &amp; Spending</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2><span class="hl">Why Do We Need</span> Them?</h2>
+          <ul><li>To meet basic needs: food, shelter, clothing.</li><li>To improve quality of life.</li><li>To create jobs and wealth.</li></ul>
+          <p class="notes">🎙️ We need economic activities because resources are limited, but our needs and wants are endless. These activities help us decide what to produce, how to produce it, and for whom, ensuring everyone can access essential goods and services.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Needs &amp; Wants</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>A Day in <span class="hl">Palampur Village</span></h2>
+          <ul><li>Farmer grows wheat.</li><li>Miller grinds wheat into flour.</li><li>Baker uses flour to make bread.</li><li>Shopkeeper sells bread.</li></ul>
+          <p class="notes">🎙️ Think about a village like Palampur. A farmer grows wheat, a miller processes it, a baker turns it into bread, and a shopkeeper sells it. Each person performs an activity that helps others and earns them a livelihood, forming a small economy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍🌾</span><span>👨‍🌾</span><span>👨‍🌾</span><span>👨‍🌾</span></div><div class="vcap">Village workers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Building Our <span class="hl">Community</span></h2>
+          <ul><li>Creates interdependence among people.</li><li>Leads to economic growth and prosperity.</li><li>Provides essential goods and services.</li></ul>
+          <p class="notes">🎙️ Economic activities are the backbone of any community. They create a network where people depend on each other, fostering growth, providing jobs, and ensuring that goods and services are available for everyone to live better lives.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏘️</div><div class="vcap">Community Growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Key Economic Terms</span></h2>
+          <ul><li>Production: Making goods or services.</li><li>Consumption: Using goods or services.</li><li>Exchange: Buying and selling goods/services.</li></ul>
+          <p class="notes">🎙️ These three terms are fundamental. Production is about creating, consumption is about using, and exchange is the process of trade, often involving money. All economic activities involve one or more of these actions.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Production</span></div><div class="step"><span class="snum">2</span><span>Exchange</span></div><div class="step"><span class="snum">3</span><span>Consumption</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Quick Check!</span></h2>
+          <ul><li>Why are economic activities important for daily life?</li><li>How do they help meet our needs?</li></ul>
+          <p class="notes">🎙️ Think about your own day. How do economic activities impact you directly? Why can't we just get everything for free? Discuss these questions to solidify your understanding of the basics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>The <span class="hl">Primary Sector</span>: Nature's Bounty</h2>
+          <ul><li>Directly use natural resources.</li><li>Activities like agriculture, fishing, mining.</li><li>Provides raw materials.</li></ul>
+          <p class="notes">🎙️ The primary sector is all about extracting or harvesting resources directly from nature. It's the most basic form of economic activity, providing the raw materials that other sectors will then use.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">From Nature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Working with Nature</span></h2>
+          <ul><li>Farmers grow crops on land.</li><li>Fishermen catch fish from water bodies.</li><li>Miners extract minerals from the earth.</li></ul>
+          <p class="notes">🎙️ This sector relies heavily on natural conditions like soil, climate, and water. A farmer depends on good monsoon for crops, just as a fisherman depends on healthy rivers or seas for fish. It's all about direct interaction with our environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚜</span><span>🚜</span><span>🚜</span></div><div class="vcap">Nature's work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Punjab's <span class="hl">Green Revolution</span></h2>
+          <ul><li>Punjab: India's 'Bread Basket'.</li><li>Farmers grow wheat, rice, maize.</li><li>Produces millions of tons of grains annually.</li><li>Feeds a large part of the nation.</li></ul>
+          <p class="notes">🎙️ Punjab is a prime example of the primary sector's importance. Its fertile lands and dedicated farmers, aided by modern techniques, have made it a major contributor to India's food security, producing vast quantities of grains.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Wheat (Punjab)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Rice (West Bengal)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Cotton (Gujarat)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2><span class="hl">Foundation</span> of Development</h2>
+          <ul><li>Ensures food security for the population.</li><li>Provides raw materials for industries.</li><li>Supports livelihoods of many people.</li></ul>
+          <p class="notes">🎙️ The primary sector is crucial because it feeds us and provides the basic raw materials needed by factories. Without a strong primary sector, other sectors would struggle to function, making it the bedrock of national development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Food &amp; Raw Materials</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Quick Check!</span></h2>
+          <ul><li>Why is agriculture considered a primary activity?</li><li>How does mining differ from fishing in the primary sector?</li></ul>
+          <p class="notes">🎙️ Think about the common link between agriculture, fishing, and mining. What makes them 'primary'? How do they all depend on nature, even though their methods are different?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>The <span class="hl">Secondary Sector</span>: Making Things</h2>
+          <ul><li>Transforms raw materials into finished goods.</li><li>Also known as the manufacturing sector.</li><li>Examples: making textiles, cars, buildings.</li></ul>
+          <p class="notes">🎙️ Once raw materials are collected by the primary sector, the secondary sector steps in. It takes these materials and processes them, adding value by turning them into useful products we use every day. Think of a cotton field turning into a shirt.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Factories &amp; Production</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>From <span class="hl">Raw to Ready</span></h2>
+          <ul><li>Raw materials collected from primary sector.</li><li>Processed in factories using machines.</li><li>Finished goods are created.</li></ul>
+          <p class="notes">🎙️ This sector involves a transformation process. For example, cotton from a farm is spun into yarn, woven into fabric, and then stitched into clothes in a factory. Each step adds value to the original raw material.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cotton (Raw Material)</span></div><div class="step"><span class="snum">2</span><span>Textile Mill (Processing)</span></div><div class="step"><span class="snum">3</span><span>Fabric/Clothes (Finished Product)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Surat: India's <span class="hl">Textile Hub</span></h2>
+          <ul><li>Surat (Gujarat) is famous for textiles.</li><li>Thousands of mills convert cotton/silk.</li><li>Produces fabrics, garments, sarees.</li><li>Employs millions, significant exports.</li></ul>
+          <p class="notes">🎙️ Surat's textile industry is a fantastic example of the secondary sector. Raw cotton or silk arrives, and skilled workers and machinery transform it into beautiful fabrics and garments, which are then sold across India and exported globally.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧵</span><span>🧵</span><span>🧵</span><span>🧵</span><span>🧵</span><span>🧵</span></div><div class="vcap">Textile production</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Fueling <span class="hl">Industrial Growth</span></h2>
+          <ul><li>Creates jobs in factories and industries.</li><li>Produces diverse goods for consumption.</li><li>Boosts exports and national income.</li></ul>
+          <p class="notes">🎙️ The secondary sector is vital for industrialisation and job creation. It provides a wide range of goods, from simple tools to complex machinery, improving our living standards and contributing significantly to the nation's wealth and global trade.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Industry &amp; Jobs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2><span class="hl">Quick Check!</span></h2>
+          <ul><li>How does manufacturing add value to raw materials?</li><li>Give two examples of secondary activities you see daily.</li></ul>
+          <p class="notes">🎙️ Think about products you use. What raw materials went into them, and what kind of factory processed them? How did the factory make the raw material more useful and valuable?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>The <span class="hl">Tertiary Sector</span>: Services for All</h2>
+          <ul><li>Provides services, not goods.</li><li>Supports primary and secondary sectors.</li><li>Examples: transport, banking, education, healthcare.</li></ul>
+          <p class="notes">🎙️ The tertiary sector, also called the service sector, doesn't produce tangible goods but provides essential services. These services help the other two sectors function smoothly and directly improve our quality of life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏥</div><div class="vcap">Services &amp; Support</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Supporting and Serving</span></h2>
+          <ul><li>Transport moves goods/people.</li><li>Banks facilitate money transactions.</li><li>Teachers educate, doctors heal.</li><li>These services enable other activities.</li></ul>
+          <p class="notes">🎙️ Imagine a farmer needing to transport crops, a factory needing a loan, or students needing education. The tertiary sector provides these crucial services, acting as the backbone that connects and supports all other economic activities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👩‍🏫</span><span>👩‍🏫</span><span>👩‍🏫</span></div><div class="vcap">Service providers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Bengaluru: India's <span class="hl">Silicon Valley</span></h2>
+          <ul><li>Bengaluru is a global IT hub.</li><li>Provides software development, BPO services.</li><li>Serves clients worldwide, huge exports.</li><li>Millions employed in high-skill jobs.</li></ul>
+          <p class="notes">🎙️ Bengaluru's IT sector is a shining example of the tertiary sector. It doesn't produce physical goods but provides valuable software solutions and business processes to companies globally, contributing immensely to India's economy and reputation.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">IT Services</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Healthcare</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Education</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Modern Economy's</span> Backbone</h2>
+          <ul><li>Increases efficiency of other sectors.</li><li>Improves quality of life through services.</li><li>Contributes significantly to GDP.</li><li>Creates high-skill employment.</li></ul>
+          <p class="notes">🎙️ The tertiary sector is vital for a modern economy. It makes production and distribution more efficient, provides essential services like healthcare and education, and connects our economy to the global market, driving overall progress.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Global Connections</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>All <span class="hl">Linked Together!</span></h2>
+          <ul><li>Primary provides raw materials.</li><li>Secondary processes them into goods.</li><li>Tertiary transports, finances, sells goods.</li><li>One cannot function without the others.</li></ul>
+          <p class="notes">🎙️ It's like a chain! A farmer (primary) needs transport (tertiary) to send cotton to a factory (secondary). The factory needs bank loans (tertiary) and workers (tertiary services). All sectors rely on each other to create a complete economic cycle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cotton Farm (Primary)</span></div><div class="step"><span class="snum">2</span><span>Textile Factory (Secondary)</span></div><div class="step"><span class="snum">3</span><span>Truck/Shop (Tertiary)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Quick Check!</span></h2>
+          <ul><li>Why is the tertiary sector also called the service sector?</li><li>How does a bank help both farmers and factory owners?</li></ul>
+          <p class="notes">🎙️ Think about the core difference between the tertiary sector and the other two. What kind of value does it add? How does it act as a facilitator for the entire economy?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Common Mistakes</span> to Avoid!</h2>
+          <ul><li>Confusing raw materials with finished goods.</li><li>Forgetting interdependence of sectors.</li><li>Misclassifying activities (e.g., teaching as secondary).</li></ul>
+          <p class="notes">🎙️ Students often mix up which activity belongs to which sector. Remember, primary is nature, secondary is manufacturing, and tertiary is services. Also, never forget that all three are connected and depend on each other!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Watch Out!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Ace Your Exams!</span></h2>
+          <ul><li>Define each sector with clear examples.</li><li>Explain 'why' and 'how' they are important.</li><li>Practice identifying activities into sectors.</li><li>Focus on interdependence questions.</li></ul>
+          <p class="notes">🎙️ For your exams, make sure you can define each sector, give Indian examples, and explain their significance. Questions often ask 'why' a sector is important or 'how' they are linked. Practice with real-life scenarios!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Study Smart</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>What We've Learned: A <span class="hl">Quick Recap!</span></h2>
+          <ul><li>Economic activities meet needs.</li><li>Primary: Raw materials (Agriculture, Mining).</li><li>Secondary: Manufacturing (Textiles, Cars).</li><li>Tertiary: Services (Transport, Banking, Education).</li><li>All sectors are interdependent.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember, economic activities are how we earn and live. They are categorised into primary (nature), secondary (making things), and tertiary (services), and they all work together to build our economy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Key Takeaways</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Your Turn: <span class="hl">Think &amp; Explain!</span></h2>
+          <ul><li>How do economic activities contribute to a nation's development?</li><li>Why is it important for all three sectors to grow together?</li></ul>
+          <p class="notes">🎙️ Ponder these questions. How does a thriving economy lead to a developed nation? Why can't a country rely solely on one sector? Your answers will show a deep understanding of the chapter.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Connecting the Dots!</span></h2>
+          <ul><li>Give an example of how primary, secondary, and tertiary sectors are linked in your daily life.</li><li>How would your life be different if one sector completely disappeared?</li></ul>
+          <p class="notes">🎙️ This question encourages you to apply what you've learned. Think about a product you use and trace its journey through all three sectors. This will highlight their crucial interdependence in a practical way.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 6 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

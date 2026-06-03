@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Law and Social Justice — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Law and Social Justice: Ensuring <span class="hl">Fairness</span> for All</h2>
+          
+          <p class="notes">🎙️ Hello students! Welcome to a very important chapter, 'Law and Social Justice'. Today, we're going to explore how laws are not just about rules, but about making our society fair for everyone.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>The Story of <span class="hl">Raju's Wage</span>: Is it Fair?</h2>
+          <ul><li>Raju, a construction worker, works long hours under the scorching sun.</li><li>He's paid less than his friends for doing the exact same work.</li><li>Is this fair? What can protect Raju and ensure he gets what he deserves?</li></ul>
+          <p class="notes">🎙️ Imagine Raju's situation. He works hard, but isn't treated equally. This story highlights a common problem. Throughout this lesson, we'll see how laws are designed to address such injustices.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today!</h2>
+          <ul><li>Understand the role of laws in maintaining order and promoting justice in society.</li><li>Explore how various Indian laws work to ensure social justice for all citizens.</li><li>Examine real Indian examples and case studies where laws have made a difference.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll have a clear understanding of how laws are the backbone of a just society and how you, as a citizen, are part of this system.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>Understanding <span class="hl">Law</span>: Rules for a Smooth Ride</h2>
+          <ul><li>Imagine traffic rules – they prevent chaos, accidents, and ensure everyone reaches safely.</li><li>Laws are like these essential rules, but for our entire society.</li><li>They guide our behaviour, maintain order, and resolve conflicts peacefully.</li></ul>
+          <p class="notes">🎙️ Just as traffic rules make roads safe, laws make our society predictable and secure. They are the agreed-upon guidelines that help us live together harmoniously.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Rules for Society</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>The Foundation: <span class="hl">Rule of Law</span> in India</h2>
+          <ul><li>The 'Rule of Law' means everyone is equal before the law, from the Prime Minister to a common citizen.</li><li>No one is above the law, ensuring accountability and preventing misuse of power.</li><li>Laws are applied equally, without any discrimination based on caste, religion, gender, or wealth.</li></ul>
+          <p class="notes">🎙️ This concept is fundamental to our democracy. It means that the law, not any individual, is supreme. This principle ensures that justice is blind and impartial for all.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Equality Before Law</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Why Rule of Law <span class="hl">Protects Us</span></h2>
+          <ul><li>It prevents arbitrary decisions and misuse of power by those in authority.</li><li>It ensures predictability and stability, allowing citizens to know their rights and duties.</li><li>Crucially, it safeguards the fundamental rights and freedoms of every citizen.</li></ul>
+          <p class="notes">🎙️ Without the Rule of Law, society would descend into chaos, and the powerful could exploit the weak. It's a cornerstone that protects our liberty and ensures a fair system.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Pillar of Democracy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Rule of Law</h2>
+          <ul><li>True or False: In India, the President is above the law and cannot be questioned.</li><li>Why is the Rule of Law considered crucial for a fair and democratic society?</li></ul>
+          <p class="notes">🎙️ Take a moment to think about these questions. Your understanding of Rule of Law is key to grasping how our justice system works.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Beyond Rules: What is <span class="hl">Social Justice</span>?</h2>
+          <ul><li>Social Justice is not just about rules, but about fairness and equity in society.</li><li>It means ensuring everyone has equal opportunities, rights, and access to resources.</li><li>It actively addresses and corrects inequalities and disadvantages faced by certain groups.</li></ul>
+          <p class="notes">🎙️ While laws provide a framework, social justice is the spirit that ensures these laws lead to a truly equitable society. It's about leveling the playing field for everyone.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Fairness for All</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>The Need for Justice: <span class="hl">India's Context</span></h2>
+          <ul><li>Historically, India has faced deep-rooted inequalities based on caste, gender, and economic status.</li><li>Social justice aims to correct these historical wrongs and ensure dignity for all.</li><li>It strives to create a society where every individual, regardless of their background, can thrive.</li></ul>
+          <p class="notes">🎙️ Our diverse society, with its complex history, makes social justice particularly vital. It's about building a future where everyone has a fair chance to succeed.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Addressing Inequalities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Our <span class="hl">Constitution</span>: A Blueprint for Justice</h2>
+          <ul><li>The Indian Constitution guarantees equality and prohibits discrimination in all forms (Articles 14-18).</li><li>It includes Directive Principles of State Policy (DPSP) that guide the government towards social welfare.</li><li>Examples: Reservations for Scheduled Castes, Tribes, and OBCs; Right to Education (Article 21A).</li></ul>
+          <p class="notes">🎙️ Our Constitution is a revolutionary document. It not only establishes rules but also sets ambitious goals for social justice, laying the groundwork for a truly inclusive nation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Guiding Principles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>Law in Action: The <span class="hl">Minimum Wages Act</span></h2>
+          <ul><li>This law ensures that workers receive a fair minimum payment for their labour, preventing exploitation.</li><li>It sets a legal floor for wages, below which no employer can pay.</li><li>A crucial step towards economic justice, ensuring workers can live with dignity.</li></ul>
+          <p class="notes">🎙️ The Minimum Wages Act is a direct example of how laws intervene to protect the vulnerable. It ensures that hard work is met with fair compensation, addressing economic inequality.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Government sets rates</span></div><div class="step"><span class="snum">2</span><span>Employers must pay</span></div><div class="step"><span class="snum">3</span><span>Workers are protected</span></div><div class="step"><span class="snum">4</span><span>Economic justice achieved</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2><span class="hl">Raju's Justice</span>: Minimum Wages Act Example</h2>
+          <ul><li>The government, through this Act, sets minimum wages for different types of work and regions.</li><li>If Raju is paid less than the specified minimum wage, he can legally demand the correct amount.</li><li>This law protects millions of unorganised sector workers, like Raju, across India.</li></ul>
+          <p class="notes">🎙️ Connecting back to Raju's story, this law provides him with a legal recourse. It's a powerful tool that empowers workers and ensures they are not taken advantage of.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Fair Pay</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Minimum Wages</h2>
+          <ul><li>How does the Minimum Wages Act promote social justice in the economic sphere?</li><li>What would be the likely consequences if there were no such law in India?</li></ul>
+          <p class="notes">🎙️ Think about the impact of this law. How does it change the lives of people like Raju, and what would society look like without it?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Protecting Our Planet: <span class="hl">Environmental Laws</span></h2>
+          <ul><li>Laws are not just for people, but also for the health and safety of our environment.</li><li>They aim to prevent pollution, protect natural resources, and ensure sustainable living.</li><li>Why are these laws critical for everyone's well-being, including future generations?</li></ul>
+          <p class="notes">🎙️ Environmental justice is a crucial aspect of social justice. A healthy environment is a right for all, and laws play a vital role in securing this right for present and future citizens.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Our Green Earth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>A Wake-Up Call: The <span class="hl">Bhopal Gas Tragedy</span></h2>
+          <ul><li>December 2-3, 1984: A catastrophic gas leak at the Union Carbide factory in Bhopal, Madhya Pradesh.</li><li>Thousands died immediately, and hundreds of thousands suffered long-term health issues.</li><li>This tragedy highlighted India's urgent need for stronger environmental laws and enforcement.</li></ul>
+          <p class="notes">🎙️ The Bhopal Gas Tragedy remains one of the worst industrial disasters in history. It served as a grim reminder that industrial development must be balanced with environmental and human safety.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Industrial Disaster</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Post-Bhopal: Stronger Environmental Laws</h2>
+          <ul><li>After Bhopal, India enacted the comprehensive Environment Protection Act (EPA) in 1986.</li><li>These laws mandate strict safety standards for industries and regulate pollution.</li><li>They also provide for penalties and compensation in case of environmental damage.</li></ul>
+          <p class="notes">🎙️ The Bhopal tragedy was a turning point. The EPA 1986, along with other acts, aimed to prevent such disasters from recurring and hold polluters accountable.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Pre-1984 weak laws</span></div><div class="step"><span class="snum">2</span><span>Bhopal Tragedy (1984)</span></div><div class="step"><span class="snum">3</span><span>EPA 1986 enacted</span></div><div class="step"><span class="snum">4</span><span>Ongoing enforcement</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Access for All: <span class="hl">Public Facilities</span> and the Law</h2>
+          <ul><li>Laws ensure access to essential services like clean water, sanitation, and healthcare for all citizens.</li><li>These are considered basic human rights, not privileges, and contribute to social equality.</li><li>It's the government's duty to provide and regulate these services fairly and equitably.</li></ul>
+          <p class="notes">🎙️ Imagine a life without clean water or proper sanitation. Laws related to public facilities ensure that these necessities are available to everyone, promoting a dignified life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Essential Services</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>The Watchdog: Role of <span class="hl">Judiciary</span> in Social Justice</h2>
+          <ul><li>The courts (judiciary) play a vital role in upholding laws and ensuring social justice.</li><li>They interpret laws, ensure their fair implementation, and protect citizens' rights.</li><li>The judiciary acts as a guardian, preventing both government and individuals from violating justice.</li></ul>
+          <p class="notes">🎙️ Our independent judiciary is crucial. When laws are unclear or not implemented correctly, the courts step in to ensure that the spirit of social justice is upheld.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍⚖️</div><div class="vcap">Guardian of Justice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>A Voice for the Voiceless: Public Interest Litigation (<span class="hl">PIL</span>)</h2>
+          <ul><li>PIL allows any individual or organisation to file a case in court on behalf of others.</li><li>It helps address issues affecting a large number of people or vulnerable groups who cannot approach court themselves.</li><li>A powerful tool for seeking justice for the poor, marginalised, and for public causes.</li></ul>
+          <p class="notes">🎙️ PIL is a unique Indian innovation. It democratises access to justice, allowing public-spirited citizens to bring important issues directly to the attention of the courts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📢</div><div class="vcap">Seeking Justice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>PIL in Action: The <span class="hl">Right to Food</span> Case</h2>
+          <ul><li>A landmark PIL led to the Supreme Court declaring the Right to Food a fundamental right in 2001.</li><li>The Court directed governments to implement schemes like the Public Distribution System (PDS) effectively.</li><li>Millions now benefit from subsidised food grains, ensuring food security, due to this ruling.</li></ul>
+          <p class="notes">🎙️ This PIL transformed the lives of countless hungry people. It showed how judicial activism can translate constitutional ideals into tangible benefits for the common citizen.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍽️</div><div class="vcap">Food Security</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Judiciary &amp; PIL</h2>
+          <ul><li>How does Public Interest Litigation (PIL) make justice more accessible for ordinary citizens?</li><li>What is the primary role of the judiciary in ensuring social justice in India?</li></ul>
+          <p class="notes">🎙️ Reflect on how the courts, especially through PILs, empower citizens and uphold the principles of justice.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Protecting the Vulnerable: Specific Laws</h2>
+          <ul><li>Laws like the SC/ST (Prevention of Atrocities) Act, 1989 protect marginalised communities.</li><li>These laws aim to prevent discrimination, violence, and exploitation against them.</li><li>They provide special provisions for their upliftment, safety, and integration into mainstream society.</li></ul>
+          <p class="notes">🎙️ India's history of social stratification necessitates specific laws to safeguard those who have historically suffered discrimination. These laws are vital for true equality.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Dignity of Labour: <span class="hl">Manual Scavenging</span> Prohibition Act</h2>
+          <ul><li>The Prohibition of Employment as Manual Scavengers and their Rehabilitation Act, 2013, bans this inhumane practice.</li><li>It mandates the rehabilitation of manual scavengers and provides alternatives for livelihood.</li><li>This law aims to restore dignity and ensure safer, more respectful occupations for these workers.</li></ul>
+          <p class="notes">🎙️ This Act is a strong step towards eradicating a deeply ingrained social injustice. It reflects society's commitment to ensuring dignity and basic human rights for all its members.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧹</div><div class="vcap">Dignity &amp; Safety</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">Comparing Laws</span>: Different Paths to Justice</h2>
+          <ul><li>The Minimum Wages Act focuses on economic fairness and preventing worker exploitation.</li><li>Environmental laws protect public health and natural resources for all.</li><li>The SC/ST Act addresses social discrimination and historical injustices.</li></ul>
+          <p class="notes">🎙️ As you can see, different laws tackle different facets of social justice, but all work towards the common goal of a fair and equitable society.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Economic Justice</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Environmental Safety</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Social Equality</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> to Avoid</h2>
+          <ul><li>Confusing 'Rule of Law' (everyone equal) with 'Law and Order' (police actions).</li><li>Thinking social justice is only about reservations; it's a much broader concept.</li><li>Forgetting the active role of citizens in demanding and upholding justice.</li></ul>
+          <p class="notes">🎙️ Be careful with these common pitfalls. A clear understanding will help you grasp the nuances of law and social justice better, especially in your exams.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Learn from Errors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Ace Your Exams: Tips for Success</h2>
+          <ul><li>Define key terms clearly and concisely (e.g., PIL, Rule of Law, Social Justice).</li><li>Always use concrete Indian examples to support your answers and show understanding.</li><li>Explain 'why' and 'how' laws contribute to justice, not just 'what' they are.</li></ul>
+          <p class="notes">🎙️ Remember, Social Science is about understanding concepts and their real-world application. Structure your answers well, and use the examples we discussed today.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Study Smart</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Laws are essential for maintaining order, ensuring equality, and promoting justice.</li><li>Social justice aims for fairness and equal opportunities for all, addressing inequalities.</li><li>The Indian Constitution, judiciary, PILs, and specific laws protect vulnerable groups and the environment.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember these core ideas as they form the foundation of our understanding of a just society.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Lesson Summary</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Challenge</span> Yourself: Think &amp; Discuss</h2>
+          <ul><li>Imagine a new law is proposed to protect street vendors from arbitrary evictions and harassment.</li><li>What aspects of social justice should this law primarily focus on?</li><li>How would it be enforced, and what challenges might it face in implementation?</li></ul>
+          <p class="notes">🎙️ This thought experiment will help you apply what you've learned. Consider the complexities involved in creating and implementing laws for justice.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Towards a More <span class="hl">Just Society</span></h2>
+          <ul><li>The journey for social justice is continuous and requires ongoing effort.</li><li>New challenges in society often require new laws and collective action.</li><li>Every citizen plays a crucial role in upholding fairness and demanding justice.</li></ul>
+          <p class="notes">🎙️ Laws are dynamic, evolving with society's needs. Your awareness and participation are vital for ensuring that India continues its path towards a truly just and equitable society.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Continuous Progress</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Be a <span class="hl">Champion</span> of Justice!</h2>
+          <ul><li>Understand your rights and responsibilities as a citizen.</li><li>Speak up against injustice and support fair practices in your daily life.</li><li>Contribute to building a fair, inclusive, and equitable India for everyone.</li></ul>
+          <p class="notes">🎙️ Thank you for joining this lesson! Remember, you are an important part of our democracy. Go forth and be a champion of justice in your communities!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Your Role</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 8 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

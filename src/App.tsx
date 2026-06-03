@@ -58,6 +58,7 @@ import { AuthFormState, UserProgress, UserStats } from './types';
 import { getCloudRole, getExtendedProfile, getStoredRole, saveUserRole, setStoredRole } from './lib/userProfile';
 import { initGamification, syncXpMirror } from './lib/gamification';
 import RewardToast from './components/RewardToast';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Lazy load pages for performance
 const HomePage = React.lazy(() => import('./pages/Home'));
@@ -1396,6 +1397,10 @@ export default function App() {
             </div>
           ) : (
             <Suspense fallback={<PageFallback />}>
+              {/* Route-level safety net: a crash in ONE page shows a recovery
+                  card in the content area while the nav bar stays usable. Keyed
+                  by activeTab so navigating away resets the boundary. */}
+              <ErrorBoundary key={activeTab}>
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
@@ -1485,6 +1490,7 @@ export default function App() {
                   ) : null}
                 </motion.div>
               </AnimatePresence>
+              </ErrorBoundary>
             </Suspense>
           )}
         </div>

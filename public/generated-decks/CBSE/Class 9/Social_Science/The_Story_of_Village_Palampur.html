@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>The Story of Village Palampur — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Welcome to <span class="hl">Palampur</span>: A Glimpse into Rural Economics</h2>
+          <ul><li>Explore the economic life of a typical Indian village.</li><li>Understand the factors of production and their role.</li><li>Learn about farming and non-farming activities.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to a fictional village called Palampur. This village, though imaginary, perfectly represents the economic activities and challenges faced by many real villages across India. Get ready to uncover the secrets of rural economics!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2><span class="hl">Imagine</span> Your Village...</h2>
+          <ul><li>What do people in your village or town mostly do for a living?</li><li>Where do they get their food, clothes, and other daily necessities?</li><li>What kind of transport do you see most often?</li></ul>
+          <p class="notes">🎙️ Before we dive into Palampur, let's think about our own surroundings. Take a moment to picture the main occupations, the shops, and the way people move around in your own village or town. This will help us connect better with Palampur's story.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today!</h2>
+          <ul><li>Identify the four factors of production.</li><li>Analyse farming practices and their impact on land.</li><li>Discover the importance of non-farm activities in rural areas.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll have a clear understanding of how a village economy functions. We'll break down complex economic ideas into simple, relatable concepts, helping you build a strong foundation in Social Science.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>Introducing <span class="hl">Palampur</span>: A Fictional Yet Realistic Village</h2>
+          <ul><li>Well-connected to neighbouring villages and towns (Raiganj, Shahpur).</li><li>Has all-weather roads, transport facilities (rickshaws, tangas, jeeps, tractors).</li><li>Home to diverse castes, with about 450 families.</li><li>Basic amenities: primary schools, high school, primary health centre, private dispensary, electricity.</li></ul>
+          <p class="notes">🎙️ Palampur is a hypothetical village designed to illustrate basic economic concepts. It's not isolated; it has good infrastructure like roads and transport, connecting it to larger markets. It's a diverse community with access to essential services like education and healthcare, which are crucial for development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Village Map</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Main Activity: <span class="hl">Farming</span> - The Backbone of Palampur</h2>
+          <ul><li>About 75% of the people are dependent on farming for their livelihood.</li><li>Farmers and farm labourers make up the majority.</li><li>Their well-being is closely linked to production on the farms.</li></ul>
+          <p class="notes">🎙️ Just like many real Indian villages, farming is the primary activity in Palampur. Three-quarters of its population relies directly on agriculture. This highlights how crucial good harvests and efficient farming practices are for the overall prosperity of the village.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Agriculture</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Factors of <span class="hl">Production</span>: What Do We Need to Produce?</h2>
+          <ul><li>Every production requires combining resources.</li><li>These resources are called 'Factors of Production'.</li><li>Think of making a simple cup of chai – what do you need?</li></ul>
+          <p class="notes">🎙️ To produce anything, whether it's food, clothes, or even a service, we need certain ingredients or inputs. These are universally categorised into four main factors. Let's explore each one in detail, starting with the most fundamental.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Land</span></div><div class="step"><span class="snum">2</span><span>Labour</span></div><div class="step"><span class="snum">3</span><span>Physical Capital</span></div><div class="step"><span class="snum">4</span><span>Human Capital</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Factor 1: <span class="hl">Land</span> - The Fixed Resource</h2>
+          <ul><li>Includes natural resources: land itself, forests, minerals, water.</li><li>Fixed supply: land area for cultivation is generally fixed.</li><li>Crucial for all production activities, especially farming.</li></ul>
+          <p class="notes">🎙️ Land isn't just the soil; it encompasses all natural gifts we use for production. In agriculture, land is the foundation. The key challenge is that its availability is fixed. We cannot create more land, so managing it efficiently is paramount.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Natural Resources</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Factor 2: <span class="hl">Labour</span> - The Human Effort</h2>
+          <ul><li>People who do the work, both manual and intellectual.</li><li>Some activities require highly educated workers (e.g., teachers, doctors).</li><li>Others require manual labour (e.g., farm workers, construction workers).</li></ul>
+          <p class="notes">🎙️ Labour is the human input into production. It includes everyone contributing their skills and effort. From a farmer tilling the field to a teacher educating students, labour is diverse and essential. The type of labour needed depends on the specific production activity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Workforce</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Factor 3: <span class="hl">Physical Capital</span> - Tools &amp; Buildings</h2>
+          <ul><li>Variety of inputs required at every stage of production.</li><li>**Fixed Capital**: Tools, machines, buildings (used for many years).</li><li>**Working Capital**: Raw materials, money in hand (used up in production).</li></ul>
+          <p class="notes">🎙️ Physical capital refers to the tangible assets used in production. Fixed capital like a tractor or a factory building lasts for a long time. Working capital, such as seeds for a farmer or yarn for a weaver, gets consumed in the process. Both are vital for smooth operations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Tools &amp; Equipment</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Factor 4: <span class="hl">Human Capital</span> - Knowledge &amp; Enterprise</h2>
+          <ul><li>The knowledge and enterprise to put together land, labour, and physical capital.</li><li>Ability to produce an output for self-consumption or sale in the market.</li><li>This is the 'brains' behind the operation, making decisions and innovating.</li></ul>
+          <p class="notes">🎙️ Human capital is perhaps the most crucial factor, as it organises and combines the other three. It's about the skills, education, and entrepreneurial spirit that turn resources into products. Without human capital, land, labour, and physical capital would remain unutilised or inefficiently used.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Skills &amp; Ideas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Quick Check</span> 1: Factors of Production</h2>
+          <ul><li>Which factor of production is considered 'fixed'?</li><li>Give an example of 'working capital' for a potter.</li><li>What combines all other factors to produce an output?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding. Think about the definitions and examples we just discussed. These questions are designed to help you recall the key aspects of each factor of production. Take a moment to formulate your answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Farming in Palampur: Land is <span class="hl">Fixed</span></h2>
+          <ul><li>Since 1960, the land area under cultivation in Palampur has not expanded.</li><li>Some barren lands were converted to cultivate, but no further expansion is possible.</li><li>This fixed nature of land poses a challenge for increasing production.</li></ul>
+          <p class="notes">🎙️ The most important fact about farming in Palampur, and indeed in many parts of India, is the fixed amount of land available. As the population grows, the pressure on this limited resource increases. Farmers must find ways to produce more from the same land.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Limited Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2><span class="hl">Multiple Cropping</span>: Making the Most of Land</h2>
+          <ul><li>**Definition**: Growing more than one crop on a piece of land during the year.</li><li>Common in Palampur due to irrigation and electricity access.</li><li>Farmers grow jowar and bajra in the rainy (kharif) season, followed by wheat in winter (rabi).</li><li>Some also grow potatoes between October and December.</li></ul>
+          <p class="notes">🎙️ Multiple cropping is a smart strategy to overcome the limitation of fixed land. Thanks to electricity, Palampur has a well-developed irrigation system, allowing farmers to grow different crops throughout the year. This maximises land use and increases overall output.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Growing More</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Modern Farming</span> Methods: The Green Revolution</h2>
+          <ul><li>Introduced in India in the late 1960s.</li><li>Involved the use of High Yielding Variety (HYV) seeds.</li><li>Required more irrigation, chemical fertilisers, and pesticides.</li></ul>
+          <p class="notes">🎙️ The Green Revolution was a game-changer for Indian agriculture. It shifted farming from traditional methods to modern ones, promising significantly higher yields. However, this advancement came with its own set of requirements and consequences, which we will explore.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚜</div><div class="vcap">Mechanised Farming</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Green Revolution Impact: Wheat &amp; Rice <span class="hl">Success</span></h2>
+          <ul><li>Farmers in Punjab, Haryana, and Western Uttar Pradesh were among the first to try HYV seeds.</li><li>Resulted in a dramatic increase in wheat production.</li><li>Example: Wheat yield in Palampur rose from 1,300 kg/hectare (traditional) to 3,200 kg/hectare (HYV).</li></ul>
+          <p class="notes">🎙️ The success of the Green Revolution was undeniable, especially in states like Punjab. The use of HYV seeds, coupled with proper irrigation and chemical inputs, transformed India from a food-deficient nation to a food-surplus one. This drastically improved food security.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Traditional (1300 kg)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">HYV (3200 kg)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Modern Methods vs. Traditional: A <span class="hl">Comparison</span></h2>
+          <ul><li>**Traditional**: Low yielding seeds, natural manure, less irrigation.</li><li>**Modern**: HYV seeds, chemical fertilisers, pesticides, intensive irrigation.</li><li>Modern methods lead to much higher yields but have higher input costs.</li></ul>
+          <p class="notes">🎙️ It's important to understand the stark differences between the two approaches. While traditional farming was sustainable and low-cost, modern farming, though highly productive, demands significant investment and comes with environmental considerations. Both have their pros and cons.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Traditional Inputs</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Modern Inputs</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Sustainability</span> of Land: A Looming Concern</h2>
+          <ul><li>Overuse of chemical fertilisers can destroy soil bacteria and microorganisms.</li><li>Continuous use of groundwater for irrigation can deplete the water table.</li><li>The Green Revolution, while boosting production, has led to environmental degradation.</li></ul>
+          <p class="notes">🎙️ While modern farming brought prosperity, it also raised serious questions about sustainability. The excessive use of chemicals can harm soil health, and over-pumping groundwater can lead to water scarcity. We must find a balance to ensure long-term agricultural productivity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Environmental Risk</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Quick Check</span> 2: Farming Practices</h2>
+          <ul><li>What is the main limitation of land for farming?</li><li>How does 'multiple cropping' help farmers in Palampur?</li><li>Name two negative effects of modern farming methods.</li></ul>
+          <p class="notes">🎙️ Let's review what we've learned about farming in Palampur. Think about the challenges faced by farmers and the methods they employ to overcome them. Also, critically evaluate the impact of new technologies on the environment.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2><span class="hl">Distribution</span> of Land: Who Owns What?</h2>
+          <ul><li>Not all people engaged in farming have sufficient land for cultivation.</li><li>About one-third of the 450 families in Palampur are landless (150 families).</li><li>240 families cultivate small plots of land (less than 2 hectares).</li><li>Only 60 families have large plots of land (more than 2 hectares).</li></ul>
+          <p class="notes">🎙️ The distribution of land in Palampur is highly unequal, reflecting a common issue in rural India. A significant portion of the population is landless or owns very small plots, making it difficult to earn a good livelihood. A few wealthy farmers, however, own large tracts of land.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Landless Families (150)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Small Farmers (240)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Large Farmers (60)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2><span class="hl">Farm Labour</span>: The Toilers of the Fields</h2>
+          <ul><li>Landless families and small farmers often work as farm labourers.</li><li>They have no right over the crops grown on the land.</li><li>Wages can be in cash or kind (e.g., a share of the crop).</li><li>Employment is often seasonal, leading to uncertainty and low wages (e.g., Dala and Ramkali).</li></ul>
+          <p class="notes">🎙️ Farm labourers are a crucial part of the agricultural system, yet they often face precarious working conditions. They depend on daily wages, which are often below the minimum wage set by the government, and their employment is irregular, leading to economic insecurity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🌾</div><div class="vcap">Agricultural Worker</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Capital</span> for Farming: Where Does Money Come From?</h2>
+          <ul><li>Most small farmers borrow money from large farmers, moneylenders, or traders.</li><li>They face high interest rates and often get into debt traps.</li><li>Medium and large farmers have their own savings from farming and can arrange capital easily.</li></ul>
+          <p class="notes">🎙️ Access to capital is a major differentiator among farmers. Small farmers struggle to get loans from formal sources and often fall prey to informal lenders charging exorbitant interest. Large farmers, with their surplus income, find it much easier to invest in their farms.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Financial Resources</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Sale of <span class="hl">Surplus</span> Farm Products: More Than Enough</h2>
+          <ul><li>Medium and large farmers produce more than they need for their own consumption.</li><li>They sell this surplus in the market (e.g., to traders in Shahpur).</li><li>This income is used to buy capital for the next season or saved for other purposes.</li></ul>
+          <p class="notes">🎙️ The ability to produce a surplus is a sign of economic success in farming. Large farmers generate significant income by selling their excess produce. This allows them to accumulate capital, invest in better technology, and further expand their operations, creating a cycle of growth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Market Sales</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Quick Check</span> 3: Land &amp; Labour</h2>
+          <ul><li>Why do small farmers often borrow from moneylenders?</li><li>What is the main problem faced by farm labourers?</li><li>How do large farmers manage to get capital for farming?</li></ul>
+          <p class="notes">🎙️ Now, let's consolidate your understanding of land ownership and the plight of farm labour. These are critical issues in rural economics, and understanding them helps us appreciate the socio-economic structure of villages like Palampur.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">Non-Farm</span> Activities: Beyond the Fields</h2>
+          <ul><li>Only 25% of the people in Palampur are engaged in non-farming activities.</li><li>These include dairy, small-scale manufacturing, shopkeeping, and transport.</li><li>These activities provide alternative sources of income and employment.</li></ul>
+          <p class="notes">🎙️ While farming dominates, non-farm activities are also vital for a diversified rural economy. They offer employment opportunities, reduce dependence on agriculture, and contribute to the overall economic stability and growth of the village. Let's look at some examples.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Other Occupations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Non-Farm Activity 1: <span class="hl">Dairy</span> - A Common Livelihood</h2>
+          <ul><li>Many families in Palampur own buffaloes.</li><li>They feed the buffaloes on various grasses and jowar-bajra.</li><li>The milk is sold in nearby villages and towns (e.g., Raiganj).</li><li>Some milk is transported to distant towns and cities by traders from Shahpur.</li></ul>
+          <p class="notes">🎙️ Dairy farming is a significant non-farm activity, providing a steady income source for many families. It leverages local resources (fodder) and caters to a consistent demand for milk, connecting the village economy to urban markets.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐄</span><span>🐄</span><span>🐄</span><span>🐄</span><span>🐄</span></div><div class="vcap">Milk Production</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Non-Farm Activity 2: Small-Scale <span class="hl">Manufacturing</span></h2>
+          <ul><li>Often carried out at home or in the fields with family labour.</li><li>Simple production methods, usually on a small scale.</li><li>Example: Mishrilal's sugarcane crushing machine, making jaggery for sale.</li></ul>
+          <p class="notes">🎙️ Small-scale manufacturing in villages is typically labour-intensive and uses simple machinery. It often involves processing agricultural products, adding value, and creating local employment. Mishrilal's example shows how a small investment can create a profitable venture.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧵</div><div class="vcap">Handicrafts/Processing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Non-Farm Activity 3: <span class="hl">Shopkeeping</span> &amp; Transport</h2>
+          <ul><li>Shopkeepers buy various goods from wholesale markets in cities and sell them in the village.</li><li>Small general stores selling rice, wheat, sugar, oil, biscuits, soap, etc.</li><li>Transport sector: rickshaw-pullers, tonga-walas, jeep drivers, tractor drivers, truck drivers.</li><li>They ferry people and goods, earning a living.</li></ul>
+          <p class="notes">🎙️ Shopkeeping and transport are essential service sectors in any village. Shopkeepers provide access to daily necessities, while transport workers connect the village to the outside world, facilitating trade and movement of people. Both contribute significantly to the local economy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏪</div><div class="vcap">Services</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> to Avoid!</h2>
+          <ul><li>Confusing Fixed Capital with Working Capital (e.g., seeds are fixed capital).</li><li>Assuming all farmers are wealthy or all labourers are poor.</li><li>Not understanding the environmental impact of modern farming.</li><li>Forgetting Human Capital as a factor of production.</li></ul>
+          <p class="notes">🎙️ Students often make these common errors. Remember the distinctions between different types of capital and the diverse economic situations within the farming community. Always consider the long-term environmental effects of agricultural practices and the crucial role of human knowledge.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: How to Score Well!</h2>
+          <ul><li>**Define Key Terms**: Clearly explain factors of production (Land, Labour, Physical Capital, Human Capital).</li><li>**Compare &amp; Contrast**: Be ready to compare traditional vs. modern farming methods.</li><li>**Analyse Impacts**: Explain the positive and negative effects of the Green Revolution.</li><li>**Give Examples**: Use examples from Palampur (or real-life) to illustrate points.</li></ul>
+          <p class="notes">🎙️ For your exams, focus on clear definitions, comparative analysis, and understanding cause-and-effect relationships. Always support your answers with relevant examples. Questions often revolve around 'why' and 'how,' so explain the underlying reasons and processes.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways from Palampur</h2>
+          <ul><li>Production combines Land, Labour, Physical Capital, and Human Capital.</li><li>Farming is the main activity, facing challenges of fixed land and sustainability.</li><li>Modern farming increased yield but also environmental concerns.</li><li>Unequal land distribution and the plight of farm labourers are key issues.</li><li>Non-farm activities provide diversification and alternative livelihoods.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! The story of Palampur teaches us about the foundational elements of an economy. It highlights the interdependence of various activities and the complex challenges faced by rural communities as they strive for development and prosperity. Keep exploring!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 9 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

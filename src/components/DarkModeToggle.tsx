@@ -19,8 +19,9 @@ export default function DarkModeToggle({ className = '', size = 18 }: DarkModeTo
     try {
       const saved = localStorage.getItem(LS_DARK_MODE);
       if (saved !== null) return saved === 'true';
-      // Default to system preference if not saved
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // Default to LIGHT for everyone (ignore the OS setting) until the user
+      // explicitly chooses dark. Their choice is then remembered permanently.
+      return false;
     } catch {
       return false;
     }

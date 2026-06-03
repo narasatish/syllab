@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Grassroots Democracy - Rural Local Government — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Welcome to <span class="hl">Grassroots Democracy</span>!</h2>
+          <ul><li>Exploring how democracy works at the village level.</li><li>Understanding 'power to the people' in rural India.</li><li>Your role in local governance.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to understand how democracy functions right at the heart of our country – in our villages. We'll see how local people participate in making decisions that affect their daily lives, bringing 'power to the people' truly to the grassroots.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>A Village <span class="hl">Problem</span>: Who will fix it?</h2>
+          <ul><li>Imagine your village's only handpump breaks down.</li><li>Children can't get water for school, families struggle.</li><li>Who should take responsibility to repair it?</li><li>How do they gather funds and make decisions?</li></ul>
+          <p class="notes">🎙️ Think about this: If a vital resource like the village handpump stops working, who steps up? Who decides how to fix it, where the money comes from, and who does the work? This isn't just about a broken pump; it's about how a community solves its own problems, which is the essence of local government.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span></div><div class="vcap">Broken Handpump</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today!</h2>
+          <ul><li>Define Grassroots Democracy and its importance.</li><li>Understand the Gram Sabha and its role.</li><li>Explore the Gram Panchayat and its functions.</li><li>Learn about the Three-Tier Panchayati Raj System.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to explain what grassroots democracy means, identify the key bodies like the Gram Sabha and Gram Panchayat, and understand how they work together within India's three-tier system to manage rural affairs. These are crucial concepts for any responsible citizen.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>Why Small Groups? An <span class="hl">Analogy</span></h2>
+          <ul><li>In your family, decisions like 'what to cook' are easy.</li><li>In a school of 1000 students, 'what game to play' is harder.</li><li>Larger groups need smaller units for effective decisions.</li><li>Villages need their own local decision-making bodies.</li></ul>
+          <p class="notes">🎙️ Just like it's easier to decide what to eat with your family than with a thousand students, managing an entire country is a huge task. India is vast, with millions of villages. To make sure everyone's voice is heard and problems are solved quickly, we need smaller, local groups to make decisions. This is where grassroots democracy comes in.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">Family vs. Village</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Defining <span class="hl">Democracy</span>: Rule by the People</h2>
+          <ul><li>Democracy: 'Demos' (people) + 'Kratia' (rule).</li><li>It means 'rule by the people'.</li><li>Citizens elect representatives to make decisions for them.</li><li>India is the world's largest democracy.</li></ul>
+          <p class="notes">🎙️ At its core, democracy means that the power to govern rests with the people. In India, we achieve this by electing representatives who then make laws and decisions on our behalf. But how does this 'rule by the people' reach every single village and every citizen?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗳️</div><div class="vcap">Voting for Democracy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Introducing <span class="hl">Grassroots</span> Democracy</h2>
+          <ul><li>Grassroots: The most basic level of a group or organization.</li><li>Grassroots Democracy: Power and decision-making at the local level.</li><li>It focuses on villages, towns, and local communities.</li><li>It's about ordinary citizens participating directly.</li></ul>
+          <p class="notes">🎙️ Think of a plant: its strength comes from its roots. Similarly, grassroots democracy means that the strength of our democracy comes from its most basic level – the local communities. It ensures that decisions are made by those who are most affected by them, right in their own villages.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Starting from the ground up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Why Grassroots Democracy is <span class="hl">Important</span></h2>
+          <ul><li>Decisions are made closer to the people.</li><li>Local problems (water, roads, sanitation) are addressed quickly.</li><li>Empowers citizens to participate and hold leaders accountable.</li><li>Strengthens the overall democratic structure of the country.</li></ul>
+          <p class="notes">🎙️ Grassroots democracy is vital because it brings governance closer to home. When decisions are made locally, they are more relevant and responsive to the specific needs of a village. It also encourages citizens to actively participate and ensures their elected representatives are answerable to them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Community Collaboration</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Quick Check</span> 1: Test Your Understanding!</h2>
+          <ul><li>What does 'grassroots democracy' mean in simple terms?</li><li>Why is it important for a country like India to have local self-governance?</li></ul>
+          <p class="notes">🎙️ Take a moment to think about these questions. How would you explain grassroots democracy to a friend? And why is it so crucial for a large and diverse country like ours? Understanding the 'why' helps you remember the 'what'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>The <span class="hl">Gram Sabha</span>: The Voice of the Village</h2>
+          <ul><li>Analogy: Your school assembly where everyone gathers.</li><li>Gram Sabha is the general assembly of all adult villagers.</li><li>It is the foundation of the Panchayati Raj System.</li><li>It empowers villagers to participate directly in decision-making.</li></ul>
+          <p class="notes">🎙️ Imagine all the adults in your village coming together to discuss problems and make decisions – that's the Gram Sabha! It's not just a meeting; it's the core democratic body at the village level, giving every adult villager a direct voice in how their village is run.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Village Assembly</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Who is a <span class="hl">Member</span> of the Gram Sabha?</h2>
+          <ul><li>Every person who is 18 years or older.</li><li>And whose name is included in the electoral roll for the village.</li><li>This means all adult citizens residing in that village.</li><li>There are no exceptions based on caste, religion, or gender.</li></ul>
+          <p class="notes">🎙️ It's simple: if you are 18 or above and live in that village, you are automatically a member of the Gram Sabha. This inclusive nature ensures that every adult has the right to participate and contribute to their village's development, embodying true democracy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span></div><div class="vcap">Adult Villagers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Role</span> of the Gram Sabha: The Watchdog</h2>
+          <ul><li>To approve the annual budget of the Gram Panchayat.</li><li>To review the annual accounts of the Gram Panchayat.</li><li>To select beneficiaries for government schemes.</li><li>To ensure transparency and accountability of the Gram Panchayat.</li></ul>
+          <p class="notes">🎙️ The Gram Sabha acts like a watchdog. It ensures that the Gram Panchayat (which we'll learn about next) works properly and uses funds wisely. By approving budgets and reviewing accounts, it keeps the Gram Panchayat accountable to the people it serves, preventing misuse of power or funds.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Oversight &amp; Justice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>How the Gram Sabha <span class="hl">Works</span>: Meetings!</h2>
+          <ul><li>Meetings are held regularly, usually at least twice a year.</li><li>A quorum (minimum number of members) is required for a meeting.</li><li>Discussions take place on village development plans and issues.</li><li>Decisions are made by consensus or voting, often by show of hands.</li></ul>
+          <p class="notes">🎙️ For the Gram Sabha to function effectively, regular meetings are crucial. These meetings are where villagers come together to discuss local problems, propose solutions, and oversee the work of the Gram Panchayat. It's a direct form of democracy in action, where everyone can voice their opinion.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Notice of Meeting</span></div><div class="step"><span class="snum">2</span><span>Members Gather</span></div><div class="step"><span class="snum">3</span><span>Discussion of Issues</span></div><div class="step"><span class="snum">4</span><span>Decision Making</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Why the Gram Sabha <span class="hl">Matters</span>: Real Power</h2>
+          <ul><li>Prevents the Gram Panchayat from misusing funds.</li><li>Keeps an eye on elected members and their promises.</li><li>Ensures fair distribution of benefits to all villagers.</li><li>Promotes transparency and public participation in governance.</li></ul>
+          <p class="notes">🎙️ The Gram Sabha isn't just a talking shop; it holds real power. It's the ultimate authority at the village level, ensuring that decisions are fair, funds are used correctly, and that the Gram Panchayat remains true to its responsibilities. This direct accountability is a cornerstone of grassroots democracy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Transparency &amp; Scrutiny</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Quick Check</span> 2: Who are Gram Sabha members?</h2>
+          <ul><li>Who qualifies as a member of the Gram Sabha?</li><li>Why is the Gram Sabha called the 'watchdog' of the Gram Panchayat?</li></ul>
+          <p class="notes">🎙️ Can you recall the criteria for Gram Sabha membership? Also, think about the important role it plays in overseeing the Gram Panchayat. These questions help reinforce your understanding of its fundamental purpose.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>The <span class="hl">Gram Panchayat</span>: The Village Council</h2>
+          <ul><li>Analogy: The principal and teachers who run your school daily.</li><li>The Gram Panchayat is the executive body of the village.</li><li>It carries out the decisions made by the Gram Sabha.</li><li>It is elected by the Gram Sabha members for a term of 5 years.</li></ul>
+          <p class="notes">🎙️ While the Gram Sabha is the assembly of all adults, the Gram Panchayat is like the working committee. It's the elected body responsible for implementing development programs and ensuring services are delivered to the villagers. They are the 'doers' who put the plans into action.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Village Administration</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">Structure</span> of Gram Panchayat: Sarpanch &amp; Ward Members</h2>
+          <ul><li>Each village is divided into smaller areas called 'wards'.</li><li>Each ward elects one representative, called a Ward Member (Panch).</li><li>The entire village elects the Sarpanch (President) of the Gram Panchayat.</li><li>The Secretary is a government appointee, not elected.</li></ul>
+          <p class="notes">🎙️ The Gram Panchayat is made up of a team. The Sarpanch is the head, elected by everyone. Then, for better representation, the village is divided into wards, and each ward elects its own representative, called a Panch. Together, they form the Gram Panchayat, with a government-appointed Secretary to assist them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍💼</span><span>🧑‍💼</span><span>🧑‍💼</span><span>🧑‍💼</span><span>🧑‍💼</span></div><div class="vcap">Sarpanch &amp; Panchs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Elections</span> to the Gram Panchayat: Your Vote Matters!</h2>
+          <ul><li>Adult members of the Gram Sabha vote to elect Panchs and Sarpanch.</li><li>Elections are held every 5 years.</li><li>Secret ballot system ensures fair and free elections.</li><li>Reservations for SC/ST and women ensure diverse representation.</li></ul>
+          <p class="notes">🎙️ Just like state and national elections, Gram Panchayat elections are a crucial part of our democracy. Every adult villager gets to cast their vote to choose their local leaders. Importantly, there are reservations to ensure that all sections of society, including women and marginalized communities, have a voice and representation.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Voter Registration</span></div><div class="step"><span class="snum">2</span><span>Candidate Nomination</span></div><div class="step"><span class="snum">3</span><span>Campaigning</span></div><div class="step"><span class="snum">4</span><span>Voting Day</span></div><div class="step"><span class="snum">5</span><span>Counting &amp; Results</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Functions</span> of the Gram Panchayat: What do they do?</h2>
+          <ul><li>Construction and maintenance of roads, streetlights, drainage.</li><li>Provision of clean drinking water, sanitation facilities.</li><li>Maintenance of common property resources (ponds, grazing lands).</li><li>Implementation of government development schemes.</li></ul>
+          <p class="notes">🎙️ The Gram Panchayat performs many essential services that directly impact villagers' lives. From ensuring basic infrastructure like roads and streetlights to providing clean water and sanitation, they are responsible for the overall development and well-being of the village. They also implement various schemes launched by the state and central governments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Village Development</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Sources of <span class="hl">Funds</span> for Gram Panchayat: How they get money?</h2>
+          <ul><li>Collection of local taxes (e.g., house tax, market fees).</li><li>Government scheme funds received through Block &amp; District levels.</li><li>Donations for community works.</li><li>Grants from the State Government.</li></ul>
+          <p class="notes">🎙️ To perform its functions, the Gram Panchayat needs money. They raise funds through various sources, including collecting local taxes, receiving grants from the state government, and funds for specific schemes from higher levels of government. Sometimes, villagers also donate for specific community projects.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Funding Sources</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2><span class="hl">Example</span>: Ralegan Siddhi's Water Success Story</h2>
+          <ul><li>Ralegan Siddhi, Maharashtra, was a drought-prone village.</li><li>Under Anna Hazare's leadership, the Gram Panchayat mobilized villagers.</li><li>They built check dams, planted trees, and conserved water.</li><li>Transformed into a self-sufficient, prosperous village.</li></ul>
+          <p class="notes">🎙️ This is a real-life example of how an active Gram Panchayat, with community support, can bring about incredible change. Ralegan Siddhi, once struggling with water scarcity, became a model village through effective local governance and collective effort in water management. This shows the true potential of grassroots democracy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Conservation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Quick Check</span> 3: Name two functions of the Gram Panchayat.</h2>
+          <ul><li>Who elects the Sarpanch and Ward Members?</li><li>List two important functions performed by the Gram Panchayat.</li></ul>
+          <p class="notes">🎙️ Think about the main responsibilities of the Gram Panchayat in managing village affairs. Who are the key people elected to this body, and what are some of the practical things they do for the village?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Beyond the Village: Need for a <span class="hl">Larger System</span></h2>
+          <ul><li>Villages don't exist in isolation; they are part of blocks and districts.</li><li>Some problems (e.g., inter-village roads, health centers) need broader coordination.</li><li>A single Gram Panchayat cannot handle issues affecting multiple villages.</li><li>This led to the creation of a multi-level system.</li></ul>
+          <p class="notes">🎙️ While Gram Panchayats are excellent for village-level issues, some problems, like building a road connecting two villages or establishing a hospital for an entire region, require coordination beyond a single village. This is why a larger, interconnected system was developed to manage rural local government.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Connecting Communities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>The Panchayati Raj System: India's <span class="hl">3-Tier Structure</span></h2>
+          <ul><li>Panchayati Raj System: A system of rural local self-government.</li><li>Established to decentralize power and empower local communities.</li><li>It consists of three levels or 'tiers' of governance.</li><li>The 73rd Constitutional Amendment Act of 1992 made it mandatory.</li></ul>
+          <p class="notes">🎙️ The Panchayati Raj System is a landmark achievement in Indian democracy. The 73rd Constitutional Amendment Act gave it constitutional status, making it a mandatory three-tier system of local self-governance in rural areas. This ensures that power is truly distributed and not concentrated at the top.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Village Level</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Block Level</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">District Level</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Tier 1: <span class="hl">Gram Panchayat</span> (Village Level)</h2>
+          <ul><li>This is the lowest tier, operating at the village level.</li><li>Headed by the Sarpanch, with Ward Members (Panchs).</li><li>Deals with local village issues like water, sanitation, roads.</li><li>Directly accountable to the Gram Sabha.</li></ul>
+          <p class="notes">🎙️ As we've discussed, the Gram Panchayat is the first and most direct level of contact for villagers. It's responsible for the day-to-day administration and development of the village, working closely with the Gram Sabha to address local needs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Village Governance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Tier 2: <span class="hl">Block Samiti</span> (Panchayat Samiti) (Block Level)</h2>
+          <ul><li>This is the intermediate tier, at the 'block' or 'mandal' level.</li><li>A Block Samiti consists of several Gram Panchayats.</li><li>Members are elected by the Panchs and Sarpanchs of the area.</li><li>Coordinates development plans for the entire block.</li></ul>
+          <p class="notes">🎙️ The Block Samiti acts as a link between the Gram Panchayats and the Zila Parishad. It oversees the work of all Gram Panchayats within its block and helps coordinate larger development projects that span across multiple villages, ensuring integrated progress.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏘️</div><div class="vcap">Block Coordination</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Tier 3: <span class="hl">Zila Parishad</span> (District Level)</h2>
+          <ul><li>This is the highest tier, operating at the district level.</li><li>It supervises the functioning of the Block Samitis and Gram Panchayats.</li><li>Members include elected representatives, MPs, MLAs, and district officials.</li><li>Prepares district development plans and allocates funds.</li></ul>
+          <p class="notes">🎙️ The Zila Parishad is the apex body of the Panchayati Raj System in a district. It's responsible for overall planning and development at the district level, coordinating efforts across all blocks and villages, and ensuring resources are distributed effectively to achieve district-wide goals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏙️</div><div class="vcap">District Planning</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Quick Check</span> 4: Which tier is at the district level?</h2>
+          <ul><li>Name the three tiers of the Panchayati Raj System.</li><li>Which Constitutional Amendment Act gave constitutional status to Panchayati Raj?</li></ul>
+          <p class="notes">🎙️ Can you recall the names of the three levels of rural local government? Also, remember the significant constitutional amendment that solidified their position in India's democratic framework. These are important facts to remember.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Why Panchayati Raj <span class="hl">Strengthens Democracy</span></h2>
+          <ul><li>Decentralization of power: Power is not just with the central/state government.</li><li>Increased participation: More people involved in decision-making.</li><li>Faster problem-solving: Local issues addressed locally.</li><li>Accountability: Local leaders are directly answerable to local people.</li></ul>
+          <p class="notes">🎙️ The Panchayati Raj System is a powerful tool for strengthening democracy in India. By bringing governance closer to the people, it ensures that local needs are met, citizens are empowered to participate, and leaders are held directly accountable. It truly makes democracy more robust and inclusive.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Empowering Local Governance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> to Avoid!</h2>
+          <ul><li>Confusing Gram Sabha (all adults) with Gram Panchayat (elected body).</li><li>Forgetting the 73rd Amendment Act (1992) and its importance.</li><li>Mixing up the functions of different tiers (village, block, district).</li><li>Not understanding 'why' these bodies exist, beyond just 'what' they are.</li></ul>
+          <p class="notes">🎙️ It's easy to get confused between the Gram Sabha and Gram Panchayat, but remember their distinct roles! Also, always connect the facts to the 'why' – why was this system introduced? Why is it important? Understanding the purpose helps clarify the details.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Don't get confused!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Exam Tips</span> &amp; Recap: Master Grassroots Democracy!</h2>
+          <ul><li>Define key terms: Grassroots Democracy, Gram Sabha, Gram Panchayat.</li><li>Explain the 'why' and 'how': Why is it important? How does it work?</li><li>Remember the 3-tier structure and the 73rd Amendment Act (1992).</li><li>Practice 'Why/How' questions: 'How does Gram Sabha ensure transparency?'</li></ul>
+          <p class="notes">🎙️ To ace your exams, focus on definitions, understanding the purpose behind each body, and knowing the structure. Be prepared to explain 'why' and 'how' these local government bodies contribute to a stronger democracy. Good luck, and keep exploring how you can be a part of this amazing system!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 6 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

@@ -7,7 +7,8 @@ export type QuestionSubject =
   | "Biology"
   | "Aptitude"
   | "Science"
-  | "English";
+  | "English"
+  | "Social Science";
 
 export interface Question {
   id: string;
@@ -18,4 +19,6 @@ export interface Question {
   options: string[];
   correct: number;
   explanation: string;
+  /** Optional step-by-step worked solution (BYJU's-style), shown after answering. */
+  solution?: string[];
 }

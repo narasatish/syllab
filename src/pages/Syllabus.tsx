@@ -627,10 +627,11 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       ? byBoard
       : byBoard.filter(c => c.classLevel === selectedClass || extraClasses.has(c.classLevel as ClassLevel));
     const unique = Array.from(new Set(pool.map(c => c.subject)));
-    // Fixed teaching order — academics first, "Financial Literacy" always last.
+    // Fixed teaching order — academics first, then Social Science, with
+    // "Financial Literacy" (Life Skills) always last.
     const ORDER: Subject[] = [
       'Physics', 'Chemistry', 'Biology', 'Mathematics', 'Science',
-      'English', 'The World Around Us', 'Financial Literacy',
+      'English', 'Social Science', 'The World Around Us', 'Financial Literacy',
     ];
     const ordered = unique.sort((a, b) => {
       const ia = ORDER.indexOf(a as Subject); const ib = ORDER.indexOf(b as Subject);

@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
+          <span class="num">1 / 30</span>
           <h2>Exploring Some <span class="hl">Geometric</span> Themes</h2>
-          <ul><li>Welcome to our journey into shapes!</li><li>Today, we'll uncover exciting properties of polygons and solids.</li><li>Get ready to visualize and understand the world around us!</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of geometry. We'll explore various shapes, their properties, and how they connect to our everyday lives. Let's dive in!</p>
+          <ul><li>Subject: Mathematics</li><li>Class: 8</li><li>Board: CBSE</li></ul>
+          <p class="notes">🎙️ Welcome to our exciting journey into geometry! Today, we'll dive into the fascinating world of shapes and their properties. Get ready to uncover some interesting geometric themes.</p>
         </div>
         
       </div>
@@ -71,288 +77,348 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>What is <span class="hl">Geometry</span>?</h2>
-          <ul><li>The study of shapes, sizes, positions, and properties of figures.</li><li>Comes from Greek words 'geo' (earth) and 'metron' (measure).</li><li>It helps us understand the space we live in.</li></ul>
-          <p class="notes">🎙️ Geometry is a fundamental branch of mathematics that helps us describe the physical world. From designing buildings to understanding patterns in nature, geometry is everywhere. We've already touched upon basic shapes, and today we'll go deeper.</p>
+          <span class="num">2 / 30</span>
+          <h2><span class="hl">Shapes</span> All Around Us!</h2>
+          <ul><li>From buildings to art, geometry is everywhere.</li><li>How do designers create patterns?</li><li>How do architects ensure strong structures?</li></ul>
+          <p class="notes">🎙️ Look around you! From the windows in your house to the tiles on the floor, geometry is everywhere. How do architects ensure buildings stand strong, or how do designers create beautiful patterns? It's all thanks to understanding shapes!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Measuring the Earth</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Homes &amp; Buildings</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Understanding <span class="hl">Polygons</span></h2>
-          <ul><li>A closed figure made up of three or more line segments.</li><li>Segments are called sides, and they meet at vertices.</li><li>No curves, and sides only intersect at endpoints.</li></ul>
-          <p class="notes">🎙️ Polygons are the building blocks of many 2D shapes. Think of a triangle or a square – these are perfect examples of polygons. Remember, they must be closed and made only of straight lines.</p>
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Discover</span> Today</h2>
+          <ul><li>Identify different polygons and their types.</li><li>Understand angle sum properties of polygons.</li><li>Explore special types of quadrilaterals.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to identify different polygons and their properties. We'll also learn about the fascinating rules governing their interior and exterior angles. Finally, we'll explore the unique characteristics of various quadrilaterals.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Building Shapes</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Polygons &amp; their types</span></div><div class="step"><span class="snum">2</span><span>Angle Sum Properties</span></div><div class="step"><span class="snum">3</span><span>Special Quadrilaterals</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2><span class="hl">Common</span> Polygons</h2>
-          <ul><li>Triangle (3 sides)</li><li>Quadrilateral (4 sides)</li><li>Pentagon (5 sides)</li><li>Hexagon (6 sides)</li></ul>
-          <p class="notes">🎙️ You're already familiar with many polygons! Triangles, squares, rectangles, and even stop signs are all polygons. The number of sides determines their name, and we'll see more complex ones soon.</p>
+          <span class="num">4 / 30</span>
+          <h2>What is a <span class="hl">Polygon</span>?</h2>
+          <ul><li>Think of drawing with straight lines.</li><li>Connect the start and end points.</li><li>Form a closed figure.</li></ul>
+          <p class="notes">🎙️ Imagine you're drawing with a single pen, and you draw several straight lines. If you connect the starting point back to the end point, forming a closed figure, you've just made a polygon! It's like completing a puzzle with straight edges.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭐</div><div class="vcap">Shapes with straight sides</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Basic Shape</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Concave vs. <span class="hl">Convex</span> Polygons</h2>
-          <ul><li>Convex: All interior angles are less than 180°.</li><li>Concave: At least one interior angle is greater than 180°.</li><li>A line segment connecting any two points lies entirely inside a convex polygon.</li></ul>
-          <p class="notes">🎙️ This distinction is important! Imagine drawing a line between any two points inside the polygon. If the line always stays inside, it's convex. If it ever goes outside, it's concave. Think of a 'cave' for concave polygons.</p>
+          <span class="num">5 / 30</span>
+          <h2><span class="hl">Defining</span> Polygons Formally</h2>
+          <ul><li>A simple closed figure.</li><li>Formed by three or more line segments.</li><li>Segments meet only at endpoints (vertices).</li><li>No curves or open ends allowed.</li></ul>
+          <p class="notes">🎙️ A polygon is a simple closed figure formed by three or more line segments. These line segments are called its sides, and they meet only at their endpoints, called vertices. No curves or open ends allowed!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Pointing In or Out</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Closed Figure</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Polygons <span class="hl">Around Us</span></h2>
-          <ul><li>Honeycombs are hexagons.</li><li>Traffic signs often use triangles, octagons.</li><li>Floor tiles can be squares or hexagons.</li></ul>
-          <p class="notes">🎙️ Look around you! Polygons are fundamental to design and nature. From the sturdy structure of a house to the intricate pattern of a beehive, polygons provide strength and efficiency. Can you spot any polygons right now?</p>
+          <span class="num">6 / 30</span>
+          <h2><span class="hl">Regular</span> and Irregular Polygons</h2>
+          <ul><li>Regular: All sides equal, all angles equal.</li><li>Irregular: Sides or angles are not all equal.</li><li>Think of a perfect square vs. a squashed rectangle.</li></ul>
+          <p class="notes">🎙️ Think of a perfect square versus a squashed rectangle. A regular polygon has all its sides equal in length and all its interior angles equal in measure. An irregular polygon lacks this uniformity, with varying side lengths or angle measures.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span><span>🏠</span><span>🏠</span><span>🏠</span></div><div class="vcap">Shapes in Architecture</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Regular</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Irregular</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Angles in a <span class="hl">Triangle</span></h2>
-          <ul><li>A triangle is the simplest polygon (3 sides).</li><li>The sum of its interior angles is always 180°.</li><li>This is a foundational concept in geometry.</li></ul>
-          <p class="notes">🎙️ We've learned this before, and it's super important! No matter the shape or size of a triangle, if you add up its three interior angles, you'll always get 180 degrees. This property is key to understanding other polygons.</p>
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Convex</span> vs. Concave Polygons</h2>
+          <ul><li>Convex: All interior angles less than 180°.</li><li>Concave: At least one interior angle greater than 180°.</li><li>Concave polygons 'cave in' inwards.</li></ul>
+          <p class="notes">🎙️ Imagine stretching a rubber band around the vertices of a polygon. If the rubber band touches all sides without dipping inwards, it's convex. If any part of the polygon 'caves in' or bends inwards, it's a concave polygon.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">180 Degrees</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Angles In/Out</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Angles in a <span class="hl">Quadrilateral</span></h2>
-          <ul><li>A quadrilateral has 4 sides and 4 angles.</li><li>It can be divided into two triangles by a diagonal.</li><li>Sum of interior angles = 2 × 180° = 360°.</li></ul>
-          <p class="notes">🎙️ See how we can use what we know about triangles? By drawing a single diagonal in any quadrilateral, we divide it into two triangles. Since each triangle's angles sum to 180°, a quadrilateral's angles sum to 360°.</p>
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Naming</span> Polygons by Sides</h2>
+          <ul><li>Polygons are named by their number of sides.</li><li>3 sides = Triangle</li><li>4 sides = Quadrilateral</li><li>5 sides = Pentagon</li></ul>
+          <p class="notes">🎙️ Just like families have names, polygons are named based on the number of sides they have. Three sides make a triangle, four a quadrilateral, and so on. Knowing these names helps us classify and understand them better.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔲</div><div class="vcap">Two Triangles</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Sum of Interior Angles (<span class="hl">Formula</span>)</h2>
-          <ul><li>For a polygon with 'n' sides, it can be divided into (n-2) triangles.</li><li>Sum of interior angles = (n - 2) × 180°.</li><li>This formula works for ANY polygon!</li></ul>
-          <p class="notes">🎙️ This is a powerful formula! If you know the number of sides of any polygon, you can instantly find the sum of all its interior angles. Just subtract 2 from the number of sides and multiply by 180 degrees. Let's try an example.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Count Sides (n)</span></div><div class="step"><span class="snum">2</span><span>Find (n-2)</span></div><div class="step"><span class="snum">3</span><span>Multiply by 180°</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Example: Sum of <span class="hl">Pentagon</span> Angles</h2>
-          <ul><li>A pentagon has 5 sides (n=5).</li><li>Number of triangles = (5 - 2) = 3.</li><li>Sum of interior angles = 3 × 180° = 540°.</li></ul>
-          <p class="notes">🎙️ So, for a pentagon, we have 5 sides. Using our formula, (5-2) gives us 3 triangles. Three times 180 degrees is 540 degrees. This means all the angles inside any pentagon will always add up to 540 degrees.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Five Sides</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2><span class="hl">Regular</span> vs. Irregular</h2>
-          <ul><li>Regular Polygon: All sides are equal AND all angles are equal.</li><li>Irregular Polygon: Sides or angles (or both) are not equal.</li><li>Examples: Square is regular, rectangle is irregular.</li></ul>
-          <p class="notes">🎙️ This distinction is crucial. A square is a perfect example of a regular polygon because all its sides are equal and all its angles are 90 degrees. A rectangle, while having equal angles, usually doesn't have equal sides, making it irregular.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Regular</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Irregular</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2><span class="hl">Regular</span> Shapes in Life</h2>
-          <ul><li>Stop sign (regular octagon).</li><li>Chessboard squares (regular quadrilaterals).</li><li>Hexagonal nuts and bolts.</li></ul>
-          <p class="notes">🎙️ Regular polygons are often chosen for their symmetry and strength. Think about a stop sign – its eight equal sides and angles make it easily recognizable. Many tools and designs use regular polygons for precision and aesthetics.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛑</span></div><div class="vcap">Stop Sign</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Exterior</span> Angles</h2>
-          <ul><li>An exterior angle is formed by one side and the extension of an adjacent side.</li><li>Each interior angle and its corresponding exterior angle form a linear pair (sum to 180°).</li><li>There is one exterior angle at each vertex.</li></ul>
-          <p class="notes">🎙️ Imagine walking around the perimeter of a polygon. At each corner, you 'turn' a certain amount. That turn is the exterior angle. It's supplementary to the interior angle at that same vertex.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↩️</div><div class="vcap">Turning Corners</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">Sum</span> of Exterior Angles</h2>
-          <ul><li>The sum of all exterior angles of ANY convex polygon is always 360°.</li><li>This is true regardless of the number of sides!</li><li>Imagine rotating 360° as you walk around the polygon.</li></ul>
-          <p class="notes">🎙️ This is a beautiful and simple property! Whether it's a triangle, a pentagon, or a 100-sided polygon, if you add up all its exterior angles, you will always get 360 degrees. It's like making a full turn as you complete a loop.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Full Circle</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Exploring <span class="hl">Quadrilaterals</span></h2>
-          <ul><li>A polygon with four sides and four vertices.</li><li>Many special types, each with unique properties.</li><li>Key categories: Parallelograms, Trapeziums, Kites.</li></ul>
-          <p class="notes">🎙️ Quadrilaterals are a very diverse family of polygons. From simple squares to more complex shapes, they all share the common trait of having four sides. We'll now look at some of their specific characteristics.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">◻️</div><div class="vcap">Four-Sided Shapes</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>The <span class="hl">Parallelogram</span></h2>
-          <ul><li>Opposite sides are parallel and equal in length.</li><li>Opposite angles are equal.</li><li>Diagonals bisect each other.</li></ul>
-          <p class="notes">🎙️ A parallelogram is a quadrilateral where opposite sides are parallel. This simple rule leads to several important properties: opposite sides are also equal, opposite angles are equal, and its diagonals cut each other exactly in half.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Parallel Lines</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">Special</span> Parallelograms</h2>
-          <ul><li>Rhombus: All four sides are equal.</li><li>Rectangle: All four angles are 90°.</li><li>Square: All sides equal AND all angles 90° (both rhombus and rectangle).</li></ul>
-          <p class="notes">🎙️ These are special cases of parallelograms. A rhombus adds the condition of equal sides. A rectangle adds the condition of right angles. And a square combines both, making it the 'most regular' of these quadrilaterals.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Rhombus</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Rectangle</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Square</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2><span class="hl">Other</span> Quadrilaterals</h2>
-          <ul><li>Trapezium (or Trapezoid): At least one pair of opposite sides is parallel.</li><li>Kite: Two distinct pairs of equal-length adjacent sides.</li><li>Diagonals of a kite are perpendicular.</li></ul>
-          <p class="notes">🎙️ Not all quadrilaterals are parallelograms. A trapezium has at least one pair of parallel sides. A kite, as the name suggests, resembles a flying kite, with its unique property of having two pairs of equal adjacent sides.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪁</div><div class="vcap">Unique Shapes</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Exploring <span class="hl">3D Shapes</span> (Solids)</h2>
-          <ul><li>Shapes that have length, width, and height (depth).</li><li>Also called solids or polyhedra (if made of flat faces).</li><li>Key features: Faces, Edges, Vertices.</li></ul>
-          <p class="notes">🎙️ Until now, we've mostly discussed 2D shapes that lie flat. But the world around us is 3D! These shapes have volume and occupy space. We describe them using faces (flat surfaces), edges (where faces meet), and vertices (corners).</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Objects in Space</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Euler's</span> Formula</h2>
-          <ul><li>For any simple polyhedron (no holes), the formula holds true.</li><li>Faces (F) + Vertices (V) - Edges (E) = 2.</li><li>F + V - E = 2 is a powerful relationship.</li></ul>
-          <p class="notes">🎙️ This is a fascinating formula discovered by the mathematician Euler! It provides a simple relationship between the number of faces, vertices, and edges of any polyhedron. Let's try it for a cube: 6 faces + 8 vertices - 12 edges = 2. It works!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Counting Features</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>3D Shapes in <span class="hl">Our World</span></h2>
-          <ul><li>Cubes: Dice, Rubik's Cube.</li><li>Cylinders: Cans, pipes.</li><li>Pyramids: Egyptian Pyramids, roof structures.</li></ul>
-          <p class="notes">🎙️ From the humble brick to grand architectural wonders, 3D shapes are fundamental. Think of a soda can (cylinder), a football (sphere), or even your school building (often a cuboid). They are everywhere, giving structure and form to objects.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Building Blocks</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>3 sides: Triangle</span></div><div class="step"><span class="snum">2</span><span>4 sides: Quadrilateral</span></div><div class="step"><span class="snum">3</span><span>5 sides: Pentagon</span></div><div class="step"><span class="snum">4</span><span>6 sides: Hexagon</span></div><div class="step"><span class="snum">5</span><span>8 sides: Octagon</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>What is the sum of the interior angles of a hexagon?</li><li>A) 360°</li><li>B) 540°</li><li>C) 720°</li><li>D) 900°</li></ul>
-          <p class="notes">🎙️ Alright, time for a quick test of your understanding! Remember the formula for the sum of interior angles. A hexagon has 6 sides. Take a moment to calculate the answer.</p>
+          <span class="num">9 / 30</span>
+          <h2>Quick Check: Polygon Types</h2>
+          <ul><li>Is this shape regular or irregular?</li><li>Is this shape convex or concave?</li><li>What is the name of this polygon?</li></ul>
+          <p class="notes">🎙️ Look at the shapes shown on the screen. Can you identify if they are regular or irregular? Are they convex or concave? Take a moment to apply what we've just learned about polygon definitions.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Interior Angles: The <span class="hl">Pizza</span> Slice Analogy</h2>
+          <ul><li>Imagine a polygon as a pizza.</li><li>Cut it into triangles from one vertex.</li><li>Each triangle's angles sum to 180°.</li></ul>
+          <p class="notes">🎙️ Imagine a polygon as a whole pizza. If you cut the pizza from one vertex to all other non-adjacent vertices, you'll divide it into triangles. The sum of the angles of all these triangles gives us the total interior angle sum of the polygon!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">Slicing a Polygon</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>Sum of Interior Angles <span class="hl">Formula</span></h2>
+          <ul><li>For a polygon with 'n' sides.</li><li>Number of triangles formed is (n-2).</li><li>Formula: (n-2) × 180°</li></ul>
+          <p class="notes">🎙️ For any polygon with 'n' sides, the sum of its interior angles is given by the formula (n-2) × 180 degrees. This formula comes directly from dividing the polygon into (n-2) triangles. Remember this key formula!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">(n-2) × 180°</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Example: Sum of Angles in a <span class="hl">Hexagon</span></h2>
+          <ul><li>A hexagon has 6 sides (n=6).</li><li>Apply the formula: (6-2) × 180°.</li><li>Calculate: 4 × 180° = 720°.</li></ul>
+          <p class="notes">🎙️ Let's calculate the sum of interior angles for a hexagon. A hexagon has 6 sides, so n=6. Plugging this into our formula, (6-2) * 180, we get 4 * 180, which is 720 degrees. Simple, right?</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sides (n) = 6</span></div><div class="step"><span class="snum">2</span><span>Formula: (6-2) × 180°</span></div><div class="step"><span class="snum">3</span><span>Calculation: 4 × 180°</span></div><div class="step"><span class="snum">4</span><span>Sum = 720°</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 2</span></h2>
-          <ul><li>Which of these is NOT a property of a parallelogram?</li><li>A) Opposite sides are parallel.</li><li>B) Diagonals bisect each other.</li><li>C) All four sides are equal.</li><li>D) Opposite angles are equal.</li></ul>
-          <p class="notes">🎙️ Now, let's think about the properties of a parallelogram. Which statement here does NOT always hold true for all parallelograms? Be careful with the special cases!</p>
+          <span class="num">13 / 30</span>
+          <h2>Quick Check: <span class="hl">Pentagon</span> Angles</h2>
+          <ul><li>How many sides does a pentagon have?</li><li>Use the formula (n-2) × 180°.</li><li>What is the sum of its interior angles?</li></ul>
+          <p class="notes">🎙️ Now it's your turn! Can you quickly calculate the sum of the interior angles of a pentagon? A pentagon has 5 sides. Use the formula we just learned and see if you get the correct answer.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Exterior Angles: The Park <span class="hl">Walk</span></h2>
+          <ul><li>Imagine walking around a polygon-shaped park.</li><li>Each turn you make is an exterior angle.</li><li>How much do you turn in total to come back?</li></ul>
+          <p class="notes">🎙️ Imagine walking around the perimeter of a park shaped like a polygon. Each time you reach a corner and turn, the angle you turn through is an exterior angle. After walking all the way around and returning to your starting point, how much have you turned in total?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚶</span></div><div class="vcap">Turning Corners</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Defining <span class="hl">Exterior</span> Angles</h2>
+          <ul><li>Formed by extending one side of a polygon.</li><li>Angle between extended side and adjacent side.</li><li>Interior angle + Exterior angle = 180° (linear pair).</li></ul>
+          <p class="notes">🎙️ An exterior angle of a polygon is formed by extending one of its sides and the adjacent side. It's the angle between a side and the line extended from the next side. Each interior angle and its corresponding exterior angle form a linear pair, summing to 180 degrees.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↩️</div><div class="vcap">Angle Outside</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Sum of Exterior Angles: Always <span class="hl">360°</span>!</h2>
+          <ul><li>This is a universal property!</li><li>For any convex polygon, regardless of sides.</li><li>The sum of all exterior angles is always 360 degrees.</li></ul>
+          <p class="notes">🎙️ This is a beautiful property! Regardless of the number of sides, the sum of the exterior angles of any convex polygon is always 360 degrees. Think of it as completing a full circle as you walk around the polygon.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Full Circle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Example: Finding an <span class="hl">Unknown</span> Exterior Angle</h2>
+          <ul><li>Given exterior angles: 90°, 70°, 80°.</li><li>Let the unknown angle be 'x'.</li><li>Sum of exterior angles = 360°.</li></ul>
+          <p class="notes">🎙️ If a polygon has exterior angles of 90°, 70°, and 80°, and one unknown angle 'x', we know their sum must be 360°. So, 90 + 70 + 80 + x = 360. This means 240 + x = 360, and thus x = 120 degrees.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Known angles: 90°, 70°, 80°</span></div><div class="step"><span class="snum">2</span><span>Sum of known: 90+70+80 = 240°</span></div><div class="step"><span class="snum">3</span><span>Missing angle = 360° - 240° = 120°</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 3</span></h2>
-          <ul><li>A figure with 7 sides is called a:</li><li>A) Hexagon</li><li>B) Octagon</li><li>C) Heptagon</li><li>D) Nonagon</li></ul>
-          <p class="notes">🎙️ Last quick question! This one tests your knowledge of polygon names. What do we call a polygon that has exactly seven sides? Choose the correct option.</p>
+          <span class="num">18 / 30</span>
+          <h2>Quick Check: Regular <span class="hl">Octagon</span></h2>
+          <ul><li>A regular octagon has 8 equal sides.</li><li>Therefore, it has 8 equal exterior angles.</li><li>What is the measure of each exterior angle?</li></ul>
+          <p class="notes">🎙️ A regular octagon has 8 equal sides and 8 equal exterior angles. If the sum of all exterior angles is 360 degrees, can you find the measure of each exterior angle of a regular octagon? Give it a try!</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2><span class="hl">Quadrilaterals</span>: Four-Sided Wonders</h2>
+          <ul><li>Polygons with exactly four sides.</li><li>Many special types with unique properties.</li><li>Like different types of boxes.</li></ul>
+          <p class="notes">🎙️ Quadrilaterals are polygons with exactly four sides. Just like there are different types of boxes – some tall, some wide, some perfect cubes – there are many special types of quadrilaterals, each with unique properties. Let's explore them!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">Different Boxes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>The <span class="hl">Parallelogram</span> Family</h2>
+          <ul><li>Both pairs of opposite sides are parallel.</li><li>Opposite sides are equal in length.</li><li>Opposite angles are equal.</li><li>Diagonals bisect each other.</li></ul>
+          <p class="notes">🎙️ A parallelogram is a quadrilateral where both pairs of opposite sides are parallel. This special property leads to others: opposite sides are equal, opposite angles are equal, and diagonals bisect each other.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️⬅️</div><div class="vcap">Parallel Sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Rhombus</span>: A Diamond Shape</h2>
+          <ul><li>A parallelogram with all four sides equal.</li><li>Diagonals bisect each other at right angles.</li><li>Diagonals bisect the angles of the rhombus.</li></ul>
+          <p class="notes">🎙️ A rhombus is a special type of parallelogram where all four sides are equal in length. Think of it as a 'tilted square.' Its diagonals bisect each other at right angles, and they also bisect the angles of the rhombus.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Equal Sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2><span class="hl">Rectangle</span>: The Right-Angled One</h2>
+          <ul><li>A parallelogram with all four angles equal to 90°.</li><li>Opposite sides are equal.</li><li>Diagonals are equal in length and bisect each other.</li></ul>
+          <p class="notes">🎙️ A rectangle is another special parallelogram where all four angles are right angles (90 degrees). Its opposite sides are equal, and its diagonals are equal in length and bisect each other. It's like a square, but with possibly different side lengths.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">90° Corners</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Square</span>: The Perfect Shape</h2>
+          <ul><li>A rectangle with all four sides equal.</li><li>A rhombus with all four angles equal to 90°.</li><li>All sides equal, all angles 90°, diagonals equal and perpendicular bisectors.</li></ul>
+          <p class="notes">🎙️ The square is the superstar! It's a rectangle with all four sides equal, and also a rhombus with all four angles equal to 90 degrees. It combines the best properties of both, making it a regular quadrilateral.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏹️</div><div class="vcap">All Equal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">Trapezium</span>: One Pair Parallel</h2>
+          <ul><li>A quadrilateral with at least one pair of parallel sides.</li><li>Parallel sides are called bases.</li><li>Non-parallel sides are called legs.</li></ul>
+          <p class="notes">🎙️ A trapezium (or trapezoid in some regions) is a quadrilateral with at least one pair of parallel sides. The parallel sides are called bases, and the non-parallel sides are called legs. It's less symmetrical than a parallelogram.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Parallel Top/Bottom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Kite</span>: The Flying Shape</h2>
+          <ul><li>Two distinct pairs of adjacent sides are equal.</li><li>Diagonals are perpendicular to each other.</li><li>One diagonal bisects the other.</li></ul>
+          <p class="notes">🎙️ A kite is a quadrilateral where two distinct pairs of adjacent sides are equal in length. Its diagonals are perpendicular to each other, and one diagonal bisects the other. It gets its name from its familiar shape!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪁</div><div class="vcap">Adjacent Sides Equal</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Geometric Themes</h2>
-          <ul><li>Polygons are closed figures with straight sides.</li><li>Sum of interior angles = (n-2) × 180°.</li><li>Sum of exterior angles is always 360°.</li><li>Quadrilaterals have special properties.</li><li>3D shapes have Faces, Edges, and Vertices (F+V-E=2).</li></ul>
-          <p class="notes">🎙️ Excellent work today, everyone! We covered a lot of ground, from understanding different types of polygons and their angle properties to exploring the world of quadrilaterals and even venturing into 3D shapes. Keep observing these geometric themes in your daily life!</p>
+          <span class="num">26 / 30</span>
+          <h2>Quick Check: <span class="hl">Match</span> the Property</h2>
+          <ul><li>Which quadrilateral has all sides equal and diagonals perpendicular?</li><li>Which has only one pair of parallel sides?</li><li>Which has all angles 90 degrees and equal diagonals?</li></ul>
+          <p class="notes">🎙️ Can you identify which quadrilateral has diagonals that are equal and bisect each other at right angles? Or which one has only one pair of parallel sides? Test your knowledge of the properties we just discussed!</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> in Geometry</h2>
+          <ul><li>Confusing regular and irregular polygons.</li><li>Mixing up convex and concave polygons.</li><li>Using interior angle formula for exterior angles (and vice-versa).</li><li>Forgetting specific properties of different quadrilaterals.</li></ul>
+          <p class="notes">🎙️ Students often confuse regular and irregular polygons, or convex and concave. Another common error is mixing up interior and exterior angle formulas. Always read the question carefully to identify what type of angle or polygon is being asked about.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid These!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Exam</span> Tips for Geometry</h2>
+          <ul><li>Practice drawing figures accurately.</li><li>Memorize key formulas (e.g., (n-2) × 180°, sum of exterior angles = 360°).</li><li>List known properties for quadrilateral problems.</li><li>Show all steps in calculations for partial credit.</li></ul>
+          <p class="notes">🎙️ Practice drawing figures accurately to understand properties better. Memorize key formulas like the sum of interior angles and the fact that exterior angles sum to 360°. For quadrilateral problems, list known properties first to solve for unknowns.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Score High!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Recap</span>: Our Geometric Journey</h2>
+          <ul><li>Polygons: closed figures with straight sides.</li><li>Angle Sums: (n-2)×180° for interior, 360° for exterior.</li><li>Quadrilaterals: special 4-sided polygons.</li></ul>
+          <p class="notes">🎙️ Today, we explored the world of polygons, learning how to classify them and calculate their angle sums. We also delved into the unique characteristics of various quadrilaterals. You've gained a strong foundation in geometric themes!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Polygons: types &amp; names</span></div><div class="step"><span class="snum">2</span><span>Interior Angle Sum: (n-2)×180°</span></div><div class="step"><span class="snum">3</span><span>Exterior Angle Sum: 360°</span></div><div class="step"><span class="snum">4</span><span>Quadrilaterals: Parallelogram, Rhombus, Rectangle, Square, Trapezium, Kite</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Keep <span class="hl">Exploring</span> Geometry!</h2>
+          <ul><li>Geometry is all around us.</li><li>Continue to observe shapes in daily life.</li><li>Practice problems to strengthen your understanding.</li></ul>
+          <p class="notes">🎙️ Great job today! Geometry is all around us, and understanding these basic themes opens up a world of possibilities. Keep practicing, keep observing shapes in your daily life, and continue to explore the beauty of mathematics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Your Geometric Future</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

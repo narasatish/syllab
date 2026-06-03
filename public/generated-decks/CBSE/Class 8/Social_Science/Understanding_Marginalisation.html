@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Understanding Marginalisation — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Welcome to 'Understanding <span class="hl">Marginalisation</span>'</h2>
+          <ul><li>Exploring who are marginalised groups.</li><li>Understanding the reasons behind marginalisation.</li><li>Learning about the role of the Constitution and laws.</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we're embarking on a crucial journey to understand a very important concept in our society: Marginalisation. It's about how some groups are left out or pushed to the side.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>A Small Story: The <span class="hl">New Kid</span></h2>
+          <ul><li>Rohan moved to a new city and school.</li><li>During playtime, he often felt left out.</li><li>The existing groups didn't include him in their games.</li></ul>
+          <p class="notes">🎙️ Imagine Rohan, a new student, trying to make friends. He observes other children playing, laughing, and forming groups. But despite his best efforts, he struggles to join in, feeling like an outsider. This feeling of being left out, of not belonging, is a simple analogy for marginalisation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧍</span><span>🧍</span><span>🧍</span><span>🧍</span><span>🧍</span></div><div class="vcap">Feeling Excluded</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today</h2>
+          <ul><li>Define marginalisation and its causes.</li><li>Identify specific marginalised groups in India.</li><li>Understand constitutional safeguards and laws.</li><li>Appreciate the role of social movements.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll not only understand what marginalisation means but also identify the groups affected by it in India. We'll also explore how our Constitution and various laws work to protect these groups and promote equality.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>What is <span class="hl">Marginalisation</span>? (Analogy)</h2>
+          <ul><li>Like being on the 'edge' of a group.</li><li>Feeling different or less important.</li><li>Often leads to exclusion from mainstream.</li></ul>
+          <p class="notes">🎙️ Think of it like standing at the edge of a door, looking in but not quite being inside. Marginalisation is when certain individuals or groups are pushed to the 'margins' or fringes of society, preventing them from fully participating in economic, social, cultural, and political life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚪</div><div class="vcap">On the Outskirts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Formal <span class="hl">Definition</span> of Marginalisation</h2>
+          <ul><li>A process where a group is pushed to the periphery.</li><li>Experiences social, economic, cultural, and political exclusion.</li><li>Often feels a sense of powerlessness and being 'different'.</li></ul>
+          <p class="notes">🎙️ More formally, marginalisation is a complex social process. It's not just about feeling left out; it's about systemic exclusion that can affect access to resources, opportunities, and even their identity. This can make them feel 'different' from the majority.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Social Separation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2><span class="hl">Why</span> Do Groups Become Marginalised?</h2>
+          <ul><li>Economic factors: poverty, lack of resources.</li><li>Social factors: caste, religion, language, gender.</li><li>Cultural factors: distinct customs, traditions.</li><li>Political factors: lack of representation, power.</li></ul>
+          <p class="notes">🎙️ There isn't one single reason for marginalisation; it's often a combination of factors. Economic hardship, social discrimination based on identity, unique cultural practices, and a lack of political voice can all contribute to a group being pushed to the margins.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Interconnected Factors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Quick Check</span> 1: Understanding Factors</h2>
+          <ul><li>Which of the following is NOT typically a factor contributing to marginalisation?</li><li>A) Poverty</li><li>B) Distinct cultural practices</li><li>C) High social status</li><li>D) Lack of political representation</li></ul>
+          <p class="notes">🎙️ Let's test your understanding. Think about the factors we just discussed. Which one stands out as NOT being a cause for a group to be marginalised?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Who are <span class="hl">Adivasis</span>? India's Indigenous Peoples</h2>
+          <ul><li>Literally means 'original inhabitants'.</li><li>Distinct societies with deep connection to forests.</li><li>Often have their own languages, customs, and traditions.</li></ul>
+          <p class="notes">🎙️ Adivasis are India's indigenous communities, meaning they were among the earliest inhabitants of the land. They have a unique way of life, intrinsically linked to forests and natural resources, and possess rich cultural heritage distinct from mainstream society.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Forest Dwellers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Historical</span> Marginalisation of Adivasis (Colonial Era)</h2>
+          <ul><li>Step 1: British Colonial Rule declared forests as state property.</li><li>Step 2: Adivasis were denied access to their traditional forest lands.</li><li>Step 3: Forced displacement, loss of livelihood, and cultural disruption.</li></ul>
+          <p class="notes">🎙️ During British rule, vast forest areas, which were Adivasi homes, were declared state property for timber and revenue. This led to the tragic displacement of millions, severing their ties to their ancestral lands and traditional livelihoods, initiating their marginalisation.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Colonial Forest Laws</span></div><div class="step"><span class="snum">2</span><span>Loss of Land &amp; Rights</span></div><div class="step"><span class="snum">3</span><span>Forced Displacement</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Current <span class="hl">Challenges</span> for Adivasis: Development &amp; Displacement</h2>
+          <ul><li>Displacement due to mining projects and dams.</li><li>Loss of land to industrial development.</li><li>Struggles to adapt to urban environments, facing poverty.</li></ul>
+          <p class="notes">🎙️ Even today, Adivasis continue to face marginalisation. Large-scale development projects like dams, mines, and industries often come up in Adivasi-dominated regions, leading to forced evictions and loss of their livelihoods, pushing them further into poverty and vulnerability.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Development vs. Rights</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Quick Check</span> 2: Adivasi Marginalisation</h2>
+          <ul><li>What was a significant cause of Adivasi marginalisation during the British Colonial rule?</li><li>A) Their adoption of new languages</li><li>B) The implementation of forest laws</li><li>C) Their migration to urban areas</li><li>D) Their refusal to cultivate land</li></ul>
+          <p class="notes">🎙️ Think back to the historical context we just discussed. What specific action by the British government had a profound impact on Adivasi communities?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Who are <span class="hl">Minorities</span>? Constitutional Protection</h2>
+          <ul><li>Groups numerically small in comparison to the majority.</li><li>Often have distinct religious, linguistic, or cultural identities.</li><li>The Indian Constitution provides safeguards to protect their rights.</li></ul>
+          <p class="notes">🎙️ In India, the term 'minority' refers to communities that are numerically smaller than the majority. Our Constitution recognises the need to protect the cultural and educational rights of these groups to prevent their domination by the majority and ensure their equitable participation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👥</div><div class="vcap">Diverse Groups</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>The <span class="hl">Muslim Community</span> and Marginalisation in India</h2>
+          <ul><li>Constituted 14.2% of India's population (2011 Census).</li><li>Sachar Committee Report (2006) highlighted socio-economic backwardness.</li><li>Lower access to education, healthcare, and government jobs.</li></ul>
+          <p class="notes">🎙️ The Sachar Committee Report, commissioned by the Indian government, revealed significant disparities in the socio-economic status of the Muslim community. It showed that despite being a large minority, they lagged behind other communities in terms of education, employment, and access to basic amenities, indicating marginalisation.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Literacy Rate (National Avg)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Muslim Literacy Rate</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Addressing Muslim Marginalisation: <span class="hl">Government</span> Initiatives</h2>
+          <ul><li>Schemes like 'Pradhan Mantri Jan Vikas Karyakram' (PMJVK).</li><li>Focus on improving access to education, health, and skill development.</li><li>Aim to bridge development gaps in minority-concentration areas.</li></ul>
+          <p class="notes">🎙️ Recognising the findings of the Sachar Committee, the government has launched various schemes to address the backwardness of minority communities, including Muslims. These initiatives aim to provide better infrastructure and opportunities, especially in areas where these communities are concentrated, to bring them into the mainstream.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">State Support</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2><span class="hl">Quick Check</span> 3: Minority Reports</h2>
+          <ul><li>The Sachar Committee Report primarily focused on the socio-economic status of which community in India?</li><li>A) Adivasis</li><li>B) Sikhs</li><li>C) Muslims</li><li>D) Buddhists</li></ul>
+          <p class="notes">🎙️ This is a direct recall question. Which specific community's socio-economic conditions did the Sachar Committee investigate and report on?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">Dalits</span> and Historical Marginalisation: The Caste System</h2>
+          <ul><li>Historically considered 'untouchable' within the caste system.</li><li>Suffered severe social discrimination and exclusion.</li><li>Dr. B.R. Ambedkar was a leading voice against caste discrimination.</li></ul>
+          <p class="notes">🎙️ The caste system in India historically placed Dalits at the lowest rung, subjecting them to 'untouchability' and severe discrimination. They were denied basic human rights and opportunities. Dr. B.R. Ambedkar, himself a Dalit, dedicated his life to fighting this injustice and advocating for their rights.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Historical Injustice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Constitutional <span class="hl">Safeguards</span> for Marginalised Groups</h2>
+          <ul><li>Equality before law (Article 14).</li><li>Prohibition of discrimination (Article 15).</li><li>Abolition of 'Untouchability' (Article 17).</li><li>Cultural and Educational Rights (Articles 29 &amp; 30).</li></ul>
+          <p class="notes">🎙️ Our Constitution is a powerful document that strives for an egalitarian society. It includes several fundamental rights specifically designed to protect marginalised groups, ensuring they are treated equally, are not discriminated against, and can preserve their distinct cultures.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Justice &amp; Equality</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Specific <span class="hl">Laws</span> Protecting Marginalised Groups</h2>
+          <ul><li>The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989.</li><li>Aims to prevent atrocities and provide for relief and rehabilitation.</li><li>Reservation policies for SCs, STs, and OBCs in education and employment.</li></ul>
+          <p class="notes">🎙️ Beyond fundamental rights, specific laws have been enacted to give teeth to the constitutional provisions. The SC/ST Act, 1989, is crucial for protecting these communities from violence and discrimination, while reservation policies aim to provide them with equitable opportunities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Legal Protection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>How the SC/ST (Prevention of Atrocities) Act, 1989 Works</h2>
+          <ul><li>Step 1: Identifies specific acts of atrocity against SCs/STs.</li><li>Step 2: Provides for stringent punishments for such crimes.</li><li>Step 3: Ensures special courts for speedy trials and rehabilitation of victims.</li></ul>
+          <p class="notes">🎙️ This Act is a landmark legislation. It clearly defines what constitutes an 'atrocity' against Scheduled Castes and Tribes, such as forcing them to eat obnoxious substances or wrongfully occupying their land. It ensures that such crimes are dealt with severely and victims receive justice and support.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Defines Atrocities</span></div><div class="step"><span class="snum">2</span><span>Prescribes Punishment</span></div><div class="step"><span class="snum">3</span><span>Ensures Justice &amp; Aid</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Role of <span class="hl">Judiciary</span>: Upholding Rights</h2>
+          <ul><li>Interprets laws and the Constitution.</li><li>Ensures government implements protective measures.</li><li>Public Interest Litigations (PILs) allow citizens to seek justice.</li></ul>
+          <p class="notes">🎙️ Our courts, from the Supreme Court to local courts, play a vital role. They act as guardians of the Constitution, ensuring that the rights of marginalised groups are protected and that laws meant for their welfare are properly implemented. PILs have been instrumental in bringing issues of marginalisation to the court's attention.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍⚖️</div><div class="vcap">Guardian of Justice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Quick Check</span> 4: Constitutional Articles</h2>
+          <ul><li>Which Article of the Indian Constitution specifically abolishes 'Untouchability'?</li><li>A) Article 14</li><li>B) Article 15</li><li>C) Article 17</li><li>D) Article 21</li></ul>
+          <p class="notes">🎙️ Recall the Fundamental Rights we discussed earlier. One specific article directly addresses the historical injustice of 'Untouchability'. Which one is it?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>The Power of Social <span class="hl">Movements</span></h2>
+          <ul><li>Marginalised groups collectively raise their voices.</li><li>Demand recognition, justice, and equal rights.</li><li>Bring about social change and policy reforms.</li></ul>
+          <p class="notes">🎙️ Laws and policies are important, but often, change is driven by the very people who are marginalised. Social movements are powerful platforms where these groups come together to assert their rights, challenge existing inequalities, and demand dignity and justice from society and the state.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📢</div><div class="vcap">Voice of the Voiceless</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Examples</span> of Social Movements in India</h2>
+          <ul><li>Dalit movements: fighting caste discrimination.</li><li>Adivasi rights movements: protecting land and culture.</li><li>Women's movements: demanding gender equality and safety.</li></ul>
+          <p class="notes">🎙️ India has a rich history of social movements. From the powerful Dalit movements led by figures like Dr. Ambedkar to the ongoing struggles of Adivasis to protect their land and identity, and the various women's movements, these collective actions have significantly shaped our understanding of rights and justice.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✊</span><span>✊</span><span>✊</span><span>✊</span><span>✊</span></div><div class="vcap">Collective Action</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Why Protecting Marginalised Groups <span class="hl">Strengthens Democracy</span></h2>
+          <ul><li>Ensures equality and justice for all citizens.</li><li>Promotes participation and representation.</li><li>Prevents social unrest and fosters national unity.</li><li>Upholds the spirit of the Constitution.</li></ul>
+          <p class="notes">🎙️ A true democracy thrives when all its citizens, irrespective of their background, feel included and have equal opportunities. Protecting marginalised groups is not just a moral imperative; it's essential for the health and stability of our democratic nation, ensuring peace and progress for everyone.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Inclusive India</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> Students Make</h2>
+          <ul><li>Confusing marginalisation solely with poverty.</li><li>Ignoring the systemic nature of marginalisation.</li><li>Not recognising cultural and political aspects.</li></ul>
+          <p class="notes">🎙️ It's common to think marginalisation is just about being poor, but it's much more. Remember, it's a systemic issue involving social, cultural, and political exclusion, not just economic. Also, don't forget the historical context and how it shapes current realities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid These Errors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: Answering 'Why' and 'How' Questions</h2>
+          <ul><li>Structure answers with clear points and examples.</li><li>Use keywords: 'systemic', 'exclusion', 'rights', 'safeguards'.</li><li>Focus on 'why' it happens (causes) and 'how' it's addressed (solutions).</li><li>Mention relevant Articles/Acts where applicable.</li></ul>
+          <p class="notes">🎙️ For 'why' questions, explain the factors. For 'how' questions, describe the processes, laws, or actions. Always support your points with concrete Indian examples and mention the constitutional articles or specific laws we discussed to show a deeper understanding.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Score High!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Recap 1: <span class="hl">Key Concepts</span></h2>
+          <ul><li>Marginalisation: Pushing groups to the fringes of society.</li><li>Adivasis: India's indigenous forest-dwelling communities.</li><li>Minorities: Numerically smaller groups with distinct identities.</li><li>Dalits: Historically discriminated against under the caste system.</li></ul>
+          <p class="notes">🎙️ Let's quickly review the core definitions. Remember, marginalisation is a multi-faceted process, and Adivasis, minorities, and Dalits are some of the key groups in India who have experienced it.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Recap 2: <span class="hl">Protection &amp; Action</span></h2>
+          <ul><li>Constitutional Safeguards: Fundamental Rights (Articles 14, 15, 17, 29, 30).</li><li>Legal Framework: SC/ST (Prevention of Atrocities) Act, 1989, reservation policies.</li><li>Judiciary's Role: Upholding justice and interpreting laws.</li><li>Social Movements: Empowering marginalised voices for change.</li></ul>
+          <p class="notes">🎙️ We also learned about the strong mechanisms in place to combat marginalisation: our Constitution, specific laws, the judiciary, and the collective power of social movements. These all work towards creating a more inclusive and equitable India.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Exam-Style <span class="hl">Question 1</span></h2>
+          <ul><li>Why is it important to protect marginalised groups in a democratic country like India? Explain with examples. (5 marks)</li></ul>
+          <p class="notes">🎙️ This question requires you to connect the concept of marginalisation with the principles of democracy. Think about what happens when groups are excluded and how inclusion strengthens the nation. Use examples of constitutional provisions or laws.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Exam-Style <span class="hl">Question 2</span></h2>
+          <ul><li>How have Adivasis been historically and currently marginalised in India? Discuss the measures taken to address their issues. (5 marks)</li></ul>
+          <p class="notes">🎙️ For this question, you need to provide both historical context (colonial forest laws) and contemporary challenges (development projects). Then, discuss what steps the government and society have taken to protect Adivasi rights, such as specific laws or schemes.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 8 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

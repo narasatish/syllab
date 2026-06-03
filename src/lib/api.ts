@@ -50,6 +50,32 @@ export interface UserStats {
 
 /* ───────────── fetch wrapper ───────────── */
 
+/**
+ * Build a USER-FRIENDLY error from a failed API response. The raw backend text
+ * (e.g. "[GoogleGenerativeAI Error] … 429 Too Many Requests") is kept on
+ * `.detail` for console logging, but `.message` is something safe to show a
+ * student — surfaces that render `err.message` never leak raw 429/500 text.
+ */
+function apiError(path: string, status: number, rawBody: string): Error {
+  let friendly: string;
+  if (status === 429) {
+    friendly = "Our AI is very busy right now. Please wait a minute and try again.";
+  } else if (status >= 500) {
+    friendly = "The AI service is taking a break. Please try again in a moment.";
+  } else if (status === 404) {
+    friendly = "That wasn’t found. Please try again.";
+  } else if (status === 401 || status === 403) {
+    friendly = "Please sign in and try again.";
+  } else {
+    friendly = "Something went wrong. Please try again.";
+  }
+  const err = new Error(friendly) as Error & { status?: number; detail?: string };
+  err.status = status;
+  err.detail = `API ${path} ${status}: ${rawBody.slice(0, 200)}`;
+  console.warn(err.detail); // keep the raw reason in the console for debugging
+  return err;
+}
+
 async function post<T = any>(path: string, body: any): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
     method: "POST",
@@ -58,7 +84,7 @@ async function post<T = any>(path: string, body: any): Promise<T> {
   });
   if (!res.ok) {
     const errText = await res.text().catch(() => "");
-    throw new Error(`API ${path} ${res.status}: ${errText.slice(0, 200)}`);
+    throw apiError(path, res.status, errText);
   }
   return res.json();
 }
@@ -67,7 +93,7 @@ async function get<T = any>(path: string): Promise<T> {
   const res = await fetch(`${API_URL}${path}`);
   if (!res.ok) {
     const errText = await res.text().catch(() => "");
-    throw new Error(`API ${path} ${res.status}: ${errText.slice(0, 200)}`);
+    throw apiError(path, res.status, errText);
   }
   return res.json();
 }
@@ -90,7 +116,7 @@ export async function askTutor(prompt: string, history: ChatTurn[] = [], timeout
     });
     if (!res.ok) {
       const errText = await res.text().catch(() => '');
-      throw new Error(`API /api/tutor ${res.status}: ${errText.slice(0, 200)}`);
+      throw apiError('/api/tutor', res.status, errText);
     }
     const data = await res.json();
     return data.text || '';
@@ -389,5 +415,22 @@ export async function getCodingFeedback(args: GetCodingFeedbackArgs): Promise<Co
   } finally {
     window.clearTimeout(slowTimer);
     window.dispatchEvent(new CustomEvent('syllab:ai-fast', { detail: { source: 'getCodingFeedback' } }));
+  }
+}
+
+/**
+ * Fetch a model "correct answer" for a coding task on demand (used by the
+ * "Show Answer" button when a challenge has no hard-coded solution). Returns
+ * clean code only. Falls back to a friendly message if the AI is unreachable.
+ */
+export async function getModelSolution(language: string, task: string): Promise<string> {
+  const prompt =
+    `Write the correct, minimal ${language} solution for this task. ` +
+    `Return ONLY the code (no markdown fences, no explanation):\n\n${task}`;
+  try {
+    const raw = await askTutor(prompt);
+    return raw.replace(/^```[a-z]*\n?/i, '').replace(/```\s*$/i, '').trim();
+  } catch {
+    return '// Could not load the solution right now. Please try again in a moment.';
   }
 }

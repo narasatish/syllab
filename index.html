@@ -162,5 +162,30 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <!-- Boot watchdog: if the app hasn't mounted into #root within 12s (e.g. a
+       JS chunk failed to load on a flaky connection), show a friendly reload
+       prompt instead of a blank white screen. No-op once React has mounted
+       (then #root has children). This is the last line of "never blank" defense,
+       below the React error boundary (which only works once React is running). -->
+  <script>
+    (function () {
+      var t = setTimeout(function () {
+        var root = document.getElementById('root');
+        if (root && root.childElementCount === 0) {
+          root.innerHTML = '<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;text-align:center;padding:40px"><div style="max-width:380px"><div style="font-size:42px">📚</div><h1 style="font-size:20px;font-weight:800;color:#0f172a;margin:12px 0 8px">Taking longer than usual…</h1><p style="font-size:14px;color:#64748b;line-height:1.6;margin:0 0 20px">Your connection looks slow. Reload to continue learning.</p><button onclick="location.reload()" style="background:#10b981;color:#fff;border:none;border-radius:12px;padding:12px 26px;font-size:14px;font-weight:700;cursor:pointer">Reload Syllab</button></div></div>';
+        }
+      }, 12000);
+      window.addEventListener('error', function (e) {
+        // A failed dynamic import / chunk error on a blank page → reload once.
+        if (e && e.message && /chunk|dynamically imported|Loading.*failed/i.test(e.message)) {
+          var root = document.getElementById('root');
+          if (root && root.childElementCount === 0 && !sessionStorage.getItem('syllab-chunk-reload')) {
+            sessionStorage.setItem('syllab-chunk-reload', '1');
+            location.reload();
+          }
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

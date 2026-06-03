@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,follow"/>
-<title>CBSE Class 12 Mathematics: Integrals — Syllab.in</title>
+<title>Mastering Integrals: The Foundation of Calculus — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -54,15 +54,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Integrals</span>! Your Journey Begins</h2>
-          <ul><li>Unlocking the power of anti-differentiation.</li><li>Essential for Class 12 CBSE Mathematics.</li><li>Let's master this crucial chapter together!</li></ul>
-          <p class="notes">🎙️ Hello students! Today we embark on a fascinating journey into the world of Integrals. This chapter is fundamental for your Class 12 board exams and future studies in mathematics and science. Let's dive in and understand its core concepts.</p>
+          <span class="num">1 / 30</span>
+          <h2>Welcome to <span class="hl">Integrals</span>: Unlocking the Power of Calculus!</h2>
+          <ul><li>A fascinating journey into the reverse of differentiation.</li><li>Essential for understanding areas, volumes, and accumulation.</li><li>Crucial for your Class 12 exams and future studies.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting chapter in Mathematics: Integrals. This topic is not just theoretical; it's a powerful tool used across science and engineering.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>The Challenge: How Much Water in This <span class="hl">Tank</span>?</h2>
+          <ul><li>Imagine an irregularly shaped water tank.</li><li>How would you precisely calculate the total volume of water it can hold?</li><li>Traditional geometry formulas might not apply directly here.</li></ul>
+          <p class="notes">🎙️ Think about this real-world problem. If you have a tank that isn't a perfect cube or cylinder, how do you find its exact capacity? This is where the power of integrals comes into play.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today</h2>
+          <ul><li>Understand indefinite and definite integrals.</li><li>Master various methods of integration.</li><li>Apply integrals to solve real-world problems.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be equipped with the knowledge to tackle problems involving accumulation and change, just like finding the volume of that complex tank.</p>
         </div>
         
       </div>
@@ -71,58 +101,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>What is Integration? The <span class="hl">Reverse Process</span></h2>
-          <ul><li>It's the inverse operation of differentiation.</li><li>Also known as anti-differentiation.</li><li>Finds a function whose derivative is given.</li></ul>
-          <p class="notes">🎙️ Think of integration as going backward. If differentiation gives you the rate of change, integration helps you find the original quantity from its rate of change. It's like unwrapping a gift to find what's inside.</p>
+          <span class="num">4 / 30</span>
+          <h2>Introduction: Integration as the <span class="hl">Reverse Process</span></h2>
+          <ul><li>Differentiation breaks down a function into its rate of change.</li><li>Integration is like building it back up, finding the original function.</li><li>It's also known as anti-differentiation.</li></ul>
+          <p class="notes">🎙️ Think of differentiation as taking apart a toy car, piece by piece. Integration is like putting all those pieces back together to get the complete car. It's the inverse operation of differentiation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Inverse Operation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Reverse Operation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2><span class="hl">Antiderivative</span>: The Core Idea</h2>
-          <ul><li>A function F(x) is an antiderivative of f(x) if F'(x) = f(x).</li><li>Example: If f(x) = 2x, then F(x) = x² is an antiderivative.</li><li>There can be many antiderivatives for a function.</li></ul>
-          <p class="notes">🎙️ The antiderivative is the function we are looking for. For instance, if you differentiate x², you get 2x. So, x² is an antiderivative of 2x. But x²+C is also an antiderivative, which brings us to the constant of integration.</p>
+          <span class="num">5 / 30</span>
+          <h2><span class="hl">Antiderivative</span> or Primitive: The Core Idea</h2>
+          <ul><li>A function F is an antiderivative of f if F'(x) = f(x).</li><li>For example, if f(x) = 2x, then F(x) = x² is an antiderivative.</li><li>The process of finding antiderivatives is called integration.</li></ul>
+          <p class="notes">🎙️ When we differentiate x², we get 2x. So, x² is an antiderivative of 2x. This foundational concept is what we build upon to understand integrals.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Finding the Original</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Original Function</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Why Integrals? <span class="hl">Real-World Power</span></h2>
-          <ul><li>Calculating areas under curves and volumes of solids.</li><li>Determining displacement from velocity.</li><li>Modeling growth and decay in biology and finance.</li></ul>
-          <p class="notes">🎙️ Integrals are not just abstract mathematical concepts; they have immense practical utility. From calculating the exact amount of paint needed for a curved surface to predicting population growth, integrals are everywhere. They help us solve complex problems in physics, engineering, economics, and more.</p>
+          <span class="num">6 / 30</span>
+          <h2>The Constant of Integration (C): Why is it there?</h2>
+          <ul><li>If F'(x) = f(x), then (F(x) + C)' = f(x) too.</li><li>C represents an arbitrary constant, as its derivative is zero.</li><li>It accounts for the 'lost' constant during differentiation.</li></ul>
+          <p class="notes">🎙️ Consider differentiating x² + 5 and x² + 10. Both give 2x. So, when we integrate 2x, how do we know if it was x² + 5 or x² + 10? That's why we add 'C'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌍</span><span>🌍</span><span>🌍</span></div><div class="vcap">Applications Everywhere</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding C</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Basic Formulas: <span class="hl">Power Rule</span> &amp; Constants</h2>
-          <ul><li>∫ xⁿ dx = (xⁿ⁺¹)/(n+1) + C (for n ≠ -1)</li><li>∫ k dx = kx + C (where k is a constant)</li><li>Remember 'C' for the constant of integration!</li></ul>
-          <p class="notes">🎙️ Let's start with the most fundamental rules. The power rule is crucial and applies to most polynomial terms. For a constant, its integral is simply the constant multiplied by x, plus C. Never forget that 'C' in indefinite integrals!</p>
+          <span class="num">7 / 30</span>
+          <h2>Analogy for 'C': A <span class="hl">Family of Curves</span></h2>
+          <ul><li>Imagine a set of parallel railway tracks.</li><li>Each track has the same slope (derivative) at any given x-value.</li><li>The constant 'C' shifts the curve vertically, creating a 'family'.</li></ul>
+          <p class="notes">🎙️ Just like these parallel railway tracks, all functions of the form F(x) + C have the same derivative f(x). The 'C' effectively moves the entire graph up or down without changing its shape or slope.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding Power</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛤️</span><span>🛤️</span><span>🛤️</span></div><div class="vcap">Parallel Tracks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Basic Formulas: <span class="hl">Trigonometric</span> Functions</h2>
-          <ul><li>∫ sin(x) dx = -cos(x) + C</li><li>∫ cos(x) dx = sin(x) + C</li><li>∫ sec²(x) dx = tan(x) + C</li></ul>
-          <p class="notes">🎙️ Just as you learned derivatives of trigonometric functions, their integrals are equally important. Pay close attention to the signs, as they are often a source of error. Mastering these basic formulas will form the bedrock of your integral calculations.</p>
+          <span class="num">8 / 30</span>
+          <h2>Basic Integration Formulas - Part 1: <span class="hl">Power Rule</span> &amp; Constants</h2>
+          <ul><li>∫ xⁿ dx = (xⁿ⁺¹ / (n+1)) + C (for n ≠ -1)</li><li>∫ k dx = kx + C (where k is a constant)</li><li>These are your fundamental building blocks.</li></ul>
+          <p class="notes">🎙️ These two formulas are incredibly important. The power rule is used for integrating polynomials, and the constant rule is straightforward. Make sure to remember the condition for the power rule where n cannot be -1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Fundamental Rules</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Worked <span class="hl">Example 1</span>: Applying the Power Rule</h2>
+          <ul><li>Integrate: ∫ (x³ + 4x - 5) dx</li><li>Step 1: Apply linearity: ∫ x³ dx + ∫ 4x dx - ∫ 5 dx</li><li>Step 2: Use power rule: (x⁴/4) + 4(x²/2) - 5x + C</li><li>Step 3: Simplify: (x⁴/4) + 2x² - 5x + C</li></ul>
+          <p class="notes">🎙️ Let's walk through this example. We can integrate each term separately. Remember to add the constant of integration 'C' only once at the end for the entire expression.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Separate</span></div><div class="step"><span class="snum">2</span><span>Integrate</span></div><div class="step"><span class="snum">3</span><span>Simplify</span></div><div class="step"><span class="snum">4</span><span>Add C</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Basic Integration Formulas - Part 2: <span class="hl">Trigonometric</span> Functions</h2>
+          <ul><li>∫ cos x dx = sin x + C</li><li>∫ sin x dx = -cos x + C</li><li>∫ sec² x dx = tan x + C</li><li>∫ cosec² x dx = -cot x + C</li></ul>
+          <p class="notes">🎙️ Just as you learned derivatives of trigonometric functions, their inverses are these integrals. It's crucial to remember the signs, especially for sine and cosec squared.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Trig Integrals</div></div></div>
       </div>
@@ -131,118 +185,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Properties: <span class="hl">Linearity</span> &amp; Sum/Difference</h2>
-          <ul><li>∫ [f(x) + g(x)] dx = ∫ f(x) dx + ∫ g(x) dx</li><li>∫ [f(x) - g(x)] dx = ∫ f(x) dx - ∫ g(x) dx</li><li>∫ k f(x) dx = k ∫ f(x) dx (where k is a constant)</li></ul>
-          <p class="notes">🎙️ These properties are very similar to those of differentiation. They allow us to break down complex integrals into simpler ones, making them much easier to solve. You can integrate term by term and factor out constants.</p>
+          <span class="num">11 / 30</span>
+          <h2>Worked <span class="hl">Example 2</span>: Integrating Trigonometric Functions</h2>
+          <ul><li>Integrate: ∫ (3 sin x - 2 cos x) dx</li><li>Step 1: Apply linearity: 3 ∫ sin x dx - 2 ∫ cos x dx</li><li>Step 2: Use trig formulas: 3(-cos x) - 2(sin x) + C</li><li>Step 3: Simplify: -3 cos x - 2 sin x + C</li></ul>
+          <p class="notes">🎙️ This example demonstrates how to handle constants and multiple trigonometric terms. Remember that the constant multiplies the entire integral, and the final 'C' is added once.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Combining Integrals</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Worked Example 1: Applying <span class="hl">Basic Rules</span></h2>
-          <ul><li>Problem: Evaluate ∫ (x³ + 2sin(x) - 5) dx</li><li>Solution: ∫ x³ dx + ∫ 2sin(x) dx - ∫ 5 dx</li><li>= (x⁴/4) + 2(-cos(x)) - 5x + C</li><li>= x⁴/4 - 2cos(x) - 5x + C</li></ul>
-          <p class="notes">🎙️ This example demonstrates how to use the linearity property and apply the power rule and trigonometric integral formulas. Remember to integrate each term separately and then combine them, always adding the constant 'C' at the end.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Separate Terms</span></div><div class="step"><span class="snum">2</span><span>Apply Formulas</span></div><div class="step"><span class="snum">3</span><span>Add Constant</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Common Mistake: The <span class="hl">Missing 'C'</span>!</h2>
-          <ul><li>Always add the constant of integration 'C' for indefinite integrals.</li><li>Without 'C', your answer is incomplete and incorrect.</li><li>It represents the entire family of antiderivatives.</li></ul>
-          <p class="notes">🎙️ This is a very common error, especially under exam pressure. The constant 'C' is crucial because the derivative of any constant is zero. So, when integrating, we must account for any potential constant that might have been present in the original function. Always make it a habit!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Don't Forget C!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Methods</span> of Integration: Beyond Basics</h2>
-          <ul><li>Substitution Method</li><li>Integration by Parts</li><li>Partial Fractions (for rational functions)</li></ul>
-          <p class="notes">🎙️ While basic formulas cover simple cases, many integrals require specific techniques. We will now explore powerful methods like substitution and integration by parts, which are essential for solving more complex problems. These are your main tools for tackling advanced integrals.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛠️</span><span>🛠️</span><span>🛠️</span></div><div class="vcap">Integral Tools</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Method 1: Integration by <span class="hl">Substitution</span></h2>
-          <ul><li>Transforms a complex integral into a simpler one.</li><li>Identify a part of the integrand whose derivative is also present.</li><li>Let u = g(x), then du = g'(x) dx.</li></ul>
-          <p class="notes">🎙️ Substitution is like a change of variables. We pick a part of the function, let's say 'u', such that its derivative also appears in the integrand. This simplifies the integral into a more manageable form, often reducing it to one of the basic formulas we just learned.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Simplifying Integrals</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Worked Example 2: <span class="hl">Using Substitution</span></h2>
-          <ul><li>Problem: Evaluate ∫ 2x (x² + 1)⁵ dx</li><li>Let u = x² + 1, then du/dx = 2x, so du = 2x dx.</li><li>Integral becomes ∫ u⁵ du.</li><li>= u⁶/6 + C.</li><li>Substitute back: (x² + 1)⁶/6 + C.</li></ul>
-          <p class="notes">🎙️ Here, we identify x²+1 as a good candidate for 'u' because its derivative, 2x, is also present. After substitution, the integral becomes a simple power rule problem. Don't forget the final step: substituting 'x' back into the expression.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose 'u'</span></div><div class="step"><span class="snum">2</span><span>Find 'du'</span></div><div class="step"><span class="snum">3</span><span>Substitute</span></div><div class="step"><span class="snum">4</span><span>Integrate</span></div><div class="step"><span class="snum">5</span><span>Substitute Back</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Method 2: <span class="hl">Integration by Parts</span> (Product Rule for Integrals)</h2>
-          <ul><li>Used for integrals of products of two functions.</li><li>Formula: ∫ u dv = uv - ∫ v du</li><li>Choose 'u' and 'dv' using the ILATE rule (Inverse, Log, Algebraic, Trig, Exp).</li></ul>
-          <p class="notes">🎙️ Integration by Parts is the integral equivalent of the product rule for differentiation. It helps integrate products of functions that can't be solved by simple substitution. The key is to correctly identify 'u' and 'dv' using the ILATE priority rule to make the ∫ v du term simpler than the original integral.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Product Rule</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Worked Example 3: <span class="hl">Applying Integration</span> by Parts</h2>
-          <ul><li>Problem: Evaluate ∫ x cos(x) dx</li><li>Let u = x (Algebraic), dv = cos(x) dx (Trigonometric).</li><li>Then du = dx, v = sin(x).</li><li>Using ∫ u dv = uv - ∫ v du:</li><li>= x sin(x) - ∫ sin(x) dx</li><li>= x sin(x) - (-cos(x)) + C = x sin(x) + cos(x) + C.</li></ul>
-          <p class="notes">🎙️ In this example, we have a product of an algebraic and a trigonometric function. Following ILATE, 'x' is 'u' and 'cos(x) dx' is 'dv'. We then apply the formula, perform the remaining integral, and add the constant 'C'. Always double-check your calculations.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose u &amp; dv</span></div><div class="step"><span class="snum">2</span><span>Find du &amp; v</span></div><div class="step"><span class="snum">3</span><span>Apply Formula</span></div><div class="step"><span class="snum">4</span><span>Evaluate</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Separate</span></div><div class="step"><span class="snum">2</span><span>Apply Formulas</span></div><div class="step"><span class="snum">3</span><span>Add C</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Quick Check 1: <span class="hl">Basic Integral</span></h2>
-          <ul><li>Evaluate: ∫ (3x² - 4eˣ + 1/x) dx</li><li>Take your time, apply the fundamental rules.</li><li>Remember the constant of integration!</li></ul>
-          <p class="notes">🎙️ Here's a quick test of your understanding of basic integration formulas. Apply the power rule, the integral of e^x, and the integral of 1/x carefully. Write down your steps and ensure you include 'C'.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Quick Check 2: Integration by <span class="hl">Substitution</span></h2>
-          <ul><li>Evaluate: ∫ sin(2x + 3) dx</li><li>Think about what part of the function would be a good 'u'.</li><li>Don't forget the chain rule in reverse when dealing with constants!</li></ul>
-          <p class="notes">🎙️ This question requires the substitution method. Identify the inner function that, when differentiated, simplifies the integral. Pay attention to the constant factor that might appear during the substitution process.</p>
+          <span class="num">12 / 30</span>
+          <h2><span class="hl">Quick Check</span> 1: Test Your Understanding!</h2>
+          <ul><li>What is ∫ (x⁵ + 1/x) dx?</li><li>A) x⁶/6 + ln|x| + C</li><li>B) x⁶/6 + 1/x² + C</li><li>C) 5x⁴ - 1/x² + C</li><li>D) x⁶/6 - ln|x| + C</li></ul>
+          <p class="notes">🎙️ Pause here and try to solve this on your own. Remember the power rule and the special case for 1/x. The correct answer is A. ∫ 1/x dx = ln|x| + C.</p>
         </div>
         
       </div>
@@ -251,22 +209,154 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Definite Integrals: <span class="hl">Area Under the Curve</span></h2>
-          <ul><li>An integral with upper and lower limits of integration.</li><li>Represents the net signed area between the curve f(x) and the x-axis.</li><li>Result is a specific numerical value, NOT a function with 'C'.</li></ul>
-          <p class="notes">🎙️ Unlike indefinite integrals, definite integrals have specific limits, 'a' and 'b'. The value obtained is a number, representing the accumulated quantity or the area under the curve between those limits. This is where integrals truly shine in real-world applications.</p>
+          <span class="num">13 / 30</span>
+          <h2>Properties of Indefinite Integrals - Part 1: <span class="hl">Sum/Difference</span> Rule</h2>
+          <ul><li>∫ [f(x) ± g(x)] dx = ∫ f(x) dx ± ∫ g(x) dx</li><li>You can integrate sums and differences term by term.</li><li>This simplifies complex expressions into manageable parts.</li></ul>
+          <p class="notes">🎙️ This property is very intuitive. It means you don't need to integrate the entire expression at once; you can break it down into individual functions, integrate them, and then combine the results.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Area Measurement</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕➖</div><div class="vcap">Separate Terms</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2><span class="hl">Fundamental Theorem</span> of Calculus (Part 1)</h2>
-          <ul><li>If F'(x) = f(x), then ∫ₐᵇ f(x) dx = F(b) - F(a).</li><li>Connects differentiation and integration.</li><li>Provides a method to evaluate definite integrals.</li></ul>
-          <p class="notes">🎙️ This theorem is a cornerstone of calculus, providing the practical method for evaluating definite integrals. It states that you first find the antiderivative of the function, then evaluate it at the upper limit and subtract its value at the lower limit. This eliminates the need for 'C'.</p>
+          <span class="num">14 / 30</span>
+          <h2>Properties of Indefinite Integrals - Part 2: <span class="hl">Constant Multiple</span> Rule</h2>
+          <ul><li>∫ k f(x) dx = k ∫ f(x) dx (where k is a constant)</li><li>Constants can be pulled outside the integral sign.</li><li>This makes calculations much cleaner and easier.</li></ul>
+          <p class="notes">🎙️ Just like in differentiation, constants are 'lazy' and can stand outside the operation. This property is very useful for simplifying expressions before applying integration formulas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Factor Out Constant</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Worked <span class="hl">Example 3</span>: Applying Properties Together</h2>
+          <ul><li>Integrate: ∫ (5eˣ + 7x²) dx</li><li>Step 1: Apply sum rule: ∫ 5eˣ dx + ∫ 7x² dx</li><li>Step 2: Apply constant multiple rule: 5 ∫ eˣ dx + 7 ∫ x² dx</li><li>Step 3: Integrate: 5eˣ + 7(x³/3) + C</li><li>Step 4: Simplify: 5eˣ + (7/3)x³ + C</li></ul>
+          <p class="notes">🎙️ This example combines both the sum rule and the constant multiple rule. By breaking down the problem and handling constants, we can systematically solve it using basic integration formulas.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sum Rule</span></div><div class="step"><span class="snum">2</span><span>Constant Rule</span></div><div class="step"><span class="snum">3</span><span>Integrate</span></div><div class="step"><span class="snum">4</span><span>Simplify</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Methods of Integration: <span class="hl">Substitution</span> - The 'Chai' Analogy</h2>
+          <ul><li>Imagine making 'chai' (tea) – sometimes you need to grind spices first.</li><li>Substitution simplifies a complex integral into a simpler form.</li><li>It's like changing variables to make the problem easier to solve.</li></ul>
+          <p class="notes">🎙️ Just as you prepare ingredients for a complex dish, substitution prepares your integral. You replace a part of the function with a new variable, often 'u', to transform the integral into a known form.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☕</div><div class="vcap">Simplifying Chai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Steps</span> for Integration by Substitution</h2>
+          <ul><li>Step 1: Choose 'u' (a part of the integrand whose derivative is also present).</li><li>Step 2: Find 'du/dx' and express 'dx' in terms of 'du'.</li><li>Step 3: Substitute 'u' and 'dx' into the integral.</li><li>Step 4: Integrate the simpler expression with respect to 'u'.</li><li>Step 5: Replace 'u' back with the original variable.</li></ul>
+          <p class="notes">🎙️ These five steps are crucial for mastering integration by substitution. The key is correctly identifying the 'u' that simplifies the integral. Practice makes perfect here!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose u</span></div><div class="step"><span class="snum">2</span><span>Find du</span></div><div class="step"><span class="snum">3</span><span>Substitute</span></div><div class="step"><span class="snum">4</span><span>Integrate</span></div><div class="step"><span class="snum">5</span><span>Resubstitute</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Worked <span class="hl">Example 4</span>: Integration by Substitution</h2>
+          <ul><li>Integrate: ∫ 2x (x² + 1)³ dx</li><li>Step 1: Let u = x² + 1. Then du/dx = 2x, so du = 2x dx.</li><li>Step 2: Substitute: ∫ u³ du</li><li>Step 3: Integrate with respect to u: u⁴/4 + C</li><li>Step 4: Substitute back: (x² + 1)⁴/4 + C</li></ul>
+          <p class="notes">🎙️ Notice how choosing u = x² + 1 makes the integral much simpler. The derivative 2x was conveniently present, allowing for a direct substitution. Always remember to substitute back to the original variable.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Define u</span></div><div class="step"><span class="snum">2</span><span>Find du</span></div><div class="step"><span class="snum">3</span><span>Transform</span></div><div class="step"><span class="snum">4</span><span>Integrate</span></div><div class="step"><span class="snum">5</span><span>Revert</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Quick Check 2: <span class="hl">Substitution</span> Challenge!</h2>
+          <ul><li>What is ∫ sin(2x + 3) dx?</li><li>A) cos(2x + 3) + C</li><li>B) -cos(2x + 3) + C</li><li>C) (-1/2)cos(2x + 3) + C</li><li>D) (1/2)cos(2x + 3) + C</li></ul>
+          <p class="notes">🎙️ This is a classic substitution problem. Let u = 2x + 3. What will du be? How does that affect dx? The correct answer is C, as du = 2dx, so dx = du/2.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2><span class="hl">Integration by Parts</span>: The Product Rule in Reverse</h2>
+          <ul><li>Used for integrals of products of two functions.</li><li>Formula: ∫ u dv = uv - ∫ v du</li><li>Derived directly from the product rule of differentiation.</li></ul>
+          <p class="notes">🎙️ When you have two functions multiplied together inside an integral, and substitution doesn't work, integration by parts is your go-to method. It's a powerful technique, but choosing 'u' and 'dv' correctly is key.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Product Rule Reverse</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Choosing 'u' and 'dv': The <span class="hl">LIATE Rule</span></h2>
+          <ul><li>Helps prioritize which function to choose as 'u'.</li><li>L: Logarithmic functions (ln x)</li><li>I: Inverse trigonometric functions (arctan x)</li><li>A: Algebraic functions (x², x, constants)</li><li>T: Trigonometric functions (sin x, cos x)</li><li>E: Exponential functions (eˣ)</li></ul>
+          <p class="notes">🎙️ The LIATE rule is a helpful mnemonic. The function that appears first in the LIATE order should generally be chosen as 'u', as it tends to simplify when differentiated. The remaining part is 'dv'.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Logarithmic</span></div><div class="step"><span class="snum">2</span><span>Inverse Trig</span></div><div class="step"><span class="snum">3</span><span>Algebraic</span></div><div class="step"><span class="snum">4</span><span>Trigonometric</span></div><div class="step"><span class="snum">5</span><span>Exponential</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Worked <span class="hl">Example 5</span>: Integration by Parts</h2>
+          <ul><li>Integrate: ∫ x eˣ dx</li><li>Step 1: Choose u = x (Algebraic) and dv = eˣ dx (Exponential).</li><li>Step 2: Find du = dx and v = ∫ eˣ dx = eˣ.</li><li>Step 3: Apply formula: x eˣ - ∫ eˣ dx</li><li>Step 4: Integrate the remaining part: x eˣ - eˣ + C</li></ul>
+          <p class="notes">🎙️ Here, 'x' is algebraic and 'eˣ' is exponential. According to LIATE, 'x' comes before 'eˣ', so we choose u=x. This simplifies the integral in the formula, making it solvable.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Select u &amp; dv</span></div><div class="step"><span class="snum">2</span><span>Find du &amp; v</span></div><div class="step"><span class="snum">3</span><span>Apply Formula</span></div><div class="step"><span class="snum">4</span><span>Solve Remaining</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Integration of Some <span class="hl">Special Functions</span></h2>
+          <ul><li>These are specific forms that appear frequently.</li><li>Examples: ∫ dx/(x² + a²), ∫ dx/√(a² - x²), ∫ √(a² - x²) dx.</li><li>Memorizing these standard formulas saves time in exams.</li></ul>
+          <p class="notes">🎙️ Beyond the basic methods, there are a few special integral forms that you should recognize and memorize. They often involve inverse trigonometric functions or logarithmic functions and are directly applicable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Unique Forms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">Definite Integrals</span>: Finding Exact Quantities</h2>
+          <ul><li>Integrals with upper and lower limits (a and b).</li><li>Represent the net accumulated change or area under a curve.</li><li>Result is a specific numerical value, not a function with 'C'.</li></ul>
+          <p class="notes">🎙️ Unlike indefinite integrals which give a family of functions, definite integrals give a precise number. This number often corresponds to a physical quantity like area, volume, or total change over an interval.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Exact Value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Fundamental Theorem</span> of Calculus: The Bridge</h2>
+          <ul><li>Connects differentiation and integration.</li><li>If F'(x) = f(x), then ∫ₐᵇ f(x) dx = F(b) - F(a).</li><li>This theorem is the cornerstone of calculus.</li></ul>
+          <p class="notes">🎙️ This theorem is incredibly powerful. It provides a simple way to evaluate definite integrals by finding an antiderivative and evaluating it at the upper and lower limits. It's a beautiful link between the two main branches of calculus.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌉</div><div class="vcap">Connecting Concepts</div></div></div>
       </div>
@@ -275,82 +365,58 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Worked Example 4: <span class="hl">Evaluating Definite</span> Integrals</h2>
-          <ul><li>Problem: Evaluate ∫₁² x² dx</li><li>Antiderivative of x² is x³/3.</li><li>Apply FTC: [x³/3]₁² = (2³/3) - (1³/3)</li><li>= (8/3) - (1/3) = 7/3.</li></ul>
-          <p class="notes">🎙️ Here's a straightforward application of the Fundamental Theorem of Calculus. First, find the indefinite integral. Then, substitute the upper limit, then the lower limit, and subtract the results. Notice there's no 'C' in the final answer.</p>
+          <span class="num">26 / 30</span>
+          <h2>Worked <span class="hl">Example 6</span>: Evaluating a Definite Integral</h2>
+          <ul><li>Evaluate: ∫₁² x² dx</li><li>Step 1: Find the indefinite integral: ∫ x² dx = x³/3 + C</li><li>Step 2: Apply limits using FTC: [x³/3]₁² = (2³/3) - (1³/3)</li><li>Step 3: Calculate: (8/3) - (1/3) = 7/3</li></ul>
+          <p class="notes">🎙️ Notice that for definite integrals, we don't include 'C' in the final answer because it cancels out when we subtract F(a) from F(b). The result is a single numerical value.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find Antiderivative</span></div><div class="step"><span class="snum">2</span><span>Apply Upper Limit</span></div><div class="step"><span class="snum">3</span><span>Apply Lower Limit</span></div><div class="step"><span class="snum">4</span><span>Subtract Values</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Properties</span> of Definite Integrals (Part 1)</h2>
-          <ul><li>∫ₐᵃ f(x) dx = 0</li><li>∫ₐᵇ f(x) dx = - ∫ᵇₐ f(x) dx</li><li>∫ₐᵇ f(x) dx = ∫ₐᶜ f(x) dx + ∫ᶜᵇ f(x) dx (where a &lt; c &lt; b)</li></ul>
-          <p class="notes">🎙️ These properties are very useful for simplifying definite integrals or breaking them down. The first one makes sense: if the upper and lower limits are the same, there's no interval, so the area is zero. The second allows you to swap limits by changing the sign.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Reversing Limits</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Properties of Definite Integrals (Part 2)</h2>
-          <ul><li>∫₀ᵃ f(x) dx = ∫₀ᵃ f(a-x) dx</li><li>∫₋ᵃᵃ f(x) dx = 2∫₀ᵃ f(x) dx (if f is even)</li><li>∫₋ᵃᵃ f(x) dx = 0 (if f is odd)</li></ul>
-          <p class="notes">🎙️ These properties, especially the last two concerning even and odd functions, are incredibly powerful for solving specific types of definite integrals quickly in exams. Understanding symmetry can save a lot of calculation time. Make sure to review function types.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Even Function</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Odd Function</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Real-Life Application: <span class="hl">Calculating Volume</span></h2>
-          <ul><li>Integrals can find volumes of solids of revolution.</li><li>Example: Volume of a sphere using integration.</li><li>Essential in engineering and manufacturing design.</li></ul>
-          <p class="notes">🎙️ Beyond areas, integrals are used to calculate volumes of complex 3D shapes. Imagine designing a curved bottle or a turbine blade; integrals provide the mathematical tools to determine their exact volume. This is a direct application of definite integrals in advanced geometry.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">3D Shapes</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Antidifferentiate</span></div><div class="step"><span class="snum">2</span><span>Apply Limits</span></div><div class="step"><span class="snum">3</span><span>Calculate</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick Check 3: <span class="hl">Definite Integral</span> Evaluation</h2>
-          <ul><li>Evaluate: ∫₀¹ eˣ dx</li><li>Apply the Fundamental Theorem of Calculus.</li><li>Remember the integral of eˣ!</li></ul>
-          <p class="notes">🎙️ Test your skills on this definite integral involving the exponential function. It's a straightforward application of the FTC, but ensure your calculations for the upper and lower limits are correct.</p>
+          <span class="num">27 / 30</span>
+          <h2>Quick Check 3: <span class="hl">Definite Integral</span> Practice!</h2>
+          <ul><li>What is ∫₀¹ eˣ dx?</li><li>A) e</li><li>B) e - 1</li><li>C) 1 - e</li><li>D) e + 1</li></ul>
+          <p class="notes">🎙️ Try to solve this definite integral quickly. Remember the integral of eˣ. The correct answer is B. ∫ eˣ dx = eˣ, so [eˣ]₀¹ = e¹ - e⁰ = e - 1.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Quick Check 4: Definite Integral Property</h2>
-          <ul><li>Evaluate: ∫₋₁¹ (x³ + sin(x)) dx</li><li>Think about the properties of even and odd functions.</li><li>Can you simplify this without full integration?</li></ul>
-          <p class="notes">🎙️ This question tests your understanding of definite integral properties, particularly those related to even and odd functions. Recognizing the nature of the integrand can significantly simplify the problem and save time.</p>
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Common Mistakes</span> to Avoid in Integrals</h2>
+          <ul><li>Forgetting the constant 'C' in indefinite integrals.</li><li>Incorrectly choosing 'u' or 'dv' in substitution/by parts.</li><li>Sign errors, especially with trigonometric functions.</li><li>Not simplifying expressions before integrating.</li></ul>
+          <p class="notes">🎙️ These are the pitfalls where students often lose marks. Always double-check for 'C', ensure your substitution is valid, and be careful with negative signs in trig integrals. Simplification is often the first step to success.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Beware!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Exam Tips</span> for Integrals (CBSE Class 12)</h2>
+          <ul><li>Practice all types: substitution, by parts, special forms.</li><li>Focus on application-based problems (area under curve).</li><li>Time management: longer problems require step-by-step clarity.</li><li>Master the formulas; write them down if you get stuck.</li></ul>
+          <p class="notes">🎙️ Integrals carry significant weight in your board exams. Consistency in practice is key. Understand the logic behind each method, rather than just memorizing steps. Always show your working clearly for partial marks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Strategy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Recap: Integrals <span class="hl">Mastered</span>!</h2>
-          <ul><li>Integration is the reverse of differentiation.</li><li>Indefinite integrals include 'C', definite integrals yield a value.</li><li>Master substitution, by parts, and properties.</li></ul>
-          <p class="notes">🎙️ Great job, everyone! We've covered the core concepts of integrals, from basic formulas to advanced methods and real-world applications. Remember to practice regularly, pay attention to 'C', and understand when to use different integration techniques. You're now well-equipped to tackle integral problems!</p>
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Recap</span>: Your Integral Journey So Far</h2>
+          <ul><li>Integration is the reverse of differentiation.</li><li>Indefinite integrals include 'C'; definite integrals yield a value.</li><li>Key methods: Substitution, Integration by Parts.</li><li>Fundamental Theorem connects it all for exact calculations.</li></ul>
+          <p class="notes">🎙️ We've covered the essence of integrals, from basic formulas to advanced techniques and their application. You now have a strong foundation to explore more complex integral problems and their real-world uses. Keep practicing!</p>
         </div>
         
       </div>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2><span class="hl">Predicting</span> What Comes Next: Exploring Sequences and Progressions</h2>
-          <ul><li>Welcome, Class 9 Mathematicians!</li><li>Get ready to discover patterns and rules.</li><li>Mathematics is full of amazing order.</li></ul>
-          <p class="notes">🎙️ Good morning, everyone! Today, we're embarking on an exciting journey to become pattern detectives. We'll learn how to predict what comes next in a series of numbers or objects, a skill that's not just fun but also very important in mathematics and real life.</p>
+          <span class="num">1 / 30</span>
+          <h2><span class="hl">Predicting</span> What Comes Next: Sequences and Progressions</h2>
+          <ul><li>Unlocking the patterns in numbers</li><li>Understanding how things grow or change</li><li>Mathematics of order and structure</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to explore patterns. Have you ever wondered how scientists predict weather or how a simple savings plan grows? It all starts with understanding sequences and progressions.</p>
         </div>
         
       </div>
@@ -71,166 +77,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>What is a <span class="hl">Sequence</span>?</h2>
-          <ul><li>An ordered list of numbers or objects.</li><li>Each item in the list is called a 'term'.</li><li>It follows a specific rule or pattern.</li></ul>
-          <p class="notes">🎙️ Think of a sequence as a line-up where everyone has their specific spot. The key is that there's an order, and usually, a secret rule that tells us how to get from one person (or number) to the next. This rule is what makes predicting possible.</p>
+          <span class="num">2 / 30</span>
+          <h2>The <span class="hl">Mystery</span> of the Missing Number!</h2>
+          <ul><li>Look at these numbers: 2, 4, 6, 8, ?</li><li>What number comes next?</li><li>How did you figure it out?</li></ul>
+          <p class="notes">🎙️ Imagine you see a beautiful rangoli pattern, or you're counting steps while climbing stairs. There's an order to everything. Just like in our number puzzle, our minds are naturally wired to spot patterns and predict what comes next!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Order Matters</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Sequences All <span class="hl">Around Us</span>!</h2>
-          <ul><li>Days of the week: Monday, Tuesday, Wednesday...</li><li>Months of the year: January, February, March...</li><li>Steps on a staircase: 1st, 2nd, 3rd...</li><li>Numbers on a clock face: 1, 2, 3, ...</li></ul>
-          <p class="notes">🎙️ Sequences aren't just in textbooks! They are everywhere in our daily lives. From the way time progresses to the design of buildings, patterns and sequences help us understand and organize the world.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗓️</span><span>🗓️</span><span>🗓️</span><span>🗓️</span><span>🗓️</span></div><div class="vcap">Everyday Order</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Example: <span class="hl">Counting Numbers</span></h2>
-          <ul><li>Consider the sequence: 1, 2, 3, 4, 5, ...</li><li>What comes next?</li><li>The rule is simple: 'add 1' to the previous number.</li></ul>
-          <p class="notes">🎙️ Let's start with the most basic sequence we all know – counting numbers. Here, it's very easy to see the pattern. Each term is simply one more than the term before it. This understanding forms the base for more complex sequences.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1</span></div><div class="step"><span class="snum">2</span><span>2</span></div><div class="step"><span class="snum">3</span><span>3</span></div><div class="step"><span class="snum">4</span><span>4</span></div><div class="step"><span class="snum">5</span><span>5</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Types of Sequences: <span class="hl">Finite</span> vs. Infinite</h2>
-          <ul><li>Finite Sequence: Has a limited number of terms, it has an end.</li><li>Example: Days of the week (7 terms).</li><li>Infinite Sequence: Continues indefinitely, it has no end.</li><li>Example: Natural numbers (1, 2, 3, ...).</li></ul>
-          <p class="notes">🎙️ Just like a story can have an end or be an ongoing series, sequences can be finite or infinite. Knowing whether a sequence has a last term helps us understand its nature and how we might work with it.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Finite</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Infinite</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Discovering the <span class="hl">Pattern</span></h2>
-          <ul><li>Look for the relationship between consecutive terms.</li><li>Is something being added or subtracted?</li><li>Is something being multiplied or divided?</li><li>Sometimes it's a combination or a more complex rule!</li></ul>
-          <p class="notes">🎙️ Finding the pattern is like solving a puzzle. You need to observe carefully how each term changes to become the next. Is it growing steadily, or is it jumping quickly? This observation is crucial to predicting.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Find the Clue</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Example: Finding the <span class="hl">Rule</span></h2>
-          <ul><li>Consider the sequence: 2, 4, 6, 8, ...</li><li>How do we get from 2 to 4? (Add 2)</li><li>How do we get from 4 to 6? (Add 2)</li><li>The rule is 'add 2'. The next term is 10.</li></ul>
-          <p class="notes">🎙️ Let's apply our detective skills. In this sequence, we consistently add 2 to each term to get the next one. This consistent addition is a very important type of pattern, which we will explore further.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Adding Consistently</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>What are <span class="hl">Progressions</span>?</h2>
-          <ul><li>Progressions are special types of sequences.</li><li>The rule linking consecutive terms is always fixed and very clear.</li><li>We will focus on two main types: Arithmetic and Geometric Progressions.</li></ul>
-          <p class="notes">🎙️ While all progressions are sequences, not all sequences are progressions. Progressions have a very strict, mathematical rule that is easy to define. This makes them predictable and powerful tools in math.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Fixed Mechanism</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Arithmetic</span> Progression (AP)</h2>
-          <ul><li>A sequence where the difference between consecutive terms is constant.</li><li>This constant difference is called the 'common difference' (d).</li><li>Think of it as adding or subtracting the same number each time.</li></ul>
-          <p class="notes">🎙️ An Arithmetic Progression, or AP, is like climbing a staircase where each step has the exact same height. The 'common difference' is that consistent height, which can be positive (climbing up) or negative (climbing down).</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Constant Gap</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>AP: Understanding <span class="hl">Common Difference</span> (d)</h2>
-          <ul><li>To find 'd', subtract any term from its succeeding term.</li><li>d = a₂ - a₁ = a₃ - a₂ = a₄ - a₃, and so on.</li><li>The common difference 'd' can be positive, negative, or even zero.</li></ul>
-          <p class="notes">🎙️ This formula helps us calculate 'd'. If the differences are not constant, then it's not an AP. Remember, 'd' can be positive if the sequence is increasing, negative if it's decreasing, or zero if all terms are the same.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>a₂ - a₁</span></div><div class="step"><span class="snum">2</span><span>a₃ - a₂</span></div><div class="step"><span class="snum">3</span><span>a₄ - a₃</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Real-Life AP Example: <span class="hl">Saving Money</span></h2>
-          <ul><li>Imagine you save ₹100 in the first month.</li><li>Then you decide to save ₹50 more each subsequent month.</li><li>Sequence: ₹100, ₹150, ₹200, ₹250, ...</li><li>Here, the common difference (d) is ₹50.</li></ul>
-          <p class="notes">🎙️ Saving money is a great real-world example of an AP. If you consistently add a fixed amount to your savings each period, the total amount in your account will form an arithmetic progression. This helps in financial planning.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">Growing Savings</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>The <span class="hl">nth Term</span> of an AP</h2>
-          <ul><li>We can find any term in an AP without listing all of them.</li><li>If 'a' is the first term and 'd' is the common difference, then:</li><li>The nth term, denoted as aₙ = a + (n-1)d.</li></ul>
-          <p class="notes">🎙️ This formula is incredibly powerful! It's like having a magic key that unlocks any term in the sequence, no matter how far down the line it is. You just need the first term, the common difference, and the position 'n' you're looking for.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Formula for Growth</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Deriving</span> aₙ = a + (n-1)d</h2>
-          <ul><li>First term (a₁): a</li><li>Second term (a₂): a + d</li><li>Third term (a₃): a + 2d</li><li>Fourth term (a₄): a + 3d</li><li>Notice the pattern: 'd' is multiplied by (n-1) for the nth term.</li></ul>
-          <p class="notes">🎙️ Let's see how this formula comes about. Each time we move to the next term, we add 'd'. So, for the 2nd term, we add 'd' once; for the 3rd term, twice, and so on. This shows that for the 'n'th term, 'd' is added 'n-1' times.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>a</span></div><div class="step"><span class="snum">2</span><span>a+d</span></div><div class="step"><span class="snum">3</span><span>a+2d</span></div><div class="step"><span class="snum">4</span><span>a+3d</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤔</span><span>🤔</span><span>🤔</span></div><div class="vcap">Think about patterns</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Worked Example: Finding the 10th Term</h2>
-          <ul><li>Consider the AP: 2, 5, 8, 11, ...</li><li>Here, the first term (a) = 2.</li><li>The common difference (d) = 5 - 2 = 3.</li><li>To find the 10th term (a₁₀): a₁₀ = a + (10-1)d = 2 + (9) * 3 = 2 + 27 = 29.</li></ul>
-          <p class="notes">🎙️ Let's put the formula into practice. With a given AP, we first identify 'a' and 'd'. Then, we substitute these values into our formula for the nth term. As you can see, finding the 10th term is straightforward with this method.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2><span class="hl">Quick Check</span>! (AP)</h2>
-          <ul><li>Is the sequence 7, 10, 13, 16, ... an Arithmetic Progression?</li><li>If yes, what is its common difference (d)?</li><li>What would be the next term in this sequence?</li></ul>
-          <p class="notes">🎙️ Time for a quick test of your understanding! Look at the differences between the terms. If they are constant, you've found an AP. Then, identifying 'd' and the next term should be easy.</p>
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today!</h2>
+          <ul><li>Define Sequences and Progressions</li><li>Understand Arithmetic Progressions (AP)</li><li>Explore Geometric Progressions (GP)</li><li>Solve problems using AP and GP formulas</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be a pro at identifying different types of number patterns. We'll learn the formal definitions, explore their properties, and practice solving problems using important formulas.</p>
         </div>
         
       </div>
@@ -239,94 +101,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Arithmetic Mean</span></h2>
-          <ul><li>If three terms a, b, c are in an Arithmetic Progression,</li><li>Then 'b' is called the Arithmetic Mean of 'a' and 'c'.</li><li>The formula for the arithmetic mean is: b = (a + c) / 2.</li></ul>
-          <p class="notes">🎙️ The concept of Arithmetic Mean is closely related to AP. It's essentially the middle term of any three consecutive terms in an AP. It represents the average value between two numbers, maintaining the common difference.</p>
+          <span class="num">4 / 30</span>
+          <h2>What is a <span class="hl">Sequence</span>? (An Analogy)</h2>
+          <ul><li>Think of beads in a necklace</li><li>Each bead is placed in a specific order</li><li>It's a collection of items arranged logically</li></ul>
+          <p class="notes">🎙️ Just like a beautiful necklace where beads follow a design, a sequence in mathematics is a list of numbers arranged in a particular order. There's a rule, even if it's not immediately obvious.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance Point</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Connecting Ideas</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">Geometric</span> Progression (GP)</h2>
-          <ul><li>A sequence where the ratio between consecutive terms is constant.</li><li>This constant ratio is called the 'common ratio' (r).</li><li>Think of it as multiplying or dividing by the same number each time.</li></ul>
-          <p class="notes">🎙️ Now, let's explore another fascinating type of progression: Geometric Progression, or GP. Instead of adding a fixed amount, here we multiply by a fixed amount. This leads to much faster growth or decay!</p>
+          <span class="num">5 / 30</span>
+          <h2>Formal <span class="hl">Definition</span>: Sequence</h2>
+          <ul><li>A sequence is a set of numbers</li><li>Arranged in a definite order</li><li>According to some specific rule</li></ul>
+          <p class="notes">🎙️ So, a sequence is simply an ordered list of numbers. Each number in the sequence is called a 'term'. The order is crucial, and that's what defines the sequence.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Constant Factor</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Ordered Numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>GP: Understanding <span class="hl">Common Ratio</span> (r)</h2>
-          <ul><li>To find 'r', divide any term by its preceding term.</li><li>r = a₂ / a₁ = a₃ / a₂ = a₄ / a₃, and so on.</li><li>The common ratio 'r' can be positive or negative, but never zero.</li></ul>
-          <p class="notes">🎙️ Similar to 'd' in AP, 'r' is the defining characteristic of a GP. It's found by division. If the ratios are not constant, it's not a GP. 'r' cannot be zero because that would make all subsequent terms zero, losing the progression.</p>
+          <span class="num">6 / 30</span>
+          <h2><span class="hl">Examples</span> of Sequences</h2>
+          <ul><li>Natural Numbers: 1, 2, 3, 4, ...</li><li>Even Numbers: 2, 4, 6, 8, ...</li><li>Odd Numbers: 1, 3, 5, 7, ...</li><li>Squares: 1, 4, 9, 16, ...</li></ul>
+          <p class="notes">🎙️ These are some common examples of sequences you might already be familiar with. Notice how each one has a clear rule that determines the next term, like adding 2 for even numbers or squaring the position number.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>a₂ / a₁</span></div><div class="step"><span class="snum">2</span><span>a₃ / a₂</span></div><div class="step"><span class="snum">3</span><span>a₄ / a₃</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Patterns Everywhere</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Real-Life GP Example: <span class="hl">Bacterial Growth</span></h2>
-          <ul><li>Imagine a single bacterium that doubles every hour.</li><li>Sequence: 1, 2, 4, 8, 16, ...</li><li>Here, the common ratio (r) is 2.</li><li>This shows rapid, exponential growth.</li></ul>
-          <p class="notes">🎙️ Bacterial growth is a classic example of a Geometric Progression. The population doesn't just add a few bacteria; it multiplies. This rapid increase illustrates the power of a common ratio greater than one.</p>
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Finite</span> vs. Infinite Sequences</h2>
+          <ul><li>Finite: Has a limited number of terms</li><li>Infinite: Continues indefinitely, no last term</li></ul>
+          <p class="notes">🎙️ A sequence can either end or go on forever. If you can count all the terms, it's finite. If it's represented with '...', meaning it never ends, it's an infinite sequence.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span></div><div class="vcap">Doubling Every Hour</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Finite</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Infinite</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>The <span class="hl">nth Term</span> of a GP</h2>
-          <ul><li>Similar to AP, we have a formula for the nth term of a GP.</li><li>If 'a' is the first term and 'r' is the common ratio, then:</li><li>The nth term, denoted as aₙ = a * r^(n-1).</li></ul>
-          <p class="notes">🎙️ Just like with APs, this formula is your shortcut to finding any term in a GP. Notice the exponent (n-1) applied to 'r'. This is what drives the characteristic exponential growth or decay of geometric progressions.</p>
+          <span class="num">8 / 30</span>
+          <h2>Finding the <span class="hl">Rule</span> of a Sequence</h2>
+          <ul><li>Observe the relationship between terms</li><li>Look for addition, subtraction, multiplication, division</li><li>Sometimes it's a combination or a pattern of squares/cubes</li></ul>
+          <p class="notes">🎙️ The key to understanding any sequence is to find its rule. This involves careful observation and a bit of logical deduction. Ask yourself: 'What is happening from one term to the next?'</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Power of Ratio</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Spotting the Pattern</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2><span class="hl">Deriving</span> aₙ = a * r^(n-1)</h2>
-          <ul><li>First term (a₁): a</li><li>Second term (a₂): a * r</li><li>Third term (a₃): a * r²</li><li>Fourth term (a₄): a * r³</li><li>Notice the pattern: 'r' is raised to the power (n-1) for the nth term.</li></ul>
-          <p class="notes">🎙️ Let's trace the pattern for the GP formula. Each time we move to the next term, we multiply by 'r'. So, for the 2nd term, 'r' is used once; for the 3rd term, twice, and so on. This confirms 'r' is raised to the power (n-1) for the 'n'th term.</p>
+          <span class="num">9 / 30</span>
+          <h2>Worked <span class="hl">Example</span> 1: Finding the Next Term</h2>
+          <ul><li>Sequence: 5, 10, 15, 20, ?</li><li>Step 1: Observe the terms</li><li>Step 2: Find the rule</li><li>Step 3: Apply the rule</li></ul>
+          <p class="notes">🎙️ Let's try one! Here, we can see that each term is 5 more than the previous one. So, the rule is 'add 5'. Applying this, the next term after 20 would be 25.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>a</span></div><div class="step"><span class="snum">2</span><span>ar</span></div><div class="step"><span class="snum">3</span><span>ar²</span></div><div class="step"><span class="snum">4</span><span>ar³</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Observe terms</span></div><div class="step"><span class="snum">2</span><span>Find the rule</span></div><div class="step"><span class="snum">3</span><span>Apply the rule</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Worked Example: Finding the 5th Term (GP)</h2>
-          <ul><li>Consider the GP: 3, 6, 12, ...</li><li>Here, the first term (a) = 3.</li><li>The common ratio (r) = 6 / 3 = 2.</li><li>To find the 5th term (a₅): a₅ = a * r^(5-1) = 3 * 2⁴ = 3 * 16 = 48.</li></ul>
-          <p class="notes">🎙️ Let's work through an example for GP. First, identify 'a' and 'r'. Then, substitute these into the formula for the nth term. You can see how quickly the numbers grow in a GP, even with a small common ratio like 2.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2><span class="hl">Quick Check</span>! (GP)</h2>
-          <ul><li>Is the sequence 100, 50, 25, ... a Geometric Progression?</li><li>If yes, what is its common ratio (r)?</li><li>What would be the next term in this sequence?</li></ul>
-          <p class="notes">🎙️ Another quick check! This time, observe the relationship between terms to determine if it's a GP. Pay attention to whether the numbers are increasing or decreasing, as that will tell you about the common ratio.</p>
+          <span class="num">10 / 30</span>
+          <h2>Quick <span class="hl">Check</span> 1: What comes next?</h2>
+          <ul><li>Sequence: 1, 3, 6, 10, ?</li><li>A) 13</li><li>B) 14</li><li>C) 15</li><li>D) 16</li></ul>
+          <p class="notes">🎙️ Take a moment to analyze this sequence. What's the difference between the first and second term? The second and third? Does that give you a clue about the pattern? Choose the correct option.</p>
         </div>
         
       </div>
@@ -335,24 +185,240 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: AP vs. GP</h2>
-          <ul><li>Arithmetic Progression (AP): Involves a common difference (d) that is added or subtracted.</li><li>Geometric Progression (GP): Involves a common ratio (r) that is multiplied or divided.</li><li>Both are sequences with predictable patterns.</li><li>They help us understand growth, decay, and ordered lists.</li></ul>
-          <p class="notes">🎙️ To summarize, the core difference lies in the operation: APs use addition/subtraction, while GPs use multiplication/division. Both are powerful tools for predicting future terms and understanding various phenomena in the world around us.</p>
+          <span class="num">11 / 30</span>
+          <h2>Introduction to <span class="hl">Progression</span></h2>
+          <ul><li>A special type of sequence</li><li>Where each term is related to the previous one</li><li>By a consistent mathematical rule</li></ul>
+          <p class="notes">🎙️ While all progressions are sequences, not all sequences are progressions. A progression has a very strict, consistent mathematical rule that connects its terms, making it highly predictable.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">AP (Add/Subtract 'd')</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">GP (Multiply/Divide 'r')</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Moving Forward</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>You are <span class="hl">Pattern Detectives</span>!</h2>
-          <ul><li>You've learned to identify sequences and predict terms.</li><li>You can now distinguish between Arithmetic and Geometric Progressions.</li><li>Practice more to master these concepts and their applications.</li><li>Keep exploring the fascinating world of patterns!</li></ul>
-          <p class="notes">🎙️ Congratulations, everyone! You've taken the first steps to becoming excellent pattern detectives. Understanding sequences and progressions is fundamental in mathematics. Keep practicing, keep observing, and you'll find these patterns everywhere!</p>
+          <span class="num">12 / 30</span>
+          <h2><span class="hl">Types</span> of Progressions</h2>
+          <ul><li>Arithmetic Progression (AP)</li><li>Geometric Progression (GP)</li></ul>
+          <p class="notes">🎙️ Today, we will primarily focus on two main types: Arithmetic Progressions, where we add a constant, and Geometric Progressions, where we multiply by a constant. These are fundamental in many areas of mathematics.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Sharp Minds</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Arithmetic</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Geometric</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2><span class="hl">Arithmetic</span> Progression (AP) - An Analogy</h2>
+          <ul><li>Imagine climbing stairs, one step at a time</li><li>Each step adds the same height</li><li>Consistent increase or decrease</li></ul>
+          <p class="notes">🎙️ Think about a ladder or saving a fixed amount of money every day. Each new amount is found by adding a constant value to the previous one. This 'constant' is the heart of an Arithmetic Progression.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪜</div><div class="vcap">Step-by-Step</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Formal <span class="hl">Definition</span>: Arithmetic Progression (AP)</h2>
+          <ul><li>A sequence where the difference</li><li>Between consecutive terms is constant</li><li>This constant is called the 'common difference'</li></ul>
+          <p class="notes">🎙️ In an AP, if you pick any term (after the first one) and subtract the term just before it, you'll always get the same number. This number is unique to that AP and is called the common difference.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Adding a Constant</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Common <span class="hl">Difference</span> (d)</h2>
+          <ul><li>Represented by 'd'</li><li>d = a₂ - a₁ = a₃ - a₂ = ...</li><li>Can be positive, negative, or zero</li></ul>
+          <p class="notes">🎙️ The common difference 'd' is what makes an AP special. If 'd' is positive, the terms increase. If 'd' is negative, they decrease. If 'd' is zero, all terms are the same.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">The Difference</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">General Form</span> of an AP</h2>
+          <ul><li>Let 'a' be the first term</li><li>Let 'd' be the common difference</li><li>The AP is: a, a+d, a+2d, a+3d, ...</li></ul>
+          <p class="notes">🎙️ This is the blueprint for any AP. If you know the first term 'a' and the common difference 'd', you can generate any term in the sequence. It's a powerful way to represent an AP.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>First Term (a)</span></div><div class="step"><span class="snum">2</span><span>Add 'd'</span></div><div class="step"><span class="snum">3</span><span>Add 'd' again</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Worked Example 2: <span class="hl">Identifying</span> AP and Finding 'd'</h2>
+          <ul><li>Is 3, 7, 11, 15, ... an AP?</li><li>Step 1: Find difference between 2nd and 1st term (7-3 = 4)</li><li>Step 2: Find difference between 3rd and 2nd term (11-7 = 4)</li><li>Step 3: Since differences are constant, it's an AP with d=4.</li></ul>
+          <p class="notes">🎙️ To check if a sequence is an AP, just calculate the difference between consecutive terms. If it's the same throughout, then yes, it's an AP, and that constant difference is 'd'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Is it an AP?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>The <span class="hl">nth Term</span> of an AP (a_n)</h2>
+          <ul><li>Formula: a_n = a + (n-1)d</li><li>'a' is the first term</li><li>'d' is the common difference</li><li>'n' is the term number you want to find</li></ul>
+          <p class="notes">🎙️ This is one of the most important formulas for APs! It allows you to find any term in the sequence without having to list all the terms before it. Just plug in 'a', 'd', and 'n'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">The General Term</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Worked Example 3: Finding the <span class="hl">10th Term</span></h2>
+          <ul><li>Find the 10th term of the AP: 2, 5, 8, 11, ...</li><li>Step 1: Identify a=2, d=3, n=10</li><li>Step 2: Use formula a_n = a + (n-1)d</li><li>Step 3: a_10 = 2 + (10-1)3 = 2 + 9*3 = 2 + 27 = 29</li></ul>
+          <p class="notes">🎙️ Following these steps, we can easily find any term. First, pull out the values for 'a', 'd', and 'n' from the problem. Then, substitute them into the formula and calculate carefully.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a, d, n</span></div><div class="step"><span class="snum">2</span><span>Use formula</span></div><div class="step"><span class="snum">3</span><span>Calculate</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Quick Check 2: <span class="hl">AP Question</span></h2>
+          <ul><li>What is the common difference of the AP: 10, 7, 4, 1, ...?</li><li>A) 3</li><li>B) -3</li><li>C) 10</li><li>D) -1</li></ul>
+          <p class="notes">🎙️ Remember, the common difference can be negative! Look closely at how the terms are changing. Subtract any term from its succeeding term to find 'd'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Introduction to <span class="hl">Geometric</span> Progression (GP) - An Analogy</h2>
+          <ul><li>Imagine bacteria multiplying rapidly</li><li>Each generation doubles the previous count</li><li>Consistent multiplication (or division)</li></ul>
+          <p class="notes">🎙️ Unlike APs where we add, GPs involve multiplication. Think of a bouncing ball where each bounce reaches a certain fraction of the previous height, or how a population grows. There's a constant factor.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiplying Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Formal <span class="hl">Definition</span>: Geometric Progression (GP)</h2>
+          <ul><li>A sequence where the ratio</li><li>Between consecutive terms is constant</li><li>This constant is called the 'common ratio'</li></ul>
+          <p class="notes">🎙️ In a GP, if you divide any term by the term immediately preceding it, you'll always get the same number. This number is called the common ratio, and it's what defines a GP.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✖️</span><span>✖️</span><span>✖️</span><span>✖️</span><span>✖️</span></div><div class="vcap">Multiplying by a Constant</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Common <span class="hl">Ratio</span> (r)</h2>
+          <ul><li>Represented by 'r'</li><li>r = a₂ / a₁ = a₃ / a₂ = ...</li><li>Can be positive or negative, fraction or whole number</li></ul>
+          <p class="notes">🎙️ The common ratio 'r' dictates how the terms grow or shrink. If 'r' is greater than 1, terms increase. If 'r' is between 0 and 1, terms decrease. If 'r' is negative, terms alternate in sign.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">The Ratio</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">General Form</span> of a GP</h2>
+          <ul><li>Let 'a' be the first term</li><li>Let 'r' be the common ratio</li><li>The GP is: a, ar, ar², ar³, ...</li></ul>
+          <p class="notes">🎙️ Similar to AP, knowing 'a' and 'r' allows you to construct any GP. Each subsequent term is found by multiplying the previous term by the common ratio 'r'.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>First Term (a)</span></div><div class="step"><span class="snum">2</span><span>Multiply by 'r'</span></div><div class="step"><span class="snum">3</span><span>Multiply by 'r' again</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Worked Example 4: <span class="hl">Identifying</span> GP and Finding 'r'</h2>
+          <ul><li>Is 2, 6, 18, 54, ... a GP?</li><li>Step 1: Find ratio of 2nd to 1st term (6/2 = 3)</li><li>Step 2: Find ratio of 3rd to 2nd term (18/6 = 3)</li><li>Step 3: Since ratios are constant, it's a GP with r=3.</li></ul>
+          <p class="notes">🎙️ To verify a GP, perform division between consecutive terms. If the quotient is consistent, then you've found your common ratio 'r', and confirmed it's a Geometric Progression.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✔️</div><div class="vcap">Is it a GP?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Quick Check 3: <span class="hl">GP Question</span></h2>
+          <ul><li>What is the common ratio of the GP: 100, 50, 25, 12.5, ...?</li><li>A) 2</li><li>B) -2</li><li>C) 0.5</li><li>D) -0.5</li></ul>
+          <p class="notes">🎙️ Again, pay close attention to how the numbers are changing. Are they getting smaller? If so, your ratio might be a fraction or a negative number. Divide a term by its predecessor.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> to Avoid!</h2>
+          <ul><li>Mixing up AP and GP formulas</li><li>Incorrectly calculating 'd' or 'r'</li><li>Sign errors (especially with negative numbers)</li><li>Not identifying 'a' (first term) correctly</li></ul>
+          <p class="notes">🎙️ It's easy to confuse the 'add' rule of AP with the 'multiply' rule of GP. Always double-check which type of progression you are dealing with before applying any formula. Practice makes perfect!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Watch Out!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Exam Tips</span> for Sequences and Progressions</h2>
+          <ul><li>Memorize AP and GP formulas (a_n, S_n if covered)</li><li>Clearly identify 'a', 'd', 'r', and 'n' from the problem</li><li>Practice word problems to apply concepts</li><li>Show all steps for partial credit</li></ul>
+          <p class="notes">🎙️ Understanding the concepts is vital, but so is knowing how to present your solutions. Write down the given values, the formula you are using, and then substitute carefully. This will help you secure full marks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💯</div><div class="vcap">Score High!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Recap</span>: What We've Learned!</h2>
+          <ul><li>Sequence: Ordered list of numbers</li><li>Progression: Sequence with a consistent mathematical rule</li><li>AP: Common difference (d), a_n = a + (n-1)d</li><li>GP: Common ratio (r), a_n = ar^(n-1) (for higher classes)</li></ul>
+          <p class="notes">🎙️ Today, we've laid the foundation for understanding patterns in numbers. We learned about sequences as ordered lists and then delved into the specific rules of Arithmetic and Geometric Progressions. Keep practicing to master them!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Thank You</span>! Keep Exploring!</h2>
+          <ul><li>Mathematics is all about patterns</li><li>Look for sequences and progressions in daily life</li><li>Practice more problems to strengthen your understanding</li></ul>
+          <p class="notes">🎙️ Thank you for being such an attentive class! Remember, math is everywhere. The more you observe and practice, the better you'll become at predicting what comes next, not just in numbers but in life too! See you in the next class!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👋</div><div class="vcap">Happy Learning!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

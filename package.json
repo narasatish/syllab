@@ -10,11 +10,13 @@
     "build:prerender": "node scripts/generate-prerender.mjs",
     "build:og": "node scripts/generate-og-image.mjs",
     "blog:generate": "node scripts/generate-trending-blogs.mjs",
-    "build": "node scripts/generate-og-image.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-trending-blogs.mjs && vite build && node scripts/generate-prerender.mjs",
+    "build": "node scripts/generate-og-image.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-image-sitemap.mjs && node scripts/generate-trending-blogs.mjs && vite build && node scripts/generate-prerender.mjs && node scripts/audit-seo.mjs",
     "preview": "vite preview",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "lint": "eslint .",
-    "test": "vitest",
+    "test": "node scripts/audit-seo.mjs && vitest run",
+    "test:watch": "vitest",
+    "test:seo": "node scripts/audit-seo.mjs",
     "test:run": "vitest run",
     "newsletter:send": "node scripts/send-weekly-newsletter.mjs",
     "newsletter:dry-run": "DRY_RUN=true node scripts/send-weekly-newsletter.mjs",
@@ -30,7 +32,8 @@
     "slides:generate": "tsx scripts/generate-slides.ts",
     "decks:import": "tsx scripts/import-decks.ts",
     "ig:preview": "node -e \"process.env.DRY_RUN='true'; import('./scripts/instagram-bot/post-daily.mjs')\"",
-    "ig:preview-puzzle": "node -e \"process.env.DRY_RUN='true'; process.argv.push('--type=puzzle'); import('./scripts/instagram-bot/post-daily.mjs')\""
+    "ig:preview-puzzle": "node -e \"process.env.DRY_RUN='true'; process.argv.push('--type=puzzle'); import('./scripts/instagram-bot/post-daily.mjs')\"",
+    "build:images": "node scripts/generate-image-sitemap.mjs"
   },
   "dependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Timeline and Sources of History — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Unlocking <span class="hl">India's Past</span>: Timeline and Sources of History</h2>
+          <ul><li>Journey into ancient India</li><li>Understand how time is measured</li><li>Discover the clues historians use</li></ul>
+          <p class="notes">🎙️ Welcome, Class 6! Today, we embark on an exciting journey to uncover the secrets of India's rich history. We'll learn how historians piece together the past.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Your Family's <span class="hl">Time Capsule</span></h2>
+          <ul><li>Imagine an old photo album or letters</li><li>What do they tell you about your family?</li><li>These are like clues to your past!</li></ul>
+          <p class="notes">🎙️ Imagine finding an old photo album or a box of letters from your grandparents. What do they tell you? They are like clues to your family's past!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📸</span><span>📸</span><span>📸</span><span>📸</span><span>📸</span></div><div class="vcap">Old Photos</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What We Will <span class="hl">Explore</span> Today</h2>
+          <ul><li>Understand time measurement in history</li><li>Identify different types of historical sources</li><li>Appreciate the importance of these sources</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you will understand how time is measured in history, identify different types of historical sources, and appreciate their importance in reconstructing our past.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>Why Do We Need a <span class="hl">Timeline</span>?</h2>
+          <ul><li>Organizes events in chronological order</li><li>Helps understand sequence and duration</li><li>Prevents confusion about when things happened</li></ul>
+          <p class="notes">🎙️ Just like your school has a timetable to organize classes, history needs a timeline to organize events. It helps us understand the sequence and duration of happenings.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Order of Events</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Understanding BC (Before Christ) / BCE (Before Common Era)</h2>
+          <ul><li>Counts backwards from a central point (Year 0)</li><li>Larger numbers mean earlier events</li><li>Example: 500 BCE is before 200 BCE</li></ul>
+          <p class="notes">🎙️ Think of a number line. BC or BCE counts backwards from a central point, traditionally the birth of Jesus Christ (Year 0). The larger the number, the earlier the event.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>500 BCE</span></div><div class="step"><span class="snum">2</span><span>300 BCE</span></div><div class="step"><span class="snum">3</span><span>100 BCE</span></div><div class="step"><span class="snum">4</span><span>Year 0 (Approx)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>Understanding AD (Anno Domini) / CE (Common Era)</h2>
+          <ul><li>Counts forwards from the central point (Year 0)</li><li>Larger numbers mean more recent events</li><li>Example: 1000 CE is before 2000 CE</li></ul>
+          <p class="notes">🎙️ AD or CE counts forwards from that same central point. Most events we discuss today fall within the Common Era. The larger the number, the more recent the event.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Year 0 (Approx)</span></div><div class="step"><span class="snum">2</span><span>500 CE</span></div><div class="step"><span class="snum">3</span><span>1000 CE</span></div><div class="step"><span class="snum">4</span><span>Today (2024 CE)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>BC vs. AD: The <span class="hl">Flow of Time</span></h2>
+          <ul><li>BC events precede AD events</li><li>Time moves from larger BC numbers to smaller BC numbers, then to larger AD numbers</li><li>Essential for chronological understanding</li></ul>
+          <p class="notes">🎙️ It's important to remember that BC events happened *before* AD events. For example, the Indus Valley Civilization existed thousands of years before the Mughal Empire.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Indus Valley Civilization (c. 2500 BCE)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Mauryan Empire (c. 322 BCE)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Gupta Empire (c. 320 CE)</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Mughal Empire (c. 1526 CE)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Time Travel!</h2>
+          <ul><li>Buddha born 563 BCE, Ashoka reigned 268 BCE. Who lived first?</li><li>Which is closer to today: Battle of Plassey (1757 CE) or Taj Mahal completion (1631 CE)?</li><li>Order these events: Independence (1947 CE), Harappan Civilization (2500 BCE), Gupta Empire (320 CE)</li></ul>
+          <p class="notes">🎙️ If the Buddha was born in 563 BCE and Ashoka reigned from 268 BCE, who lived first? Which event is closer to us today: the Battle of Plassey (1757 CE) or the construction of the Taj Mahal (1631 CE)?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Becoming History <span class="hl">Detectives</span></h2>
+          <ul><li>Historians are like detectives</li><li>They use clues to solve the mysteries of the past</li><li>These clues are called 'sources of history'</li></ul>
+          <p class="notes">🎙️ To understand history, we need clues, just like a detective needs evidence. These clues are called 'sources of history,' and they come in many forms.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Finding Clues</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Two <span class="hl">Main Types</span> of Historical Sources</h2>
+          <ul><li>Archaeological Sources: Physical remains</li><li>Literary Sources: Written records</li><li>Both are vital for reconstructing history</li></ul>
+          <p class="notes">🎙️ Historians broadly classify sources into two major categories: Archaeological Sources and Literary Sources. Let's explore each of them in detail.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span></div><div class="vcap">Literary &amp; Archaeological</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>Archaeological vs. Literary Sources</h2>
+          <ul><li>Archaeological: Tangible objects, excavated</li><li>Literary: Written accounts, interpreted</li><li>Offer different perspectives on the past</li></ul>
+          <p class="notes">🎙️ Archaeological sources are physical remains, like buildings or tools. Literary sources are written accounts, like books or inscriptions. Both are crucial for understanding the past.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Archaeological (Physical Remains)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Literary (Written Records)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Unearthing the Past: <span class="hl">Archaeological Sources</span></h2>
+          <ul><li>Physical remains of past human activity</li><li>Discovered through excavation</li><li>Examples: buildings, tools, pottery, coins</li></ul>
+          <p class="notes">🎙️ These are the physical remains of the past that archaeologists dig up and study. They give us direct evidence of how people lived, what they ate, and what they built.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛏️</div><div class="vcap">Digging Up History</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Grand Structures: <span class="hl">Monuments</span> and Buildings</h2>
+          <ul><li>Ancient temples, stupas, forts, palaces</li><li>Reveal architectural styles and engineering skills</li><li>Examples: Sanchi Stupa, Red Fort, Hampi ruins</li></ul>
+          <p class="notes">🎙️ Think of the Red Fort, Sanchi Stupa, or the ruins of Hampi. These structures tell us about the architecture, engineering skills, and religious beliefs of the people who built them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏛️</span><span>🏛️</span><span>🏛️</span></div><div class="vcap">Ancient Architecture</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Everyday Objects: <span class="hl">Artefacts</span></h2>
+          <ul><li>Man-made objects like tools, pottery, ornaments</li><li>Show daily life, craftsmanship, and technology</li><li>Example: Harappan seals, Stone Age tools</li></ul>
+          <p class="notes">🎙️ These are man-made objects like pottery, tools, ornaments, toys, and weapons. The seals from the Indus Valley Civilization are a great example, revealing their art and writing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏺</span><span>🏺</span><span>🏺</span><span>🏺</span></div><div class="vcap">Tools, Pottery, Jewels</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Messages on Stone: <span class="hl">Inscriptions</span></h2>
+          <ul><li>Writings carved on hard surfaces (rock, metal)</li><li>Provide direct information from rulers or people</li><li>Example: Ashokan Edicts, Allahabad Pillar Inscription</li></ul>
+          <p class="notes">🎙️ Inscriptions are writings engraved on hard surfaces like rocks, pillars, or metal plates. Emperor Ashoka's edicts, carved on rocks and pillars, are famous examples, detailing his policies and Dhamma.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Permanent Records</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Metallic Stories: <span class="hl">Coins</span></h2>
+          <ul><li>Ancient coins reveal kings, dates, and kingdoms</li><li>Show economic conditions and trade routes</li><li>Symbols and images tell about religion and culture</li></ul>
+          <p class="notes">🎙️ Ancient coins are invaluable! They provide information about the kings who ruled, their dates, trade, economy, and even their religious beliefs through symbols and images.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span></div><div class="vcap">Kings, Dates, Economy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>The Role of <span class="hl">Archaeologists</span></h2>
+          <ul><li>Specialists who study human history through excavation</li><li>Carefully unearth and analyze physical remains</li><li>Help reconstruct past societies and cultures</li></ul>
+          <p class="notes">🎙️ Archaeologists are like history's detectives. They systematically excavate sites, carefully unearthing and studying these physical remains to reconstruct the past.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🔬</div><div class="vcap">Experts Who Dig</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>How Old Is It? <span class="hl">Dating Methods</span></h2>
+          <ul><li>Scientific techniques to determine age of artefacts</li><li>Carbon-14 dating for organic materials</li><li>Helps establish timelines for discoveries</li></ul>
+          <p class="notes">🎙️ One common method is Carbon-14 dating, which helps determine the age of organic materials. This scientific technique provides a relatively accurate timeline for artefacts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Carbon-14 Dating</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Quick Check: Archaeological <span class="hl">Clues</span></h2>
+          <ul><li>Is a Vedic hymn an archaeological source? Why or why not?</li><li>During an excavation, would you expect to find a Harappan seal or a detailed biography of Akbar?</li><li>Name two types of archaeological sources.</li></ul>
+          <p class="notes">🎙️ Is a Vedic hymn an archaeological source? Would you expect to find a Harappan seal or a detailed biography of Akbar during an excavation? Explain why.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Written Words: <span class="hl">Literary Sources</span></h2>
+          <ul><li>Written records from the past</li><li>Found on palm leaves, bark, paper, etc.</li><li>Provide insights into thoughts, ideas, and events</li></ul>
+          <p class="notes">🎙️ Literary sources are written accounts, whether on palm leaves, bark, paper, or other materials. They offer insights into the thoughts, ideas, and events of the time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Records on Paper/Palm-leaf</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Sacred Texts: <span class="hl">Religious</span> Literature</h2>
+          <ul><li>Texts related to religious beliefs and practices</li><li>Examples: Vedas, Upanishads, Puranas, Jataka Tales</li><li>Reveal spiritual life, mythology, and social norms</li></ul>
+          <p class="notes">🎙️ Texts like the Vedas, Upanishads, Puranas, Jataka tales (Buddhism), and Tripitakas (Buddhism) provide immense information about ancient Indian society, religion, and philosophy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🙏</span><span>🙏</span><span>🙏</span></div><div class="vcap">Vedas, Jatakas, Puranas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Worldly Wisdom: <span class="hl">Secular</span> Literature</h2>
+          <ul><li>Non-religious writings like plays, poems, biographies</li><li>Examples: Kautilya's Arthashastra, Kalidasa's plays</li><li>Offer details on politics, economy, daily life, and art</li></ul>
+          <p class="notes">🎙️ This includes non-religious writings such as Kautilya's Arthashastra (on statecraft), Kalidasa's plays (like Abhijnanashakuntalam), biographies (like Banabhatta's Harshacharita), and poetry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎭</span><span>🎭</span><span>🎭</span></div><div class="vcap">Arthashastra, Plays</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Eyes from Afar: <span class="hl">Foreign Accounts</span></h2>
+          <ul><li>Records by foreign travellers, scholars, and ambassadors</li><li>Provide an external perspective on Indian society</li><li>Examples: Megasthenes' Indica, accounts by Fa Hien, Xuanzang</li></ul>
+          <p class="notes">🎙️ Accounts by foreign travellers like Megasthenes (Indica), Fa Hien, and Xuanzang give us an outside perspective on Indian society, administration, and culture during their visits.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Travellers' Diaries</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Different <span class="hl">Perspectives</span> in Literature</h2>
+          <ul><li>Religious texts: focus on spiritual and moral values</li><li>Secular works: capture daily life, politics, and culture</li><li>Foreign accounts: offer observations from an outsider's view</li></ul>
+          <p class="notes">🎙️ Each type of literary source offers a unique window into the past. Religious texts tell us about faith, secular works about daily life, and foreign accounts about external perceptions.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Religious Texts (Beliefs)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Secular Works (Society)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Foreign Accounts (Observations)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Quick Check: <span class="hl">Literary Clues</span></h2>
+          <ul><li>Is a sculpture of Buddha a literary source? Why/Why not?</li><li>Which type of literary source would best describe the administration of the Mauryan Empire?</li><li>Name two examples of religious literature from ancient India.</li></ul>
+          <p class="notes">🎙️ Is a sculpture of Buddha a literary source? Which type of literary source would best describe the administration of the Mauryan Empire? Why?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>The <span class="hl">Power</span> of Sources: Why They Matter</h2>
+          <ul><li>Help us reconstruct past events accurately</li><li>Provide insights into ancient cultures and societies</li><li>Connect us to our heritage and identity</li><li>Allow us to learn from history's lessons</li></ul>
+          <p class="notes">🎙️ Sources are crucial because they allow us to reconstruct history, understand past societies, learn from their achievements and mistakes, and connect with our cultural heritage. Without them, history would just be stories.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Illuminating the Past</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>The Historian's Dilemma: <span class="hl">Challenges</span></h2>
+          <ul><li>Deciphering ancient scripts and languages</li><li>Dealing with incomplete or fragmented records</li><li>Identifying bias or propaganda in literary sources</li><li>Corroborating information from multiple sources</li></ul>
+          <p class="notes">🎙️ Historians face challenges like deciphering ancient scripts, dealing with incomplete records, and identifying biases in written accounts. It's like solving a complex puzzle!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Piecing Together the Past</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Don't Get Confused! <span class="hl">Common Mistakes</span></h2>
+          <ul><li>Confusing BC and AD (larger BC is older)</li><li>Misclassifying sources (e.g., calling a monument 'literary')</li><li>Not providing specific examples for answers</li><li>Forgetting to explain 'why' or 'how' in answers</li></ul>
+          <p class="notes">🎙️ Students often confuse BC and AD, thinking a larger BC number is more recent. Another common mistake is misclassifying sources, like calling a monument a literary source.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Avoiding Errors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Ace Your Exams: Important Points</h2>
+          <ul><li>Focus on 'Why' and 'How' questions (e.g., 'Why are coins important?')</li><li>Always provide concrete Indian examples for each source type</li><li>Practice chronological ordering of events (BC/AD)</li><li>Clearly define and differentiate between source types</li></ul>
+          <p class="notes">🎙️ Expect 'Why' and 'How' questions. For example, 'Why are inscriptions important sources?' or 'How do archaeologists help us understand history?' Always provide examples to support your answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Our Journey Through Time: A Quick <span class="hl">Recap</span></h2>
+          <ul><li>Understood BC/AD for historical timelines</li><li>Explored Archaeological Sources: Monuments, Artefacts, Inscriptions, Coins</li><li>Learned about Literary Sources: Religious, Secular, Foreign Accounts</li><li>Recognized the importance and challenges of historical sources</li></ul>
+          <p class="notes">🎙️ We've learned about BC/AD timelines, explored archaeological sources like monuments and artefacts, and literary sources like religious texts and foreign accounts. Remember, these sources are our windows to the past!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 6 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

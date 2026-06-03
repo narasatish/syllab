@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Understanding Markets — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Understanding <span class="hl">Markets</span></h2>
+          <ul><li>Welcome to our lesson!</li><li>Explore the world of buying and selling.</li><li>Discover how markets shape our daily lives.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to understand something we encounter every single day: Markets. Get ready to explore where and how we buy and sell things, and why it's so important.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Your Daily Market <span class="hl">Experience</span></h2>
+          <ul><li>Imagine you need fresh vegetables for dinner.</li><li>Where do you go?</li><li>Who sells them? Who buys them?</li></ul>
+          <p class="notes">🎙️ Think about your last trip to buy groceries or even a new pen. What did that experience feel like? Who was involved? This simple act of buying and selling is the core of what we call a market.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today</h2>
+          <ul><li>Define what a market is and its different types.</li><li>Understand the 'chain of markets' from producer to consumer.</li><li>Discuss how markets affect people's lives and livelihoods.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to explain various market concepts, trace the journey of products, and critically think about the impact of markets on our society.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>The Great <span class="hl">Exchange</span> Game</h2>
+          <ul><li>Think of it like a playground where friends trade toys.</li><li>One has a ball, another has a bat.</li><li>They exchange to get what they need or want.</li></ul>
+          <p class="notes">🎙️ Just like friends trading toys, a market is essentially a place or system where people exchange goods and services. It's about giving something to get something else in return.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Exchange</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Market: Where <span class="hl">Buyers</span> Meet Sellers</h2>
+          <ul><li>A market is any place or system that allows buyers and sellers to interact.</li><li>They come together to exchange goods and services.</li><li>This exchange involves money or other valuable items.</li></ul>
+          <p class="notes">🎙️ So, a market isn't just a physical building. It's the entire mechanism that connects someone who wants to sell with someone who wants to buy. This interaction is usually driven by the exchange of money.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛍️</div><div class="vcap">Marketplace</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>The <span class="hl">Sabziwala</span>: A Micro-Market</h2>
+          <ul><li>Your neighbourhood vegetable vendor is a perfect example.</li><li>You (buyer) need potatoes; the vendor (seller) has them.</li><li>You pay money, he gives you vegetables – a simple market transaction.</li></ul>
+          <p class="notes">🎙️ Every morning, when the vegetable vendor comes to your street, a market is created right there. It's a small-scale, but fully functional, market where immediate needs are met directly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥔</span><span>🥔</span><span>🥔</span><span>🥔</span><span>🥔</span></div><div class="vcap">Fresh Vegetables</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Why Markets Are <span class="hl">Essential</span></h2>
+          <ul><li>Markets help us get the things we need and want.</li><li>They connect producers (who make things) with consumers (who use them).</li><li>Without markets, life would be very difficult and limited.</li></ul>
+          <p class="notes">🎙️ Imagine having to grow all your own food, make all your own clothes, and build your own house. Markets make our lives convenient by bringing a wide variety of goods and services within our reach.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Meeting Needs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Market <span class="hl">Vocabulary</span></h2>
+          <ul><li>Buyer: A person who purchases goods or services.</li><li>Seller: A person who offers goods or services for sale.</li><li>Exchange: The act of giving one thing and receiving another.</li></ul>
+          <p class="notes">🎙️ These three terms are the fundamental pillars of any market. Understanding who is buying, who is selling, and what is being exchanged is crucial to grasp market dynamics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💬</div><div class="vcap">Key Terms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Quick Check: What is a <span class="hl">Market</span>?</h2>
+          <ul><li>True or False: A market must always be a physical place.</li><li>Who is a seller in a market?</li><li>Give one reason why markets are important.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think back to what we just discussed. Jot down your answers mentally or on a piece of paper to see if you've understood the basic concepts.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>Traditional <span class="hl">Physical</span> Markets</h2>
+          <ul><li>These are actual locations where buyers and sellers meet face-to-face.</li><li>You can touch, see, and inspect the products.</li><li>Examples: Local shops, weekly bazaars, shopping malls.</li></ul>
+          <p class="notes">🎙️ For centuries, markets have been physical spaces. These are the most common type of markets we encounter, where the interaction is direct and tangible.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏬</div><div class="vcap">Physical Shop</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Dilli Haat</span>: A Cultural Market</h2>
+          <ul><li>Opened in 1994, Dilli Haat is a unique open-air market in Delhi.</li><li>It showcases handicrafts, food, and cultural performances from all over India.</li><li>It's a vibrant example of a physical market with a cultural twist.</li></ul>
+          <p class="notes">🎙️ Dilli Haat is more than just a place to buy things; it's an experience. It brings together artisans and buyers from different regions, celebrating India's rich diversity in a market setting.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span></div><div class="vcap">Handicrafts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>The Lively <span class="hl">Weekly</span> Market (Haat Bazaar)</h2>
+          <ul><li>Set up on a specific day of the week, then dismantled.</li><li>Sellers are small traders who bring goods from home or small factories.</li><li>Products are often cheaper due to low overhead costs.</li></ul>
+          <p class="notes">🎙️ Weekly markets are a common sight, especially in smaller towns and rural areas. They offer fresh produce and everyday items at competitive prices because sellers don't have permanent shop rents to pay.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">Weekly Schedule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>A Village Haat in <span class="hl">Rajasthan</span></h2>
+          <ul><li>In villages like Pushkar, Rajasthan, weekly haats are vital.</li><li>Farmers sell their produce directly, artisans sell crafts.</li><li>Villagers buy essentials, socialise, and exchange news.</li></ul>
+          <p class="notes">🎙️ These rural haats are not just economic hubs but also social centers. They provide a livelihood for many and are a crucial link for villagers to access goods they can't produce themselves.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span></div><div class="vcap">Farm Fresh Produce</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Modern Shopping <span class="hl">Malls</span></h2>
+          <ul><li>Large, multi-storeyed buildings with many shops, restaurants, and entertainment.</li><li>Offer branded goods and a comfortable, air-conditioned shopping experience.</li><li>Cater to urban consumers, often with higher incomes.</li></ul>
+          <p class="notes">🎙️ Shopping malls represent a more modern and organised form of market. They bring many different stores under one roof, offering convenience and a wide selection of branded products.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏢</div><div class="vcap">Shopping Mall</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Select <span class="hl">Citywalk</span>, Delhi: Urban Retail</h2>
+          <ul><li>One of Delhi's prominent malls, opened in 2007.</li><li>Houses international and Indian brands, a multiplex, and food courts.</li><li>Illustrates the shift towards organised retail in Indian cities.</li></ul>
+          <p class="notes">🎙️ Select Citywalk exemplifies the changing face of urban markets in India. It offers a premium shopping experience, attracting a different segment of consumers compared to traditional markets.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛍️</span><span>🛍️</span><span>🛍️</span><span>🛍️</span><span>🛍️</span><span>🛍️</span><span>🛍️</span><span>🛍️</span></div><div class="vcap">Branded Shopping</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Quick Check: Market <span class="hl">Types</span></h2>
+          <ul><li>Name one characteristic of a weekly market.</li><li>What kind of goods would you mostly find in a shopping mall?</li><li>Is Dilli Haat a physical or online market?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of the different market types. Can you recall the key features and examples we discussed for each?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>The <span class="hl">Digital</span> Marketplace (E-commerce)</h2>
+          <ul><li>Buying and selling goods and services over the internet.</li><li>No physical meeting required; transactions happen virtually.</li><li>Offers convenience, wider choice, and often competitive prices.</li></ul>
+          <p class="notes">🎙️ Online markets have revolutionized how we shop. From the comfort of our homes, we can access products from all over the world, delivered right to our doorstep.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💻</div><div class="vcap">Online Shopping</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Flipkart &amp; Amazon India: <span class="hl">E-commerce</span> Giants</h2>
+          <ul><li>Flipkart (started 2007) and Amazon India are leading online retailers.</li><li>They connect millions of buyers and sellers across India.</li><li>From electronics to groceries, almost anything can be bought online.</li></ul>
+          <p class="notes">🎙️ These platforms have transformed the retail landscape in India, especially reaching consumers in remote areas who might not have access to large physical markets. They showcase the power of digital connectivity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">Packages Delivered</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>The Invisible Market <span class="hl">Chain</span></h2>
+          <ul><li>Products don't just appear in stores; they travel through a 'chain'.</li><li>This chain connects producers (farmers, factories) to consumers.</li><li>Many people are involved at different stages of this journey.</li></ul>
+          <p class="notes">🎙️ Have you ever wondered how the shirt you wear or the food you eat reaches you? It's not a direct path. There's a whole network of markets and middlemen involved, forming what we call the chain of markets.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Supply Chain</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>From Cotton Field to Your <span class="hl">Wardrobe</span></h2>
+          <ul><li>1. Farmer grows cotton in Maharashtra.</li><li>2. Cotton sold to a wholesaler in a Mandi.</li><li>3. Wholesaler sells to a spinning mill.</li><li>4. Mill makes yarn, sells to weaving factory.</li><li>5. Factory makes cloth, sells to garment manufacturer.</li><li>6. Manufacturer sells finished shirts to retailers.</li><li>7. Retailer sells to you, the consumer.</li></ul>
+          <p class="notes">🎙️ This journey illustrates how many different markets and people are involved in bringing a single product to you. Each step adds value and involves a transaction.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cotton Farm</span></div><div class="step"><span class="snum">2</span><span>Wholesaler</span></div><div class="step"><span class="snum">3</span><span>Spinning Mill</span></div><div class="step"><span class="snum">4</span><span>Weaving Factory</span></div><div class="step"><span class="snum">5</span><span>Garment Maker</span></div><div class="step"><span class="snum">6</span><span>Retailer</span></div><div class="step"><span class="snum">7</span><span>Consumer</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Importance</span> of the Market Chain</h2>
+          <ul><li>It creates livelihoods for millions of people at each stage.</li><li>Allows specialisation: farmers farm, factories manufacture, retailers sell.</li><li>Ensures products reach diverse consumers efficiently.</li></ul>
+          <p class="notes">🎙️ The chain of markets is a complex ecosystem. It's not just about goods moving, but also about jobs, income generation, and ensuring that products are available where and when they are needed.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Economic Impact</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>More Market <span class="hl">Vocabulary</span></h2>
+          <ul><li>Producer: Someone who creates goods (e.g., farmer, factory).</li><li>Wholesaler: Buys large quantities from producers, sells to retailers.</li><li>Retailer: Buys from wholesalers, sells in smaller quantities to consumers.</li><li>Consumer: The end-user who buys goods/services for personal use.</li></ul>
+          <p class="notes">🎙️ These terms help us understand the roles played by different actors in the market chain. Each link is crucial for the smooth flow of goods.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Key Definitions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Quick Check: The Market <span class="hl">Chain</span></h2>
+          <ul><li>Who buys goods in large quantities from producers?</li><li>What is the role of a retailer?</li><li>Can a farmer be a producer and a seller at the same time?</li></ul>
+          <p class="notes">🎙️ Let's see if you can identify the different roles within the market chain. Think about who does what at each step.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Markets and <span class="hl">Fairness</span></h2>
+          <ul><li>Do all buyers and sellers benefit equally from markets?</li><li>Often, big businesses and wealthy buyers have more power.</li><li>Small traders and producers can face challenges.</li></ul>
+          <p class="notes">🎙️ While markets are efficient, they aren't always perfectly fair. The distribution of benefits can be unequal, with larger players often having an advantage over smaller ones.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>The Local Kirana vs. The Big Supermarket</h2>
+          <ul><li>Small Shop: Limited stock, personal touch, often credit facility.</li><li>Supermarket: Wide variety, self-service, lower prices due to bulk buying.</li><li>Impact: Supermarkets can challenge small shops' livelihoods.</li></ul>
+          <p class="notes">🎙️ This comparison highlights the different business models and their impact. While supermarkets offer convenience and choice, they can make it harder for small, independent shopkeepers to compete.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Small Shop</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Supermarket</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Ensuring <span class="hl">Fair Play</span> in Markets</h2>
+          <ul><li>Governments make laws to protect consumers and small producers.</li><li>They regulate prices of essential goods to prevent exploitation.</li><li>Promote fair competition and prevent monopolies.</li></ul>
+          <p class="notes">🎙️ To address inequalities and ensure that markets serve everyone, governments play a crucial role. They set rules and intervene where necessary to protect vulnerable groups and maintain a healthy market environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Government Regulation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Watch Out! Common Market <span class="hl">Misconceptions</span></h2>
+          <ul><li>Mistake 1: Thinking a market is ONLY a physical place.</li><li>Mistake 2: Confusing a wholesaler with a retailer.</li><li>Mistake 3: Believing all products come directly from the producer to you.</li></ul>
+          <p class="notes">🎙️ Students often make these common errors. Remember, markets are diverse, and the journey of a product is usually multi-layered. Pay attention to the definitions and the chain of markets.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Ace Your Market <span class="hl">Exam</span> Questions!</h2>
+          <ul><li>Define key terms clearly (Buyer, Seller, Retailer, etc.).</li><li>Provide relevant Indian examples for different market types.</li><li>Explain 'why' and 'how' concepts work, not just 'what'.</li><li>Use 'steps' or 'compare' in your answers if asked for processes or contrasts.</li></ul>
+          <p class="notes">🎙️ To score well, don't just memorise definitions. Understand the underlying concepts. Use the examples we discussed and structure your answers logically, explaining the process and significance.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Journey <span class="hl">Recap</span>: What We've Covered</h2>
+          <ul><li>Markets are places/systems for buyer-seller exchange.</li><li>Types: Weekly, Shops, Malls, Online.</li><li>Products travel through a 'chain of markets'.</li><li>Markets impact livelihoods; government ensures fairness.</li></ul>
+          <p class="notes">🎙️ We've explored the fascinating world of markets, from your local vendor to global e-commerce. Remember how essential they are for our daily lives and the economy, and the roles everyone plays.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Reflect and <span class="hl">Ponder</span></h2>
+          <ul><li>How do you think technology will further change markets in the future?</li><li>What is one way you can support local markets in your area?</li></ul>
+          <p class="notes">🎙️ Markets are constantly evolving. Think about the future and how you, as a responsible citizen, can contribute to a fair and thriving market environment. Thank you for your active participation!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 7 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

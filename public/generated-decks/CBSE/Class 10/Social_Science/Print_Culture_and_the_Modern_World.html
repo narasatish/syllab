@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Print Culture and the Modern World — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2><span class="hl">Print Culture</span> and the Modern World</h2>
+          <ul><li>CBSE Class 10 Social Science</li><li>History Chapter</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on a fascinating journey to understand how the simple act of printing transformed societies, especially India, and shaped the world we live in today. Get ready to explore a revolution that began centuries ago!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Imagine a World <span class="hl">Without Books</span>!</h2>
+          <ul><li>How would you learn?</li><li>Share stories?</li><li>Know about current events?</li></ul>
+          <p class="notes">🎙️ Think about your daily life. From textbooks to news apps, print is everywhere. But what if suddenly all printed material vanished? How would our knowledge, communication, and even our culture change? This chapter explores that very transformation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Books Everywhere!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Learn Today</span> 🎯</h2>
+          <ul><li>Understand the origins of print in East Asia and Europe</li><li>Analyze the impact of print on religious and social life</li><li>Explore the development of print in India and its role in nationalism</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll not only know the facts but also understand the 'why' and 'how' behind print's profound influence, from ancient China to modern India, and its lasting legacy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Our Goals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>From <span class="hl">Oral Traditions</span> to Written Words</h2>
+          <ul><li>Ancient India relied on oral transmission (Vedas, Puranas)</li><li>Scribes meticulously copied manuscripts by hand</li><li>Knowledge was often limited to specific groups</li></ul>
+          <p class="notes">🎙️ Think of our grandmothers narrating stories or priests chanting ancient hymns. For centuries, knowledge in India, like many parts of the world, was passed down orally. Written texts existed, but they were rare, expensive, and often restricted.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Oral</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Written</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>China: The <span class="hl">Pioneer of Print</span> 🇨🇳</h2>
+          <ul><li>Earliest print technology developed in China (AD 594)</li><li>Used woodblock printing for books and calendars</li><li>Imperial State was a major patron, printing textbooks</li></ul>
+          <p class="notes">🎙️ The journey of print begins in China. Imagine carving an entire page onto a wooden block, then inking it and pressing it onto paper. This meticulous process, though slow, was a monumental step away from hand-copying.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Scrolls</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>From China to <span class="hl">Japan</span>: Buddhist Influence 🇯🇵</h2>
+          <ul><li>Buddhist missionaries from China introduced hand-printing to Japan (AD 768-770)</li><li>Oldest Japanese book: the Diamond Sutra (AD 868)</li><li>Visual culture flourished with Ukiyo-e prints</li></ul>
+          <p class="notes">🎙️ Just as ideas travel, so did print technology. Buddhist missionaries played a crucial role, bringing woodblock printing to Japan. This led to not just religious texts but also beautiful visual art like the Ukiyo-e prints, depicting urban life and landscapes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Print Spreads East</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Europe Before Gutenberg: <span class="hl">Scribes</span> and Manuscripts ✍️</h2>
+          <ul><li>Europe relied on hand-written manuscripts</li><li>Scribes, often monks, copied texts meticulously</li><li>Expensive, time-consuming, and prone to errors</li></ul>
+          <p class="notes">🎙️ In Europe, before the printing press, books were luxury items. Imagine a monk spending months, even years, copying a single Bible by hand! This made books exclusive, and literacy remained low among the common people.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Hand-copying</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Early Print ⏱️</h2>
+          <ul><li>Which country first developed woodblock printing?</li><li>What was the oldest Japanese book printed?</li><li>What were the challenges of manuscript production in Europe?</li></ul>
+          <p class="notes">🎙️ Time for a quick recap! Think about the key players and challenges we've discussed so far. These foundational facts are important for understanding the next big leap in print history.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Johannes <span class="hl">Gutenberg</span>: The Print Revolution Begins ⚙️</h2>
+          <ul><li>Gutenberg developed the first known printing press in the 1430s (Germany)</li><li>Adapted existing technologies like wine presses</li><li>Invented movable metal types</li></ul>
+          <p class="notes">🎙️ Here's where the story takes a dramatic turn! Johannes Gutenberg wasn't just an inventor; he was a revolutionary. He saw existing technologies and brilliantly combined them to create something entirely new and incredibly powerful: the printing press.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">The Printing Press</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>The <span class="hl">Mechanics</span> of Gutenberg's Press</h2>
+          <ul><li>Adapted olive press for printing</li><li>Used lead moulds to cast metal types for each letter</li><li>Hand-operated press applied pressure to paper</li></ul>
+          <p class="notes">🎙️ Gutenberg's genius lay in mechanizing the entire process. Instead of carving whole blocks, he created individual, reusable metal letters. This meant pages could be composed quickly, printed, and then the types rearranged for the next page.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Metal Moulds &amp; Types</span></div><div class="step"><span class="snum">2</span><span>2. Types Arranged in Frame</span></div><div class="step"><span class="snum">3</span><span>3. Ink Applied</span></div><div class="step"><span class="snum">4</span><span>4. Press Applied to Paper</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>The <span class="hl">Gutenberg Bible</span>: A Masterpiece 📖</h2>
+          <ul><li>Printed around 1450-1455</li><li>Approximately 180 copies produced</li><li>Marked the beginning of the 'print era' in Europe</li></ul>
+          <p class="notes">🎙️ The first book Gutenberg printed was the Bible, and it was a stunning achievement. Imagine producing 180 copies of the Bible in a fraction of the time it would take scribes to copy just one! This was truly a game-changer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📖</span><span>📖</span><span>📖</span><span>📖</span><span>📖</span></div><div class="vcap">Many Bibles!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>The Print Revolution: Creating a <span class="hl">New Public</span> 🗣️</h2>
+          <ul><li>Books became cheaper and more accessible</li><li>Literacy rates slowly began to rise</li><li>Oral culture gradually gave way to a reading culture</li></ul>
+          <p class="notes">🎙️ Suddenly, books weren't just for the elite. Their increased availability and affordability meant more people could access knowledge. This wasn't just about reading; it was about a fundamental shift in how societies learned and communicated.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Before Print</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">After Print</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Print and Religious Reform: <span class="hl">Martin Luther</span> 🙏</h2>
+          <ul><li>Martin Luther, a German monk, wrote 'Ninety-Five Theses' (1517)</li><li>Criticized Catholic Church practices</li><li>His writings were widely printed and circulated</li></ul>
+          <p class="notes">🎙️ The printing press became a powerful tool for religious reformers. Martin Luther's challenge to the Catholic Church, spread rapidly through printed copies, ignited the Protestant Reformation and forever changed the religious landscape of Europe.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🙏</div><div class="vcap">Religious Ideas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Print and <span class="hl">Dissent</span>: Questioning Power ✊</h2>
+          <ul><li>Print allowed critical ideas to spread rapidly</li><li>People could form independent opinions</li><li>Led to debates and challenges against established authorities (Church, Monarchs)</li></ul>
+          <p class="notes">🎙️ With more access to different ideas, people started questioning. Print fostered a culture of debate and dissent, allowing critiques of power structures to reach a wider audience, often leading to social and political unrest.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✊</div><div class="vcap">Voice of the People</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Quick Check: Gutenberg's <span class="hl">Impact</span> 💡</h2>
+          <ul><li>What was Gutenberg's most significant invention?</li><li>How did print influence the Protestant Reformation?</li><li>Name one major effect of print on European society.</li></ul>
+          <p class="notes">🎙️ Let's pause and reflect on the monumental changes brought about by Gutenberg's invention. Its ripple effects were felt across religion, society, and politics, paving the way for further revolutions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Print and the Age of <span class="hl">Enlightenment</span> 🧠</h2>
+          <ul><li>Enlightenment thinkers (Voltaire, Rousseau) wrote about reason, rights, and liberty</li><li>Their ideas were printed and widely circulated</li><li>Challenged absolute monarchy and feudal systems</li></ul>
+          <p class="notes">🎙️ The printing press became the vehicle for the Enlightenment. Philosophers' ideas on individual rights, reason, and social contracts, once confined to small circles, now reached thousands, shaping public opinion and inspiring calls for change.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ideas of Liberty</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Print and the <span class="hl">French Revolution</span> 🇫🇷</h2>
+          <ul><li>Print popularized ideas of liberty, equality, and fraternity</li><li>Critiques of monarchy and aristocracy were widely read</li><li>Helped mobilize public opinion against the old regime</li></ul>
+          <p class="notes">🎙️ The French Revolution is a prime example of print's power. Pamphlets, newspapers, and books fueled the revolutionary spirit, making complex political ideas accessible to the common people and galvanizing them into action.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗣️</span><span>🗣️</span><span>🗣️</span><span>🗣️</span><span>🗣️</span><span>🗣️</span><span>🗣️</span></div><div class="vcap">Voices of Revolution</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Fear of Print: <span class="hl">Censorship</span> and Control 🚫</h2>
+          <ul><li>Rulers and religious authorities feared the spread of critical ideas</li><li>Imposed censorship to control printed material</li><li>The Catholic Church's 'Index of Prohibited Books'</li></ul>
+          <p class="notes">🎙️ Not everyone welcomed the free flow of ideas. Governments and religious institutions quickly realized the subversive potential of print and tried to control it, fearing it would undermine their authority and spread dissent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Restricting Ideas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Print in India: <span class="hl">Before the Press</span> 🇮🇳</h2>
+          <ul><li>India had a rich tradition of handwritten manuscripts (palm leaves, bark)</li><li>Oral traditions (Vedas, epics) were dominant</li><li>Knowledge was often preserved in Sanskrit, Persian, Arabic</li></ul>
+          <p class="notes">🎙️ Before the printing press arrived, India was not without its written culture. Our ancient texts, from the Vedas to medical treatises, were meticulously copied by hand, showcasing a sophisticated manuscript tradition.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Indian Texts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>The <span class="hl">Arrival of Print</span> in India</h2>
+          <ul><li>Portuguese missionaries brought the first printing press to Goa (mid-16th century)</li><li>Printed Catholic tracts in Konkani and other languages</li><li>First Tamil book printed in 1579 (Cochin)</li></ul>
+          <p class="notes">🎙️ The printing press arrived in India not through trade, but through religious zeal. Portuguese missionaries saw print as a powerful tool to spread Christianity, leading to the first books being printed in Indian languages.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Print Reaches India</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Early Indian Publishing: <span class="hl">Serampore Mission</span> 📰</h2>
+          <ul><li>Danish missionaries in Serampore (Bengal, 1800) established a press</li><li>Pioneered printing in Bengali and other vernacular languages</li><li>William Carey translated Bible into Bengali</li></ul>
+          <p class="notes">🎙️ The Serampore Mission became a crucial hub for early Indian publishing. They understood the importance of printing in local languages, making knowledge accessible to a much broader audience than ever before.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Hub of Early Print</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Print and <span class="hl">Religious Reform</span> in India 🙏</h2>
+          <ul><li>Debates on religious practices and social evils (sati, child marriage)</li><li>Raja Rammohun Roy published 'Sambad Kaumudi' (1821)</li><li>Orthodox Hindus published 'Samachar Chandrika' to counter</li></ul>
+          <p class="notes">🎙️ Just as in Europe, print in India became a battleground for religious and social reform. Raja Rammohun Roy used print to advocate for change, while others used it to defend traditional practices, sparking widespread public debate.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Reformers</div></div><div class="ccard"><div class="cbar" style="width:71%"></div><div class="clabel">Conservatives</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">New Forms</span>, New Readers: Novels, Newspapers, Magazines 📚</h2>
+          <ul><li>Novels emerged, creating a new literary genre</li><li>Newspapers (e.g., 'Kesari' by Tilak) became crucial for political awareness</li><li>Magazines catered to women, children, and specific interests</li></ul>
+          <p class="notes">🎙️ Print didn't just spread old ideas; it fostered entirely new forms of expression. Novels allowed for imaginative storytelling, while newspapers became the voice of public opinion and political movements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗞️</span><span>🗞️</span><span>🗞️</span><span>🗞️</span><span>🗞️</span><span>🗞️</span></div><div class="vcap">Reading Material</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">Women and Print</span>: Reading, Writing, Resistance 👩‍🏫</h2>
+          <ul><li>Many conservative families restricted women's access to education</li><li>Reformers argued for women's education through print</li><li>Women like Rashsundari Devi ('Amar Jiban') wrote autobiographies</li></ul>
+          <p class="notes">🎙️ Print played a transformative role for women. While some feared its influence, many women embraced it to learn, express themselves, and challenge patriarchal norms. Figures like Rashsundari Devi broke barriers by writing their stories.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👩‍🏫</div><div class="vcap">Educating Women</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Print for the Poor: Cheap Books, Public Libraries 💰</h2>
+          <ul><li>Cheap books were printed for mass consumption (e.g., 'Chapbooks' in Europe, 'Bazar Books' in India)</li><li>Public libraries were established to make books accessible</li><li>Jyotiba Phule and Dr. B.R. Ambedkar used print for social justice</li></ul>
+          <p class="notes">🎙️ Print democratized knowledge. From cheap popular literature to social reformist writings, books became available to the working classes and marginalized communities, empowering them to question injustice and demand rights.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Affordable Knowledge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>Quick Check: <span class="hl">Print in India</span> 🇮🇳</h2>
+          <ul><li>Who brought the first printing press to India?</li><li>Name one significant Indian reformer who used print</li><li>How did print empower women and the poor in India?</li></ul>
+          <p class="notes">🎙️ Let's test our understanding of print's journey and impact within India. Remember, it wasn't just about technology, but about its profound social and political consequences.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Print and <span class="hl">Censorship</span>: The Vernacular Press Act (1878) ⚖️</h2>
+          <ul><li>British colonial government feared nationalist sentiments spread by vernacular press</li><li>Act allowed government to seize assets of newspapers publishing 'seditious' material</li><li>Led to protests and further nationalist awakening</li></ul>
+          <p class="notes">🎙️ The British colonial government, witnessing the power of print in fueling nationalism, tried to curb it. The Vernacular Press Act was a direct attempt to silence dissenting voices, but it often backfired, intensifying the struggle for freedom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Controlling the Press</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Common Mistakes</span> to Avoid 🤔</h2>
+          <ul><li>Confusing woodblock printing with Gutenberg's press</li><li>Forgetting the 'WHY' behind print's impact (e.g., why Luther used it)</li><li>Not linking print to social reforms in India</li></ul>
+          <p class="notes">🎙️ Students often focus only on dates and names. Remember to understand the *causal links* – how print enabled certain changes, both positive and negative. Don't just memorize, *understand* the process and its consequences.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think Critically</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: Mastering 'Print Culture' ✨</h2>
+          <ul><li>Focus on 'Why' and 'How' questions (e.g., How did print create a new reading public?)</li><li>Use specific examples (Gutenberg Bible, Sambad Kaumudi, Vernacular Press Act)</li><li>Structure answers with clear points and logical flow</li></ul>
+          <p class="notes">🎙️ This chapter is a favorite for analytical questions. Practice explaining the *mechanisms* of change. For instance, how did print challenge authority? Or how did it foster nationalism in India? Provide concrete examples for each point.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Ace Your Exams</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Recap: The Enduring <span class="hl">Legacy</span> of Print 🌍</h2>
+          <ul><li>Print transformed knowledge dissemination and access</li><li>Fueled religious, social, and political revolutions</li><li>Played a vital role in Indian nationalism and social reform</li><li>Continues to shape our modern world</li></ul>
+          <p class="notes">🎙️ From ancient woodblocks to modern digital presses, print culture fundamentally reshaped human society. It democratized knowledge, ignited revolutions, and gave voice to the voiceless, leaving an indelible mark on the modern world and our own nation, India.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 10 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

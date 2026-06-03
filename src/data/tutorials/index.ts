@@ -1,4 +1,4 @@
-import { TutorialTopic, LanguageConfig } from './types';
+import { TutorialTopic, LanguageConfig, CareerGuide, ProjectIdea } from './types';
 import { pythonTopics } from './python';
 import { htmlTopics } from './html';
 import { javascriptTopics } from './javascript';

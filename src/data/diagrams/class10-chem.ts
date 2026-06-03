@@ -210,7 +210,7 @@ export const class10ChemDiagrams: Diagram[] = [
     subject: 'chemistry',
     classRange: 'Class 10',
     classNumber: 10,
-    imageUrl: 'https://en.wikipedia.org/wiki/Special:FilePath/Organic_functional_groups.svg?width=500',
+    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Oxygen-containing_functional_groups.svg?width=500',
     fallbackGradient: 'from-purple-100 to-violet-200',
     emoji: '🧪',
     summary: 'Functional groups are specific atom groups (-OH, -CHO, -CO-, -COOH, -NH₂) that determine reactivity and properties of organic compounds.',

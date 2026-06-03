@@ -65,6 +65,23 @@ Syllab was created to make high-quality education accessible to every student in
         </div>
       </section>
 
+      {/* E-E-A-T: content standards & review process (trust signals for students, parents & search engines) */}
+      <section className="card border-slate-100 bg-white p-10 space-y-5">
+        <h2 className="text-2xl font-black text-slate-900 tracking-tight">How our content is made &amp; reviewed</h2>
+        <p className="font-medium text-slate-500 leading-relaxed">
+          Every lesson, practice question and solution on Syllab is built to be accurate, exam-relevant and genuinely helpful for Indian students.
+        </p>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-medium text-slate-600">
+          <li className="flex gap-2"><span>📘</span> <span><strong className="text-slate-800">Aligned to the latest syllabus</strong> — CBSE/NCERT and state boards (AP, TS, Karnataka, Maharashtra) for the 2025–26 academic year, including new NCERT books.</span></li>
+          <li className="flex gap-2"><span>👩‍🏫</span> <span><strong className="text-slate-800">Reviewed by educators</strong> — content is created with teacher input and checked for factual accuracy before it reaches students.</span></li>
+          <li className="flex gap-2"><span>🪜</span> <span><strong className="text-slate-800">Step-by-step solutions</strong> — every question can show worked reasoning, not just the final answer.</span></li>
+          <li className="flex gap-2"><span>🆓</span> <span><strong className="text-slate-800">Free &amp; ad-light</strong> — no paywall; we keep learning accessible regardless of where you live or your family's income.</span></li>
+        </ul>
+        <p className="text-xs font-semibold text-slate-400">
+          Spotted an error? Tell us at <a href="/contact" className="text-primary underline">syllab.in/contact</a> — we fix reported mistakes fast.
+        </p>
+      </section>
+
       <section className="bg-slate-900 rounded-[3rem] p-12 text-center text-white">
         <h2 className="text-3xl font-black mb-4">Ready to reach your potential?</h2>
         <p className="text-slate-400 font-medium mb-8">Join thousands of students preparing for JEE & NEET 2025.</p>

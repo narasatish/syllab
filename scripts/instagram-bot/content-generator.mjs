@@ -71,6 +71,12 @@ async function callGemini(prompt) {
   if (!GEMINI_API_KEY) {
     throw new Error('GEMINI_API_KEY not set');
   }
+  // Cost guard: the Instagram bot calls the paid Gemini API. Disabled by default
+  // so a scheduled run can never silently bill you. Set ALLOW_PAID_GEMINI=1
+  // (on a FREE-TIER key) to enable intentionally.
+  if (process.env.ALLOW_PAID_GEMINI !== '1') {
+    throw new Error('Gemini disabled by cost guard. Set ALLOW_PAID_GEMINI=1 (use a free-tier key) to enable.');
+  }
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
   const fullPrompt = `${prompt}\n\nReturn ONLY a JSON object with the required keys. No markdown fences, no commentary.`;
 

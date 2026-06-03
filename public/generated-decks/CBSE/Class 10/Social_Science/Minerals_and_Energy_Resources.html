@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Minerals and Energy Resources — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2>Minerals and <span class="hl">Energy Resources</span></h2>
+          <ul><li>Class 10 | Social Science</li><li>Chapter Overview</li></ul>
+          <p class="notes">🎙️ Hello students! Welcome to an exciting journey into the world beneath our feet and the power that fuels our lives. Today, we'll explore 'Minerals and Energy Resources'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Your <span class="hl">Daily Life</span>: What's it Made Of?</h2>
+          <ul><li>Look around your room – your phone, a spoon, even the walls.</li><li>Where do the raw materials for these everyday items come from?</li><li>How do they get their power?</li></ul>
+          <p class="notes">🎙️ Imagine your smartphone or the steel spoon you eat with. These aren't magic! They come from specific materials extracted from the Earth. And the electricity powering your lights? That also has a source. This chapter will uncover these fascinating origins.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_mineral_map.jpg?width=640" data-fb="📘" alt="India's major mineral and energy belts." loading="lazy" onerror="syllabImgFail(this)"/><div class="vcap">India's major mineral and energy belts.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn Today</span></h2>
+          <ul><li>Understand what minerals are and their types.</li><li>Explore major mineral and energy resources in India.</li><li>Appreciate the importance of conserving these vital resources.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll not only know the facts but also understand the 'why' and 'how' behind India's rich mineral wealth and energy production, and why responsible use is crucial.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>Minerals: Earth's Essential <span class="hl">Ingredients</span></h2>
+          <ul><li>Just like a chef needs various ingredients to cook a dish...</li><li>Our industries and daily lives need different 'ingredients' from the Earth.</li><li>These 'ingredients' are what we call Minerals.</li></ul>
+          <p class="notes">🎙️ Think of our planet as a giant kitchen and our development as a grand feast. Minerals are the fundamental ingredients – from the salt in your food to the steel in your car. Without them, modern life as we know it would grind to a halt.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍽️</div><div class="vcap">Earth's Kitchen</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>Defining <span class="hl">Minerals</span>: Nature's Building Blocks</h2>
+          <ul><li>A mineral is a naturally occurring substance.</li><li>It has a definite chemical composition.</li><li>And a homogeneous crystalline structure.</li></ul>
+          <p class="notes">🎙️ In simpler terms, minerals are like unique LEGO bricks that make up the Earth's crust. Each type of mineral has a specific chemical recipe and a distinct internal arrangement of atoms, making it unique.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">A Crystal Clear Definition</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>The Birth of Minerals: A Geological Journey</h2>
+          <ul><li>Minerals form over millions of years through various geological processes.</li><li>Igneous &amp; Metamorphic Rocks: From molten magma/lava.</li><li>Sedimentary Rocks: Accumulation in layers.</li></ul>
+          <p class="notes">🎙️ Minerals are not just 'there'; they are formed through incredible geological forces. Some crystallize from cooling magma deep within the Earth, while others are concentrated by water or heat and pressure over vast periods.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Magma Cooling</span></div><div class="step"><span class="snum">2</span><span>Rock Weathering</span></div><div class="step"><span class="snum">3</span><span>Sedimentation</span></div><div class="step"><span class="snum">4</span><span>Metamorphism</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Classifying</span> Minerals: By Their Properties</h2>
+          <ul><li>Minerals are broadly classified based on their chemical composition and properties.</li><li>Metallic Minerals: Contain metal, often hard, lustrous, conduct heat/electricity.</li><li>Non-Metallic Minerals: Do not contain metal, often brittle, poor conductors.</li></ul>
+          <p class="notes">🎙️ This fundamental classification helps us understand how different minerals are used. Think of the difference between a shiny steel pan and a piece of chalk – one is metallic, the other non-metallic, each with distinct uses.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Metallic (e.g., Iron)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Non-Metallic (e.g., Limestone)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Quick Check!</span> What Makes a Mineral?</h2>
+          <ul><li>Which of the following is NOT a characteristic of a mineral?</li><li>A) Naturally occurring</li><li>B) Definite chemical composition</li><li>C) Man-made substance</li><li>D) Homogeneous crystalline structure</li></ul>
+          <p class="notes">🎙️ Time for a quick mental exercise! Based on our definition, which option clearly stands out as incorrect? The answer helps reinforce the core characteristics we just discussed. (Answer: C)</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2>Metallic Minerals: The Strength of <span class="hl">Ferrous</span></h2>
+          <ul><li>Ferrous minerals contain iron.</li><li>They provide a strong base for metallurgical industries.</li><li>Examples: Iron ore, Manganese, Chromite.</li></ul>
+          <p class="notes">🎙️ Ferrous minerals are the backbone of modern industrial development. Iron ore, in particular, is indispensable for manufacturing steel, which is used in everything from buildings to vehicles, making India's deposits incredibly valuable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Iron &amp; Steel Foundation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>India's <span class="hl">Iron Ore</span> Riches: Where and Why?</h2>
+          <ul><li>India boasts large reserves of high-quality iron ore (magnetite and hematite).</li><li>Major Belts: Odisha-Jharkhand, Durg-Bastar-Chandrapur (Chhattisgarh-Maharashtra), Ballari-Chitradurga-Chikkamagaluru-Tumakuru (Karnataka).</li><li>Significance: Feeds India's steel plants, a major export commodity.</li></ul>
+          <p class="notes">🎙️ India is among the world's leading producers of iron ore. The mines in states like Odisha and Chhattisgarh are crucial for our steel industry, supporting infrastructure projects and contributing significantly to our economy. Remember these key regions!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗺️</span><span>🗺️</span><span>🗺️</span></div><div class="vcap">Major Iron Ore Belts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Manganese</span>: The Steel Hardener</h2>
+          <ul><li>Manganese is primarily used in manufacturing steel and ferro-manganese alloy.</li><li>Also used in making bleaching powder, insecticides, and paints.</li><li>Major Producers: Odisha, Maharashtra, Madhya Pradesh, Karnataka.</li></ul>
+          <p class="notes">🎙️ While less famous than iron ore, manganese is a vital ingredient. It's added to steel to increase its strength and durability. Odisha alone accounts for a significant portion of India's manganese production, highlighting its industrial importance.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Industrial Essential</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Metallic Minerals: The Versatility of <span class="hl">Non-Ferrous</span></h2>
+          <ul><li>Non-ferrous minerals do not contain iron.</li><li>They are crucial for electrical, engineering, and chemical industries.</li><li>Examples: Copper, Bauxite, Lead, Zinc, Gold.</li></ul>
+          <p class="notes">🎙️ Non-ferrous minerals bring different qualities to the table – excellent conductivity, resistance to corrosion, or lightweight properties. Think of the wiring in your home or the body of an airplane; these rely heavily on non-ferrous metals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Conductivity &amp; Lightness</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2><span class="hl">Copper</span> in India</h2>
+          <ul><li>India is a poor producer of copper; reserves are low.</li><li>Uses: Electrical cables, electronics, chemicals, alloys (brass, bronze).</li><li>Main Mines: Khetri (Rajasthan), Balaghat (Madhya Pradesh), Singhbhum (Jharkhand).</li></ul>
+          <p class="notes">🎙️ Despite its critical role in our electrical infrastructure, India faces a challenge with limited copper reserves. This means we rely on imports to meet our demand, making efficient use and recycling even more important.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔌</span><span>🔌</span><span>🔌</span></div><div class="vcap">Key Copper Regions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Bauxite</span>: The Source of Aluminium</h2>
+          <ul><li>Bauxite is the ore from which aluminium is obtained.</li><li>Aluminium is lightweight, strong, and corrosion-resistant.</li><li>Major Producers: Odisha (largest), Gujarat, Jharkhand, Maharashtra, Chhattisgarh.</li></ul>
+          <p class="notes">🎙️ Aluminium, derived from bauxite, is a marvel of modern engineering. From aircraft parts to cooking utensils, its unique properties make it invaluable. Odisha's vast bauxite deposits are strategically important for India's aluminium industry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍲</div><div class="vcap">Lightweight &amp; Durable</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2><span class="hl">Non-Metallic</span> Minerals: Mica, Limestone</h2>
+          <ul><li>Mica: Excellent dielectric strength, low power loss factor, insulating properties. Used in electrical and electronic industries.</li><li>Limestone: Basic raw material for cement, also used in iron &amp; steel furnaces.</li><li>Locations: Mica (Jharkhand, Rajasthan, Andhra Pradesh), Limestone (Rajasthan, Madhya Pradesh, Andhra Pradesh).</li></ul>
+          <p class="notes">🎙️ Non-metallic minerals, though not metals, are equally vital. Mica, for instance, is a crucial insulator, making it indispensable for electronics. Limestone is the foundation of our construction industry, literally cementing our infrastructure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Versatile Uses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">Quick Check!</span> Metallic Types</h2>
+          <ul><li>Which of the following pairs correctly differentiates a ferrous from a non-ferrous mineral?</li><li>A) Iron Ore (Ferrous) &amp; Bauxite (Non-Ferrous)</li><li>B) Manganese (Non-Ferrous) &amp; Copper (Ferrous)</li><li>C) Limestone (Ferrous) &amp; Mica (Non-Ferrous)</li><li>D) Gold (Ferrous) &amp; Silver (Non-Ferrous)</li></ul>
+          <p class="notes">🎙️ Think back to the definitions of ferrous and non-ferrous minerals. Remember, ferrous means containing iron. Which option correctly reflects this distinction? (Answer: A)</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>The Need for Mineral <span class="hl">Conservation</span></h2>
+          <ul><li>Minerals are non-renewable resources; their formation takes millions of years.</li><li>Continued extraction leads to depletion and environmental degradation.</li><li>Sustainable development demands judicious use and conservation.</li></ul>
+          <p class="notes">🎙️ Minerals are finite gifts from nature. Once extracted and used, they don't replenish quickly. Therefore, conserving them isn't just an environmental concern; it's an economic and social imperative for future generations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Preserving for Future</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Strategies</span> for Mineral Conservation</h2>
+          <ul><li>Recycling of metals: Reusing extracted metals.</li><li>Using substitute materials: Finding alternatives (e.g., plastic for metal).</li><li>Improved mining technologies: Reducing waste during extraction.</li><li>Export less, use more efficiently: Prioritizing domestic needs.</li></ul>
+          <p class="notes">🎙️ Conservation isn't just about 'not using'; it's about 'using smarter'. Recycling, finding efficient substitutes, and minimizing waste during mining are practical steps India can take to extend the life of its precious mineral resources.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Recycle</span></div><div class="step"><span class="snum">2</span><span>Reuse</span></div><div class="step"><span class="snum">3</span><span>Reduce</span></div><div class="step"><span class="snum">4</span><span>Research Alternatives</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Energy Resources: <span class="hl">Powering</span> Our World</h2>
+          <ul><li>From cooking meals to running factories, energy is essential for everything.</li><li>Economic development is directly linked to energy consumption.</li><li>India's growing population and industrialization demand increasing energy.</li></ul>
+          <p class="notes">🎙️ Just as food fuels our bodies, energy fuels our society. Imagine a day without electricity or fuel for transport. Energy resources are the lifeblood of modern civilization, driving progress and improving quality of life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Lifeblood of Modernity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2><span class="hl">Conventional</span> Energy: The Traditional Fuels</h2>
+          <ul><li>These are energy sources that have been in common use for a long time.</li><li>Examples: Coal, Petroleum, Natural Gas, Hydel Power.</li><li>Mostly non-renewable, except for hydel power.</li></ul>
+          <p class="notes">🎙️ Conventional sources have powered India's growth for decades. While reliable, their environmental impact and finite nature pose significant challenges, pushing us to explore alternatives.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Coal (High Use)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Petroleum (Medium Use)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Natural Gas (Growing Use)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Coal</span>: India's Primary Energy Source</h2>
+          <ul><li>Coal is the most abundant fossil fuel in India.</li><li>Formed over millions of years from decomposed plant matter.</li><li>Major Coalfields: Jharia, Raniganj, Bokaro (Jharkhand), Godavari Valley (Telangana), Singareni (Andhra Pradesh).</li></ul>
+          <p class="notes">🎙️ Coal is the workhorse of India's energy sector, primarily used for electricity generation and in steel production. Our vast coal reserves are a strategic asset, but their mining and burning come with environmental responsibilities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚂</span><span>🚂</span><span>🚂</span><span>🚂</span></div><div class="vcap">Coal Regions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2><span class="hl">Petroleum</span> &amp; Natural Gas: Fueling Transport and Industry</h2>
+          <ul><li>Petroleum (crude oil) is the primary source of energy for transport.</li><li>Natural Gas is an eco-friendly fuel for power generation and vehicles (CNG).</li><li>Major Basins: Mumbai High (offshore), Digboi (Assam), Krishna-Godavari Basin (offshore).</li></ul>
+          <p class="notes">🎙️ Petroleum and natural gas are crucial for India's mobility and industrial processes. While domestic production exists, India imports a significant portion of its crude oil, making it vulnerable to global price fluctuations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⛽</span><span>⛽</span><span>⛽</span></div><div class="vcap">Oil &amp; Gas Fields</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Quick Check!</span> Coal Capitals</h2>
+          <ul><li>Name two major coal fields located in Jharkhand.</li><li>A) Jharia &amp; Bokaro</li><li>B) Singareni &amp; Talcher</li><li>C) Digboi &amp; Raniganj</li><li>D) Korba &amp; Godavari Valley</li></ul>
+          <p class="notes">🎙️ Let's test your memory of India's coal geography! Which of these pairs are prominent coal-producing regions specifically in Jharkhand? (Answer: A)</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">Non-Conventional</span> Energy: The Future of Power</h2>
+          <ul><li>These are renewable energy sources that are continuously replenished.</li><li>Examples: Solar, Wind, Biogas, Tidal, Geothermal, Nuclear.</li><li>Environmentally friendly and sustainable alternatives.</li></ul>
+          <p class="notes">🎙️ As conventional sources dwindle and climate concerns grow, non-conventional energy sources are gaining immense importance. India is making significant strides in harnessing these renewable forms of energy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sustainable Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Solar Energy</span>: India's Bright Future</h2>
+          <ul><li>India is a tropical country with immense potential for solar energy.</li><li>Used for cooking (solar cookers), heating water, and generating electricity.</li><li>Example: Bhadla Solar Park (Rajasthan), one of the world's largest.</li></ul>
+          <p class="notes">🎙️ The sun is an inexhaustible source of energy, especially in India. From rooftop panels to massive solar farms, harnessing solar power is key to reducing our carbon footprint and achieving energy independence.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌞</span><span>🌞</span><span>🌞</span><span>🌞</span><span>🌞</span></div><div class="vcap">Sun's Abundant Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Wind Energy</span>: Harnessing the Breezes</h2>
+          <ul><li>India has a large potential for wind power, especially in coastal regions.</li><li>Wind farms convert kinetic energy of wind into electricity.</li><li>Major States: Tamil Nadu (largest), Andhra Pradesh, Karnataka, Gujarat, Maharashtra.</li></ul>
+          <p class="notes">🎙️ Wind energy provides a clean and renewable alternative to fossil fuels. The long coastlines and windy plains of India offer ideal conditions for large-scale wind power generation, contributing to our green energy goals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Clean &amp; Powerful</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Conserving Energy</span>: A Collective Responsibility</h2>
+          <ul><li>Using public transport instead of private vehicles.</li><li>Switching off lights/fans when not in use.</li><li>Using energy-efficient appliances (BEE star ratings).</li><li>Promoting non-conventional energy sources.</li></ul>
+          <p class="notes">🎙️ Energy conservation isn't just a government policy; it's a daily habit each of us must adopt. Every unit of energy saved contributes to a sustainable future and reduces our reliance on finite resources.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Reduce Waste</span></div><div class="step"><span class="snum">2</span><span>Use Efficiently</span></div><div class="step"><span class="snum">3</span><span>Adopt Renewables</span></div><div class="step"><span class="snum">4</span><span>Educate Others</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> to Avoid</h2>
+          <ul><li>Confusing Ferrous and Non-Ferrous minerals.</li><li>Mixing up Conventional and Non-Conventional energy sources.</li><li>Forgetting the significance of geographical locations for resources.</li><li>Ignoring the 'Why' and 'How' behind conservation.</li></ul>
+          <p class="notes">🎙️ Many students tend to make these common errors. Remember to clearly distinguish between mineral types and energy sources, and always link resources to their geographical distribution and their importance for India.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Learn from Errors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Ace Your Exams: Key Focus Areas</h2>
+          <ul><li>Map Work: Identify major mineral belts and energy fields.</li><li>Distinguish between: Metallic/Non-Metallic, Ferrous/Non-Ferrous, Conventional/Non-Conventional.</li><li>Why/How Questions: Conservation, economic significance, environmental impact.</li><li>Case Studies: Specific examples like Bhadla Solar Park, Khetri Copper Mines.</li></ul>
+          <p class="notes">🎙️ For your exams, focus on understanding the concepts rather than just memorizing facts. Practice map-based questions and be ready to explain the 'why' and 'how' of resource management and their impact on India's development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Smart Study</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Recap</span>: Our Journey Through Resources</h2>
+          <ul><li>Minerals are Earth's natural building blocks, classified as metallic (ferrous/non-ferrous) and non-metallic.</li><li>India is rich in iron ore, bauxite, and mica, but deficient in copper and petroleum.</li><li>Energy resources are vital for development, categorized as conventional (coal, petroleum) and non-conventional (solar, wind).</li><li>Conservation of both minerals and energy is crucial for sustainable development.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the importance of minerals and energy in our daily lives and for national development. Most importantly, understand our collective responsibility to conserve these precious resources for a sustainable future. Thank you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 10 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

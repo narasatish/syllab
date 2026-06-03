@@ -37,8 +37,10 @@ import {
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 import ChallengesView from '../components/skillslab/ChallengesView';
+import CodingQuickCheck from '../components/skillslab/CodingQuickCheck';
+import PythonRunner from '../components/skillslab/PythonRunner';
 import ProjectsGalleryView from '../components/skillslab/ProjectsGalleryView';
-import { getCodingFeedback, CodingFeedback } from '../lib/api';
+import { getCodingFeedback, getModelSolution, CodingFeedback } from '../lib/api';
 import {
   LANGUAGES,
   TOPICS_BY_LANGUAGE,
@@ -476,7 +478,28 @@ function PracticeChallenge({
 }) {
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
+  const [aiSolution, setAiSolution] = useState<string | null>(null);
+  const [solLoading, setSolLoading] = useState(false);
   const p = topic.practice;
+
+  const revealSolution = async () => {
+    // Toggle off if already open.
+    if (showSolution) { setShowSolution(false); return; }
+    setShowSolution(true);
+    // Static solution wins; otherwise fetch a model answer on demand.
+    if (!p.solution && !aiSolution) {
+      setSolLoading(true);
+      try {
+        const code = await getModelSolution(lang.id, p.description || p.title || topic.title);
+        setAiSolution(code);
+      } catch {
+        setAiSolution('// Could not load the solution right now. Please try again in a moment.');
+      } finally {
+        setSolLoading(false);
+      }
+    }
+  };
+  const solutionText = p.solution || aiSolution;
 
   return (
     <div className="rounded-3xl border-2 border-slate-200 bg-white overflow-hidden shadow-sm">
@@ -552,32 +575,37 @@ function PracticeChallenge({
           />
         )}
 
-        {/* Show solution — hidden by default, user clicks to reveal */}
-        {p.solution && (
-          <div>
-            <button
-              onClick={() => setShowSolution((v) => !v)}
-              className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors border border-amber-200 bg-amber-50 px-3 py-2 rounded-xl"
-            >
-              {showSolution ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
-              {showSolution ? '🙈 Hide Answer' : '💡 Show Answer (only after trying!)'}
-            </button>
-            <AnimatePresence>
-              {showSolution && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="overflow-hidden mt-3"
-                >
+        {/* Show solution — always available. Uses the hard-coded answer if the
+            challenge has one, else fetches a model answer from the AI on demand. */}
+        <div>
+          <button
+            onClick={revealSolution}
+            className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors border border-amber-200 bg-amber-50 px-3 py-2 rounded-xl"
+          >
+            {showSolution ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+            {showSolution ? '🙈 Hide Answer' : '💡 Show Answer (only after trying!)'}
+          </button>
+          <AnimatePresence>
+            {showSolution && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="overflow-hidden mt-3"
+              >
+                {solLoading ? (
+                  <div className="flex items-center gap-2 text-slate-500 text-sm font-semibold px-2 py-3">
+                    <Loader2 size={14} className="animate-spin" /> Loading the solution…
+                  </div>
+                ) : (
                   <pre className="bg-slate-900 text-emerald-400 rounded-2xl p-5 text-xs font-mono overflow-x-auto whitespace-pre leading-relaxed">
-                    {p.solution}
+                    {solutionText}
                   </pre>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        )}
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
@@ -689,6 +717,9 @@ function TopicContent({
         </section>
       )}
 
+      {/* Quick Check — follow-up MCQs for this topic */}
+      <CodingQuickCheck topicId={topic.id} />
+
       {/* Try It Yourself */}
       <section>
         <div className="flex items-center justify-between mb-4">
@@ -719,6 +750,8 @@ function TopicContent({
             >
               {topic.livePreview ? (
                 <LivePreviewEditor initialCode={topic.code} />
+              ) : lang.id === 'python' ? (
+                <PythonRunner initialCode={topic.code} expectedOutput={topic.output} />
               ) : (
                 <AIFeedbackEditor
                   initialCode={topic.code}

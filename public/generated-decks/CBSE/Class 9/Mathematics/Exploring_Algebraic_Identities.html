@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to 'Exploring <span class="hl">Algebraic Identities</span>'!</h2>
-          <ul><li>Unlocking the power of algebraic shortcuts</li><li>Simplifying complex expressions</li><li>Making calculations faster and easier</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Algebraic Identities. These are special equations that hold true for all values of variables, acting as powerful tools to simplify and solve mathematical problems. Get ready to discover some amazing shortcuts!</p>
+          <span class="num">1 / 30</span>
+          <h2>Exploring <span class="hl">Algebraic Identities</span></h2>
+          <ul><li>Welcome to the world of fascinating math!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the heart of algebra. Get ready to discover some powerful tools that will make solving complex problems much simpler!</p>
         </div>
         
       </div>
@@ -71,58 +77,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>What are Algebraic <span class="hl">Expressions</span>?</h2>
-          <ul><li>Combinations of variables, constants, and operations</li><li>No equality sign, unlike equations</li><li>Examples: x + 5, 2y - 3, 3x² + 7</li></ul>
-          <p class="notes">🎙️ Before we dive into identities, let's quickly recall what algebraic expressions are. They are like mathematical phrases built with variables, numbers, and basic operations. Remember, an expression doesn't have an equals sign, so we can't 'solve' it, only simplify or evaluate it.</p>
+          <span class="num">2 / 30</span>
+          <h2>The "<span class="hl">Shortcut</span>" to Calculation!</h2>
+          <ul><li>Imagine calculating (105)² quickly!</li><li>What if you could multiply 98 x 102 in seconds?</li><li>Algebraic identities are your secret weapon!</li></ul>
+          <p class="notes">🎙️ Have you ever wondered if there's a faster way to do big calculations without a calculator? Like finding 105 squared, or multiplying numbers close to 100? Today, we'll learn some amazing mathematical 'shortcuts' that help us do just that!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Building Blocks</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Quick Math</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Explore</span> Today</h2>
+          <ul><li>Understand what Algebraic Identities are</li><li>Learn to derive and apply four key identities</li><li>Solve problems efficiently using these identities</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll not only know what algebraic identities are, but also how to use them to solve problems quickly and accurately. These tools are fundamental for higher mathematics!</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2><span class="hl">Equations</span> vs. Expressions</h2>
-          <ul><li>An equation states that two expressions are equal</li><li>Contains an equality sign (=)</li><li>Example: x + 5 = 10</li></ul>
-          <p class="notes">🎙️ The key difference between an expression and an equation is the equality sign. An equation sets two expressions equal to each other, creating a balance. We can solve equations to find specific values of variables that make the statement true.</p>
+          <span class="num">4 / 30</span>
+          <h2>A Quick Peek at <span class="hl">Algebra</span></h2>
+          <ul><li>Algebra uses letters (variables) to represent numbers</li><li>Expressions combine variables and constants</li><li>Equations show two expressions are equal</li></ul>
+          <p class="notes">🎙️ Remember algebra? It's like a puzzle where letters stand for unknown numbers. We combine them with operations to form expressions, and when two expressions are equal, we call it an equation. Identities are a special kind of equation!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Variables &amp; Operations</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>What are Algebraic <span class="hl">Identities</span>?</h2>
-          <ul><li>Equations that are true for ALL values of variables</li><li>Like a universal truth in algebra</li><li>Always holds true, no matter what!</li></ul>
-          <p class="notes">🎙️ An algebraic identity is a special type of equation that remains true regardless of what numbers you substitute for its variables. Think of them as fundamental rules or formulas that are always reliable. They are different from conditional equations, which are only true for specific values.</p>
+          <span class="num">5 / 30</span>
+          <h2>The "<span class="hl">Always True</span>" Statements</h2>
+          <ul><li>Think of a recipe that always works, no matter the ingredients!</li><li>An identity is a mathematical statement that is true for ALL values of its variables.</li></ul>
+          <p class="notes">🎙️ Imagine you have a magic recipe for a delicious dish. No matter what quantity of ingredients you use (as long as you follow the ratios), the dish always turns out perfect! Similarly, an identity in math is a statement that holds true for every possible value you put into its variables.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Always True</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Always Correct</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2><span class="hl">Why</span> Do We Need Identities?</h2>
-          <ul><li>Simplify complex multiplications</li><li>Factorize expressions easily</li><li>Solve problems faster and more efficiently</li></ul>
-          <p class="notes">🎙️ Identities are incredibly useful! They provide us with ready-made formulas to expand products or factorize expressions, saving us a lot of time and effort. They turn what could be a lengthy calculation into a quick and simple step, making algebra much more manageable.</p>
+          <span class="num">6 / 30</span>
+          <h2><span class="hl">Defining</span> Algebraic Identities</h2>
+          <ul><li>An algebraic identity is an equality that holds true for all values of the variables involved.</li><li>It's like a universal rule in algebra.</li><li>For example, (a+b)² = a² + 2ab + b² is an identity.</li></ul>
+          <p class="notes">🎙️ Formally, an algebraic identity is an equation that remains true, no matter what numbers you substitute for its variables. It's not just true for a few specific values, but for absolutely every value. This makes them incredibly useful shortcuts!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Smart Solutions</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">True Equality</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Identity 1: The Square of a Sum</h2>
-          <ul><li>(a + b)² = a² + 2ab + b²</li><li>The square of the first term</li><li>Plus twice the product of the terms</li><li>Plus the square of the second term</li></ul>
-          <p class="notes">🎙️ Our first identity is for squaring a sum of two terms. It states that (a + b)² is equal to a² + 2ab + b². This means when you multiply (a+b) by itself, you get the square of 'a', plus twice the product of 'a' and 'b', plus the square of 'b'.</p>
+          <span class="num">7 / 30</span>
+          <h2>Equation vs. Identity: A Key <span class="hl">Difference</span></h2>
+          <ul><li>Equations are true for specific values</li><li>Identities are true for all values</li><li>Identities are special types of equations</li></ul>
+          <p class="notes">🎙️ This is a crucial distinction. An equation, like x + 5 = 10, is only true when x is 5. But an identity, like (a+b)² = a² + 2ab + b², is true whether 'a' is 1 and 'b' is 2, or 'a' is -5 and 'b' is 10. Identities are much more powerful because of their universal truth.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Equation</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Identity</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Identity 1: The <span class="hl">Square of a Sum</span></h2>
+          <ul><li>Let's start with a very common identity!</li><li>It helps us expand expressions like (x + 3)² quickly.</li><li>No need for lengthy multiplication!</li></ul>
+          <p class="notes">🎙️ Our first identity is super handy for squaring expressions where two terms are added together. Instead of writing (a+b) multiplied by (a+b) and doing all the steps, this identity gives us a direct formula. Let's see how it works!</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Sum Squared</div></div></div>
       </div>
@@ -131,46 +161,58 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Visualizing</span> (a + b)²</h2>
-          <ul><li>Imagine a large square with side (a + b)</li><li>It can be divided into four smaller areas</li><li>One square of side 'a' (a²)</li><li>One square of side 'b' (b²), and two rectangles of sides 'a' and 'b' (ab)</li></ul>
-          <p class="notes">🎙️ We can geometrically understand this identity by imagining a large square. If its side length is (a+b), its total area is (a+b)². We can divide this large square into four parts: a square of area a², another square of area b², and two rectangles, each with area ab. Adding these parts gives a² + ab + ab + b², which simplifies to a² + 2ab + b².</p>
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Deriving</span> (a + b)²</h2>
+          <ul><li>(a + b)² = (a + b)(a + b)</li><li>Use distributive property: a(a+b) + b(a+b)</li><li>= a² + ab + ba + b²</li><li>= a² + 2ab + b²</li></ul>
+          <p class="notes">🎙️ We can derive this identity by simply multiplying (a+b) by itself. See how the distributive property helps us break it down. Notice that 'ab' and 'ba' are the same, so they combine to give us '2ab'. And there you have it, our first identity!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span></div><div class="vcap">Area Parts</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>(a+b)(a+b)</span></div><div class="step"><span class="snum">2</span><span>a(a+b)+b(a+b)</span></div><div class="step"><span class="snum">3</span><span>a²+ab+ba+b²</span></div><div class="step"><span class="snum">4</span><span>a²+2ab+b²</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Real-Life Use: <span class="hl">Area</span> of a Garden</h2>
-          <ul><li>A square garden has side length (10 + 2) meters</li><li>Find its area using the identity</li><li>(10 + 2)² = 10² + 2(10)(2) + 2²</li></ul>
-          <p class="notes">🎙️ Let's say you have a square garden with each side measuring 12 meters, which can be thought of as (10+2) meters. Instead of directly calculating 12², we can use the identity. This gives us 100 + 40 + 4, which is 144 square meters, a neat way to do mental math for areas.</p>
+          <span class="num">10 / 30</span>
+          <h2>Applying (a + b)²: <span class="hl">Numerical Example</span></h2>
+          <ul><li>Calculate (103)² using the identity.</li><li>Think of 103 as (100 + 3).</li><li>(100 + 3)² = 100² + 2(100)(3) + 3²</li><li>= 10000 + 600 + 9 = 10609.</li></ul>
+          <p class="notes">🎙️ Let's apply this identity to a real number. Calculating 103 squared directly can be tedious. But by breaking 103 into (100 + 3), we can use the identity to quickly find the answer. Isn't that much faster than traditional multiplication?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Garden Area</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💯</span><span>💯</span><span>💯</span></div><div class="vcap">(100 + 3)²</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: (x + 3)²</h2>
-          
-          <p class="notes">🎙️ To expand (x + 3)², we identify 'a' as 'x' and 'b' as '3'. Applying the identity (a + b)² = a² + 2ab + b², we get x² + 2(x)(3) + 3². This simplifies to x² + 6x + 9. See how straightforward it becomes with the identity!</p>
+          <span class="num">11 / 30</span>
+          <h2>Applying (a + b)²: <span class="hl">Algebraic Example</span></h2>
+          <ul><li>Expand (2x + 5)²</li><li>Here, a = 2x and b = 5.</li><li>(2x + 5)² = (2x)² + 2(2x)(5) + 5²</li><li>= 4x² + 20x + 25.</li></ul>
+          <p class="notes">🎙️ This identity is even more powerful when dealing with algebraic expressions. To expand (2x + 5)², we just substitute '2x' for 'a' and '5' for 'b' into our formula. Remember to square '2x' completely, meaning (2x)*(2x) which is 4x².</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a and b</span></div><div class="step"><span class="snum">2</span><span>Apply identity: a² + 2ab + b²</span></div><div class="step"><span class="snum">3</span><span>Substitute and Simplify</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Algebraic Expansion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Identity 1</h2>
+          <ul><li>What is (y + 7)?</li><li>Choose the correct option:</li><li>A) y² + 49</li><li>B) y² + 7y + 49</li><li>C) y² + 14y + 49.</li></ul>
+          <p class="notes">🎙️ Alright, time for a quick mental check! Use the identity (a+b)² to expand (y+7)². Think carefully about each term. Which option do you think is correct? Take a moment to calculate it.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Identity 2: The Square of a Difference</h2>
-          <ul><li>(a - b)² = a² - 2ab + b²</li><li>The square of the first term</li><li>Minus twice the product of the terms</li><li>Plus the square of the second term</li></ul>
-          <p class="notes">🎙️ Next, we have the identity for squaring a difference: (a - b)² = a² - 2ab + b². Notice the only change from the previous identity is the minus sign before the '2ab' term. This is crucial to remember when expanding such expressions.</p>
+          <span class="num">13 / 30</span>
+          <h2>Identity 2: The <span class="hl">Square of a Difference</span></h2>
+          <ul><li>What if we have a subtraction instead of an addition?</li><li>This identity helps with expressions like (x - 4)².</li><li>Very similar to the first one, with a small but important change!</li></ul>
+          <p class="notes">🎙️ Now, let's look at a very similar identity, but this time for the square of a difference. Just like the sum, squaring a difference has its own shortcut. Pay close attention to how it differs from the first identity.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Difference Squared</div></div></div>
       </div>
@@ -179,130 +221,94 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Real-Life Use: <span class="hl">Discount</span> Price</h2>
-          <ul><li>Calculate (100 - 5)² quickly</li><li>Imagine an item priced at Rs 100, with a Rs 5 reduction</li><li>Square of the new price: (100 - 5)² = 100² - 2(100)(5) + 5²</li></ul>
-          <p class="notes">🎙️ Suppose you need to quickly calculate 95² for a discount scenario (100-5). Using the identity, it's 100² - 2(100)(5) + 5². This becomes 10000 - 1000 + 25, which is 9025. It's much faster than multiplying 95 by 95 directly.</p>
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Deriving</span> (a - b)²</h2>
+          <ul><li>(a - b)² = (a - b)(a - b)</li><li>Use distributive property: a(a-b) - b(a-b)</li><li>= a² - ab - ba + b²</li><li>= a² - 2ab + b²</li></ul>
+          <p class="notes">🎙️ Similar to (a+b)², we multiply (a-b) by itself. The key difference here is the minus sign. When we distribute, we get -ab and -ba, which combine to -2ab. Also, remember that (-b)(-b) becomes +b². This gives us a² - 2ab + b².</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏷️</div><div class="vcap">Price Reduction</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>(a-b)(a-b)</span></div><div class="step"><span class="snum">2</span><span>a(a-b)-b(a-b)</span></div><div class="step"><span class="snum">3</span><span>a²-ab-ba+b²</span></div><div class="step"><span class="snum">4</span><span>a²-2ab+b²</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: (2y - 5)²</h2>
-          
-          <p class="notes">🎙️ Let's expand (2y - 5)². Here, 'a' is 2y and 'b' is 5. Applying the identity (a - b)² = a² - 2ab + b², we get (2y)² - 2(2y)(5) + 5². This simplifies to 4y² - 20y + 25. Pay close attention to squaring the entire term '2y'.</p>
+          <span class="num">15 / 30</span>
+          <h2>Applying (a - b)²: <span class="hl">Numerical Example</span></h2>
+          <ul><li>Calculate (97)² using the identity.</li><li>Think of 97 as (100 - 3).</li><li>(100 - 3)² = 100² - 2(100)(3) + 3²</li><li>= 10000 - 600 + 9 = 9409.</li></ul>
+          <p class="notes">🎙️ Let's use this identity for 97 squared. It's easier to think of 97 as (100 - 3). Plugging these values into our identity, we get 10000 minus 600 plus 9, which is 9409. Again, a quick and efficient way to calculate!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a and b</span></div><div class="step"><span class="snum">2</span><span>Apply identity: a² - 2ab + b²</span></div><div class="step"><span class="snum">3</span><span>Substitute and Simplify</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📉</span><span>📉</span><span>📉</span></div><div class="vcap">(100 - 3)²</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Identity 3: Difference of Squares</h2>
-          <ul><li>(a + b)(a - b) = a² - b²</li><li>Product of a sum and a difference</li><li>Equals the square of the first term minus the square of the second term</li></ul>
-          <p class="notes">🎙️ This identity is incredibly useful for factorization and quick multiplication. When you multiply two binomials where one is a sum (a+b) and the other is a difference (a-b), the result is simply the square of 'a' minus the square of 'b'. The 'ab' terms cancel each other out.</p>
+          <span class="num">16 / 30</span>
+          <h2>Applying (a - b)²: <span class="hl">Algebraic Example</span></h2>
+          <ul><li>Expand (3p - 4q)²</li><li>Here, a = 3p and b = 4q.</li><li>(3p - 4q)² = (3p)² - 2(3p)(4q) + (4q)²</li><li>= 9p² - 24pq + 16q².</li></ul>
+          <p class="notes">🎙️ For an algebraic example like (3p - 4q)², we substitute '3p' for 'a' and '4q' for 'b'. Be careful with the multiplication of terms and ensure you square both the coefficient and the variable, like (3p)² becoming 9p².</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Opposite Factors</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Expression Squared</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">Visualizing</span> (a² - b²)</h2>
-          <ul><li>Start with a square of side 'a' (area a²)</li><li>Cut out a smaller square of side 'b' from a corner (area b²)</li><li>The remaining L-shaped area can be rearranged</li><li>It forms a rectangle with sides (a + b) and (a - b)</li></ul>
-          <p class="notes">🎙️ Imagine a large square with side 'a'. If you cut out a smaller square of side 'b' from one corner, the remaining area is a² - b². You can then cut this remaining L-shaped region and rearrange it to form a rectangle. This new rectangle will have dimensions (a+b) and (a-b), visually proving the identity.</p>
+          <span class="num">17 / 30</span>
+          <h2>Identity 3: <span class="hl">Product</span> of Sum and Difference</h2>
+          <ul><li>This identity is very elegant and useful!</li><li>It helps multiply expressions like (x + 5)(x - 5).</li><li>Notice the terms are the same, but the operation is different!</li></ul>
+          <p class="notes">🎙️ Our third identity is one of my favorites! It deals with multiplying two binomials where one is a sum and the other is a difference of the *same* two terms. This one leads to a surprisingly simple result. Let's uncover it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✂️</span></div><div class="vcap">Cutting &amp; Rearranging</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiply Smart</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Real-Life Use: Quick Multiplication</h2>
-          <ul><li>Calculate 52 x 48 mentally</li><li>Recognize as (50 + 2)(50 - 2)</li><li>Apply identity: 50² - 2²</li></ul>
-          <p class="notes">🎙️ This identity is a fantastic trick for multiplying numbers close to a multiple of 10. For example, to multiply 52 by 48, you can rewrite it as (50+2)(50-2). Using the identity, this becomes 50² - 2², which is 2500 - 4 = 2496. It's much faster than traditional multiplication.</p>
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Deriving</span> (a + b)(a - b)</h2>
+          <ul><li>(a + b)(a - b) = a(a - b) + b(a - b)</li><li>= a² - ab + ba - b²</li><li>= a² - b². (Since -ab + ba cancels out!)</li></ul>
+          <p class="notes">🎙️ When we multiply (a+b) by (a-b), something wonderful happens! The middle terms, -ab and +ba, cancel each other out perfectly. This leaves us with just a² - b², the difference of two squares. It's a beautiful simplification!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Fast Calculation</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>(a+b)(a-b)</span></div><div class="step"><span class="snum">2</span><span>a(a-b)+b(a-b)</span></div><div class="step"><span class="snum">3</span><span>a²-ab+ba-b²</span></div><div class="step"><span class="snum">4</span><span>a²-b²</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: (3x + 4)(3x - 4)</h2>
-          
-          <p class="notes">🎙️ To expand (3x + 4)(3x - 4), we identify 'a' as 3x and 'b' as 4. Applying the identity (a + b)(a - b) = a² - b², we get (3x)² - 4². This simplifies to 9x² - 16. It's a very direct application once you recognize the pattern.</p>
+          <span class="num">19 / 30</span>
+          <h2>Applying (a + b)(a - b): <span class="hl">Numerical Example</span></h2>
+          <ul><li>Calculate 105 x 95 using the identity.</li><li>Think of 105 as (100 + 5) and 95 as (100 - 5).</li><li>(100 + 5)(100 - 5) = 100² - 5²</li><li>= 10000 - 25 = 9975.</li></ul>
+          <p class="notes">🎙️ This identity is fantastic for multiplying numbers that are equidistant from a round number. For 105 x 95, we can write it as (100+5)(100-5). Using the identity, it becomes 100 squared minus 5 squared, a very easy calculation! Imagine doing this without the identity.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a and b</span></div><div class="step"><span class="snum">2</span><span>Apply identity: a² - b²</span></div><div class="step"><span class="snum">3</span><span>Substitute and Simplify</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span></div><div class="vcap">Quick Calculation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Identity 4: Product of Binomials</h2>
-          <ul><li>(x + a)(x + b) = x² + (a + b)x + ab</li><li>The square of the common term 'x'</li><li>Plus the sum of 'a' and 'b' multiplied by 'x'</li><li>Plus the product of 'a' and 'b'</li></ul>
-          <p class="notes">🎙️ Our fourth identity deals with multiplying two binomials that have a common first term, 'x', but different second terms, 'a' and 'b'. The expansion gives us x² plus the sum of 'a' and 'b' times 'x', plus the product of 'a' and 'b'. This is a very general and useful identity.</p>
+          <span class="num">20 / 30</span>
+          <h2>Applying (a + b)(a - b): <span class="hl">Algebraic Example</span></h2>
+          <ul><li>Simplify (4x + 3y)(4x - 3y)</li><li>Here, a = 4x and b = 3y.</li><li>(4x + 3y)(4x - 3y) = (4x)² - (3y)²</li><li>= 16x² - 9y².</li></ul>
+          <p class="notes">🎙️ For algebraic expressions, this identity is a huge time-saver. When you see two brackets with identical terms but opposite signs, immediately think of a² - b². Here, 'a' is 4x and 'b' is 3y, leading to 16x² - 9y².</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Binomial Product</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Real-Life Use: Combined <span class="hl">Area</span></h2>
-          <ul><li>Two rectangular plots, one (x+2) by x, another (x+3) by x</li><li>Or a single plot (x+2) by (x+3) if we consider combined dimensions</li><li>Area: x² + (2+3)x + (2)(3)</li></ul>
-          <p class="notes">🎙️ Imagine you have a rectangular field with length (x+3) meters and width (x+2) meters. To find its area, you'd multiply (x+3) by (x+2). Using our identity, the area would be x² + (3+2)x + (3)(2), which simplifies to x² + 5x + 6 square meters. This helps in quick area calculations in various fields.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Plot Dimensions</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: (y + 7)(y - 3)</h2>
-          
-          <p class="notes">🎙️ Let's expand (y + 7)(y - 3). Here, 'x' is 'y', 'a' is 7, and 'b' is -3. Applying the identity x² + (a + b)x + ab, we get y² + (7 + (-3))y + (7)(-3). This simplifies to y² + 4y - 21. Remember to pay attention to the signs of 'a' and 'b'.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify x, a, and b</span></div><div class="step"><span class="snum">2</span><span>Apply identity: x² + (a+b)x + ab</span></div><div class="step"><span class="snum">3</span><span>Substitute and Simplify</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Simplifying Expressions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Expand: (m + 5)²</li><li>Simplify: (4p - 3q)²</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Take a moment to apply the first two identities we've learned. Try to expand (m + 5)² and simplify (4p - 3q)². Think about the 'a' and 'b' terms carefully and recall the correct signs for each identity.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Evaluate: 103 x 97</li><li>Expand: (z + 6)(z + 2)</li></ul>
-          <p class="notes">🎙️ Let's try two more! For 103 x 97, think about which identity can make this multiplication super fast. For (z + 6)(z + 2), identify the common term and the distinct terms to apply the fourth identity. Good luck!</p>
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Identity 2 &amp; 3</h2>
+          <ul><li>Simplify (50 - 1)² and (m + 6)(m - 6).</li><li>What are the results?</li><li>A) 2401, m²-36</li><li>B) 2499, m²-36</li><li>C) 2401, m²+36.</li></ul>
+          <p class="notes">🎙️ Now, let's test your understanding of the last two identities. Try to quickly calculate (50-1)² and then simplify (m+6)(m-6). Remember the specific patterns for each. Which option matches both answers?</p>
         </div>
         
       </div>
@@ -311,48 +317,108 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Our Key Identities So Far</h2>
-          <ul><li>(a + b)² = a² + 2ab + b²</li><li>(a - b)² = a² - 2ab + b²</li><li>(a + b)(a - b) = a² - b²</li><li>(x + a)(x + b) = x² + (a + b)x + ab</li></ul>
-          <p class="notes">🎙️ Here's a quick recap of the four fundamental algebraic identities we've covered today. Each one offers a unique way to simplify or expand expressions. Understanding their structure and knowing when to apply them is key to mastering algebra.</p>
+          <span class="num">22 / 30</span>
+          <h2>Identity 4: Product of <span class="hl">Two Binomials</span></h2>
+          <ul><li>This identity helps multiply two binomials with a common first term.</li><li>E.g., (x + 2)(x + 5).</li><li>It's a generalization of our simple multiplication!</li></ul>
+          <p class="notes">🎙️ Our final identity for today is a bit more general. It's for multiplying two binomials where the first term is the same, but the second terms are different. This identity helps us systematize this type of multiplication, making it less prone to errors.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(a+b)²</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(a-b)²</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(a+b)(a-b)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">(x+a)(x+b)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">General Multiplication</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>What's Next? <span class="hl">Cube Identities</span>!</h2>
-          <ul><li>There are more identities to explore</li><li>Identities for cubes: (a + b)³, (a - b)³</li><li>These will further expand our algebraic toolkit</li></ul>
-          <p class="notes">🎙️ Our journey with identities doesn't end here! Just as we squared binomials, we can also cube them. In upcoming lessons, we will delve into identities involving cubes, such as (a + b)³ and (a - b)³, which open up even more possibilities for simplifying complex expressions. Stay curious!</p>
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Deriving</span> (x + a)(x + b)</h2>
+          <ul><li>(x + a)(x + b) = x(x + b) + a(x + b)</li><li>= x² + xb + ax + ab</li><li>= x² + (a + b)x + ab</li></ul>
+          <p class="notes">🎙️ Let's derive this identity using the distributive property. We multiply 'x' by (x+b) and 'a' by (x+b). Then, we combine the like terms 'xb' and 'ax' by taking 'x' common, which gives us (a+b)x. This identity has three terms in its expansion.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">3D Expansion</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>(x+a)(x+b)</span></div><div class="step"><span class="snum">2</span><span>x(x+b)+a(x+b)</span></div><div class="step"><span class="snum">3</span><span>x²+xb+ax+ab</span></div><div class="step"><span class="snum">4</span><span>x²+(a+b)x+ab</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Practice</span> Makes Perfect!</h2>
-          <ul><li>Regular practice is essential for mastery</li><li>Solve various problems from your textbook</li><li>Applying identities correctly takes time and effort</li></ul>
-          <p class="notes">🎙️ Remember, understanding is the first step, but mastery comes with consistent practice. Make sure to work through many problems from your textbook and assignments. The more you practice applying these identities, the more intuitive and quick you'll become at solving algebraic problems.</p>
+          <span class="num">24 / 30</span>
+          <h2>Applying (x + a)(x + b): <span class="hl">Numerical Example</span></h2>
+          <ul><li>Calculate 103 x 105 using the identity.</li><li>Think of 103 as (100 + 3) and 105 as (100 + 5).</li><li>Here, x = 100, a = 3, b = 5.</li><li>(100 + 3)(100 + 5) = 100² + (3 + 5)100 + (3)(5)</li><li>= 10000 + 800 + 15 = 10815.</li></ul>
+          <p class="notes">🎙️ This identity is perfect for multiplying numbers slightly larger than a round number. For 103 x 105, we can use x=100, a=3, and b=5. Plug these into the formula, and you'll quickly get 10815. No need for long multiplication!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✍️</span><span>✍️</span><span>✍️</span><span>✍️</span><span>✍️</span><span>✍️</span><span>✍️</span></div><div class="vcap">Write and Learn</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span></div><div class="vcap">Multiplying Numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Applying (x + a)(x + b): <span class="hl">Algebraic Example</span></h2>
+          <ul><li>Expand (y + 4)(y - 7)</li><li>Here, x = y, a = 4, b = -7.</li><li>(y + 4)(y - 7) = y² + (4 + (-7))y + (4)(-7)</li><li>= y² + (-3)y - 28 = y² - 3y - 28.</li></ul>
+          <p class="notes">🎙️ This identity works even when 'a' or 'b' are negative. For (y+4)(y-7), 'x' is 'y', 'a' is '4', and 'b' is '-7'. Remember to handle the signs carefully, especially when adding 'a' and 'b' and multiplying them. This leads to y² - 3y - 28.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Algebraic Expansion</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Thank You &amp; <span class="hl">Questions</span>!</h2>
-          <ul><li>Any questions on today's lesson?</li><li>Feel free to ask for clarifications</li><li>Keep exploring the world of mathematics!</li></ul>
-          <p class="notes">🎙️ Thank you for your active participation today! I hope you found this introduction to algebraic identities helpful and exciting. Please don't hesitate to ask if you have any questions or need further explanation on any of the concepts we discussed. Keep up the great work!</p>
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Identity 4</h2>
+          <ul><li>Expand (z - 2)(z + 8).</li><li>What is the correct expansion?</li><li>A) z² + 6z - 16</li><li>B) z² - 16</li><li>C) z² - 6z - 16.</li></ul>
+          <p class="notes">🎙️ Another quick check for you! Apply the identity (x+a)(x+b) to expand (z-2)(z+8). Pay close attention to the signs of 'a' and 'b'. Which option correctly represents the expanded form?</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Avoid These Common <span class="hl">Mistakes</span>!</h2>
+          <ul><li>Forgetting the '2ab' term in (a+b)² and (a-b)²</li><li>Incorrect signs, especially with negative 'b' values</li><li>Confusing identities with general equations</li><li>Not squaring both coefficient and variable (e.g., (2x)² ≠ 2x²).</li></ul>
+          <p class="notes">🎙️ While identities are shortcuts, it's easy to make small errors. A very common one is forgetting the '2ab' term, or getting the sign wrong for it. Also, remember that (2x)² means (2x)*(2x), which is 4x², not just 2x². Practice helps overcome these!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Be Careful!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Ace Your Exams: Identity Tips!</h2>
+          <ul><li>Memorize all four identities thoroughly</li><li>Understand the derivation to re-derive if you forget</li><li>Practice identifying which identity to use</li><li>Show clear steps for full marks in problems</li></ul>
+          <p class="notes">🎙️ To truly master identities for your exams, memorization is key, but understanding the derivation is even better – it's your backup! Practice recognizing the patterns to pick the right identity quickly. And always show your work clearly, especially for multi-step problems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Success Strategies</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Today's <span class="hl">Takeaways</span>: Identities at a Glance</h2>
+          <ul><li>Identity 1: (a + b)² = a² + 2ab + b²</li><li>Identity 2: (a - b)² = a² - 2ab + b²</li><li>Identity 3: (a + b)(a - b) = a² - b²</li><li>Identity 4: (x + a)(x + b) = x² + (a + b)x + ab</li></ul>
+          <p class="notes">🎙️ We've covered four powerful algebraic identities today. These are your fundamental tools for simplifying expressions and performing quick calculations. Remember these formulas, and you'll be a math wizard in no time!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Your Next <span class="hl">Challenge</span>!</h2>
+          <ul><li>Try to expand (a + b + c)². (Hint: Group terms!)</li><li>Think about how identities simplify complex expressions.</li><li>Keep practicing to become an identity expert!</li></ul>
+          <p class="notes">🎙️ You've learned the basics, now for a little challenge! Can you expand (a+b+c)² using the identities you've learned? Think about grouping (a+b) as one term. Identities are the building blocks for more advanced algebra, so keep practicing and exploring!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Explore More</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

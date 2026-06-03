@@ -10,6 +10,7 @@
  */
 
 import { DIAGRAMS } from '../data/diagramLab';
+import { SOCIAL_IMAGES } from '../data/socialImages';
 
 export interface LessonImage {
   url: string;
@@ -151,13 +152,140 @@ export function pickSlideImage(
   slideText: string,
   classLevel: string,
   subject?: string,
+  chapterTitle?: string,
 ): LessonImage | null {
   const cls = parseInt(classLevel) || 8;
+  // Social Science has its own verified image set (India maps, history photos,
+  // civics/economics visuals) — keyed off the chapter title.
+  if (subject === 'Social Science') {
+    return chapterTitle ? pickSocialImage(chapterTitle) : null;
+  }
   // Concept images (pizza/apple/clock) are kid-relatable — only for Classes 1-5,
   // never on senior slides (an apple on a Class 12 Physics slide is wrong).
   const concept = cls <= 5 ? matchConcept(slideText) : null;
   // Only science subjects may use the science diagram library.
   const allowDiagram = !subject || SCIENCE_SUBJECTS.has(subject);
   const diagram = allowDiagram ? matchDiagram(slideText, cls) : null;
-  return cls <= 5 ? (concept || diagram) : (diagram || concept);
+  // Science fallback: if this slide didn't match its own diagram, offer the
+  // CHAPTER's diagram (class + subject filtered). The generator de-dupes, so the
+  // chapter diagram appears once — guaranteeing a real image on science decks.
+  const chapterDiagram = (!diagram && allowDiagram && chapterTitle)
+    ? pickChapterDiagram(chapterTitle, classLevel, subject) : null;
+  return cls <= 5 ? (concept || diagram || chapterDiagram) : (diagram || chapterDiagram || concept);
+}
+
+const SUBJECT_TO_DIAGRAM: Record<string, 'physics' | 'chemistry' | 'biology' | undefined> = {
+  Physics: 'physics', Chemistry: 'chemistry', Biology: 'biology', Science: undefined,
+};
+
+// Tokens that are too generic to anchor a chapter→diagram match on their own.
+// Without this, "Methods of Separation in Everyday Life" matches "Life Cycle of
+// a Frog" on the word "life". Distinctive science nouns are NOT listed here.
+const WEAK_TOKENS = new Set([
+  'life', 'everyday', 'around', 'world', 'our', 'modern', 'types', 'type', 'system',
+  'structure', 'process', 'processes', 'methods', 'method', 'science', 'study',
+  'concept', 'concepts', 'matter', 'human', 'natural', 'management', 'social', 'health',
+]);
+
+// Curated keyword → candidate diagram ids. First matching entry wins; among its
+// candidates we pick the one whose class is closest to the deck's class (and,
+// when a subject is given, whose subject matches). This bridges the vocabulary
+// gap token-matching can't — e.g. chapter "Electricity" → an Ohm's-law diagram.
+const CHAPTER_DIAGRAM_OVERRIDES: { re: RegExp; ids: string[] }[] = [
+  { re: /\b(electric|electricity|current|ohm|circuit)\b/, ids: ['simple-circuit-6', 'electric-circuit', 'series-parallel', 'ohms-law-graph-10', 'electric-power-10'] },
+  { re: /\b(magnet|magnetic|electromagnet|magnetism)\b/, ids: ['magnet-field-lines-6', 'magnetic-field', 'earth-magnetic-field-10', 'electromagnet-10'] },
+  { re: /\bsound\b/, ids: ['sound-waves', 'sound-wave-properties-8'] },
+  { re: /\b(atom|atoms|atomic|molecule|molecules)\b/, ids: ['atomic-structure', 'rutherford-model-9', 'electron-orbits', 'mole-concept-9'] },
+  { re: /(matter around us|is matter|separation|mixtur|purif)/, ids: ['separation-techniques-9', 'matter-states-9'] },
+  { re: /materials? around/, ids: ['states-matter-6', 'matter-states-9'] },
+  { re: /\breproduct/, ids: ['female-reproductive-10', 'male-reproductive-10', 'sexual-reproduction-animals-8', 'reproduction-plants-7'] },
+  { re: /(classification|kingdom|biodiversity|conservation|taxonom)/, ids: ['biodiversity-9', 'forest-ecosystem-7', 'food-chain'] },
+  { re: /(coal|petroleum|fossil fuel)/, ids: ['fossil-fuels-8'] },
+  { re: /(organism|population|ecosystem|ecolog)/, ids: ['forest-ecosystem-7', 'food-chain', 'biogeochemical-cycles-12'] },
+  { re: /(reflection|refraction|\blens\b|\bmirror\b|\blight\b)/, ids: ['light-reflection-laws-7', 'light-refraction-8', 'ray-diagrams-lens', 'ray-diagrams-mirror'] },
+  { re: /(force|pressure|motion)/, ids: ['force-pressure-8', 'newtons-laws', 'distance-time-9'] },
+];
+
+function diagramById(id: string) { return DIAGRAMS.find((d) => d.id === id); }
+
+function overrideDiagram(chapterTitle: string, cls: number, wantSubj?: string): LessonImage | null {
+  const lc = chapterTitle.toLowerCase();
+  for (const o of CHAPTER_DIAGRAM_OVERRIDES) {
+    if (!o.re.test(lc)) continue;
+    const cands = o.ids.map(diagramById).filter(Boolean)
+      .filter((d) => !wantSubj || d!.subject === wantSubj) as typeof DIAGRAMS;
+    if (!cands.length) continue;
+    cands.sort((a, b) => Math.abs((a.classNumber || cls) - cls) - Math.abs((b.classNumber || cls) - cls));
+    const d = cands[0];
+    return { url: d.imageUrl, alt: d.name, caption: d.summary?.slice(0, 90) };
+  }
+  return null;
+}
+
+/**
+ * Pick a real diagram for a whole science CHAPTER (used as the chapter's hero
+ * image when slide-level matching finds nothing). Filters the 180-image library
+ * by class (±1) and subject, then matches the chapter title against diagram
+ * names — so "The Human Eye" → the eye diagram, "Carbon and its Compounds" →
+ * a carbon diagram, etc. Same-subject filtering prevents cross-subject mismatch.
+ */
+export function pickChapterDiagram(
+  chapterTitle: string, classLevel: string, subject?: string,
+): LessonImage | null {
+  if (subject && !SCIENCE_SUBJECTS.has(subject)) return null;
+  const cls = parseInt(classLevel) || 10;
+  const wantSubj = subject ? SUBJECT_TO_DIAGRAM[subject] : undefined;
+
+  // 1. Curated overrides bridge the vocabulary gap (e.g. "Electricity" → Ohm's law).
+  const override = overrideDiagram(chapterTitle, cls, wantSubj);
+  if (override) return override;
+
+  // 2. Fall back to token matching — but only on DISTINCTIVE tokens, so a generic
+  //    word like "life" can't drag in an unrelated diagram.
+  const wanted = new Set(tokenize(chapterTitle).filter(t => !WEAK_TOKENS.has(t)));
+  if (wanted.size === 0) return null;
+
+  let best: { matched: number; sameClass: boolean; d: typeof DIAGRAMS[number] } | null = null;
+  for (const d of DIAGRAMS) {
+    if (wantSubj && d.subject !== wantSubj) continue;
+    if (Math.abs((d.classNumber || cls) - cls) > 1) continue; // class proximity
+    const dt = tokenize(d.name).filter(t => !WEAK_TOKENS.has(t));
+    const matched = dt.filter(t => wanted.has(t)).length;
+    if (matched < 1) continue;
+    const sameClass = (d.classNumber || cls) === cls;
+    if (!best || matched > best.matched || (matched === best.matched && sameClass && !best.sameClass)) {
+      best = { matched, sameClass, d };
+    }
+  }
+  if (!best) return null;
+  return { url: best.d.imageUrl, alt: best.d.name, caption: best.d.summary?.slice(0, 90) };
+}
+
+// Social Science chapter title (keyword) → verified image key in SOCIAL_IMAGES.
+// First match wins. Chapters with no match fall back to a clean emoji.
+const SOCIAL_CHAPTER_MAP: { re: RegExp; key: string }[] = [
+  { re: /nationalism in india|civil disobedience|salt|non-cooperation/, key: 'his-salt-march' },
+  { re: /french revolution/, key: 'his-bastille' },
+  { re: /russian revolution|socialism in europe/, key: 'his-lenin' },
+  { re: /size and location/, key: 'geo-india-location' },
+  { re: /physical features|drainage/, key: 'geo-india-physical' },
+  { re: /\bclimate\b|monsoon/, key: 'geo-india-climate' },
+  { re: /vegetation|forest and wildlife|wildlife/, key: 'geo-india-vegetation' },
+  { re: /\bpopulation\b|people as resource/, key: 'geo-india-population' },
+  { re: /minerals|energy resources/, key: 'geo-india-minerals' },
+  { re: /lifelines|national economy|manufacturing|transport/, key: 'geo-india-transport' },
+  { re: /working of institutions|political parties|electoral/, key: 'civ-parliament' },
+  { re: /constitutional design|constitution|democratic rights|power sharing|federalism/, key: 'civ-constitution' },
+  { re: /sectors of the indian economy|globalisation|money and credit/, key: 'eco-sectors' },
+  { re: /\bdevelopment\b|poverty|human development/, key: 'eco-hdi' },
+];
+
+export function pickSocialImage(chapterTitle: string): LessonImage | null {
+  const lc = chapterTitle.toLowerCase();
+  for (const m of SOCIAL_CHAPTER_MAP) {
+    if (!m.re.test(lc)) continue;
+    const img = SOCIAL_IMAGES.find((s) => s.key === m.key);
+    if (img) return { url: img.url, alt: img.alt, caption: img.caption };
+  }
+  return null;
 }

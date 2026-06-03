@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to "<span class="hl">Tales</span> by Dots and Lines"!</h2>
-          <ul><li>What stories can dots and lines tell us?</li><li>Let's explore the fascinating world of graphs!</li><li>Understand data in a whole new way.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Mathematics, where simple dots and lines can reveal incredible stories. Get ready to discover how data comes alive!</p>
+          <span class="num">1 / 30</span>
+          <h2><span class="hl">Tales</span> by Dots and Lines</h2>
+          <ul><li>Unlocking the secrets of location</li><li>Visualizing numbers and data</li><li>A journey through graphs</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of numbers, not just as digits, but as fascinating stories told by dots and lines. Get ready to explore!</p>
         </div>
         
       </div>
@@ -71,274 +77,94 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>What are <span class="hl">Graphs</span>? Visual Storytellers</h2>
-          <ul><li>A powerful way to present data visually.</li><li>Makes complex information easy to understand at a glance.</li><li>Used everywhere, from news to weather reports.</li></ul>
-          <p class="notes">🎙️ Imagine trying to compare a lot of numbers. It can be confusing! Graphs act like visual storytellers, taking those numbers and turning them into pictures that are much easier to read and interpret.</p>
+          <span class="num">2 / 30</span>
+          <h2><span class="hl">Where Am I?</span> Finding Our Way!</h2>
+          <ul><li>Imagine you're lost in a big city.</li><li>How do you tell someone your exact spot?</li><li>Or pinpoint a treasure on a map?</li></ul>
+          <p class="notes">🎙️ Think about using Google Maps or asking for directions. We use specific references to describe a location. This chapter helps us understand how mathematics does this, but for numbers!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Data Visualizer</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Map</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Why are Graphs <span class="hl">Important</span>? Seeing Patterns</h2>
-          <ul><li>Simplify large datasets quickly.</li><li>Show relationships and trends between different quantities.</li><li>Help us make predictions and decisions.</li></ul>
-          <p class="notes">🎙️ Graphs are not just pretty pictures; they are essential tools! They help us spot patterns that might be hidden in a table of numbers, like understanding if sales are increasing or decreasing over time.</p>
+          <span class="num">3 / 30</span>
+          <h2>Our Adventure Map: What We'll <span class="hl">Explore</span></h2>
+          <ul><li>Understand the Coordinate Plane</li><li>Plot points using coordinates</li><li>Interpret different types of graphs</li><li>Learn about linear graphs and their uses</li></ul>
+          <p class="notes">🎙️ By the end of this journey, you'll be able to locate points precisely, read stories told by data, and even create your own visual tales using dots and lines. Let's begin!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Insightful Tool</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Learning Objectives</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>The <span class="hl">Coordinate System</span>: Our Map for Points</h2>
-          <ul><li>A grid-like system to locate any point in a plane.</li><li>Uses two perpendicular lines as references.</li><li>Forms the foundation for plotting all types of graphs.</li></ul>
-          <p class="notes">🎙️ Think of the coordinate system as a special map. Just like you use street names and house numbers to find a place, we use coordinates to pinpoint exact locations on our graph.</p>
+          <span class="num">4 / 30</span>
+          <h2><span class="hl">Cinema Seating</span>: Finding Your Spot</h2>
+          <ul><li>You have a ticket: Row C, Seat 7.</li><li>How do you find your seat?</li><li>You use two pieces of information!</li></ul>
+          <p class="notes">🎙️ Just like in a cinema, where you need both a row and a seat number, in mathematics, we need two values to pinpoint a location on a flat surface. These values are called coordinates.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Location Grid</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span></div><div class="vcap">Row C, Seat 7</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>X-axis and Y-axis: The <span class="hl">Foundation</span> Lines</h2>
-          <ul><li>The X-axis is the horizontal number line.</li><li>The Y-axis is the vertical number line.</li><li>They intersect at a special point called the Origin.</li></ul>
-          <p class="notes">🎙️ These two lines are the backbone of our coordinate system. The X-axis usually represents independent variables like time, while the Y-axis represents dependent variables like temperature or distance.</p>
+          <span class="num">5 / 30</span>
+          <h2>Our Reference Lines: The <span class="hl">Axes</span></h2>
+          <ul><li>We use two perpendicular lines.</li><li>One horizontal, called the X-axis.</li><li>One vertical, called the Y-axis.</li></ul>
+          <p class="notes">🎙️ These two lines act like the floor and wall of our mathematical room. They give us a starting point and directions to measure from. The horizontal line is our 'left-right' guide, and the vertical line is our 'up-down' guide.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Intersecting Axes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Perpendicular Lines</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>The <span class="hl">Origin</span> (0,0): Starting Point of Every Story</h2>
-          <ul><li>The point where the X-axis and Y-axis meet.</li><li>Its coordinates are always (0,0).</li><li>It's the reference point from which all other points are measured.</li></ul>
-          <p class="notes">🎙️ Just like a journey starts from a specific place, every point on our graph is located relative to the Origin. It's our anchor, our zero point for both horizontal and vertical movements.</p>
+          <span class="num">6 / 30</span>
+          <h2>The Playing Field: The <span class="hl">Coordinate Plane</span></h2>
+          <ul><li>The X and Y axes intersect at the Origin (0,0).</li><li>This entire grid is called the Coordinate Plane.</li><li>It helps us map any point precisely.</li></ul>
+          <p class="notes">🎙️ Imagine a vast sheet of graph paper. The X and Y axes divide this paper into four sections. The point where they cross is super important – it's our starting point, called the Origin, represented by (0,0).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">The Central Point</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Grid</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Plotting Points</span>: Finding Locations on the Map</h2>
-          <ul><li>Each point is defined by an (x, y) coordinate pair.</li><li>The first number (x) tells us horizontal movement.</li><li>The second number (y) tells us vertical movement.</li></ul>
-          <p class="notes">🎙️ To plot a point, we always start at the origin. First, move left or right according to the x-coordinate, then move up or down according to the y-coordinate. It's like following directions!</p>
+          <span class="num">7 / 30</span>
+          <h2>Your Address: Ordered Pairs <span class="hl">(x, y)</span></h2>
+          <ul><li>A point's location is given by an 'ordered pair'.</li><li>First value is the X-coordinate (horizontal movement).</li><li>Second value is the Y-coordinate (vertical movement).</li></ul>
+          <p class="notes">🎙️ Remember, the order matters! (2,3) is different from (3,2). Always move horizontally first, then vertically. Think of it like walking along a street (X) and then going up or down a building (Y).</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start at Origin (0,0)</span></div><div class="step"><span class="snum">2</span><span>Move x units along X-axis</span></div><div class="step"><span class="snum">3</span><span>Move y units along Y-axis</span></div><div class="step"><span class="snum">4</span><span>Mark the point</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start at Origin (0,0)</span></div><div class="step"><span class="snum">2</span><span>Move X units horizontally</span></div><div class="step"><span class="snum">3</span><span>Move Y units vertically</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Example: <span class="hl">Plotting</span> the Point (3, 2)</h2>
-          <ul><li>Start at the Origin (0,0).</li><li>Move 3 units to the right along the X-axis.</li><li>From there, move 2 units up parallel to the Y-axis.</li><li>Mark the point where you land!</li></ul>
-          <p class="notes">🎙️ This simple example shows us the step-by-step process. The x-coordinate (3) tells us how far right to go, and the y-coordinate (2) tells us how far up. Practice makes perfect!</p>
+          <span class="num">8 / 30</span>
+          <h2>Let's <span class="hl">Plot</span>: Point A (3, 2)</h2>
+          <ul><li>Start at the Origin (0,0).</li><li>Move 3 units to the right (positive X direction).</li><li>Then, move 2 units up (positive Y direction).</li><li>Mark the point and label it A.</li></ul>
+          <p class="notes">🎙️ Practice makes perfect! Visualizing these movements on a graph paper is key. Each step takes you closer to the exact location of your point. Always double-check your x and y movements.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️⬆️</div><div class="vcap">Right 3, Up 2</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Quick Check 1: Identify the <span class="hl">Coordinates</span>!</h2>
-          <ul><li>Look at the point marked 'A' on the grid.</li><li>What are its (x, y) coordinates?</li><li>Remember: horizontal movement first, then vertical!</li></ul>
-          <p class="notes">🎙️ Imagine a point placed on a grid. Can you read its address? Take a moment to trace your finger from the origin to the point, counting the units along each axis.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📍</span><span>📍</span><span>📍</span><span>📍</span></div><div class="vcap">Locating Points</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Revisiting <span class="hl">Bar Graphs</span>: Comparing Categories</h2>
-          <ul><li>Uses rectangular bars of different heights or lengths.</li><li>Ideal for comparing discrete categories or values.</li><li>Bars can be drawn vertically or horizontally.</li></ul>
-          <p class="notes">🎙️ You've likely seen bar graphs many times before! They're excellent for showing things like 'favorite fruits' or 'marks in different subjects', making comparisons very clear.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Categorical Comparison</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Revisiting <span class="hl">Pie Charts</span>: Showing Parts of a Whole</h2>
-          <ul><li>A circular graph divided into sectors.</li><li>Each sector represents a proportion or percentage of the whole.</li><li>Great for showing how a total is distributed.</li></ul>
-          <p class="notes">🎙️ Pie charts are like slicing a cake! Each slice shows how much of the whole it represents. They are perfect for illustrating things like budget allocations or types of soil in a garden.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥧</div><div class="vcap">Whole and Parts</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Introducing <span class="hl">Line Graphs</span>: Tracking Changes Over Time</h2>
-          <ul><li>Points are plotted and then connected by straight line segments.</li><li>Primarily used to show trends and changes over a period.</li><li>The X-axis almost always represents time.</li></ul>
-          <p class="notes">🎙️ Line graphs are fantastic for observing how something evolves. If you want to see if your plant is growing taller each week, or how the temperature changes through the day, a line graph is the best choice.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Trend Tracker</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Real-Life Example: Daily <span class="hl">Temperature</span> Fluctuations</h2>
-          <ul><li>Plotting temperature readings throughout a day or week.</li><li>The line graph clearly shows rising and falling temperatures.</li><li>Helps us understand weather patterns and plan our day.</li></ul>
-          <p class="notes">🎙️ Imagine your local weather report. They often use line graphs to show how the temperature will change hourly or daily. This helps you decide if you need a sweater or an umbrella!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Weather Chart</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Worked Example: <span class="hl">Drawing</span> a Line Graph</h2>
-          <ul><li>Data: Hours Studied (X) vs. Marks Scored (Y).</li><li>Plot points like (1,20), (2,40), (3,60), (4,80).</li><li>Connect the plotted points with straight lines.</li></ul>
-          <p class="notes">🎙️ Let's put our knowledge to practice! When drawing a graph, always remember to label your axes clearly and choose an appropriate scale so all your data fits well and is easy to read.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw and label axes with scales</span></div><div class="step"><span class="snum">2</span><span>Plot each data point (x,y)</span></div><div class="step"><span class="snum">3</span><span>Connect consecutive points with lines</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>What is a Linear Graph? Straight Line Stories</h2>
-          <ul><li>A special type of line graph where all points lie on a single straight line.</li><li>Indicates a constant rate of change between the two quantities.</li><li>Represented by equations like y = mx + c.</li></ul>
-          <p class="notes">🎙️ If the relationship between two things is steady and predictable, like the distance covered by a car moving at a constant speed, its graph will be a straight line – that's a linear graph!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Constant Change</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Non-Linear</span> Graphs: Curved Paths and Varying Changes</h2>
-          <ul><li>Graphs where the plotted points do not form a straight line.</li><li>Shows that the rate of change is not constant.</li><li>Many real-world situations are best represented by non-linear graphs.</li></ul>
-          <p class="notes">🎙️ Not everything in life follows a straight path! For example, the growth of a plant or the spread of a rumour doesn't happen at a constant rate, leading to curved or zig-zagged graphs.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Varying Change</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">Reading</span> a Graph: Becoming a Data Detective</h2>
-          <ul><li>Always look at the title, axis labels, and scales first.</li><li>Identify specific values by tracing from the axes to the line.</li><li>Observe the overall trend: Is it increasing, decreasing, or stable?</li></ul>
-          <p class="notes">🎙️ A graph is like a mystery novel, and you are the detective! By carefully examining all its parts, you can uncover the story the data is trying to tell you, finding specific facts and general trends.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕵️</div><div class="vcap">Uncovering Clues</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Quick Check 2: <span class="hl">Interpreting</span> a Line Graph</h2>
-          <ul><li>Imagine a line graph showing a plant's height over 5 weeks.</li><li>If the X-axis is 'Week' and Y-axis is 'Height (cm)'.</li><li>What was the plant's height in Week 3?</li></ul>
-          <p class="notes">🎙️ To answer this, find 'Week 3' on the X-axis. Then, move vertically up until you hit the line, and finally, move horizontally to the Y-axis to read the corresponding height value.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Plant Growth Data</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Quick Check 3: Linear or Non-Linear?</h2>
-          <ul><li>Look at these two hypothetical graphs.</li><li>Which one represents a linear relationship?</li><li>Remember the key characteristic of a linear graph!</li></ul>
-          <p class="notes">🎙️ This is a quick test of your understanding. A linear graph is all about consistency and a straight path. If the data points wander, it's not linear!</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Graph A: Straight Line</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Graph B: Curved Line</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Applications of Graphs: <span class="hl">Everywhere</span> Around Us!</h2>
-          <ul><li>Weather forecasts use graphs to show temperature and rainfall.</li><li>Stock market analysts use graphs to track share prices.</li><li>Sports statistics, population growth, health data – all use graphs!</li></ul>
-          <p class="notes">🎙️ Graphs are not just for textbooks; they are an integral part of our daily lives. From your phone's battery usage graph to news reports, they help us understand the world better.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Global Data</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Real-Life Application: <span class="hl">Distance-Time</span> Graphs</h2>
-          <ul><li>X-axis: Time taken, Y-axis: Distance covered.</li><li>The slope (steepness) of the line tells us the speed.</li><li>A straight, upward-sloping line means constant speed.</li></ul>
-          <p class="notes">🎙️ Imagine a car journey. A distance-time graph can show if the car was moving fast, slow, or even stopped. The steeper the line, the faster the speed!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Journey Tracker</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Practical</span> Exercise: Plotting Your Own Data</h2>
-          <ul><li>Collect simple data: e.g., your study time vs. screen time for a week.</li><li>Draw your own coordinate axes.</li><li>Plot the points and see what story your data tells!</li></ul>
-          <p class="notes">🎙️ The best way to truly understand graphs is to create your own! This exercise will help you connect the theoretical concepts to real-world data that you collect yourself.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">My Data, My Graph</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Key <span class="hl">Takeaways</span>: Our Graph Journey Summary</h2>
-          <ul><li>Graphs are visual tools to understand data.</li><li>Coordinate system (X-axis, Y-axis, Origin) helps locate points.</li><li>Plotting points (x,y) is fundamental.</li><li>Line graphs show trends; Linear graphs are straight lines.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Remember the key concepts: how to use the coordinate system, plot points, and distinguish between different types of graphs. These are powerful skills!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Learning Recap</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Plotting Point A</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Challenge</span>: Can You Solve This?</h2>
-          <ul><li>If a point is on the X-axis, what is always its Y-coordinate?</li><li>If a point is on the Y-axis, what is always its X-coordinate?</li><li>Think about the Origin and how coordinates are defined!</li></ul>
-          <p class="notes">🎙️ This challenge question will test your understanding of the coordinate system's basic principles. Remember what it means to be 'on' an axis in relation to the origin.</p>
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Quick Check</span>: Spot the Coordinates!</h2>
+          <ul><li>What are the coordinates of point P?</li><li>What are the coordinates of point Q?</li><li>What are the coordinates of point R?</li></ul>
+          <p class="notes">🎙️ Look at the points on the imaginary graph. Can you identify their unique addresses? This tests your understanding of moving along the axes to find a point's location.</p>
         </div>
         
       </div>
@@ -347,12 +173,252 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Thank You! Keep <span class="hl">Exploring</span> Graphs!</h2>
-          <ul><li>Graphs are powerful tools for understanding the world.</li><li>Continue practicing plotting and interpreting different types of graphs.</li><li>Look for graphs in newspapers, magazines, and online – they are everywhere!</li></ul>
-          <p class="notes">🎙️ Thank you for being such attentive learners! The journey of learning about graphs is just beginning. Keep observing, keep questioning, and keep exploring the fascinating stories told by dots and lines!</p>
+          <span class="num">10 / 30</span>
+          <h2>Telling <span class="hl">Stories</span>: Different Graph Types</h2>
+          <ul><li>Graphs are visual ways to represent data.</li><li>They make complex information easy to understand.</li><li>Bar, Pie, and Line graphs are common types.</li></ul>
+          <p class="notes">🎙️ Just like there are different genres of stories (adventure, mystery, comedy), there are different types of graphs, each best suited for telling a particular kind of data story. Let's explore them!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Continuous Learning</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Graph Types</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>Comparing Heights: <span class="hl">Bar Graphs</span></h2>
+          <ul><li>Used for comparing different categories.</li><li>Bars can be vertical or horizontal.</li><li>The length of the bar shows the value.</li></ul>
+          <p class="notes">🎙️ Think of a bar graph like comparing the heights of different buildings. The taller the building (or bar), the greater the value it represents. It's excellent for seeing differences at a glance.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Apples</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Bananas</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Oranges</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>Example: Student's <span class="hl">Favourite Subjects</span></h2>
+          <ul><li>Which subject is most popular?</li><li>Which is the least popular?</li><li>How many more students prefer Math over Science?</li></ul>
+          <p class="notes">🎙️ To read this, simply look at the height of each bar. The subject with the tallest bar is the most popular. You can also easily compare values by looking at the difference in bar heights.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Math</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Science</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">History</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Art</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Slicing the Whole: <span class="hl">Pie Graphs</span></h2>
+          <ul><li>Shows parts of a whole (like slices of a pie).</li><li>Each slice represents a percentage or fraction.</li><li>The entire circle is 100% or the total.</li></ul>
+          <p class="notes">🎙️ Imagine cutting a delicious pie into different sized slices. Each slice represents a portion of the whole pie. Pie graphs are perfect for showing how something is divided amongst different categories.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥧</div><div class="vcap">Parts of a Whole</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Example: <span class="hl">Daily Activities</span></h2>
+          <ul><li>What activity takes up the most time?</li><li>What percentage of time is spent on studies?</li><li>How much time is spent on play and sleep combined?</li></ul>
+          <p class="notes">🎙️ When reading a pie graph, remember that the size of each slice directly corresponds to its proportion of the total. You can often see percentages labelled on the slices, making it easy to compare parts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Pie Chart (Time)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Quick Check: <span class="hl">Graph Stories</span></h2>
+          <ul><li>Which graph best shows student marks in 5 subjects?</li><li>Which graph best shows how a family's budget is spent?</li><li>What is the primary use of a bar graph?</li></ul>
+          <p class="notes">🎙️ This check helps you decide which type of graph is most suitable for different kinds of data. Understanding their strengths is crucial for effective data representation.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Tracking Changes: <span class="hl">Line Graphs</span></h2>
+          <ul><li>Used to show changes over a continuous period.</li><li>Points are plotted and then connected by lines.</li><li>Ideal for showing trends (e.g., temperature, stock prices).</li></ul>
+          <p class="notes">🎙️ Think of a line graph as drawing a path that shows how something is moving or changing over time. Is it going up, down, or staying steady? Line graphs make these trends very clear.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Trends Over Time</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2>Example: <span class="hl">Temperature</span> Over a Day</h2>
+          <ul><li>What was the temperature at 10 AM?</li><li>At what time was the temperature highest?</li><li>Between which hours did the temperature drop?</li></ul>
+          <p class="notes">🎙️ To read a line graph, find the time on the horizontal axis and then move up to the line, then across to the vertical axis to find the corresponding value. It's like finding a specific point's Y-value given its X-value.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature Graph</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2>Straight Talk: What is a <span class="hl">Linear Graph</span>?</h2>
+          <ul><li>A line graph where all plotted points lie on a single straight line.</li><li>Represents a constant rate of change.</li><li>Often comes from equations like y = mx + c.</li></ul>
+          <p class="notes">🎙️ While all line graphs connect points, a *linear* graph is special because it forms a perfectly straight line. This means there's a consistent relationship between the two variables being plotted.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Cause &amp; Effect: <span class="hl">Variables</span> in Graphs</h2>
+          <ul><li>Independent Variable (X-axis): The one we control or changes independently (e.g., time).</li><li>Dependent Variable (Y-axis): The one that changes based on the independent variable (e.g., temperature).</li><li>Think of it as input and output.</li></ul>
+          <p class="notes">🎙️ Understanding which variable influences the other is crucial. The independent variable is usually on the X-axis, and its changes cause a corresponding change in the dependent variable on the Y-axis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Input vs Output</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Example: <span class="hl">Cost of Pens</span> (y = 2x)</h2>
+          <ul><li>Table: (1 pen, ₹2), (2 pens, ₹4), (3 pens, ₹6)</li><li>Plot these points (x, y) on the coordinate plane.</li><li>Connect the points to see if they form a straight line.</li></ul>
+          <p class="notes">🎙️ Here, the number of pens (x) is the independent variable, and the cost (y) is the dependent variable. When you plot these points, you'll see they align perfectly, forming a straight line, which signifies a linear relationship.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖊️</span><span>🖊️</span><span>🖊️</span><span>🖊️</span><span>🖊️</span><span>🖊️</span></div><div class="vcap">Pens &amp; Cost</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Quick Check: <span class="hl">Plot and Connect</span>!</h2>
+          <ul><li>Plot the points: (1,1), (2,3), (3,5).</li><li>Do they form a straight line?</li><li>If y = x + 1, what is y when x = 4?</li></ul>
+          <p class="notes">🎙️ Grab some imaginary graph paper! This exercise reinforces your ability to plot points accurately and to identify if a set of points creates a linear pattern. It also tests your understanding of simple linear relationships.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Graphs in Action: <span class="hl">Real-World Uses</span></h2>
+          <ul><li>Distance-Time Graphs: Track movement of objects.</li><li>Cost-Quantity Graphs: Understand pricing and sales.</li><li>Growth Charts: Monitor health and development.</li></ul>
+          <p class="notes">🎙️ Graphs aren't just for textbooks! From science to business to everyday life, they help us visualize and understand patterns, make predictions, and solve problems much more effectively.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Practical Graphs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Example: <span class="hl">Journey to School</span></h2>
+          <ul><li>X-axis: Time (minutes), Y-axis: Distance (km).</li><li>A horizontal line means the person is stationary.</li><li>A steeper line means faster speed.</li></ul>
+          <p class="notes">🎙️ Imagine a graph showing your journey to school. If the line goes up, you're moving. If it's flat, you've stopped, perhaps waiting for a bus. The slope tells you how fast you're going!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Distance vs Time</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Example: <span class="hl">Buying Sweets</span></h2>
+          <ul><li>X-axis: Quantity (number of sweets), Y-axis: Cost (₹).</li><li>If the line is straight, the price per sweet is constant.</li><li>We can predict the cost of more sweets easily.</li></ul>
+          <p class="notes">🎙️ This graph helps shopkeepers and customers understand pricing. If 1 sweet costs ₹5, then 2 sweets cost ₹10, and so on. A straight line indicates a fair and consistent pricing structure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Sweets &amp; Cost</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Watch Out! <span class="hl">Common Mistakes</span></h2>
+          <ul><li>Mixing up X and Y coordinates (e.g., plotting (2,3) as (3,2)).</li><li>Not using a consistent scale on axes.</li><li>Misinterpreting graph labels and units.</li><li>Connecting points incorrectly on a non-linear graph.</li></ul>
+          <p class="notes">🎙️ These are typical pitfalls. Always double-check your coordinates, ensure your scales are uniform, and read the axis labels carefully. A small error can completely change the story your graph tells.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Beware!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Ace Your Exams</span>: Graphing Strategies</h2>
+          <ul><li>Practice plotting points on graph paper.</li><li>Pay attention to scales provided in questions.</li><li>Clearly label axes, origin, and points.</li><li>Understand the context for interpreting real-world graphs.</li></ul>
+          <p class="notes">🎙️ In exams, neatness and accuracy are key. Use a sharp pencil, draw straight lines, and label everything clearly. For interpretation questions, read the scenario carefully before drawing conclusions from the graph.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Exam Success</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Final Quick Check</span>: All Aboard!</h2>
+          <ul><li>Plot (0,5), (5,0). What shape do they form with the origin?</li><li>If a line graph shows a person's height over years, what would you expect the trend to be?</li><li>Why are graphs useful in daily life?</li></ul>
+          <p class="notes">🎙️ This final check covers a range of concepts we've discussed. It challenges you to think critically about plotting, interpreting trends, and the overall utility of graphs in various situations.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Our Journey's End: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>Coordinate plane uses X and Y axes, and an Origin (0,0).</li><li>Points are located using ordered pairs (x, y).</li><li>Bar, Pie, and Line graphs tell different data stories.</li><li>Linear graphs show a constant rate of change.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From finding exact locations using coordinates to understanding how data can be beautifully visualized and interpreted through different types of graphs. These are fundamental skills!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Summary</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Beyond the Plane: A Glimpse into <span class="hl">3D!</span></h2>
+          <ul><li>What if we wanted to locate something in a room, not just on a floor?</li><li>We would need a third axis: the Z-axis!</li><li>This leads to 3D coordinates (x, y, z).</li></ul>
+          <p class="notes">🎙️ While we focused on two dimensions today, the world is three-dimensional! Imagine extending our coordinate system into height. This concept is used in advanced mathematics, engineering, and even video games!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤯</div><div class="vcap">Thinking Ahead</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Thank You &amp; Keep <span class="hl">Exploring!</span></h2>
+          <ul><li>Continue practicing plotting and interpreting graphs.</li><li>Look for graphs in newspapers, news, and textbooks.</li><li>Mathematics is all around us!</li></ul>
+          <p class="notes">🎙️ You've done a great job today! Remember, the more you practice, the better you'll become at telling tales with dots and lines. Keep an eye out for graphs in your daily life – they are everywhere!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👋</div><div class="vcap">See You Soon!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

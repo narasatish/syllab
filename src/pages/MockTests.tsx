@@ -16,6 +16,7 @@ import { generateQuestions } from '../lib/api';
 import FormulaBank from './FormulaBank';
 import DiagramLab from './DiagramLab';
 import PyqPractice from '../components/PyqPractice';
+import QuestionSolution from '../components/QuestionSolution';
 
 type ExamSection = 'mocks' | 'olympiads' | 'formulas' | 'diagrams' | 'create' | 'live' | 'pyq';
 
@@ -1219,11 +1220,18 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
           </div>
 
           {submitted ? (
-            <div className="mt-6 rounded-2xl bg-slate-50 p-5 text-sm font-medium leading-7 text-slate-600">
+            <div className="mt-6">
               <div className="mb-2 font-black text-slate-900">
-                Solution Â· Correct option {String.fromCharCode(65 + current.correctAnswer)}
+                Solution · Correct option {String.fromCharCode(65 + current.correctAnswer)}
               </div>
-              {current.explanation}
+              <QuestionSolution
+                question={current.question}
+                options={current.options}
+                correctIndex={current.correctAnswer}
+                explanation={current.explanation}
+                solution={(current as { solution?: string[] }).solution}
+                subject={current.subject}
+              />
             </div>
           ) : null}
 

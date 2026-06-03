@@ -58,10 +58,12 @@ describe('board content reuse / fallback (no empty class/subject)', () => {
     expect(chapterMatchesBoard(cbse('8', 'Science'), 'TS')).toBe(true);
   });
 
-  it('Telangana shows its OWN chapters (not CBSE) where it defines them', () => {
+  it('Telangana shows its OWN chapters PLUS the full CBSE library (additive, deduped)', () => {
     const tsOwn = STATE_BOARD_SYLLABUS.find(c => c.board === 'TS' && c.classLevel === '10' && c.subject === 'Science')!;
     expect(chapterMatchesBoard(tsOwn, 'TS')).toBe(true);
-    // the CBSE Class 10 Science chapter is hidden for TS (TS defines its own)
-    expect(chapterMatchesBoard(cbse('10', 'Science'), 'TS')).toBe(false);
+    // CBSE chapters are now ALSO shown to TS students for complete coverage…
+    expect(chapterMatchesBoard(cbse('10', 'Science'), 'TS')).toBe(true);
+    // …except an exact-title duplicate of a chapter TS already defines (deduped).
+    expect(chapterMatchesBoard({ classLevel: tsOwn.classLevel, subject: tsOwn.subject, title: tsOwn.title }, 'TS')).toBe(false);
   });
 });

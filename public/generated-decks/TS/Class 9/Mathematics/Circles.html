@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,follow"/>
-<title>Circles — Syllab.in</title>
+<title>Circles: The Geometry of Roundness — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to the World of <span class="hl">Circles!</span></h2>
-          <ul><li>Get ready to explore a fundamental shape in mathematics.</li><li>Learn about its parts, properties, and applications.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today we embark on an exciting journey into the world of circles. Circles are all around us, from the wheels on our bicycles to the coins in our pockets. Let's uncover their mathematical secrets.</p>
+          <span class="num">1 / 30</span>
+          <h2>Welcome to the World of <span class="hl">Circles</span>!</h2>
+          <ul><li>Ever wondered how wheels turn?</li><li>Why are bangles always round?</li><li>Circles are everywhere around us!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're going to explore one of the most fundamental and fascinating shapes in geometry: the circle. Get ready to discover the magic of roundness!</p>
         </div>
         
       </div>
@@ -71,118 +77,106 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
+          <span class="num">2 / 30</span>
+          <h2>The Story of the <span class="hl">Potter's Wheel</span></h2>
+          <ul><li>Imagine a potter making a clay pot.</li><li>The clay sits on a spinning wheel.</li><li>Every point on the edge of the pot is the same distance from the centre of the wheel.</li></ul>
+          <p class="notes">🎙️ This simple act of pottery perfectly illustrates the core idea of a circle. A fixed point (the center) and a constant distance (the radius) create this beautiful, symmetrical shape. Think about how many things around you are circular!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏺</span></div><div class="vcap">Potter's Wheel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What You'll <span class="hl">Learn</span> Today</h2>
+          <ul><li>Define a circle and its basic parts.</li><li>Understand theorems related to chords and angles.</li><li>Explore properties of cyclic quadrilaterals.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be an expert in circles! We'll cover all the important definitions, theorems, and how to apply them to solve problems. Let's begin our journey!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>Analogy: The <span class="hl">Bangle</span></h2>
+          <ul><li>Think of your favourite bangle.</li><li>It has a centre point.</li><li>Every point on the bangle's edge is equally far from that centre.</li></ul>
+          <p class="notes">🎙️ A bangle is a perfect real-world example of a circle. No matter where you measure from the center of the bangle to its edge, the distance is always the same. This constant distance is key to understanding circles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💍</div><div class="vcap">A perfect circle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
           <h2>What is a <span class="hl">Circle</span>?</h2>
-          <ul><li>A circle is a collection of all points in a plane.</li><li>These points are at a fixed distance from a fixed point (the center).</li></ul>
-          <p class="notes">🎙️ Imagine drawing a shape where every point on its boundary is exactly the same distance from one central point. That's precisely what a circle is! It's perfectly round and has no corners.</p>
+          <ul><li>A circle is a collection of all points in a plane.</li><li>These points are at a fixed distance from a fixed point.</li><li>The fixed point is the 'centre', and the fixed distance is the 'radius'.</li></ul>
+          <p class="notes">🎙️ So, mathematically, a circle isn't just a round shape, it's defined by these two crucial elements: a center point and a constant radius. All points satisfying this condition form a circle.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Perfectly Round</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">The shape of a circle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2><span class="hl">Center</span> and Radius</h2>
-          <ul><li>The fixed point is called the Center (O).</li><li>The fixed distance is called the Radius (r).</li><li>Radius connects the center to any point on the circle.</li></ul>
-          <p class="notes">🎙️ The very middle point of the circle is its 'center'. Think of it as the heart of the circle. The distance from this center to any point on the circle's edge is always the same, and we call this distance the 'radius'.</p>
+          <span class="num">6 / 30</span>
+          <h2>Parts of a Circle: <span class="hl">Centre</span> &amp; Radius</h2>
+          <ul><li>The 'Centre' (O) is the fixed point inside the circle.</li><li>The 'Radius' (r) is the fixed distance from the centre to any point on the circle.</li><li>All radii of the same circle are equal in length.</li></ul>
+          <p class="notes">🎙️ The centre is like the heart of the circle, and the radius is like an arm extending from the heart to the edge. Remember, every arm (radius) has the same length!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">The Heart of the Circle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Point and distance</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2><span class="hl">Diameter</span></h2>
-          <ul><li>A line segment passing through the center.</li><li>It connects two points on the circle.</li><li>Diameter (d) = 2 × Radius (r).</li></ul>
-          <p class="notes">🎙️ If you draw a straight line right through the center of the circle, connecting two points on its boundary, that line is called the diameter. It's always twice as long as the radius.</p>
+          <span class="num">7 / 30</span>
+          <h2>Parts of a Circle: <span class="hl">Diameter</span> &amp; Chord</h2>
+          <ul><li>A 'Diameter' is a chord passing through the centre.</li><li>It is the longest chord of a circle.</li><li>Diameter = 2 × Radius (d = 2r).</li><li>A 'Chord' is a line segment joining any two points on the circle.</li></ul>
+          <p class="notes">🎙️ Think of a chord as any straight line connecting two points on the circle. The special chord that passes right through the middle, the diameter, is the longest one and is always double the radius.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Across the Center</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Across the circle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Circles in Real Life: The <span class="hl">Wheel</span></h2>
-          <ul><li>A bicycle wheel is a great example of a circle.</li><li>The hub is the center, spokes are radii, and the rim is the circle itself.</li></ul>
-          <p class="notes">🎙️ Look at a bicycle wheel! The central part where all the spokes meet is like the center of our circle. Each spoke acts as a radius, and the outer rim that touches the ground is the circle's boundary. Wheels make travel possible because they are perfect circles.</p>
+          <span class="num">8 / 30</span>
+          <h2>Parts of a Circle: <span class="hl">Arc</span> &amp; Segment</h2>
+          <ul><li>An 'Arc' is a continuous piece of a circle.</li><li>It's like a curved part of the circumference.</li><li>A 'Segment' is the region between a chord and its corresponding arc.</li></ul>
+          <p class="notes">🎙️ Imagine cutting a slice off a round pizza. The crust is an arc, and the cheesy part with the crust is a segment. There's a minor segment (smaller) and a major segment (larger).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚲</div><div class="vcap">Wheels Go Round!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Curved part and area</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2><span class="hl">Chord</span></h2>
-          <ul><li>A line segment connecting any two points on a circle.</li><li>A diameter is the longest chord of a circle.</li></ul>
-          <p class="notes">🎙️ Imagine picking any two points on the circle's edge and drawing a straight line between them. That line is called a chord. The special chord that passes through the center is the diameter, and it's always the longest possible chord.</p>
+          <span class="num">9 / 30</span>
+          <h2>Parts of a Circle: <span class="hl">Sector</span></h2>
+          <ul><li>A 'Sector' is the region between two radii and their corresponding arc.</li><li>It's like a slice of pizza!</li><li>There can be a minor sector and a major sector.</li></ul>
+          <p class="notes">🎙️ Unlike a segment that uses a chord, a sector uses two radii and the arc between them. Think of how you cut a cake – you're making sectors!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Connecting Points</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Arc</span></h2>
-          <ul><li>A continuous piece of a circle.</li><li>It's a part of the circumference.</li><li>Can be a minor arc (smaller) or major arc (larger).</li></ul>
-          <p class="notes">🎙️ An arc is simply a curved part of the circle's boundary. Think of it like a segment of a rainbow! We can have small arcs, called minor arcs, or larger ones, called major arcs.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">A Curved Path</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2><span class="hl">Segment</span> of a Circle</h2>
-          <ul><li>The region enclosed by a chord and its corresponding arc.</li><li>Can be a minor segment or a major segment.</li></ul>
-          <p class="notes">🎙️ If you cut a pizza straight across, not necessarily through the center, the piece you get is like a segment. It's the area bounded by a chord and the curved arc it cuts off.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍕</div><div class="vcap">Slice without the Center</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Sector</span> of a Circle</h2>
-          <ul><li>The region enclosed by two radii and the arc between them.</li><li>Looks like a 'slice' of the circle.</li><li>Can be a minor sector or a major sector.</li></ul>
-          <p class="notes">🎙️ A sector is what you get when you cut a piece of cake or pizza starting from the center. It's the area defined by two radii and the arc connecting their endpoints.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍰</div><div class="vcap">A Perfect Slice</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Real-Life Example: <span class="hl">Pizza Slice</span></h2>
-          <ul><li>A slice of pizza is a perfect example of a sector.</li><li>The crust forms the arc, and the straight edges are radii.</li></ul>
-          <p class="notes">🎙️ Next time you enjoy a slice of pizza, remember you're holding a mathematical sector! The pointed end is the center, the two straight edges are radii, and the curved crust is the arc.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍕</div><div class="vcap">Yummy Sector!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍰</div><div class="vcap">A delicious slice</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Quick <span class="hl">Check!</span></h2>
-          <ul><li>What is the longest chord of a circle?</li><li>What is the region formed by two radii and an arc called?</li></ul>
-          <p class="notes">🎙️ Let's quickly test our understanding. Think about the definitions we just learned. The answers to these questions are key to understanding the basic parts of a circle.</p>
+          <span class="num">10 / 30</span>
+          <h2>Quick Check 1: <span class="hl">Identify</span> the Parts!</h2>
+          <ul><li>What is the line segment connecting points A and B on the circle?</li><li>What is the region enclosed by chord AB and the arc AB?</li><li>What is the region enclosed by radii OA, OB and arc AB?</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the definitions we just learned. Visualise a circle with points A, B, and centre O. Try to name the parts described in the questions.</p>
         </div>
         
       </div>
@@ -191,118 +185,70 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2><span class="hl">Circumference</span> of a Circle</h2>
-          <ul><li>The distance around the circle.</li><li>It's the perimeter of the circle.</li><li>Formula: C = 2πr or C = πd (where π ≈ 3.14 or 22/7).</li></ul>
-          <p class="notes">🎙️ The circumference is simply the total length of the boundary of the circle. If you were to 'unroll' the circle and measure its length, that would be the circumference. We use the special number 'pi' (π) in its calculation.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Around the World</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Area</span> of a Circle</h2>
-          <ul><li>The amount of surface enclosed by the circle.</li><li>It's the space inside the circle.</li><li>Formula: A = πr².</li></ul>
-          <p class="notes">🎙️ While circumference measures the 'outside' of the circle, the area measures the 'inside' - how much flat space the circle covers. This is also calculated using pi, but this time, the radius is squared.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Space Inside</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Real-Life Example: Circular <span class="hl">Garden Plot</span></h2>
-          <ul><li>Farmers might have circular fields or garden plots.</li><li>They need to calculate the circumference for fencing.</li><li>They need to calculate the area for seeds or fertilizer.</li></ul>
-          <p class="notes">🎙️ Imagine a circular garden. To put a fence around it, you'd need to know its circumference. To figure out how much soil or how many seeds you need, you'd calculate its area. Circles are very practical in farming and landscaping.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Gardening with Circles</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Calculating C &amp; A</h2>
-          <ul><li>Problem: A circular swimming pool has a radius of 7 meters.</li><li>Find its circumference and area (use π = 22/7).</li></ul>
-          <p class="notes">🎙️ Let's apply our formulas! For a pool with a 7-meter radius, the circumference would be 2 * (22/7) * 7, which is 44 meters. And the area would be (22/7) * 7 * 7, which is 154 square meters.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Let's Calculate!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
+          <span class="num">11 / 30</span>
           <h2><span class="hl">Congruent</span> Circles</h2>
-          <ul><li>Circles are congruent if they have the same radius.</li><li>They are identical in size and shape.</li></ul>
-          <p class="notes">🎙️ Congruent means 'exactly the same'. So, if two circles have the exact same radius, they are congruent. You could place one perfectly on top of the other, and they would match.</p>
+          <ul><li>Two circles are 'congruent' if they have the same radius.</li><li>They are identical in size and shape.</li><li>Think of two bangles of the exact same size.</li></ul>
+          <p class="notes">🎙️ Congruent means 'exactly the same'. So, if two circles have the same radius, they are congruent. You could perfectly overlap them.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Circle A (r=3)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Circle B (r=3)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Circle 1 Radius</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Circle 2 Radius</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">Concentric</span> Circles</h2>
-          <ul><li>Circles that share the same center point.</li><li>They have different radii.</li><li>Think of a target board or ripples in water.</li></ul>
-          <p class="notes">🎙️ Concentric circles are like rings that share a common center, but each ring has a different size. Imagine a dartboard or the ripples that spread out when you drop a stone into water – those are concentric circles.</p>
+          <span class="num">12 / 30</span>
+          <h2>Theorem 1: Chords and <span class="hl">Distances</span> from Centre</h2>
+          <ul><li>Theorem: Equal chords of a circle (or of congruent circles) are equidistant from the centre.</li><li>If chord AB = chord CD, then their perpendicular distances from the centre are equal.</li><li>This means OM = ON if AB = CD.</li></ul>
+          <p class="notes">🎙️ This theorem tells us that if two chords are the same length, they will be the same distance away from the centre of the circle. It's like balancing them out.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Same Center, Different Sizes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance and equality</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Theorem: <span class="hl">Perpendicular</span> from Center</h2>
-          <ul><li>The perpendicular from the center of a circle to a chord bisects the chord.</li><li>It divides the chord into two equal parts.</li></ul>
-          <p class="notes">🎙️ This is an important property! If you draw a line from the center of a circle that meets a chord at a 90-degree angle, that line will always cut the chord exactly in half. This helps us find lengths in circles.</p>
+          <span class="num">13 / 30</span>
+          <h2>Worked <span class="hl">Example</span> 1: Applying Theorem 1</h2>
+          <ul><li>Given: A circle with centre O, chords AB and CD are equal.</li><li>OM ⊥ AB and ON ⊥ CD. If OM = 3 cm, find ON.</li><li>Solution: Since AB = CD, by Theorem 1, their distances from O are equal.</li><li>Therefore, ON = OM = 3 cm.</li></ul>
+          <p class="notes">🎙️ This example shows a direct application of the theorem. If you know one distance and that the chords are equal, you automatically know the other distance. Simple, right?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Dividing a Chord</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Given</span></div><div class="step"><span class="snum">2</span><span>Apply Theorem</span></div><div class="step"><span class="snum">3</span><span>State Result</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Using Chord Theorem</h2>
-          <ul><li>Problem: A chord of length 16 cm is drawn in a circle with radius 10 cm.</li><li>Find the distance of the chord from the center.</li></ul>
-          <p class="notes">🎙️ Here, we can form a right-angled triangle using the radius, half the chord length, and the distance from the center. Using Pythagoras theorem, we can find this distance. Half the chord is 8 cm, radius is 10 cm, so distance squared = 10^2 - 8^2 = 100 - 64 = 36. Distance = 6 cm.</p>
+          <span class="num">14 / 30</span>
+          <h2>Theorem 2: <span class="hl">Perpendicular</span> from Centre to Chord</h2>
+          <ul><li>Theorem: The perpendicular from the centre of a circle to a chord bisects the chord.</li><li>If OM ⊥ AB, then AM = MB.</li><li>This means the perpendicular cuts the chord into two equal halves.</li></ul>
+          <p class="notes">🎙️ This is a very useful theorem. If you drop a perpendicular line from the centre onto any chord, it will always divide that chord into two perfectly equal parts. It's like cutting a rope precisely in the middle.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Solving with Pythagoras</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Cutting in half</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Theorem: Equal Chords are <span class="hl">Equidistant</span></h2>
-          <ul><li>Equal chords of a circle (or congruent circles) are equidistant from the center.</li><li>Conversely, chords equidistant from the center are equal.</li></ul>
-          <p class="notes">🎙️ This theorem tells us that if two chords have the same length, they will be the same distance away from the center of the circle. And if they are the same distance from the center, they must have the same length.</p>
+          <span class="num">15 / 30</span>
+          <h2>Worked <span class="hl">Example</span> 2: Applying Theorem 2</h2>
+          <ul><li>Given: A chord AB of length 8 cm, perpendicular distance from centre O to AB is 3 cm.</li><li>Find the radius of the circle.</li><li>Solution: By Theorem 2, AM = MB = 8/2 = 4 cm.</li><li>In ΔOMA, using Pythagoras: OA² = OM² + AM² = 3² + 4² = 9 + 16 = 25.</li><li>So, OA (radius) = √25 = 5 cm.</li></ul>
+          <p class="notes">🎙️ This example combines Theorem 2 with the Pythagoras theorem, which you already know. Many circle problems involve using right-angled triangles to find unknown lengths.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balanced Chords</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Bisect Chord</span></div><div class="step"><span class="snum">2</span><span>Form Right Triangle</span></div><div class="step"><span class="snum">3</span><span>Apply Pythagoras</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick Check! <span class="hl">True or False?</span></h2>
-          <ul><li>All radii of a circle are equal. (True/False)</li><li>A segment is the region between two radii and an arc. (True/False)</li></ul>
-          <p class="notes">🎙️ Time for another quick check! Read these statements carefully and decide if they are true or false based on what we've learned today. This helps reinforce our understanding.</p>
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">Quick Check</span> 2: Chords and Perpendiculars</h2>
+          <ul><li>A chord is 10 cm long, and its distance from the centre is 12 cm. Find the radius.</li><li>If the radius of a circle is 13 cm and a chord is 24 cm, find its distance from the centre.</li><li>True or False: A diameter is the only chord that bisects other chords.</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Use the theorems we just discussed to solve these problems. Remember to draw a diagram if it helps you visualise the situation.</p>
         </div>
         
       </div>
@@ -311,46 +257,166 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Angle Subtended</span> by a Chord at the Center</h2>
-          <ul><li>The angle formed by joining the endpoints of a chord to the center.</li><li>It's a key concept for understanding arc and angle relationships.</li></ul>
-          <p class="notes">🎙️ When you connect the two ends of a chord to the center of the circle, you form an angle. This angle is called the angle subtended by the chord at the center. It's crucial for future theorems about angles in circles.</p>
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Angles</span> Subtended by a Chord at the Centre</h2>
+          <ul><li>A chord AB subtends an angle ∠AOB at the centre O.</li><li>This angle is formed by connecting the endpoints of the chord to the centre.</li><li>The size of this angle depends on the length of the chord.</li></ul>
+          <p class="notes">🎙️ Every chord in a circle creates an angle at the centre. Imagine holding two ends of a string (the chord) and pulling them towards the centre. The angle formed at your hand is the angle subtended at the centre.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Angle from the Center</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angle at the centre</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
+          <span class="num">18 / 30</span>
+          <h2>Theorem 3: Equal Chords Subtend <span class="hl">Equal Angles</span> at Centre</h2>
+          <ul><li>Theorem: Equal chords of a circle (or of congruent circles) subtend equal angles at the centre.</li><li>If chord AB = chord CD, then ∠AOB = ∠COD.</li><li>The converse is also true: If angles subtended by chords at the centre are equal, then the chords are equal.</li></ul>
+          <p class="notes">🎙️ This theorem makes sense intuitively. If two chords are the same length, they should 'open up' the same amount at the centre, creating equal angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Equality</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>Worked <span class="hl">Example</span> 3: Applying Theorem 3</h2>
+          <ul><li>Given: Chords PQ and RS are equal in a circle with centre O.</li><li>If ∠POQ = 70°, find ∠ROS.</li><li>Solution: Since chords PQ = RS, by Theorem 3, the angles subtended by them at the centre are equal.</li><li>Therefore, ∠ROS = ∠POQ = 70°.</li></ul>
+          <p class="notes">🎙️ This is a straightforward application. If you know two chords are equal, you immediately know the angles they form at the centre are also equal.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Equal Chords</span></div><div class="step"><span class="snum">2</span><span>Apply Theorem</span></div><div class="step"><span class="snum">3</span><span>State Result</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2>Angles Subtended by an Arc: Centre vs. Circumference</h2>
+          <ul><li>An arc also subtends angles.</li><li>It subtends an angle at the centre (like a chord does).</li><li>It also subtends an angle at any point on the remaining part of the circle (on the circumference).</li></ul>
+          <p class="notes">🎙️ Imagine you're looking at a curved segment of a road (the arc). If you stand in the middle of the road (the centre), you see a certain angle. If you stand on the side of the road further away (on the circumference), you see a different, smaller angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Viewing from different points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Theorem 4: Central Angle is <span class="hl">Double</span></h2>
+          <ul><li>Theorem: The angle subtended by an arc at the centre is double the angle subtended by it at any point on the remaining part of the circle.</li><li>If arc AB subtends ∠AOB at the centre and ∠APB on the remaining part.</li><li>Then, ∠AOB = 2 × ∠APB.</li></ul>
+          <p class="notes">🎙️ This is a very important theorem! The angle you see from the centre is always twice as large as the angle you see from any point on the edge of the circle, as long as they are subtended by the same arc.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✌️</div><div class="vcap">Twice the angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>Worked <span class="hl">Example</span> 4: Applying Theorem 4</h2>
+          <ul><li>Given: In a circle with centre O, arc PQ subtends ∠POQ at the centre and ∠PRQ at a point R on the remaining part.</li><li>If ∠PRQ = 40°, find ∠POQ.</li><li>Solution: By Theorem 4, ∠POQ = 2 × ∠PRQ.</li><li>Therefore, ∠POQ = 2 × 40° = 80°.</li></ul>
+          <p class="notes">🎙️ This example demonstrates how to use the 'central angle is double' theorem directly. It's a fundamental concept for solving angle problems in circles.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Angles</span></div><div class="step"><span class="snum">2</span><span>Apply Theorem</span></div><div class="step"><span class="snum">3</span><span>Calculate</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Angles in the <span class="hl">Same Segment</span> are Equal</h2>
+          <ul><li>This is a direct consequence of Theorem 4.</li><li>Theorem: Angles in the same segment of a circle are equal.</li><li>If points P and Q are on the same segment, then ∠APB = ∠AQB.</li><li>Both angles are half of the central angle subtended by arc AB.</li></ul>
+          <p class="notes">🎙️ If multiple points on the circumference see the same arc, they will all see it at the same angle. It's like everyone in the same row at a movie theatre having the same view of the screen.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Identical angles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Angle in a <span class="hl">Semicircle</span> is a Right Angle</h2>
+          <ul><li>This is another special case of Theorem 4.</li><li>Theorem: The angle in a semicircle is a right angle (90°).</li><li>If AB is a diameter, then the arc ACB is a semicircle.</li><li>Any angle ∠ACB subtended by this semicircle at point C on the circumference will be 90°.</li></ul>
+          <p class="notes">🎙️ This is a very useful property! If you draw a triangle inside a circle such that one side is the diameter, the angle opposite the diameter will always be 90 degrees. This is because the central angle for a semicircle is 180 degrees, and the angle on the circumference is half of that.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">A 90-degree angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
           <h2><span class="hl">Cyclic</span> Quadrilateral</h2>
-          <ul><li>A quadrilateral whose all four vertices lie on the circumference of a circle.</li><li>The circle is said to circumscribe the quadrilateral.</li></ul>
-          <p class="notes">🎙️ Imagine a four-sided shape, a quadrilateral. If all its four corners, or vertices, touch the boundary of a single circle, then it's called a cyclic quadrilateral. It has some very special properties.</p>
+          <ul><li>A 'cyclic quadrilateral' is a quadrilateral whose all four vertices lie on a circle.</li><li>The word 'cyclic' means it forms a cycle on the circle.</li><li>Example: ABCD is a cyclic quadrilateral if A, B, C, D are all on the circle.</li></ul>
+          <p class="notes">🎙️ Just like a triangle can be inscribed in a circle, a quadrilateral can too! The key is that all four corners (vertices) must touch the circle's circumference. If even one point is off, it's not cyclic.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔲</div><div class="vcap">Points on the Circle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">A shape on a circle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Properties</span> of a Cyclic Quadrilateral</h2>
-          <ul><li>The sum of opposite angles is 180 degrees.</li><li>Example: Angle A + Angle C = 180°, Angle B + Angle D = 180°.</li></ul>
-          <p class="notes">🎙️ The most important property of a cyclic quadrilateral is that its opposite angles always add up to 180 degrees. This makes it very useful in solving geometry problems involving angles.</p>
+          <span class="num">26 / 30</span>
+          <h2>Theorem 5: <span class="hl">Opposite Angles</span> of a Cyclic Quadrilateral</h2>
+          <ul><li>Theorem: The sum of either pair of opposite angles of a cyclic quadrilateral is 180°.</li><li>In cyclic quadrilateral ABCD, ∠A + ∠C = 180°.</li><li>Also, ∠B + ∠D = 180°.</li><li>The converse is also true: If the sum of opposite angles is 180°, the quadrilateral is cyclic.</li></ul>
+          <p class="notes">🎙️ This is a powerful property! If you ever see a quadrilateral with all its vertices on a circle, you immediately know that its opposite angles add up to 180 degrees. This is super useful for finding unknown angles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Opposite Angles Sum</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Sum to 180 degrees</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Worked <span class="hl">Example</span> 5: Applying Theorem 5</h2>
+          <ul><li>Given: ABCD is a cyclic quadrilateral. If ∠A = 80°, find ∠C.</li><li>Solution: By Theorem 5, the sum of opposite angles of a cyclic quadrilateral is 180°.</li><li>So, ∠A + ∠C = 180°.</li><li>80° + ∠C = 180°.</li><li>∠C = 180° - 80° = 100°.</li></ul>
+          <p class="notes">🎙️ This example shows how to quickly find an unknown angle in a cyclic quadrilateral if you know its opposite angle. It's a direct application of the theorem.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Cyclic Quad</span></div><div class="step"><span class="snum">2</span><span>Apply Theorem</span></div><div class="step"><span class="snum">3</span><span>Solve for Angle</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span> and Summary</h2>
-          <ul><li>We explored parts of a circle: center, radius, diameter, chord, arc, segment, sector.</li><li>Learned about circumference, area, and real-life applications.</li><li>Discussed important theorems related to chords and cyclic quadrilaterals.</li></ul>
-          <p class="notes">🎙️ Today, we've covered a lot about circles! From their basic definition and parts to calculating their size and understanding key theorems. Circles are fascinating and appear everywhere in mathematics and the real world. Keep practicing and exploring!</p>
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Quick Check</span> 3: Angles and Cyclic Quads</h2>
+          <ul><li>If the angle subtended by an arc at the centre is 120°, what is the angle subtended by the same arc at a point on the remaining part?</li><li>In a cyclic quadrilateral PQRS, if ∠P = 75°, what is ∠R?</li><li>Can a rectangle always be a cyclic quadrilateral? Why?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of angles and cyclic quadrilaterals. Remember the theorems we just covered. Think carefully before answering!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Common <span class="hl">Mistakes</span> to Avoid!</h2>
+          <ul><li>Confusing radius and diameter (Diameter = 2 × Radius).</li><li>Mixing up segments and sectors.</li><li>Incorrectly applying angle theorems (e.g., forgetting 'same arc' or 'opposite angles').</li><li>Not drawing clear diagrams for problems.</li></ul>
+          <p class="notes">🎙️ It's easy to make small errors in geometry. Always double-check your definitions and theorem conditions. Drawing a clear, labelled diagram is the best way to avoid confusion and visualise the problem correctly.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2>Exam Tips &amp; <span class="hl">Recap</span></h2>
+          <ul><li>**Recap:** Circle definition, parts (centre, radius, diameter, chord, arc, segment, sector).</li><li>**Recap:** Theorems on chords (equal chords, perpendicular bisector).</li><li>**Recap:** Theorems on angles (central angle double, angles in same segment, semicircle angle, cyclic quads).</li><li>**Exam Tip:** Practice drawing diagrams. Label everything. Memorise theorems with their conditions.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the key definitions and theorems. For your exams, practice as many problems as possible, especially those involving multiple concepts. A strong foundation in these basics will help you excel!</p>
         </div>
         
       </div>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

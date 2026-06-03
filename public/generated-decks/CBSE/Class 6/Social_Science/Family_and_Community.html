@@ -1,0 +1,435 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Family and Community: Our First Classroom 🏡 — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 30</span>
+          <h2><span class="hl">Family and Community</span>: Our First Classroom 🏡</h2>
+          <ul><li>Discover how families shape us.</li><li>Explore the communities we live in.</li><li>Understand our role in society.</li></ul>
+          <p class="notes">🎙️ Namaste, young learners! Today, we embark on an exciting journey to understand two fundamental pillars of our lives: our family and our community. Think of them as our very first classrooms, where we learn so much about the world and ourselves.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 30</span>
+          <h2>Imagine a Big <span class="hl">Indian Wedding</span>! 🎉</h2>
+          <ul><li>Who organises everything?</li><li>Who helps the bride/groom?</li><li>Who cooks the delicious food?</li><li>What roles do different family members play?</li></ul>
+          <p class="notes">🎙️ Picture a grand Indian wedding – the colours, the music, the food! But behind all the fun, there's incredible teamwork. Your family and community members each play special roles. This teamwork is exactly what we'll explore today!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎉</span><span>🎉</span><span>🎉</span><span>🎉</span><span>🎉</span><span>🎉</span><span>🎉</span></div><div class="vcap">Celebration of Togetherness</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Learn</span> Today 🎯</h2>
+          <ul><li>Define family and community.</li><li>Identify different types of families and communities in India.</li><li>Understand the functions of family and community.</li><li>Recognise the role of local government and our civic responsibilities.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll have a clear understanding of these concepts. You'll not only know what they are but also *why* they are so crucial for our well-being and for the functioning of our society.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 30</span>
+          <h2>Family as a <span class="hl">Small Team</span> 👨‍👩‍👧‍👦</h2>
+          <ul><li>Just like a cricket team works together...</li><li>...your family works together.</li><li>Each member has a role.</li><li>They support each other to achieve goals.</li></ul>
+          <p class="notes">🎙️ Think of your favourite cricket team. Each player has a specific role, and they all support each other to win the match. Similarly, a family is like a small team where everyone contributes and supports each other.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏏</div><div class="vcap">Teamwork</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 30</span>
+          <h2>What is a <span class="hl">Family</span>? 🏘️</h2>
+          <ul><li>A group of people related by blood, marriage, or adoption.</li><li>Live together, share resources, and care for each other.</li><li>It's our first social group and a source of emotional support.</li></ul>
+          <p class="notes">🎙️ A family is the most basic unit of society. It's where we learn our first lessons in love, sharing, and responsibility. It provides a sense of belonging and security, which is vital for every individual's growth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span><span>🏠</span><span>🏠</span><span>🏠</span></div><div class="vcap">Homes and Hearts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2><span class="hl">Joint vs. Nuclear</span> Families in India 🇮🇳</h2>
+          <ul><li>Nuclear Family: Parents and their children.</li><li>Joint Family: Parents, children, grandparents, uncles, aunts, cousins living together.</li></ul>
+          <p class="notes">🎙️ In India, we traditionally have a strong culture of joint families, though nuclear families are becoming more common, especially in urban areas. Both structures have their unique advantages, offering different forms of support and independence.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Nuclear Family</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Joint Family</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2>Functions of a Family: Our <span class="hl">Support System</span> 🤝</h2>
+          <ul><li>Provides basic needs (food, shelter, clothing).</li><li>Offers love, care, and emotional security.</li><li>Teaches values, traditions, and social skills.</li><li>Helps in personality development.</li></ul>
+          <p class="notes">🎙️ Beyond just living together, families perform crucial functions. They are our first teachers, instilling values like respect, honesty, and empathy. They also protect us and help us navigate the world.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Love &amp; Care</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Quick Check: <span class="hl">Family Roles</span> 🤔</h2>
+          <ul><li>Which family type usually includes grandparents, uncles, and aunts living together?</li><li>Give two reasons why a family is important for a child.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think about what we just discussed. These questions help you recall the key points and understand how families function and their significance in our lives.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Evolving Families</span>: Modern India's Dynamics 📈</h2>
+          <ul><li>Migration for jobs leads to nuclear families.</li><li>More women in the workforce changes household roles.</li><li>Technology connects distant family members.</li><li>Yet, core values of family remain strong.</li></ul>
+          <p class="notes">🎙️ Modern India is seeing changes in family structures due to various factors like urbanisation and economic opportunities. However, the fundamental role of family as a unit of support and cultural transmission remains unchanged, adapting to new realities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📱</div><div class="vcap">Connecting Families</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2><span class="hl">Key Terms</span>: Understanding Family 📜</h2>
+          <ul><li>Family: A basic social unit of people related by blood, marriage, or adoption.</li><li>Nuclear Family: Consists of parents and their dependent children.</li><li>Joint Family: Includes multiple generations (grandparents, parents, children, uncles, aunts) living together.</li></ul>
+          <p class="notes">🎙️ These terms are fundamental to understanding the chapter. Make sure you can define each one clearly. They are often asked in exams and form the basis of many social science concepts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Important Definitions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 30</span>
+          <h2>Community as a <span class="hl">Larger Neighbourhood</span> 🏘️</h2>
+          <ul><li>If your family is your home...</li><li>...your community is your street, colony, or village.</li><li>People share common interests and a sense of belonging.</li><li>They interact and work together for common good.</li></ul>
+          <p class="notes">🎙️ Just as your family is a small group, your community is a larger circle. It's where you find your neighbours, friends, and local shopkeepers. It's about people living close by and interacting regularly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Neighbours Helping</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 30</span>
+          <h2>What is a <span class="hl">Community</span>? 🧑‍🤝‍🧑</h2>
+          <ul><li>A group of people living in the same place or having a particular characteristic in common.</li><li>Share common rules, traditions, and often a common goal.</li><li>Provides a sense of identity and collective strength.</li></ul>
+          <p class="notes">🎙️ A community isn't just about geographical proximity; it's about shared experiences and mutual support. Whether it's your school community or your residential community, it's where you find common ground with others.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👥</span><span>👥</span><span>👥</span><span>👥</span><span>👥</span><span>👥</span></div><div class="vcap">People Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 30</span>
+          <h2>Types of Communities: <span class="hl">Rural vs. Urban</span> (India) 🏞️🏙️</h2>
+          <ul><li>Rural (Villages): Agriculture-based, close-knit, slower pace of life.</li><li>Urban (Cities): Industry/service-based, diverse, faster pace, more amenities.</li></ul>
+          <p class="notes">🎙️ India is a diverse land with both vast rural areas and sprawling urban centres. Each type of community has its own unique characteristics, challenges, and opportunities, influencing the lives of its residents differently.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rural Population</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Urban Population</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Diversity</span> in Indian Communities 🙏</h2>
+          <ul><li>India is a land of diverse languages, religions, and cultures.</li><li>Each community contributes to India's rich tapestry.</li><li>Unity in diversity is a core Indian value.</li><li>Example: Diwali celebrations by Hindus, Eid by Muslims, Christmas by Christians.</li></ul>
+          <p class="notes">🎙️ Our communities in India are incredibly diverse. This diversity is our strength, bringing different perspectives and traditions together. Learning to respect and appreciate these differences is crucial for social harmony.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Unity in Diversity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2>Functions of a Community: <span class="hl">Collective Well-being</span> 🛡️</h2>
+          <ul><li>Provides public services (schools, hospitals, transport).</li><li>Ensures safety and security (police, local watch).</li><li>Offers social interaction and recreational opportunities.</li><li>Helps resolve conflicts and maintain order.</li></ul>
+          <p class="notes">🎙️ Communities do much more than just house people. They provide essential services that individuals cannot manage alone. From education to healthcare, these collective efforts improve everyone's quality of life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏥</div><div class="vcap">Community Services</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2>Quick Check: <span class="hl">Community Benefits</span> 🤔</h2>
+          <ul><li>Name two differences between a rural and an urban community.</li><li>Why is diversity considered a strength in Indian communities?</li></ul>
+          <p class="notes">🎙️ Let's pause and see if you've grasped the concepts of community types and the importance of diversity. These questions require you to think critically about the 'why' behind the facts.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Interdependence</span>: Family &amp; Community 🔗</h2>
+          <ul><li>Families rely on communities for services (schools, markets).</li><li>Communities rely on families to raise responsible citizens.</li><li>This mutual reliance strengthens society.</li><li>Example: A school (community) needs students (families); families need schools for education.</li></ul>
+          <p class="notes">🎙️ No family or community can exist in isolation. They are deeply interconnected. Just as a plant needs soil and water, families need communities, and communities thrive when families are strong and engaged.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Mutual Reliance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Social Harmony</span>: Living Together Peacefully 🕊️</h2>
+          <ul><li>It means people from different backgrounds live together with respect and understanding.</li><li>Requires tolerance, empathy, and cooperation.</li><li>Essential for a progressive and stable society.</li><li>Example: Celebrating all festivals together in a neighbourhood.</li></ul>
+          <p class="notes">🎙️ Social harmony is the bedrock of any successful community. When people respect each other's differences and work towards common goals, the community flourishes. It prevents conflicts and fosters a sense of unity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤝</span><span>🤝</span><span>🤝</span><span>🤝</span><span>🤝</span></div><div class="vcap">Peaceful Coexistence</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2><span class="hl">Civic Sense</span>: Our Role in the Community 🚶‍♀️</h2>
+          <ul><li>Understanding and fulfilling our duties as responsible citizens.</li><li>Keeping our surroundings clean.</li><li>Respecting public property.</li><li>Following rules and regulations.</li></ul>
+          <p class="notes">🎙️ Civic sense isn't just about knowing rules; it's about actively contributing to the well-being of our community. It's about being a thoughtful neighbour and a responsible citizen. Every small act counts!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Keep Clean</span></div><div class="step"><span class="snum">2</span><span>Respect Property</span></div><div class="step"><span class="snum">3</span><span>Follow Rules</span></div><div class="step"><span class="snum">4</span><span>Help Others</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2><span class="hl">Key Terms</span>: Understanding Community 📜</h2>
+          <ul><li>Community: A group of people living in the same place or having a particular characteristic in common.</li><li>Rural Community: Primarily agrarian, characterised by villages and close-knit social ties.</li><li>Urban Community: Characterised by cities and towns, diverse occupations, and a faster pace of life.</li><li>Social Harmony: Peaceful and respectful coexistence among diverse groups in a society.</li></ul>
+          <p class="notes">🎙️ These terms are crucial for discussing and understanding the dynamics of different communities. Make sure you can explain each one in your own words, providing examples where possible.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Essential Vocabulary</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2>Role of <span class="hl">Local Government</span>: Panchayats &amp; Municipalities 🏛️</h2>
+          <ul><li>These are governing bodies at the village (Panchayat) and city (Municipality) levels.</li><li>They address local issues like water, roads, sanitation, and education.</li><li>They are closest to the people, ensuring direct participation.</li></ul>
+          <p class="notes">🎙️ To manage the vast needs of a diverse country like India, we have local self-governments. These bodies are designed to tackle problems specific to villages and cities, ensuring that local voices are heard and local needs are met effectively.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏢</div><div class="vcap">Local Administration</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 30</span>
+          <h2>How <span class="hl">Panchayats Work</span>: A Village Example (Steps) 🗳️</h2>
+          <ul><li>1. Gram Sabha (Village Assembly): All adult villagers meet to discuss issues.</li><li>2. Gram Panchayat: Elected members (Sarpanch and Ward Members) implement decisions.</li><li>3. Collect taxes, provide basic services (water, roads, streetlights).</li><li>4. Resolve minor disputes and promote welfare schemes.</li></ul>
+          <p class="notes">🎙️ The Panchayat system is a cornerstone of rural governance in India, empowering villagers to manage their own affairs. It's a wonderful example of grassroots democracy, where decisions are made for and by the people directly affected.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Gram Sabha</span></div><div class="step"><span class="snum">2</span><span>Elect Panchayat</span></div><div class="step"><span class="snum">3</span><span>Implement Plans</span></div><div class="step"><span class="snum">4</span><span>Serve Village</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 30</span>
+          <h2>Why Local Governance Matters: <span class="hl">Voice for Citizens</span> 🗣️</h2>
+          <ul><li>Ensures problems are addressed quickly at the local level.</li><li>Promotes citizen participation in decision-making.</li><li>Makes government more accountable to the people.</li><li>Strengthens democracy from the grassroots.</li></ul>
+          <p class="notes">🎙️ Local self-governance is vital because it brings democracy closer to home. When people can directly interact with their representatives and influence decisions that affect their daily lives, it builds trust and strengthens the democratic fabric of the nation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📢</div><div class="vcap">Empowering Voices</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 30</span>
+          <h2>Quick Check: <span class="hl">Local Government</span> 🤔</h2>
+          <ul><li>What is the main difference between a Gram Panchayat and a Municipality?</li><li>How does local government strengthen democracy?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of local governance. These questions help you connect the structures of government with their impact on citizens and democratic principles.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2>Our <span class="hl">Rights &amp; Responsibilities</span> in the Community ⚖️</h2>
+          <ul><li>Rights: To live safely, access public services, express opinions.</li><li>Responsibilities: Obey laws, pay taxes, participate in community life, protect environment.</li><li>Rights and responsibilities go hand-in-hand for a balanced society.</li></ul>
+          <p class="notes">🎙️ As citizens, we enjoy many rights, but these come with equally important responsibilities. Fulfilling our duties ensures that everyone in the community can enjoy their rights and live in a just and orderly society.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance of Rights &amp; Duties</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Common Mistakes</span>: Understanding Family &amp; Community ❌</h2>
+          <ul><li>Confusing Nuclear and Joint families: Remember the number of generations.</li><li>Thinking community is just 'people living together': It's also about shared interests.</li><li>Believing government is only 'far away' bodies: Local government is right here!</li><li>Ignoring civic sense: Thinking 'it's someone else's job'.</li></ul>
+          <p class="notes">🎙️ It's easy to make these mistakes, but understanding the nuances is key. Always think about the *relationships* in a family, the *shared aspects* in a community, and the *proximity* of local government. Your actions matter!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚠️</span><span>⚠️</span><span>⚠️</span></div><div class="vcap">Watch Out!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Exam Tips</span>: Answering 'Why' and 'How' Questions ✍️</h2>
+          <ul><li>'Why' questions: Focus on reasons, importance, benefits, or causes.</li><li>'How' questions: Explain processes, steps, mechanisms, or methods.</li><li>Use concrete Indian examples to support your answers.</li><li>Structure your points clearly for better scoring.</li></ul>
+          <p class="notes">🎙️ Social Science exams often test your analytical skills, not just memorisation. When you see 'why' or 'how', remember to provide explanations and logical connections, not just definitions. Practice with examples!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Ace Your Exams!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Recap</span>: Our Journey Through Family &amp; Community ✨</h2>
+          <ul><li>Family is our first social unit, providing love and values.</li><li>Communities are larger groups with shared interests, offering services.</li><li>India has diverse family structures and communities.</li><li>Local government empowers citizens, and civic sense is our duty.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From the warmth of our families to the broader embrace of our communities, and finally, our role in local governance. Remember, these are not just concepts, but the very fabric of our daily lives.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Challenge Question: Why is <span class="hl">Civic Sense</span> Important for a Strong Democracy? 🤔</h2>
+          <ul><li>Think about the connection between individual actions and collective well-being.</li><li>How do responsible citizens contribute to good governance?</li><li>Consider the impact of civic irresponsibility.</li></ul>
+          <p class="notes">🎙️ This question encourages you to think beyond definitions and connect concepts. A strong democracy relies on active and responsible citizens. Reflect on how your actions, big or small, contribute to the larger picture.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Thank You</span>! 🙏</h2>
+          <ul><li>Keep exploring the world around you!</li><li>Your family and community are your greatest teachers.</li><li>Stay curious, stay engaged!</li></ul>
+          <p class="notes">🎙️ It was wonderful learning with you today. Remember, the lessons from family and community are lifelong. Keep observing, keep participating, and keep making a positive difference in your surroundings. See you next time!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Keep Learning!</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 6 · Social Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
+show(0);</script></body></html>

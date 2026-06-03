@@ -20,6 +20,9 @@ import { SYLLABUS } from '../data/syllabus';
 import { ClassLevel, Difficulty, Question, Subject } from '../types';
 import { recordMistake, saveQuizSession, getPausedSession, QuizSession } from '../lib/firebase';
 import { usePinnedChapters } from '../lib/pinnedChapters';
+import { markStep } from '../lib/mastery';
+import QuestionSolution from '../components/QuestionSolution';
+import { loadGeneratedBank, generatedFor, generatedForChapter } from '../data/questions/generated';
 import { recordPracticeAttempt } from '../lib/practiceAnalytics';
 import { recordLearningActivity } from '../lib/progressTracker';
 import ReactMarkdown from 'react-markdown';
@@ -118,8 +121,9 @@ async function fetchQuestionsFromBackend(
         return raw
           .map((q: any) => normalizeQuestion(q, chapterId, difficulty))
           .filter(Boolean) as Question[];
-      } catch (err) {
-        console.error('Question chunk failed:', err);
+      } catch {
+        // Backend unavailable (cold start / 500). Stay silent — the caller
+        // already falls back to the local bank, so users never see an error.
         return [];
       }
     }),
@@ -252,6 +256,13 @@ export default function ArenaPage({
         : quizQuestions.length * timePerQuestion * 60;
       recordPracticeAttempt(currentUser?.uid || null, quizQuestions, score, elapsedSeconds);
       const accuracy = quizQuestions.length ? score / quizQuestions.length : 0;
+      // Mastery loop: practicing a chapter clears its "Practice" step; a strong
+      // score (>=80%) also clears the "Test" step.
+      for (const cid of completedChapters) {
+        if (!cid) continue;
+        markStep(String(cid), 'practice');
+        if (accuracy >= 0.8) markStep(String(cid), 'test');
+      }
       const bonusXp = accuracy >= 0.9 ? 50 : accuracy >= 0.8 ? 30 : 0;
       const xpGained = score * 10 + bonusXp;
 
@@ -263,7 +274,7 @@ export default function ArenaPage({
           type: 'practice_session',
           title: 'Practice Session Completed',
           subject: subjects.length === 1 ? subjects[0] : 'Mixed',
-          classLevel: quizQuestions[0]?.class_level,
+          classLevel: (quizQuestions[0] as { classLevel?: string } | undefined)?.classLevel,
           score,
           total: quizQuestions.length,
           xpGained,
@@ -305,18 +316,53 @@ export default function ArenaPage({
     setLoadProgress({ done: 0, total: Math.ceil(wantCount / 20) });
 
     try {
-      const fetched = await fetchQuestionsFromBackend(
-        chapter.classLevel,
-        chapter.subject,
-        chapter.title,
-        chapter.id,
-        wantDiff,
-        wantCount,
-      );
+      // LOCAL-FIRST: the bundled MCQ bank (27k+ questions, each with built-in
+      // step-by-step solutions) is the primary source. It's instant, reliable,
+      // and means a flaky backend never surfaces a 500 to the user. We only call
+      // the backend to TOP UP when the local bank doesn't cover this chapter.
+      await loadGeneratedBank();
+      const shuffle = (arr: Question[]) => {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(((i + 1) * (Date.now() % 1000)) / 1000) % (i + 1);
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      };
 
-      const session = fetched.filter(isValidQuestion).slice(0, wantCount);
+      // 1) Exact chapter match, then broaden to subject-level.
+      let localRaw = generatedForChapter(chapter.classLevel, chapter.subject, chapter.title);
+      if (localRaw.length < wantCount) {
+        const seen = new Set(localRaw.map((q) => q.id));
+        localRaw = [
+          ...localRaw,
+          ...generatedFor(chapter.classLevel, chapter.subject).filter((q) => !seen.has(q.id)),
+        ];
+      }
+      const local = shuffle(
+        localRaw
+          .map((q) => normalizeQuestion(q, chapter.id, wantDiff))
+          .filter(Boolean) as Question[],
+      ).filter(isValidQuestion);
+
+      let session = local.slice(0, wantCount);
+
+      // 2) Only reach for the backend if the local bank can't fill the request.
+      //    Best-effort and silent — failure just leaves us with the local set.
+      if (session.length < wantCount) {
+        const fetched = await fetchQuestionsFromBackend(
+          chapter.classLevel,
+          chapter.subject,
+          chapter.title,
+          chapter.id,
+          wantDiff,
+          wantCount,
+        );
+        const valid = fetched.filter(isValidQuestion);
+        if (valid.length > session.length) session = valid.slice(0, wantCount);
+      }
+
       if (session.length === 0) {
-        throw new Error('Could not generate any questions. Please try again in a moment.');
+        throw new Error('Could not load questions for this chapter. Please try another chapter.');
       }
 
       setQuizQuestions(session);
@@ -723,14 +769,15 @@ export default function ArenaPage({
                       ) : null}
                     </div>
                     <div className="space-y-6">
-                      <div className="space-y-4">
-                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60">Step-by-step Solution</p>
-                        <div className="prose prose-invert prose-emerald max-w-none">
-                          <div className="text-lg font-medium leading-relaxed text-slate-200">
-                            <ReactMarkdown>{cq.explanation || 'No explanation available for this question.'}</ReactMarkdown>
-                          </div>
-                        </div>
-                      </div>
+                      <QuestionSolution
+                        question={cq.question_text}
+                        options={cq.options}
+                        correctIndex={cq.correct_index}
+                        explanation={cq.explanation}
+                        solution={(cq as { solution?: string[] }).solution}
+                        subject={selSubject}
+                        classLevel={selClass}
+                      />
                     </div>
                     <button type="button" onClick={nextQuestion}
                       className="flex w-full items-center justify-center gap-3 rounded-[2rem] bg-primary px-10 py-6 font-black text-white transition-all hover:bg-emerald-400 hover:-translate-y-1 shadow-xl shadow-emerald-500/20 group/next">

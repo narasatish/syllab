@@ -31,6 +31,11 @@ const SUBJECT_EMOJI: Record<string, string> = {
   'Financial Literacy': '💰',
 };
 if (!GEMINI_KEY) { console.error('Missing GEMINI_API_KEY in .env.local'); process.exit(1); }
+// Cost guard: calls Gemini + Imagen (paid on a billed key). Disabled by default.
+if (process.env.ALLOW_PAID_GEMINI !== '1') {
+  console.error('\n⛔ generate-slides is disabled to prevent surprise charges.\n   It calls Gemini + Imagen (costs money on a paid key — Imagen especially).\n   Decks are already generated — you likely do NOT need to run this.\n   To run intentionally on a FREE-TIER key: set ALLOW_PAID_GEMINI=1\n');
+  process.exit(1);
+}
 const TEXT_MODEL = 'gemini-2.5-flash';
 const IMAGE_MODEL = 'imagen-4.0-fast-generate-001';
 
@@ -60,11 +65,27 @@ const slug = (s: string) => s.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '
 const esc = (s: string) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 
-async function gemini(prompt: string): Promise<any> {
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${GEMINI_KEY}`,
-    { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.65 } }) });
-  if (!res.ok) throw new Error(`Gemini ${res.status}: ${(await res.text()).slice(0, 160)}`);
+async function gemini(prompt: string, attempt = 1): Promise<any> {
+  let res: Response;
+  try {
+    res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${GEMINI_KEY}`,
+      { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        // 90s timeout so a hung connection can't stall the whole batch.
+        signal: AbortSignal.timeout(90_000),
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.65 } }) });
+  } catch (e) {
+    // Network error / timeout — retry with backoff.
+    if (attempt <= 5) { await new Promise((r) => setTimeout(r, 2000 * attempt)); return gemini(prompt, attempt + 1); }
+    throw e;
+  }
+  if (!res.ok) {
+    // Retry transient errors (429 rate-limit, 5xx) with exponential backoff.
+    if ((res.status === 429 || res.status >= 500) && attempt <= 5) {
+      await new Promise((r) => setTimeout(r, 2000 * attempt));
+      return gemini(prompt, attempt + 1);
+    }
+    throw new Error(`Gemini ${res.status}: ${(await res.text()).slice(0, 160)}`);
+  }
   const data = await res.json();
   return JSON.parse(data?.candidates?.[0]?.content?.parts?.[0]?.text || '{}');
 }
@@ -81,9 +102,22 @@ async function imagen(prompt: string, attempt = 1): Promise<string | null> {
   } catch { return null; }
 }
 
+// Social Science decks need a different shape than maths/science — narrative,
+// causes/effects, dates, maps and Indian examples (BYJU's/Vedantu style).
+function socialGuidance(ch: typeof SYLLABUS[number]): string {
+  const strand = (ch.topics && ch.topics[0]) || 'Social Science';
+  const common = "Social Science (BYJU's/Vedantu quality): explain WHY and HOW, not just facts. Use concrete Indian examples, exact dates/names where they matter, and end with exam-style \"why/how\" points. Use \"steps\" for sequences/timelines and \"compare\" for contrasts; pick an apt emoji icon otherwise (🗺️ map, 🏛️ institutions, 📜 history, ⚖️ rights, 💰 economy, 🚂 transport).";
+  if (/History/i.test(strand)) return `${common} HISTORY structure: hook → background/causes → key events in order (with dates) → main figures → effects & significance → why it matters today. Include a short timeline ("steps").`;
+  if (/Geography/i.test(strand)) return `${common} GEOGRAPHY structure: where (location on the India map) → physical/feature description → types/classification → human use & significance for India → conservation/issues. Reference the India map.`;
+  if (/Civics/i.test(strand)) return `${common} CIVICS structure: define the concept → how it works in India (institution/process) → a real Indian example → why it protects democracy/citizens → key terms.`;
+  return `${common} ECONOMICS structure: define the idea → how it works → an Indian real-life example with simple numbers → why it matters for development → key terms.`;
+}
+
 function buildPrompt(ch: typeof SYLLABUS[number], n: number): string {
   const cls = Number(ch.classLevel);
-  const tone = cls <= 5
+  const tone = ch.subject === 'Social Science'
+    ? socialGuidance(ch)
+    : cls <= 5
     ? 'Class 1-5: very simple words, story-led, one clear visual per slide, real-life examples a child sees daily. 1-3 short lines per slide.'
     : cls <= 10 ? 'Class 6-10: clear explanations, a visual on most concept slides, one real example per concept.'
     : 'Class 11-12: exam-focused, accurate, worked examples + common mistakes; visuals on key slides.';
@@ -112,7 +146,11 @@ DESIGN RULES (IMPORTANT — use ONLY these free visuals, never request photos):
 - "compare" for comparing sizes/amounts (bars). "steps" for a process/method.
 - "none" for title / question / recap slides.
 - Every concept slide should have a visual. Choose the emoji that best matches the idea.
-- Exactly ${n} slides. Slide 1 = title/hook. Include concept slides, real-life examples, worked examples, 3-4 quick questions, and a recap. Age-appropriate, concrete.`;
+
+BYJU'S-STYLE LESSON ARC (follow this order across the ${n} slides):
+1. Title/hook slide. 2. A real-world HOOK or short story/question that makes the student curious. 3. "What you'll learn" (2-3 clear learning objectives). 4-N. Build each concept ONE idea at a time, each introduced with a simple ANALOGY or relatable Indian example before the formal definition. Use worked examples with steps. Add 3-5 "quick check" question slides spread through. Near the end: a "Common Mistakes" slide (what students get wrong), an "Exam Tips" slide (how it's asked + scoring), and a final "Recap" slide summarising the key points.
+- Teach concept-first: curiosity → analogy/example → clear explanation → practice. Never just list facts.
+- Exactly ${n} slides. Concrete, accurate, age-appropriate, and genuinely engaging.`;
 }
 
 // A curated real image (from the vetted free libraries) with an emoji fallback.
@@ -163,7 +201,7 @@ function renderHtml(deck: any, ch: typeof SYLLABUS[number]): string {
     // one (science diagrams / kid concept images). Never random web search.
     let visual = '';
     const text = `${s.heading || ''} ${(s.bullets || [])[0] || ''}`;
-    const img = i === 0 ? null : pickSlideImage(text, String(ch.classLevel), ch.subject);
+    const img = i === 0 ? null : pickSlideImage(text, String(ch.classLevel), ch.subject, ch.title);
     if (img && !usedImg.has(img.url)) {
       usedImg.add(img.url);
       visual = renderRealImage(img.url, img.caption || '', s.visual?.icon || subjEmoji);
@@ -276,9 +314,12 @@ show(0);</script></body></html>`;
     const file = join(dir, `${base}.html`);
     const imgDir = join(dir, `${base}_img`);
     touched.add(classDir);
-    if (existsSync(file)) { skipped++; continue; }
+    // --force regenerates existing decks in place (overwrite, no delete → no 404 window).
+    if (existsSync(file) && args.force !== 'true') { skipped++; continue; }
     void imgDir; // (no images now — fully free, emoji/CSS visuals only)
-    const nSlides = Number(ch.classLevel) <= 5 ? 20 : 25;
+    // BYJU's-style decks: 30 slides for all senior chapters (every subject);
+    // Classes 1-5 kept a bit lighter (young learners) but still full.
+    const nSlides = Number(ch.classLevel) <= 5 ? 24 : 30;
     try {
       process.stdout.write(`• ${board} C${ch.classLevel} ${ch.subject} — ${ch.title.slice(0, 40)} `);
       const deck = await gemini(buildPrompt(ch, nSlides));

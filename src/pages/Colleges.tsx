@@ -34,11 +34,31 @@ function useCollegePath() {
     };
   }, []);
   const go = useCallback((to: string) => {
-    if (window.location.pathname !== to) window.history.pushState({}, '', to);
+    // Mark our own history entries so goBack() can tell an in-app push from a
+    // fresh page load / external referrer.
+    if (window.location.pathname !== to) window.history.pushState({ syllabNav: true }, '', to);
     setPath(to);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-  return { path, go };
+  /**
+   * "Up/back" navigation. If the current view was reached via an in-app push
+   * (sentinel on history.state), use a real history.back() so the browser's
+   * back stack stays clean and consistent — this fixes the bug where in-page
+   * back buttons pushState'd a new entry and the browser Back button then
+   * landed on the wrong page. On a direct deep-link landing (no in-app history)
+   * we navigate to the parent path instead.
+   */
+  const goBack = useCallback((parent: string) => {
+    const st = window.history.state as { syllabNav?: boolean } | null;
+    if (st && st.syllabNav && window.history.length > 1) {
+      window.history.back();
+    } else {
+      if (window.location.pathname !== parent) window.history.pushState({ syllabNav: true }, '', parent);
+      setPath(parent);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, []);
+  return { path, go, goBack };
 }
 
 const typeColor: Record<string, string> = {
@@ -56,18 +76,18 @@ const Disclaimer = () => (
 );
 
 export default function Colleges() {
-  const { path, go } = useCollegePath();
+  const { path, go, goBack } = useCollegePath();
   const parts = path.split('/').filter(Boolean); // ['colleges', state?, slug?]
   const stateSlug = parts[1];
   const collegeSlug = parts[2];
 
   if (collegeSlug) {
     const college = getCollegeBySlug(collegeSlug);
-    if (college) return <CollegeDetail college={college} go={go} />;
+    if (college) return <CollegeDetail college={college} go={go} goBack={goBack} />;
   }
   if (stateSlug) {
     const info = getStateInfo(stateSlug);
-    if (info) return <StateColleges stateSlug={stateSlug} go={go} />;
+    if (info) return <StateColleges stateSlug={stateSlug} go={go} goBack={goBack} />;
   }
   return <CollegesIndex go={go} />;
 }
@@ -126,7 +146,7 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
 }
 
 /* ─── State view: colleges in a state ───────────────────────────────────────*/
-function StateColleges({ stateSlug, go }: { stateSlug: string; go: (to: string) => void }) {
+function StateColleges({ stateSlug, go, goBack }: { stateSlug: string; go: (to: string) => void; goBack: (parent: string) => void }) {
   const info = getStateInfo(stateSlug)!;
   const colleges = getCollegesByState(stateSlug);
   return (
@@ -145,7 +165,7 @@ function StateColleges({ stateSlug, go }: { stateSlug: string; go: (to: string) 
           })),
         }}
       />
-      <button onClick={() => go('/colleges')} className="mb-3 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary">
+      <button onClick={() => goBack('/colleges')} className="mb-3 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary">
         <ArrowLeft size={14} /> All states
       </button>
       <header className="mb-4">
@@ -195,7 +215,7 @@ function CollegeCard({ college: c, go }: { college: CollegeFull; go: (to: string
 }
 
 /* ─── College detail ────────────────────────────────────────────────────────*/
-function CollegeDetail({ college: c, go }: { college: CollegeFull; go: (to: string) => void }) {
+function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (to: string) => void; goBack: (parent: string) => void }) {
   const stateSlug = stateSlugForCollege(c);
   const info = getStateInfo(stateSlug);
   return (
@@ -228,7 +248,7 @@ function CollegeDetail({ college: c, go }: { college: CollegeFull; go: (to: stri
       <nav className="mb-3 flex flex-wrap items-center gap-1 text-[11px] font-bold text-slate-400">
         <button onClick={() => go('/colleges')} className="hover:text-primary">Colleges</button>
         <ChevronRight size={11} />
-        <button onClick={() => go(`/colleges/${stateSlug}`)} className="hover:text-primary">{c.state}</button>
+        <button onClick={() => goBack(`/colleges/${stateSlug}`)} className="hover:text-primary">{c.state}</button>
         <ChevronRight size={11} />
         <span className="text-slate-600">{c.shortName || c.name}</span>
       </nav>

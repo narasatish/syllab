@@ -54,15 +54,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2><span class="hl">Complex</span> Numbers and Quadratic Equations</h2>
-          <ul><li>Welcome to a new mathematical journey!</li><li>Unlock advanced problem-solving skills.</li><li>Prepare for your Class 11 CBSE exams.</li></ul>
-          <p class="notes">🎙️ Good morning, students! Today, we embark on an exciting chapter that expands our number system beyond what we've known. This chapter, 'Complex Numbers and Quadratic Equations,' is fundamental for higher mathematics and crucial for your board exams.</p>
+          <span class="num">1 / 30</span>
+          <h2>The World Beyond Real Numbers: <span class="hl">Complex</span> Numbers!</h2>
+          <ul><li>Welcome to a new realm of numbers!</li><li>Expand your mathematical horizon beyond what you know.</li><li>Solve problems that seemed impossible before.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Complex Numbers. Get ready to discover a new set of numbers that will open up solutions to problems previously unsolvable within the real number system.</p>
         </div>
         
       </div>
@@ -71,46 +77,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2><span class="hl">Why</span> do we need Complex Numbers?</h2>
-          <ul><li>Recall quadratic equations like x² + 1 = 0.</li><li>In real numbers, the square root of a negative number is undefined.</li><li>This limitation led mathematicians to invent a new type of number.</li></ul>
-          <p class="notes">🎙️ Think about the equation x² + 1 = 0. If you try to solve it using real numbers, you'll find x² = -1, which has no solution in the set of real numbers. This mathematical 'gap' necessitated the expansion of our number system.</p>
+          <span class="num">2 / 30</span>
+          <h2>Can we <span class="hl">always</span> find 'x'?</h2>
+          <ul><li>Consider the equation: x² + 1 = 0</li><li>If x² = -1, what is x?</li><li>Is there a real number whose square is negative?</li></ul>
+          <p class="notes">🎙️ Think about this common quadratic equation. If we try to solve for 'x' using only real numbers, we hit a wall. Can any real number, when squared, give a negative result? This fundamental question led mathematicians to invent a new kind of number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">The Problem</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>The Imaginary Unit <span class="hl">'i'</span></h2>
-          <ul><li>To solve x² = -1, we define 'i' such that i² = -1.</li><li>Therefore, i = √-1.</li><li>This 'i' is called the imaginary unit.</li></ul>
-          <p class="notes">🎙️ To overcome the limitation of real numbers, mathematicians introduced the imaginary unit, denoted by 'i'. By definition, i squared is equal to minus one. This simple definition opens up a whole new world of numbers.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪄</div><div class="vcap">New Definition</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Powers of 'i': A <span class="hl">Cyclic</span> Pattern</h2>
-          <ul><li>i¹ = i</li><li>i² = -1</li><li>i³ = i² * i = -i</li><li>i⁴ = i² * i² = (-1) * (-1) = 1</li></ul>
-          <p class="notes">🎙️ The powers of 'i' follow a fascinating cyclic pattern that repeats every four powers. This pattern is extremely useful for simplifying higher powers of 'i' and is a common topic in exams.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔄</span><span>🔄</span><span>🔄</span><span>🔄</span></div><div class="vcap">Cycle of 4</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">A puzzling problem</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Worked Example: <span class="hl">Simplify</span> i⁵⁹</h2>
-          <ul><li>Divide the exponent by 4: 59 ÷ 4 = 14 remainder 3.</li><li>So, i⁵⁹ = i⁴*¹⁴⁺³ = (i⁴)¹⁴ * i³.</li><li>Since i⁴ = 1, (i⁴)¹⁴ = 1¹⁴ = 1.</li><li>Therefore, i⁵⁹ = 1 * i³ = -i.</li></ul>
-          <p class="notes">🎙️ Let's apply the cyclic property to simplify i⁵⁹. The key is to divide the exponent by 4 and use the remainder. This method ensures you can simplify any power of 'i' quickly and accurately.</p>
+          <span class="num">3 / 30</span>
+          <h2>What We'll <span class="hl">Explore</span> Today</h2>
+          <ul><li>Understand the imaginary unit 'i' and its powers.</li><li>Define complex numbers and their algebraic operations.</li><li>Solve quadratic equations with complex roots.</li></ul>
+          <p class="notes">🎙️ In this chapter, we'll first meet the imaginary unit 'i', which is the key to unlocking this new number system. Then we'll learn how to perform basic arithmetic with these numbers and finally, how they help us solve certain quadratic equations.</p>
         </div>
         
       </div>
@@ -119,22 +101,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>What is a Complex Number?</h2>
-          <ul><li>A number of the form a + ib, where 'a' and 'b' are real numbers.</li><li>'a' is called the real part, and 'b' is called the imaginary part.</li><li>The set of complex numbers is denoted by C.</li></ul>
-          <p class="notes">🎙️ Now we can formally define a complex number. It's simply a combination of a real part and an imaginary part. Think of it as extending the number line into a plane, which we'll discuss later as the Argand plane.</p>
+          <span class="num">4 / 30</span>
+          <h2>The <span class="hl">Birth</span> of 'i': A Mathematical Necessity</h2>
+          <ul><li>Mathematicians needed a solution for √(-1).</li><li>This led to the concept of an 'imaginary' number.</li><li>It's not 'unreal', but a different kind of number.</li></ul>
+          <p class="notes">🎙️ Historically, mathematicians faced a dilemma when encountering square roots of negative numbers, especially when solving cubic equations. They realized that to advance, they needed to formalize a concept for √(-1). This wasn't just a theoretical exercise; it was a practical necessity that opened up new mathematical possibilities.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">a + ib</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">A new idea!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Identifying</span> Real &amp; Imaginary Parts</h2>
-          <ul><li>For z = a + ib, Re(z) = a (the real part).</li><li>Im(z) = b (the imaginary part, without 'i').</li><li>Example: If z = 3 + 4i, then Re(z) = 3 and Im(z) = 4.</li></ul>
-          <p class="notes">🎙️ It's crucial to correctly identify the real and imaginary parts of a complex number. Remember, the imaginary part is just the coefficient of 'i', not 'ib' itself. This distinction is important for various operations.</p>
+          <span class="num">5 / 30</span>
+          <h2><span class="hl">Defining</span> 'i': The Imaginary Unit</h2>
+          <ul><li>The imaginary unit 'i' is defined as √(-1).</li><li>This implies that i² = -1.</li><li>It's the fundamental building block of complex numbers.</li></ul>
+          <p class="notes">🎙️ So, we formally define 'i' as the square root of minus one. This crucial definition means that 'i squared' is equal to minus one. This single definition is the cornerstone of all complex number theory, allowing us to work with negative square roots.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">The core definition</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 30</span>
+          <h2>The <span class="hl">Cyclic</span> Nature of Powers of 'i'</h2>
+          <ul><li>i¹ = i</li><li>i² = -1</li><li>i³ = i² × i = -i</li><li>i⁴ = i² × i² = (-1) × (-1) = 1</li></ul>
+          <p class="notes">🎙️ Observe the pattern when we raise 'i' to different positive integer powers. After i to the power of four, the pattern repeats itself. This cyclic nature is extremely useful for simplifying higher powers of 'i' efficiently.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>i</span></div><div class="step"><span class="snum">2</span><span>-1</span></div><div class="step"><span class="snum">3</span><span>-i</span></div><div class="step"><span class="snum">4</span><span>1</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 30</span>
+          <h2><span class="hl">Example</span>: Calculating Powers of 'i'</h2>
+          <ul><li>To find iⁿ, divide n by 4 and use the remainder.</li><li>If remainder is 0, iⁿ = i⁴ = 1.</li><li>Example: Simplify i¹⁷ and i⁻³.</li></ul>
+          <p class="notes">🎙️ Let's put this cyclic property into practice. For i¹⁷, 17 divided by 4 gives a remainder of 1, so i¹⁷ is equivalent to i¹. For negative powers like i⁻³, we can write it as 1/i³ and then simplify using the cycle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Applying the cycle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 30</span>
+          <h2>Quick <span class="hl">Check</span>: Powers of 'i'</h2>
+          <ul><li>What is the value of i⁹⁹?</li><li>Think about the cycle of powers of 'i'.</li><li>Choose the correct option: i, -1, -i, 1.</li></ul>
+          <p class="notes">🎙️ Now, a quick test of your understanding. What do you think is the value of i raised to the power of 99? Remember the trick of dividing the exponent by 4 and using the remainder. Take a moment to calculate it.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Unveiling</span> Complex Numbers: Beyond the Number Line</h2>
+          <ul><li>A complex number combines a real part and an imaginary part.</li><li>It takes the form a + ib, where 'a' and 'b' are real numbers.</li><li>These numbers cannot be placed on a single number line.</li></ul>
+          <p class="notes">🎙️ A complex number is essentially a pair of real numbers, one representing its 'real' component and the other its 'imaginary' component, linked by 'i'. Unlike real numbers, complex numbers exist in a 2D plane, not just a line, which we'll explore later as the Argand plane.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">A new dimension</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 30</span>
+          <h2>The <span class="hl">Standard</span> Form: a + ib</h2>
+          <ul><li>A complex number 'z' is written as z = a + ib.</li><li>'a' is the real part, denoted as Re(z).</li><li>'b' is the imaginary part, denoted as Im(z).</li><li>Example: In 3 + 4i, Re(z)=3, Im(z)=4.</li></ul>
+          <p class="notes">🎙️ The expression 'a + ib' is the standard or rectangular form of a complex number. It clearly separates the real and imaginary components. It's important to remember that 'b' itself is a real number; 'ib' is the imaginary term.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Real Part (a)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Imaginary Part (b)</div></div></div></div>
       </div>
@@ -143,82 +185,34 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
+          <span class="num">11 / 30</span>
           <h2>When are Two Complex Numbers <span class="hl">Equal</span>?</h2>
-          <ul><li>Two complex numbers, z₁ = a + ib and z₂ = c + id, are equal...</li><li>...if and only if their real parts are equal (a = c)...</li><li>...AND their imaginary parts are equal (b = d).</li><li>This property is often used to solve equations involving complex numbers.</li></ul>
-          <p class="notes">🎙️ The condition for equality of complex numbers is straightforward: both their real and imaginary components must match. This principle is frequently used in problems where you need to find unknown values within complex numbers.</p>
+          <ul><li>Two complex numbers, z₁ = a + ib and z₂ = c + id, are equal...</li><li>...IF AND ONLY IF their real parts are equal (a=c)...</li><li>...AND their imaginary parts are equal (b=d).</li></ul>
+          <p class="notes">🎙️ This is a straightforward but crucial rule. Just like two vectors are equal if their corresponding components are equal, two complex numbers are equal only when both their real parts and their imaginary parts match exactly. This property is often used to solve for unknown variables.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">a+ib = c+id</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance of parts</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Addition</span> of Complex Numbers</h2>
-          <ul><li>To add z₁ = a + ib and z₂ = c + id:</li><li>Add their real parts: (a + c).</li><li>Add their imaginary parts: (b + d).</li><li>Result: (a + c) + i(b + d).</li></ul>
-          <p class="notes">🎙️ Adding complex numbers is like adding polynomials. You combine the like terms – the real parts with real parts, and the imaginary parts with imaginary parts. It's a very intuitive operation.</p>
+          <span class="num">12 / 30</span>
+          <h2><span class="hl">Example</span>: Finding Unknowns Using Equality</h2>
+          <ul><li>Given: (x + y) + i(x - y) = 3 + 5i</li><li>Equate real parts: x + y = 3</li><li>Equate imaginary parts: x - y = 5</li><li>Solve the system of linear equations.</li></ul>
+          <p class="notes">🎙️ Let's apply the equality principle. We have a complex number on the left and one on the right. By equating their respective real and imaginary parts, we generate a system of two linear equations that can be easily solved to find the values of x and y.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Add Real Parts</span></div><div class="step"><span class="snum">2</span><span>Add Imaginary Parts</span></div><div class="step"><span class="snum">3</span><span>Combine</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Subtraction</span> of Complex Numbers</h2>
-          <ul><li>To subtract z₂ = c + id from z₁ = a + ib:</li><li>Subtract their real parts: (a - c).</li><li>Subtract their imaginary parts: (b - d).</li><li>Result: (a - c) + i(b - d).</li></ul>
-          <p class="notes">🎙️ Subtraction follows the same logic as addition. Just ensure you subtract the corresponding real and imaginary parts correctly. Pay attention to the signs, as this is a common source of errors.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Subtract Real Parts</span></div><div class="step"><span class="snum">2</span><span>Subtract Imaginary Parts</span></div><div class="step"><span class="snum">3</span><span>Combine</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2><span class="hl">Multiplication</span> of Complex Numbers</h2>
-          <ul><li>Multiply z₁ = a + ib and z₂ = c + id like binomials.</li><li>Remember that i² = -1.</li><li>Result: (ac - bd) + i(ad + bc).</li></ul>
-          <p class="notes">🎙️ Multiplication is a bit more involved. You use the distributive property, just like with binomials. The key step is to replace any i² with -1, which will convert imaginary terms into real terms.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Expand (a+ib)(c+id)</span></div><div class="step"><span class="snum">2</span><span>Substitute i² = -1</span></div><div class="step"><span class="snum">3</span><span>Group Real &amp; Imaginary</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>The Complex <span class="hl">Conjugate</span></h2>
-          <ul><li>For z = a + ib, its conjugate is denoted by z̄ (z-bar).</li><li>z̄ = a - ib (change the sign of the imaginary part).</li><li>Geometrically, it's a reflection across the real axis.</li></ul>
-          <p class="notes">🎙️ The complex conjugate is a very important concept. It's formed by simply changing the sign of the imaginary part. It has many useful properties, especially when it comes to division and finding moduli.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">a+ib -&gt; a-ib</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Division</span> of Complex Numbers</h2>
-          <ul><li>To divide z₁ by z₂, multiply the numerator and denominator by the conjugate of the denominator.</li><li>This makes the denominator a real number.</li><li>Example: (a+ib)/(c+id) = (a+ib)(c-id) / (c+id)(c-id).</li></ul>
-          <p class="notes">🎙️ Division is not as straightforward as the other operations. We rationalize the denominator by multiplying both numerator and denominator by the conjugate of the denominator. This eliminates 'i' from the denominator, leaving a real number.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Multiply by Conjugate</span></div><div class="step"><span class="snum">2</span><span>Simplify Numerator</span></div><div class="step"><span class="snum">3</span><span>Simplify Denominator</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Solving for x and y</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Worked Example: <span class="hl">Operations</span> with Complex Numbers</h2>
-          <ul><li>Given z₁ = 2 + 3i and z₂ = 1 - i.</li><li>Find z₁ + z₂ = (2+1) + i(3-1) = 3 + 2i.</li><li>Find z₁ * z₂ = (2+3i)(1-i) = 2 - 2i + 3i - 3i² = 2 + i + 3 = 5 + i.</li><li>Find z₁ / z₂ = (2+3i)/(1-i) = (2+3i)(1+i) / (1-i)(1+i) = (2+2i+3i+3i²) / (1² - i²) = (-1+5i) / 2 = -1/2 + 5/2 i.</li></ul>
-          <p class="notes">🎙️ Here's a comprehensive example demonstrating addition, multiplication, and division. Practice these steps carefully, as they are fundamental for solving more complex problems. Pay close attention to the signs and the i² = -1 substitution.</p>
+          <span class="num">13 / 30</span>
+          <h2>Quick <span class="hl">Check</span>: Equality</h2>
+          <ul><li>If (2x + 3y) + i(x - y) = 7 + i, find x and y.</li><li>Set up two equations based on real and imaginary parts.</li><li>Solve for the values of x and y.</li></ul>
+          <p class="notes">🎙️ Here's another chance to test your understanding of complex number equality. Work through this problem carefully, separating the real and imaginary components into two distinct equations. This skill is fundamental for many problems in this chapter.</p>
         </div>
         
       </div>
@@ -227,34 +221,106 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2><span class="hl">Modulus</span> of a Complex Number</h2>
-          <ul><li>For z = a + ib, the modulus is |z| = √(a² + b²).</li><li>It represents the distance of the complex number from the origin (0,0) in the Argand plane.</li><li>Always a non-negative real number.</li></ul>
-          <p class="notes">🎙️ The modulus of a complex number is its magnitude or length. It's calculated using the Pythagorean theorem, treating 'a' and 'b' as coordinates. It's always a real and non-negative value, representing a distance.</p>
+          <span class="num">14 / 30</span>
+          <h2><span class="hl">Adding</span> Complex Numbers: Like Terms!</h2>
+          <ul><li>To add z₁ = a + ib and z₂ = c + id:</li><li>Add the real parts: (a + c)</li><li>Add the imaginary parts: (b + d)</li><li>Result: (a + c) + i(b + d)</li></ul>
+          <p class="notes">🎙️ Adding complex numbers is as simple as adding like terms in algebra. You just combine the real parts together and the imaginary parts together. Think of it like adding apples to apples and oranges to oranges; you don't mix them up.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Distance from Origin</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Combining numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Key <span class="hl">Properties</span> of Modulus</h2>
-          <ul><li>|z| = |z̄| = |-z|</li><li>|z₁z₂| = |z₁||z₂|</li><li>|z₁/z₂| = |z₁|/|z₂| (z₂ ≠ 0)</li><li>|zⁿ| = |z|ⁿ</li></ul>
-          <p class="notes">🎙️ These properties of the modulus are extremely useful for simplifying expressions and solving problems efficiently in exams. Remember them well, especially for products and quotients of complex numbers.</p>
+          <span class="num">15 / 30</span>
+          <h2><span class="hl">Subtracting</span> Complex Numbers: Mind the Signs!</h2>
+          <ul><li>To subtract z₂ = c + id from z₁ = a + ib:</li><li>Subtract the real parts: (a - c)</li><li>Subtract the imaginary parts: (b - d)</li><li>Result: (a - c) + i(b - d)</li></ul>
+          <p class="notes">🎙️ Subtraction follows a similar logic to addition, but be extra careful with the signs, especially when distributing a negative. Again, you operate on the real parts separately from the imaginary parts, maintaining the structure of the complex number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span></div><div class="vcap">Important Rules</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➖</span><span>➖</span><span>➖</span></div><div class="vcap">Taking away parts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">Example</span>: Operations with Addition &amp; Subtraction</h2>
+          <ul><li>Let z₁ = 2 + 3i and z₂ = 4 - i.</li><li>Find z₁ + z₂ = (2+4) + i(3-1) = 6 + 2i.</li><li>Find z₁ - z₂ = (2-4) + i(3-(-1)) = -2 + 4i.</li></ul>
+          <p class="notes">🎙️ Here's a quick example to illustrate addition and subtraction. Notice how we simply group the real terms and the imaginary terms. The key is to be meticulous with your calculations and signs, especially during subtraction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕➖</div><div class="vcap">Putting it into practice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Multiplying</span> Complex Numbers: Remember i² = -1</h2>
+          <ul><li>Treat them like binomials: (a + ib)(c + id)</li><li>Use the distributive property (FOIL method).</li><li>Crucially, substitute i² with -1.</li><li>Combine real and imaginary terms to get a + ib form.</li></ul>
+          <p class="notes">🎙️ Multiplication is where 'i squared equals minus one' becomes critical. You multiply complex numbers just like you would any two binomials, using the FOIL method. However, any time you encounter an i-squared term, immediately replace it with -1 and simplify.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✖️</span><span>✖️</span><span>✖️</span></div><div class="vcap">Expanding expressions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 30</span>
+          <h2><span class="hl">Example</span>: Multiplying Complex Expressions</h2>
+          <ul><li>Simplify (2 + 3i)(1 - i).</li><li>= 2(1) + 2(-i) + 3i(1) + 3i(-i)</li><li>= 2 - 2i + 3i - 3i²</li><li>= 2 + i - 3(-1) = 2 + i + 3 = 5 + i.</li></ul>
+          <p class="notes">🎙️ Let's walk through an example. Distribute each term carefully, and don't forget that final step of substituting i squared with -1. This step is essential for simplifying the expression into the standard 'a + ib' form.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Step-by-step multiplication</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 30</span>
+          <h2>The <span class="hl">Conjugate</span>: Changing the Sign of 'i'</h2>
+          <ul><li>The conjugate of z = a + ib is denoted as z̄ (z-bar).</li><li>It is defined as z̄ = a - ib.</li><li>Only the sign of the imaginary part changes.</li><li>Useful for division and modulus calculations.</li></ul>
+          <p class="notes">🎙️ The complex conjugate is a very important concept. It's formed by simply flipping the sign of the imaginary part. For instance, the conjugate of 3 + 4i is 3 - 4i. This operation has profound implications, especially when we want to eliminate 'i' from the denominator during division.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">A mirror image</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 30</span>
+          <h2><span class="hl">Dividing</span> Complex Numbers: Rationalising the Denominator</h2>
+          <ul><li>To divide z₁ by z₂, multiply numerator and denominator by the conjugate of z₂.</li><li>This makes the denominator a real number (a² + b²).</li><li>Then simplify into the standard a + ib form.</li></ul>
+          <p class="notes">🎙️ Division is often considered the trickiest operation. The key is to 'rationalize' the denominator, much like you would with surds. By multiplying both the numerator and denominator by the conjugate of the denominator, you ensure the denominator becomes a real number, making the complex fraction much easier to simplify.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➗</span><span>➗</span><span>➗</span></div><div class="vcap">Simplifying fractions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 30</span>
+          <h2><span class="hl">Example</span>: Performing Complex Division</h2>
+          <ul><li>Simplify (2 + 3i) / (1 - i).</li><li>Multiply by (1 + i) / (1 + i).</li><li>Numerator: (2+3i)(1+i) = 2+2i+3i+3i² = 2+5i-3 = -1+5i.</li><li>Denominator: (1-i)(1+i) = 1² - i² = 1 - (-1) = 2.</li><li>Result: (-1 + 5i) / 2 = -1/2 + 5/2 i.</li></ul>
+          <p class="notes">🎙️ Let's work through this division example. Notice how the denominator simplifies beautifully to a real number. After multiplying, separate the real and imaginary parts of the numerator and divide each by the real denominator to get the final answer in the standard form.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Division steps</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Worked Example: <span class="hl">Finding</span> Modulus</h2>
-          <ul><li>Find the modulus of z = 3 - 4i.</li><li>Here, a = 3 and b = -4.</li><li>|z| = √(3² + (-4)²)</li><li>|z| = √(9 + 16) = √25</li><li>|z| = 5.</li></ul>
-          <p class="notes">🎙️ Let's find the modulus of 3 - 4i. Remember that 'b' is the coefficient of 'i', so it includes the sign. The calculation is straightforward application of the formula.</p>
+          <span class="num">22 / 30</span>
+          <h2>Quick <span class="hl">Check</span>: Operations</h2>
+          <ul><li>If z₁ = 1 + i and z₂ = 1 - i, find z₁ / z₂.</li><li>Remember to multiply by the conjugate of the denominator.</li><li>Simplify your answer to the form a + ib.</li></ul>
+          <p class="notes">🎙️ Time for another quick check. Try to divide these two complex numbers. This problem involves both multiplication and the use of the conjugate, so it's a good test of your understanding of complex number operations.</p>
         </div>
         
       </div>
@@ -263,94 +329,94 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>The <span class="hl">Argand Plane</span>: Geometric Representation</h2>
-          <ul><li>Complex numbers can be represented geometrically as points in a plane.</li><li>The horizontal axis is the Real axis, and the vertical axis is the Imaginary axis.</li><li>A complex number z = a + ib corresponds to the point (a, b).</li></ul>
-          <p class="notes">🎙️ Just as real numbers are represented on a number line, complex numbers are represented on a plane called the Argand plane. This visualization helps understand operations like addition and modulus geometrically.</p>
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Modulus</span>: The Distance from the Origin</h2>
+          <ul><li>The modulus of z = a + ib is denoted as |z|.</li><li>It represents the distance of the point (a,b) from the origin in the Argand plane.</li><li>Calculated as |z| = √(a² + b²).</li></ul>
+          <p class="notes">🎙️ The modulus of a complex number is its magnitude or length. Think of it as the distance from the origin (0,0) to the point (a,b) in a 2D coordinate system, which we call the Argand plane for complex numbers. It's always a non-negative real number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Complex Plane</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Magnitude or length</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2><span class="hl">Polar</span> Representation</h2>
-          <ul><li>A complex number z = a + ib can also be represented as z = r(cosθ + i sinθ).</li><li>Here, r = |z| = √(a² + b²) is the modulus.</li><li>θ is the argument or amplitude, tanθ = b/a (with quadrant consideration).</li></ul>
-          <p class="notes">🎙️ Besides the Cartesian form (a + ib), complex numbers can be expressed in polar form. This form is particularly useful for multiplication, division, and finding powers of complex numbers, as it simplifies calculations significantly.</p>
+          <span class="num">24 / 30</span>
+          <h2><span class="hl">Example</span>: Calculating the Modulus</h2>
+          <ul><li>Find the modulus of z = 3 + 4i.</li><li>Here, a = 3 and b = 4.</li><li>|z| = √(3² + 4²) = √(9 + 16) = √25 = 5.</li><li>The modulus is always a real, non-negative value.</li></ul>
+          <p class="notes">🎙️ Let's calculate the modulus for a simple complex number. As you can see, it's a direct application of the Pythagorean theorem. The modulus is a crucial property and will be used in various applications of complex numbers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">r(cosθ + isinθ)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">A straightforward calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Revisiting</span> Quadratic Equations: When Roots are Complex</h2>
+          <ul><li>For a quadratic equation ax² + bx + c = 0,</li><li>The discriminant is D = b² - 4ac.</li><li>If D &lt; 0, the roots are complex and non-real.</li><li>This connects back to our initial question!</li></ul>
+          <p class="notes">🎙️ Remember our initial question about x² + 1 = 0? Now we have the tools to solve it! When the discriminant of a quadratic equation is negative, the square root of a negative number appears in the quadratic formula, leading to complex roots. This is where complex numbers truly shine.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Full circle moment</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2><span class="hl">Solving</span> ax² + bx + c = 0 (D &lt; 0)</h2>
+          <ul><li>Use the quadratic formula: x = [-b ± √(b² - 4ac)] / 2a.</li><li>If D = b² - 4ac &lt; 0, then √D = √(-|D|) = i√|D|.</li><li>The roots will be of the form α ± iβ, which are conjugates.</li></ul>
+          <p class="notes">🎙️ The quadratic formula remains our go-to tool. The only difference now is how we handle the square root of a negative discriminant. By introducing 'i', we can express these roots as complex numbers. Notice that complex roots always appear in conjugate pairs.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Calculate Discriminant D</span></div><div class="step"><span class="snum">2</span><span>If D &lt; 0, write √D = i√|D|</span></div><div class="step"><span class="snum">3</span><span>Apply Quadratic Formula</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2><span class="hl">Example</span>: Finding Complex Roots</h2>
+          <ul><li>Solve the equation: x² + x + 1 = 0.</li><li>Here, a=1, b=1, c=1.</li><li>D = b² - 4ac = 1² - 4(1)(1) = 1 - 4 = -3.</li><li>x = [-1 ± √(-3)] / 2(1) = [-1 ± i√3] / 2.</li><li>Roots are -1/2 + i√3/2 and -1/2 - i√3/2.</li></ul>
+          <p class="notes">🎙️ Let's solve the classic example x² + x + 1 = 0. The discriminant is negative, leading to complex roots. We simply substitute the value of the discriminant into the quadratic formula and simplify, expressing the square root of -3 as i√3.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">A practical solution</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2>Beware! Common <span class="hl">Pitfalls</span> in Complex Numbers</h2>
+          <ul><li>Not replacing i² with -1: Always simplify!</li><li>Sign errors in conjugate: Only imaginary part changes sign.</li><li>Distributive property mistakes: Be careful with multiplication.</li><li>Confusing real and imaginary parts: Keep them separate.</li></ul>
+          <p class="notes">🎙️ Students often make a few recurring errors. The most common is forgetting to substitute i² with -1, which is fundamental. Also, be precise with signs when dealing with conjugates and while distributing terms during multiplication. Always ensure your final answer is in the standard a + ib form.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛑</div><div class="vcap">Avoid these mistakes!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 30</span>
+          <h2>Ace Your Exams: <span class="hl">Strategy</span> for Complex Numbers</h2>
+          <ul><li>Master powers of 'i' (cyclic nature).</li><li>Practice all four operations diligently.</li><li>Understand the role of the conjugate in division.</li><li>Be thorough with quadratic formula for complex roots.</li></ul>
+          <p class="notes">🎙️ To score well, focus on the core concepts: the definition of 'i', the standard form, and the algebraic operations. Questions on powers of 'i' and finding complex roots of quadratic equations are very common. Practice regularly to build speed and accuracy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Your path to success</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Worked Example: <span class="hl">Convert</span> to Polar Form</h2>
-          <ul><li>Convert z = 1 + i to polar form.</li><li>Modulus r = |1+i| = √(1² + 1²) = √2.</li><li>Argument θ: tanθ = 1/1 = 1. Since z is in Quadrant I, θ = π/4.</li><li>So, z = √2 (cos(π/4) + i sin(π/4)).</li></ul>
-          <p class="notes">🎙️ Let's convert 1 + i into its polar form. Remember to correctly identify the quadrant of the complex number to determine the principal value of the argument θ. This is a common point of error.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quadratic Equations <span class="hl">Revisited</span></h2>
-          <ul><li>Standard form: ax² + bx + c = 0, where a ≠ 0.</li><li>The discriminant is D = b² - 4ac.</li><li>If D ≥ 0, roots are real. If D &lt; 0, roots are non-real (complex).</li></ul>
-          <p class="notes">🎙️ We're familiar with quadratic equations. Until now, if the discriminant was negative, we'd say 'no real roots'. Now, with complex numbers, we can find solutions even when the discriminant is negative.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕➖</div><div class="vcap">ax²+bx+c=0</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Solving Quadratic Equations with <span class="hl">Complex Roots</span></h2>
-          <ul><li>When D = b² - 4ac &lt; 0, the roots are given by x = [-b ± √(D)] / 2a.</li><li>Since D is negative, let D = -k, where k &gt; 0.</li><li>Then √D = √(-k) = √k * √(-1) = √k * i.</li><li>The roots are x = [-b ± i√k] / 2a.</li></ul>
-          <p class="notes">🎙️ When the discriminant is negative, we use the property of the imaginary unit 'i' to express the square root of the negative number. This allows us to find the two complex conjugate roots of the quadratic equation.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Calculate Discriminant D</span></div><div class="step"><span class="snum">2</span><span>If D&lt;0, let D=-k</span></div><div class="step"><span class="snum">3</span><span>Substitute √D = i√k</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Worked Example: <span class="hl">Solving</span> x² + x + 1 = 0</h2>
-          <ul><li>Identify a=1, b=1, c=1.</li><li>Discriminant D = b² - 4ac = 1² - 4(1)(1) = 1 - 4 = -3.</li><li>Since D &lt; 0, roots are complex.</li><li>x = [-1 ± √(-3)] / (2*1) = [-1 ± i√3] / 2.</li><li>Roots are -1/2 + i√3/2 and -1/2 - i√3/2.</li></ul>
-          <p class="notes">🎙️ Let's solve the equation x² + x + 1 = 0. Here, the discriminant is negative, leading to complex roots. Notice that the roots are always complex conjugates of each other when coefficients are real.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Common <span class="hl">Mistakes</span> &amp; Exam Tips</h2>
-          <ul><li>Forgetting i² = -1 during multiplication.</li><li>Incorrectly identifying real/imaginary parts (e.g., Im(z) = ib).</li><li>Errors in finding the argument (θ) due to quadrant issues.</li><li>Not rationalizing the denominator during division.</li></ul>
-          <p class="notes">🎙️ Be mindful of these common pitfalls. Practice regularly to avoid them. Always double-check your calculations, especially when dealing with signs and the i² substitution. Understanding the quadrant for argument is critical.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚠️</span><span>⚠️</span><span>⚠️</span></div><div class="vcap">Watch Out!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span> &amp; Quick Check</h2>
-          <ul><li>Complex numbers extend real numbers (a + ib).</li><li>Powers of 'i' are cyclic (i, -1, -i, 1).</li><li>Operations (add, sub, mult, div) follow specific rules.</li><li>Modulus and Argand plane provide geometric meaning.</li><li>Quadratic equations with D&lt;0 yield complex conjugate roots.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Complex numbers are a powerful tool. Remember the definitions, properties, and how to perform operations. For a quick check, what is the value of i²⁰²⁴? Think about it!</p>
+          <span class="num">30 / 30</span>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Imaginary unit 'i' where i² = -1.</li><li>Complex numbers are z = a + ib.</li><li>Operations (addition, subtraction, multiplication, division) follow specific rules.</li><li>Modulus |z| = √(a² + b²).</li><li>Quadratic equations with negative discriminant have complex conjugate roots.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From the introduction of 'i' to performing operations and solving quadratic equations with complex roots. Remember these key concepts and practice them regularly. Complex numbers are a powerful tool in mathematics and engineering, and mastering them will open many doors for you.</p>
         </div>
         
       </div>
@@ -363,6 +429,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

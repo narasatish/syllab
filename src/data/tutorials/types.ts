@@ -20,6 +20,7 @@ export interface TutorialTopic {
   output?: string;         // expected output for non-live-preview languages
   notes?: string[];        // tips / important points
   livePreview?: boolean;   // true for HTML/CSS/JS (renders in iframe)
+  xp?: number;             // optional XP reward for completing the topic
   practice: TutorialPractice;
 }
 

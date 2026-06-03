@@ -26,6 +26,12 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          // App-code split: the per-language tutorial data (theory/code for 700+
+          // topics) is large. Give it its own chunk so it downloads in parallel
+          // with the Skills Lab page code and caches independently — shrinks the
+          // SkillsLab JS chunk and speeds up repeat visits.
+          if (id.includes('/src/data/tutorials/') || id.includes('\\src\\data\\tutorials\\')) return 'data-tutorials';
+          if (id.includes('/src/data/miniProjects') || id.includes('\\src\\data\\miniProjects')) return 'data-projects';
           if (!id.includes('node_modules')) return undefined;
           if (id.includes('firebase')) return 'vendor-firebase';
           if (id.includes('recharts') || id.includes('d3-')) return 'vendor-charts';

@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="robots" content="noindex,follow"/>
-<title>Chapter: Sets (Class 10 Mathematics, TS Board) — Syllab.in</title>
+<title>Sets - Class 10 Mathematics (TS Board) — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -54,15 +54,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">1 / 29</span>
+          <h2>Grouping in Action: Your School <span class="hl">Library</span>!</h2>
+          <ul><li>Imagine your school library.</li><li>Books are organized into categories: Fiction, Non-fiction, Science, History, etc.</li><li>Each category is a 'collection' of similar books.</li></ul>
+          <p class="notes">🎙️ Think about your school library. It's not just a random pile of books, right? They are carefully grouped! All science books together, all history books together. Each of these groups, like 'all science books', is a perfect real-world example of what we call a 'Set' in mathematics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Organized Books</div></div></div>
+      </div>
+    </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to the World of <span class="hl">Sets</span>!</h2>
-          <ul><li>Discovering Collections in Math</li><li>An important foundation for higher mathematics</li><li>Let's explore together!</li></ul>
-          <p class="notes">🎙️ Good morning, everyone! Today, we're going to start a fascinating new chapter in mathematics called 'Sets'. It's all about organizing and understanding collections of things.</p>
+          <span class="num">2 / 29</span>
+          <h2>What We'll <span class="hl">Learn</span> Today!</h2>
+          <ul><li>Understand what a 'Set' is and its elements.</li><li>Learn different ways to represent sets.</li><li>Explore various types of sets and their properties.</li></ul>
+          <p class="notes">🎙️ By the end of this lesson, you'll be able to confidently define what a set is, how to write them down using specific notations, and identify different kinds of sets you might encounter. This forms the foundation for many advanced mathematical concepts.</p>
         </div>
         
       </div>
@@ -71,82 +89,154 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>What is a <span class="hl">Set</span>?</h2>
-          <ul><li>A well-defined collection of distinct objects.</li><li>Objects are called elements or members.</li><li>Order of elements does not matter.</li></ul>
-          <p class="notes">🎙️ Think of a set as a special kind of box where you put specific items. The key is 'well-defined' – everyone must agree on what belongs and what doesn't.</p>
+          <span class="num">3 / 29</span>
+          <h2>Concept 1: What is a <span class="hl">Set</span>? (Analogy)</h2>
+          <ul><li>Think of a collection of cricket bats. Each bat is unique, but together they form a group.</li><li>Or a bouquet of flowers – each flower is different, but they're all 'flowers' in the bouquet.</li><li>These are everyday examples of 'collections'.</li></ul>
+          <p class="notes">🎙️ We constantly make collections in our daily lives. Whether it's your collection of favourite toys, or a group of students in your class, we intuitively understand what it means to group things. In mathematics, we formalize this idea with 'Sets'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">A collection box</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏏</span><span>🏏</span><span>🏏</span></div><div class="vcap">A collection of bats</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Real-life <span class="hl">Example</span> of a Set</h2>
-          <ul><li>Collection of all books in your school library.</li><li>Collection of all vowels in the English alphabet: {a, e, i, o, u}.</li><li>Collection of all even numbers less than 10: {2, 4, 6, 8}.</li></ul>
-          <p class="notes">🎙️ Imagine collecting all the pens on your desk. That's a set! Or the set of all students in our Class 10. Each item in the collection is an element.</p>
+          <span class="num">4 / 29</span>
+          <h2>Concept 1: Formal <span class="hl">Definition</span> of a Set</h2>
+          <ul><li>A set is a well-defined collection of distinct objects.</li><li>'Well-defined' means we can clearly decide if an object belongs to the set or not.</li><li>'Distinct' means each object in the set is unique, no repetitions.</li></ul>
+          <p class="notes">🎙️ The two key words here are 'well-defined' and 'distinct'. For example, 'a collection of good students' is NOT a set, because 'good' is subjective. But 'a collection of students who scored above 90%' IS a set, as it's well-defined.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Books on a shelf</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Clear &amp; Unique</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2><span class="hl">Elements</span> of a Set</h2>
-          <ul><li>Individual objects within a set.</li><li>Represented by lowercase letters (a, b, c...).</li></ul>
-          <p class="notes">🎙️ If you have a set of fruits {apple, banana, cherry}, then apple, banana, and cherry are the elements of that set. We use a special symbol '∈' to show an element belongs to a set.</p>
+          <span class="num">5 / 29</span>
+          <h2>Concept 2: <span class="hl">Elements</span> of a Set</h2>
+          <ul><li>The objects in a set are called its 'elements' or 'members'.</li><li>We use the symbol '∈' to denote 'belongs to' or 'is an element of'.</li><li>The symbol '∉' means 'does not belong to'.</li></ul>
+          <p class="notes">🎙️ Just like a cricket team has individual players, a set has individual elements. Each player is an element of the team. We use special symbols to show if something is inside a set or not, making it precise.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Individual numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Items in a set</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">6 / 29</span>
+          <h2>Example: Identifying <span class="hl">Elements</span></h2>
+          <ul><li>Let A be the set of vowels in the English alphabet.</li><li>A = {a, e, i, o, u}</li><li>Here, 'a' ∈ A, 'e' ∈ A, but 'b' ∉ A.</li></ul>
+          <p class="notes">🎙️ This is a clear example. The set of vowels is well-defined. We can easily tell if a letter is a vowel or not. Each letter 'a', 'e', 'i', 'o', 'u' is an element of set A.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">7 / 29</span>
+          <h2><span class="hl">Quick Check</span> 1: Is it a Set?</h2>
+          <ul><li>1. The collection of all honest people in your city. (Set/Not a Set?)</li><li>2. The collection of all months in a year starting with the letter 'J'. (Set/Not a Set?)</li><li>3. If B = {1, 2, 3, 4}, is 5 ∈ B? Is 2 ∈ B?</li></ul>
+          <p class="notes">🎙️ Take a moment to think about these questions. Remember the definition of a set: 'well-defined' and 'distinct'. This will help you decide if a collection truly qualifies as a mathematical set.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Notation of a Set: <span class="hl">Roster Form</span> (Tabular Form)</h2>
-          <ul><li>List all elements, separated by commas.</li><li>Enclose elements within curly braces { }.</li><li>Example: Set of prime numbers less than 10 is {2, 3, 5, 7}.</li></ul>
-          <p class="notes">🎙️ This is like making a grocery list for your set. You just write down everything that's inside, one by one, and put it all in a basket, which are our curly braces.</p>
+          <span class="num">8 / 29</span>
+          <h2>Concept 3: Representing Sets - <span class="hl">Roster Form</span> (Analogy)</h2>
+          <ul><li>Imagine you're listing ingredients for a recipe: 'flour, sugar, eggs, milk'.</li><li>You write down each item, separated by commas.</li><li>This is similar to how we list elements in Roster form.</li></ul>
+          <p class="notes">🎙️ Just like a shopping list, Roster form is about explicitly writing down every single item. It's the most straightforward way to show what's inside a set, especially for smaller sets.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List all elements</span></div><div class="step"><span class="snum">2</span><span>Separate with commas</span></div><div class="step"><span class="snum">3</span><span>Use curly braces { }</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List each item</span></div><div class="step"><span class="snum">2</span><span>Separate with commas</span></div><div class="step"><span class="snum">3</span><span>Enclose in {}</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Notation of a Set: <span class="hl">Set-Builder Form</span> (Rule Method)</h2>
-          <ul><li>Describe the common property of all elements.</li><li>Format: {x : P(x)} where P(x) is the property.</li><li>Example: {x : x is a prime number less than 10}.</li></ul>
-          <p class="notes">🎙️ Instead of listing everything, you describe the rule that all elements must follow to be part of the set. It's like giving a recipe rather than the finished dish.</p>
+          <span class="num">9 / 29</span>
+          <h2>Concept 3: Roster/Tabular Form (Definition &amp; Example)</h2>
+          <ul><li>In Roster form, all the elements of a set are listed, separated by commas, and enclosed within curly braces { }.</li><li>The order of elements doesn't matter, and elements are not repeated.</li><li>Example: Set of even numbers less than 10 is A = {2, 4, 6, 8}.</li></ul>
+          <p class="notes">🎙️ So, {2, 4, 6, 8} is the same as {8, 2, 6, 4}. Also, if an element appears multiple times, we only write it once. For example, the letters in 'SCHOOL' would be {S, C, H, O, L}.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Define variable (x)</span></div><div class="step"><span class="snum">2</span><span>Add colon ( : ) or vertical bar ( | )</span></div><div class="step"><span class="snum">3</span><span>State property P(x)</span></div><div class="step"><span class="snum">4</span><span>Use curly braces { }</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Listing Elements</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Example</span>: Roster vs Set-Builder Form</h2>
-          <ul><li>Set A = {1, 2, 3, 4, 5}</li><li>Set B = {x : x is a natural number and 1 ≤ x ≤ 5}</li></ul>
-          <p class="notes">🎙️ Notice how both forms represent the exact same set. Roster form is direct, while Set-Builder form is more descriptive, especially useful for very large or infinite sets.</p>
+          <span class="num">10 / 29</span>
+          <h2>Concept 4: Representing Sets - <span class="hl">Set-Builder</span> Form (Analogy)</h2>
+          <ul><li>Instead of listing ingredients, imagine describing the recipe: 'all ingredients that are sweet and white'.</li><li>You're not listing them, but telling their common property.</li><li>This is like Set-Builder form: describing elements by a rule.</li></ul>
+          <p class="notes">🎙️ Sometimes, sets are too large to list all elements, or it's more convenient to describe them. Set-Builder form is powerful because it uses a rule or property that all elements in the set share, and only those elements.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Roster Form</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Set-Builder Form</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Describing by Rule</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Types of Sets - <span class="hl">Empty Set</span> (Null Set or Void Set)</h2>
-          <ul><li>A set containing no elements.</li><li>Denoted by {} or ∅ (phi).</li><li>Example: Set of even prime numbers greater than 2 is {}.</li></ul>
-          <p class="notes">🎙️ Imagine an empty basket. That's what an empty set is – a set with absolutely nothing in it. It's still a valid set, just an empty one.</p>
+          <span class="num">11 / 29</span>
+          <h2>Concept 4: <span class="hl">Set-Builder</span> Form (Definition &amp; Example)</h2>
+          <ul><li>In Set-Builder form, we describe the elements by stating their common property.</li><li>General form: {x | P(x)} where 'x' is a variable, and 'P(x)' is the property.</li><li>Example: Set of even numbers less than 10 is A = {x | x is an even natural number and x &lt; 10}.</li></ul>
+          <p class="notes">🎙️ The vertical bar '|' is read as 'such that'. So, the example reads: 'A is the set of all x such that x is an even natural number and x is less than 10.' This concisely defines the set without listing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Property-based</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 29</span>
+          <h2>Worked Example 1: <span class="hl">Roster to Set-Builder</span></h2>
+          <ul><li>Convert A = {1, 2, 3, 4, 5} to Set-Builder form.</li><li>Step 1: Identify common property. (Natural numbers, less than or equal to 5)</li><li>Step 2: Write in Set-Builder form.</li><li>Answer: A = {x | x ∈ N and x ≤ 5} (where N is the set of natural numbers).</li></ul>
+          <p class="notes">🎙️ To convert from Roster to Set-Builder, look for a pattern or a common characteristic among the elements. Here, they are all positive whole numbers, and they don't go beyond 5.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 29</span>
+          <h2>Worked Example 2: <span class="hl">Set-Builder to Roster</span></h2>
+          <ul><li>Convert B = {x | x is an integer and -2 &lt; x &lt; 3} to Roster form.</li><li>Step 1: Identify the type of numbers (integers).</li><li>Step 2: Identify the range (-2 &lt; x &lt; 3 means x is greater than -2 and less than 3).</li><li>Answer: B = {-1, 0, 1, 2}.</li></ul>
+          <p class="notes">🎙️ When converting from Set-Builder to Roster, you need to carefully interpret the conditions given. What kind of numbers are we looking for, and what are their boundaries? List all numbers that satisfy these conditions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 29</span>
+          <h2>Quick Check 2: <span class="hl">Convert</span> Forms</h2>
+          <ul><li>1. Convert the set of prime numbers less than 10 to Roster form.</li><li>2. Convert C = {5, 10, 15, 20} to Set-Builder form.</li><li>3. Convert D = {x | x is a letter in the word 'INDIA'} to Roster form.</li></ul>
+          <p class="notes">🎙️ Practice these conversions. They are fundamental skills in working with sets. Remember to list distinct elements for Roster form, and find a clear property for Set-Builder form.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 29</span>
+          <h2>Concept 5: Types of Sets - <span class="hl">Empty Set</span> (Null Set)</h2>
+          <ul><li>An empty set is a set that contains no elements at all.</li><li>It is denoted by the symbol '∅' (phi) or by { }.</li><li>Example: The set of natural numbers between 3 and 4 is an empty set.</li></ul>
+          <p class="notes">🎙️ Think of an empty basket; it's still a basket, but with nothing in it. Similarly, an empty set is a valid set, just one without any elements. It's often called the 'Null Set' as well.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">∅</div><div class="vcap">Nothing inside</div></div></div>
       </div>
@@ -155,154 +245,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Example</span>: Empty Set</h2>
-          <ul><li>Set of students in Class 10 who are 2 years old.</li><li>Set of months with 32 days.</li><li>Set of triangles with four sides.</li></ul>
-          <p class="notes">🎙️ Can you think of any student in our class who is 2 years old? No, right? So, the set of such students is an empty set. It's a set that cannot have any members.</p>
+          <span class="num">16 / 29</span>
+          <h2>Concept 6: Types of Sets - <span class="hl">Finite Set</span></h2>
+          <ul><li>A set is called a finite set if it has a definite, countable number of elements.</li><li>We can count all its elements, and the counting process comes to an end.</li><li>Example: The set of days in a week, W = {Monday, Tuesday, ..., Sunday}.</li></ul>
+          <p class="notes">🎙️ If you can put a number to how many elements are in a set, it's a finite set. Your class students, the number of states in India, the number of books in your bag – these are all finite sets.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚫</span></div><div class="vcap">No items</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Countable items</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Types of Sets - <span class="hl">Finite</span> Set</h2>
-          <ul><li>A set with a definite, countable number of elements.</li><li>The process of counting elements comes to an end.</li><li>Example: Set of days in a week: {Monday, ..., Sunday}.</li></ul>
-          <p class="notes">🎙️ If you can count all the elements in a set and eventually finish counting, then it's a finite set. Like counting the number of fingers on your hand – you'll eventually stop at ten.</p>
+          <span class="num">17 / 29</span>
+          <h2>Concept 7: Types of Sets - <span class="hl">Infinite Set</span></h2>
+          <ul><li>A set is called an infinite set if it is not a finite set.</li><li>The number of elements in an infinite set is uncountable; the counting process would never end.</li><li>Example: The set of natural numbers, N = {1, 2, 3, ...}.</li></ul>
+          <p class="notes">🎙️ Think of the stars in the sky, or the grains of sand on a beach – they are so numerous that we can't count them all. Similarly, an infinite set contains an endless number of elements. The three dots '...' indicate that the pattern continues indefinitely.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛑</div><div class="vcap">Countable limit</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Types of Sets - <span class="hl">Infinite</span> Set</h2>
-          <ul><li>A set with an unlimited number of elements.</li><li>The process of counting elements never ends.</li><li>Example: Set of natural numbers: {1, 2, 3, ...}.</li></ul>
-          <p class="notes">🎙️ An infinite set is like counting stars in the sky – you can keep counting forever and never reach the end. There are always more elements.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♾️</div><div class="vcap">Never-ending</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Example: Finite vs Infinite Set</h2>
-          <ul><li>Finite: Set of planets in our solar system.</li><li>Infinite: Set of all points on a line.</li></ul>
-          <p class="notes">🎙️ This comparison helps us understand the difference. We can list all planets, but we can never list all points on a line, no matter how small the segment.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Finite</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Infinite</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Types of Sets - <span class="hl">Equal</span> Sets</h2>
-          <ul><li>Two sets A and B are equal if they have exactly the same elements.</li><li>Order of elements does not matter.</li><li>Example: A = {1, 2, 3}, B = {3, 1, 2}. Then A = B.</li></ul>
-          <p class="notes">🎙️ Think of two identical baskets, even if the items inside are arranged differently, if they contain the exact same items, the baskets are equal.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Perfectly balanced</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Types of Sets - <span class="hl">Equivalent</span> Sets</h2>
-          <ul><li>Two finite sets A and B are equivalent if they have the same number of elements.</li><li>Denoted by A ≈ B.</li><li>Example: A = {a, b, c}, B = {1, 2, 3}. A ≈ B (both have 3 elements).</li></ul>
-          <p class="notes">🎙️ Equivalent sets are like two different types of fruit baskets, but both have, say, five fruits each. The fruits might be different, but the *count* is the same.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Same count</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Example: Equal vs Equivalent Sets</h2>
-          <ul><li>Set A = {red, blue}, Set B = {blue, red}. A = B (Equal).</li><li>Set C = {apple, banana}, Set D = {pen, pencil}. C ≈ D (Equivalent).</li></ul>
-          <p class="notes">🎙️ Remember, all equal sets are also equivalent, but not all equivalent sets are equal. Equality is a stricter condition.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Equal Sets</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Equivalent Sets</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Subsets</span></h2>
-          <ul><li>Set A is a subset of Set B if every element of A is also an element of B.</li><li>Denoted by A ⊆ B.</li><li>Example: If B = {1, 2, 3, 4} and A = {1, 2}, then A ⊆ B.</li></ul>
-          <p class="notes">🎙️ Imagine a drawer full of clothes. If you take out only shirts, the set of shirts is a subset of the set of all clothes in the drawer.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⊂</div><div class="vcap">Part of a larger set</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">Example</span>: Subsets</h2>
-          <ul><li>Set of 'red apples' is a subset of the set of 'all apples'.</li><li>Set of 'natural numbers' is a subset of the set of 'integers'.</li></ul>
-          <p class="notes">🎙️ If you have a group of 6 apples, and 3 of them are red, then the set of red apples is a subset of the set of all apples. Every red apple is, indeed, an apple.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Some apples are red</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2><span class="hl">Proper Subsets</span> and Super Sets</h2>
-          <ul><li>A is a proper subset of B (A ⊂ B) if A ⊆ B and A ≠ B.</li><li>If A ⊆ B, then B is a Super Set of A (B ⊇ A).</li><li>Example: If A = {1, 2} and B = {1, 2, 3}, then A is a proper subset of B.</li></ul>
-          <p class="notes">🎙️ A proper subset means it's a subset, but it's not the *entire* set. It's strictly smaller. The set that contains the proper subset is called the super set.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☝️</div><div class="vcap">Strictly smaller</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2><span class="hl">Universal Set</span></h2>
-          <ul><li>The largest set relevant to a particular context or discussion.</li><li>All other sets under consideration are subsets of the universal set.</li><li>Denoted by U or ξ.</li><li>Example: For sets of numbers, the set of Real Numbers (R) can be a universal set.</li></ul>
-          <p class="notes">🎙️ Think of the universe itself. In set theory, the universal set is like the 'big picture' or the 'frame' that contains all the elements we are currently interested in.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">All-encompassing</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Power Set</span></h2>
-          <ul><li>The set of all possible subsets of a given set A.</li><li>Denoted by P(A).</li><li>If a set A has 'n' elements, then P(A) has 2^n elements.</li><li>Example: If A = {1, 2}, P(A) = { {}, {1}, {2}, {1, 2} }.</li></ul>
-          <p class="notes">🎙️ The power set is like taking a set and finding every single way you can form smaller sets from its elements, including the empty set and the set itself. It's a powerful concept!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">All combinations</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">∞</div><div class="vcap">Endless</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Is the collection of 'all intelligent students in your class' a set? Why or why not?</li></ul>
-          <p class="notes">🎙️ Take a moment to think about the definition of a set. Is 'intelligent' a well-defined property that everyone can agree on? Discuss with your partner!</p>
+          <span class="num">18 / 29</span>
+          <h2>Quick Check 3: Identify <span class="hl">Set Types</span></h2>
+          <ul><li>1. The set of all prime numbers. (Empty/Finite/Infinite?)</li><li>2. The set of solutions to x² = 4. (Empty/Finite/Infinite?)</li><li>3. The set of all circles passing through the origin. (Empty/Finite/Infinite?)</li></ul>
+          <p class="notes">🎙️ Carefully consider if you can count the elements or if there are no elements, or if they go on forever. This will help you classify these sets correctly.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 29</span>
+          <h2>Concept 8: <span class="hl">Cardinality</span> of a Set</h2>
+          <ul><li>The cardinality of a finite set is the number of distinct elements in the set.</li><li>It is denoted by n(A) for a set A.</li><li>Example: If A = {a, b, c, d}, then n(A) = 4.</li></ul>
+          <p class="notes">🎙️ Cardinality is simply 'how many' elements are in a set. It's like asking for the count of items in a box. For an empty set, the cardinality is 0, denoted as n(∅) = 0.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">Number of items</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 29</span>
+          <h2>Concept 9: <span class="hl">Equal Sets</span></h2>
+          <ul><li>Two sets A and B are said to be equal if they contain exactly the same elements.</li><li>The order in which the elements are listed does not matter.</li><li>Example: If A = {1, 2, 3} and B = {3, 1, 2}, then A = B.</li></ul>
+          <p class="notes">🎙️ For sets to be equal, every element in set A must also be in set B, and every element in set B must also be in set A. They are identical in terms of their content, regardless of how they are written.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Set A: {1,2,3}</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Set B: {3,1,2}</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 29</span>
+          <h2>Concept 10: <span class="hl">Equivalent Sets</span></h2>
+          <ul><li>Two finite sets A and B are said to be equivalent if they have the same number of elements (same cardinality).</li><li>The elements themselves do not have to be the same.</li><li>Example: If A = {a, b, c} and B = {1, 2, 3}, then n(A) = 3 and n(B) = 3. So, A and B are equivalent.</li></ul>
+          <p class="notes">🎙️ Think of two different bags, each containing 5 items. The items might be completely different, but the 'count' is the same. That's the idea of equivalent sets. All equal sets are equivalent, but not all equivalent sets are equal.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Set X: {🍎,🍌,🥭}</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Set Y: {1,2,3}</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 29</span>
+          <h2>Worked Example 3: <span class="hl">Equal vs. Equivalent</span></h2>
+          <ul><li>Consider P = {x | x is a letter in 'MATHS'} and Q = {T, H, A, M, S}.</li><li>Elements of P = {M, A, T, H, S}. Elements of Q = {T, H, A, M, S}.</li><li>Since P and Q have exactly the same elements, P = Q (Equal sets).</li><li>Also, n(P) = 5 and n(Q) = 5, so P and Q are also equivalent sets.</li></ul>
+          <p class="notes">🎙️ This example shows that if sets are equal, they will always be equivalent. But remember, the reverse is not always true. If we had R = {1, 2, 3, 4, 5}, then P and R would be equivalent (both have 5 elements) but not equal.</p>
         </div>
         
       </div>
@@ -311,48 +329,84 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Write the set A = {x : x is an integer, -2 &lt; x &lt; 3} in Roster Form.</li></ul>
-          <p class="notes">🎙️ Remember the rules for integers and the inequality signs. List all the integers that fit the given condition.</p>
+          <span class="num">23 / 29</span>
+          <h2>Quick Check 4: <span class="hl">Compare Sets</span></h2>
+          <ul><li>1. Are A = {1, 2, 3} and B = {x | x ∈ N and x &lt; 4} equal?</li><li>2. Are C = {red, blue} and D = {apple, banana} equivalent?</li><li>3. Is {0} an empty set? What is its cardinality?</li></ul>
+          <p class="notes">🎙️ Test your understanding of equality and equivalence. Pay close attention to the definition of an empty set and how cardinality applies to it. Remember, {0} is not empty!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Are the sets A = {a, b, c} and B = {x, y, z} equal or equivalent? Explain.</li></ul>
-          <p class="notes">🎙️ Recall the definitions of equal and equivalent sets. Do they have the same elements? Do they have the same number of elements?</p>
+          <span class="num">24 / 29</span>
+          <h2>Concept 11: <span class="hl">Subsets</span> (Analogy)</h2>
+          <ul><li>Imagine your family. Your immediate family (parents, siblings) is a smaller group within your extended family (grandparents, aunts, uncles).</li><li>Your immediate family is a 'subset' of your extended family.</li><li>Every member of the smaller group is also a member of the larger group.</li></ul>
+          <p class="notes">🎙️ This analogy helps visualize the concept. A subset means 'part of' or 'contained within'. All elements of the smaller set must be present in the larger set for it to be a subset.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👪</div><div class="vcap">Family within a family</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>If set P = {1, 2, 3}, how many elements are in its Power Set P(P)?</li></ul>
-          <p class="notes">🎙️ Remember the formula for the number of elements in a power set. Apply it to the given set P.</p>
+          <span class="num">25 / 29</span>
+          <h2>Concept 11: <span class="hl">Subsets</span> (Definition &amp; Example)</h2>
+          <ul><li>Set A is a subset of set B if every element of A is also an element of B.</li><li>It is denoted by A ⊆ B (read as 'A is a subset of B').</li><li>Example: If A = {1, 2} and B = {1, 2, 3}, then A ⊆ B.</li></ul>
+          <p class="notes">🎙️ Important points: Every set is a subset of itself (A ⊆ A). Also, the empty set (∅) is a subset of every set (∅ ⊆ A). These are universal properties of subsets.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⊆</div><div class="vcap">Contained in</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Journey through Sets</h2>
-          <ul><li>What is a Set?</li><li>Roster &amp; Set-Builder Forms</li><li>Types of Sets (Empty, Finite, Infinite, Equal, Equivalent)</li><li>Subsets, Proper Subsets, Universal Set, Power Set</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! From the basic definition of a set to different ways of representing them and various types of sets, including subsets and power sets. This forms a strong foundation for future topics.</p>
+          <span class="num">26 / 29</span>
+          <h2>Concept 12: <span class="hl">Proper Subsets</span></h2>
+          <ul><li>Set A is a proper subset of set B if A ⊆ B AND A ≠ B.</li><li>This means A is a subset of B, but B contains at least one element not in A.</li><li>It is denoted by A ⊂ B (read as 'A is a proper subset of B').</li></ul>
+          <p class="notes">🎙️ The difference between ⊆ and ⊂ is subtle but important. A proper subset is strictly smaller than the parent set. It cannot be equal to the parent set. For example, {1,2} is a proper subset of {1,2,3}, but {1,2,3} is not a proper subset of {1,2,3}.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⊂</div><div class="vcap">Strictly smaller</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 29</span>
+          <h2>Common <span class="hl">Mistakes</span> in Sets</h2>
+          <ul><li>Confusing ∅ with {0}: ∅ has no elements, {0} has one element (0).</li><li>Mixing up Equal and Equivalent Sets: Equal means same elements, Equivalent means same number of elements.</li><li>Incorrectly identifying elements in Roster form (e.g., repeating elements, incorrect order).</li><li>Forgetting that ∅ is a subset of every set, and every set is a subset of itself.</li></ul>
+          <p class="notes">🎙️ These are some of the most common pitfalls students face. Pay extra attention to these points. A small misunderstanding can lead to incorrect answers in tests. Always double-check definitions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid these!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 29</span>
+          <h2><span class="hl">Exam Tips</span> for Sets</h2>
+          <ul><li>Practice converting between Roster and Set-Builder forms thoroughly.</li><li>Be clear on the definitions of different types of sets (empty, finite, infinite, equal, equivalent, subset).</li><li>Questions on cardinality and identifying subsets are frequent.</li><li>Understand the notation (∈, ∉, ∅, ⊆, ⊂) and use it correctly.</li></ul>
+          <p class="notes">🎙️ Sets is a foundational chapter. Strong understanding here will help you in higher classes. Make sure you can explain each concept in your own words and solve various types of problems. Practice makes perfect!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Score High!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">29 / 29</span>
+          <h2><span class="hl">Recap</span> &amp; Next Steps</h2>
+          <ul><li>Sets are well-defined collections of distinct objects.</li><li>Represent sets using Roster or Set-Builder form.</li><li>Key types: Empty, Finite, Infinite, Equal, Equivalent, Subsets.</li><li>Next, we'll explore operations on sets like Union, Intersection, and Difference!</li></ul>
+          <p class="notes">🎙️ We've covered the basics of what sets are, how to write them, and their fundamental types. This knowledge is crucial for understanding the next level, where we learn how to combine and manipulate sets using operations. Keep practicing and stay curious!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Key Takeaways</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
@@ -363,6 +417,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>

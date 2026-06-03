@@ -8,9 +8,11 @@ import { cn } from '../lib/utils';
 import { db } from '../lib/firebase';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import { recordLearningActivity } from '../lib/progressTracker';
+import { recordAnswer } from '../lib/spacedRepetition';
 import {
   CLASS_BANK as QUESTION_CLASS_BANK,
   EXAM_BANK as QUESTION_EXAM_BANK,
+  ensureGeneratedMerged,
   DailyCategory,
   ExamCategory,
   Question as DailyQuestion,
@@ -268,8 +270,14 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
   const [leaderboardLoading, setLeaderboardLoading] = React.useState(true);
   const [xpNotice, setXpNotice] = React.useState<string | null>(null);
 
+  // The large auto-generated MCQ bank is fetched lazily (kept out of the JS
+  // bundle for fast page loads). Static questions show instantly; the fuller
+  // pool fills in once the fetch completes.
+  const [bankReady, setBankReady] = React.useState(false);
+  React.useEffect(() => { ensureGeneratedMerged().then(() => setBankReady(true)).catch(() => {}); }, []);
+
   const dateKey = todayKey();
-  const questions = React.useMemo(() => questionsFor(category, classLevel, dateKey), [category, classLevel, dateKey]);
+  const questions = React.useMemo(() => questionsFor(category, classLevel, dateKey), [category, classLevel, dateKey, bankReady]);
   const current = questions[index];
   const key = attemptKey(dateKey, category, category === 'Classes 5-10' ? classLevel : undefined);
   const completedToday = Boolean(profile.attempts[key]);
@@ -375,6 +383,10 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
       participation: profile.participation + (profile.attempts[key] ? 0 : 1),
     };
     setProfile(nextProfile);
+    // Spaced repetition: record each result so weak questions resurface later.
+    for (const q of questions) {
+      if (answers[q.id] !== undefined) recordAnswer(q.id, answers[q.id] === q.correct);
+    }
     setFinished(true);
     const shouldGrantDailyXp = !completedAnyToday;
     const xpGained = shouldGrantDailyXp ? dailyXpFor(score, questions.length) : 0;
@@ -594,8 +606,20 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
                 })}
               </div>
               {finished ? (
-                <div className="rounded-2xl bg-slate-50 p-4 text-sm font-semibold leading-relaxed text-slate-600">
-                  {current.explanation}
+                <div className="space-y-3">
+                  <div className="rounded-2xl bg-slate-50 p-4 text-sm font-semibold leading-relaxed text-slate-600">
+                    {current.explanation}
+                  </div>
+                  {current.solution && current.solution.length > 0 ? (
+                    <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-4">
+                      <p className="mb-2 text-xs font-bold uppercase tracking-wide text-indigo-500">Step-by-step solution</p>
+                      <ol className="list-decimal space-y-1.5 pl-5 text-sm leading-relaxed text-slate-700">
+                        {current.solution.map((step, i) => (
+                          <li key={i}>{step}</li>
+                        ))}
+                      </ol>
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
