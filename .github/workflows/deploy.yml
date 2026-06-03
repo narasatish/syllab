@@ -1,0 +1,65 @@
+# CI auto-deploy — builds the site (which runs the SEO-audit gate) and deploys
+# to Firebase Hosting on every push to main. This removes the "git drifts from
+# production" problem: what's on main is exactly what's live.
+#
+# ── ONE-TIME SETUP (add these in GitHub → Settings → Secrets and variables → Actions):
+#   FIREBASE_SERVICE_ACCOUNT   ← a GCP service-account JSON with Firebase Hosting
+#                                 admin (Firebase console → Project settings →
+#                                 Service accounts → Generate new private key).
+#   VITE_API_BASE_URL, VITE_API_URL,
+#   VITE_FIREBASE_API_KEY, VITE_FIREBASE_APP_ID, VITE_FIREBASE_AUTH_DOMAIN,
+#   VITE_FIREBASE_AUTH_ENABLED, VITE_FIREBASE_DATABASE_ID,
+#   VITE_FIREBASE_MESSAGING_SENDER_ID, VITE_FIREBASE_PROJECT_ID,
+#   VITE_FIREBASE_STORAGE_BUCKET, VITE_FIRESTORE_FEATURES
+#                                 ← copy each value from your local .env.
+#
+# The build does NOT need the Gemini key (generation scripts are guarded/manual).
+
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # allow manual runs from the Actions tab
+
+# Only one deploy at a time; cancel older in-flight runs on a new push.
+concurrency:
+  group: deploy-hosting
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (incl. sitemap + prerender + SEO-audit gate)
+        env:
+          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+          VITE_FIREBASE_AUTH_ENABLED: ${{ secrets.VITE_FIREBASE_AUTH_ENABLED }}
+          VITE_FIREBASE_DATABASE_ID: ${{ secrets.VITE_FIREBASE_DATABASE_ID }}
+          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
+          VITE_FIRESTORE_FEATURES: ${{ secrets.VITE_FIRESTORE_FEATURES }}
+        run: npm run build
+
+      - name: Deploy to Firebase Hosting (live)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: gen-lang-client-0838820295
+          channelId: live

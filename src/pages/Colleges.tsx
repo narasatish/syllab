@@ -14,6 +14,7 @@ import {
   Briefcase, TrendingUp, CalendarClock, ChevronRight, AlertCircle, Globe,
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import PageHero from '../components/PageHero';
 import {
   COLLEGE_STATE_INFO, COLLEGES, getStateInfo, getCollegesByState,
   getCollegeBySlug, stateSlugForCollege, getRankings, getStateRank, getNationalRank,
@@ -108,10 +109,13 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
           isPartOf: { '@type': 'WebSite', name: 'Syllab.in', url: SITE },
         }}
       />
-      <header className="mb-5 text-center">
-        <h1 className="text-2xl sm:text-3xl font-black text-slate-900">🏛️ Top Engineering Colleges in India</h1>
-        <p className="mt-1 text-sm text-slate-500 font-medium">Pick a state to see the best colleges — fees, NIRF rank, cutoffs, placements & admission process.</p>
-      </header>
+      <PageHero
+        emoji="🏛️"
+        title="Top Engineering Colleges in India"
+        subtitle="Pick a state to see the best colleges — fees, NIRF rank, cutoffs, placements & admission process."
+        aside={<span className="hidden rounded-full bg-white/15 px-3 py-1.5 text-xs font-black sm:inline-block">{TOTAL_COLLEGES}+ colleges</span>}
+        className="mb-5"
+      />
       <Disclaimer />
 
       <h2 className="text-sm font-black uppercase tracking-widest text-slate-400 mb-3">Browse by state</h2>
@@ -168,13 +172,16 @@ function StateColleges({ stateSlug, go, goBack }: { stateSlug: string; go: (to: 
       <button onClick={() => goBack('/colleges')} className="mb-3 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary">
         <ArrowLeft size={14} /> All states
       </button>
-      <header className="mb-4">
-        <h1 className="text-2xl font-black text-slate-900">{info.emoji} Top Engineering Colleges in {info.name}</h1>
-        <p className="mt-1 text-sm text-slate-500">{info.blurb}</p>
-        <div className="mt-2 flex flex-wrap gap-1.5">
-          {info.exams.map(e => <span key={e} className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-bold text-primary">{e}</span>)}
-        </div>
-      </header>
+      <PageHero
+        emoji={info.emoji}
+        title={`Top Engineering Colleges in ${info.name}`}
+        subtitle={info.blurb}
+        className="mb-4"
+        aside={<span className="hidden rounded-full bg-white/15 px-3 py-1.5 text-xs font-black sm:inline-block">{colleges.length} colleges</span>}
+      />
+      <div className="mb-4 flex flex-wrap gap-1.5">
+        {info.exams.map(e => <span key={e} className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-bold text-primary">{e}</span>)}
+      </div>
       <Disclaimer />
       {colleges.length ? (
         <div className="grid gap-3 sm:grid-cols-2">

@@ -10,6 +10,8 @@ import {
   Briefcase, Sparkles, CalendarDays, Award, Search, Building2, MapPin,
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import PageHero from '../components/PageHero';
+import { cn } from '../lib/utils';
 import {
   neetMarksToRank, predictNeetColleges, NEET_QUALIFYING_2024,
   STREAM_GUIDES, PREDICTOR_DATA_YEAR,
@@ -59,15 +61,15 @@ export default function CareerPredictor() {
         ]}
       />
 
-      <header className="mb-6 text-center">
-        <h1 className="text-2xl sm:text-3xl font-black text-slate-900">🎯 Career & College Predictor</h1>
-        <p className="mt-1 text-sm text-slate-500 font-medium">
-          Estimate your rank, explore careers &amp; salaries, find your stream, and track every exam — free.
-        </p>
-      </header>
+      <PageHero
+        emoji="🎯"
+        title="Career & College Predictor"
+        subtitle="Estimate your rank, explore careers & salaries, find your stream, and track every exam — free."
+        className="mb-5"
+      />
 
       {/* Disclaimer */}
-      <div className="mb-6 flex items-start gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-800">
+      <div className="mb-5 flex items-start gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-800">
         <AlertCircle size={16} className="shrink-0 mt-0.5" />
         <span>
           Rank/college numbers are <strong>indicative estimates</strong> based on {PREDICTOR_DATA_YEAR} data; salaries and exam
@@ -76,8 +78,8 @@ export default function CareerPredictor() {
         </span>
       </div>
 
-      {/* Tabs */}
-      <div className="mb-6 flex gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar">
+      {/* Tabs — branded, scrollable, sticky on scroll */}
+      <div className="sticky top-2 z-10 mb-6 flex gap-1.5 overflow-x-auto rounded-2xl border border-slate-100 bg-white/90 p-1.5 shadow-sm backdrop-blur no-scrollbar">
         {([
           { id: 'jee', label: 'Engineering', icon: <GraduationCap size={15} /> },
           { id: 'neet', label: 'NEET / Medical', icon: <Stethoscope size={15} /> },
@@ -88,9 +90,12 @@ export default function CareerPredictor() {
           { id: 'exams', label: 'Exam Dates', icon: <CalendarDays size={15} /> },
         ] as const).map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}
-            className={`shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-black transition-all ${
-              tab === t.id ? 'bg-white text-primary shadow-sm' : 'text-slate-500 hover:text-primary'
-            }`}>
+            className={cn(
+              'shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-black transition-all',
+              tab === t.id
+                ? 'bg-primary text-white shadow-sm shadow-emerald-500/30'
+                : 'text-slate-500 hover:bg-slate-50 hover:text-primary',
+            )}>
             {t.icon}{t.label}
           </button>
         ))}
