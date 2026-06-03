@@ -4,7 +4,7 @@
  * 50% evergreen (fixed) + 50% trending (updated content).
  * Full articles served from updateArticles.ts — no "coming soon".
  */
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   ArrowRight,
@@ -566,8 +566,15 @@ export default function Updates({ setTab }: UpdatesProps) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(() => {
-    // Auto-open a specific article when navigated from the Home page
     try {
+      // Deep link: /updates/<slug> → open that article directly (so the
+      // prerendered per-article page hydrates into the full reader).
+      const m = window.location.pathname.match(/^\/updates\/(.+?)\/?$/);
+      if (m) {
+        const a = ARTICLES.find(x => x.slug === decodeURIComponent(m[1]));
+        if (a) return a;
+      }
+      // Auto-open a specific article when navigated from the Home page
       const id = sessionStorage.getItem('syllab_open_article');
       if (id) {
         sessionStorage.removeItem('syllab_open_article');
@@ -576,6 +583,27 @@ export default function Updates({ setTab }: UpdatesProps) {
     } catch { /* ignore */ }
     return null;
   });
+
+  // Open/close an article AND reflect it in the URL (/updates/<slug>) so each
+  // article is a real, shareable, indexable page. The list stays at /updates.
+  const openArticle = useCallback((a: Article | null) => {
+    setSelectedArticle(a);
+    try {
+      const url = a ? `/updates/${a.slug}` : '/updates';
+      if (window.location.pathname !== url) window.history.pushState({}, '', url);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch { /* ignore */ }
+  }, []);
+
+  // Keep the view in sync with browser back/forward.
+  useEffect(() => {
+    const onPop = () => {
+      const m = window.location.pathname.match(/^\/updates\/(.+?)\/?$/);
+      setSelectedArticle(m ? (ARTICLES.find(x => x.slug === decodeURIComponent(m[1])) ?? null) : null);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
   const filtered = useMemo(() => {
     let list = ARTICLES;
@@ -669,7 +697,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             <Flame size={13} className="text-red-500" /> Trending Now
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {trending.map(a => <ArticleCard key={a.id} article={a} onRead={setSelectedArticle} />)}
+            {trending.map(a => <ArticleCard key={a.id} article={a} onRead={openArticle} />)}
           </div>
         </section>
       )}
@@ -681,7 +709,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             <Star size={13} className="text-amber-500" /> Essential Evergreen Guides
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {pinned.map(a => <ArticleCard key={a.id} article={a} onRead={setSelectedArticle} />)}
+            {pinned.map(a => <ArticleCard key={a.id} article={a} onRead={openArticle} />)}
           </div>
         </section>
       )}
@@ -714,7 +742,7 @@ export default function Updates({ setTab }: UpdatesProps) {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <AnimatePresence>
-                {filtered.map(a => <ArticleCard key={a.id} article={a} onRead={setSelectedArticle} />)}
+                {filtered.map(a => <ArticleCard key={a.id} article={a} onRead={openArticle} />)}
               </AnimatePresence>
             </div>
           )}
@@ -728,7 +756,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             <TrendingUp size={13} /> All Updates
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ARTICLES.map(a => <ArticleCard key={a.id} article={a} onRead={setSelectedArticle} />)}
+            {ARTICLES.map(a => <ArticleCard key={a.id} article={a} onRead={openArticle} />)}
           </div>
         </section>
       )}
@@ -762,7 +790,7 @@ export default function Updates({ setTab }: UpdatesProps) {
         {selectedArticle && (
           <ArticleModal
             article={selectedArticle}
-            onClose={() => setSelectedArticle(null)}
+            onClose={() => openArticle(null)}
             setTab={setTab}
           />
         )}

@@ -17,6 +17,7 @@ import { promises as fs, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
+import { getBlogArticles } from './blogArticles.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -429,6 +430,29 @@ for (const c of COLLEGES_M) {
       '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name,
       url: `${SITE}/colleges/${c.stateSlug}/${c.slug}`,
       address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.stateName, addressCountry: 'IN' },
+    },
+  });
+}
+
+// ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
+for (const a of getBlogArticles()) {
+  const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;
+  ROUTES.push({
+    path: `/updates/${a.slug}`,
+    title: `${a.title} | Syllab.in`,
+    description: desc,
+    keywords: `${a.title}, Syllab blog, free study guide India, CBSE JEE NEET tips, Indian students`,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: a.title,
+      description: desc,
+      url: `${SITE}/updates/${a.slug}`,
+      image: `${SITE}/og-image.png`,
+      isAccessibleForFree: true,
+      inLanguage: 'en-IN',
+      author: { '@type': 'Organization', name: 'Syllab.in' },
+      publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/icon.svg` } },
     },
   });
 }

@@ -198,6 +198,8 @@ for (const [legacyPath, tab] of Object.entries(LEGACY_PATH_TO_TAB)) {
 function resolveTab(pathname: string): string {
   if (PATH_TO_TAB[pathname]) return PATH_TO_TAB[pathname];
   if (pathname === '/colleges' || pathname.startsWith('/colleges/')) return 'colleges';
+  // Per-article blog pages: /updates/<slug> → the Updates (blog) tab.
+  if (pathname === '/updates' || pathname.startsWith('/updates/')) return 'updates';
   return 'home';
 }
 
@@ -216,7 +218,9 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
         applicationCategory: 'EducationApplication',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Free AI-powered learning platform for Class 1–12 CBSE Indian students',
-        aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '12000', bestRating: '5' },
+        // NOTE: no aggregateRating here. Fabricated review counts violate Google's
+        // structured-data policy and risk a manual penalty. Add a real one only
+        // once genuine, verifiable ratings exist.
       },
       {
         '@context': 'https://schema.org',

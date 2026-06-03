@@ -15,6 +15,7 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
+import { getBlogArticles } from './blogArticles.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -123,6 +124,12 @@ function buildUrls({ languages, topicsByLang }) {
     for (const topicId of (topicsByLang[lang] || [])) {
       urls.push({ loc: `/coding/${lang}/${topicId}`, priority: 0.5, changefreq: 'monthly' });
     }
+  }
+
+  // Blog: the canonical /updates page + each article as its own indexable URL.
+  urls.push({ loc: '/updates', priority: 0.7, changefreq: 'daily' });
+  for (const a of getBlogArticles()) {
+    urls.push({ loc: `/updates/${a.slug}`, priority: 0.6, changefreq: 'weekly' });
   }
 
   // De-duplicate by loc — a topic id can appear under more than one language
