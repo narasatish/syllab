@@ -528,6 +528,28 @@ function buildHeadBlock(route) {
     );
   }
 
+  // Auto BreadcrumbList (Home → this page) for every non-home route, unless the
+  // route already declares its own breadcrumb. Gives Google breadcrumb rich
+  // results across the whole site (class pages, coding, colleges, etc.) from one
+  // place — no per-route editing.
+  const hasBreadcrumb = JSON.stringify(route.jsonLd || '').includes('BreadcrumbList');
+  if (route.path !== '/' && !hasBreadcrumb) {
+    const pageName = String(route.title).split('|')[0].split('—')[0].trim() || 'Page';
+    const crumb = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: pageName, item: canonical },
+      ],
+    };
+    lines.push(
+      `  <script type="application/ld+json">`,
+      `  ${JSON.stringify(crumb, null, 2).split('\n').join('\n  ')}`,
+      `  </script>`,
+    );
+  }
+
   return lines.join('\n');
 }
 
