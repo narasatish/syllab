@@ -702,6 +702,138 @@ On Syllab.in you get free Class 10 Science chapter summaries, real diagrams, cha
 On Syllab.in, take free JEE Main mock tests, practise chapter-wise MCQs, and use the free rank & college predictor to set your target.`,
   },
 
+  /* ── RAMP batch 2: more high-volume evergreen guides ── */
+  {
+    id: 'class-12-physics-important-chapters-derivations',
+    title: 'Class 12 Physics: Important Chapters, Derivations & Weightage (Free)',
+    description: 'High-weightage CBSE Class 12 Physics chapters, must-know derivations and numericals, with free chapter-wise practice and mocks for boards + JEE/NEET.',
+    readTime: '7 min read', category: 'cbse',
+    content: `Class 12 Physics is scoring if you prioritise the **high-weightage units** and master derivations.
+
+**Highest weightage:** Electrostatics, Current Electricity, Magnetic Effects & Magnetism, Electromagnetic Induction & AC, and Optics. Together these dominate the board paper and overlap heavily with JEE/NEET.
+
+**Must-know derivations:** electric field of a dipole, potential due to a point charge, force between parallel wires, EMF in a coil, lens-maker's formula, and Young's double-slit. Boards ask these almost every year.
+
+**Method:** read NCERT, write each derivation by hand until you can reproduce it, then solve numericals to build speed. Don't memorise blindly — understand the steps so you can handle twists.
+
+On Syllab.in, practise Class 12 Physics chapter-wise MCQs free, take mock tests, and ask the AI tutor to walk through any derivation step by step.`,
+  },
+  {
+    id: 'class-10-maths-important-questions-chapters',
+    title: 'Class 10 Maths Important Questions & High-Weightage Chapters 2026',
+    description: 'CBSE Class 10 Maths high-weightage chapters and important question types for boards 2026, with free chapter-wise practice and step-by-step solutions.',
+    readTime: '6 min read', category: 'cbse',
+    content: `In CBSE Class 10 Maths, a few chapters carry most of the marks — target them first.
+
+**High-weightage:** Trigonometry & its Applications, Triangles, Coordinate Geometry, Statistics & Probability, and Surface Areas & Volumes. Quadratic Equations and Arithmetic Progressions are also reliable scorers.
+
+**Important question types:** trigonometric identities and heights-and-distances word problems, similarity proofs, section-formula problems, and real-life probability/statistics. These repeat across years.
+
+**Method:** finish NCERT and the exemplar, practise full step-by-step solutions (process marks matter), and solve at least one sample paper a week under time.
+
+On Syllab.in, do free Class 10 Maths chapter-wise MCQ practice with instant step-by-step solutions, plus full mock tests — no sign-up needed.`,
+  },
+  {
+    id: 'neet-chemistry-important-chapters-reactions',
+    title: 'NEET Chemistry: Important Chapters & Reactions to Master (Free Practice)',
+    description: 'High-weightage NEET Chemistry chapters across Physical, Inorganic and Organic, with the key reactions to memorise and free chapter-wise practice for aspirants.',
+    readTime: '7 min read', category: 'neet',
+    content: `Chemistry is the most scoring NEET subject if you play to its structure.
+
+**Physical:** Mole Concept, Thermodynamics, Equilibrium, Electrochemistry, Chemical Kinetics, and Solutions — formula + numerical based, fast marks.
+
+**Inorganic:** Chemical Bonding, Periodic Table, Coordination Compounds, and the p-block. This is almost pure NCERT — read it line by line and memorise.
+
+**Organic:** focus on GOC (general organic chemistry), reaction mechanisms, and named reactions. Build a reaction map per functional group rather than rote-learning isolated reactions.
+
+**Method:** NCERT first (especially Inorganic + Physical), make a reaction & formula sheet, then drill MCQs for recall speed.
+
+On Syllab.in, practise NEET Chemistry chapter-wise MCQs free, take full mocks, and use the AI tutor to explain any mechanism.`,
+  },
+  {
+    id: 'jee-vs-neet-how-to-choose-after-10th',
+    title: 'JEE vs NEET — How to Choose Your Path After Class 10 (Free Guide)',
+    description: 'Confused between engineering (JEE) and medical (NEET) after Class 10? A clear, honest comparison of subjects, careers, difficulty and how to decide — for Indian students.',
+    readTime: '6 min read', category: 'study-tips',
+    content: `Choosing between JEE (engineering) and NEET (medical) after Class 10 shapes your next several years. Here's how to decide honestly.
+
+**Pick PCM → JEE if:** you enjoy Maths and problem-solving, like building/coding/machines, and prefer logic over memorisation. Careers: engineering, tech, data, research, product.
+
+**Pick PCB → NEET if:** you're drawn to Biology, the human body, and helping people directly, and you're comfortable with heavy memorisation. Careers: doctor, dentist, pharmacy, life sciences.
+
+**Honest notes:** both are competitive and need 2 years of consistent effort. Don't choose by peer pressure or "which is easier" — choose by genuine interest, because that's what sustains you through prep.
+
+Still unsure? Take Syllab.in's free interest quiz and "Which Stream?" tool, explore careers with real salary ranges, and use the free rank & college predictor to see realistic outcomes for each path.`,
+  },
+  {
+    id: 'how-to-overcome-exam-stress-anxiety',
+    title: 'How to Overcome Exam Stress & Anxiety — Practical Tips for Students',
+    description: 'Science-backed, practical ways for Indian students to manage exam stress and anxiety before boards, JEE and NEET — sleep, revision, and exam-day calm.',
+    readTime: '5 min read', category: 'study-tips',
+    content: `Some exam stress is normal — too much hurts your recall. Here's how to keep it in check.
+
+**Before exams:** Study in short focused blocks with breaks, not all-nighters. Sleep 7–8 hours — your brain consolidates memory during sleep, so cramming without sleep backfires. Use spaced revision so the syllabus feels manageable, not overwhelming.
+
+**The day before:** Light revision only (formula sheets, summaries). Avoid learning brand-new topics — it spikes anxiety. Pack your kit and sleep early.
+
+**Exam day:** Eat properly, reach early, and breathe slowly (4 seconds in, 6 out) if you feel panic. Read the full paper first, start with questions you know, and don't get stuck — move on and return later.
+
+**Mindset:** one exam doesn't define you. Effort over outcome.
+
+Practising under timed conditions on Syllab.in's free mock tests builds exam-day confidence — the more familiar the format, the less the fear.`,
+  },
+  {
+    id: 'how-to-write-high-scoring-board-answers',
+    title: 'How to Write High-Scoring Answers in Board Exams (Free Tips)',
+    description: 'Answer-writing techniques to maximise CBSE board marks — structure, keywords, diagrams and presentation — for Class 10 and 12 Indian students.',
+    readTime: '5 min read', category: 'study-tips',
+    content: `Two students with the same knowledge can score very differently — answer presentation is why.
+
+**Match the marks:** a 3-mark question needs ~3 distinct points, not an essay. Don't over-write 1-markers or under-write 5-markers.
+
+**Lead with keywords:** examiners scan for specific terms, formulas and definitions. Put them up front and underline them.
+
+**Use structure:** headings, points, and step-wise working for numericals (each correct step earns marks even if the final answer slips).
+
+**Draw diagrams:** neat, labelled diagrams fetch easy marks in Science and Geography — practise them.
+
+**Manage time:** ~1 mark/minute; leave time to review. Attempt every question — blank = zero, an attempt can earn partial marks.
+
+Practise writing on Syllab.in's free chapter-wise questions and mock tests, with step-by-step solutions to model how full-mark answers are structured.`,
+  },
+  {
+    id: 'best-free-websites-apps-cbse-jee-neet-prep',
+    title: 'Best Free Websites & Apps for CBSE, JEE & NEET Preparation (2026)',
+    description: 'A practical roundup of genuinely free resources for CBSE, JEE and NEET prep in India — notes, mock tests, doubt-solving and practice, with no paywall.',
+    readTime: '6 min read', category: 'study-tips',
+    content: `You don't need expensive coaching to prepare well — plenty is genuinely free if you know where to look.
+
+**For NCERT notes & concepts:** official NCERT PDFs + a platform that turns them into summaries and practice. **For practice:** chapter-wise MCQs with instant feedback beat passive reading every time. **For mocks:** full-length, timed papers in the real exam pattern are essential before boards/JEE/NEET. **For doubts:** an AI tutor that explains *why*, available 24/7, removes the biggest blocker — being stuck.
+
+**How to use them:** pick ONE main platform and stick to it (switching apps wastes time), build a daily practice habit, and review your mistakes — that's where real improvement happens.
+
+Syllab.in puts all of this in one free place for Class 1–12: NCERT chapter summaries, chapter-wise practice with step-by-step solutions, JEE/NEET/EAMCET mock tests, daily challenges, a free AI tutor, coding, and a rank & college predictor — no sign-up, no paywall.`,
+  },
+  {
+    id: 'how-to-improve-focus-concentration-studying',
+    title: 'How to Improve Focus & Concentration While Studying (Student Guide)',
+    description: 'Practical, science-backed ways for students to improve focus and concentration while studying — beat distractions, use the Pomodoro method, and study deeper.',
+    readTime: '5 min read', category: 'study-tips',
+    content: `Focus is a skill you can train. Here's what actually works for students.
+
+**Remove the phone.** Notifications are the #1 focus-killer. Keep your phone in another room while studying — "just checking" breaks deep focus for ~20 minutes each time.
+
+**Use the Pomodoro method.** Study in 50-minute focused blocks with 10-minute breaks. Your brain can't concentrate hard for hours straight; structured breaks keep it sharp.
+
+**Active over passive.** Reading and highlighting feels productive but is weak. Instead, solve problems, do MCQs, and explain topics aloud — active recall builds focus *and* memory.
+
+**Fix your environment & body.** A clean, well-lit desk, water nearby, 7–8 hours sleep, and some movement do more for concentration than any "hack."
+
+**One task at a time.** Multitasking is a myth — it just makes everything slower.
+
+On Syllab.in, timed chapter practice and daily challenges turn studying into short, active, focused sessions — the easiest way to build the habit. It's free.`,
+  },
+
   /* ════════════════════════════════════════════════════════════════════════
      TIMELY / FLEXIBLE posts (the ~30%). `timely: true` + `months` = the months
      they auto-appear (then drop out automatically). Framed as "expected/how to
