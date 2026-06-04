@@ -596,6 +596,112 @@ Don't just watch — **write code daily**. Start with tiny programs, then small 
 Syllab.in's free Coding lab has Python, JavaScript, HTML/CSS, Java and SQL with an in-browser editor, 200+ challenges and an AI tutor that explains your errors.`,
   },
 
+  /* ── RAMP: high-volume evergreen guides (target top Indian student searches) ── */
+  {
+    id: 'how-to-score-95-percent-cbse-board-exams',
+    title: 'How to Score 95%+ in CBSE Board Exams — A Realistic Free Study Plan',
+    description: 'A realistic, NCERT-first plan to score 95%+ in CBSE Class 10 & 12 boards: how to use NCERT, answer-writing, revision cycles and free chapter-wise practice for Indian students.',
+    readTime: '8 min read', category: 'study-tips',
+    content: `Scoring 95%+ in CBSE boards is not about studying 14 hours a day — it's about studying the **right things the right way**. Here is the plan that consistently works for Indian students.
+
+**1. NCERT is the syllabus — finish it first.** The CBSE paper is set from NCERT. Read every line, solve every in-text and back exercise, and never skip the examples. Most students lose marks on questions straight out of NCERT they assumed were "too basic".
+
+**2. Practice writing, not just reading.** Boards reward presentation. After each chapter, solve previous-year and sample questions in exam conditions — timed, by hand. Underline keywords, draw diagrams, and write step-wise for full marks.
+
+**3. Revise in cycles, not once.** Use spaced revision: revise a chapter the same day, again after 3 days, then weekly. This is what makes it stick under exam pressure.
+
+**4. Fix weak chapters early.** Track which chapters you get wrong and attack them first — don't keep re-revising what you already know.
+
+On Syllab.in you can do free chapter-wise MCQ practice with instant step-by-step solutions, take full mock tests, and ask the AI tutor to explain anything you're stuck on — all free, no sign-up needed.`,
+  },
+  {
+    id: 'best-study-timetable-class-10-12-students',
+    title: 'Best Daily Study Time Table for Class 10 & 12 Students (Free Template)',
+    description: 'A practical daily study time table for Class 10 and 12 Indian students — balancing school, self-study, revision and rest, with a free chapter-wise practice routine.',
+    readTime: '6 min read', category: 'study-tips',
+    content: `The best time table is the one you can actually follow every day. Here is a realistic template for a Class 10 or 12 Indian student.
+
+**After school (4–6 PM):** Rest + revise the day's class topics while they're fresh. Just 45 minutes of active recall here saves hours later.
+
+**Evening (7–9:30 PM):** Deep study — one tough subject + one easier subject. Do focused 50-minute blocks with 10-minute breaks (the Pomodoro method).
+
+**Before bed (10–10:30 PM):** Quick MCQ practice or flashcards on what you studied. Your brain consolidates this during sleep.
+
+**Weekends:** One full-length practice test + review your mistakes. This is the single highest-impact habit for boards and JEE/NEET.
+
+**Non-negotiables:** 7–8 hours of sleep, and one full rest day every 1–2 weeks to avoid burnout.
+
+Use Syllab.in free to run timed chapter practice, take mock tests on weekends, and track your weak topics automatically — so your study time always goes where it matters most.`,
+  },
+  {
+    id: 'how-to-use-ncert-for-jee-neet',
+    title: 'How to Use NCERT for JEE & NEET — The Smart Way (Free Guide)',
+    description: 'NCERT is the foundation for JEE and NEET. Learn exactly how to use NCERT for Physics, Chemistry and Biology, and where to add practice — free for Indian students.',
+    readTime: '7 min read', category: 'jee',
+    content: `Toppers repeat one thing: **NCERT is non-negotiable for JEE and NEET.** But how you use it differs by subject.
+
+**Biology (NEET):** NCERT is almost the entire paper. Read it line by line, multiple times. Most NEET Biology questions are directly from NCERT statements and diagrams — memorise them.
+
+**Chemistry:** NCERT is king for Inorganic and Physical Chemistry — especially Class 12. For Organic, use NCERT for fundamentals, then add reaction practice.
+
+**Physics:** NCERT builds your concepts and has good examples, but Physics needs heavy numerical practice on top. Master NCERT theory, then solve problem sets.
+
+**The method:** (1) Read the chapter, (2) solve every NCERT example + exercise, (3) make a one-page formula/fact sheet, (4) then do MCQ practice and mocks to apply it.
+
+On Syllab.in you can practise chapter-wise MCQs for Physics, Chemistry and Biology, take free JEE/NEET mock tests, and use the AI tutor + rank predictor — all free.`,
+  },
+  {
+    id: 'neet-biology-most-important-chapters',
+    title: 'NEET Biology: Most Important Chapters & Weightage (Free Practice)',
+    description: 'High-weightage NEET Biology chapters with marks distribution and a free chapter-wise practice + mock test plan for Indian medical aspirants.',
+    readTime: '7 min read', category: 'neet',
+    content: `Biology is 50% of the NEET paper (360 of 720 marks), so it decides your rank. Here are the **highest-weightage areas** to prioritise.
+
+**Class 11 high-weightage:** Plant & Animal Kingdom (classification), Cell Structure, Plant & Human Physiology, Biomolecules. These carry a large, predictable share of questions.
+
+**Class 12 high-weightage:** Genetics & Evolution, Biotechnology, Human Reproduction & Reproductive Health, Ecology. Ecology alone is one of the most question-dense units in all of NEET.
+
+**Strategy:** Master NCERT line-by-line for these units first, memorise every diagram and example, then drill MCQs to lock in recall speed. Most NEET Biology questions reward fast, accurate memory of NCERT facts.
+
+On Syllab.in, practise NEET Biology chapter-wise MCQs free, take full mock tests, and use the college & rank predictor to plan your target — no sign-up needed.`,
+  },
+  {
+    id: 'class-10-science-important-chapters-board',
+    title: 'Class 10 Science Important Chapters & Free Notes for Boards 2026',
+    description: 'Chapter-wise important topics for CBSE Class 10 Science boards 2026 with free NCERT-based notes, diagrams and MCQ practice for Indian students.',
+    readTime: '6 min read', category: 'cbse',
+    content: `For CBSE Class 10 Science boards, some chapters give more marks and questions than others. Focus your revision smartly.
+
+**Physics (high-weightage):** Light – Reflection & Refraction, Electricity, and Human Eye. Practise ray diagrams and numericals — they're guaranteed marks.
+
+**Chemistry:** Chemical Reactions & Equations, Acids/Bases/Salts, Metals & Non-metals, and Carbon & its Compounds. Balancing equations and reaction-based questions are common.
+
+**Biology:** Life Processes, Control & Coordination, How Do Organisms Reproduce, and Heredity. Diagrams (digestive system, heart, neuron) appear almost every year — practise drawing and labelling them.
+
+**Method:** Finish NCERT, solve all back exercises, practise labelled diagrams, then do timed MCQs and a sample paper each week.
+
+On Syllab.in you get free Class 10 Science chapter summaries, real diagrams, chapter-wise MCQ practice with step-by-step solutions, and mock tests — all free.`,
+  },
+  {
+    id: 'jee-main-maths-important-chapters-weightage',
+    title: 'JEE Main Maths: Most Important Chapters & Weightage (Free Mocks)',
+    description: 'High-weightage JEE Main Maths chapters with a smart practice order and free chapter-wise mocks for Indian engineering aspirants.',
+    readTime: '7 min read', category: 'jee',
+    content: `In JEE Main, Maths is often the difference between a good and a great rank. Prioritise the **high-weightage, high-scoring** chapters.
+
+**Calculus (biggest block):** Limits, Continuity & Differentiability, Application of Derivatives, Definite & Indefinite Integration, and Differential Equations. This cluster carries the most questions — master it first.
+
+**Algebra:** Complex Numbers, Quadratic Equations, Sequences & Series, Permutations & Combinations, Binomial Theorem, and Matrices & Determinants. Mostly formula-and-pattern based — fast marks once practised.
+
+**Coordinate Geometry:** Straight Lines, Circles, Parabola/Ellipse/Hyperbola. Predictable question types.
+
+**Vectors & 3D Geometry:** Short syllabus, high return — don't skip it.
+
+**Method:** Learn the theory, build a chapter-wise formula sheet, then do timed problem sets and full mocks to build speed and accuracy.
+
+On Syllab.in, take free JEE Main mock tests, practise chapter-wise MCQs, and use the free rank & college predictor to set your target.`,
+  },
+
   /* ════════════════════════════════════════════════════════════════════════
      TIMELY / FLEXIBLE posts (the ~30%). `timely: true` + `months` = the months
      they auto-appear (then drop out automatically). Framed as "expected/how to

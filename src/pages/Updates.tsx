@@ -22,6 +22,7 @@ import {
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 import { getArticleBySlug, FullArticle } from '../data/updateArticles';
+import autoBlogsRaw from '../data/autoBlogs.json';
 
 /* ─── Types ──────────────────────────────────────────────────────────────── */
 interface Article {
@@ -39,6 +40,9 @@ interface Article {
   emoji: string;
   coverColor: string;
   author: string;
+  /** Raw article body for auto-generated posts (rendered when there's no
+   *  curated FULL_ARTICLES entry). */
+  autoContent?: string;
 }
 
 /* ─── Categories ─────────────────────────────────────────────────────────── */
@@ -56,7 +60,7 @@ const CATEGORIES = [
 ];
 
 /* ─── Static articles ────────────────────────────────────────────────────── */
-const ARTICLES: Article[] = [
+const CURATED_ARTICLES: Article[] = [
   // ── Money & Markets (Financial Literacy) ──────────────────────────────
   {
     id: 'f1', slug: 'stock-market-basics-for-students-india', category: 'finance', riskLevel: 'low', trending: true, pinned: true,
@@ -264,6 +268,39 @@ const ARTICLES: Article[] = [
     emoji: '📐', coverColor: 'from-violet-500 to-purple-800', author: 'Syllab Team',
   },
 ];
+
+/* ─── Auto-generated articles (from scripts/generate-trending-blogs.mjs) ──────
+   Merged into the canonical /updates blog so every generated post is a real,
+   indexable /updates/<slug> page (prerendered via scripts/blogArticles.mjs). */
+interface AutoBlog { id: string; title: string; description: string; date: string; readTime?: string; category?: string; content: string; }
+const AUTO_EMOJI: Record<string, string> = {
+  jee: '🔬', neet: '🧬', eamcet: '📐', cbse: '📚', 'ai-tools': '🤖',
+  'coding-skills': '💻', 'study-tips': '💡', finance: '💰', 'class-1-4': '🧒',
+};
+const CURATED_SLUGS = new Set(CURATED_ARTICLES.map(a => a.slug));
+const AUTO_BLOG_ARTICLES: Article[] = (autoBlogsRaw as AutoBlog[])
+  .filter(b => b && b.id && b.title && b.content && !CURATED_SLUGS.has(b.id))
+  .map(b => {
+    const cat = (b.category || 'study-tips').toLowerCase();
+    return {
+      id: b.id,
+      slug: b.id,
+      title: b.title,
+      summary: b.description || b.title,
+      category: CATEGORIES.some(c => c.id === cat) ? cat : 'study-tips',
+      tags: [],
+      readingTime: parseInt(String(b.readTime || '6'), 10) || 6,
+      date: b.date || '2026-01-01',
+      riskLevel: 'low' as const,
+      emoji: AUTO_EMOJI[cat] || '📝',
+      coverColor: 'from-emerald-600 to-teal-700',
+      author: 'Syllab Team',
+      autoContent: b.content,
+    };
+  });
+
+// Curated first, then auto-generated (deduped by slug).
+const ARTICLES: Article[] = [...CURATED_ARTICLES, ...AUTO_BLOG_ARTICLES];
 
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 
@@ -497,6 +534,11 @@ function ArticleModal({
                     </div>
                   </section>
                 )}
+              </div>
+            ) : article.autoContent ? (
+              /* Auto-generated article — render its full body. */
+              <div className="prose prose-slate max-w-none space-y-1">
+                {renderBody(article.autoContent, 'auto')}
               </div>
             ) : (
               /* Fallback for articles not yet in FULL_ARTICLES — rich placeholder */

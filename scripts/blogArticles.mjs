@@ -12,8 +12,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 export function getBlogArticles() {
   let src = readFileSync(path.join(ROOT, 'src', 'pages', 'Updates.tsx'), 'utf8');
-  // Scope to the ARTICLES array so we don't pick up unrelated objects.
-  const start = src.indexOf('const ARTICLES');
+  // Scope to the curated ARTICLES array so we don't pick up unrelated objects.
+  const start = src.indexOf('const CURATED_ARTICLES');
   if (start !== -1) src = src.slice(start);
   // Each article block has slug → title → summary in order.
   const re = /slug:\s*'([^']+)'[\s\S]*?title:\s*'((?:[^'\\]|\\.)*)'[\s\S]*?summary:\s*'((?:[^'\\]|\\.)*)'/g;
@@ -27,5 +27,17 @@ export function getBlogArticles() {
     const unescape = (s) => s.replace(/\\'/g, "'").replace(/\\\\/g, '\\');
     out.push({ slug, title: unescape(m[2]), summary: unescape(m[3]) });
   }
+
+  // Auto-generated articles (autoBlogs.json) are merged into /updates too, so
+  // each one also gets a prerendered, indexable /updates/<slug> page.
+  try {
+    const auto = JSON.parse(readFileSync(path.join(ROOT, 'src', 'data', 'autoBlogs.json'), 'utf8'));
+    for (const b of Array.isArray(auto) ? auto : []) {
+      if (!b || !b.id || !b.title || seen.has(b.id)) continue;
+      seen.add(b.id);
+      out.push({ slug: b.id, title: b.title, summary: b.description || b.title });
+    }
+  } catch { /* autoBlogs.json optional */ }
+
   return out;
 }
