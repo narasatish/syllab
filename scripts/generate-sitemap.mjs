@@ -16,6 +16,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
 import { getBlogArticles } from './blogArticles.mjs';
+import { getNcertChapters } from './ncertChapters.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -124,6 +125,12 @@ function buildUrls({ languages, topicsByLang }) {
     for (const topicId of (topicsByLang[lang] || [])) {
       urls.push({ loc: `/coding/${lang}/${topicId}`, priority: 0.5, changefreq: 'monthly' });
     }
+  }
+
+  // NCERT solutions: index + each chapter that has solutions.
+  urls.push({ loc: '/ncert-solutions', priority: 0.8, changefreq: 'weekly' });
+  for (const c of getNcertChapters()) {
+    urls.push({ loc: `/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`, priority: 0.6, changefreq: 'monthly' });
   }
 
   // Blog: the canonical /updates page + each article as its own indexable URL.

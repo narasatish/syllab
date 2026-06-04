@@ -18,6 +18,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
 import { getBlogArticles } from './blogArticles.mjs';
+import { getNcertChapters } from './ncertChapters.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -430,6 +431,30 @@ for (const c of COLLEGES_M) {
       '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name,
       url: `${SITE}/colleges/${c.stateSlug}/${c.slug}`,
       address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.stateName, addressCountry: 'IN' },
+    },
+  });
+}
+
+// ─── NCERT Solutions: index + per-chapter pages (high-volume "NCERT solutions") ─
+ROUTES.push({
+  path: '/ncert-solutions',
+  title: 'Free NCERT Solutions for Class 6–12 (CBSE) — Chapter-wise Answers | Syllab.in',
+  description: 'Free NCERT solutions for CBSE Class 6 to 12 — chapter-wise, step-by-step answers to textbook exercises in Science, Maths, Physics, Chemistry & Biology for Indian students.',
+  keywords: 'NCERT solutions free, NCERT solutions Class 10, NCERT solutions Class 9, NCERT solutions Class 12, CBSE NCERT solutions chapter wise, free textbook solutions India',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'NCERT Solutions for Class 6–12', url: `${SITE}/ncert-solutions` },
+});
+for (const c of getNcertChapters()) {
+  ROUTES.push({
+    path: `/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
+    title: `${c.title} — Class ${c.classLevel} ${c.subject} NCERT Solutions (Free) | Syllab.in`,
+    description: `Free step-by-step NCERT solutions for Class ${c.classLevel} ${c.subject} chapter "${c.title}" — ${c.count} important questions with detailed answers for CBSE board exam preparation.`,
+    keywords: `${c.title} NCERT solutions, Class ${c.classLevel} ${c.subject} NCERT solutions, CBSE ${c.title} questions and answers free`,
+    jsonLd: {
+      '@context': 'https://schema.org', '@type': 'Article',
+      headline: `${c.title} — Class ${c.classLevel} ${c.subject} NCERT Solutions`,
+      url: `${SITE}/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
+      inLanguage: 'en-IN', isAccessibleForFree: true,
+      author: { '@type': 'Organization', name: 'Syllab.in' },
     },
   });
 }

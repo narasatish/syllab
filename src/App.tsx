@@ -92,6 +92,7 @@ const WebDevPage = React.lazy(() => import('./pages/WebDevPage'));
 const GeneralKnowledgePage = React.lazy(() => import('./pages/GeneralKnowledge'));
 const CareerPredictorPage = React.lazy(() => import('./pages/CareerPredictor'));
 const CollegesPage = React.lazy(() => import('./pages/Colleges'));
+const NcertSolutionsPage = React.lazy(() => import('./pages/NcertSolutions'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -172,6 +173,7 @@ const TAB_TO_PATH: Record<string, string> = {
   general_knowledge: '/gk-quiz',       // was /general-knowledge
   career: '/career-predictor',
   colleges: '/colleges',
+  ncert_solutions: '/ncert-solutions',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -200,6 +202,8 @@ function resolveTab(pathname: string): string {
   if (pathname === '/colleges' || pathname.startsWith('/colleges/')) return 'colleges';
   // Per-article blog pages: /updates/<slug> → the Updates (blog) tab.
   if (pathname === '/updates' || pathname.startsWith('/updates/')) return 'updates';
+  // NCERT solution pages: /ncert-solutions/<...> → the NCERT tab.
+  if (pathname === '/ncert-solutions' || pathname.startsWith('/ncert-solutions/')) return 'ncert_solutions';
   return 'home';
 }
 
@@ -1469,6 +1473,7 @@ export default function App() {
                   {activeTab === 'general_knowledge' ? <GeneralKnowledgePage setTab={navigate} /> : null}
                   {activeTab === 'career' ? <CareerPredictorPage /> : null}
                   {activeTab === 'colleges' ? <CollegesPage /> : null}
+                  {activeTab === 'ncert_solutions' ? <NcertSolutionsPage /> : null}
                   {activeTab === 'privacy' ? (
                     <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
                       <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>
@@ -1573,6 +1578,7 @@ export default function App() {
               {/* Real <a href> so search engines pass link equity to these SEO pages */}
               <li><a href="/career-predictor" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Career & College Predictor</a></li>
               <li><a href="/colleges" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Top Engineering Colleges</a></li>
+              <li><a href="/ncert-solutions" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">NCERT Solutions</a></li>
               <li><button onClick={() => navigate('parent')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Parent Hub</button></li>
               <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>
