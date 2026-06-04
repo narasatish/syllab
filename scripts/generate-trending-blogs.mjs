@@ -834,6 +834,226 @@ Syllab.in puts all of this in one free place for Class 1–12: NCERT chapter sum
 On Syllab.in, timed chapter practice and daily challenges turn studying into short, active, focused sessions — the easiest way to build the habit. It's free.`,
   },
 
+  /* ── RAMP batch 3: more distinct high-volume evergreen guides ── */
+  {
+    id: 'class-12-chemistry-important-chapters-reactions',
+    title: 'Class 12 Chemistry: Important Chapters, Reactions & Weightage (Free)',
+    description: 'High-weightage CBSE Class 12 Chemistry chapters across Physical, Inorganic and Organic, key named reactions to memorise, and free chapter-wise practice for boards + JEE/NEET.',
+    readTime: '7 min read', category: 'cbse',
+    content: `Class 12 Chemistry rewards smart prioritising across its three branches.
+
+**Physical:** Electrochemistry, Chemical Kinetics, and Solutions are formula-and-numerical heavy — quick, reliable marks.
+
+**Inorganic:** Coordination Compounds, the d- and f-block, and p-block elements are almost pure NCERT — read every line and memorise trends and exceptions.
+
+**Organic:** Aldehydes/Ketones/Carboxylic acids, Amines, and Biomolecules. Build a reaction map per functional group and learn named reactions (Aldol, Cannizzaro, Hofmann) with mechanisms, not by rote.
+
+**Method:** finish NCERT (especially Inorganic), keep a one-page reaction + formula sheet, then drill MCQs for recall speed and accuracy.
+
+On Syllab.in, practise Class 12 Chemistry chapter-wise MCQs free, take full mock tests, and ask the AI tutor to explain any reaction mechanism step by step.`,
+  },
+  {
+    id: 'class-12-maths-important-chapters-formulas',
+    title: 'Class 12 Maths: Important Chapters, Formulas & Weightage 2026 (Free)',
+    description: 'High-weightage CBSE Class 12 Maths chapters, must-know formulas, and important question types for boards 2026 and JEE — with free chapter-wise practice and solutions.',
+    readTime: '7 min read', category: 'cbse',
+    content: `Class 12 Maths is highly scoring if you target the heavy units and drill formulas.
+
+**Highest weightage:** Calculus (Integrals, Application of Derivatives, Differential Equations) dominates the paper. Then Vectors & 3D Geometry, Probability, Matrices & Determinants, and Linear Programming.
+
+**Must-know:** standard integrals, derivative rules, properties of definite integrals, vector/scalar products, and Bayes' theorem. Keep these on a formula sheet you revise daily.
+
+**Important question types:** integration by parts/substitution, area under curves, optimisation (maxima-minima) word problems, and probability with Bayes.
+
+**Method:** NCERT + exemplar, write full step-by-step solutions (process marks!), and solve a timed sample paper weekly.
+
+On Syllab.in, do free Class 12 Maths chapter-wise MCQ practice with step-by-step solutions, plus full mocks — no sign-up.`,
+  },
+  {
+    id: 'neet-biology-important-chapters-diagrams',
+    title: 'NEET Biology: Important Chapters & Diagrams to Master (Free Practice)',
+    description: 'High-weightage NEET Biology chapters in Botany and Zoology, the diagrams that fetch easy marks, and free chapter-wise practice for NEET 2026 aspirants in India.',
+    readTime: '7 min read', category: 'neet',
+    content: `Biology is half of NEET (360 marks) — your biggest scoring opportunity.
+
+**Highest weightage:** Genetics & Evolution, Human Physiology, Cell Biology & Cell Division, Ecology, Plant Physiology, and Reproduction. Ecology and Human Physiology alone carry a huge share.
+
+**Diagrams to master:** nephron, neuron, heart, digestive system, flower structure, DNA replication, and the cell. Label-based questions are common and easy if practised.
+
+**Method:** NCERT Biology is king — read it line by line (NEET questions are often direct from NCERT lines). Make summary tables for classifications, and drill MCQs for recall.
+
+**Tip:** revise diagrams and NCERT in-text + summary points repeatedly; that's where most marks hide.
+
+On Syllab.in, practise NEET Biology chapter-wise MCQs free, view labelled diagrams, take full mocks, and use the AI tutor for any concept.`,
+  },
+  {
+    id: 'class-11-physics-important-chapters',
+    title: 'Class 11 Physics: Important Chapters & How to Build a Strong Base (Free)',
+    description: 'The most important CBSE Class 11 Physics chapters and how to build the foundation for Class 12, JEE and NEET — with free chapter-wise practice for Indian students.',
+    readTime: '6 min read', category: 'cbse',
+    content: `Class 11 Physics is the foundation — get it right and Class 12 + JEE/NEET become far easier.
+
+**Most important:** Laws of Motion, Work-Energy-Power, Rotational Motion, Gravitation, Thermodynamics, and Oscillations & Waves. Kinematics and Units & Measurements set up everything else.
+
+**Why it matters:** these concepts repeat throughout Class 12 and entrance exams. A weak base here is the #1 reason students struggle later.
+
+**Method:** focus on understanding (free-body diagrams, energy conservation) over memorising. Solve plenty of numericals — Physics is learned by doing, not reading. Keep a formula sheet and revise it.
+
+**Tip:** don't rush to Class 12 with shaky Class 11 basics; it always backfires.
+
+On Syllab.in, practise Class 11 Physics chapter-wise MCQs free with step-by-step solutions, and ask the AI tutor to clear any concept instantly.`,
+  },
+  {
+    id: 'how-to-make-study-timetable-students',
+    title: 'How to Make a Study Timetable That Actually Works (Free Guide)',
+    description: 'A practical, realistic study timetable method for Indian students — balance subjects, school, revision and rest so you actually stick to it. Free planning tips.',
+    readTime: '5 min read', category: 'study-tips',
+    content: `Most timetables fail because they're unrealistic. Here's one that works.
+
+**Be realistic:** plan around school hours and energy levels, not a fantasy 12-hour day. A timetable you can follow beats a perfect one you abandon.
+
+**Block by subject, not by hour count:** assign specific topics to specific slots ("Mon 5–6pm: Trigonometry — heights & distances"), so you always know exactly what to do.
+
+**Rotate subjects:** mix tough and easy subjects daily to avoid burnout; don't do only one subject for days.
+
+**Build in revision + rest:** schedule weekly revision slots and at least one lighter day. Spaced revision beats last-minute cramming.
+
+**Review weekly:** adjust what didn't work. A timetable is a living plan.
+
+On Syllab.in, daily challenges and timed chapter practice make it easy to turn your timetable into short, focused, trackable sessions — free.`,
+  },
+  {
+    id: 'how-to-revise-entire-syllabus-before-exam',
+    title: 'How to Revise the Entire Syllabus Before Exams (Free Strategy)',
+    description: 'A clear revision strategy to cover the whole CBSE/JEE/NEET syllabus before exams without panic — prioritise, practise, and use last-week revision the right way.',
+    readTime: '6 min read', category: 'study-tips',
+    content: `Revising a huge syllabus feels impossible — until you have a system.
+
+**Prioritise by weightage:** list every chapter, mark high/medium/low weightage, and revise high-weightage first. Don't spend equal time on everything.
+
+**Active revision, not re-reading:** test yourself with MCQs and past questions. Recall beats re-reading every time — if you can't answer it, that's exactly what to revise.
+
+**Three passes:** Pass 1 — full quick read + formula sheets. Pass 2 — practice + fix weak topics. Pass 3 (last week) — only summaries, formula sheets and high-weightage MCQs. No new topics in the final days.
+
+**Track it:** tick chapters as you go — visible progress reduces panic.
+
+On Syllab.in, chapter-wise practice with instant feedback shows you exactly which topics are weak, so your revision targets the right things. Free.`,
+  },
+  {
+    id: 'memory-techniques-for-students',
+    title: 'Memory Techniques for Students — Remember More, Faster (Free Tips)',
+    description: 'Proven memory techniques for students — active recall, spaced repetition, mnemonics and the method of loci — to remember formulas, dates and concepts for exams.',
+    readTime: '5 min read', category: 'study-tips',
+    content: `Memory is a technique, not a talent. Use these and you'll retain far more.
+
+**Active recall:** close the book and try to write/say what you remember. This single habit is the most powerful memory tool there is.
+
+**Spaced repetition:** review at increasing gaps (day 1, 3, 7, 21). Each review locks the memory deeper — far better than cramming once.
+
+**Mnemonics:** turn lists into acronyms or silly sentences (e.g. trig ratios, reactivity series, taxonomy). The sillier, the stickier.
+
+**Method of loci:** attach facts to places in a familiar route (your home) and "walk" through them — great for sequences.
+
+**Understand first:** you remember meaning far better than meaningless facts, so learn the "why" before memorising the "what".
+
+On Syllab.in, practice + daily challenges are built around active recall and spacing — the two techniques with the strongest evidence. Free.`,
+  },
+  {
+    id: 'how-to-study-maths-effectively',
+    title: 'How to Study Maths Effectively & Stop Fearing It (Free Guide)',
+    description: 'Practical ways to study Maths effectively and overcome Maths fear — practice over reading, error logs and concept-first learning — for Indian school students.',
+    readTime: '5 min read', category: 'study-tips',
+    content: `Maths isn't about talent — it's about practice and method. Here's how to actually get good.
+
+**Practice, don't read:** you can't learn Maths by watching or reading solutions. Solve problems yourself, daily. Reading a solved example feels easy but doesn't build skill.
+
+**Concept before shortcuts:** understand why a formula works before memorising it. Then you can handle twists instead of only the exact textbook type.
+
+**Keep an error log:** write down every mistake and why. Reviewing your own errors is the fastest way to improve.
+
+**Build difficulty gradually:** start with basic problems to gain confidence, then move to tougher ones. Jumping straight to hard problems kills motivation.
+
+**Consistency beats marathons:** 45 focused minutes daily beats one weekend cram.
+
+On Syllab.in, timed chapter-wise Maths practice with step-by-step solutions lets you solve, check, and fix mistakes — the exact loop that builds Maths skill. Free.`,
+  },
+  {
+    id: 'how-to-choose-stream-after-10th',
+    title: 'How to Choose Your Stream After Class 10 — Science, Commerce or Arts',
+    description: 'An honest guide to choosing Science, Commerce or Arts after Class 10 in India — based on interest, careers and strengths, not peer pressure. Free stream-finder.',
+    readTime: '6 min read', category: 'study-tips',
+    content: `Your Class 10 stream choice shapes your options — choose by interest and strengths, not by what friends pick.
+
+**Science (PCM/PCB):** for engineering, medical, research, tech. Demands strong Maths/Bio and problem-solving. Keeps the most doors open but is demanding.
+
+**Commerce:** for CA, business, finance, economics, management. Great for those who like numbers, money and how businesses work — and it has excellent career scope.
+
+**Arts/Humanities:** for law, civil services, design, psychology, media, teaching. Ideal if you enjoy reading, writing, and understanding people and society. It is NOT a "lesser" choice — it leads to top careers.
+
+**How to decide:** weigh genuine interest > strengths > career goals. Don't choose Science just for "status" if you dislike it — you'll struggle.
+
+Try Syllab.in's free interest quiz and "Which Stream?" tool, then explore careers with real salary ranges to see where each stream can take you.`,
+  },
+  {
+    id: 'how-to-analyse-mock-test-results',
+    title: 'How to Analyse Mock Test Results to Boost Your Score (Free Guide)',
+    description: 'Taking mocks isn\'t enough — learn how to analyse mock test results for JEE, NEET and boards to find weak areas, fix mistakes and improve your rank. Free mocks on Syllab.',
+    readTime: '5 min read', category: 'study-tips',
+    content: `Mock tests only help if you analyse them properly. Most students skip this — and that's why scores stall.
+
+**Categorise every mistake:** was it a concept gap, a silly/calculation error, or a time-pressure miss? Each needs a different fix.
+
+**Concept gaps:** go back to that chapter and re-practise — don't ignore it.
+
+**Silly errors:** track them; they're often worth more marks than you think. Slow down and re-read questions.
+
+**Time issues:** note which sections ate your time and practise pacing. Learn to skip and return.
+
+**Track trends:** keep a sheet of weak topics across mocks. If the same chapter keeps hurting you, that's your top priority.
+
+**Re-attempt:** redo wrong questions after a few days to confirm you've fixed them.
+
+On Syllab.in, free mock tests for JEE, NEET, EAMCET and boards come with instant solutions, so analysing your mistakes is quick and clear.`,
+  },
+  {
+    id: 'cbse-vs-state-board-differences',
+    title: 'CBSE vs State Board — Differences, Which Is Better & How to Decide',
+    description: 'A clear comparison of CBSE vs State boards in India — syllabus, difficulty, competitive-exam alignment and which suits your goals. Free practice for both on Syllab.',
+    readTime: '6 min read', category: 'cbse',
+    content: `CBSE or State board? Both are valid — the right choice depends on your goals.
+
+**CBSE:** national curriculum, NCERT-based, strongly aligned with JEE/NEET (which are NCERT-based). Good if you're aiming for national entrance exams or may relocate across states.
+
+**State boards:** often cover regional language and local context better, can have their own grading advantages for state quotas, and may be more accessible locally. Many state boards also follow NCERT for Science/Maths.
+
+**Difficulty:** varies by state; CBSE is fairly standardised nationwide.
+
+**For competitive exams:** CBSE/NCERT alignment is an advantage for JEE/NEET, but state-board students do equally well by studying NCERT alongside their board books.
+
+**Bottom line:** choose based on your target exams, college plans (state vs national), and language comfort — not prestige.
+
+Syllab.in supports CBSE NCERT plus state-board chapters, with free practice and mocks for both — including state entrance exams like EAMCET, KCET and MHT-CET.`,
+  },
+  {
+    id: 'how-to-start-coding-school-students-india',
+    title: 'How to Start Coding as a School Student in India (Free Roadmap)',
+    description: 'A beginner-friendly roadmap to start coding for Indian school students — which language to pick first, what to build, and free practice. No prior experience needed.',
+    readTime: '6 min read', category: 'coding-skills',
+    content: `Coding is one of the best skills a student can build today — and you can start free, right now.
+
+**Start with Python:** it's beginner-friendly, reads like English, and is used in AI, data and web. Don't agonise over "which language" — Python first, branch out later.
+
+**Learn by building, not just watching:** after each concept (variables, loops, functions), write small programs — a calculator, a quiz, a number-guessing game. Building beats passive tutorials.
+
+**Don't skip the basics:** variables, conditionals, loops, functions, and lists/dictionaries are the foundation of every language.
+
+**Be consistent:** 30 focused minutes daily beats weekend marathons. Coding is a skill — it grows with reps.
+
+**Then explore:** web (HTML/CSS/JS), then maybe Java, SQL, or AI basics — once Python feels comfortable.
+
+On Syllab.in's free Skills Lab, learn Python and 16 other languages with lessons, quick-check MCQs, an in-browser code runner, and instant AI feedback — no setup, no cost.`,
+  },
+
   /* ════════════════════════════════════════════════════════════════════════
      TIMELY / FLEXIBLE posts (the ~30%). `timely: true` + `months` = the months
      they auto-appear (then drop out automatically). Framed as "expected/how to
