@@ -130,6 +130,12 @@ function buildUrls({ languages, topicsByLang }) {
   // Live multiplayer quiz landing.
   urls.push({ loc: '/live-quiz', priority: 0.8, changefreq: 'monthly' });
 
+  // Free-alternatives pages (high-intent competitor SEO).
+  urls.push({ loc: '/free-alternatives', priority: 0.8, changefreq: 'monthly' });
+  for (const s of ['kahoot-alternative', 'byjus-alternative', 'unacademy-alternative', 'vedantu-alternative', 'toppr-alternative']) {
+    urls.push({ loc: `/${s}`, priority: 0.7, changefreq: 'monthly' });
+  }
+
   // NCERT solutions: index + each chapter that has solutions.
   urls.push({ loc: '/ncert-solutions', priority: 0.8, changefreq: 'weekly' });
   for (const c of getNcertChapters()) {

@@ -473,6 +473,30 @@ ROUTES.push({
   },
 });
 
+// ─── Free-alternatives pages (high-intent "alternative to X" SEO) ─────────────
+ROUTES.push({
+  path: '/free-alternatives',
+  title: "Free Alternatives to BYJU'S, Unacademy, Kahoot & Vedantu (2026) | Syllab.in",
+  description: "Looking for a free alternative to BYJU'S, Unacademy, Vedantu, Toppr or Kahoot? Syllab gives Indian students free NCERT solutions, mock tests, an AI tutor and live quizzes for Class 1–12 — no subscription.",
+  keywords: 'free alternative to byjus, unacademy free alternative, kahoot alternative India, vedantu free alternative, toppr alternative, free learning app India',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free Alternatives to Top Learning Apps', url: `${SITE}/free-alternatives` },
+});
+for (const a of [
+  { slug: 'kahoot-alternative', brand: 'Kahoot!' },
+  { slug: 'byjus-alternative', brand: "BYJU'S" },
+  { slug: 'unacademy-alternative', brand: 'Unacademy' },
+  { slug: 'vedantu-alternative', brand: 'Vedantu' },
+  { slug: 'toppr-alternative', brand: 'Toppr' },
+]) {
+  ROUTES.push({
+    path: `/${a.slug}`,
+    title: `Free Alternative to ${a.brand} — Syllab.in (2026)`,
+    description: `Looking for a free alternative to ${a.brand}? Syllab gives Indian students free NCERT solutions, mock tests, an AI tutor and live quizzes for Class 1–12 — no subscription needed.`,
+    keywords: `free alternative to ${a.brand}, ${a.brand} free alternative, ${a.brand} vs Syllab, free learning app like ${a.brand}`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'WebPage', name: `Free Alternative to ${a.brand}`, url: `${SITE}/${a.slug}`, inLanguage: 'en-IN', isPartOf: { '@type': 'WebSite', name: 'Syllab.in', url: SITE } },
+  });
+}
+
 // ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
 for (const a of getBlogArticles()) {
   const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;
