@@ -93,6 +93,7 @@ const GeneralKnowledgePage = React.lazy(() => import('./pages/GeneralKnowledge')
 const CareerPredictorPage = React.lazy(() => import('./pages/CareerPredictor'));
 const CollegesPage = React.lazy(() => import('./pages/Colleges'));
 const NcertSolutionsPage = React.lazy(() => import('./pages/NcertSolutions'));
+const LiveQuizPage = React.lazy(() => import('./pages/LiveQuiz'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -174,6 +175,7 @@ const TAB_TO_PATH: Record<string, string> = {
   career: '/career-predictor',
   colleges: '/colleges',
   ncert_solutions: '/ncert-solutions',
+  live_quiz: '/live-quiz',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -204,6 +206,7 @@ function resolveTab(pathname: string): string {
   if (pathname === '/updates' || pathname.startsWith('/updates/')) return 'updates';
   // NCERT solution pages: /ncert-solutions/<...> → the NCERT tab.
   if (pathname === '/ncert-solutions' || pathname.startsWith('/ncert-solutions/')) return 'ncert_solutions';
+  if (pathname === '/live-quiz' || pathname.startsWith('/live-quiz/')) return 'live_quiz';
   return 'home';
 }
 
@@ -1474,6 +1477,7 @@ export default function App() {
                   {activeTab === 'career' ? <CareerPredictorPage /> : null}
                   {activeTab === 'colleges' ? <CollegesPage /> : null}
                   {activeTab === 'ncert_solutions' ? <NcertSolutionsPage /> : null}
+                  {activeTab === 'live_quiz' ? <LiveQuizPage /> : null}
                   {activeTab === 'privacy' ? (
                     <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
                       <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>
@@ -1579,6 +1583,7 @@ export default function App() {
               <li><a href="/career-predictor" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Career & College Predictor</a></li>
               <li><a href="/colleges" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Top Engineering Colleges</a></li>
               <li><a href="/ncert-solutions" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">NCERT Solutions</a></li>
+              <li><a href="/live-quiz" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Live Quiz Game</a></li>
               <li><button onClick={() => navigate('parent')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Parent Hub</button></li>
               <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>

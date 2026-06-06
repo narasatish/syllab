@@ -127,6 +127,9 @@ function buildUrls({ languages, topicsByLang }) {
     }
   }
 
+  // Live multiplayer quiz landing.
+  urls.push({ loc: '/live-quiz', priority: 0.8, changefreq: 'monthly' });
+
   // NCERT solutions: index + each chapter that has solutions.
   urls.push({ loc: '/ncert-solutions', priority: 0.8, changefreq: 'weekly' });
   for (const c of getNcertChapters()) {

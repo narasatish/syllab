@@ -459,6 +459,20 @@ for (const c of getNcertChapters()) {
   });
 }
 
+// ─── Live Quiz landing (the game itself is dynamic/private) ───────────────────
+ROUTES.push({
+  path: '/live-quiz',
+  title: 'Live Quiz — Free Multiplayer Classroom Quiz Game (Kahoot-style) | Syllab.in',
+  description: 'Host a free live multiplayer quiz for your class — students join with a PIN and compete on a real-time leaderboard. Free GK, Science, Maths, Reasoning & English quiz games for Indian students.',
+  keywords: 'live quiz game free, multiplayer classroom quiz, kahoot alternative India, online quiz competition for students, live quiz with PIN, school quiz game free',
+  jsonLd: {
+    '@context': 'https://schema.org', '@type': 'WebApplication',
+    name: 'Syllab Live Quiz', applicationCategory: 'EducationalApplication',
+    operatingSystem: 'Web', url: `${SITE}/live-quiz`, inLanguage: 'en-IN',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+  },
+});
+
 // ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
 for (const a of getBlogArticles()) {
   const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;

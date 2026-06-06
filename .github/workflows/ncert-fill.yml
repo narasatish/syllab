@@ -1,0 +1,57 @@
+name: NCERT Solutions — daily auto-fill
+
+# Fills the free NCERT solutions library a little each day on the free-tier
+# Gemini key (rate-limited, so we accumulate gradually). Commits the updated
+# public/data/ncert-solutions.json back to main; a deploy then ships it live.
+#
+# REQUIRED (one-time): add a repository secret named GEMINI_API_KEY
+#   (Settings → Secrets and variables → Actions → New repository secret)
+#   Use your FREE-TIER key so it always costs ₹0.
+
+on:
+  schedule:
+    - cron: '30 20 * * *'   # 02:00 IST daily
+  workflow_dispatch: {}       # allow manual runs from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ncert-fill
+  cancel-in-progress: false
+
+jobs:
+  fill:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.GEMINI_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+
+      - name: Generate NCERT solutions (rotating class)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ALLOW_PAID_GEMINI: '1'
+        run: |
+          # Rotate the class by day-of-week so coverage spreads across 6-12.
+          CLASS=$(( ( $(date +%u) % 7 ) + 6 ))
+          echo "Filling NCERT solutions for class $CLASS"
+          node node_modules/tsx/dist/cli.mjs scripts/generate-ncert-solutions.ts --class "$CLASS" || true
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain public/data/ncert-solutions.json)" ]; then
+            git config user.name "syllab-bot"
+            git config user.email "bot@syllab.in"
+            git add public/data/ncert-solutions.json
+            COUNT=$(node -e "console.log(Object.keys(require('./public/data/ncert-solutions.json')).length)")
+            git commit -m "chore(ncert): daily auto-fill — bank now $COUNT chapters [skip ci]"
+            git push
+            echo "Committed. Bank now $COUNT chapters."
+          else
+            echo "No new chapters this run (free-tier quota likely reached)."
+          fi
