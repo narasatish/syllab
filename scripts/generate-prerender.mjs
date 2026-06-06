@@ -648,6 +648,11 @@ function buildHeadBlock(route) {
 function injectMeta(baseHtml, route) {
   const headBlock = buildHeadBlock(route);
 
+  // Strip any pre-existing <title> in the template so we never emit two <title>
+  // tags (the default index.html title was surviving outside the replaced block,
+  // producing duplicate titles on every prerendered page — bad for SEO).
+  baseHtml = baseHtml.replace(/<title>[\s\S]*?<\/title>/gi, '');
+
   // Replace from <title> through </title> and all following meta/link tags
   // until we hit the first <link rel="preconnect"> (we keep preconnect onwards).
   // Strategy: replace the entire block between <meta name="theme-color"> and
