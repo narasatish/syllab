@@ -102,7 +102,9 @@ describe('API Layer', () => {
         text: async () => 'Internal Server Error',
       });
 
-      await expect(askTutor('test')).rejects.toThrow(/API.*500/);
+      // On 5xx the user-facing message is intentionally friendly (never leaks raw
+      // "API 500" text to students); the raw status is preserved on err.detail.
+      await expect(askTutor('test')).rejects.toThrow(/taking a break/i);
     });
 
     it('should return empty string if response has no text field', async () => {

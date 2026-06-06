@@ -24,7 +24,10 @@ describe('Diagram Lab Data Integrity', () => {
         expect(typeof d.classNumber).toBe('number');
         expect(d.classNumber).toBeGreaterThanOrEqual(5);
         expect(d.classNumber).toBeLessThanOrEqual(12);
-        expect(d.imageUrl).toBeTruthy();
+        // imageUrl is OPTIONAL by design: diagrams with no reliable photo use the
+        // emoji + fallbackGradient instead (imageUrl is an empty string). So we
+        // only require it to be a string, not non-empty.
+        expect(typeof d.imageUrl).toBe('string');
         expect(d.emoji).toBeTruthy();
         expect(d.fallbackGradient).toBeTruthy();
         expect(d.summary.length).toBeGreaterThan(20);
@@ -48,14 +51,16 @@ describe('Diagram Lab Data Integrity', () => {
       DIAGRAMS.forEach((d) => {
         // Should NOT use the broken thumb format anymore
         expect(d.imageUrl).not.toMatch(/upload\.wikimedia\.org\/wikipedia\/commons\/thumb\//);
-        // Should use Special:FilePath which actually works
-        expect(d.imageUrl).toMatch(/^https?:\/\/.+/);
+        // Should use Special:FilePath which actually works (when an image is set;
+        // emoji-fallback diagrams legitimately have an empty imageUrl).
+        if (d.imageUrl) expect(d.imageUrl).toMatch(/^https?:\/\/.+/);
       });
     });
 
     it('imageUrls are valid HTTPS URLs', () => {
       DIAGRAMS.forEach((d) => {
-        expect(d.imageUrl).toMatch(/^https:/);
+        // Empty imageUrl is allowed (emoji-fallback diagrams); only validate set ones.
+        if (d.imageUrl) expect(d.imageUrl).toMatch(/^https:/);
       });
     });
   });

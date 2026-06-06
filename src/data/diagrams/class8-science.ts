@@ -209,7 +209,7 @@ export const class8Diagrams: Diagram[] = [
     subject: 'chemistry',
     classRange: 'Class 8',
     classNumber: 8,
-    imageUrl: ').svg?width=500',
+    imageUrl: '',
     fallbackGradient: 'from-gray-100 to-yellow-200',
     emoji: '⚗️',
     summary: 'Metals and nonmetals are two main categories of elements with contrasting properties. Metals are typically shiny, conductive, malleable; nonmetals are dull, insulators, brittle.',
