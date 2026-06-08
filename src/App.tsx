@@ -937,6 +937,7 @@ function LoginModal({
 
 export default function App() {
   const [activeTab, setActiveTab] = useState(() => resolveTab(window.location.pathname));
+  const [parentBannerHidden, setParentBannerHidden] = useState(false);
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
   const [stats, setStats] = useState<UserStats>(DEFAULT_USER_STATS);
   const [progress, setProgress] = useState<UserProgress>(DEFAULT_USER_PROGRESS);
@@ -1396,8 +1397,8 @@ export default function App() {
           ) : null}
 
           {/* Parent Mode Banner — shown on student-focused pages */}
-          {userRole === 'parent' && currentUser && !['parent', 'profile'].includes(activeTab) ? (
-            <div className="mb-6 flex items-center gap-4 rounded-2xl border border-blue-100 bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-700">
+          {userRole === 'parent' && currentUser && !parentBannerHidden && !['parent', 'profile'].includes(activeTab) ? (
+            <div className="mb-6 flex items-center gap-3 rounded-2xl border border-blue-100 bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-700">
               <Users size={16} className="shrink-0" />
               <span className="flex-1">You're browsing as a <strong>Parent</strong>. This is what your child sees.</span>
               <button
@@ -1406,6 +1407,14 @@ export default function App() {
                 className="shrink-0 rounded-xl bg-blue-600 px-4 py-1.5 text-xs font-black text-white hover:bg-blue-700 transition-colors"
               >
                 Go to Parent Hub →
+              </button>
+              <button
+                type="button"
+                onClick={() => setParentBannerHidden(true)}
+                aria-label="Dismiss parent banner"
+                className="shrink-0 rounded-lg px-2 py-1 text-blue-400 hover:bg-blue-100 hover:text-blue-700 transition-colors"
+              >
+                ✕
               </button>
             </div>
           ) : null}
@@ -1678,7 +1687,7 @@ export default function App() {
               </form>
             )}
             <div className="flex gap-4 mt-6">
-              <a href="https://twitter.com/syllab_in" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-slate-300 hover:text-primary transition-all border border-white/5 italic font-black text-sm">X</a>
+              <a href="https://twitter.com/syllabdotin" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-slate-300 hover:text-primary transition-all border border-white/5 italic font-black text-sm">X</a>
               <a href="https://linkedin.com/company/syllab" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-slate-300 hover:text-primary transition-all border border-white/5 italic font-black text-sm">in</a>
             </div>
           </div>
