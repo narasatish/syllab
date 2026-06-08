@@ -132,6 +132,12 @@ export const STREAM_GUIDES: StreamGuide[] = [
     careers: ['Chartered Accountant', 'Investment Banker', 'Economist', 'Entrepreneur', 'Company Secretary'], exams: ['CA Foundation', 'CUET', 'CLAT (for law)', 'CMA'] },
   { stream: 'Arts / Humanities', emoji: '🎨', forYou: 'You enjoy history, languages, psychology, design, or civil services.',
     careers: ['Civil Servant (IAS/IPS)', 'Lawyer', 'Journalist', 'Designer', 'Psychologist'], exams: ['CUET', 'CLAT', 'UPSC (later)', 'Design/NID'] },
+  { stream: 'Vocational / Skill', emoji: '🛠️', forYou: 'You prefer hands-on learning, want early job entry, and like practical trades.',
+    careers: ['Electrician', 'Plumber', 'Welder', 'Auto Mechanic', 'Nurse Technician'], exams: ['ITI entrance (state)', 'Polytechnic entrance', 'NITI exams'] },
+  { stream: 'Design / Creative', emoji: '🎭', forYou: 'You are artistic, visual, and want fashion, graphic design, interior or product design.',
+    careers: ['Fashion Designer', 'Graphic Designer', 'Interior Designer', 'Product Designer', 'UX Designer'], exams: ['NATA', 'UCEED', 'NID DAT', 'NIFT entrance'] },
+  { stream: 'Defence', emoji: '🎖️', forYou: 'You want to serve the nation, are disciplined and fit, and can lead teams.',
+    careers: ['Army Officer', 'Navy Officer', 'Air Force Pilot', 'Defence Services', 'Border Security'], exams: ['NDA', 'CDS', 'AFCAT', 'Sainik Schools'] },
 ];
 
 /* ─── Multi-exam engineering predictor (JEE + state exams + BITSAT) ─────────
@@ -320,31 +326,33 @@ export interface CareerInfo {
   name: string;
   emoji: string;
   field: 'Engineering & Tech' | 'Medical & Health' | 'Commerce & Finance' | 'Law & Civil Services' | 'Creative & Design' | 'Aviation & Defence' | 'Education & Social';
-  summary: string;
+  summary: string;           // 2-line what they do
   salaryEntry: string;       // indicative entry CTC (India)
   salaryExperienced: string; // 5-10 yr range
   path: string;              // education path after Class 12
   skills: string[];
   exams: string[];
   demand: 'Very High' | 'High' | 'Growing' | 'Stable';
+  aiImpact: 'Low' | 'Medium' | 'High';  // AI automation risk level
+  aiReason: string;          // one-line reason for the badge
 }
 export const CAREER_LIBRARY: CareerInfo[] = [
-  { name: 'Software Engineer', emoji: '💻', field: 'Engineering & Tech', summary: 'Builds apps, websites and systems used by millions.', salaryEntry: '₹4–12 LPA', salaryExperienced: '₹18–60 LPA+', path: 'B.Tech/BE CSE or BCA → MCA (optional)', skills: ['Coding', 'Problem-solving', 'Maths/Logic'], exams: ['JEE Main', 'State CETs', 'BITSAT'], demand: 'Very High' },
-  { name: 'Data Scientist', emoji: '📊', field: 'Engineering & Tech', summary: 'Turns data into insights and trains AI/ML models.', salaryEntry: '₹6–14 LPA', salaryExperienced: '₹25–80 LPA', path: 'B.Tech/BSc (Stats/CS) → MSc/MTech in Data Science', skills: ['Statistics', 'Python', 'ML'], exams: ['JEE Main', 'CUET', 'GATE (PG)'], demand: 'Very High' },
-  { name: 'Doctor (MBBS)', emoji: '🩺', field: 'Medical & Health', summary: 'Diagnoses and treats patients; can specialise via MD/MS.', salaryEntry: '₹6–12 LPA', salaryExperienced: '₹15–50 LPA+', path: 'NEET → MBBS (5.5 yr) → MD/MS (specialise)', skills: ['Biology', 'Empathy', 'Stamina'], exams: ['NEET UG', 'NEET PG (later)'], demand: 'Very High' },
-  { name: 'Pharmacist', emoji: '💊', field: 'Medical & Health', summary: 'Expert in medicines, dosage and drug safety.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹8–20 LPA', path: 'B.Pharm / D.Pharm → M.Pharm (optional)', skills: ['Chemistry', 'Precision', 'Biology'], exams: ['State Pharmacy CETs', 'GPAT (PG)'], demand: 'Growing' },
-  { name: 'Chartered Accountant', emoji: '🧮', field: 'Commerce & Finance', summary: 'Audits, taxation and financial strategy for businesses.', salaryEntry: '₹7–12 LPA', salaryExperienced: '₹20–70 LPA', path: 'CA Foundation → Intermediate → Articleship → Final', skills: ['Accounting', 'Attention to detail', 'Ethics'], exams: ['CA Foundation (ICAI)'], demand: 'High' },
-  { name: 'Investment Banker', emoji: '💰', field: 'Commerce & Finance', summary: 'Helps companies raise money, merge and invest.', salaryEntry: '₹8–15 LPA', salaryExperienced: '₹30 LPA–₹1 Cr+', path: 'B.Com/BBA → MBA (Finance) / CFA', skills: ['Finance', 'Excel', 'Negotiation'], exams: ['CUET', 'CAT (MBA)', 'CFA'], demand: 'High' },
-  { name: 'Civil Servant (IAS/IPS)', emoji: '🏛️', field: 'Law & Civil Services', summary: 'Runs districts, ministries and public administration.', salaryEntry: '₹10–14 LPA', salaryExperienced: '₹18–30 LPA + perks', path: 'Any degree → UPSC Civil Services Exam', skills: ['General Studies', 'Leadership', 'Writing'], exams: ['UPSC CSE', 'State PSC'], demand: 'Stable' },
-  { name: 'Lawyer', emoji: '⚖️', field: 'Law & Civil Services', summary: 'Advises clients, argues cases and drafts contracts.', salaryEntry: '₹4–10 LPA', salaryExperienced: '₹15–60 LPA+', path: 'CLAT → 5-yr BA-LLB / 3-yr LLB after graduation', skills: ['Reasoning', 'English', 'Debate'], exams: ['CLAT', 'AILET', 'LSAT India'], demand: 'High' },
-  { name: 'Mechanical Engineer', emoji: '⚙️', field: 'Engineering & Tech', summary: 'Designs machines, engines, EVs and manufacturing systems.', salaryEntry: '₹3–7 LPA', salaryExperienced: '₹10–30 LPA', path: 'B.Tech/BE Mechanical → M.Tech (optional)', skills: ['Physics', 'CAD', 'Design'], exams: ['JEE Main', 'State CETs', 'GATE'], demand: 'Stable' },
-  { name: 'Architect', emoji: '📐', field: 'Creative & Design', summary: 'Designs buildings and spaces — art meets engineering.', salaryEntry: '₹3–7 LPA', salaryExperienced: '₹12–40 LPA', path: 'NATA/JEE Paper 2 → B.Arch (5 yr)', skills: ['Drawing', 'Maths', 'Creativity'], exams: ['NATA', 'JEE Main Paper 2'], demand: 'Growing' },
-  { name: 'UX / Product Designer', emoji: '🎨', field: 'Creative & Design', summary: 'Designs how apps and products look and feel.', salaryEntry: '₹4–9 LPA', salaryExperienced: '₹15–45 LPA', path: 'B.Des / any degree + design portfolio', skills: ['Creativity', 'Empathy', 'Design tools'], exams: ['UCEED', 'NID DAT', 'CEED (PG)'], demand: 'Very High' },
-  { name: 'Pilot', emoji: '✈️', field: 'Aviation & Defence', summary: 'Flies passenger or cargo aircraft across the world.', salaryEntry: '₹15–25 LPA', salaryExperienced: '₹50 LPA–₹1.5 Cr', path: 'PCM in 12th → CPL (Commercial Pilot Licence)', skills: ['Physics', 'Focus', 'Quick decisions'], exams: ['DGCA exams', 'Pilot aptitude'], demand: 'Growing' },
-  { name: 'Defence Officer (NDA)', emoji: '🎖️', field: 'Aviation & Defence', summary: 'Leads in the Army, Navy or Air Force.', salaryEntry: '₹8–12 LPA', salaryExperienced: '₹15–25 LPA + perks', path: 'NDA after 12th / CDS after graduation', skills: ['Fitness', 'Leadership', 'GK'], exams: ['NDA', 'CDS', 'AFCAT'], demand: 'Stable' },
-  { name: 'Psychologist', emoji: '🧠', field: 'Education & Social', summary: 'Helps people with mental health and behaviour.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹10–25 LPA', path: 'BA/BSc Psychology → MA + M.Phil/PhD', skills: ['Empathy', 'Listening', 'Research'], exams: ['CUET', 'University entrances'], demand: 'Growing' },
-  { name: 'Digital Marketer', emoji: '📱', field: 'Commerce & Finance', summary: 'Grows brands using social media, SEO and ads.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹10–30 LPA', path: 'Any degree (BBA/BMS helps) + certifications', skills: ['Creativity', 'Analytics', 'Writing'], exams: ['CUET', 'No fixed exam'], demand: 'Very High' },
-  { name: 'Teacher / Professor', emoji: '📚', field: 'Education & Social', summary: 'Shapes the next generation; can teach school or college.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹8–20 LPA', path: 'Degree + B.Ed (school) / Masters + NET (college)', skills: ['Subject mastery', 'Communication', 'Patience'], exams: ['CTET', 'State TET', 'UGC NET'], demand: 'Stable' },
+  { name: 'Software Engineer', emoji: '💻', field: 'Engineering & Tech', summary: 'Builds apps, websites and systems used by millions. Solves complex problems through coding and system design.', salaryEntry: '₹4–12 LPA', salaryExperienced: '₹18–60 LPA+', path: 'B.Tech/BE CSE or BCA → MCA (optional)', skills: ['Coding', 'Problem-solving', 'Maths/Logic'], exams: ['JEE Main', 'State CETs', 'BITSAT'], demand: 'Very High', aiImpact: 'Medium', aiReason: 'AI handles routine coding; complex design and architecture remain human domain.' },
+  { name: 'Data Scientist', emoji: '📊', field: 'Engineering & Tech', summary: 'Turns data into insights and trains AI/ML models. Finds patterns to guide business decisions.', salaryEntry: '₹6–14 LPA', salaryExperienced: '₹25–80 LPA', path: 'B.Tech/BSc (Stats/CS) → MSc/MTech in Data Science', skills: ['Statistics', 'Python', 'ML'], exams: ['JEE Main', 'CUET', 'GATE (PG)'], demand: 'Very High', aiImpact: 'Medium', aiReason: 'Growing demand for ML; need for domain expertise keeps human judgment central.' },
+  { name: 'Doctor (MBBS)', emoji: '🩺', field: 'Medical & Health', summary: 'Diagnoses and treats patients; can specialise via MD/MS. Builds trust and makes critical care decisions.', salaryEntry: '₹6–12 LPA', salaryExperienced: '₹15–50 LPA+', path: 'NEET → MBBS (5.5 yr) → MD/MS (specialise)', skills: ['Biology', 'Empathy', 'Stamina'], exams: ['NEET UG', 'NEET PG (later)'], demand: 'Very High', aiImpact: 'Low', aiReason: 'AI assists diagnosis; patient care, empathy and ethical decisions remain uniquely human.' },
+  { name: 'Pharmacist', emoji: '💊', field: 'Medical & Health', summary: 'Expert in medicines, dosage and drug safety. Advises patients and guides medication therapy.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹8–20 LPA', path: 'B.Pharm / D.Pharm → M.Pharm (optional)', skills: ['Chemistry', 'Precision', 'Biology'], exams: ['State Pharmacy CETs', 'GPAT (PG)'], demand: 'Growing', aiImpact: 'Low', aiReason: 'Patient interaction and safety judgment cannot be automated.' },
+  { name: 'Chartered Accountant', emoji: '🧮', field: 'Commerce & Finance', summary: 'Audits, taxation and financial strategy for businesses. Ensures compliance and optimizes finance.', salaryEntry: '₹7–12 LPA', salaryExperienced: '₹20–70 LPA', path: 'CA Foundation → Intermediate → Articleship → Final', skills: ['Accounting', 'Attention to detail', 'Ethics'], exams: ['CA Foundation (ICAI)'], demand: 'High', aiImpact: 'High', aiReason: 'Routine bookkeeping and compliance checks increasingly automated by software.' },
+  { name: 'Investment Banker', emoji: '💰', field: 'Commerce & Finance', summary: 'Helps companies raise money, merge and invest. Negotiates complex deals and builds client relationships.', salaryEntry: '₹8–15 LPA', salaryExperienced: '₹30 LPA–₹1 Cr+', path: 'B.Com/BBA → MBA (Finance) / CFA', skills: ['Finance', 'Excel', 'Negotiation'], exams: ['CUET', 'CAT (MBA)', 'CFA'], demand: 'High', aiImpact: 'Medium', aiReason: 'Data analysis automated; strategy and client trust remain human-centric.' },
+  { name: 'Civil Servant (IAS/IPS)', emoji: '🏛️', field: 'Law & Civil Services', summary: 'Runs districts, ministries and public administration. Leads policy and builds public trust.', salaryEntry: '₹10–14 LPA', salaryExperienced: '₹18–30 LPA + perks', path: 'Any degree → UPSC Civil Services Exam', skills: ['General Studies', 'Leadership', 'Writing'], exams: ['UPSC CSE', 'State PSC'], demand: 'Stable', aiImpact: 'Low', aiReason: 'Leadership, ethics and citizen judgment cannot be outsourced to AI.' },
+  { name: 'Lawyer', emoji: '⚖️', field: 'Law & Civil Services', summary: 'Advises clients, argues cases and drafts contracts. Protects rights and navigates legal systems.', salaryEntry: '₹4–10 LPA', salaryExperienced: '₹15–60 LPA+', path: 'CLAT → 5-yr BA-LLB / 3-yr LLB after graduation', skills: ['Reasoning', 'English', 'Debate'], exams: ['CLAT', 'AILET', 'LSAT India'], demand: 'High', aiImpact: 'Low', aiReason: 'AI assists research; client counsel and courtroom advocacy require human judgment.' },
+  { name: 'Mechanical Engineer', emoji: '⚙️', field: 'Engineering & Tech', summary: 'Designs machines, engines, EVs and manufacturing systems. Solves physical and mechanical challenges.', salaryEntry: '₹3–7 LPA', salaryExperienced: '₹10–30 LPA', path: 'B.Tech/BE Mechanical → M.Tech (optional)', skills: ['Physics', 'CAD', 'Design'], exams: ['JEE Main', 'State CETs', 'GATE'], demand: 'Stable', aiImpact: 'Medium', aiReason: 'CAD and simulation tools handle routine design; innovation and testing still need humans.' },
+  { name: 'Architect', emoji: '📐', field: 'Creative & Design', summary: 'Designs buildings and spaces — art meets engineering. Balances aesthetics, safety and sustainability.', salaryEntry: '₹3–7 LPA', salaryExperienced: '₹12–40 LPA', path: 'NATA/JEE Paper 2 → B.Arch (5 yr)', skills: ['Drawing', 'Maths', 'Creativity'], exams: ['NATA', 'JEE Main Paper 2'], demand: 'Growing', aiImpact: 'Low', aiReason: 'Creative vision and client collaboration remain fundamentally human skills.' },
+  { name: 'UX / Product Designer', emoji: '🎨', field: 'Creative & Design', summary: 'Designs how apps and products look and feel. Creates intuitive experiences users love.', salaryEntry: '₹4–9 LPA', salaryExperienced: '₹15–45 LPA', path: 'B.Des / any degree + design portfolio', skills: ['Creativity', 'Empathy', 'Design tools'], exams: ['UCEED', 'NID DAT', 'CEED (PG)'], demand: 'Very High', aiImpact: 'Low', aiReason: 'Design requires creative judgment and empathy for user needs.' },
+  { name: 'Pilot', emoji: '✈️', field: 'Aviation & Defence', summary: 'Flies passenger or cargo aircraft across the world. Makes split-second decisions under pressure.', salaryEntry: '₹15–25 LPA', salaryExperienced: '₹50 LPA–₹1.5 Cr', path: 'PCM in 12th → CPL (Commercial Pilot Licence)', skills: ['Physics', 'Focus', 'Quick decisions'], exams: ['DGCA exams', 'Pilot aptitude'], demand: 'Growing', aiImpact: 'Low', aiReason: 'Safety critical role requires human judgment; autopilot aids but cannot replace.' },
+  { name: 'Defence Officer (NDA)', emoji: '🎖️', field: 'Aviation & Defence', summary: 'Leads in the Army, Navy or Air Force. Makes strategic decisions and protects the nation.', salaryEntry: '₹8–12 LPA', salaryExperienced: '₹15–25 LPA + perks', path: 'NDA after 12th / CDS after graduation', skills: ['Fitness', 'Leadership', 'GK'], exams: ['NDA', 'CDS', 'AFCAT'], demand: 'Stable', aiImpact: 'Low', aiReason: 'Leadership and defense judgment are fundamentally human responsibilities.' },
+  { name: 'Psychologist', emoji: '🧠', field: 'Education & Social', summary: 'Helps people with mental health and behaviour. Listens, diagnoses and creates healing relationships.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹10–25 LPA', path: 'BA/BSc Psychology → MA + M.Phil/PhD', skills: ['Empathy', 'Listening', 'Research'], exams: ['CUET', 'University entrances'], demand: 'Growing', aiImpact: 'Low', aiReason: 'Therapeutic relationships and empathy-based healing cannot be replicated by AI.' },
+  { name: 'Digital Marketer', emoji: '📱', field: 'Commerce & Finance', summary: 'Grows brands using social media, SEO and ads. Creates campaigns that engage and convert.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹10–30 LPA', path: 'Any degree (BBA/BMS helps) + certifications', skills: ['Creativity', 'Analytics', 'Writing'], exams: ['CUET', 'No fixed exam'], demand: 'Very High', aiImpact: 'Medium', aiReason: 'AI handles targeting and optimization; creative strategy and human storytelling stay central.' },
+  { name: 'Teacher / Professor', emoji: '📚', field: 'Education & Social', summary: 'Shapes the next generation; can teach school or college. Inspires learning and builds character.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹8–20 LPA', path: 'Degree + B.Ed (school) / Masters + NET (college)', skills: ['Subject mastery', 'Communication', 'Patience'], exams: ['CTET', 'State TET', 'UGC NET'], demand: 'Stable', aiImpact: 'Low', aiReason: 'Mentorship, motivation and personalized guidance are irreplaceably human.' },
 ];
 export const CAREER_FIELDS = [
   'All', 'Engineering & Tech', 'Medical & Health', 'Commerce & Finance',
@@ -423,6 +431,46 @@ export const SCHOLARSHIPS: Scholarship[] = [
   { name: 'Sitaram Jindal Scholarship', emoji: '🏅', who: 'School & college, means-based', benefit: '₹500–₹3,200/month', site: 'sitaramjindalfoundation.org' },
   { name: 'Kishore Vaigyanik (state merit)', emoji: '⭐', who: 'State toppers & merit lists', benefit: 'Varies by state', site: 'state education dept' },
 ];
+
+/* ─── AI Impact Analysis ───────────────────────────────────────────────────
+   McKinsey: ~23% of India's workforce exposed to automation. NASSCOM projects
+   2-3M new AI-related jobs by 2030. Figures are indicative estimates.        */
+export interface CareerAiRisk {
+  name: string;
+  level: 'Low' | 'Medium' | 'High';
+  reason: string;
+}
+export const CAREERS_BY_AI_IMPACT: Record<'Low' | 'Medium' | 'High', CareerAiRisk[]> = {
+  Low: [
+    { name: 'Doctor (MBBS)', level: 'Low', reason: 'Patient care, diagnosis judgment & human empathy cannot be automated.' },
+    { name: 'Nurse', level: 'Low', reason: 'Physical care, patient monitoring & critical care decisions stay human.' },
+    { name: 'Teacher / Professor', level: 'Low', reason: 'Mentorship, inspiration & personalized guidance are irreplaceably human.' },
+    { name: 'Psychologist', level: 'Low', reason: 'Therapeutic relationships & empathy-based healing require human connection.' },
+    { name: 'Lawyer', level: 'Low', reason: 'Client counsel, court arguments & ethical judgment need human expertise.' },
+    { name: 'Civil Servant (IAS/IPS)', level: 'Low', reason: 'Leadership, policy judgment & public trust cannot be outsourced.' },
+    { name: 'Architect', level: 'Low', reason: 'Creative vision, aesthetics & client collaboration stay human-centric.' },
+    { name: 'UX / Product Designer', level: 'Low', reason: 'Empathy for users & creative judgment drive good design.' },
+    { name: 'Pilot', level: 'Low', reason: 'Safety critical; autopilot assists but human judgment is irreplaceable.' },
+    { name: 'Defence Officer (NDA)', level: 'Low', reason: 'Leadership, strategy & defense judgment are fundamentally human.' },
+    { name: 'Entrepreneur', level: 'Low', reason: 'Vision, risk-taking & human relationships drive business success.' },
+  ],
+  Medium: [
+    { name: 'Software Engineer', level: 'Medium', reason: 'AI handles routine coding; complex architecture & innovation stay human.' },
+    { name: 'Data Scientist', level: 'Medium', reason: 'Growing AI jobs; domain expertise & business judgment remain central.' },
+    { name: 'Mechanical Engineer', level: 'Medium', reason: 'CAD/simulation tools handle routine; innovation & testing need humans.' },
+    { name: 'Investment Banker', level: 'Medium', reason: 'Data analysis automated; strategy & client relationships stay human.' },
+    { name: 'Digital Marketer', level: 'Medium', reason: 'AI optimizes targeting; creative strategy & storytelling drive campaigns.' },
+    { name: 'Biotechnologist', level: 'Medium', reason: 'Lab work partially automated; research & discovery need human insight.' },
+  ],
+  High: [
+    { name: 'Data Entry / Clerk', level: 'High', reason: 'Routine data input fully automatable by RPA & OCR systems.' },
+    { name: 'Bookkeeper / Accountant', level: 'High', reason: 'Invoice processing, reconciliation easily handled by AI software.' },
+    { name: 'Telecaller / BPO Agent', level: 'High', reason: 'Scripted support calls increasingly handled by AI chatbots.' },
+    { name: 'Customer Support (Basic)', level: 'High', reason: 'FAQs & simple tickets deflected to AI chatbots 24/7.' },
+    { name: 'Transcriptionist', level: 'High', reason: 'Speech-to-text AI handles most transcription faster & cheaper.' },
+    { name: 'Data Analyst (Routine)', level: 'High', reason: 'Dashboard creation & standard reports fully automated.' },
+  ],
+};
 
 /* ─── College Directory (CollegeDunia-style) ────────────────────────────────
    Top engineering colleges across India's biggest engineering states + national

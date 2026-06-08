@@ -26,11 +26,31 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // App-code split: the per-language tutorial data (theory/code for 700+
-          // topics) is large. Give it its own chunk so it downloads in parallel
-          // with the Skills Lab page code and caches independently — shrinks the
-          // SkillsLab JS chunk and speeds up repeat visits.
-          if (id.includes('/src/data/tutorials/') || id.includes('\\src\\data\\tutorials\\')) return 'data-tutorials';
+          // Per-language tutorial data chunks: each language is a separate chunk for
+          // on-demand loading. This eliminates the 2.4 MB data-tutorials bundle and
+          // lets users download only the language they open.
+          if (id.includes('/src/data/tutorials/python')) return 'data-python';
+          if (id.includes('/src/data/tutorials/java')) return 'data-java';
+          if (id.includes('/src/data/tutorials/html')) return 'data-html';
+          if (id.includes('/src/data/tutorials/javascript')) return 'data-javascript';
+          if (id.includes('/src/data/tutorials/sql')) return 'data-sql';
+          if (id.includes('/src/data/tutorials/aiLearning')) return 'data-ai-learning';
+          if (id.includes('/src/data/tutorials/ai-agents')) return 'data-ai-agents';
+          if (id.includes('/src/data/tutorials/dataAnalytics')) return 'data-analytics';
+          if (id.includes('/src/data/tutorials/aptitude')) return 'data-aptitude';
+          if (id.includes('/src/data/tutorials/app-dev')) return 'data-app-dev';
+          if (id.includes('/src/data/tutorials/cybersecurity')) return 'data-cybersecurity';
+          if (id.includes('/src/data/tutorials/robotics')) return 'data-robotics';
+          if (id.includes('/src/data/tutorials/game-dev')) return 'data-game-dev';
+          if (id.includes('/src/data/tutorials/git-github')) return 'data-git-github';
+          if (id.includes('/src/data/tutorials/prompt-engineering')) return 'data-prompt-eng';
+          if (id.includes('/src/data/tutorials/cloud-computing')) return 'data-cloud';
+          if (id.includes('/src/data/tutorials/data-mining')) return 'data-mining';
+          if (id.includes('/src/data/tutorials/computer-basics')) return 'data-basics';
+
+          // Keep index.ts and types.ts in the main chunk
+          if (id.includes('/src/data/tutorials/') || id.includes('\\src\\data\\tutorials\\')) return undefined;
+
           if (id.includes('/src/data/miniProjects') || id.includes('\\src\\data\\miniProjects')) return 'data-projects';
           if (!id.includes('node_modules')) return undefined;
           if (id.includes('firebase')) return 'vendor-firebase';

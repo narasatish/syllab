@@ -20,10 +20,11 @@ import {
   CAREER_LIBRARY, CAREER_FIELDS,
   INTEREST_QUIZ, type StreamKey,
   EXAM_CALENDAR, SCHOLARSHIPS,
+  CAREERS_BY_AI_IMPACT,
 } from '../data/predictorData';
 import { COLLEGES as ALL_COLLEGES, COLLEGE_STATE_INFO, stateSlugForCollege, getStateRank } from '../data/colleges';
 
-type Tab = 'jee' | 'neet' | 'colleges' | 'careers' | 'quiz' | 'stream' | 'exams';
+type Tab = 'jee' | 'neet' | 'colleges' | 'careers' | 'quiz' | 'stream' | 'exams' | 'ai-impact';
 
 export default function CareerPredictor() {
   const [tab, setTab] = useState<Tab>('jee');
@@ -88,6 +89,7 @@ export default function CareerPredictor() {
           { id: 'quiz', label: 'Find My Path', icon: <Sparkles size={15} /> },
           { id: 'stream', label: 'Which Stream?', icon: <Compass size={15} /> },
           { id: 'exams', label: 'Exam Dates', icon: <CalendarDays size={15} /> },
+          { id: 'ai-impact', label: 'AI Impact', icon: <Sparkles size={15} /> },
         ] as const).map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}
             className={cn(
@@ -108,6 +110,7 @@ export default function CareerPredictor() {
       {tab === 'quiz' && <InterestQuiz onGoStream={() => setTab('stream')} />}
       {tab === 'stream' && <StreamGuide />}
       {tab === 'exams' && <ExamsAndScholarships />}
+      {tab === 'ai-impact' && <AiImpactAnalysis />}
     </div>
   );
 }
@@ -302,38 +305,56 @@ function CareerExplorer() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        {list.map(c => (
-          <div key={c.name} className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">{c.emoji}</span>
-                <div>
-                  <h3 className="text-sm font-black text-slate-900 leading-tight">{c.name}</h3>
-                  <p className="text-[10px] font-bold text-slate-400">{c.field}</p>
+        {list.map(c => {
+          const aiBadgeColor = {
+            Low: 'bg-emerald-100 text-emerald-700',
+            Medium: 'bg-amber-100 text-amber-700',
+            High: 'bg-red-100 text-red-700',
+          }[c.aiImpact];
+          const aiBadgeEmoji = {
+            Low: '🟢',
+            Medium: '🟡',
+            High: '🔴',
+          }[c.aiImpact];
+          return (
+            <div key={c.name} className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">{c.emoji}</span>
+                  <div>
+                    <h3 className="text-sm font-black text-slate-900 leading-tight">{c.name}</h3>
+                    <p className="text-[10px] font-bold text-slate-400">{c.field}</p>
+                  </div>
+                </div>
+                <span className={`rounded-full px-2 py-0.5 text-[9px] font-black ${demandColor[c.demand]}`}>{c.demand}</span>
+              </div>
+              <p className="mt-2 text-xs text-slate-600">{c.summary}</p>
+              <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+                <div className="rounded-lg bg-emerald-50 px-2.5 py-1.5">
+                  <p className="font-black text-emerald-700">{c.salaryEntry}</p>
+                  <p className="text-[9px] font-bold text-emerald-600/70 uppercase tracking-wide">Entry</p>
+                </div>
+                <div className="rounded-lg bg-indigo-50 px-2.5 py-1.5">
+                  <p className="font-black text-indigo-700">{c.salaryExperienced}</p>
+                  <p className="text-[9px] font-bold text-indigo-600/70 uppercase tracking-wide">Experienced</p>
                 </div>
               </div>
-              <span className={`rounded-full px-2 py-0.5 text-[9px] font-black ${demandColor[c.demand]}`}>{c.demand}</span>
-            </div>
-            <p className="mt-2 text-xs text-slate-600">{c.summary}</p>
-            <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
-              <div className="rounded-lg bg-emerald-50 px-2.5 py-1.5">
-                <p className="font-black text-emerald-700">{c.salaryEntry}</p>
-                <p className="text-[9px] font-bold text-emerald-600/70 uppercase tracking-wide">Entry</p>
+              <p className="mt-2 text-[11px] text-slate-500"><span className="font-black text-slate-600">Path:</span> {c.path}</p>
+              <div className="mt-2 flex flex-wrap gap-1">
+                {c.skills.map(s => <span key={s} className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-500">{s}</span>)}
               </div>
-              <div className="rounded-lg bg-indigo-50 px-2.5 py-1.5">
-                <p className="font-black text-indigo-700">{c.salaryExperienced}</p>
-                <p className="text-[9px] font-bold text-indigo-600/70 uppercase tracking-wide">Experienced</p>
+              <div className="mt-1.5 flex flex-wrap gap-1">
+                {c.exams.map(e => <span key={e} className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">{e}</span>)}
+              </div>
+              <div className="mt-2 rounded-lg p-2 bg-slate-50 border border-slate-200">
+                <p className={`text-[10px] font-black px-1.5 py-0.5 rounded inline-flex items-center gap-1 ${aiBadgeColor}`}>
+                  {aiBadgeEmoji} AI Impact: {c.aiImpact}
+                </p>
+                <p className="text-[10px] text-slate-600 mt-1">{c.aiReason}</p>
               </div>
             </div>
-            <p className="mt-2 text-[11px] text-slate-500"><span className="font-black text-slate-600">Path:</span> {c.path}</p>
-            <div className="mt-2 flex flex-wrap gap-1">
-              {c.skills.map(s => <span key={s} className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-500">{s}</span>)}
-            </div>
-            <div className="mt-1.5 flex flex-wrap gap-1">
-              {c.exams.map(e => <span key={e} className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">{e}</span>)}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       {!list.length && <p className="text-center text-sm text-slate-500 py-8">No careers match your search. Try another keyword.</p>}
     </div>
@@ -550,6 +571,66 @@ function CollegeExplorer() {
       </div>
       {!list.length && <p className="text-center text-sm text-slate-500 py-8">No colleges match your search.</p>}
       <p className="text-center text-[11px] text-slate-400">Showing {list.length} colleges · click any for its full page.</p>
+    </div>
+  );
+}
+
+/* ─── AI Impact Analysis ──────────────────────────────────────────────────*/
+function AiImpactAnalysis() {
+  return (
+    <div className="space-y-6">
+      <div className="rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-600 p-5 text-white">
+        <h3 className="text-sm font-black">🤖 Will AI take my job? (2026 insights)</h3>
+        <p className="mt-2 text-xs leading-relaxed text-white/90">
+          McKinsey estimates <strong>~23% of India's workforce</strong> exposed to automation. Yet NASSCOM projects <strong>2–3 million new AI-related jobs by 2030</strong>. The shift isn't about job loss—it's about <strong>which skills stay valuable</strong>. Careers involving creativity, human judgment, patient care, and emotional intelligence remain protected. Routine, repeatable tasks (data entry, basic support) face high automation risk.
+        </p>
+        <p className="mt-2 text-[10px] text-white/70 italic">Note: These are indicative estimates for guidance. Your skills, adaptability, and continuous learning matter more than any forecast.</p>
+      </div>
+
+      <div className="space-y-4">
+        {(['Low', 'Medium', 'High'] as const).map(level => {
+          const levelData = CAREERS_BY_AI_IMPACT[level];
+          const levelColor = {
+            Low: 'from-emerald-50 to-green-50 border-emerald-200',
+            Medium: 'from-amber-50 to-yellow-50 border-amber-200',
+            High: 'from-red-50 to-rose-50 border-red-200',
+          }[level];
+          const levelBadgeColor = {
+            Low: 'bg-emerald-100 text-emerald-700',
+            Medium: 'bg-amber-100 text-amber-700',
+            High: 'bg-red-100 text-red-700',
+          }[level];
+          const levelEmoji = { Low: '🟢', Medium: '🟡', High: '🔴' }[level];
+
+          return (
+            <div key={level} className={`rounded-2xl bg-gradient-to-br ${levelColor} border-2 p-5`}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`rounded-full px-3 py-1 text-xs font-black ${levelBadgeColor}`}>
+                  {levelEmoji} {level} Impact
+                </span>
+              </div>
+              <div className="grid gap-2 md:grid-cols-2">
+                {levelData.map(career => (
+                  <div key={career.name} className="rounded-xl bg-white/70 p-3 border border-white/50">
+                    <p className="text-xs font-black text-slate-800">{career.name}</p>
+                    <p className="text-[10px] text-slate-600 mt-1">{career.reason}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+        <h4 className="text-sm font-black text-slate-900 mb-2">What can YOU do?</h4>
+        <ul className="space-y-1.5 text-xs text-slate-600">
+          <li className="flex gap-2"><span className="font-black text-primary">1.</span> <span><strong>Develop uniquely human skills:</strong> creativity, communication, empathy, leadership.</span></li>
+          <li className="flex gap-2"><span className="font-black text-primary">2.</span> <span><strong>Master AI tools:</strong> the best jobs in 2030 will be for people who use AI, not compete with it.</span></li>
+          <li className="flex gap-2"><span className="font-black text-primary">3.</span> <span><strong>Choose careers with human judgment:</strong> healthcare, law, teaching, design, strategy, and counselling.</span></li>
+          <li className="flex gap-2"><span className="font-black text-primary">4.</span> <span><strong>Stay adaptable:</strong> the job market shifts; your ability to learn new things is your real job security.</span></li>
+        </ul>
+      </div>
     </div>
   );
 }

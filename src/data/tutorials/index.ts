@@ -1,23 +1,4 @@
 import { TutorialTopic, LanguageConfig, CareerGuide, ProjectIdea } from './types';
-import { pythonTopics } from './python';
-import { htmlTopics } from './html';
-import { javascriptTopics } from './javascript';
-import { sqlTopics } from './sql';
-import { javaTopics } from './java';
-import { aiLearningTopics } from './aiLearning';
-import { dataAnalyticsTopics } from './dataAnalytics';
-import { aptitudeTopics } from './aptitude';
-import { appDevTopics } from './app-dev';
-import { cybersecurityTopics } from './cybersecurity';
-import { roboticsTopics } from './robotics';
-import { gameDevTopics } from './game-dev';
-// New subjects
-import { gitGithubTopics } from './git-github';
-import { promptEngineeringTopics } from './prompt-engineering';
-import { aiAgentsTopics } from './ai-agents';
-import { cloudComputingTopics } from './cloud-computing';
-import { dataMiningTopics } from './data-mining';
-import { computerBasicsTopics } from './computer-basics';
 
 export type { TutorialTopic, LanguageConfig, CareerGuide, ProjectIdea };
 
@@ -554,34 +535,72 @@ export const LANGUAGES: LanguageConfig[] = [
   },
 ];
 
-// ─── Topic lookup by language ─────────────────────────────────────────────────
-export const TOPICS_BY_LANGUAGE: Record<string, TutorialTopic[]> = {
-  python: pythonTopics,
-  java: javaTopics,
-  html: htmlTopics,
-  javascript: javascriptTopics,
-  sql: sqlTopics,
-  'ai-learning': [...aiLearningTopics, ...aiAgentsTopics],
-  'data-analytics': dataAnalyticsTopics,
-  aptitude: aptitudeTopics,
-  'app-dev': appDevTopics,
-  cybersecurity: cybersecurityTopics,
-  robotics: roboticsTopics,
-  'game-dev': gameDevTopics,
-  'git-github': gitGithubTopics,
-  'prompt-engineering': promptEngineeringTopics,
-  // ai-agents merged into ai-learning (see LANGUAGES array)
-
-  'cloud-computing': cloudComputingTopics,
-  'data-mining': dataMiningTopics,
-  'computer-basics': computerBasicsTopics,
+// ─── Dynamic topic loaders ────────────────────────────────────────────────────
+// Maps language ID to an async function that loads its topics.
+// Each language is its own dynamic import to enable code splitting per language.
+const LANGUAGE_LOADERS: Record<string, () => Promise<{ default: TutorialTopic[] }>> = {
+  python: () => import('./python').then(m => ({ default: m.pythonTopics })),
+  java: () => import('./java').then(m => ({ default: m.javaTopics })),
+  html: () => import('./html').then(m => ({ default: m.htmlTopics })),
+  javascript: () => import('./javascript').then(m => ({ default: m.javascriptTopics })),
+  sql: () => import('./sql').then(m => ({ default: m.sqlTopics })),
+  'ai-learning': () => import('./aiLearning').then(m =>
+    import('./ai-agents').then(m2 => ({ default: [...m.aiLearningTopics, ...m2.aiAgentsTopics] }))
+  ),
+  'data-analytics': () => import('./dataAnalytics').then(m => ({ default: m.dataAnalyticsTopics })),
+  aptitude: () => import('./aptitude').then(m => ({ default: m.aptitudeTopics })),
+  'app-dev': () => import('./app-dev').then(m => ({ default: m.appDevTopics })),
+  cybersecurity: () => import('./cybersecurity').then(m => ({ default: m.cybersecurityTopics })),
+  robotics: () => import('./robotics').then(m => ({ default: m.roboticsTopics })),
+  'game-dev': () => import('./game-dev').then(m => ({ default: m.gameDevTopics })),
+  'git-github': () => import('./git-github').then(m => ({ default: m.gitGithubTopics })),
+  'prompt-engineering': () => import('./prompt-engineering').then(m => ({ default: m.promptEngineeringTopics })),
+  'cloud-computing': () => import('./cloud-computing').then(m => ({ default: m.cloudComputingTopics })),
+  'data-mining': () => import('./data-mining').then(m => ({ default: m.dataMiningTopics })),
+  'computer-basics': () => import('./computer-basics').then(m => ({ default: m.computerBasicsTopics })),
 };
+
+// ─── In-memory cache for loaded topics ─────────────────────────────────────────
+const TOPICS_CACHE: Record<string, TutorialTopic[]> = {};
+
+// ─── Topic lookup by language (lazy-loaded) ──────────────────────────────────
+export const TOPICS_BY_LANGUAGE: Record<string, TutorialTopic[]> = {};
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-/** Return all topics for a language */
+/**
+ * Load topics for a language asynchronously (on-demand).
+ * Caches the result so subsequent calls are instant.
+ * Use this when opening a language for the first time.
+ */
+export async function loadLanguageTopics(languageId: string): Promise<TutorialTopic[]> {
+  // Return cached if already loaded
+  if (TOPICS_CACHE[languageId]) {
+    return TOPICS_CACHE[languageId];
+  }
+
+  // Load via dynamic import
+  const loader = LANGUAGE_LOADERS[languageId];
+  if (!loader) {
+    console.warn(`No topics loader found for language: ${languageId}`);
+    return [];
+  }
+
+  try {
+    const loaded = await loader();
+    const topics = loaded.default || [];
+    TOPICS_CACHE[languageId] = topics;
+    TOPICS_BY_LANGUAGE[languageId] = topics;
+    return topics;
+  } catch (error) {
+    console.error(`Failed to load topics for ${languageId}:`, error);
+    return [];
+  }
+}
+
+/** Return all topics for a language (must be already loaded) */
 export function getTopics(languageId: string): TutorialTopic[] {
-  return TOPICS_BY_LANGUAGE[languageId] ?? [];
+  return TOPICS_BY_LANGUAGE[languageId] ?? TOPICS_CACHE[languageId] ?? [];
 }
 
 /** Return unique categories for a language, preserving insertion order */
@@ -600,9 +619,9 @@ export function firstTopic(languageId: string): TutorialTopic | undefined {
   return getTopics(languageId)[0];
 }
 
-/** Total topic count across all languages */
+/** Total topic count across all languages (only counts loaded topics) */
 export function totalTopicCount(): number {
-  return Object.values(TOPICS_BY_LANGUAGE).reduce((sum, topics) => sum + topics.length, 0);
+  return Object.values(TOPICS_CACHE).reduce((sum, topics) => sum + topics.length, 0);
 }
 
 /** Get languages in a specific group */

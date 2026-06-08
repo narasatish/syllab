@@ -20,6 +20,7 @@ import SEO from '../components/SEO';
 import StructuredData from '../seo/StructuredData';
 import HomeFeatureGrid from '../components/HomeFeatureGrid';
 import HomeInteractiveDemo from '../components/HomeInteractiveDemo';
+import WhatsNew from '../components/WhatsNew';
 
 interface HomePageProps {
   setTab?: (tab: string) => void;
@@ -385,6 +386,12 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
 
       {/* ── SEE IT IN ACTION — interactive demo carousel ─────────────────── */}
       <HomeInteractiveDemo onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+
+      {/* ── WHAT'S NEW — Latest blog posts & new features ─────────────────── */}
+      <WhatsNew
+        onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        onOpenArticle={(articleId) => goToArticle(articleId)}
+      />
 
       {/* ── FOR PARENTS ──────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-5 py-16 sm:py-20">

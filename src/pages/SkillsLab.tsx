@@ -46,6 +46,7 @@ import {
   TOPICS_BY_LANGUAGE,
   getTopics,
   firstTopic,
+  loadLanguageTopics,
   type TutorialTopic,
   type LanguageConfig,
 } from '../data/tutorials/index';
@@ -1261,6 +1262,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
   const [viewMode, setViewMode] = useState<'topic' | 'career' | 'challenges' | 'projects'>('topic');
   const [completed, setCompleted] = useState<Record<string, string[]>>(loadCompleted);
   const [pointsToast, setPointsToast] = useState<{ pts: number; topic: string } | null>(null);
+  const [topicsLoading, setTopicsLoading] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const lang = useMemo(
@@ -1274,12 +1276,27 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
   );
   const completedIds = completed[activeLangId] ?? [];
 
-  // When language changes, reset to first topic and clear view mode
+  // When language changes, load its topics dynamically, then reset to first topic
   useEffect(() => {
-    const first = firstTopic(activeLangId);
-    if (first) setActiveTopicId(first.id);
-    setSidebarOpen(false);
-    setViewMode('topic');
+    let mounted = true;
+    setTopicsLoading(true);
+
+    loadLanguageTopics(activeLangId)
+      .then(() => {
+        if (mounted) {
+          const first = firstTopic(activeLangId);
+          if (first) setActiveTopicId(first.id);
+          setSidebarOpen(false);
+          setViewMode('topic');
+          setTopicsLoading(false);
+        }
+      })
+      .catch(err => {
+        console.error('Failed to load language topics:', err);
+        if (mounted) setTopicsLoading(false);
+      });
+
+    return () => { mounted = false; };
   }, [activeLangId]);
 
   // Scroll to top of content on topic change

@@ -511,6 +511,30 @@ for (const a of [
   });
 }
 
+// ─── Kids / Pre-school (Pre-KG → Class 3) — high-volume early-learning SEO ─────
+ROUTES.push({
+  path: '/kids',
+  title: 'Syllab Junior — Free Pre-KG, LKG & UKG Learning, Rhymes & Coloring | Syllab.in',
+  description: 'Free playful learning for Indian kids (Pre-KG to Class 3): alphabet & phonics, numbers, shapes & colors, nursery rhymes and printable coloring pages — fun, safe and free.',
+  keywords: 'free kids learning India, Pre-KG LKG UKG activities, nursery rhymes for kids, free kids coloring pages, phonics for kindergarten, preschool worksheets free',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Syllab Junior — Kids Learning', url: `${SITE}/kids`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+for (const k of [
+  { slug: 'alphabet', name: 'Alphabet & Phonics', kw: 'learn alphabet, phonics for kids, abcd for kids free' },
+  { slug: 'numbers', name: 'Numbers & Counting', kw: 'numbers for kids, counting 1 to 20, maths for LKG' },
+  { slug: 'shapes', name: 'Shapes & Colors', kw: 'shapes and colors for kids, learn colours, basic shapes' },
+  { slug: 'rhymes', name: 'Nursery Rhymes', kw: 'nursery rhymes lyrics, kids rhymes free, twinkle twinkle' },
+  { slug: 'coloring', name: 'Coloring Pages', kw: 'free coloring pages for kids, printable colouring, kids drawing' },
+]) {
+  ROUTES.push({
+    path: `/kids/${k.slug}`,
+    title: `${k.name} for Kids — Free & Printable | Syllab Junior`,
+    description: `Free ${k.name.toLowerCase()} for Pre-KG, LKG, UKG and early-primary kids — playful, mobile-friendly and free on Syllab Junior.`,
+    keywords: k.kw,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'LearningResource', name: `${k.name} for Kids`, url: `${SITE}/kids/${k.slug}`, inLanguage: 'en-IN', isAccessibleForFree: true, educationalLevel: 'Preschool' },
+  });
+}
+
 // ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
 for (const a of getBlogArticles()) {
   const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;
