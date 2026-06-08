@@ -48,7 +48,6 @@ const ROUTES = [
         '@context': 'https://schema.org', '@type': 'EducationalOrganization',
         name: 'Syllab.in', url: SITE,
         description: 'Free AI education platform for Indian students Class 1-12',
-        sameAs: ['https://twitter.com/syllabdotin'],
       },
       {
         '@context': 'https://schema.org', '@type': 'WebSite', name: 'Syllab.in', url: SITE,
@@ -639,7 +638,6 @@ function buildHeadBlock(route) {
     `  <meta property="og:image:type" content="image/png" />`,
     `  <meta property="og:image:alt" content="${esc(route.title)}" />`,
     `  <meta name="twitter:card" content="summary_large_image" />`,
-    `  <meta name="twitter:site" content="@syllabdotin" />`,
     `  <meta name="twitter:title" content="${esc(route.title)}" />`,
     `  <meta name="twitter:description" content="${esc(route.description)}" />`,
     `  <meta name="twitter:image" content="${SITE}/og-image.png" />`,

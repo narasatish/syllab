@@ -246,7 +246,6 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
         name: 'Syllab.in',
         url: 'https://syllab.in',
         description: 'Free AI education platform for Indian students Class 1-12',
-        sameAs: ['https://twitter.com/syllabdotin'],
       },
       {
         '@context': 'https://schema.org',
@@ -1686,10 +1685,6 @@ export default function App() {
                 )}
               </form>
             )}
-            <div className="flex gap-4 mt-6">
-              <a href="https://twitter.com/syllabdotin" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-slate-300 hover:text-primary transition-all border border-white/5 italic font-black text-sm">X</a>
-              <a href="https://linkedin.com/company/syllab" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-slate-300 hover:text-primary transition-all border border-white/5 italic font-black text-sm">in</a>
-            </div>
           </div>
         </div>
         <div className="mx-auto max-w-7xl mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
