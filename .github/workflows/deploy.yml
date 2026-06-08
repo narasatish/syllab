@@ -18,9 +18,10 @@
 name: Deploy to Firebase Hosting
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch: # allow manual runs from the Actions tab
+  # Manual-only by design: deploys happen via the local Firebase CLI when the
+  # owner explicitly says so ("deploy when I say so"). Auto-deploy-on-push is
+  # intentionally disabled so a `git push` never ships to production on its own.
+  workflow_dispatch: # run on demand from the Actions tab (needs the Firebase + VITE_* secrets)
 
 # Only one deploy at a time; cancel older in-flight runs on a new push.
 concurrency:
