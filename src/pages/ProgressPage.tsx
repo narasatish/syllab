@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Activity, ArrowRight, ClipboardList, Flame, Gift, PlayCircle, Trophy, Zap } from 'lucide-react';
+import { Activity, ArrowRight, ClipboardList, Flame, Gift, PlayCircle, Trophy, Zap, Target } from 'lucide-react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { collection, doc, getDoc, onSnapshot, query, where } from 'firebase/firestore';
 import SEO from '../components/SEO';
@@ -9,6 +9,7 @@ import { AVATAR_REWARDS, isAvatarUnlocked } from '../data/avatarRewards';
 import { getExtendedProfile, saveExtendedProfile } from '../lib/userProfile';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import { db } from '../lib/firebase';
+import MasteryProgress from '../components/MasteryProgress';
 
 interface ActivityEvent {
   id: string;
@@ -266,6 +267,16 @@ export default function ProgressPage({ currentUser, stats, setTab }: ProgressPag
           </button>
         </section>
       </div>
+
+      {/* Mastery Progression */}
+      <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50">
+        <div className="flex items-center gap-2 mb-5">
+          <Target className="text-primary" size={20} />
+          <h2 className="text-xl font-black text-slate-900">Mastery Progression</h2>
+        </div>
+        <p className="text-sm font-medium text-slate-500 mb-5">Khan-style mastery tracking: Familiar → Proficient → Mastered. Track your progress across all chapters and topics.</p>
+        <MasteryProgress showChapterBadges={true} />
+      </section>
 
       {/* Avatar Journey */}
       <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50">

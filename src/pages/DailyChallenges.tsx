@@ -9,6 +9,7 @@ import { db } from '../lib/firebase';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import { recordLearningActivity } from '../lib/progressTracker';
 import { recordAnswer } from '../lib/spacedRepetition';
+import { recordMasteryResult } from '../lib/mastery';
 import {
   CLASS_BANK as QUESTION_CLASS_BANK,
   EXAM_BANK as QUESTION_EXAM_BANK,
@@ -388,6 +389,25 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
       if (answers[q.id] !== undefined) recordAnswer(q.id, answers[q.id] === q.correct);
     }
     setFinished(true);
+
+    // Record mastery: for daily challenges, track performance per question's subject
+    // Group by subject/topic and record mastery progression
+    const subjectGroups = new Map<string, { correct: number; total: number }>();
+    for (const question of questions) {
+      const subject = (question as any).subject || 'General';
+      if (!subjectGroups.has(subject)) {
+        subjectGroups.set(subject, { correct: 0, total: 0 });
+      }
+      const group = subjectGroups.get(subject)!;
+      group.correct += answers[question.id] === question.correct ? 1 : 0;
+      group.total += 1;
+    }
+    for (const [subject, { correct, total }] of subjectGroups) {
+      if (subject) {
+        recordMasteryResult(subject, correct, total);
+      }
+    }
+
     const shouldGrantDailyXp = !completedAnyToday;
     const xpGained = shouldGrantDailyXp ? dailyXpFor(score, questions.length) : 0;
     if (shouldGrantDailyXp) {

@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v80-2026-06-08-darkmode-preboot-fix';
+const CACHE_VERSION = 'syllab-v81-2026-06-08-doubt-solver-mastery';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

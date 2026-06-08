@@ -8,6 +8,7 @@ import { getMistakes, getPausedSession, MistakeRecord, QuizSession } from '../li
 import { SYLLABUS } from '../data/syllabus';
 import { motion, AnimatePresence } from 'motion/react';
 import { getUserStats, UserStats } from '../lib/api';
+import MasteryProgress from '../components/MasteryProgress';
 
 interface DashboardPageProps {
   currentUser: FirebaseUser | null;
@@ -138,6 +139,15 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
                   <div className="text-xl font-bold">{stat.value}</div>
                 </div>
               ))}
+            </div>
+
+            {/* Mastery Progression */}
+            <div className="bg-white p-6 rounded-2xl border border-slate-100">
+              <div className="flex items-center gap-2 mb-4">
+                <Zap size={20} className="text-primary" />
+                <h3 className="font-bold text-lg">Mastery Progress</h3>
+              </div>
+              <MasteryProgress showChapterBadges={true} />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

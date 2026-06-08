@@ -142,6 +142,9 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`, priority: 0.6, changefreq: 'monthly' });
   }
 
+  // Photo Doubt-Solver.
+  urls.push({ loc: '/doubt-solver', priority: 0.8, changefreq: 'monthly' });
+
   // Kids / Pre-school section.
   urls.push({ loc: '/kids', priority: 0.8, changefreq: 'weekly' });
   for (const s of ['alphabet', 'numbers', 'shapes', 'rhymes', 'coloring']) {

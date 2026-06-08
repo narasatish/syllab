@@ -1,37 +1,76 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { markStep, getMastery, getMasteredCount } from './mastery';
+import { recordMasteryResult, getStats, getMasteryCounts } from './mastery';
 
-describe('mastery loop', () => {
+describe('mastery progression', () => {
   beforeEach(() => { localStorage.clear(); });
 
-  it('starts empty (0%)', () => {
-    expect(getMastery('c1')).toEqual({ learn: false, practice: false, test: false, pct: 0 });
+  it('starts unfamiliar (no attempts)', () => {
+    const stats = getStats('c1');
+    expect(stats.level).toBe('unfamiliar');
+    expect(stats.accuracy).toBe(0);
   });
 
-  it('fills the ring as steps complete', () => {
-    markStep('c1', 'learn');
-    expect(getMastery('c1').pct).toBe(33);
-    markStep('c1', 'practice');
-    expect(getMastery('c1').pct).toBe(67);
-    const full = markStep('c1', 'test');
-    expect(full.pct).toBe(100);
-    expect(full).toMatchObject({ learn: true, practice: true, test: true });
+  it('becomes familiar after some correct answers', () => {
+    recordMasteryResult('c1', 3, 5); // 3/5 correct
+    const stats = getStats('c1');
+    expect(stats.level).toBe('familiar');
+    expect(stats.accuracy).toBe(60);
+    expect(stats.attempts).toBe(5);
+    expect(stats.correct).toBe(3);
   });
 
-  it('is idempotent and per-chapter', () => {
-    markStep('c1', 'learn');
-    markStep('c1', 'learn');
-    expect(getMastery('c1').pct).toBe(33);
-    expect(getMastery('c2').pct).toBe(0);
+  it('reaches proficient at ≥80% recent accuracy', () => {
+    // 12 correct out of 15 = 80%
+    recordMasteryResult('c1', 12, 15);
+    const stats = getStats('c1');
+    expect(stats.level).toBe('proficient');
+    expect(stats.recentAccuracy).toBe(80);
   });
 
-  it('counts fully-mastered chapters', () => {
-    (['learn', 'practice', 'test'] as const).forEach((s) => markStep('c1', s));
-    markStep('c2', 'learn');
-    expect(getMasteredCount()).toBe(1);
+  it('reaches mastered at ≥90% recent accuracy', () => {
+    // 14 correct out of 15 = ~93%
+    recordMasteryResult('c1', 14, 15);
+    const stats = getStats('c1');
+    expect(stats.level).toBe('mastered');
+    expect(stats.recentAccuracy).toBeGreaterThanOrEqual(90);
   });
 
-  it('ignores an empty chapter id', () => {
-    expect(markStep('', 'learn').pct).toBe(0);
+  it('reaches mastered with 5 consecutive correct (via streak)', () => {
+    // recordMasteryResult(key, correct, total) creates attempts in order:
+    // [T, T, T, T, T, F, F, F, F, F, F, F, F, F, F] for (5, 15)
+    // So the FIRST 5 are correct, not the last 5. The streak at end is 0.
+    // To get mastered via streak, we need the LAST 5 to be correct.
+    // So we record multiple sessions to build that pattern:
+    // First session: some wrong, then correct
+    recordMasteryResult('c1', 1, 10); // [T,F,F,F,F,F,F,F,F,F] — streak 0
+    // Second session: add 5 more correct to the window
+    recordMasteryResult('c1', 5, 5);  // [T,F,F,F,F,F,F,F,F,F,T,T,T,T,T] — streak 5 at end
+    const stats = getStats('c1');
+    expect(stats.level).toBe('mastered');
+    expect(stats.streak).toBe(5);
+  });
+
+  it('is per-chapter independent', () => {
+    recordMasteryResult('c1', 12, 15); // proficient
+    recordMasteryResult('c2', 2, 10); // familiar
+    expect(getStats('c1').level).toBe('proficient');
+    expect(getStats('c2').level).toBe('familiar');
+  });
+
+  it('counts mastery across chapters', () => {
+    recordMasteryResult('c1', 14, 15); // mastered
+    recordMasteryResult('c2', 12, 15); // proficient
+    recordMasteryResult('c3', 3, 5); // familiar
+    const counts = getMasteryCounts();
+    expect(counts.mastered).toBe(1);
+    expect(counts.proficient).toBe(1);
+    expect(counts.familiar).toBe(1);
+    expect(counts.unfamiliar).toBe(0);
+  });
+
+  it('ignores empty keys', () => {
+    const stats = getStats('');
+    expect(stats.level).toBe('unfamiliar');
+    expect(stats.accuracy).toBe(0);
   });
 });

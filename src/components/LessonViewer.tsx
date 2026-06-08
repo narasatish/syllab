@@ -21,7 +21,7 @@ import { pickSlideImage, LessonImage } from '../lib/lessonImages';
 import { getNaturalAudioUrl, TTS_LANGUAGES, TtsLang, TtsVoice } from '../lib/ttsApi';
 import SlideDoubtBox from './SlideDoubtBox';
 import { MessageCircleQuestion } from 'lucide-react';
-import { markStep } from '../lib/mastery';
+import { recordMasteryResult } from '../lib/mastery';
 
 /* ─── Markdown cleanup ───────────────────────────────────────────────────────── */
 // The AI returns markdown like "**Reflection** is ...". We render bold properly
@@ -281,8 +281,15 @@ export default function LessonViewer({
   const [langOpen, setLangOpen] = useState(false);
   const [audioLoading, setAudioLoading] = useState(false);
   const [doubtOpen, setDoubtOpen] = useState(false);
-  // Mastery loop: opening a lesson completes the "Learn" step for this chapter.
-  useEffect(() => { if (chapterId) markStep(chapterId, 'learn'); }, [chapterId]);
+  // Mastery tracking: opening a lesson registers engagement; full mastery happens after practice.
+  // For now, this is just an engagement signal. The actual mastery progression
+  // is driven by recordMasteryResult() calls from practice/mock completion.
+  useEffect(() => {
+    if (chapterId) {
+      // Optional: record a minimal "viewed" signal for analytics
+      // recordMasteryResult(chapterId, 1, 1);
+    }
+  }, [chapterId]);
   const currentRef = useRef(current);
   currentRef.current = current;
   const audioRef = useRef<HTMLAudioElement | null>(null);

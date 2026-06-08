@@ -9,6 +9,7 @@ import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 import { MockAnswerStatus, MockAttemptQuestion, recordMockAttempt } from '../lib/mockTestAnalytics';
 import { recordLearningActivity } from '../lib/progressTracker';
+import { recordMasteryResult } from '../lib/mastery';
 import { MockPaper, loadMockTest, MockTestLoadError } from '../lib/mockTestLoader';
 import { MockTestMeta, getMocksByExam } from '../data/mockTestsList';
 import { OLYMPIAD_POOLS, generateRandomExam, type OlympiadQuestion } from '../data/olympiadQuestions';
@@ -353,6 +354,25 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
         xpGained: gainedXp,
         sourceId: paper.id,
       });
+    }
+    // Record mastery: group by chapter and record performance per chapter
+    if (paper.questions.length > 0) {
+      const chapterGroups = new Map<string | undefined, { correct: number; total: number }>();
+      for (const question of paper.questions) {
+        const chapter = question.chapter;
+        const wasCorrect = answersToSubmit[question.id] === question.correctAnswer ? 1 : 0;
+        if (!chapterGroups.has(chapter)) {
+          chapterGroups.set(chapter, { correct: 0, total: 0 });
+        }
+        const group = chapterGroups.get(chapter)!;
+        group.correct += wasCorrect;
+        group.total += 1;
+      }
+      for (const [chapter, { correct, total }] of chapterGroups) {
+        if (chapter) {
+          recordMasteryResult(chapter, correct, total);
+        }
+      }
     }
     setXpAward(gainedXp);
     await onReward({ scoreGained: Math.max(0, finalResult.score), xpGained: gainedXp });

@@ -20,7 +20,7 @@ import { SYLLABUS } from '../data/syllabus';
 import { ClassLevel, Difficulty, Question, Subject } from '../types';
 import { recordMistake, saveQuizSession, getPausedSession, QuizSession } from '../lib/firebase';
 import { usePinnedChapters } from '../lib/pinnedChapters';
-import { markStep } from '../lib/mastery';
+import { recordMasteryResult } from '../lib/mastery';
 import QuestionSolution from '../components/QuestionSolution';
 import { loadGeneratedBank, generatedFor, generatedForChapter } from '../data/questions/generated';
 import { recordPracticeAttempt } from '../lib/practiceAnalytics';
@@ -256,12 +256,11 @@ export default function ArenaPage({
         : quizQuestions.length * timePerQuestion * 60;
       recordPracticeAttempt(currentUser?.uid || null, quizQuestions, score, elapsedSeconds);
       const accuracy = quizQuestions.length ? score / quizQuestions.length : 0;
-      // Mastery loop: practicing a chapter clears its "Practice" step; a strong
-      // score (>=80%) also clears the "Test" step.
+      // Record mastery: for each chapter, track the score and update level
+      // (Familiar → Proficient → Mastered based on performance window).
       for (const cid of completedChapters) {
         if (!cid) continue;
-        markStep(String(cid), 'practice');
-        if (accuracy >= 0.8) markStep(String(cid), 'test');
+        recordMasteryResult(String(cid), score, quizQuestions.length);
       }
       const bonusXp = accuracy >= 0.9 ? 50 : accuracy >= 0.8 ? 30 : 0;
       const xpGained = score * 10 + bonusXp;

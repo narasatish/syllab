@@ -534,6 +534,22 @@ for (const k of [
   });
 }
 
+// ─── Photo Doubt-Solver (snap a problem → instant AI solution) ────────────────
+ROUTES.push({
+  path: '/doubt-solver',
+  title: 'Photo Doubt Solver — Snap & Solve Any Homework Question Free | Syllab.in',
+  description: 'Stuck on a question? Take a photo and get an instant, free, step-by-step solution. Free AI math & science homework solver for Indian students (Class 1–12) — no signup, no waiting for a video.',
+  keywords: 'photo question solver free, math problem solver photo, homework scanner free India, scan and solve maths, doubt solver free, snap and solve question, AI homework helper India, free Doubtnut alternative',
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Photo Doubt Solver', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/doubt-solver`, inLanguage: 'en-IN', offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Is the photo doubt solver free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — snap or upload a photo of any homework question and get a free step-by-step solution instantly. No subscription, no signup.' } },
+      { '@type': 'Question', name: 'What subjects does it solve?', acceptedAnswer: { '@type': 'Answer', text: 'It solves Maths, Physics, Chemistry and other academic problems for Class 1–12, including CBSE/NCERT questions, with clean step-by-step working.' } },
+      { '@type': 'Question', name: 'Do I need to wait for a video?', acceptedAnswer: { '@type': 'Answer', text: 'No. Unlike video-based apps, Syllab returns a written step-by-step solution instantly using AI.' } },
+    ] },
+  ],
+});
+
 // ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
 for (const a of getBlogArticles()) {
   const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;

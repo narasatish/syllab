@@ -96,6 +96,7 @@ const NcertSolutionsPage = React.lazy(() => import('./pages/NcertSolutions'));
 const LiveQuizPage = React.lazy(() => import('./pages/LiveQuiz'));
 const AlternativesPage = React.lazy(() => import('./pages/Alternatives'));
 const KidsPage = React.lazy(() => import('./pages/Kids'));
+const DoubtSolverPage = React.lazy(() => import('./pages/Scan'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -180,6 +181,7 @@ const TAB_TO_PATH: Record<string, string> = {
   live_quiz: '/live-quiz',
   alternatives: '/free-alternatives',
   kids: '/kids',
+  doubt_solver: '/doubt-solver',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -213,6 +215,7 @@ function resolveTab(pathname: string): string {
   if (pathname === '/live-quiz' || pathname.startsWith('/live-quiz/')) return 'live_quiz';
   if (pathname === '/free-alternatives' || pathname.endsWith('-alternative')) return 'alternatives';
   if (pathname === '/kids' || pathname.startsWith('/kids/')) return 'kids';
+  if (pathname === '/doubt-solver') return 'doubt_solver';
   // Coding deep links (/coding/<lang>, /coding/<lang>/<topic>) — without this,
   // a visitor landing from Google on a prerendered coding URL fell through to
   // the home page (content mismatch + bad UX). NOTE: /coding-challenges and
@@ -1515,6 +1518,7 @@ export default function App() {
                   {activeTab === 'live_quiz' ? <LiveQuizPage /> : null}
                   {activeTab === 'alternatives' ? <AlternativesPage /> : null}
                   {activeTab === 'kids' ? <KidsPage /> : null}
+                  {activeTab === 'doubt_solver' ? <DoubtSolverPage /> : null}
                   {activeTab === 'privacy' ? (
                     <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
                       <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>
@@ -1622,6 +1626,7 @@ export default function App() {
               <li><a href="/live-quiz" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Live Quiz Game</a></li>
               <li><a href="/free-alternatives" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Alternatives</a></li>
               <li><a href="/kids" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Kids Zone (Pre-KG–Class 3)</a></li>
+              <li><a href="/doubt-solver" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">📸 Photo Doubt Solver</a></li>
               <li><button onClick={() => navigate('parent')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Parent Hub</button></li>
               <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>
