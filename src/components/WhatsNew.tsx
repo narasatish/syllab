@@ -53,7 +53,7 @@ export default function WhatsNew({ onNavigate, onOpenArticle }: WhatsNewProps) {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+    <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16">
       {/* Section Header */}
       <div className="mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-700 text-[10px] font-black uppercase tracking-widest mb-4">

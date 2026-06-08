@@ -96,7 +96,7 @@ interface Props {
 
 export default function HomeFeatureGrid({ onNavigate }: Props) {
   return (
-    <section className="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+    <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16">
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">
           <span>⚡</span> What you can do

@@ -5,10 +5,11 @@
  */
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'motion/react';
-import { ChevronRight, ArrowLeft, BookOpen } from 'lucide-react';
+import { ChevronRight, ArrowLeft, BookOpen, Download } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { cn } from '../lib/utils';
+import { exportNcertChapterAsPDF } from '../lib/printPdf';
 import {
   loadNcertSolutions, chaptersWithSolutions, findChapter, qaForKey,
   type NcertChapter,
@@ -119,12 +120,26 @@ function NcertIndex({ all, go }: { all: NcertChapter[]; go: (to: string) => void
 function ChapterView({ ch, goBack }: { ch: NcertChapter; goBack: (parent: string) => void }) {
   const qa = qaForKey(ch.key);
   const url = `${SITE}/ncert-solutions/class-${ch.classLevel}/${ch.subjectSlug}/${ch.slug}`;
+
+  const handleExportPDF = () => {
+    exportNcertChapterAsPDF({
+      title: ch.title,
+      classLevel: ch.classLevel,
+      subject: ch.subject,
+      items: qa.map((item, i) => ({
+        number: i + 1,
+        question: item.q,
+        solution: item.solution,
+      })),
+    });
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
       <SEO
-        title={`${ch.title} — Class ${ch.classLevel} ${ch.subject} NCERT Solutions (Free) | Syllab.in`}
-        description={`Free step-by-step NCERT solutions for Class ${ch.classLevel} ${ch.subject} chapter "${ch.title}" — important questions and detailed answers for CBSE board exam preparation.`}
-        keywords={`${ch.title} NCERT solutions, Class ${ch.classLevel} ${ch.subject} ${ch.title} solutions, NCERT solutions Class ${ch.classLevel} ${ch.subject}, CBSE ${ch.title} questions answers free`}
+        title={`${ch.title} — Class ${ch.classLevel} ${ch.subject} NCERT Solutions PDF (Free) | Syllab.in`}
+        description={`Free step-by-step NCERT solutions for Class ${ch.classLevel} ${ch.subject} chapter "${ch.title}" — important questions with detailed answers, download PDF for CBSE board exam preparation.`}
+        keywords={`${ch.title} NCERT solutions PDF free download, Class ${ch.classLevel} ${ch.subject} ${ch.title} solutions, NCERT solutions Class ${ch.classLevel} ${ch.subject} PDF, CBSE ${ch.title} questions answers free`}
         url={url}
         jsonLd={{
           '@context': 'https://schema.org', '@type': 'Article',
@@ -134,9 +149,19 @@ function ChapterView({ ch, goBack }: { ch: NcertChapter; goBack: (parent: string
           author: { '@type': 'Organization', name: 'Syllab.in' },
         }}
       />
-      <button onClick={() => goBack('/ncert-solutions')} className="mb-3 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary">
-        <ArrowLeft size={14} /> All NCERT solutions
-      </button>
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <button onClick={() => goBack('/ncert-solutions')} className="inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary">
+          <ArrowLeft size={14} /> All NCERT solutions
+        </button>
+        <button
+          onClick={handleExportPDF}
+          className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-black text-emerald-700 hover:bg-emerald-100 transition-all"
+          title="Download chapter solutions as PDF"
+        >
+          <Download size={14} />
+          <span>Download PDF</span>
+        </button>
+      </div>
       <PageHero
         emoji="📖"
         title={ch.title}

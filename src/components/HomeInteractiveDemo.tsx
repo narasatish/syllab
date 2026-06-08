@@ -232,7 +232,7 @@ export default function HomeInteractiveDemo({ onNavigate }: Props) {
 
   return (
     <section
-      className="max-w-6xl mx-auto px-5 py-16 sm:py-20"
+      className="max-w-6xl mx-auto px-5 py-12 sm:py-16"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >

@@ -121,13 +121,25 @@
   img, video, canvas, svg {
     @apply max-w-full;
   }
-  
+
   h1, h2, h3, h4, .font-heading {
     @apply font-heading tracking-tight;
   }
 
   .italic-serif {
     @apply font-heading italic;
+  }
+
+  /* ── Accessibility: Ensure footer & nav tap targets are ≥44px ──────────────
+   * Footer link buttons and nav items need adequate touch target size without
+   * visually bloating the layout. Using min-h to ensure 44px+ of vertical space. */
+  footer button,
+  footer a {
+    min-height: 2.75rem; /* ~44px */
+  }
+
+  nav button {
+    min-height: 2.75rem; /* ~44px */
   }
 }
 

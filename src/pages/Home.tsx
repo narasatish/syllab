@@ -337,11 +337,11 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </button>
             <button onClick={goToSyllabus}
-              className="bg-white/10 border border-white/20 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:bg-white/15 backdrop-blur-sm">
-              Browse Syllabus
+              className="hidden sm:flex bg-white/10 border border-white/20 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:bg-white/15 backdrop-blur-sm items-center gap-2">
+              📚 Browse Syllabus
             </button>
             <button onClick={goToParent}
-              className="text-slate-400 px-5 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:text-white">
+              className="hidden md:inline-block text-slate-400 px-5 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:text-white">
               For Parents →
             </button>
           </div>
@@ -356,7 +356,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       </section>
 
       {/* ── PICK YOUR CLASS ──────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-5 pb-16 sm:pb-20">
+      <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16 pb-16 sm:pb-20">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">
             <GraduationCap size={13} />
@@ -394,7 +394,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       />
 
       {/* ── FOR PARENTS ──────────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+      <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16">
         <div className="bg-gradient-to-br from-violet-600 to-purple-700 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-14 text-white overflow-hidden relative">
           {/* decorative */}
           <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10"
