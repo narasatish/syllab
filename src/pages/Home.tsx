@@ -60,7 +60,6 @@ const HOME_SCHEMA = [
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Android, iOS, Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '1200' },
     description: 'Free AI learning app for Indian students. CBSE NCERT chapters, mock tests, daily challenges, formula bank, diagram lab, skills lab and AI tutor.',
   },
   {

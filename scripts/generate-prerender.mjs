@@ -42,7 +42,8 @@ const ROUTES = [
         name: 'Syllab.in', operatingSystem: 'Web', applicationCategory: 'EducationApplication',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }, isAccessibleForFree: true,
         description: 'Free AI-powered learning platform for Class 1–12 CBSE Indian students',
-        aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '12000', bestRating: '5' },
+        // NO aggregateRating — fabricated review counts violate Google's
+        // structured-data policy (manual-penalty risk). Add only with real data.
       },
       {
         '@context': 'https://schema.org', '@type': 'EducationalOrganization',
@@ -628,6 +629,191 @@ function esc(str) {
     .replace(/>/g, '&gt;');
 }
 
+// Load NCERT solutions data once (for per-chapter rich content)
+let ncertDataCache = null;
+function getNcertData() {
+  if (!ncertDataCache) {
+    try {
+      const data = readFileSync(path.join(ROOT, 'public', 'data', 'ncert-solutions.json'), 'utf8');
+      ncertDataCache = JSON.parse(data);
+    } catch (e) {
+      ncertDataCache = {};
+    }
+  }
+  return ncertDataCache;
+}
+
+/**
+ * Build unique, crawler-visible HTML body content for prerendered pages.
+ * Injected into <div id="root">...content...</div> so crawlers see semantic HTML
+ * without JavaScript. React's createRoot().render() will replace this on mount.
+ */
+function buildBodyContent(route) {
+  // Common components for all routes
+  const stripTitle = (t) => t.replace(/\s*[\|—]\s*Syllab\.in.*$/i, '').trim();
+  const title = stripTitle(route.title);
+  const desc = route.description;
+
+  // Breadcrumb nav
+  const pathParts = route.path.split('/').filter(Boolean);
+  const breadcrumb = `
+    <nav style="margin-bottom: 2rem; font-size: 0.95rem;">
+      <a href="/" style="color: #0066cc; text-decoration: none;">Home</a>
+      ${pathParts.map((p, i) => {
+        const url = '/' + pathParts.slice(0, i + 1).join('/');
+        const label = p.replace(/^class-/, 'Class ').replace(/-/g, ' ');
+        return ` › <a href="${esc(url)}" style="color: #0066cc; text-decoration: none;">${esc(label)}</a>`;
+      }).join('')}
+    </nav>
+  `;
+
+  // Quick nav to main sections (helps crawl internal structure)
+  const mainNav = `
+    <nav style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd;">
+      <p style="font-weight: 600; margin-bottom: 0.5rem;">Explore:</p>
+      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem;">
+        <li><a href="/syllabus" style="color: #0066cc; text-decoration: none;">Syllabus</a></li>
+        <li><a href="/practice" style="color: #0066cc; text-decoration: none;">Practice</a></li>
+        <li><a href="/mock-tests" style="color: #0066cc; text-decoration: none;">Mock Tests</a></li>
+        <li><a href="/ncert-solutions" style="color: #0066cc; text-decoration: none;">NCERT Solutions</a></li>
+        <li><a href="/coding" style="color: #0066cc; text-decoration: none;">Coding</a></li>
+        <li><a href="/gk-quiz" style="color: #0066cc; text-decoration: none;">GK Quiz</a></li>
+        <li><a href="/career-predictor" style="color: #0066cc; text-decoration: none;">Career Predictor</a></li>
+        <li><a href="/ai-tutor" style="color: #0066cc; text-decoration: none;">AI Tutor</a></li>
+      </ul>
+    </nav>
+  `;
+
+  // Route-specific rich content
+  let richContent = '';
+
+  // NCERT chapter pages — render actual Q&A for high SEO value
+  const ncertMatch = route.path.match(/^\/ncert-solutions\/class-(\d+)\/([a-z-]+)\/([a-z-]+)$/);
+  if (ncertMatch) {
+    const [, classLevel, subjSlug, chapSlug] = ncertMatch;
+    const ncertKey = `${classLevel}::${slugToSubject(subjSlug)}::${chapSlug}`;
+    const ncertData = getNcertData();
+    const qas = ncertData[ncertKey] || [];
+
+    if (qas.length > 0) {
+      const displayLimit = Math.min(3, qas.length); // Show first 3 Q&A for brevity
+      richContent = `<div style="margin-top: 1.5rem;">`;
+      for (let i = 0; i < displayLimit; i++) {
+        const qa = qas[i];
+        richContent += `
+          <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f9f9f9; border-left: 3px solid #0066cc;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 1.05rem; color: #333;">Q${i + 1}: ${esc(qa.q)}</h3>
+            <div style="font-size: 0.95rem; color: #555; line-height: 1.5;">
+              ${esc(qa.solution).slice(0, 300)}${qa.solution.length > 300 ? '...' : ''}
+            </div>
+          </div>
+        `;
+      }
+      richContent += `<p style="color: #666; font-size: 0.9rem; font-style: italic;">Showing ${displayLimit} of ${qas.length} questions. Visit the full page for complete solutions.</p></div>`;
+    }
+  }
+
+  // Coding tutorial pages — show available topics
+  else if (route.path.match(/^\/coding\/[a-z-]+$/)) {
+    const lang = route.path.split('/')[2];
+    const topics = CODE_TOPICS[lang] || [];
+    if (topics.length > 0) {
+      richContent = `
+        <div style="margin-top: 1.5rem;">
+          <h2 style="font-size: 1.2rem; margin-bottom: 1rem;">Topics Covered:</h2>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            ${topics.slice(0, 8).map(t => `
+              <li style="margin-bottom: 0.5rem;">
+                <a href="/coding/${lang}/${t}" style="color: #0066cc; text-decoration: none;">
+                  ${esc(titleCase(t))}
+                </a>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      `;
+    }
+  }
+
+  // College pages — render details
+  else if (route.path.match(/^\/colleges\/([a-z-]+)\/([a-z-]+)$/)) {
+    const [, stateSlug, collegeSlug] = route.path.match(/^\/colleges\/([a-z-]+)\/([a-z-]+)$/);
+    const college = COLLEGES_M.find(c => c.stateSlug === stateSlug && c.slug === collegeSlug);
+    if (college) {
+      richContent = `
+        <div style="margin-top: 1.5rem; padding: 1rem; background: #f0f8ff; border-radius: 8px;">
+          <h2 style="font-size: 1.1rem; margin: 0 0 0.5rem 0;">Key Details:</h2>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+            <li style="margin: 0.3rem 0;"><strong>Location:</strong> ${esc(college.city)}, ${esc(college.stateName)}</li>
+            <li style="margin: 0.3rem 0;"><strong>Fees:</strong> ${esc(college.feesPerYear)} per year</li>
+            <li style="margin: 0.3rem 0;"><strong>Cutoff:</strong> ${esc(college.cutoff)}</li>
+            <li style="margin: 0.3rem 0;"><strong>Avg. Package:</strong> ${esc(college.placementAvg)}</li>
+          </ul>
+        </div>
+      `;
+    }
+  }
+
+  // Blog article pages — show summary
+  else if (route.path.match(/^\/updates\/[a-z0-9-]+$/)) {
+    const slug = route.path.split('/')[2];
+    const article = (getBlogArticles() || []).find(a => a.slug === slug);
+    if (article) {
+      richContent = `
+        <div style="margin-top: 1.5rem; padding: 1rem; background: #fffef0; border-left: 4px solid #ff9800;">
+          <p style="font-size: 0.95rem; line-height: 1.6; color: #555;">
+            ${esc(article.summary)}
+          </p>
+        </div>
+      `;
+    }
+  }
+
+  // Homepage — brief overview
+  else if (route.path === '/') {
+    richContent = `
+      <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px;">
+        <h2 style="margin: 0 0 0.5rem 0;">Free AI Learning for Indian Students</h2>
+        <p style="margin: 0; font-size: 0.95rem; line-height: 1.5;">
+          Access NCERT solutions, mock tests, AI tutoring, coding courses, and career planning — all completely free for Class 1–12. No subscriptions, no ads.
+        </p>
+      </div>
+    `;
+  }
+
+  return `
+    <article style="max-width: 800px; margin: 0 auto; padding: 1rem 1.5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; line-height: 1.6;">
+      ${breadcrumb}
+      <h1 style="font-size: 1.8rem; margin: 0.5rem 0 1rem 0; color: #222;">${esc(title)}</h1>
+      <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #666;">${esc(desc)}</p>
+      ${richContent}
+      ${mainNav}
+      <footer style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #999;">
+        <p style="margin: 0;">Syllab.in — Free learning for Indian students, Class 1–12</p>
+      </footer>
+    </article>
+  `;
+}
+
+// Helper: convert slug to NCERT subject name for data key lookup
+function slugToSubject(slug) {
+  const map = {
+    'mathematics': 'Mathematics',
+    'science': 'Science',
+    'social-science': 'Social Science',
+    'english': 'English',
+    'hindi': 'Hindi',
+    'sanskrit': 'Sanskrit',
+    'physics': 'Physics',
+    'chemistry': 'Chemistry',
+    'biology': 'Biology',
+    'accountancy': 'Accountancy',
+    'business-studies': 'Business Studies',
+    'evs': 'EVS',
+  };
+  return map[slug] || slug;
+}
+
 function buildHeadBlock(route) {
   const canonical = `${SITE}${route.path}`;
   const robots = route.noindex
@@ -694,12 +880,17 @@ function buildHeadBlock(route) {
 }
 
 /**
- * Replace the per-page meta block inside the <head> of dist/index.html.
- * We look for the existing <title>...</title> and meta tags that come after
- * <meta charset> and <meta viewport>, then replace them with per-route data.
+ * Replace the per-page meta block inside the <head> of dist/index.html
+ * AND inject unique body content into <div id="root">.
+ *
+ * Crawlers now see:
+ * - Unique <title>, description, canonical in <head> ✓
+ * - Unique, semantic HTML content in <body id="root"> ✓
+ * - React still safely mounts on client (createRoot clears #root and rerenders) ✓
  */
 function injectMeta(baseHtml, route) {
   const headBlock = buildHeadBlock(route);
+  const bodyContent = buildBodyContent(route);
 
   // Strip any pre-existing <title> in the template so we never emit two <title>
   // tags (the default index.html title was surviving outside the replaced block,
@@ -721,10 +912,19 @@ function injectMeta(baseHtml, route) {
   // until we hit the first <link rel="preconnect"> (we keep preconnect onwards).
   // Strategy: replace the entire block between <meta name="theme-color"> and
   // <!-- Preconnect to critical origins --> with our per-page block.
-  return baseHtml.replace(
+  baseHtml = baseHtml.replace(
     /(<meta name="theme-color"[^>]*\/>)\s*([\s\S]*?)(<!-- Preconnect to critical origins -->)/,
     `$1\n\n${headBlock}\n\n  $3`,
   );
+
+  // Inject unique body content into <div id="root"></div>
+  // React's createRoot().render() will CLEAR this and re-render on mount, so it's safe.
+  baseHtml = baseHtml.replace(
+    /<div\s+id="root"><\/div>/i,
+    `<div id="root">${bodyContent}</div>`,
+  );
+
+  return baseHtml;
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────
