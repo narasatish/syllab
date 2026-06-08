@@ -441,7 +441,14 @@ ROUTES.push({
   title: 'Free NCERT Solutions for Class 6–12 (CBSE) — Chapter-wise Answers | Syllab.in',
   description: 'Free NCERT solutions for CBSE Class 6 to 12 — chapter-wise, step-by-step answers to textbook exercises in Science, Maths, Physics, Chemistry & Biology for Indian students.',
   keywords: 'NCERT solutions free, NCERT solutions Class 10, NCERT solutions Class 9, NCERT solutions Class 12, CBSE NCERT solutions chapter wise, free textbook solutions India',
-  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'NCERT Solutions for Class 6–12', url: `${SITE}/ncert-solutions` },
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'NCERT Solutions for Class 6–12', url: `${SITE}/ncert-solutions` },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Are NCERT solutions free on Syllab?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All NCERT solutions on Syllab are completely free for Class 6 to 12 — chapter-wise, step-by-step answers with no subscription.' } },
+      { '@type': 'Question', name: 'Which classes and subjects are covered?', acceptedAnswer: { '@type': 'Answer', text: 'Syllab covers NCERT solutions for Class 6–12 in Science, Mathematics, Physics, Chemistry, Biology and Social Science, aligned to the CBSE/NCERT syllabus.' } },
+      { '@type': 'Question', name: 'Are these solutions aligned to the CBSE board exam?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — the solutions follow the NCERT textbook exercises used by CBSE and most state boards, so they map directly to board exam preparation.' } },
+    ] },
+  ],
 });
 for (const c of getNcertChapters()) {
   ROUTES.push({
@@ -465,12 +472,19 @@ ROUTES.push({
   title: 'Live Quiz — Free Multiplayer Classroom Quiz Game (Kahoot-style) | Syllab.in',
   description: 'Host a free live multiplayer quiz for your class — students join with a PIN and compete on a real-time leaderboard. Free GK, Science, Maths, Reasoning & English quiz games for Indian students.',
   keywords: 'live quiz game free, multiplayer classroom quiz, kahoot alternative India, online quiz competition for students, live quiz with PIN, school quiz game free',
-  jsonLd: {
-    '@context': 'https://schema.org', '@type': 'WebApplication',
-    name: 'Syllab Live Quiz', applicationCategory: 'EducationalApplication',
-    operatingSystem: 'Web', url: `${SITE}/live-quiz`, inLanguage: 'en-IN',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-  },
+  jsonLd: [
+    {
+      '@context': 'https://schema.org', '@type': 'WebApplication',
+      name: 'Syllab Live Quiz', applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Web', url: `${SITE}/live-quiz`, inLanguage: 'en-IN',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+    },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Is the live quiz game free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, Syllab Live Quiz is completely free with no player limit and no paid tiers.' } },
+      { '@type': 'Question', name: 'How many students can join a live quiz?', acceptedAnswer: { '@type': 'Answer', text: 'There is no limit — any number of students can join a game using the 6-digit PIN from their phone or computer browser.' } },
+      { '@type': 'Question', name: 'Do students need an app or account to join?', acceptedAnswer: { '@type': 'Answer', text: 'No. Students just open the live quiz page in any browser and enter the PIN — no app to install and no account needed to join.' } },
+    ] },
+  ],
 });
 
 // ─── Free-alternatives pages (high-intent "alternative to X" SEO) ─────────────
@@ -652,6 +666,17 @@ function injectMeta(baseHtml, route) {
   // tags (the default index.html title was surviving outside the replaced block,
   // producing duplicate titles on every prerendered page — bad for SEO).
   baseHtml = baseHtml.replace(/<title>[\s\S]*?<\/title>/gi, '');
+
+  // The base index.html injects a GENERIC site-wide FAQPage on every page — that
+  // is an anti-pattern (irrelevant FAQ on every URL, and a duplicate on pages
+  // that declare their own FAQ). Keep the generic FAQ only on the home page;
+  // every other page carries only its own page-specific FAQ (if any).
+  if (route.path !== '/') {
+    baseHtml = baseHtml.replace(
+      /\s*<script type="application\/ld\+json">(?:(?!<\/script>)[\s\S])*?"@type":\s*"FAQPage"(?:(?!<\/script>)[\s\S])*?<\/script>/,
+      '',
+    );
+  }
 
   // Replace from <title> through </title> and all following meta/link tags
   // until we hit the first <link rel="preconnect"> (we keep preconnect onwards).
