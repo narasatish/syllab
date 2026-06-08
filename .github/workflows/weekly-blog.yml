@@ -1,0 +1,57 @@
+name: Weekly blog generation
+
+# Generates trending blogs for Indian students and commits the updated data file.
+# Modeled on ncert-fill.yml; runs weekly + on-demand.
+#
+# SECRETS: Check if scripts/generate-trending-blogs.mjs needs GEMINI_API_KEY:
+#   grep -E 'GEMINI_API_KEY|process.env' scripts/generate-trending-blogs.mjs
+# If it uses one, add a repository secret named GEMINI_API_KEY.
+# Otherwise (if deterministic), no secret is needed.
+#
+# NOTE: This workflow regenerates src/data/autoBlogs.json, but does NOT trigger
+# a deploy. The owner must deploy manually afterward via Firebase Hosting.
+
+on:
+  schedule:
+    - cron: '30 20 * * 0'  # 02:00 IST every Sunday
+  workflow_dispatch: {}      # allow manual runs from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-blog
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    # Uncomment this condition if the script requires GEMINI_API_KEY
+    # if: ${{ secrets.GEMINI_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+
+      - name: Generate trending blogs
+        # Adjust GEMINI_API_KEY env var if the script needs it
+        # env:
+        #   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/generate-trending-blogs.mjs
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain src/data/autoBlogs.json)" ]; then
+            git config user.name "syllab-bot"
+            git config user.email "bot@syllab.in"
+            git add src/data/autoBlogs.json
+            COUNT=$(node -e "console.log(require('./src/data/autoBlogs.json').length)")
+            git commit -m "chore(blogs): weekly auto-generation — $COUNT blogs [skip ci]"
+            git push
+            echo "Committed. Blog count: $COUNT articles."
+          else
+            echo "No changes to blogs this run."
+          fi

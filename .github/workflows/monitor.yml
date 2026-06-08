@@ -1,0 +1,33 @@
+name: Synthetic uptime monitor
+
+# Runs synthetic checks on live site + backend (home, practice, coding, etc.)
+# and emails an alert if any endpoint is down or slow.
+#
+# No secrets required unless monitor.mjs has custom email setup.
+# Grep monitor.mjs to verify: grep -E 'process.env' scripts/monitor.mjs
+
+on:
+  schedule:
+    - cron: '0 6 * * *'     # 06:00 UTC = 11:30 IST daily
+  workflow_dispatch: {}      # allow manual runs from the Actions tab
+
+permissions:
+  contents: read            # read-only, no modifications
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+
+      - name: Run uptime checks
+        # Uncomment and set email env vars if monitor.mjs needs them
+        # env:
+        #   ALERT_EMAIL: narasatish966@gmail.com
+        #   RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: node scripts/monitor.mjs

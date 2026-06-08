@@ -602,6 +602,7 @@ function buildHeadBlock(route) {
     `  <meta name="robots" content="${robots}" />`,
     `  <meta name="googlebot" content="${robots}" />`,
     `  <link rel="canonical" href="${canonical}" />`,
+    `  <link rel="alternate" type="application/rss+xml" title="Syllab.in Blog — Free Exam Prep & Study Updates" href="${SITE}/feed.xml" />`,
     `  <meta property="og:title" content="${esc(route.title)}" />`,
     `  <meta property="og:description" content="${esc(route.description)}" />`,
     `  <meta property="og:url" content="${canonical}" />`,
