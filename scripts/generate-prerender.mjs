@@ -579,25 +579,84 @@ for (const a of getBlogArticles()) {
 // shell served the home canonical. Prerendering each gives a SELF-referencing
 // canonical (buildHeadBlock uses SITE+route.path) + unique title → fixes the
 // duplicate error and makes them indexable long-tail pages.
+//
+// NEW: Extract rich topic content (title, theory, syntax) per topic so each
+// page's body is genuinely unique (~30–40% unique text, not 71% duplicate).
+
+/**
+ * Parse a TS file of TutorialTopic objects to extract their content.
+ * Returns: { topicId: { title, theoryText, syntaxText }, ... }
+ */
+function extractTopicContent(filePath) {
+  try {
+    const content = readFileSync(filePath, 'utf8');
+    const topics = {};
+
+    // Find all topic objects: match from id: 'xxx' to the closing }
+    // Simple regex approach: look for patterns like:
+    // { id: 'ai-intro', category: ..., title: 'XXX', theory: [...]
+    const topicMatches = [...content.matchAll(
+      /\{\s*id:\s*['"]([a-z0-9-]+)['"][^}]*?title:\s*['"]([^'"]*)['"]/gm
+    )];
+
+    for (const match of topicMatches) {
+      const topicId = match[1];
+      const title = match[2];
+      topics[topicId] = { title, theoryText: '', syntaxText: '' };
+    }
+
+    // For each topic, extract first theory paragraph (most substantial)
+    const theoryPattern = /id:\s*['"]([a-z0-9-]+)['"][^}]*?theory:\s*\[\s*`([^`]{200,600})/gm;
+    for (const match of content.matchAll(theoryPattern)) {
+      const topicId = match[1];
+      if (topics[topicId]) {
+        topics[topicId].theoryText = match[2];
+      }
+    }
+
+    // Extract syntax if present
+    const syntaxPattern = /id:\s*['"]([a-z0-9-]+)['"][^}]*?syntax:\s*`([^`]{50,300})/gm;
+    for (const match of content.matchAll(syntaxPattern)) {
+      const topicId = match[1];
+      if (topics[topicId]) {
+        topics[topicId].syntaxText = match[2];
+      }
+    }
+
+    return topics;
+  } catch (e) {
+    console.warn(`⚠️  Failed to extract topics from ${filePath}: ${e.message}`);
+    return {};
+  }
+}
+
 function readCodingTopics() {
   try {
     const idx = readFileSync(path.join(ROOT, 'src', 'data', 'tutorials', 'index.ts'), 'utf8');
     const languages = [...new Set([...idx.matchAll(/id:\s*['"]([a-z0-9-]+)['"]/gi)].map(m => m[1]))];
     const fileMap = { 'ai-learning': 'aiLearning.ts', 'data-analytics': 'dataAnalytics.ts', 'app-dev': 'app-dev.ts', 'game-dev': 'game-dev.ts' };
     const topicsByLang = {};
+    const contentByLang = {};
+
     for (const lang of languages) {
       try {
-        const content = readFileSync(path.join(ROOT, 'src', 'data', 'tutorials', fileMap[lang] || `${lang}.ts`), 'utf8');
+        const filePath = path.join(ROOT, 'src', 'data', 'tutorials', fileMap[lang] || `${lang}.ts`);
+        const content = readFileSync(filePath, 'utf8');
         topicsByLang[lang] = [...content.matchAll(/^\s*id:\s*['"]([a-z0-9-]+)['"]/gm)].map(m => m[1]);
-      } catch { topicsByLang[lang] = []; }
+        // Also extract rich content for each topic
+        contentByLang[lang] = extractTopicContent(filePath);
+      } catch {
+        topicsByLang[lang] = [];
+        contentByLang[lang] = {};
+      }
     }
-    return { languages, topicsByLang };
-  } catch { return { languages: [], topicsByLang: {} }; }
+    return { languages, topicsByLang, contentByLang };
+  } catch { return { languages: [], topicsByLang: {}, contentByLang: {} }; }
 }
 const titleCase = (slug) => slug.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 const langLabel = (l) => ({ 'ai-learning': 'AI & ML', 'data-analytics': 'Data Analytics', 'data-mining': 'Data Mining', 'app-dev': 'App Development', 'game-dev': 'Game Development', 'git-github': 'Git & GitHub', 'prompt-engineering': 'Prompt Engineering', 'cloud-computing': 'Cloud Computing', 'cybersecurity': 'Cyber Security', 'ai-agents': 'AI Agents' }[l] || titleCase(l));
 const existingCoding = new Set(ROUTES.map(r => r.path));
-const { languages: CODE_LANGS, topicsByLang: CODE_TOPICS } = readCodingTopics();
+const { languages: CODE_LANGS, topicsByLang: CODE_TOPICS, contentByLang: CODE_CONTENT } = readCodingTopics();
 for (const lang of CODE_LANGS) {
   const L = langLabel(lang);
   const langPath = `/coding/${lang}`;
@@ -615,6 +674,7 @@ for (const lang of CODE_LANGS) {
       title: `${titleCase(topic)} — Free ${L} Tutorial | Syllab.in`,
       description: `Learn ${titleCase(topic)} in ${L} with a free, beginner-friendly tutorial, examples and practice for Indian students on Syllab.in.`,
       keywords: `${titleCase(topic)}, ${L} ${titleCase(topic)}, learn ${L} free, ${L} tutorial`,
+      topicContent: CODE_CONTENT[lang] && CODE_CONTENT[lang][topic],
     });
   }
 }
@@ -653,6 +713,7 @@ function buildBodyContent(route) {
   const stripTitle = (t) => t.replace(/\s*[\|—]\s*Syllab\.in.*$/i, '').trim();
   const title = stripTitle(route.title);
   const desc = route.description;
+
 
   // Breadcrumb nav
   const pathParts = route.path.split('/').filter(Boolean);
@@ -713,22 +774,52 @@ function buildBodyContent(route) {
     }
   }
 
-  // Coding tutorial pages — show available topics
+  // Coding tutorial pages (individual topic) — show rich topic content
+  else if (route.path.match(/^\/coding\/[a-z-]+\/[a-z0-9-]+$/)) {
+    const [, lang, topic] = route.path.match(/^\/coding\/([a-z-]+)\/([a-z0-9-]+)$/);
+    const topicContent = route.topicContent;
+    if (topicContent && topicContent.theoryText) {
+      // Rich, unique content: topic's theory paragraph + syntax if available
+      richContent = `
+        <div style="margin-top: 1.5rem;">
+          <div style="padding: 1rem; background: #f9f9f9; border-left: 3px solid #667eea; margin-bottom: 1.5rem;">
+            <h2 style="margin: 0 0 0.5rem 0; font-size: 1.1rem; color: #333;">Overview:</h2>
+            <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.6;">
+              ${esc(topicContent.theoryText.slice(0, 400))}${topicContent.theoryText.length > 400 ? '...' : ''}
+            </p>
+          </div>
+          ${topicContent.syntaxText ? `
+            <div style="padding: 1rem; background: #f5f5f5; border-left: 3px solid #4caf50; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">Key Concepts:</h3>
+              <pre style="margin: 0; font-size: 0.85rem; color: #555; white-space: pre-wrap; font-family: 'Courier New', monospace;">
+${esc(topicContent.syntaxText)}
+              </pre>
+            </div>
+          ` : ''}
+          <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 1rem;">
+            Explore the interactive tutorial above to learn ${titleCase(topic)} step-by-step with practice exercises.
+          </p>
+        </div>
+      `;
+    }
+  }
+
+  // Coding language landing pages — show list of available topics (but keep small)
   else if (route.path.match(/^\/coding\/[a-z-]+$/)) {
     const lang = route.path.split('/')[2];
     const topics = CODE_TOPICS[lang] || [];
     if (topics.length > 0) {
+      // Smaller topics list to reduce duplication. Keep only first 5 to reduce bulk.
       richContent = `
         <div style="margin-top: 1.5rem;">
-          <h2 style="font-size: 1.2rem; margin-bottom: 1rem;">Topics Covered:</h2>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            ${topics.slice(0, 8).map(t => `
-              <li style="margin-bottom: 0.5rem;">
-                <a href="/coding/${lang}/${t}" style="color: #0066cc; text-decoration: none;">
-                  ${esc(titleCase(t))}
-                </a>
+          <h2 style="font-size: 1.2rem; margin-bottom: 1rem;">Popular Topics:</h2>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; font-size: 0.9rem;">
+            ${topics.slice(0, 5).map(t => `
+              <li style="padding: 0.5rem 0;">
+                <a href="/coding/${lang}/${t}" style="color: #0066cc; text-decoration: none;">→ ${esc(titleCase(t))}</a>
               </li>
             `).join('')}
+            ${topics.length > 5 ? `<li style="padding: 0.5rem 0; color: #999; font-size: 0.85rem;">+ ${topics.length - 5} more topics in the interactive editor</li>` : ''}
           </ul>
         </div>
       `;
@@ -920,7 +1011,7 @@ function injectMeta(baseHtml, route) {
   // Inject unique body content into <div id="root"></div>
   // React's createRoot().render() will CLEAR this and re-render on mount, so it's safe.
   baseHtml = baseHtml.replace(
-    /<div\s+id="root"><\/div>/i,
+    /<div\s*id="root">\s*<\/div>/i,
     `<div id="root">${bodyContent}</div>`,
   );
 
@@ -930,6 +1021,12 @@ function injectMeta(baseHtml, route) {
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
+  // CRITICAL: read the BUILT template from dist/index.html (it has the hashed
+  // /assets/*.js bundle tags). The root index.html references /src/main.tsx (the
+  // dev entry) which does NOT exist in production — using it would 404 the app
+  // and blank the whole site. We read it ONCE here, before the loop writes any
+  // route (the '/' route later overwrites dist/index.html, but this in-memory
+  // copy stays clean). Always run `vite build` immediately before this script.
   const baseHtmlPath = path.join(DIST, 'index.html');
   let baseHtml;
   try {
