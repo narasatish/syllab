@@ -11,6 +11,9 @@ import {
   XCircle,
   Zap,
   Bot,
+  TrendingUp,
+  TrendingDown,
+  Minus,
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { User as FirebaseUser } from 'firebase/auth';
@@ -29,6 +32,13 @@ import { recordLearningActivity } from '../lib/progressTracker';
 import ReactMarkdown from 'react-markdown';
 import LoginRequiredModal from '../components/LoginRequiredModal';
 import SEO from '../seo/SEO';
+import {
+  initializeAdaptiveState,
+  recordAnswer as recordAdaptiveAnswer,
+  selectNextQuestion,
+  getAdaptiveIndicator,
+  type AdaptiveState,
+} from '../lib/adaptiveDifficulty';
 
 // =====================================================================
 // API base — works in both Vite and CRA
@@ -170,6 +180,11 @@ export default function ArenaPage({
   const [timeLeft, setTimeLeft] = useState(60);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const quizStartedAtRef = useRef<number | null>(null);
+  const answerStartTimeRef = useRef<number | null>(null);
+
+  // Real-time adaptive difficulty
+  const [adaptiveState, setAdaptiveState] = useState<AdaptiveState>(() => initializeAdaptiveState());
+  const [availableQuestions, setAvailableQuestions] = useState<Question[]>([]);
 
   const [selClass, setSelClass] = useState<ClassLevel>(() => {
     // Initialize from userClass (prop from App) so cloud-synced value is used on mount
@@ -211,7 +226,10 @@ export default function ArenaPage({
   const resumeSession = () => {
     if (!pausedSession) return;
     setQuizQuestions(pausedSession.questions);
+    setAvailableQuestions(pausedSession.questions);
+    setAdaptiveState(initializeAdaptiveState());
     quizStartedAtRef.current = Date.now();
+    answerStartTimeRef.current = Date.now();
     setCurrentIndex(pausedSession.currentIndex);
     setScore(pausedSession.score);
     setIsTimerEnabled(pausedSession.config.isTimerEnabled as boolean);
@@ -366,7 +384,10 @@ export default function ArenaPage({
       }
 
       setQuizQuestions(session);
+      setAvailableQuestions(session);
+      setAdaptiveState(initializeAdaptiveState());
       quizStartedAtRef.current = Date.now();
+      answerStartTimeRef.current = Date.now();
       setCurrentIndex(0);
       setScore(0);
       setMode('quiz');
@@ -388,11 +409,27 @@ export default function ArenaPage({
     setIsAnswered(true);
     const q = quizQuestions[currentIndex];
     if (!q) return;
-    if (optionIndex === q.correct_index) {
+
+    // Calculate response time for adaptive difficulty
+    const responseTime = answerStartTimeRef.current
+      ? (Date.now() - answerStartTimeRef.current) / 1000
+      : timePerQuestion * 60;
+
+    const isCorrect = optionIndex === q.correct_index;
+    if (isCorrect) {
       setScore((p) => p + 1);
-      return;
     }
-    if (currentUser && optionIndex >= 0) {
+
+    // Update adaptive difficulty signal
+    const updatedAdaptive = recordAdaptiveAnswer(
+      adaptiveState,
+      isCorrect,
+      responseTime,
+      timePerQuestion,
+    );
+    setAdaptiveState(updatedAdaptive);
+
+    if (!isCorrect && currentUser && optionIndex >= 0) {
       try {
         await recordMistake(currentUser.uid, q, q.options[optionIndex] ?? '');
       } catch (e) { console.error(e); }
@@ -401,10 +438,31 @@ export default function ArenaPage({
 
   const nextQuestion = () => {
     if (currentIndex < quizQuestions.length - 1) {
+      // Get remaining questions (those not yet shown)
+      const remaining = availableQuestions.filter(
+        (q) => !quizQuestions.slice(0, currentIndex + 1).some((shown) => shown.id === q.id),
+      );
+
+      // Select next question based on adaptive difficulty
+      const nextQ = selectNextQuestion(remaining, adaptiveState.targetDifficulty);
+      if (nextQ) {
+        // Reorder quizQuestions to show nextQ at currentIndex + 1
+        const newQuestions = [...quizQuestions];
+        const nextIdx = newQuestions.findIndex((q) => q.id === nextQ.id);
+        if (nextIdx !== -1 && nextIdx > currentIndex) {
+          // Swap the question at nextIdx with the one at currentIndex + 1
+          const temp = newQuestions[currentIndex + 1];
+          newQuestions[currentIndex + 1] = newQuestions[nextIdx];
+          newQuestions[nextIdx] = temp;
+          setQuizQuestions(newQuestions);
+        }
+      }
+
       setCurrentIndex((p) => p + 1);
       setSelectedAnswer(null);
       setIsAnswered(false);
       setTimeLeft(timePerQuestion * 60);
+      answerStartTimeRef.current = Date.now();
       return;
     }
     setMode('result');
@@ -694,6 +752,33 @@ export default function ArenaPage({
                 </div>
               )}
               <div className="flex items-center gap-4">
+                {(() => {
+                  const indicator = getAdaptiveIndicator(adaptiveState);
+                  const colors =
+                    indicator.direction === 'up'
+                      ? 'border-emerald-200 bg-emerald-50 text-emerald-600'
+                      : indicator.direction === 'down'
+                        ? 'border-blue-200 bg-blue-50 text-blue-600'
+                        : 'border-amber-200 bg-amber-50 text-amber-600';
+                  const icon =
+                    indicator.direction === 'up' ? (
+                      <TrendingUp size={14} fill="currentColor" />
+                    ) : indicator.direction === 'down' ? (
+                      <TrendingDown size={14} fill="currentColor" />
+                    ) : (
+                      <Minus size={14} />
+                    );
+                  return (
+                    <div
+                      className={cn(
+                        'flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[10px] font-black uppercase tracking-widest',
+                        colors,
+                      )}
+                    >
+                      {icon} {indicator.label}
+                    </div>
+                  );
+                })()}
                 <div className="h-3 w-48 overflow-hidden rounded-full border border-slate-100 bg-slate-100 p-0.5">
                   <motion.div className="h-full bg-primary rounded-full shadow-[0_0_10px_rgba(16,185,129,0.4)]"
                     initial={{ width: 0 }}

@@ -9,6 +9,7 @@ import { SYLLABUS } from '../data/syllabus';
 import { motion, AnimatePresence } from 'motion/react';
 import { getUserStats, UserStats } from '../lib/api';
 import MasteryProgress from '../components/MasteryProgress';
+import ProactiveNudge from '../components/ProactiveNudge';
 
 interface DashboardPageProps {
   currentUser: FirebaseUser | null;
@@ -114,6 +115,9 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
           </p>
         </div>
       </div>
+
+      {/* Proactive Nudge — surfaces weakest topic */}
+      <ProactiveNudge mistakes={mistakes} setTab={setTab} />
 
       {!currentUser && (
         <div className="bg-yellow-50 border border-yellow-200 text-yellow-700 px-4 py-3 rounded-xl text-sm">

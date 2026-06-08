@@ -436,6 +436,7 @@ for (const c of COLLEGES_M) {
 }
 
 // ─── NCERT Solutions: index + per-chapter pages (high-volume "NCERT solutions") ─
+const today = new Date().toISOString().split('T')[0];
 ROUTES.push({
   path: '/ncert-solutions',
   title: 'Free NCERT Solutions for Class 6–12 (CBSE) — Chapter-wise Answers | Syllab.in',
@@ -451,6 +452,7 @@ ROUTES.push({
   ],
 });
 for (const c of getNcertChapters()) {
+  const today = new Date().toISOString().split('T')[0];
   ROUTES.push({
     path: `/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
     title: `${c.title} — Class ${c.classLevel} ${c.subject} NCERT Solutions (Free) | Syllab.in`,
@@ -461,7 +463,10 @@ for (const c of getNcertChapters()) {
       headline: `${c.title} — Class ${c.classLevel} ${c.subject} NCERT Solutions`,
       url: `${SITE}/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
       inLanguage: 'en-IN', isAccessibleForFree: true,
-      author: { '@type': 'Organization', name: 'Syllab.in' },
+      author: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
+      publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
+      datePublished: today,
+      dateModified: today,
     },
   });
 }
@@ -535,6 +540,25 @@ for (const k of [
   });
 }
 
+// ─── Microlearning: index + bite-sized module pages ──────────────────────────
+ROUTES.push({
+  path: '/micro',
+  title: 'Microlearning — Free 5-Minute Revision Modules for Class 6–12 | Syllab.in',
+  description: 'Learn any concept in 5 minutes — free bite-sized modules with a quick explanation, worked example and instant quiz. Mobile-friendly, low-data revision for Indian students.',
+  keywords: 'microlearning India, 5 minute revision, quick revision Class 10, bite sized learning, learn fast, short lessons students free',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Microlearning — 5-Minute Modules', url: `${SITE}/micro`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+for (const m of ['quadratic-formula','newtons-first-law','trigonometry-ratios','photosynthesis','periodic-table-trends','probability-basics','linear-equations','surface-area-volume','acids-bases','fractions-decimals','imperialism-colonialism','plate-tectonics','english-tenses','photosynthesis-respiration','mean-median-mode']) {
+  const mname = m.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  ROUTES.push({
+    path: `/micro/${m}`,
+    title: `${mname} in 5 Minutes — Free Quick Revision | Syllab.in`,
+    description: `Learn ${mname} in about 5 minutes — a free bite-sized module with a clear explanation, a worked example and a quick quiz for Indian students.`,
+    keywords: `${mname} in 5 minutes, ${mname} quick revision, learn ${mname} fast`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'LearningResource', name: `${mname} — 5-Minute Module`, url: `${SITE}/micro/${m}`, inLanguage: 'en-IN', isAccessibleForFree: true, learningResourceType: 'Microlearning module' },
+  });
+}
+
 // ─── Photo Doubt-Solver (snap a problem → instant AI solution) ────────────────
 ROUTES.push({
   path: '/doubt-solver',
@@ -554,6 +578,7 @@ ROUTES.push({
 // ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
 for (const a of getBlogArticles()) {
   const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;
+  const today = new Date().toISOString().split('T')[0];
   ROUTES.push({
     path: `/updates/${a.slug}`,
     title: `${a.title} | Syllab.in`,
@@ -568,8 +593,10 @@ for (const a of getBlogArticles()) {
       image: `${SITE}/og-image.png`,
       isAccessibleForFree: true,
       inLanguage: 'en-IN',
-      author: { '@type': 'Organization', name: 'Syllab.in' },
-      publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/icon.svg` } },
+      author: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
+      publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
+      datePublished: today,
+      dateModified: today,
     },
   });
 }
@@ -714,6 +741,9 @@ function buildBodyContent(route) {
   const title = stripTitle(route.title);
   const desc = route.description;
 
+  // E-E-A-T: publication and freshness dates
+  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+  const formattedDate = new Date(today).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 
   // Breadcrumb nav
   const pathParts = route.path.split('/').filter(Boolean);
@@ -726,6 +756,14 @@ function buildBodyContent(route) {
         return ` › <a href="${esc(url)}" style="color: #0066cc; text-decoration: none;">${esc(label)}</a>`;
       }).join('')}
     </nav>
+  `;
+
+  // E-E-A-T: TL;DR summary + byline with date (visible author + freshness signals)
+  const tldrBlock = `
+    <div style="margin: 1.5rem 0; padding: 1rem; background: #e8f5e9; border-left: 4px solid #4caf50; border-radius: 4px;">
+      <p style="margin: 0; font-weight: 600; color: #2e7d32; font-size: 0.95rem;"><strong>TL;DR:</strong> ${esc(desc.length > 150 ? desc.slice(0, 150).trim() + '…' : desc)}</p>
+    </div>
+    <p style="margin: 1rem 0; font-size: 0.85rem; color: #666;">By <strong>Syllab.in</strong> · Updated <time datetime="${today}">${formattedDate}</time></p>
   `;
 
   // Quick nav to main sections (helps crawl internal structure)
@@ -748,7 +786,7 @@ function buildBodyContent(route) {
   // Route-specific rich content
   let richContent = '';
 
-  // NCERT chapter pages — render actual Q&A for high SEO value
+  // NCERT chapter pages — render actual Q&A for high SEO value + numbered list + table
   const ncertMatch = route.path.match(/^\/ncert-solutions\/class-(\d+)\/([a-z-]+)\/([a-z-]+)$/);
   if (ncertMatch) {
     const [, classLevel, subjSlug, chapSlug] = ncertMatch;
@@ -759,6 +797,52 @@ function buildBodyContent(route) {
     if (qas.length > 0) {
       const displayLimit = Math.min(3, qas.length); // Show first 3 Q&A for brevity
       richContent = `<div style="margin-top: 1.5rem;">`;
+
+      // Numbered list of key concepts/questions
+      richContent += `
+        <div style="margin-bottom: 2rem;">
+          <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: #333;">Key Questions Covered:</h2>
+          <ol style="margin: 0; padding-left: 1.5rem; color: #555; line-height: 1.8;">
+      `;
+      for (let i = 0; i < displayLimit; i++) {
+        const qa = qas[i];
+        richContent += `<li style="margin-bottom: 0.5rem;">${esc(qa.q.length > 80 ? qa.q.slice(0, 77) + '…' : qa.q)}</li>`;
+      }
+      if (qas.length > displayLimit) {
+        richContent += `<li style="margin-top: 0.5rem; color: #999; font-size: 0.9rem;">+ ${qas.length - displayLimit} more questions in the full chapter</li>`;
+      }
+      richContent += `</ol></div>`;
+
+      // Table summary
+      richContent += `
+        <div style="margin-bottom: 2rem; overflow-x: auto;">
+          <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: #333;">Solutions Summary:</h2>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; background: white; border: 1px solid #ddd;">
+            <thead style="background: #f5f5f5;">
+              <tr>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #0066cc; font-weight: 600;">Question</th>
+                <th style="padding: 0.75rem; text-align: center; border-bottom: 2px solid #0066cc; font-weight: 600;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+      for (let i = 0; i < displayLimit; i++) {
+        const qa = qas[i];
+        richContent += `
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;">${esc(qa.q.length > 60 ? qa.q.slice(0, 57) + '…' : qa.q)}</td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">✓ Solved</span></td>
+              </tr>
+        `;
+      }
+      richContent += `
+            </tbody>
+          </table>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">Showing ${displayLimit} of ${qas.length} questions</p>
+        </div>
+      `;
+
+      // Q&A details
       for (let i = 0; i < displayLimit; i++) {
         const qa = qas[i];
         richContent += `
@@ -774,12 +858,12 @@ function buildBodyContent(route) {
     }
   }
 
-  // Coding tutorial pages (individual topic) — show rich topic content
+  // Coding tutorial pages (individual topic) — show rich topic content + numbered list + table
   else if (route.path.match(/^\/coding\/[a-z-]+\/[a-z0-9-]+$/)) {
     const [, lang, topic] = route.path.match(/^\/coding\/([a-z-]+)\/([a-z0-9-]+)$/);
     const topicContent = route.topicContent;
     if (topicContent && topicContent.theoryText) {
-      // Rich, unique content: topic's theory paragraph + syntax if available
+      // Rich, unique content: topic's theory paragraph + syntax if available + numbered list + table
       richContent = `
         <div style="margin-top: 1.5rem;">
           <div style="padding: 1rem; background: #f9f9f9; border-left: 3px solid #667eea; margin-bottom: 1.5rem;">
@@ -788,9 +872,48 @@ function buildBodyContent(route) {
               ${esc(topicContent.theoryText.slice(0, 400))}${topicContent.theoryText.length > 400 ? '...' : ''}
             </p>
           </div>
+
+          <!-- Numbered list of learning steps -->
+          <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: #333;">Learning Path:</h3>
+            <ol style="margin: 0; padding-left: 1.5rem; color: #555; line-height: 1.8; font-size: 0.95rem;">
+              <li style="margin-bottom: 0.5rem;"><strong>Understand the fundamentals</strong> — Learn core concepts and terminology</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Study syntax and structure</strong> — Master the language-specific patterns</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Practice with examples</strong> — Apply concepts through hands-on exercises</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Build projects</strong> — Combine skills to create real applications</li>
+            </ol>
+          </div>
+
+          <!-- Key concepts comparison table -->
+          <div style="margin-bottom: 2rem; overflow-x: auto;">
+            <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: #333;">Key Concepts:</h3>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; background: white; border: 1px solid #ddd;">
+              <thead style="background: #f5f5f5;">
+                <tr>
+                  <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #667eea; font-weight: 600; width: 40%;">Concept</th>
+                  <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #667eea; font-weight: 600;">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 0.75rem;"><strong>${esc(titleCase(topic))}</strong></td>
+                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Essential programming concept for ${esc(langLabel(lang))}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 0.75rem;"><strong>Use Case</strong></td>
+                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Practical applications and real-world scenarios</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem;"><strong>Difficulty</strong></td>
+                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Beginner-friendly with step-by-step guidance</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           ${topicContent.syntaxText ? `
             <div style="padding: 1rem; background: #f5f5f5; border-left: 3px solid #4caf50; margin-bottom: 1.5rem;">
-              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">Key Concepts:</h3>
+              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">Syntax Reference:</h3>
               <pre style="margin: 0; font-size: 0.85rem; color: #555; white-space: pre-wrap; font-family: 'Courier New', monospace;">
 ${esc(topicContent.syntaxText)}
               </pre>
@@ -860,6 +983,118 @@ ${esc(topicContent.syntaxText)}
     }
   }
 
+  // Mock tests page — show numbered list of exam types + table of exams covered
+  else if (route.path === '/mock-tests') {
+    richContent = `
+      <div style="margin-top: 2rem;">
+        <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: #333;">Exam Types Available:</h2>
+        <ol style="margin: 0; padding-left: 1.5rem; color: #555; line-height: 1.8; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.5rem;"><strong>Engineering Entrance Exams</strong> — JEE Main, BITSAT, EAMCET, WBJEE, and state exams</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Medical Entrance Exams</strong> — NEET UG with multiple mock tests and analysis</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Olympiad Exams</strong> — Math and Science Olympiad practice papers</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Board Exams</strong> — Class 10 and Class 12 sample papers and practice tests</li>
+        </ol>
+
+        <h2 style="font-size: 1.1rem; margin: 2rem 0 0.75rem 0; color: #333;">Exam Coverage:</h2>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; background: white; border: 1px solid #ddd; margin-bottom: 1rem;">
+            <thead style="background: #f5f5f5;">
+              <tr>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #0066cc; font-weight: 600;">Exam</th>
+                <th style="padding: 0.75rem; text-align: center; border-bottom: 2px solid #0066cc; font-weight: 600;">Mocks Available</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #0066cc; font-weight: 600;">Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;"><strong>JEE Main</strong></td>
+                <td style="padding: 0.75rem; text-align: center; color: #0066cc;">10+</td>
+                <td style="padding: 0.75rem;">Advanced</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;"><strong>NEET UG</strong></td>
+                <td style="padding: 0.75rem; text-align: center; color: #0066cc;">10+</td>
+                <td style="padding: 0.75rem;">Advanced</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;"><strong>EAMCET / KCET / MHT-CET</strong></td>
+                <td style="padding: 0.75rem; text-align: center; color: #0066cc;">5+</td>
+                <td style="padding: 0.75rem;">Intermediate</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;"><strong>Math & Science Olympiad</strong></td>
+                <td style="padding: 0.75rem; text-align: center; color: #0066cc;">8+</td>
+                <td style="padding: 0.75rem;">All levels</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.75rem;"><strong>CBSE Board Exams</strong></td>
+                <td style="padding: 0.75rem; text-align: center; color: #0066cc;">Unlimited</td>
+                <td style="padding: 0.75rem;">Class 10 & 12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color: #666; font-size: 0.9rem; font-style: italic;">All mock tests include detailed solutions and performance analytics to track your progress.</p>
+      </div>
+    `;
+  }
+
+  // Free alternatives page — show comparison table + list
+  else if (route.path === '/free-alternatives') {
+    richContent = `
+      <div style="margin-top: 2rem;">
+        <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: #333;">Free Features of Syllab:</h2>
+        <ol style="margin: 0; padding-left: 1.5rem; color: #555; line-height: 1.8; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.5rem;"><strong>NCERT Solutions</strong> — Free chapter-wise answers for Class 6–12 with detailed explanations</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Mock Tests</strong> — 200+ full-length mock tests for JEE, NEET, EAMCET, and board exams</li>
+          <li style="margin-bottom: 0.5rem;"><strong>AI Tutor</strong> — 24/7 homework helper with scan-and-solve and concept notes generation</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Coding Courses</strong> — Python, JavaScript, AI, Data Science and more — all completely free</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Live Quiz Games</strong> — Kahoot-style multiplayer quizzes with real-time leaderboards</li>
+        </ol>
+
+        <h2 style="font-size: 1.1rem; margin: 2rem 0 0.75rem 0; color: #333;">App Comparison:</h2>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; background: white; border: 1px solid #ddd; margin-bottom: 1rem;">
+            <thead style="background: #f5f5f5;">
+              <tr>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #0066cc; font-weight: 600;">Feature</th>
+                <th style="padding: 0.75rem; text-align: center; border-bottom: 2px solid #0066cc; font-weight: 600; color: #4caf50;">Syllab</th>
+                <th style="padding: 0.75rem; text-align: center; border-bottom: 2px solid #0066cc; font-weight: 600;">Premium Apps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;"><strong>Cost</strong></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">100% Free</span></td>
+                <td style="padding: 0.75rem; text-align: center;">Subscriptions ₹299–999/mo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;"><strong>Mock Tests</strong></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">✓ Unlimited</span></td>
+                <td style="padding: 0.75rem; text-align: center;">Limited to premium</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;"><strong>AI Doubt Solver</strong></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">✓ Yes</span></td>
+                <td style="padding: 0.75rem; text-align: center;">Paid add-ons</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 0.75rem;"><strong>Coding Courses</strong></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">✓ Included</span></td>
+                <td style="padding: 0.75rem; text-align: center;">Not available</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.75rem;"><strong>Sign-up Required</strong></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">No</span></td>
+                <td style="padding: 0.75rem; text-align: center;">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
   // Homepage — brief overview
   else if (route.path === '/') {
     richContent = `
@@ -877,6 +1112,7 @@ ${esc(topicContent.syntaxText)}
       ${breadcrumb}
       <h1 style="font-size: 1.8rem; margin: 0.5rem 0 1rem 0; color: #222;">${esc(title)}</h1>
       <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #666;">${esc(desc)}</p>
+      ${tldrBlock}
       ${richContent}
       ${mainNav}
       <footer style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #999;">
@@ -1008,10 +1244,12 @@ function injectMeta(baseHtml, route) {
     `$1\n\n${headBlock}\n\n  $3`,
   );
 
-  // Inject unique body content into <div id="root"></div>
+  // Inject unique body content into <div id="root">...</div>
+  // Use a non-greedy match to handle any existing content (from previous prerender runs).
   // React's createRoot().render() will CLEAR this and re-render on mount, so it's safe.
+  // Matches: <div id="root">...</div> with any content inside (greedy nesting).
   baseHtml = baseHtml.replace(
-    /<div\s*id="root">\s*<\/div>/i,
+    /<div\s+id="root"[\s\S]*?<\/div>/i,
     `<div id="root">${bodyContent}</div>`,
   );
 

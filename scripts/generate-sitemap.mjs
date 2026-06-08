@@ -145,6 +145,12 @@ function buildUrls({ languages, topicsByLang }) {
   // Photo Doubt-Solver.
   urls.push({ loc: '/doubt-solver', priority: 0.8, changefreq: 'monthly' });
 
+  // Microlearning index + modules.
+  urls.push({ loc: '/micro', priority: 0.8, changefreq: 'weekly' });
+  for (const m of ['quadratic-formula','newtons-first-law','trigonometry-ratios','photosynthesis','periodic-table-trends','probability-basics','linear-equations','surface-area-volume','acids-bases','fractions-decimals','imperialism-colonialism','plate-tectonics','english-tenses','photosynthesis-respiration','mean-median-mode']) {
+    urls.push({ loc: `/micro/${m}`, priority: 0.6, changefreq: 'monthly' });
+  }
+
   // Kids / Pre-school section.
   urls.push({ loc: '/kids', priority: 0.8, changefreq: 'weekly' });
   for (const s of ['alphabet', 'numbers', 'shapes', 'rhymes', 'coloring']) {
