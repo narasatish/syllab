@@ -652,7 +652,7 @@ On Syllab.in you can practise chapter-wise MCQs for Physics, Chemistry and Biolo
   },
   {
     id: 'neet-biology-most-important-chapters',
-    title: 'NEET Biology: Most Important Chapters & Weightage (Free Practice)',
+    title: 'NEET Biology Chapter-Wise Weightage & Study Plan 2026',
     description: 'High-weightage NEET Biology chapters with marks distribution and a free chapter-wise practice + mock test plan for Indian medical aspirants.',
     readTime: '7 min read', category: 'neet',
     content: `Biology is 50% of the NEET paper (360 of 720 marks), so it decides your rank. Here are the **highest-weightage areas** to prioritise.

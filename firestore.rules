@@ -164,10 +164,18 @@ service cloud.firestore {
           'points', 'completedAt', 'updatedAt'
         ])
         && request.resource.data.score is number
+        && request.resource.data.score >= 0
         && request.resource.data.total is number
+        && request.resource.data.total > 0
+        && request.resource.data.total <= 1000
+        && request.resource.data.score <= request.resource.data.total
         && request.resource.data.secondsLeft is number
+        && request.resource.data.secondsLeft >= 0
         && request.resource.data.durationSeconds is number
+        && request.resource.data.durationSeconds >= 0
         && request.resource.data.points is number
+        && request.resource.data.points >= 0
+        && request.resource.data.points <= 100000
         && request.resource.data.completedAt == request.time
         && request.resource.data.updatedAt == request.time;
       allow delete: if false;

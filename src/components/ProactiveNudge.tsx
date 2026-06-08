@@ -69,8 +69,10 @@ function findWeakestArea(mistakes: Array<{ chapterId?: string }>): WeakArea | nu
     const stats = getStats(chapterId);
     const mistakeCount = mistakeCounts[chapterId] || 0;
 
-    // Score: low accuracy + high mistakes = high priority
-    const score = (1 - stats.recentAccuracy / 100) + (mistakeCount / 10);
+    // Score: low accuracy + high mistakes = high priority.
+    // Guard against NaN/corrupted localStorage so sort() stays well-defined.
+    const acc = Number.isFinite(stats.recentAccuracy) ? stats.recentAccuracy : 0;
+    const score = (1 - acc / 100) + (mistakeCount / 10);
 
     return {
       chapterId,

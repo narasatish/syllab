@@ -181,6 +181,9 @@ export default function ArenaPage({
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const quizStartedAtRef = useRef<number | null>(null);
   const answerStartTimeRef = useRef<number | null>(null);
+  // Per-answer results (chapter + correctness) so mastery is recorded PER CHAPTER,
+  // not the session total per chapter (which inflated mastery on multi-chapter quizzes).
+  const sessionResultsRef = useRef<{ chapter: string; correct: boolean }[]>([]);
 
   // Real-time adaptive difficulty
   const [adaptiveState, setAdaptiveState] = useState<AdaptiveState>(() => initializeAdaptiveState());
@@ -230,6 +233,7 @@ export default function ArenaPage({
     setAdaptiveState(initializeAdaptiveState());
     quizStartedAtRef.current = Date.now();
     answerStartTimeRef.current = Date.now();
+    sessionResultsRef.current = [];
     setCurrentIndex(pausedSession.currentIndex);
     setScore(pausedSession.score);
     setIsTimerEnabled(pausedSession.config.isTimerEnabled as boolean);
@@ -277,9 +281,26 @@ export default function ArenaPage({
       const accuracy = quizQuestions.length ? score / quizQuestions.length : 0;
       // Record mastery: for each chapter, track the score and update level
       // (Familiar → Proficient → Mastered based on performance window).
-      for (const cid of completedChapters) {
-        if (!cid) continue;
-        recordMasteryResult(String(cid), score, quizQuestions.length);
+      // Record mastery PER CHAPTER using the actual per-answer results when we
+      // tracked the whole session (fresh quiz). Falls back to the old session-total
+      // behavior for resumed/partial sessions so nothing regresses.
+      const results = sessionResultsRef.current;
+      if (results.length > 0 && results.length === quizQuestions.length) {
+        const byChapter: Record<string, { correct: number; total: number }> = {};
+        for (const r of results) {
+          if (!r.chapter) continue;
+          if (!byChapter[r.chapter]) byChapter[r.chapter] = { correct: 0, total: 0 };
+          byChapter[r.chapter].total += 1;
+          if (r.correct) byChapter[r.chapter].correct += 1;
+        }
+        for (const cid of Object.keys(byChapter)) {
+          recordMasteryResult(cid, byChapter[cid].correct, byChapter[cid].total);
+        }
+      } else {
+        for (const cid of completedChapters) {
+          if (!cid) continue;
+          recordMasteryResult(String(cid), score, quizQuestions.length);
+        }
       }
       const bonusXp = accuracy >= 0.9 ? 50 : accuracy >= 0.8 ? 30 : 0;
       const xpGained = score * 10 + bonusXp;
@@ -388,6 +409,7 @@ export default function ArenaPage({
       setAdaptiveState(initializeAdaptiveState());
       quizStartedAtRef.current = Date.now();
       answerStartTimeRef.current = Date.now();
+      sessionResultsRef.current = [];
       setCurrentIndex(0);
       setScore(0);
       setMode('quiz');
@@ -419,6 +441,8 @@ export default function ArenaPage({
     if (isCorrect) {
       setScore((p) => p + 1);
     }
+    // Track this answer per chapter for accurate per-chapter mastery at the end.
+    sessionResultsRef.current.push({ chapter: String(q.chapter_id ?? ''), correct: isCorrect });
 
     // Update adaptive difficulty signal
     const updatedAdaptive = recordAdaptiveAnswer(
