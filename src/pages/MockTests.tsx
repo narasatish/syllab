@@ -12,7 +12,7 @@ import { recordLearningActivity } from '../lib/progressTracker';
 import { MockPaper, loadMockTest, MockTestLoadError } from '../lib/mockTestLoader';
 import { MockTestMeta, getMocksByExam } from '../data/mockTestsList';
 import { OLYMPIAD_POOLS, generateRandomExam, type OlympiadQuestion } from '../data/olympiadQuestions';
-import { generateQuestions } from '../lib/api';
+import { generateQuestions, getMockQuestionExplanation } from '../lib/api';
 import FormulaBank from './FormulaBank';
 import DiagramLab from './DiagramLab';
 import PyqPractice from '../components/PyqPractice';
@@ -149,6 +149,9 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
   const [timeLeft, setTimeLeft] = React.useState(EXAM_SECONDS);
   const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const [xpAward, setXpAward] = React.useState(0);
+  // Mock question explanations — fetched on demand, cached per question
+  const [explanations, setExplanations] = React.useState<Record<string, string | null>>({});
+  const [loadingExplanations, setLoadingExplanations] = React.useState<Set<string>>(new Set());
 
   const current = paper?.questions[currentIndex];
   const result = paper ? scoreAttempt(paper.questions, answers) : { score: 0, correct: 0, incorrect: 0, unanswered: 0 };
@@ -1124,13 +1127,26 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
           xpAward={xpAward}
           onReview={() => {
             setReviewMode(true);
-            visitQuestion(0);
+            setCurrentIndex(0);
+            setSelected(answers[paper.questions[0].id]);
           }}
           onAnalysis={() => setTab('progress')}
           onHome={() => setTab('home')}
         />
       ) : (
       <>
+      {reviewMode && paper && (
+        <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
+          <AnalysisPanel
+            questions={paper.questions}
+            answers={answers}
+            result={result}
+            maxScore={maxScore}
+            elapsedSeconds={EXAM_SECONDS - timeLeft}
+            accuracy={accuracy}
+          />
+        </section>
+      )}
       <section className="sticky top-0 z-20 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg shadow-slate-200/60">
         <div className="mb-3 flex items-center gap-2">
           <button
@@ -1220,18 +1236,52 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
           </div>
 
           {submitted ? (
-            <div className="mt-6">
-              <div className="mb-2 font-black text-slate-900">
-                Solution · Correct option {String.fromCharCode(65 + current.correctAnswer)}
+            <div className="mt-6 space-y-4">
+              <div>
+                <div className="mb-2 font-black text-slate-900">
+                  Solution · Correct option {String.fromCharCode(65 + current.correctAnswer)}
+                </div>
+                <QuestionSolution
+                  question={current.question}
+                  options={current.options}
+                  correctIndex={current.correctAnswer}
+                  explanation={current.explanation}
+                  solution={(current as { solution?: string[] }).solution}
+                  subject={current.subject}
+                />
               </div>
-              <QuestionSolution
-                question={current.question}
-                options={current.options}
-                correctIndex={current.correctAnswer}
-                explanation={current.explanation}
-                solution={(current as { solution?: string[] }).solution}
-                subject={current.subject}
-              />
+              {reviewMode && (
+                <QuestionExplainButton
+                  questionId={current.id}
+                  question={current.question}
+                  options={current.options}
+                  correctAnswerIndex={current.correctAnswer}
+                  explanation={explanations[current.id]}
+                  isLoading={loadingExplanations.has(current.id)}
+                  onFetch={async () => {
+                    if (explanations[current.id] !== undefined) return; // Already loaded or attempted
+                    setLoadingExplanations((prev) => new Set([...prev, current.id]));
+                    try {
+                      const exp = await getMockQuestionExplanation(
+                        current.question,
+                        current.options,
+                        current.correctAnswer,
+                      );
+                      setExplanations((prev) => ({ ...prev, [current.id]: exp }));
+                    } catch (err) {
+                      const msg = (err as Error)?.message || 'Could not load explanation.';
+                      setExplanations((prev) => ({ ...prev, [current.id]: null }));
+                      console.error('[QuestionExplainButton]', msg);
+                    } finally {
+                      setLoadingExplanations((prev) => {
+                        const next = new Set(prev);
+                        next.delete(current.id);
+                        return next;
+                      });
+                    }
+                  }}
+                />
+              )}
             </div>
           ) : null}
 
@@ -1716,6 +1766,202 @@ function ResultScreen({
         </button>
       </div>
     </section>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+ * AnalysisPanel — Shows overall stats and weak-area breakdown after submission
+ * ─────────────────────────────────────────────────────────────────────── */
+function AnalysisPanel({
+  questions,
+  answers,
+  result,
+  maxScore,
+  elapsedSeconds,
+  accuracy,
+}: {
+  questions: MockQuestion[];
+  answers: Record<string, number>;
+  result: { score: number; correct: number; incorrect: number; unanswered: number };
+  maxScore: number;
+  elapsedSeconds: number;
+  accuracy: number;
+}) {
+  // Group questions by best available field: topic → subject → chapter
+  const grouped: Record<string, MockQuestion[]> = {};
+  questions.forEach((q) => {
+    // Use a grouping key — prefer topic, fallback to subject, then chapter
+    const key = q.subject || 'General';
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(q);
+  });
+
+  // For each group, compute accuracy
+  const groupStats = Object.entries(grouped).map(([group, qs]) => {
+    const correctInGroup = qs.filter((q) => answers[q.id] === q.correctAnswer).length;
+    const accuracy = qs.length > 0 ? (correctInGroup / qs.length) * 100 : 0;
+    return { group, count: qs.length, correct: correctInGroup, accuracy };
+  });
+
+  // Sort by accuracy (weakest first)
+  groupStats.sort((a, b) => a.accuracy - b.accuracy);
+
+  const timeStr = (() => {
+    const m = Math.floor(elapsedSeconds / 60);
+    const s = elapsedSeconds % 60;
+    return `${m}m ${s}s`;
+  })();
+
+  return (
+    <div className="space-y-6">
+      {/* Header */}
+      <div>
+        <h2 className="text-2xl font-black text-slate-900">Performance Analysis</h2>
+        <p className="mt-1 text-sm font-medium text-slate-500">
+          Review your overall accuracy and identify weak areas to focus on.
+        </p>
+      </div>
+
+      {/* Overall stats grid */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {[
+          { label: 'Score', value: `${result.score}/${maxScore}` },
+          { label: 'Accuracy', value: `${accuracy}%` },
+          { label: 'Correct', value: result.correct },
+          { label: 'Time', value: timeStr },
+        ].map((item) => (
+          <div key={item.label} className="rounded-2xl bg-slate-50 p-4 text-center">
+            <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+              {item.label}
+            </div>
+            <div className="mt-2 text-lg font-black text-slate-900 sm:text-2xl">
+              {item.value}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Weak areas breakdown */}
+      <div>
+        <h3 className="mb-3 text-sm font-black text-slate-900">Weak Areas (sorted by accuracy)</h3>
+        <div className="space-y-3">
+          {groupStats.map((stat) => {
+            // Simple bar fill percentage
+            const fillPercent = stat.accuracy;
+            const barColor =
+              fillPercent >= 75 ? 'bg-emerald-500' : fillPercent >= 50 ? 'bg-amber-500' : 'bg-rose-500';
+            const textColor =
+              fillPercent >= 75 ? 'text-emerald-700' : fillPercent >= 50 ? 'text-amber-700' : 'text-rose-700';
+
+            return (
+              <div
+                key={stat.group}
+                className="rounded-2xl bg-slate-50 p-4"
+              >
+                <div className="flex items-center justify-between gap-3 mb-2">
+                  <span className="font-bold text-slate-900">{stat.group}</span>
+                  <span className={`text-sm font-black ${textColor}`}>
+                    {stat.correct}/{stat.count} ({Math.round(fillPercent)}%)
+                  </span>
+                </div>
+                {/* Bar */}
+                <div className="h-2 rounded-full bg-slate-200 overflow-hidden">
+                  <div
+                    className={`h-full transition-all ${barColor}`}
+                    style={{ width: `${Math.max(5, fillPercent)}%` }}
+                  />
+                </div>
+                {/* Suggestion */}
+                {fillPercent < 75 && (
+                  <p className="mt-2 text-xs font-medium text-slate-600">
+                    💡 Focus on {stat.group} — practice more questions from this area.
+                  </p>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+ * QuestionExplainButton — "Why?" button that fetches AI explanation on demand
+ * ─────────────────────────────────────────────────────────────────────── */
+function QuestionExplainButton({
+  questionId,
+  question,
+  options,
+  correctAnswerIndex,
+  explanation,
+  isLoading,
+  onFetch,
+}: {
+  questionId: string;
+  question: string;
+  options: string[];
+  correctAnswerIndex: number;
+  explanation: string | null | undefined;
+  isLoading: boolean;
+  onFetch: () => Promise<void>;
+}) {
+  const [expanded, setExpanded] = React.useState(false);
+
+  // If explanation is not yet loaded, show the fetch button
+  if (explanation === undefined) {
+    return (
+      <button
+        type="button"
+        onClick={async () => {
+          await onFetch();
+          setExpanded(true);
+        }}
+        disabled={isLoading}
+        className="inline-flex items-center gap-2 rounded-xl bg-indigo-50 border border-indigo-200 px-4 py-2.5 text-xs font-black uppercase tracking-widest text-indigo-700 hover:bg-indigo-100 disabled:opacity-50"
+      >
+        {isLoading ? '⏳ Loading…' : '💡 Why This Answer?'}
+      </button>
+    );
+  }
+
+  // If fetch failed (explanation is null), show error
+  if (explanation === null) {
+    return (
+      <div className="rounded-xl bg-rose-50 border border-rose-100 px-4 py-3 text-sm font-medium text-rose-700">
+        ⚠️ Could not load explanation. Please try again later.
+      </div>
+    );
+  }
+
+  // Explanation loaded and not null — show expanded view
+  return (
+    <div
+      className="rounded-xl bg-indigo-50 border border-indigo-200 p-4 text-sm text-indigo-700"
+    >
+      <div
+        className="flex items-start justify-between gap-3 cursor-pointer"
+        onClick={() => setExpanded(!expanded)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setExpanded(!expanded);
+          }
+        }}
+      >
+        <span className="font-bold">💡 Why This Answer?</span>
+        <span className={`text-xs ${expanded ? 'rotate-180' : ''} transition-transform`}>
+          ▼
+        </span>
+      </div>
+      {expanded && (
+        <p className="mt-3 text-sm leading-relaxed font-medium text-indigo-600">
+          {explanation}
+        </p>
+      )}
+    </div>
   );
 }
 

@@ -434,3 +434,29 @@ export async function getModelSolution(language: string, task: string): Promise<
     return '// Could not load the solution right now. Please try again in a moment.';
   }
 }
+
+/* ───────────── Mock Test Explanations ───────────── */
+
+/**
+ * Fetch an explanation for a mock test question. Returns a 2-3 sentence
+ * explanation of why the correct answer is right.
+ */
+export async function getMockQuestionExplanation(
+  question: string,
+  options: string[],
+  correctAnswerIndex: number,
+): Promise<string> {
+  const correctOption = options[correctAnswerIndex];
+  const prompt =
+    `Explain in 2-3 sentences why the correct answer to this MCQ is option ${String.fromCharCode(65 + correctAnswerIndex)}: "${correctOption}". ` +
+    `Question: ${question}\n\n` +
+    `Options:\n${options.map((opt, i) => `${String.fromCharCode(65 + i)}. ${opt}`).join('\n')}`;
+
+  try {
+    const raw = await askTutor(prompt, [], 30_000); // 30s timeout for explanations
+    return raw.trim();
+  } catch (err) {
+    const friendly = (err as Error & { message?: string }).message || 'Could not load explanation. Please try again.';
+    throw new Error(friendly);
+  }
+}
