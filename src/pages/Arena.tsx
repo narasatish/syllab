@@ -16,6 +16,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { cn } from '../lib/utils';
 import WhatsAppShare from '../components/WhatsAppShare';
+import ShareResultCard from '../components/ShareResultCard';
 import { SYLLABUS } from '../data/syllabus';
 import { ClassLevel, Difficulty, Question, Subject } from '../types';
 import { recordMistake, saveQuizSession, getPausedSession, QuizSession } from '../lib/firebase';
@@ -837,12 +838,16 @@ export default function ArenaPage({
               Practice This Chapter More
             </button>
           </div>
-          <div className="mt-6">
-            <WhatsAppShare
-              text={`Just scored ${quizQuestions.length ? Math.round((score / quizQuestions.length) * 100) : 0}% on Syllab.in quiz! 🎯\n\nGained ${score * 10 + ((quizQuestions.length ? score / quizQuestions.length : 0) >= 0.9 ? 50 : (quizQuestions.length ? score / quizQuestions.length : 0) >= 0.8 ? 30 : 0)} XP\n\nJoin free NCERT practice and mock tests!`}
-              url="https://syllab.in/practice"
-              label="Share Score"
-            />
+          <div className="mt-8 border-t border-slate-100 pt-8">
+            <div className="text-center">
+              <p className="mb-4 text-sm font-bold text-slate-500">Share your score on WhatsApp & social media</p>
+              <ShareResultCard
+                score={score}
+                total={quizQuestions.length}
+                title="Practice Session"
+                subtitle={selSubject && selClass ? `Class ${selClass} · ${selSubject}` : undefined}
+              />
+            </div>
           </div>
           {!currentUser ? (
             <p className="mt-6 text-sm font-semibold text-slate-500">Sign in to store your results, completed chapters, and mistakes in Firestore.</p>

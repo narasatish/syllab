@@ -18,6 +18,7 @@ import FormulaBank from './FormulaBank';
 import DiagramLab from './DiagramLab';
 import PyqPractice from '../components/PyqPractice';
 import QuestionSolution from '../components/QuestionSolution';
+import ShareResultCard from '../components/ShareResultCard';
 
 type ExamSection = 'mocks' | 'olympiads' | 'formulas' | 'diagrams' | 'create' | 'live' | 'pyq';
 
@@ -1784,6 +1785,17 @@ function ResultScreen({
           <Home size={17} />
           Exit
         </button>
+      </div>
+
+      <div className="mt-8 border-t border-slate-100 pt-8">
+        <div className="text-center">
+          <p className="mb-4 text-sm font-bold text-slate-500">Share your score on WhatsApp & social media</p>
+          <ShareResultCard
+            score={result.correct}
+            total={totalQuestions}
+            title={title}
+          />
+        </div>
       </div>
     </section>
   );
