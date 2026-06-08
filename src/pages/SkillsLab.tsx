@@ -1256,7 +1256,15 @@ interface SkillsLabProps {
 }
 
 export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabProps) {
-  const [activeLangId, setActiveLangId] = useState<string>('python');
+  const [activeLangId, setActiveLangId] = useState<string>(() => {
+    // Honor a deep link like /coding/<lang>[/<topic>] so visitors landing from
+    // Google (or sharing a link) open the right language instead of the default.
+    if (typeof window !== 'undefined') {
+      const seg = window.location.pathname.split('/').filter(Boolean); // ['coding','python',...]
+      if (seg[0] === 'coding' && seg[1] && LANGUAGES.some((l) => l.id === seg[1])) return seg[1];
+    }
+    return 'python';
+  });
   const [activeTopicId, setActiveTopicId] = useState<string>('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'topic' | 'career' | 'challenges' | 'projects'>('topic');

@@ -213,6 +213,11 @@ function resolveTab(pathname: string): string {
   if (pathname === '/live-quiz' || pathname.startsWith('/live-quiz/')) return 'live_quiz';
   if (pathname === '/free-alternatives' || pathname.endsWith('-alternative')) return 'alternatives';
   if (pathname === '/kids' || pathname.startsWith('/kids/')) return 'kids';
+  // Coding deep links (/coding/<lang>, /coding/<lang>/<topic>) — without this,
+  // a visitor landing from Google on a prerendered coding URL fell through to
+  // the home page (content mismatch + bad UX). NOTE: /coding-challenges and
+  // /coding-for-kids are exact keys matched above, so '/coding/' won't catch them.
+  if (pathname === '/coding' || pathname.startsWith('/coding/')) return 'skills_lab';
   return 'home';
 }
 
