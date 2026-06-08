@@ -246,6 +246,18 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
         name: 'Syllab.in',
         url: 'https://syllab.in',
         description: 'Free AI education platform for Indian students Class 1-12',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://syllab.in/og-image.png',
+          width: 1200,
+          height: 630,
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: 'support@syllab.in',
+          contactType: 'customer support',
+          areaServed: 'IN',
+        },
       },
       {
         '@context': 'https://schema.org',
@@ -1171,6 +1183,9 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-beige text-secondary">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-white focus:p-4 focus:rounded-b-lg">
+        Skip to main content
+      </a>
       <SEO title={seo.title} description={seo.description} keywords={seo.keywords} url={seo.url} jsonLd={seo.jsonLd} />
       <RewardToast />
       {!isMockExamMode ? (
@@ -1289,6 +1304,7 @@ export default function App() {
             type="button"
             onClick={() => setMobileMenuOpen((open) => !open)}
             className="p-2 text-slate-600 lg:hidden"
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -1377,7 +1393,7 @@ export default function App() {
         }}
       />
 
-      <main className={cn(
+      <main id="main" className={cn(
         'flex-1 overflow-y-auto bg-slate-50/50',
         isMockExamMode ? 'px-0 pb-0 pt-0' : 'px-4 pb-12 pt-24 sm:px-6',
       )}>
@@ -1434,10 +1450,10 @@ export default function App() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.12 }}
                 >
                   {activeTab === 'home' ? <HomePage setTab={navigate} currentUser={currentUser} stats={stats} userClass={userClass} /> : null}
                   {activeTab === 'syllabus' ? (
@@ -1551,7 +1567,6 @@ export default function App() {
           onClick={() => setTutorOpen((open) => !open)}
           className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-2xl shadow-emerald-500/30 transition-transform hover:-translate-y-0.5"
           aria-label={isTutorOpen ? 'Close AI tutor' : 'Open AI tutor'}
-          title="AI Tutor"
         >
           <Bot size={24} />
         </button>

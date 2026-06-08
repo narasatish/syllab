@@ -38,6 +38,20 @@
     color-scheme: dark;
   }
 
+  /* ── Keyboard focus visibility ──────────────────────────────────────
+   * Ensures keyboard users can always see where focus is without relying
+   * on browser defaults. Respects user's no-motion preference. */
+  *:focus-visible {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+  }
+
+  /* Ensure outlines are visible in dark mode too */
+  html.dark *:focus-visible {
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
+  }
+
   body {
     @apply bg-bg-beige text-secondary font-sans antialiased overflow-x-hidden;
   }
@@ -140,6 +154,31 @@
 
   nav button {
     min-height: 2.75rem; /* ~44px */
+  }
+
+  /* ── Screen reader only (visually hidden but available to assistive tech) ──
+   * Use alongside focus:not-sr-only to create visible skip links, etc. */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 }
 

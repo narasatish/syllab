@@ -166,17 +166,36 @@ function buildUrls({ languages, topicsByLang }) {
   return deduped;
 }
 
+// ─── Parse existing sitemap to preserve lastmod dates ───────────────────────
+async function readExistingSitemapDates() {
+  const dateMap = {};
+  try {
+    const content = await fs.readFile(OUT, 'utf8');
+    const locMatches = content.matchAll(/<loc>https:\/\/syllab\.in([^<]+)<\/loc>\s*\n\s*<lastmod>([^<]+)<\/lastmod>/g);
+    for (const m of locMatches) {
+      dateMap[m[1]] = m[2];
+    }
+  } catch {
+    // File doesn't exist yet (first run) — dateMap stays empty
+  }
+  return dateMap;
+}
+
 // ─── XML serialization ───────────────────────────────────────────────────────
-function toXml(urls) {
+function toXml(urls, existingDates = {}) {
   const today = new Date().toISOString().split('T')[0];
-  const items = urls.map(u =>
-    `  <url>\n` +
-    `    <loc>${SITE}${u.loc}</loc>\n` +
-    `    <lastmod>${today}</lastmod>\n` +
-    `    <changefreq>${u.changefreq}</changefreq>\n` +
-    `    <priority>${u.priority.toFixed(1)}</priority>\n` +
-    `  </url>`
-  ).join('\n');
+  const items = urls.map(u => {
+    // Reuse previous lastmod if the URL already existed; only use today for new URLs
+    const lastmod = existingDates[u.loc] || today;
+    return (
+      `  <url>\n` +
+      `    <loc>${SITE}${u.loc}</loc>\n` +
+      `    <lastmod>${lastmod}</lastmod>\n` +
+      `    <changefreq>${u.changefreq}</changefreq>\n` +
+      `    <priority>${u.priority.toFixed(1)}</priority>\n` +
+      `  </url>`
+    );
+  }).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items}\n</urlset>\n`;
 }
 
@@ -184,8 +203,9 @@ function toXml(urls) {
 async function main() {
   const data = await readTopics();
   const urls = buildUrls(data);
+  const existingDates = await readExistingSitemapDates();
   await fs.mkdir(path.dirname(OUT), { recursive: true });
-  await fs.writeFile(OUT, toXml(urls), 'utf8');
+  await fs.writeFile(OUT, toXml(urls, existingDates), 'utf8');
   console.log(`✅ Sitemap written: ${OUT}`);
   console.log(`   ${urls.length} URLs across ${data.languages.length} languages`);
 }
