@@ -73,60 +73,9 @@ const HOME_SCHEMA = [
       'query-input': 'required name=search_term_string',
     },
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Is Syllab useful for JEE, NEET and EAMCET preparation?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. Syllab combines NCERT-aligned chapter practice, AI tutoring, daily challenges, and dedicated exam prep tracks for JEE Mains, NEET, and EAMCET students.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Which classes can use Syllab?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Syllab supports Class 1 to 12 students. Every class has NCERT chapter summaries, practice MCQs, daily challenges, formula bank, and AI tutor support.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Is Syllab completely free?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes, Syllab is 100% free. No subscription required for daily challenges, mock tests, AI doubt solving, skills lab, formula bank, diagram lab, or English speaking practice.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Does Syllab have an AI tutor?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. Syllab\'s AI Tutor is powered by Google Gemini and can answer any CBSE or NCERT question with step-by-step explanations in seconds.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Can parents track their child\'s progress on Syllab?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes. Syllab has a dedicated Parent Dashboard where parents can monitor XP, streaks, completed topics, exam scores, and weekly activity reports for multiple children.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Does Syllab work offline?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Syllab is a Progressive Web App (PWA) that can be installed on Android and iOS. Certain features like syllabus browsing and previously loaded content work without an internet connection.',
-        },
-      },
-    ],
-  },
+  // NOTE: FAQPage schema intentionally lives ONCE in index.html (static, crawlable
+  // without JS). It was removed from here to avoid duplicate FAQPage blocks on the
+  // home page (GSC flagged conflicting FAQ structured data).
 ];
 
 export default function HomePage({ setTab, currentUser, stats, userClass }: HomePageProps) {
@@ -546,21 +495,8 @@ function FaqSection() {
 
   return (
     <section className="max-w-3xl mx-auto px-5 py-16 sm:py-20">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: FAQS.map(({ q, a }) => ({
-              '@type': 'Question',
-              name: q,
-              acceptedAnswer: { '@type': 'Answer', text: a },
-            })),
-          }),
-        }}
-      />
-
+      {/* FAQ JSON-LD intentionally lives once in index.html (crawlable without JS).
+          Removed the duplicate here to avoid multiple FAQPage blocks on the page. */}
       <div className="text-center mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">
           Frequently asked
