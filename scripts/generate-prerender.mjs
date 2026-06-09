@@ -779,6 +779,11 @@ function buildBodyContent(route) {
         <li><a href="/gk-quiz" style="color: #0066cc; text-decoration: none;">GK Quiz</a></li>
         <li><a href="/career-predictor" style="color: #0066cc; text-decoration: none;">Career Predictor</a></li>
         <li><a href="/ai-tutor" style="color: #0066cc; text-decoration: none;">AI Tutor</a></li>
+        <li><a href="/live-quiz" style="color: #0066cc; text-decoration: none;">Live Quiz</a></li>
+        <li><a href="/doubt-solver" style="color: #0066cc; text-decoration: none;">Doubt Solver</a></li>
+        <li><a href="/micro" style="color: #0066cc; text-decoration: none;">Microlearning</a></li>
+        <li><a href="/free-alternatives" style="color: #0066cc; text-decoration: none;">Free Alternatives</a></li>
+        <li><a href="/kids" style="color: #0066cc; text-decoration: none;">Kids Zone</a></li>
       </ul>
     </nav>
   `;
