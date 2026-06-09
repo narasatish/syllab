@@ -160,7 +160,7 @@ async function main() {
       `4. What students are doing differently with this tool\n`,
       `5. What's next: scaling free quality education in India\n\n`,
       `I'm happy to:\n`,
-      `- Provide data/quotes from our 500K+ active learners\n`,
+      `- Provide data, quotes, and product insights from the Syllab team\n`,
       `- Offer exclusive insights on free edtech trends in India\n`,
       `- Include original research or infographics\n\n`,
       `Estimated word count: ${post.idealLength}\n`,

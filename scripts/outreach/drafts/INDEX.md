@@ -1,6 +1,6 @@
 # Syllab Outreach Pipeline
 
-**Generated:** 2026-06-08
+**Generated:** 2026-06-09
 **Status:** Draft mode — no emails sent, no network calls made.
 
 ---
@@ -124,10 +124,10 @@ All drafts use consistent messaging from `boilerplate.json`:
 Syllab is a free AI-powered learning platform for Indian students (Class 1–12), offering NCERT solutions, mock tests, AI tutoring, and live quizzes—completely free, no paywall.
 
 **50 words:**
-Syllab democratizes education for Indian students: free NCERT solutions, AI-powered tutoring in under 2 seconds, mock tests for JEE/NEET/board exams, live quizzes, and personalized learning paths. Built by educators and IITians. No paywall. No ads. Used by 500K+ students.
+Syllab democratizes education for Indian students: free NCERT solutions, AI-powered tutoring in under 2 seconds, mock tests for JEE/NEET/board exams, live quizzes, and personalized learning paths. Built by educators and IITians. Completely free — no paywall, no ads.
 
 **100 words:**
-Syllab is India's leading free learning platform for students (Class 1–12), from foundational NCERT chapters to advanced exam prep (JEE, NEET, state boards). Students access verified NCERT-aligned content, AI-powered tutoring that explains mistakes in under 2 seconds, mock tests with instant feedback, live quizzes, and gamified learning challenges. Built by former IITians and educators, Syllab combines pedagogical rigor with cutting-edge LLMs to personalize each student's path. Completely free—no subscription, no paywall, no ads—Syllab reaches students regardless of geography or income. Over 500,000 active learners trust Syllab for exam prep and skill-building.
+Syllab is a comprehensive free learning platform for Indian students (Class 1–12), from foundational NCERT chapters to advanced exam prep (JEE, NEET, state boards). Students access verified NCERT-aligned content, AI-powered tutoring that explains mistakes in under 2 seconds, mock tests with instant feedback, live quizzes, and gamified learning challenges. Built by former IITians and educators, Syllab combines pedagogical rigor with cutting-edge LLMs to personalize each student's path. Completely free—no subscription, no paywall, no ads—Syllab is built to reach students regardless of geography or income.
 
 ---
 
