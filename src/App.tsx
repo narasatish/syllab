@@ -1612,7 +1612,7 @@ export default function App() {
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Learning Hub</h4>
+            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Learning Hub</h2>
             <ul className="space-y-4">
               <li><button onClick={() => navigate('syllabus')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus</button></li>
               <li><button onClick={() => navigate('arena')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
@@ -1641,13 +1641,13 @@ export default function App() {
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">By Class</h4>
+            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">By Class</h2>
             <ul className="space-y-4">
               {[1,2,3,4,5,6,7,8,9,10,11,12].map((c) => (
                 <li key={c}><button onClick={() => navigate(`class_${c}`)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Class {c}</button></li>
               ))}
             </ul>
-            <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-5 mt-10">Colleges by State</h4>
+            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-5 mt-10">Colleges by State</h2>
             <ul className="space-y-4">
               {[
                 ['national', 'IITs & NITs'], ['tamil-nadu', 'Tamil Nadu'], ['karnataka', 'Karnataka'],
@@ -1660,7 +1660,7 @@ export default function App() {
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Company</h4>
+            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Company</h2>
             <ul className="space-y-4">
               <li><button onClick={() => navigate('about')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Our Mission</button></li>
               <li><button onClick={() => navigate('contact')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Contact Support</button></li>
@@ -1669,7 +1669,7 @@ export default function App() {
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Weekly Newsletter</h4>
+            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Weekly Newsletter</h2>
             <p className="text-sm text-slate-400 mb-6 leading-relaxed">
               Get weekly study tips, new chapters and exam updates delivered to your inbox.
             </p>

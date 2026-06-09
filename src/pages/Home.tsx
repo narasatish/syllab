@@ -322,7 +322,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           {CLASSES.map((classNum) => (
             <button key={classNum} onClick={() => handleClassClick(classNum)}
               className="group card-hover p-3 sm:p-5 bg-white border-2 border-slate-100 rounded-2xl text-center hover:border-violet-500 hover:bg-violet-50 active:scale-95 transition-all">
-              <div className="text-[8px] font-black uppercase tracking-widest text-slate-400 group-hover:text-violet-500 transition-colors">Cls</div>
+              <div className="text-[8px] font-black uppercase tracking-widest text-slate-600 group-hover:text-violet-500 transition-colors">Cls</div>
               <div className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-violet-700 transition-colors">{classNum}</div>
             </button>
           ))}

@@ -81,7 +81,7 @@ export default function WhatsNew({ onNavigate, onOpenArticle }: WhatsNewProps) {
         <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
           Fresh content & features.
         </h2>
-        <p className="text-slate-500 font-medium">
+        <p className="text-slate-600 font-medium">
           Latest blog posts, new tools, and exciting updates from Syllab.
         </p>
       </div>
