@@ -4,6 +4,7 @@
  */
 
 import React, { Suspense, useCallback, useEffect, useRef, useState } from 'react';
+import { trackPageview } from './lib/analytics';
 import {
   BookOpen,
   Bot,
@@ -985,6 +986,8 @@ export default function App() {
 
   // Start the gamification engine (streaks, badges, level tracking) once.
   useEffect(() => { initGamification(); }, []);
+  // Analytics: send a virtual pageview on every client-side route change (SPA).
+  useEffect(() => { trackPageview(window.location.pathname); }, [activeTab]);
 
   const handleClassChange = (cls: string) => {
     setUserClass(cls);

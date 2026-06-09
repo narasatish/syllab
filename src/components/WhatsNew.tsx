@@ -33,21 +33,39 @@ export default function WhatsNew({ onNavigate, onOpenArticle }: WhatsNewProps) {
   // New features to highlight
   const newFeatures = [
     {
-      icon: '🔴',
-      title: 'Live Quiz',
-      description: 'Real-time quizzes for instant practice and feedback',
-      href: '/live-quiz',
+      icon: '📸',
+      title: 'Photo Doubt Solver',
+      description: 'Snap any homework question → instant free step-by-step solution',
+      href: '/doubt-solver',
+    },
+    {
+      icon: '⚡',
+      title: '5-Min Microlearning',
+      description: 'Learn any concept in 5 minutes — quick explainer + instant quiz',
+      href: '/micro',
     },
     {
       icon: '📖',
       title: 'NCERT Solutions',
-      description: 'Complete step-by-step NCERT solutions for all chapters',
+      description: 'Complete step-by-step NCERT solutions, chapter by chapter',
       href: '/ncert-solutions',
+    },
+    {
+      icon: '🔴',
+      title: 'Live Quiz',
+      description: 'Kahoot-style real-time quizzes — host with a PIN, free',
+      href: '/live-quiz',
+    },
+    {
+      icon: '🧸',
+      title: 'Kids Zone (Pre-KG–3)',
+      description: 'Alphabet, rhymes, numbers & coloring for little learners',
+      href: '/kids',
     },
     {
       icon: '🎯',
       title: 'Free Alternatives',
-      description: 'Discover free alternatives to paid test prep tools',
+      description: 'Free alternatives to BYJU\'S, Unacademy, Kahoot & more',
       href: '/free-alternatives',
     },
   ];
