@@ -1271,13 +1271,16 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
   const [completed, setCompleted] = useState<Record<string, string[]>>(loadCompleted);
   const [pointsToast, setPointsToast] = useState<{ pts: number; topic: string } | null>(null);
   const [topicsLoading, setTopicsLoading] = useState(false);
+  // Bumped when a language finishes loading so the topics memo re-reads the cache
+  // (loadLanguageTopics populates the cache asynchronously after the dynamic import).
+  const [loadTick, setLoadTick] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const lang = useMemo(
     () => LANGUAGES.find((l) => l.id === activeLangId) ?? LANGUAGES[0],
     [activeLangId],
   );
-  const topics = useMemo(() => getTopics(activeLangId), [activeLangId]);
+  const topics = useMemo(() => getTopics(activeLangId), [activeLangId, loadTick]);
   const activeTopic = useMemo(
     () => topics.find((t) => t.id === activeTopicId) ?? topics[0],
     [topics, activeTopicId],
@@ -1292,6 +1295,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
     loadLanguageTopics(activeLangId)
       .then(() => {
         if (mounted) {
+          setLoadTick((t) => t + 1); // force topics memo to re-read the now-loaded cache
           const first = firstTopic(activeLangId);
           if (first) setActiveTopicId(first.id);
           setSidebarOpen(false);
@@ -1512,6 +1516,16 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
             ) : viewMode === 'projects' ? (
               <motion.div key={`projects-${activeLangId}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
                 <ProjectsGalleryView lang={lang} activeLangId={activeLangId} />
+              </motion.div>
+            ) : topicsLoading ? (
+              <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center gap-4 py-24 text-center">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <Loader2 size={28} className="animate-spin" />
+                </div>
+                <div>
+                  <p className="font-black text-slate-900">Loading {lang.name}…</p>
+                  <p className="mt-1 text-sm font-medium text-slate-500">This can take a few seconds — building the full {lang.name} course for you.</p>
+                </div>
               </motion.div>
             ) : activeTopic ? (
               <motion.div

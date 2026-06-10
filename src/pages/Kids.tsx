@@ -75,6 +75,11 @@ function speak(text: string, opts: { singy?: boolean } = {}) {
 }
 function stopSpeaking() { speakToken++; try { window.speechSynthesis?.cancel(); } catch { /* ignore */ } }
 
+/** A rhyme has a real (embeddable) sung video if its id is set and not a placeholder. */
+function hasVideo(youtubeVideoId: string): boolean {
+  return !!youtubeVideoId && !youtubeVideoId.startsWith('placeholder');
+}
+
 interface ParsedKidsPath {
   view?: 'alphabet' | 'numbers' | 'shapes' | 'rhymes' | 'coloring' | 'tracing';
   detail?: string; // for future detailed views
@@ -110,6 +115,10 @@ export default function Kids() {
     if (st && st.syllabNav && window.history.length > 1) window.history.back();
     else go(parent);
   }, [go]);
+
+  // Stop any rhyme/letter narration whenever we change view or leave the Kids page,
+  // so audio never keeps playing after you go back.
+  useEffect(() => { stopSpeaking(); return () => stopSpeaking(); }, [path]);
 
   if (!ready) {
     return <div className="mx-auto max-w-5xl px-4 py-16 text-center text-sm font-bold text-slate-400">Loading Syllab Junior…</div>;
@@ -527,7 +536,7 @@ function RhymesView({ goBack }: { goBack: (parent: string) => void }) {
             key={rhyme.id}
             whileHover={{ x: 4 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => { const next = selectedId === rhyme.id ? null : rhyme.id; setSelectedId(next); if (next) speak(rhyme.lyrics, { singy: true }); }}
+            onClick={() => { const next = selectedId === rhyme.id ? null : rhyme.id; setSelectedId(next); if (next && !hasVideo(rhyme.youtubeVideoId)) speak(rhyme.lyrics, { singy: true }); else stopSpeaking(); }}
             className={cn(
               'w-full rounded-2xl p-4 text-left shadow-md transition-all',
               rhyme.colorClass,
@@ -539,7 +548,9 @@ function RhymesView({ goBack }: { goBack: (parent: string) => void }) {
                 <span className="text-3xl">{rhyme.emoji}</span>
                 <h3 className="font-black text-slate-800">{rhyme.title}</h3>
               </div>
-              <Volume2 size={18} className="text-slate-600" />
+              {hasVideo(rhyme.youtubeVideoId)
+                ? <span className="shrink-0 rounded-full bg-red-600 px-2 py-0.5 text-[10px] font-black text-white">▶ Sing-along</span>
+                : <Volume2 size={18} className="text-slate-600" />}
             </div>
           </motion.button>
         ))}
@@ -561,6 +572,21 @@ function RhymesView({ goBack }: { goBack: (parent: string) => void }) {
                   <span className="text-4xl">{rhyme.emoji}</span>
                   <h2 className="text-lg font-black text-slate-800">{rhyme.title}</h2>
                 </div>
+
+                {hasVideo(rhyme.youtubeVideoId) ? (
+                  <div className="mb-4">
+                    <iframe
+                      title={rhyme.title}
+                      src={`https://www.youtube-nocookie.com/embed/${rhyme.youtubeVideoId}?rel=0&modestbranding=1`}
+                      className="aspect-video w-full rounded-xl border border-slate-200"
+                      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                    <p className="mt-1 text-center text-[11px] font-medium text-slate-400">🎵 Sung version by Super Simple Songs — press play to sing along!</p>
+                  </div>
+                ) : null}
+
                 <div className="whitespace-pre-line rounded-xl bg-slate-50 p-4 text-sm font-medium leading-relaxed text-slate-700">
                   {rhyme.lyrics}
                 </div>
@@ -569,7 +595,7 @@ function RhymesView({ goBack }: { goBack: (parent: string) => void }) {
                     onClick={() => speak(rhyme.lyrics, { singy: true })}
                     className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-black text-white shadow hover:bg-emerald-600"
                   >
-                    <Volume2 size={16} /> Sing it
+                    <Volume2 size={16} /> {hasVideo(rhyme.youtubeVideoId) ? 'Read the words slowly' : 'Sing it'}
                   </button>
                   <button
                     onClick={stopSpeaking}

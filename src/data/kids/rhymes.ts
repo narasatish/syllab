@@ -23,7 +23,7 @@ Up above the world so high,
 Like a diamond in the sky.
 Twinkle, twinkle, little star,
 How I wonder what you are!`,
-    youtubeVideoId: 'placeholder_twinkle', // Owner to replace with official video
+    youtubeVideoId: 'yCjJyiqpAuU', // Super Simple Songs (official, embeddable)
     colorClass: 'bg-sky-100',
   },
   {
@@ -112,7 +112,7 @@ Old MacDonald had a farm, E-I-E-I-O.
 (Verse 2: Replace cow with pig - oink-oink)
 (Verse 3: Replace cow with sheep - baa-baa)
 (Verse 4: Replace cow with duck - quack-quack)`,
-    youtubeVideoId: 'placeholder_macdonald', // Owner to replace with official video
+    youtubeVideoId: '5oYKonYBujg', // Super Simple Songs (official, embeddable)
     colorClass: 'bg-green-100',
   },
   {
@@ -144,7 +144,7 @@ The horn on the bus goes beep, beep, beep,
 Beep, beep, beep, beep, beep, beep,
 The horn on the bus goes beep, beep, beep,
 All through the town.`,
-    youtubeVideoId: 'placeholder_wheels_bus', // Owner to replace with official video
+    youtubeVideoId: 'GzrjwOQpAl0', // Super Simple Songs (official, embeddable)
     colorClass: 'bg-red-100',
   },
   {
@@ -155,7 +155,7 @@ All through the town.`,
 Down came the rain and washed the spider out.
 Out came the sun and dried up all the rain,
 And the itsy bitsy spider climbed up the spout again.`,
-    youtubeVideoId: 'placeholder_itsy_spider',
+    youtubeVideoId: 'bne3Ix_tJL8', // Super Simple Songs (official, embeddable)
     colorClass: 'bg-blue-100',
   },
   {
@@ -166,7 +166,7 @@ And the itsy bitsy spider climbed up the spout again.`,
 Gently down the stream.
 Merrily, merrily, merrily, merrily,
 Life is but a dream.`,
-    youtubeVideoId: 'placeholder_row_boat',
+    youtubeVideoId: '7otAJa3jui8', // Super Simple Songs (official, embeddable)
     colorClass: 'bg-teal-100',
   },
   {
@@ -177,7 +177,7 @@ Life is but a dream.`,
 Over the hills and far away.
 Mother duck said "Quack, quack, quack, quack,"
 But only four little ducks came back.`,
-    youtubeVideoId: 'placeholder_five_ducks',
+    youtubeVideoId: 'pZw9veQ76fo', // Super Simple Songs (official, embeddable)
     colorClass: 'bg-yellow-100',
   },
   {
@@ -321,7 +321,7 @@ When I get all steamed up, hear me shout,
 If you're happy and you know it, clap your hands!
 If you're happy and you know it, and you really want to show it,
 If you're happy and you know it, clap your hands!`,
-    youtubeVideoId: 'placeholder_happy', colorClass: 'bg-amber-100',
+    youtubeVideoId: 'i14agob4uYU', colorClass: 'bg-amber-100', // Super Simple Songs (official)
   },
   {
     id: 'five-little-monkeys',
