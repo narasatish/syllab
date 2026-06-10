@@ -1254,6 +1254,22 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           />
         )}
       </AnimatePresence>
+
+      {/* Syllab Junior — early-learning section for the youngest students */}
+      <section className="rounded-3xl border border-purple-100 bg-gradient-to-br from-purple-50 to-pink-50 p-6">
+        <h2 className="text-xs font-black uppercase tracking-widest text-purple-500">👶 Syllab Junior · Pre-KG to Class 3</h2>
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-4">
+          <p className="max-w-xl text-sm font-medium text-slate-700">
+            Playful early learning — alphabet &amp; phonics, numbers, shapes, <strong>30 nursery rhymes</strong> (read aloud), a tap-to-fill <strong>Colouring Studio</strong> and <strong>letter tracing</strong>. All free.
+          </p>
+          <button
+            onClick={() => setTab('kids')}
+            className="shrink-0 rounded-xl bg-purple-500 px-5 py-3 text-sm font-black text-white transition-colors hover:bg-purple-600"
+          >
+            Open Syllab Junior →
+          </button>
+        </div>
+      </section>
     </div>
   );
 }

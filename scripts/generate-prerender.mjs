@@ -575,6 +575,35 @@ ROUTES.push({
   ],
 });
 
+ROUTES.push({
+  path: '/study-room',
+  title: 'AI Study Room — Focus Timer, Study Music & AI Tutor (Free) | Syllab.in',
+  description: 'Free AI study room for Indian students: Pomodoro focus timer, calming study ambience, exam countdowns, a voice AI tutor for instant doubts, break reminders and study-streak tracking — like having a tuition teacher beside you.',
+  keywords: 'study room online free, pomodoro timer study, AI tutor voice India, study with me focus timer, study music free, exam countdown CBSE JEE NEET, distraction blocker study, online study room India students, virtual study room free',
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab AI Study Room', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/study-room`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Is the Syllab Study Room free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — the focus timer, study ambience, exam countdowns and break reminders are completely free. The AI tutor answers your doubts on demand at no cost.' } },
+      { '@type': 'Question', name: 'Does it work like a personal tuition teacher?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. You set a study goal, the Pomodoro timer keeps you focused with automatic breaks, and the built-in AI teacher explains any doubt by text or voice and can plan your study session.' } },
+      { '@type': 'Question', name: 'Is the focus camera private?', acceptedAnswer: { '@type': 'Answer', text: 'Completely. The optional focus camera runs only on your device as a focus mirror — nothing is ever recorded or uploaded.' } },
+    ] },
+  ],
+});
+
+ROUTES.push({
+  path: '/calculators',
+  title: 'Free Student Calculators — Percentage, CGPA & Attendance | Syllab.in',
+  description: 'Free online calculators for Indian students: marks-to-percentage, CGPA to percentage (CBSE 9.5 rule) and back, and an attendance "can I bunk?" calculator. Instant, no signup, no ads.',
+  keywords: 'percentage calculator, CGPA to percentage calculator, CBSE CGPA calculator, attendance calculator, can I bunk calculator, marks percentage calculator India, student calculators free',
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Student Calculators', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/calculators`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'How do I convert CGPA to percentage?', acceptedAnswer: { '@type': 'Answer', text: 'Under the CBSE rule, Percentage = CGPA × 9.5. For example, a 9.2 CGPA equals 87.4%. Use the free Syllab calculator to convert instantly both ways.' } },
+      { '@type': 'Question', name: 'How many classes can I skip and keep 75% attendance?', acceptedAnswer: { '@type': 'Answer', text: 'Enter your attended and total classes with a 75% target in the attendance calculator — it instantly shows how many classes you can skip while staying at or above your target.' } },
+    ] },
+  ],
+});
+
 // ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
 for (const a of getBlogArticles()) {
   const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;
@@ -784,6 +813,8 @@ function buildBodyContent(route) {
         <li><a href="/micro" style="color: #0066cc; text-decoration: none;">Microlearning</a></li>
         <li><a href="/free-alternatives" style="color: #0066cc; text-decoration: none;">Free Alternatives</a></li>
         <li><a href="/kids" style="color: #0066cc; text-decoration: none;">Kids Zone</a></li>
+        <li><a href="/study-room" style="color: #0066cc; text-decoration: none;">Study Room</a></li>
+        <li><a href="/calculators" style="color: #0066cc; text-decoration: none;">Calculators</a></li>
       </ul>
     </nav>
   `;

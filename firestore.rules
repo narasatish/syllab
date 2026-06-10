@@ -89,6 +89,20 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    // ---------- WEEKLY STUDY MINUTES (Study Room → Parent Dashboard) ----------
+    // Doc id = "<ISO-week>-<uid>" (e.g. "2026-W24-abc123"). A student writes only
+    // their own week doc; any signed-in user (the linked parent) may read it.
+    match /weeklyStudyMinutes/{weekKey} {
+      allow create, update: if request.auth != null
+          && request.resource.data.uid == request.auth.uid
+          && weekKey.matches('.*' + request.auth.uid + '.*')
+          && request.resource.data.totalMinutes is number
+          && request.resource.data.totalMinutes >= 0
+          && request.resource.data.totalMinutes <= 10080;
+      allow read: if request.auth != null;
+      allow delete: if false;
+    }
+
     // ---------- USER ACTIVITIES (legacy — kept for backward read compat) ----------
     // New code uses activityEvents above; this is read-only fallback.
     match /userActivities/{docId} {
@@ -315,6 +329,26 @@ service cloud.firestore {
             && request.resource.data.score >= 0
             && request.resource.data.score <= 100000;
         allow delete: if false;
+      }
+    }
+
+    // ---------- CO-STUDY ROOMS (body-doubling presence) ----------
+    match /coStudyRooms/{code} {
+      allow read: if true;
+      allow create: if request.auth != null
+          && request.resource.data.hostUid == request.auth.uid
+          && request.resource.data.status == 'active';
+      allow update: if request.auth != null
+          && resource.data.hostUid == request.auth.uid;
+      allow delete: if false;
+
+      // Members: ephemeral presence docs (name + heartbeat), validated + capped.
+      match /members/{memberId} {
+        allow read: if true;
+        allow create, update: if request.resource.data.name is string
+            && request.resource.data.name.size() > 0
+            && request.resource.data.name.size() <= 24;
+        allow delete: if true; // leaving a room removes your own presence doc
       }
     }
 

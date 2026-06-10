@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { db } from '../lib/firebase';
+import { subscribeWeeklyStudyMinutes } from '../lib/studyStats';
 import { encodeExamConfig } from '../lib/examCode';
 import SEO from '../components/SEO';
 
@@ -54,6 +55,7 @@ interface LinkedChild {
   examResults?: ExamResult[];
   activityEvents?: ActivityEvent[];
   totalActivities?: number;
+  studyMinutesThisWeek?: number;
 }
 
 /* ─── Helpers — look up a user by email and write/read parent links ─────── */
@@ -167,6 +169,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
   const profileUnsubsRef = useRef<(() => void)[]>([]);
   const activityUnsubsRef = useRef<(() => void)[]>([]);
   const progressUnsubsRef = useRef<(() => void)[]>([]);
+  const studyMinutesUnsubsRef = useRef<(() => void)[]>([]);
 
   /** Re-usable: load basic profile for a child uid (one-time fetch — used for initial render) */
   const loadChildProfile = async (uid: string): Promise<Omit<LinkedChild, 'examResults'> | null> => {
@@ -285,6 +288,18 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
     }
   }, []);
 
+  /** Subscribe to each child's current-week study minutes (from the Study Room). */
+  const subscribeStudyMinutes = useCallback((uids: string[]) => {
+    studyMinutesUnsubsRef.current.forEach(u => u());
+    studyMinutesUnsubsRef.current = [];
+    for (const uid of uids) {
+      const unsub = subscribeWeeklyStudyMinutes(uid, (minutes) => {
+        setChildren((prev) => prev.map((c) => (c.uid === uid ? { ...c, studyMinutesThisWeek: minutes } : c)));
+      });
+      studyMinutesUnsubsRef.current.push(unsub);
+    }
+  }, []);
+
   const refresh = useCallback(async () => {
     if (!currentUser) return;
     setLoading(true);
@@ -300,6 +315,8 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
         activityUnsubsRef.current = [];
         progressUnsubsRef.current.forEach(u => u());
         progressUnsubsRef.current = [];
+        studyMinutesUnsubsRef.current.forEach(u => u());
+        studyMinutesUnsubsRef.current = [];
         return;
       }
 
@@ -315,10 +332,11 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
       subscribeExamResults(uids);
       subscribeActivityEvents(uids);
       subscribeProgressSummaries(uids);
+      subscribeStudyMinutes(uids);
     } finally {
       setLoading(false);
     }
-  }, [currentUser, subscribeChildProfiles, subscribeExamResults, subscribeActivityEvents, subscribeProgressSummaries]);
+  }, [currentUser, subscribeChildProfiles, subscribeExamResults, subscribeActivityEvents, subscribeProgressSummaries, subscribeStudyMinutes]);
 
   useEffect(() => { void refresh(); }, [refresh]);
 
@@ -329,6 +347,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
       profileUnsubsRef.current.forEach(u => u());
       activityUnsubsRef.current.forEach(u => u());
       progressUnsubsRef.current.forEach(u => u());
+      studyMinutesUnsubsRef.current.forEach(u => u());
     };
   }, []);
 
@@ -599,7 +618,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                   </div>
 
                   {/* Stats row */}
-                  <div className="mt-4 grid grid-cols-3 gap-3">
+                  <div className="mt-4 grid grid-cols-4 gap-3">
                     <div className="rounded-xl bg-slate-50 p-3 text-center">
                       <Trophy className="mx-auto mb-1 text-amber-500" size={15} />
                       <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">XP</div>
@@ -614,6 +633,11 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                       <BookOpen className="mx-auto mb-1 text-violet-500" size={15} />
                       <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">Topics</div>
                       <div className="text-lg font-black text-slate-900">{child.completedTopics || 0}</div>
+                    </div>
+                    <div className="rounded-xl bg-slate-50 p-3 text-center">
+                      <div className="mb-1 text-[15px] leading-none">⏱️</div>
+                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">Study (wk)</div>
+                      <div className="text-lg font-black text-slate-900">{child.studyMinutesThisWeek || 0}m</div>
                     </div>
                   </div>
 

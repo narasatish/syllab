@@ -33,6 +33,12 @@ export default function WhatsNew({ onNavigate, onOpenArticle }: WhatsNewProps) {
   // New features to highlight
   const newFeatures = [
     {
+      icon: '📚',
+      title: 'AI Study Room',
+      description: 'Focus timer, study music, exam countdowns & a voice AI tutor — like a tuition teacher',
+      href: '/study-room',
+    },
+    {
       icon: '📸',
       title: 'Photo Doubt Solver',
       description: 'Snap any homework question → instant free step-by-step solution',

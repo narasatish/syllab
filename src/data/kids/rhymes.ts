@@ -147,4 +147,220 @@ All through the town.`,
     youtubeVideoId: 'placeholder_wheels_bus', // Owner to replace with official video
     colorClass: 'bg-red-100',
   },
+  {
+    id: 'itsy-bitsy-spider',
+    title: 'Itsy Bitsy Spider',
+    emoji: '🕷️',
+    lyrics: `The itsy bitsy spider climbed up the water spout.
+Down came the rain and washed the spider out.
+Out came the sun and dried up all the rain,
+And the itsy bitsy spider climbed up the spout again.`,
+    youtubeVideoId: 'placeholder_itsy_spider',
+    colorClass: 'bg-blue-100',
+  },
+  {
+    id: 'row-your-boat',
+    title: 'Row, Row, Row Your Boat',
+    emoji: '🚣',
+    lyrics: `Row, row, row your boat,
+Gently down the stream.
+Merrily, merrily, merrily, merrily,
+Life is but a dream.`,
+    youtubeVideoId: 'placeholder_row_boat',
+    colorClass: 'bg-teal-100',
+  },
+  {
+    id: 'five-little-ducks',
+    title: 'Five Little Ducks',
+    emoji: '🦆',
+    lyrics: `Five little ducks went out one day,
+Over the hills and far away.
+Mother duck said "Quack, quack, quack, quack,"
+But only four little ducks came back.`,
+    youtubeVideoId: 'placeholder_five_ducks',
+    colorClass: 'bg-yellow-100',
+  },
+  {
+    id: 'rain-rain-go-away',
+    title: 'Rain, Rain, Go Away',
+    emoji: '🌧️',
+    lyrics: `Rain, rain, go away,
+Come again another day.
+Little children want to play,
+Rain, rain, go away.`,
+    youtubeVideoId: 'placeholder_rain_away',
+    colorClass: 'bg-sky-100',
+  },
+  {
+    id: 'ring-a-ring-o-roses',
+    title: 'Ring a Ring o\' Roses',
+    emoji: '🌹',
+    lyrics: `Ring a ring o' roses,
+A pocket full of posies.
+A-tishoo! A-tishoo!
+We all fall down.`,
+    youtubeVideoId: 'placeholder_ring_roses',
+    colorClass: 'bg-pink-100',
+  },
+  {
+    id: 'pat-a-cake',
+    title: 'Pat-a-Cake',
+    emoji: '🍰',
+    lyrics: `Pat-a-cake, pat-a-cake, baker's man,
+Bake me a cake as fast as you can.
+Pat it and prick it and mark it with B,
+And put it in the oven for baby and me.`,
+    youtubeVideoId: 'placeholder_pat_a_cake',
+    colorClass: 'bg-orange-100',
+  },
+  {
+    id: 'hey-diddle-diddle',
+    title: 'Hey Diddle Diddle',
+    emoji: '🐮',
+    lyrics: `Hey diddle diddle, the cat and the fiddle,
+The cow jumped over the moon.
+The little dog laughed to see such sport,
+And the dish ran away with the spoon.`,
+    youtubeVideoId: 'placeholder_hey_diddle', colorClass: 'bg-purple-100',
+  },
+  {
+    id: 'jack-be-nimble',
+    title: 'Jack Be Nimble',
+    emoji: '🕯️',
+    lyrics: `Jack be nimble, Jack be quick,
+Jack jump over the candlestick.`,
+    youtubeVideoId: 'placeholder_jack_nimble', colorClass: 'bg-amber-100',
+  },
+  {
+    id: 'hot-cross-buns',
+    title: 'Hot Cross Buns',
+    emoji: '🥯',
+    lyrics: `Hot cross buns! Hot cross buns!
+One a penny, two a penny, hot cross buns!
+If you have no daughters, give them to your sons,
+One a penny, two a penny, hot cross buns!`,
+    youtubeVideoId: 'placeholder_hot_cross', colorClass: 'bg-orange-100',
+  },
+  {
+    id: 'this-little-piggy',
+    title: 'This Little Piggy',
+    emoji: '🐷',
+    lyrics: `This little piggy went to market,
+This little piggy stayed home,
+This little piggy had roast beef,
+This little piggy had none.
+And this little piggy cried "Wee wee wee" all the way home!`,
+    youtubeVideoId: 'placeholder_piggy', colorClass: 'bg-pink-100',
+  },
+  {
+    id: 'one-two-buckle',
+    title: 'One, Two, Buckle My Shoe',
+    emoji: '👟',
+    lyrics: `One, two, buckle my shoe,
+Three, four, knock at the door,
+Five, six, pick up sticks,
+Seven, eight, lay them straight,
+Nine, ten, a big fat hen.`,
+    youtubeVideoId: 'placeholder_one_two', colorClass: 'bg-green-100',
+  },
+  {
+    id: 'hush-little-baby',
+    title: 'Hush, Little Baby',
+    emoji: '🐦',
+    lyrics: `Hush, little baby, don't say a word,
+Mama's going to buy you a mockingbird.
+And if that mockingbird won't sing,
+Mama's going to buy you a diamond ring.`,
+    youtubeVideoId: 'placeholder_hush_baby', colorClass: 'bg-blue-100',
+  },
+  {
+    id: 'three-blind-mice',
+    title: 'Three Blind Mice',
+    emoji: '🐭',
+    lyrics: `Three blind mice, three blind mice,
+See how they run, see how they run!
+They all ran after the farmer's wife,
+Who cut off their tails with a carving knife.`,
+    youtubeVideoId: 'placeholder_three_mice', colorClass: 'bg-slate-100',
+  },
+  {
+    id: 'little-miss-muffet',
+    title: 'Little Miss Muffet',
+    emoji: '🕷️',
+    lyrics: `Little Miss Muffet sat on a tuffet,
+Eating her curds and whey.
+Along came a spider who sat down beside her,
+And frightened Miss Muffet away.`,
+    youtubeVideoId: 'placeholder_muffet', colorClass: 'bg-yellow-100',
+  },
+  {
+    id: 'mary-mary',
+    title: 'Mary, Mary, Quite Contrary',
+    emoji: '🌷',
+    lyrics: `Mary, Mary, quite contrary,
+How does your garden grow?
+With silver bells and cockle shells,
+And pretty maids all in a row.`,
+    youtubeVideoId: 'placeholder_mary_mary', colorClass: 'bg-rose-100',
+  },
+  {
+    id: 'little-teapot',
+    title: "I'm a Little Teapot",
+    emoji: '🫖',
+    lyrics: `I'm a little teapot, short and stout,
+Here is my handle, here is my spout.
+When I get all steamed up, hear me shout,
+"Tip me over and pour me out!"`,
+    youtubeVideoId: 'placeholder_teapot', colorClass: 'bg-teal-100',
+  },
+  {
+    id: 'if-youre-happy',
+    title: "If You're Happy and You Know It",
+    emoji: '😊',
+    lyrics: `If you're happy and you know it, clap your hands!
+If you're happy and you know it, clap your hands!
+If you're happy and you know it, and you really want to show it,
+If you're happy and you know it, clap your hands!`,
+    youtubeVideoId: 'placeholder_happy', colorClass: 'bg-amber-100',
+  },
+  {
+    id: 'five-little-monkeys',
+    title: 'Five Little Monkeys',
+    emoji: '🐵',
+    lyrics: `Five little monkeys jumping on the bed,
+One fell off and bumped his head.
+Mama called the doctor and the doctor said,
+"No more monkeys jumping on the bed!"`,
+    youtubeVideoId: 'placeholder_monkeys', colorClass: 'bg-orange-100',
+  },
+  {
+    id: 'are-you-sleeping',
+    title: 'Are You Sleeping? (Brother John)',
+    emoji: '🔔',
+    lyrics: `Are you sleeping, are you sleeping,
+Brother John, Brother John?
+Morning bells are ringing, morning bells are ringing,
+Ding ding dong, ding ding dong.`,
+    youtubeVideoId: 'placeholder_brother_john', colorClass: 'bg-indigo-100',
+  },
+  {
+    id: 'sing-a-song-sixpence',
+    title: 'Sing a Song of Sixpence',
+    emoji: '🐦',
+    lyrics: `Sing a song of sixpence, a pocket full of rye,
+Four and twenty blackbirds baked in a pie.
+When the pie was opened the birds began to sing,
+Wasn't that a dainty dish to set before the king?`,
+    youtubeVideoId: 'placeholder_sixpence', colorClass: 'bg-purple-100',
+  },
+  {
+    id: 'old-king-cole',
+    title: 'Old King Cole',
+    emoji: '👑',
+    lyrics: `Old King Cole was a merry old soul,
+And a merry old soul was he.
+He called for his pipe and he called for his bowl,
+And he called for his fiddlers three.`,
+    youtubeVideoId: 'placeholder_king_cole', colorClass: 'bg-yellow-100',
+  },
 ];

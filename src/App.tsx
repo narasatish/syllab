@@ -6,6 +6,7 @@
 import React, { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { trackPageview } from './lib/analytics';
 import {
+  Baby,
   BookOpen,
   Bot,
   Building2,
@@ -99,6 +100,8 @@ const AlternativesPage = React.lazy(() => import('./pages/Alternatives'));
 const KidsPage = React.lazy(() => import('./pages/Kids'));
 const DoubtSolverPage = React.lazy(() => import('./pages/Scan'));
 const MicrolearningPage = React.lazy(() => import('./pages/Microlearning'));
+const StudyRoomPage = React.lazy(() => import('./pages/StudyRoom'));
+const CalculatorsPage = React.lazy(() => import('./pages/Calculators'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -185,6 +188,8 @@ const TAB_TO_PATH: Record<string, string> = {
   kids: '/kids',
   doubt_solver: '/doubt-solver',
   microlearning: '/micro',
+  study_room: '/study-room',
+  calculators: '/calculators',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -229,6 +234,18 @@ function resolveTab(pathname: string): string {
 }
 
 const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string; jsonLd?: Record<string, unknown> | Record<string, unknown>[] }> = {
+  calculators: {
+    title: 'Free Student Calculators — Percentage, CGPA & Attendance | Syllab.in',
+    description: 'Free online calculators for Indian students: marks-to-percentage, CGPA to percentage (CBSE 9.5 rule) and back, and an attendance "can I bunk?" calculator. Instant, no signup.',
+    keywords: 'percentage calculator, CGPA to percentage calculator, CBSE CGPA calculator, attendance calculator, can I bunk calculator, marks percentage calculator India, student calculators free',
+    url: 'https://syllab.in/calculators',
+  },
+  study_room: {
+    title: 'AI Study Room — Focus Timer, Study Music & AI Tutor (Free) | Syllab.in',
+    description: 'Free AI study room for Indian students: Pomodoro focus timer, calming study ambience, exam countdowns, voice AI tutor for instant doubts, break reminders & study-streak tracking. Study like you have a tuition teacher beside you.',
+    keywords: 'study room online free, pomodoro timer study, AI tutor voice India, study with me focus timer, study music free, exam countdown CBSE JEE NEET, distraction blocker study, online study room India students',
+    url: 'https://syllab.in/study-room',
+  },
   home: {
     title: 'Syllab.in — Free AI Learning for CBSE, NCERT, JEE & NEET | Class 1–12',
     description: 'Syllab.in is India\'s free AI learning platform for Class 1 to 12. Study NCERT chapters, practice MCQs, take mock tests for JEE/NEET/EAMCET/WBJEE/MHT-CET/KCET, learn coding, daily GK quiz, dark-mode for night study. Free for every Indian student.',
@@ -1175,6 +1192,7 @@ export default function App() {
     { id: 'learning_lab',      label: 'AI Tutor',         icon: Sparkles, featured: true },
     { id: 'skills_lab',        label: 'Coding',           icon: Zap },
     { id: 'english_lab',       label: 'English',          icon: BookOpen },
+    { id: 'kids',              label: 'Junior',           icon: Baby },
     { id: 'daily',             label: 'Daily Challenge',  icon: CalendarDays },
     { id: 'general_knowledge', label: 'GK Quiz',          icon: BookOpen },
     { id: 'career',            label: 'Career & Colleges', icon: Building2 },
@@ -1526,6 +1544,8 @@ export default function App() {
                   {activeTab === 'kids' ? <KidsPage /> : null}
                   {activeTab === 'doubt_solver' ? <DoubtSolverPage /> : null}
                   {activeTab === 'microlearning' ? <MicrolearningPage /> : null}
+                  {activeTab === 'study_room' ? <StudyRoomPage onExit={() => navigate('home')} userUid={currentUser?.uid} userName={currentUser?.displayName || currentUser?.email?.split('@')[0] || null} /> : null}
+                  {activeTab === 'calculators' ? <CalculatorsPage /> : null}
                   {activeTab === 'privacy' ? (
                     <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
                       <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>

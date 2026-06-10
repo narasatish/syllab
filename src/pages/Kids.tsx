@@ -9,6 +9,8 @@ import { motion } from 'motion/react';
 import { ArrowLeft, Volume2 } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import ColoringStudio from '../components/ColoringStudio';
+import TracingPad from '../components/TracingPad';
 import { cn } from '../lib/utils';
 import { alphabetTiles } from '../data/kids/alphabet';
 import { numberTiles } from '../data/kids/numbers';
@@ -18,8 +20,63 @@ import { coloringPages } from '../data/kids/coloring';
 
 const SITE = 'https://syllab.in';
 
+/** Pick the most natural-sounding English voice available (prefer richer cloud voices). */
+function pickKidVoice(): SpeechSynthesisVoice | null {
+  const voices = window.speechSynthesis?.getVoices() || [];
+  if (!voices.length) return null;
+  // Prefer natural/online/Google/Microsoft female voices, then en-IN, then any English.
+  return (
+    voices.find((v) => /natural|online|google (uk|us) english/i.test(v.name) && /^en/i.test(v.lang)) ||
+    voices.find((v) => /female|aria|jenny|heera|samantha|zira/i.test(v.name) && /^en/i.test(v.lang)) ||
+    voices.find((v) => v.lang === 'en-IN') ||
+    voices.find((v) => /^en/i.test(v.lang)) ||
+    voices[0]
+  );
+}
+
+/**
+ * Pre-school-teacher text-to-speech (free, browser-native): SLOW and CLEAR so a
+ * 3–5 year old can follow. `singy` mode recites a rhyme one line at a time with a
+ * real breath/pause between lines (chained via onend), the way a teacher reads it
+ * aloud — not like reading a paragraph. NOTE: free TTS speaks; it can't truly sing.
+ */
+let speakToken = 0;
+function speak(text: string, opts: { singy?: boolean } = {}) {
+  try {
+    if (typeof window === 'undefined' || !window.speechSynthesis || !text.trim()) return;
+    window.speechSynthesis.cancel();
+    const voice = pickKidVoice();
+    const my = ++speakToken; // invalidates any earlier (chained) playback
+    const make = (line: string) => {
+      const u = new SpeechSynthesisUtterance(line);
+      if (voice) u.voice = voice;
+      u.lang = voice?.lang || 'en-IN';
+      u.rate = opts.singy ? 0.72 : 0.68; // slow + clear for little ears
+      u.pitch = 1.1;                      // warm, friendly — not shrill
+      u.volume = 1;
+      return u;
+    };
+    if (opts.singy) {
+      const lines = text.split(/\n+/).map((l) => l.trim()).filter(Boolean);
+      let i = 0;
+      const next = () => {
+        if (my !== speakToken || i >= lines.length) return; // stale or finished
+        const u = make(lines[i]);
+        i += 1;
+        u.onend = () => { if (my === speakToken) window.setTimeout(next, 550); }; // breath between lines
+        u.onerror = () => { if (my === speakToken) window.setTimeout(next, 550); };
+        window.speechSynthesis.speak(u);
+      };
+      next();
+    } else {
+      window.speechSynthesis.speak(make(text));
+    }
+  } catch { /* ignore — audio just won't play */ }
+}
+function stopSpeaking() { speakToken++; try { window.speechSynthesis?.cancel(); } catch { /* ignore */ } }
+
 interface ParsedKidsPath {
-  view?: 'alphabet' | 'numbers' | 'shapes' | 'rhymes' | 'coloring';
+  view?: 'alphabet' | 'numbers' | 'shapes' | 'rhymes' | 'coloring' | 'tracing';
   detail?: string; // for future detailed views
 }
 
@@ -66,6 +123,7 @@ export default function Kids() {
   if (view === 'shapes') return <ShapesView goBack={goBack} />;
   if (view === 'rhymes') return <RhymesView goBack={goBack} />;
   if (view === 'coloring') return <ColoringView goBack={goBack} />;
+  if (view === 'tracing') return <TracingPad goBack={goBack} />;
 
   // ── Index view ──
   return <KidsIndex go={go} />;
@@ -154,11 +212,18 @@ function KidsIndex({ go }: { go: (to: string) => void }) {
             colorClass="bg-gradient-to-br from-pink-300 to-pink-500"
           />
           <ActivityCard
-            title="Coloring Pages"
+            title="Coloring Studio"
             emoji="🖍️"
-            description="Printable coloring sheets"
+            description="Tap to fill colours & save your art"
             onClick={() => go('/kids/coloring')}
             colorClass="bg-gradient-to-br from-orange-300 to-orange-500"
+          />
+          <ActivityCard
+            title="Tracing"
+            emoji="✏️"
+            description="Trace letters & numbers with your finger"
+            onClick={() => go('/kids/tracing')}
+            colorClass="bg-gradient-to-br from-purple-300 to-purple-500"
           />
         </div>
       </div>
@@ -231,7 +296,7 @@ function AlphabetView({ goBack }: { goBack: (parent: string) => void }) {
             key={tile.letter}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setSelected(selected === tile.letter ? null : tile.letter)}
+            onClick={() => { const next = selected === tile.letter ? null : tile.letter; setSelected(next); if (next) speak(`${tile.letter}. ${tile.letter} for ${tile.word}.`); }}
             className={cn(
               'flex flex-col items-center justify-center rounded-2xl p-4 font-black text-white shadow-md transition-all',
               tile.colorClass,
@@ -302,7 +367,7 @@ function NumbersView({ goBack }: { goBack: (parent: string) => void }) {
             key={tile.number}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setSelected(selected === tile.number ? null : tile.number)}
+            onClick={() => { const next = selected === tile.number ? null : tile.number; setSelected(next); if (next !== null) speak(`${tile.number}. ${tile.word}.`); }}
             className={cn(
               'flex flex-col items-center justify-center rounded-2xl p-4 font-black text-white shadow-md transition-all',
               tile.colorClass,
@@ -388,7 +453,7 @@ function ShapesView({ goBack }: { goBack: (parent: string) => void }) {
             key={tile.name}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setSelected(selected === tile.name ? null : tile.name)}
+            onClick={() => { const next = selected === tile.name ? null : tile.name; setSelected(next); if (next) speak(tile.name); }}
             className={cn(
               'flex flex-col items-center justify-center rounded-2xl p-6 text-white shadow-md transition-all',
               tile.colorClass,
@@ -462,7 +527,7 @@ function RhymesView({ goBack }: { goBack: (parent: string) => void }) {
             key={rhyme.id}
             whileHover={{ x: 4 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => setSelectedId(selectedId === rhyme.id ? null : rhyme.id)}
+            onClick={() => { const next = selectedId === rhyme.id ? null : rhyme.id; setSelectedId(next); if (next) speak(rhyme.lyrics, { singy: true }); }}
             className={cn(
               'w-full rounded-2xl p-4 text-left shadow-md transition-all',
               rhyme.colorClass,
@@ -499,8 +564,19 @@ function RhymesView({ goBack }: { goBack: (parent: string) => void }) {
                 <div className="whitespace-pre-line rounded-xl bg-slate-50 p-4 text-sm font-medium leading-relaxed text-slate-700">
                   {rhyme.lyrics}
                 </div>
-                <div className="mt-4 rounded-xl bg-blue-50 p-4 text-xs text-blue-700">
-                  <strong>🎬 Video:</strong> Owner to replace placeholder with official YouTube video (youtube-nocookie.com iframe)
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <button
+                    onClick={() => speak(rhyme.lyrics, { singy: true })}
+                    className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-black text-white shadow hover:bg-emerald-600"
+                  >
+                    <Volume2 size={16} /> Sing it
+                  </button>
+                  <button
+                    onClick={stopSpeaking}
+                    className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-200"
+                  >
+                    ⏹ Stop
+                  </button>
                 </div>
               </div>
             );
@@ -536,45 +612,12 @@ function ColoringView({ goBack }: { goBack: (parent: string) => void }) {
       </button>
       <PageHero emoji="🖍️" title="Coloring Pages" subtitle="Printable coloring sheets — ready to color and create!" className="mb-6" />
 
-      {/* Coloring Pages Grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {coloringPages.map((page) => (
-          <motion.div
-            key={page.id}
-            whileHover={{ scale: 1.05 }}
-            className="rounded-2xl bg-white p-4 shadow-md transition-all"
-          >
-            <div className="mb-3 flex items-center justify-between">
-              <h3 className="font-black text-slate-800">{page.title}</h3>
-              <span className="text-2xl">{page.emoji}</span>
-            </div>
-            <div className="mb-3 h-48 w-full rounded-lg bg-slate-50 p-4">
-              <svg viewBox="0 0 200 200" className="h-full w-full text-slate-800">
-                <g dangerouslySetInnerHTML={{ __html: page.svg }} />
-              </svg>
-            </div>
-            <p className="text-xs text-slate-600">{page.description}</p>
-            <div className="mt-2 text-xs font-bold text-slate-500">Age: {page.ageGroup}</div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = `data:image/svg+xml,${encodeURIComponent(`<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="white"><rect width="200" height="200" fill="white"/>${page.svg}</svg>`)}`;
-                link.download = `${page.id}-coloring.svg`;
-                link.click();
-              }}
-              className="mt-3 w-full rounded-lg bg-gradient-to-r from-orange-400 to-pink-400 py-2 text-xs font-black text-white transition-all hover:shadow-md"
-            >
-              Download to Print
-            </motion.button>
-          </motion.div>
-        ))}
-      </div>
+      {/* Interactive colour-fill studio */}
+      <ColoringStudio pages={coloringPages} />
 
-      {/* Printing Tip */}
+      {/* Tip */}
       <div className="mt-8 rounded-2xl border-2 border-dashed border-orange-300 bg-orange-50 p-4 text-center text-xs font-bold text-orange-700">
-        📌 Tip: Print these pages at 100% scale (no scaling) and give kids colored pencils, crayons, or markers!
+        🎨 Tip: Tap a colour, then tap parts of the picture to fill them. Hit “Save my art” to keep your masterpiece — or “Reset” to start fresh!
       </div>
     </div>
   );
