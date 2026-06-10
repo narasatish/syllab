@@ -151,6 +151,9 @@ function buildUrls({ languages, topicsByLang }) {
   // Free student calculators.
   urls.push({ loc: '/calculators', priority: 0.8, changefreq: 'monthly' });
 
+  // Free printable worksheets.
+  urls.push({ loc: '/worksheets', priority: 0.8, changefreq: 'weekly' });
+
   // Microlearning index + modules.
   urls.push({ loc: '/micro', priority: 0.8, changefreq: 'weekly' });
   for (const m of ['quadratic-formula','newtons-first-law','trigonometry-ratios','photosynthesis','periodic-table-trends','probability-basics','linear-equations','surface-area-volume','acids-bases','fractions-decimals','imperialism-colonialism','plate-tectonics','english-tenses','photosynthesis-respiration','mean-median-mode']) {

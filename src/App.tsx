@@ -14,6 +14,7 @@ import {
   ChartNoAxesCombined,
   ChevronDown,
   ClipboardList,
+  FileText,
   Eye,
   EyeOff,
   Home,
@@ -103,6 +104,7 @@ const DoubtSolverPage = React.lazy(() => import('./pages/Scan'));
 const MicrolearningPage = React.lazy(() => import('./pages/Microlearning'));
 const StudyRoomPage = React.lazy(() => import('./pages/StudyRoom'));
 const CalculatorsPage = React.lazy(() => import('./pages/Calculators'));
+const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -191,6 +193,7 @@ const TAB_TO_PATH: Record<string, string> = {
   microlearning: '/micro',
   study_room: '/study-room',
   calculators: '/calculators',
+  worksheets: '/worksheets',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -235,6 +238,12 @@ function resolveTab(pathname: string): string {
 }
 
 const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string; jsonLd?: Record<string, unknown> | Record<string, unknown>[] }> = {
+  worksheets: {
+    title: 'Free Printable Worksheets — Tracing Letters, Numbers, Shapes (PDF) | Syllab.in',
+    description: 'Download free printable worksheets for Pre-KG, LKG & UKG kids: alphabet tracing (A–Z), number tracing & counting, and shapes — print or save as PDF. Free, watermarked, made-in-India worksheets for early learning.',
+    keywords: 'free printable worksheets, alphabet tracing worksheets pdf, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, kindergarten worksheets free download India, pre-kg worksheets pdf',
+    url: 'https://syllab.in/worksheets',
+  },
   calculators: {
     title: 'Free Student Calculators — Percentage, CGPA & Attendance | Syllab.in',
     description: 'Free online calculators for Indian students: marks-to-percentage, CGPA to percentage (CBSE 9.5 rule) and back, and an attendance "can I bunk?" calculator. Instant, no signup.',
@@ -1195,6 +1204,7 @@ export default function App() {
     { id: 'english_lab',       label: 'English',          icon: BookOpen },
     { id: 'study_room',        label: 'Study Room',       icon: Timer },
     { id: 'kids',              label: 'Junior',           icon: Baby },
+    { id: 'worksheets',        label: 'Worksheets',       icon: FileText },
     { id: 'daily',             label: 'Daily Challenge',  icon: CalendarDays },
     { id: 'general_knowledge', label: 'GK Quiz',          icon: BookOpen },
     { id: 'career',            label: 'Career & Colleges', icon: Building2 },
@@ -1548,6 +1558,7 @@ export default function App() {
                   {activeTab === 'microlearning' ? <MicrolearningPage /> : null}
                   {activeTab === 'study_room' ? <StudyRoomPage onExit={() => navigate('home')} userUid={currentUser?.uid} userName={currentUser?.displayName || currentUser?.email?.split('@')[0] || null} /> : null}
                   {activeTab === 'calculators' ? <CalculatorsPage /> : null}
+                  {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'privacy' ? (
                     <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
                       <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>

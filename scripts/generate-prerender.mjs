@@ -604,6 +604,20 @@ ROUTES.push({
   ],
 });
 
+ROUTES.push({
+  path: '/worksheets',
+  title: 'Free Printable Worksheets — Tracing Letters, Numbers, Shapes (PDF) | Syllab.in',
+  description: 'Download free printable worksheets for Pre-KG, LKG & UKG kids: alphabet tracing (A–Z), number tracing & counting, and shapes — print or save as PDF. Free, watermarked early-learning worksheets for Indian kids.',
+  keywords: 'free printable worksheets, alphabet tracing worksheets pdf, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, kindergarten worksheets free download India, pre-kg worksheets pdf, LKG UKG worksheets',
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free Printable Worksheets', url: `${SITE}/worksheets`, inLanguage: 'en-IN', isAccessibleForFree: true },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Are the worksheets free to download?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — every worksheet (alphabet tracing, numbers, counting, shapes) is free to print or save as PDF. No signup, no payment.' } },
+      { '@type': 'Question', name: 'What worksheets are available?', acceptedAnswer: { '@type': 'Answer', text: 'A–Z letter tracing with example words, number tracing and counting, and shape tracing — designed for Pre-KG, LKG and UKG. More categories are added regularly.' } },
+    ] },
+  ],
+});
+
 // ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
 for (const a of getBlogArticles()) {
   const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;
@@ -815,6 +829,7 @@ function buildBodyContent(route) {
         <li><a href="/kids" style="color: #0066cc; text-decoration: none;">Kids Zone</a></li>
         <li><a href="/study-room" style="color: #0066cc; text-decoration: none;">Study Room</a></li>
         <li><a href="/calculators" style="color: #0066cc; text-decoration: none;">Calculators</a></li>
+        <li><a href="/worksheets" style="color: #0066cc; text-decoration: none;">Worksheets</a></li>
       </ul>
     </nav>
   `;
