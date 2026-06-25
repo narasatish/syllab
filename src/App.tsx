@@ -1383,10 +1383,13 @@ export default function App() {
           onClick={() => navigate('home')}
           className="flex items-center gap-3 transition-opacity hover:opacity-80"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-xl font-black text-white shadow-xl shadow-emerald-500/20">
+          <div
+            className="flex h-10 w-10 items-center justify-center rounded-2xl text-xl font-black text-white"
+            style={{ backgroundImage: 'var(--grad-brand)', boxShadow: '0 8px 24px -6px rgba(16,185,129,.5)' }}
+          >
             S
           </div>
-          <span className="font-heading text-2xl font-black tracking-tight text-secondary">Syllab</span>
+          <span className="font-heading text-2xl font-extrabold tracking-tight text-secondary">Syllab</span>
         </button>
 
         <nav className="hidden items-center gap-1 rounded-2xl border border-slate-200/50 bg-white shadow-sm p-1.5 lg:flex">
@@ -1916,10 +1919,13 @@ export default function App() {
               onClick={() => navigate('home')}
               className="flex items-center gap-2 sm:gap-3 transition-opacity hover:opacity-80"
             >
-              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-primary text-base sm:text-xl font-black text-white shadow-lg shadow-emerald-500/20 shrink-0">
+              <div
+                className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl sm:rounded-2xl text-base sm:text-xl font-black text-white shadow-lg shadow-emerald-500/30 shrink-0"
+                style={{ backgroundImage: 'var(--grad-brand)' }}
+              >
                 S
               </div>
-              <span className="font-heading text-lg sm:text-2xl font-black tracking-tight">Syllab</span>
+              <span className="font-heading text-lg sm:text-2xl font-extrabold tracking-tight">Syllab</span>
             </button>
             <p className="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
               India's AI-powered learning platform for CBSE NCERT practice, concepts, and exam readiness from Class 1 to 12.
