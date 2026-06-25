@@ -7,6 +7,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import ErrorBoundary from './components/ErrorBoundary'
 import { installGlobalErrorReporting } from './lib/errorReporter'
 import { initAnalytics } from './lib/analytics'
+import { initScrollReveal } from './lib/scrollReveal'
 
 // Capture uncaught errors / promise rejections → email alert to the owner.
 installGlobalErrorReporting()
@@ -45,6 +46,9 @@ if (rootEl.firstElementChild && document.documentElement.dataset.ssr === 'true')
 // Legacy: older builds shipped a hidden #prerender-seo block; remove it if present
 // (no-op for SSR builds, which don't emit it).
 requestAnimationFrame(() => { document.getElementById('prerender-seo')?.remove(); });
+
+// Scroll-reveal animations (transform/opacity only; respects reduced-motion).
+initScrollReveal();
 
 // Register service worker for PWA (only in production builds — avoids dev-server noise)
 if ('serviceWorker' in navigator && import.meta.env.PROD) {

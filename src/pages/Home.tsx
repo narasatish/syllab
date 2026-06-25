@@ -364,7 +364,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       </section>
 
       {/* ── USP HIGHLIGHTS — what makes Syllab different (keep it to 3) ───────── */}
-      <section className="max-w-6xl mx-auto px-5 pt-10">
+      <section className="reveal max-w-6xl mx-auto px-5 pt-10">
         <div className="grid gap-4 sm:grid-cols-3">
           {([
             { tab: 'learning_lab', emoji: '🎓', title: 'AI Tuition Teacher', desc: 'Daily homework by class & chapter — type or upload your answers, get marked instantly with XP. Like a private tutor, free.', badge: 'NEW', grad: 'from-emerald-500 to-teal-600' },
@@ -384,7 +384,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       </section>
 
       {/* ── PICK YOUR CLASS ──────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16 pb-16 sm:pb-20">
+      <section className="reveal max-w-6xl mx-auto px-5 py-12 sm:py-16 pb-16 sm:pb-20">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">
             <GraduationCap size={13} />
@@ -422,7 +422,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       />
 
       {/* ── FOR PARENTS ──────────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16">
+      <section className="reveal max-w-6xl mx-auto px-5 py-12 sm:py-16">
         <div className="bg-gradient-to-br from-violet-600 to-purple-700 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-14 text-white overflow-hidden relative">
           {/* decorative */}
           <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10"
@@ -507,7 +507,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       <FaqSection />
 
       {/* ── FINAL CTA ────────────────────────────────────────────────────────── */}
-      <section className="text-center px-5 py-16 sm:py-20">
+      <section className="reveal text-center px-5 py-16 sm:py-20">
         <div className="max-w-2xl mx-auto">
           <div className="text-5xl mb-5">🚀</div>
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tighter mb-4">
@@ -574,7 +574,7 @@ function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section className="max-w-3xl mx-auto px-5 py-16 sm:py-20">
+    <section className="reveal max-w-3xl mx-auto px-5 py-16 sm:py-20">
       {/* FAQ JSON-LD intentionally lives once in index.html (crawlable without JS).
           Removed the duplicate here to avoid multiple FAQPage blocks on the page. */}
       <div className="text-center mb-10">
