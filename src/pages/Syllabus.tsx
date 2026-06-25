@@ -785,6 +785,11 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
 
   const totalQuestions = syllabus.length * 300;
 
+  // Show the big Kids Zone banner only for the youngest students (or guests who
+  // haven't picked a class). Older students get a small box at the bottom instead,
+  // so their own class content is front-and-centre.
+  const showFullJunior = !userClass || ['1', '2', '3'].includes(String(userClass));
+
   return (
     <div className="space-y-8 pb-12">
       <SEO
@@ -978,6 +983,47 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           {pinHint}
         </div>
       )}
+
+      {/* ── Syllab Junior (Kids Zone) — full banner only for the youngest students ── */}
+      {showFullJunior ? (
+      <section className="overflow-hidden rounded-3xl border border-purple-100 bg-gradient-to-br from-purple-50 via-pink-50 to-amber-50 p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-xs font-black uppercase tracking-widest text-purple-500">👶 Syllab Junior · Kids Zone · Pre-KG to Class 3</h2>
+            <p className="mt-1 max-w-xl text-sm font-medium text-slate-700">
+              A full preschool zone — alphabet &amp; phonics, numbers, shapes, animals, <strong>moral stories</strong>, <strong>action rhymes</strong>, <strong>matching games</strong>, a paint-and-fill <strong>Colouring Studio</strong>, tracing and <strong>200+ printable worksheets</strong>. All free.
+            </p>
+          </div>
+          <button
+            onClick={() => setTab('kids')}
+            className="shrink-0 rounded-xl bg-purple-500 px-5 py-3 text-sm font-black text-white shadow-sm transition-colors hover:bg-purple-600"
+          >
+            Open Kids Zone →
+          </button>
+        </div>
+        <div className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+          {([
+            { emoji: '🔤', label: 'Alphabet', tab: 'kids', c: 'from-blue-300 to-blue-500' },
+            { emoji: '🔢', label: 'Numbers', tab: 'kids', c: 'from-green-300 to-green-500' },
+            { emoji: '🎨', label: 'Shapes', tab: 'kids', c: 'from-yellow-300 to-amber-500' },
+            { emoji: '🐮', label: 'GK & More', tab: 'kids', c: 'from-orange-300 to-orange-500' },
+            { emoji: '📚', label: 'Stories', tab: 'kids', c: 'from-amber-300 to-orange-500' },
+            { emoji: '🎶', label: 'Rhymes', tab: 'kids', c: 'from-pink-300 to-pink-500' },
+            { emoji: '🧩', label: 'Games', tab: 'kids', c: 'from-indigo-300 to-purple-500' },
+            { emoji: '📝', label: 'Worksheets', tab: 'worksheets', c: 'from-emerald-300 to-emerald-500' },
+          ]).map((t) => (
+            <button
+              key={t.label}
+              onClick={() => setTab(t.tab)}
+              className={`flex flex-col items-center gap-1 rounded-2xl bg-gradient-to-br ${t.c} px-2 py-4 text-white shadow-md transition-transform hover:scale-105`}
+            >
+              <span className="text-2xl">{t.emoji}</span>
+              <span className="text-[11px] font-black">{t.label}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+      ) : null}
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
@@ -1255,18 +1301,28 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         )}
       </AnimatePresence>
 
-      {/* Syllab Junior — early-learning section for the youngest students */}
-      <section className="rounded-3xl border border-purple-100 bg-gradient-to-br from-purple-50 to-pink-50 p-6">
-        <h2 className="text-xs font-black uppercase tracking-widest text-purple-500">👶 Syllab Junior · Pre-KG to Class 3</h2>
-        <div className="mt-2 flex flex-wrap items-center justify-between gap-4">
-          <p className="max-w-xl text-sm font-medium text-slate-700">
-            Playful early learning — alphabet &amp; phonics, numbers, shapes, <strong>30 nursery rhymes</strong> (read aloud), a tap-to-fill <strong>Colouring Studio</strong> and <strong>letter tracing</strong>. All free.
-          </p>
+      {/* Small Kids Zone box — shown for older students (the full banner is hidden for them) */}
+      {!showFullJunior ? (
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-purple-100 bg-purple-50 px-4 py-3">
+          <p className="text-sm font-bold text-slate-600">👶 <strong>Syllab Junior</strong> — fun learning &amp; worksheets for the little ones (Pre-KG to Class 3).</p>
+          <button onClick={() => setTab('kids')} className="shrink-0 rounded-full bg-purple-500 px-4 py-1.5 text-xs font-black text-white hover:bg-purple-600">Open Kids Zone →</button>
+        </div>
+      ) : null}
+
+      {/* Printable Worksheets — its own section (kept near the bottom too) */}
+      <section className="overflow-hidden rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-teal-50 p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-xs font-black uppercase tracking-widest text-emerald-600">📝 Printable Worksheets · 200+ free PDFs</h2>
+            <p className="mt-1 max-w-xl text-sm font-medium text-slate-700">
+              Alphabet &amp; tracing, phonics, vocabulary, reading, writing, maths, shapes, colours, science and more — every sheet free to print or save as PDF, watermarked <strong>syllab.in</strong>.
+            </p>
+          </div>
           <button
-            onClick={() => setTab('kids')}
-            className="shrink-0 rounded-xl bg-purple-500 px-5 py-3 text-sm font-black text-white transition-colors hover:bg-purple-600"
+            onClick={() => setTab('worksheets')}
+            className="shrink-0 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-black text-white shadow-sm transition-colors hover:bg-emerald-600"
           >
-            Open Syllab Junior →
+            Browse worksheets →
           </button>
         </div>
       </section>

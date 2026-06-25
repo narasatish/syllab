@@ -45,9 +45,13 @@
 
   <!-- Preconnect to critical origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://syllab-backend.onrender.com" crossorigin />
   <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
   <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com" />
+  <!-- Fonts: non-blocking preload-swap so they don't block first paint (better LCP/FCP). -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" /></noscript>
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.json" />
@@ -76,7 +80,9 @@
     "image": "https://syllab.in/og-image.png",
     "description": "Syllab.in is India's free AI learning platform for Class 1 to 12 students with CBSE NCERT chapter summaries, practice questions, mock tests, daily challenges, formula bank, diagram lab, skills lab and AI tutor support.",
     "sameAs": [
-      "https://syllab.in"
+      "https://syllab.in",
+      "https://www.instagram.com/syllab.in",
+      "https://www.youtube.com/@syllab.in"
     ],
     "foundingDate": "2025",
     "areaServed": "IN",
@@ -171,6 +177,21 @@
     ]
   }
   </script>
+  <!-- Boot skeleton styles: a stable placeholder shown until React mounts, so the
+       page doesn't shift when the prerendered HTML is replaced by the app (kills CLS). -->
+  <style>
+    #boot-skeleton { min-height: 100vh; background: #f8fafc; }
+    #boot-skeleton .bs-nav { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(255,255,255,0.9); border-bottom: 1px solid #e2e8f0; backdrop-filter: blur(8px); z-index: 50; display: flex; align-items: center; padding: 0 1.5rem; }
+    #boot-skeleton .bs-logo { width: 40px; height: 40px; border-radius: 12px; background: #10b981; }
+    #boot-skeleton .bs-main { max-width: 64rem; margin: 0 auto; padding: 112px 1rem 2rem; }
+    #boot-skeleton .bs-blk { border-radius: 12px; background: linear-gradient(90deg,#eef2f7 25%,#e2e8f0 37%,#eef2f7 63%); background-size: 400% 100%; animation: bs-shimmer 1.4s ease infinite; margin-bottom: 14px; }
+    #boot-skeleton .bs-title { height: 34px; width: 62%; margin-bottom: 22px; }
+    #boot-skeleton .bs-line { height: 14px; }
+    #boot-skeleton .bs-line.w90 { width: 90%; } #boot-skeleton .bs-line.w80 { width: 80%; } #boot-skeleton .bs-line.w70 { width: 70%; }
+    #boot-skeleton .bs-card { height: 220px; margin-top: 22px; background: #f1f5f9; border-radius: 16px; }
+    @keyframes bs-shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+    @media (prefers-color-scheme: dark) { #boot-skeleton { background: #0f172a; } #boot-skeleton .bs-nav { background: rgba(15,23,42,0.9); border-color: #1e293b; } #boot-skeleton .bs-card { background: #1e293b; } }
+  </style>
 </head>
 <body>
   <div id="root"></div>
@@ -182,17 +203,22 @@
        below the React error boundary (which only works once React is running). -->
   <script>
     (function () {
+      // "Not mounted" = #root empty OR still showing only the boot skeleton.
+      var notMounted = function () {
+        var root = document.getElementById('root');
+        if (!root) return false;
+        return root.childElementCount === 0 || !!document.getElementById('boot-skeleton');
+      };
       var t = setTimeout(function () {
         var root = document.getElementById('root');
-        if (root && root.childElementCount === 0) {
+        if (notMounted()) {
           root.innerHTML = '<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;text-align:center;padding:40px"><div style="max-width:380px"><div style="font-size:42px">📚</div><h1 style="font-size:20px;font-weight:800;color:#0f172a;margin:12px 0 8px">Taking longer than usual…</h1><p style="font-size:14px;color:#64748b;line-height:1.6;margin:0 0 20px">Your connection looks slow. Reload to continue learning.</p><button onclick="location.reload()" style="background:#10b981;color:#fff;border:none;border-radius:12px;padding:12px 26px;font-size:14px;font-weight:700;cursor:pointer">Reload Syllab</button></div></div>';
         }
       }, 12000);
       window.addEventListener('error', function (e) {
         // A failed dynamic import / chunk error on a blank page → reload once.
         if (e && e.message && /chunk|dynamically imported|Loading.*failed/i.test(e.message)) {
-          var root = document.getElementById('root');
-          if (root && root.childElementCount === 0 && !sessionStorage.getItem('syllab-chunk-reload')) {
+          if (notMounted() && !sessionStorage.getItem('syllab-chunk-reload')) {
             sessionStorage.setItem('syllab-chunk-reload', '1');
             location.reload();
           }

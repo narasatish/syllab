@@ -17,6 +17,11 @@ import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
 import { getBlogArticles } from './blogArticles.mjs';
 import { getNcertChapters } from './ncertChapters.mjs';
+import { getStateBoardChapters } from './stateBoardChapters.mjs';
+import { getMedicalManifest } from './medicalColleges.mjs';
+import { getAiHubTopics } from './aiHubTopics.mjs';
+import { getDifferences } from './differencesData.mjs';
+import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -36,6 +41,11 @@ async function readTopics() {
 
   // De-dupe
   const languages = [...new Set(langIds)];
+  // 'ai-agents' topics live in ai-agents.ts but are merged into ai-learning at
+  // runtime, so they aren't an id: in index.ts. Add the lang explicitly so its
+  // lesson pages (/coding/ai-agents/:topic) are sitemapped (and prerendered) with
+  // proper self-canonicals instead of falling back to the homepage canonical.
+  if (!languages.includes('ai-agents')) languages.push('ai-agents');
 
   // For each topic file, read and extract topic ids
   const topicsByLang = {};
@@ -117,6 +127,15 @@ function buildUrls({ languages, topicsByLang }) {
   for (const c of colleges) {
     urls.push({ loc: `/colleges/${c.stateSlug}/${c.slug}`, priority: 0.6, changefreq: 'monthly' });
   }
+  // City college hubs — "Top Engineering Colleges in {City}" (cities with 2+ colleges).
+  const cityCounts = new Map();
+  for (const c of colleges) {
+    const slug = c.city.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    cityCounts.set(slug, (cityCounts.get(slug) || 0) + 1);
+  }
+  for (const [slug, count] of cityCounts) {
+    if (count >= 2) urls.push({ loc: `/colleges/city/${slug}`, priority: 0.7, changefreq: 'weekly' });
+  }
 
   // Deep coding topic pages are now PRERENDERED with unique titles + a
   // self-referencing canonical (see generate-prerender.mjs), so they're valid
@@ -147,12 +166,133 @@ function buildUrls({ languages, topicsByLang }) {
 
   // AI Study Room.
   urls.push({ loc: '/study-room', priority: 0.8, changefreq: 'monthly' });
+  urls.push({ loc: '/quiz-duel', priority: 0.7, changefreq: 'monthly' });
+  urls.push({ loc: '/maths-for-kids', priority: 0.8, changefreq: 'monthly' });
+  urls.push({ loc: '/science-for-kids', priority: 0.8, changefreq: 'monthly' });
+  urls.push({ loc: '/english-for-kids', priority: 0.8, changefreq: 'monthly' });
 
   // Free student calculators.
   urls.push({ loc: '/calculators', priority: 0.8, changefreq: 'monthly' });
 
   // Free printable worksheets.
   urls.push({ loc: '/worksheets', priority: 0.8, changefreq: 'weekly' });
+
+  // GK Questions cluster — index + per class (5–12).
+  urls.push({ loc: '/gk-questions', priority: 0.8, changefreq: 'weekly' });
+  for (let c = 5; c <= 12; c++) {
+    urls.push({ loc: `/gk-questions/class-${c}`, priority: 0.7, changefreq: 'monthly' });
+  }
+
+  // Important Questions cluster — index + per class + per subject (6–12).
+  const IQ = {
+    6: ['mathematics', 'science', 'social-science', 'english'], 7: ['mathematics', 'science', 'social-science', 'english'],
+    8: ['mathematics', 'science', 'social-science', 'english'], 9: ['mathematics', 'science', 'social-science', 'english'],
+    10: ['mathematics', 'science', 'social-science', 'english'], 11: ['physics', 'chemistry', 'biology', 'mathematics'],
+    12: ['physics', 'chemistry', 'biology', 'mathematics'],
+  };
+  urls.push({ loc: '/important-questions', priority: 0.8, changefreq: 'weekly' });
+  for (const [c, subs] of Object.entries(IQ)) {
+    urls.push({ loc: `/important-questions/class-${c}`, priority: 0.7, changefreq: 'monthly' });
+    for (const s of subs) urls.push({ loc: `/important-questions/class-${c}/${s}`, priority: 0.6, changefreq: 'monthly' });
+  }
+
+  // Mock-test exam landing pages
+  for (const slug of ['jee-main', 'neet', 'ap-eapcet', 'ts-eapcet', 'bitsat', 'kcet', 'mht-cet', 'wbjee', 'science-olympiad', 'maths-olympiad']) {
+    urls.push({ loc: `/mock-tests/${slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+  // English grammar topic pages
+  urls.push({ loc: '/english-grammar', priority: 0.7, changefreq: 'monthly' });
+  for (const slug of ['tenses', 'parts-of-speech', 'nouns', 'pronouns', 'verbs', 'adjectives', 'adverbs', 'articles', 'prepositions', 'active-passive-voice', 'direct-indirect-speech', 'subject-verb-agreement', 'essay-writing', 'letter-writing', 'reading-comprehension']) {
+    urls.push({ loc: `/english-grammar/${slug}`, priority: 0.6, changefreq: 'monthly' });
+  }
+  // Career guide pages
+  urls.push({ loc: '/career', priority: 0.7, changefreq: 'monthly' });
+  for (const slug of ['which-stream-after-10th', 'which-stream-after-12th', 'how-to-become-engineer', 'how-to-become-doctor', 'how-to-become-data-scientist', 'how-to-become-software-engineer', 'how-to-become-chartered-accountant', 'how-to-become-lawyer', 'how-to-become-ias-officer', 'careers-after-12th-commerce', 'careers-after-12th-arts', 'careers-after-12th-science']) {
+    urls.push({ loc: `/career/${slug}`, priority: 0.6, changefreq: 'monthly' });
+  }
+  // College predictor landing pages
+  urls.push({ loc: '/college-predictor', priority: 0.8, changefreq: 'weekly' });
+  for (const slug of ['jee-main', 'neet', 'ts-eapcet', 'ap-eapcet', 'kcet', 'mht-cet', 'wbjee', 'bitsat']) {
+    urls.push({ loc: `/college-predictor/${slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+  // Previous Year Questions (PYQ) & Sample Papers cluster
+  urls.push({ loc: '/previous-year-papers', priority: 0.8, changefreq: 'monthly' });
+  for (const slug of ['cbse-class-10', 'cbse-class-12', 'jee-main', 'neet', 'ts-eamcet', 'ap-eamcet', 'cbse-class-9', 'kcet', 'mht-cet', 'wbjee', 'bitsat', 'cuet']) {
+    urls.push({ loc: `/previous-year-papers/${slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+  // Formula Sheets cluster (free PDF revision assets) — subject + per-chapter sheets
+  urls.push({ loc: '/formula-sheets', priority: 0.8, changefreq: 'monthly' });
+  for (const s of getFormulaSheets(ROOT)) {
+    urls.push({ loc: `/formula-sheets/${s.slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+  // State Board Solutions (AP / TS / Karnataka / Maharashtra)
+  urls.push({ loc: '/state-board-solutions', priority: 0.8, changefreq: 'weekly' });
+  for (const c of getStateBoardChapters()) {
+    urls.push({ loc: `/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`, priority: 0.6, changefreq: 'monthly' });
+  }
+  // Medical / MBBS colleges
+  const med = getMedicalManifest(ROOT);
+  urls.push({ loc: '/medical-colleges', priority: 0.8, changefreq: 'weekly' });
+  for (const s of med.states) {
+    if (med.colleges.some((c) => c.stateSlug === s.slug)) urls.push({ loc: `/medical-colleges/${s.slug}`, priority: 0.7, changefreq: 'weekly' });
+  }
+  for (const c of med.colleges) {
+    urls.push({ loc: `/medical-colleges/${c.stateSlug}/${c.slug}`, priority: 0.6, changefreq: 'monthly' });
+  }
+  // College Finder — colleges-accepting/<exam> + best-colleges/<course>
+  urls.push({ loc: '/colleges-accepting', priority: 0.7, changefreq: 'weekly' });
+  for (const slug of ['jee-main', 'jee-advanced', 'neet', 'bitsat', 'viteee', 'tnea', 'kcet', 'comedk', 'mht-cet', 'ts-eapcet', 'ap-eapcet', 'wbjee']) {
+    urls.push({ loc: `/colleges-accepting/${slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+  urls.push({ loc: '/best-colleges', priority: 0.7, changefreq: 'weekly' });
+  for (const slug of ['cse', 'ai-ml', 'ece', 'it', 'electrical', 'mechanical', 'civil', 'mbbs']) {
+    urls.push({ loc: `/best-colleges/${slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+  // Scholarships
+  urls.push({ loc: '/scholarships', priority: 0.8, changefreq: 'weekly' });
+  // Embed / link-to-us
+  urls.push({ loc: '/embed', priority: 0.5, changefreq: 'monthly' });
+  // AI Hub ("AI for Students" guides)
+  urls.push({ loc: '/ai-hub', priority: 0.8, changefreq: 'weekly' });
+  for (const t of getAiHubTopics(ROOT)) {
+    urls.push({ loc: `/ai-hub/${t.slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+
+  // Difference Between (comparison) cluster
+  urls.push({ loc: '/difference-between', priority: 0.8, changefreq: 'weekly' });
+  for (const d of getDifferences(ROOT)) {
+    urls.push({ loc: `/difference-between/${d.slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+
+  // Full Forms cluster
+  urls.push({ loc: '/full-forms', priority: 0.8, changefreq: 'weekly' });
+  for (const f of getFullForms(ROOT)) {
+    urls.push({ loc: `/full-forms/${f.slug}`, priority: 0.6, changefreq: 'monthly' });
+  }
+
+  // Glossary cluster
+  urls.push({ loc: '/glossary', priority: 0.8, changefreq: 'weekly' });
+  for (const g of getGlossary(ROOT)) {
+    urls.push({ loc: `/glossary/${g.slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+
+  // Revision Notes cluster
+  urls.push({ loc: '/revision-notes', priority: 0.8, changefreq: 'weekly' });
+  for (const r of getRevisionNotes(ROOT)) {
+    urls.push({ loc: `/revision-notes/${r.slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+
+  // Sample Papers cluster
+  urls.push({ loc: '/sample-papers', priority: 0.8, changefreq: 'weekly' });
+  for (const p of getSamplePapers(ROOT)) {
+    urls.push({ loc: `/sample-papers/${p.slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
+
+  // New study clusters (maths tables, writing, mcqs, gk, vocab, literature)
+  for (const [base, fn] of [['/maths-tables', getMathsTables], ['/english-writing', getEnglishWriting], ['/mcqs', getChapterMcqs], ['/gk-facts', getStaticGk], ['/vocabulary', getEnglishVocab], ['/english-literature', getEnglishLiterature], ['/concepts', getConcepts], ['/solved-examples', getSolvedExamples], ['/lab-practicals', getLabPracticals], ['/visual-learning', getVisualLessons], ['/timelines', getTimelines], ['/what-to-study', getWhatToStudy], ['/pyqs', getPyqs]]) {
+    urls.push({ loc: base, priority: 0.8, changefreq: 'weekly' });
+    for (const x of fn(ROOT)) urls.push({ loc: `${base}/${x.slug}`, priority: 0.7, changefreq: 'monthly' });
+  }
 
   // Microlearning index + modules.
   urls.push({ loc: '/micro', priority: 0.8, changefreq: 'weekly' });
@@ -162,8 +302,15 @@ function buildUrls({ languages, topicsByLang }) {
 
   // Kids / Pre-school section.
   urls.push({ loc: '/kids', priority: 0.8, changefreq: 'weekly' });
-  for (const s of ['alphabet', 'numbers', 'shapes', 'rhymes', 'coloring']) {
+  for (const s of ['alphabet', 'numbers', 'shapes', 'rhymes', 'coloring', 'stories', 'action-rhymes', 'games']) {
     urls.push({ loc: `/kids/${s}`, priority: 0.7, changefreq: 'monthly' });
+  }
+  // Junior "learn by tapping" picture topics.
+  for (const t of ['animals', 'birds', 'fruits', 'vegetables', 'body', 'colours', 'opposites', 'transport', 'helpers', 'habits',
+    'wild', 'water', 'insects', 'flowers', 'family', 'days', 'seasons', 'national', 'festivals',
+    'hindi-swar', 'hindi-vyanjan', 'hindi-numbers', 'tamil-vowels', 'telugu-vowels', 'kannada-vowels',
+    'tamil-consonants', 'telugu-consonants', 'kannada-consonants']) {
+    urls.push({ loc: `/kids/learn/${t}`, priority: 0.6, changefreq: 'monthly' });
   }
 
   // Blog: the canonical /updates page + each article as its own indexable URL.

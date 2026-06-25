@@ -1,12 +1,13 @@
 ﻿import React from 'react';
-import { FileText, ScanLine } from 'lucide-react';
+import { FileText, ScanLine, GraduationCap } from 'lucide-react';
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 
-type LabMode = 'study' | 'scan';
+type LabMode = 'study' | 'scan' | 'homework';
 
 const StudyArenaPage = React.lazy(() => import('./StudyArena'));
 const ScanAndSolve = React.lazy(() => import('./Scan'));
+const HomeworkPage = React.lazy(() => import('./Homework'));
 
 export default function LearningLabPage() {
   const [mode, setMode] = React.useState<LabMode>('study');
@@ -14,9 +15,9 @@ export default function LearningLabPage() {
   return (
     <main className="space-y-8 pb-12">
       <SEO
-        title="Learning Lab for Study Notes and Scan Solve"
-        description="Upload notes to generate concepts, flashcards, and MCQs, or scan homework questions for step-by-step AI solutions."
-        keywords="learning lab, study arena, scan and solve, AI notes, homework solver, MCQ generator"
+        title="AI Tutor, Daily Homework & Scan Solve — Free Learning Lab"
+        description="Your free AI tuition teacher: get personalized daily homework by class & board, upload a worksheet photo for instant AI evaluation, turn notes into flashcards & MCQs, or scan any question for step-by-step solutions."
+        keywords="AI tuition teacher, daily homework, AI homework checker, worksheet evaluation, free AI tutor India, scan and solve, MCQ generator, CBSE state board homework"
         url="https://syllab.in/ai-tutor"
       />
 
@@ -29,12 +30,13 @@ export default function LearningLabPage() {
             </div>
             <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">Learning Lab</h1>
             <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-slate-500">
-              Turn documents into study material, or scan a question and get a clear solution.
+              Get personalized daily homework from your AI tuition teacher, turn documents into study material, or scan a question and get a clear solution.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 rounded-2xl bg-slate-100 p-1">
+          <div className="grid grid-cols-3 rounded-2xl bg-slate-100 p-1">
             {[
+              { id: 'homework' as const, label: 'Homework', icon: GraduationCap },
               { id: 'study' as const, label: 'Study Tools', icon: FileText },
               { id: 'scan' as const, label: 'Scan Solve', icon: ScanLine },
             ].map((item) => (
@@ -56,7 +58,7 @@ export default function LearningLabPage() {
       </section>
 
       <React.Suspense fallback={<div className="rounded-2xl bg-white p-8 text-center text-sm font-bold text-slate-400">Loading tool...</div>}>
-        {mode === 'study' ? <StudyArenaPage /> : <ScanAndSolve />}
+        {mode === 'homework' ? <HomeworkPage /> : mode === 'study' ? <StudyArenaPage /> : <ScanAndSolve />}
       </React.Suspense>
     </main>
   );

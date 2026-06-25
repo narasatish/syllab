@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
@@ -10,10 +10,17 @@ import { initAnalytics } from './lib/analytics'
 
 // Capture uncaught errors / promise rejections → email alert to the owner.
 installGlobalErrorReporting()
-// Analytics — inert unless VITE_GA_ID is set at build time.
-initAnalytics()
+// Analytics (GTM / Clarity) — DEFERRED until the main thread is idle so its ~800ms of
+// third-party JS no longer blocks the critical render path (faster mobile LCP). It still
+// captures the session: initAnalytics() sends the initial pageview when it loads.
+if (typeof window !== 'undefined') {
+  const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
+  if (ric) ric(() => initAnalytics(), { timeout: 4000 });
+  else window.addEventListener('load', () => window.setTimeout(() => initAnalytics(), 1500));
+}
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const rootEl = document.getElementById('root')!
+const tree = (
   <React.StrictMode>
     <ErrorBoundary>
       <HelmetProvider>
@@ -24,6 +31,20 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </ErrorBoundary>
   </React.StrictMode>
 )
+
+// True SSR: production HTML now ships the real app inside #root, so we HYDRATE it
+// (attach to existing markup — no full re-render → faster, content visible from the
+// first byte). In dev the server-rendered markup is absent (#root is empty), so we
+// fall back to a fresh client render. We detect via a server-set flag + child nodes.
+if (rootEl.firstElementChild && document.documentElement.dataset.ssr === 'true') {
+  hydrateRoot(rootEl, tree)
+} else {
+  createRoot(rootEl).render(tree)
+}
+
+// Legacy: older builds shipped a hidden #prerender-seo block; remove it if present
+// (no-op for SSR builds, which don't emit it).
+requestAnimationFrame(() => { document.getElementById('prerender-seo')?.remove(); });
 
 // Register service worker for PWA (only in production builds — avoids dev-server noise)
 if ('serviceWorker' in navigator && import.meta.env.PROD) {

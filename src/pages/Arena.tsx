@@ -561,25 +561,27 @@ export default function ArenaPage({
 
       {/* ============== LOADING ============== */}
       {mode === 'loading' ? (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mx-auto max-w-2xl py-24 text-center">
-          <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-[2rem] bg-primary text-white shadow-2xl shadow-emerald-500/30">
-            <Loader2 size={48} className="animate-spin" />
-          </div>
-          <h2 className="mb-4 text-4xl font-black tracking-tight">Please wait, page is loading…</h2>
-          <p className="mb-2 font-medium text-slate-500">Preparing fresh exam-pattern questions for you.</p>
-          {loadProgress.total > 0 && (
-            <div className="mt-8 mx-auto max-w-md">
-              <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
-                <div
-                  className="h-full bg-primary transition-all duration-300"
-                  style={{ width: `${(loadProgress.done / loadProgress.total) * 100}%` }}
-                />
-              </div>
-              <p className="mt-3 text-xs font-bold uppercase tracking-widest text-slate-400">
-                {loadProgress.done} of {loadProgress.total} batches ready
-              </p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center justify-center min-h-[60vh]">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-[2rem] bg-primary text-white shadow-2xl shadow-emerald-500/30">
+              <Loader2 size={48} className="animate-spin" />
             </div>
-          )}
+            <h2 className="mb-4 text-4xl font-black tracking-tight">Please wait, page is loading…</h2>
+            <p className="mb-2 font-medium text-slate-500">Preparing fresh exam-pattern questions for you.</p>
+            {loadProgress.total > 0 && (
+              <div className="mt-8 mx-auto max-w-md">
+                <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
+                  <div
+                    className="h-full bg-primary transition-all duration-300"
+                    style={{ width: `${(loadProgress.done / loadProgress.total) * 100}%` }}
+                  />
+                </div>
+                <p className="mt-3 text-xs font-bold uppercase tracking-widest text-slate-400">
+                  {loadProgress.done} of {loadProgress.total} batches ready
+                </p>
+              </div>
+            )}
+          </div>
         </motion.div>
       ) : null}
 

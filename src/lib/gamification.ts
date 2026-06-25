@@ -147,6 +147,15 @@ export const BADGES: Badge[] = [
   { id: 'xp-1000',      name: 'Rising Star',    emoji: '⭐', desc: 'Earn 1,000 XP',                check: c => c.xp >= 1000 },
   { id: 'xp-5000',      name: 'XP Champion',    emoji: '🏆', desc: 'Earn 5,000 XP',                check: c => c.xp >= 5000 },
   { id: 'xp-15000',     name: 'Legend',         emoji: '👑', desc: 'Earn 15,000 XP',               check: c => c.xp >= 15000 },
+  // Extended ladder — more goals to chase across every activity.
+  { id: 'streak-14',    name: 'Fortnight Hero', emoji: '🗓️', desc: '14-day learning streak',       check: c => c.streak >= 14 },
+  { id: 'streak-100',   name: 'Centennial',     emoji: '💎', desc: '100-day learning streak',      check: c => c.streak >= 100 },
+  { id: 'practice-50',  name: 'Practice Beast', emoji: '🎯', desc: '50 practice sessions',         check: c => c.counters.practice >= 50 },
+  { id: 'daily-30',     name: 'Daily Devotee',  emoji: '☀️', desc: '30 daily challenges',          check: c => c.counters.daily >= 30 },
+  { id: 'mock-25',      name: 'Exam Ready',     emoji: '🧪', desc: 'Attempt 25 mock tests',        check: c => c.counters.mock >= 25 },
+  { id: 'english-pro',  name: 'Word Smith',     emoji: '🗣️', desc: 'Finish 15 English sessions',   check: c => c.counters.english >= 15 },
+  { id: 'perfect-20',   name: 'Flawless',       emoji: '🌟', desc: 'Score 100% twenty times',      check: c => c.counters.perfect >= 20 },
+  { id: 'all-rounder',  name: 'All-Rounder',    emoji: '🎖️', desc: 'Try practice, mock, lesson & coding', check: c => c.counters.practice > 0 && c.counters.mock > 0 && c.counters.lesson > 0 && c.counters.coding > 0 },
 ];
 
 const EARNED_KEY = 'syllab_badges_v1';

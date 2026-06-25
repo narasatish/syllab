@@ -665,6 +665,13 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
               Mock tests for JEE/NEET/EAMCET, Math & Science Olympiads, Formula Bank, Diagram Lab, and create your own custom shareable exams.
             </p>
           </div>
+          {/* SEO cross-links → per-exam mock-test landing pages */}
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <span className="self-center text-[10px] font-black uppercase tracking-widest text-slate-400">Exam guides:</span>
+            {([['jee-main', 'JEE Main'], ['neet', 'NEET'], ['ap-eapcet', 'AP EAPCET'], ['ts-eapcet', 'TS EAPCET'], ['bitsat', 'BITSAT'], ['kcet', 'KCET'], ['mht-cet', 'MHT-CET'], ['wbjee', 'WBJEE']] as const).map(([slug, label]) => (
+              <a key={slug} href={`/mock-tests/${slug}`} className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600 transition-colors hover:bg-emerald-100 hover:text-emerald-700">{label}</a>
+            ))}
+          </div>
           {/* Tab bar */}
           <div className="mt-6 flex flex-wrap gap-2">
             {sectionTabs.map((tab) => (

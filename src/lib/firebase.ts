@@ -24,8 +24,12 @@ import {
   setDoc,
   where,
 } from 'firebase/firestore';
+import type { FirebaseApp } from 'firebase/app';
+import type { Auth } from 'firebase/auth';
+import type { Firestore } from 'firebase/firestore';
 import { Question, UserProgress, UserStats } from '../types';
 import { FIRESTORE_FEATURES_ENABLED } from './cloudFeatures';
+import { isBrowser } from './isomorphic';
 
 // All Firebase config comes from env vars. These are PUBLIC identifiers —
 // safe in the client bundle. No JSON-file fallback: the old
@@ -40,23 +44,32 @@ const firebaseConfig = {
 };
 const firebaseDatabaseId = import.meta.env.VITE_FIREBASE_DATABASE_ID;
 
-for (const [k, v] of Object.entries(firebaseConfig)) {
-  if (!v) console.error(`Missing Firebase env var for: ${k} (set VITE_FIREBASE_*)`);
-}
-
-
-
 // Backend API base URL — used for the branded password reset email
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://syllab-backend.onrender.com';
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = firebaseDatabaseId ? getFirestore(app, firebaseDatabaseId) : getFirestore(app);
+// SSR-safe init: Firebase (initializeApp/getAuth/getFirestore + browser persistence)
+// must NOT run in Node during server render — it touches browser-only APIs and would
+// crash renderToString. We only construct it in the browser. On the server `auth`/`db`
+// are left undefined; nothing dereferences them during render (all Firestore/auth calls
+// happen inside effects/handlers, which only run on the client).
+let app: FirebaseApp | undefined;
+let googleProvider: GoogleAuthProvider | undefined;
+let authPersistenceReady: Promise<unknown> = Promise.resolve();
+export let auth: Auth = undefined as unknown as Auth;
+export let db: Firestore = undefined as unknown as Firestore;
 
-const googleProvider = new GoogleAuthProvider();
-const authPersistenceReady = setPersistence(auth, browserLocalPersistence).catch((error) => {
-  console.error('Unable to configure Firebase auth persistence.', error);
-});
+if (isBrowser) {
+  for (const [k, v] of Object.entries(firebaseConfig)) {
+    if (!v) console.error(`Missing Firebase env var for: ${k} (set VITE_FIREBASE_*)`);
+  }
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = firebaseDatabaseId ? getFirestore(app, firebaseDatabaseId) : getFirestore(app);
+  googleProvider = new GoogleAuthProvider();
+  authPersistenceReady = setPersistence(auth, browserLocalPersistence).catch((error) => {
+    console.error('Unable to configure Firebase auth persistence.', error);
+  });
+}
 
 // NOTE: `rank: 'Beginner'` remains the initial default for back-compat with
 // existing production users. The firestore.rules allow both 'Beginner' and
@@ -184,6 +197,7 @@ export const tryEnsureUserDocuments = async (user: Pick<User, 'uid' | 'email' | 
 export const signInWithGoogle = async () => {
   await authPersistenceReady;
   try {
+    if (!googleProvider) throw new Error('Auth is only available in the browser');
     const result = await signInWithPopup(auth, googleProvider);
     // Pass full user so email + displayName are stored in Firestore doc
     await tryEnsureUserDocuments(result.user);
@@ -304,7 +318,8 @@ export const subscribeToNewsletter = async (
     return { success: false, error: 'Enter a valid email address' };
   }
 
-  // Direct Firestore write — instant, no sleeping backend
+  // Direct Firestore write — instant, no sleeping backend. This is the source of
+  // truth for the subscriber list (used by the weekly send).
   if (FIRESTORE_FEATURES_ENABLED) {
     try {
       await addDoc(collection(db, 'newsletters'), {
@@ -314,6 +329,14 @@ export const subscribeToNewsletter = async (
         active: true,
         subscribedAt: serverTimestamp(),
       });
+      // Best-effort: ping the backend so it sends a "you're subscribed" confirmation
+      // email via Resend. Fire-and-forget — the subscription is already saved above,
+      // so a sleeping/errored backend never blocks the success state.
+      void fetch(`${API_BASE_URL}/api/newsletter/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: normalizedEmail, classLevel, role, confirmOnly: true }),
+      }).catch(() => {/* non-fatal: confirmation email is best-effort */});
       return { success: true };
     } catch {
       // Fall through to backend

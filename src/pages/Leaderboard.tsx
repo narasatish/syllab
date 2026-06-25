@@ -271,7 +271,7 @@ export default function LeaderboardPage({ currentUserStats, onLoginClick }: Lead
                  className="relative mb-6"
                >
                   <div className="w-20 h-20 rounded-3xl ring-4 ring-slate-100 overflow-hidden shadow-2xl bg-white">
-                    <img src={entries[1].avatar} alt="" />
+                    <img loading="lazy" decoding="async" src={entries[1].avatar} alt="" />
                   </div>
                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-400 border-4 border-white rounded-full flex items-center justify-center text-white font-black text-xs">2</div>
                </motion.div>
@@ -289,7 +289,7 @@ export default function LeaderboardPage({ currentUserStats, onLoginClick }: Lead
                >
                   <Crown className="absolute -top-12 left-1/2 -translate-x-1/2 text-primary w-12 h-12" />
                   <div className="w-28 h-28 rounded-[3rem] ring-8 ring-emerald-50 overflow-hidden shadow-2xl bg-white">
-                    <img src={entries[0].avatar} alt="" />
+                    <img loading="lazy" decoding="async" src={entries[0].avatar} alt="" />
                   </div>
                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-10 h-10 bg-primary border-4 border-white rounded-full flex items-center justify-center text-white font-black">1</div>
                </motion.div>
@@ -307,7 +307,7 @@ export default function LeaderboardPage({ currentUserStats, onLoginClick }: Lead
                  className="relative mb-6"
                >
                   <div className="w-20 h-20 rounded-3xl ring-4 ring-orange-50 overflow-hidden shadow-2xl bg-white">
-                    <img src={entries[2].avatar} alt="" />
+                    <img loading="lazy" decoding="async" src={entries[2].avatar} alt="" />
                   </div>
                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-accent border-4 border-white rounded-full flex items-center justify-center text-white font-black text-xs">3</div>
                </motion.div>
@@ -332,7 +332,7 @@ export default function LeaderboardPage({ currentUserStats, onLoginClick }: Lead
                       )}>#{entry.rank}</span>
                    </div>
                    <div className="w-16 h-16 rounded-2xl bg-white border border-slate-100 overflow-hidden shadow-sm shrink-0 group-hover:scale-105 transition-transform">
-                      <img src={entry.avatar} alt="" />
+                      <img loading="lazy" decoding="async" src={entry.avatar} alt="" />
                    </div>
                    <div className="flex-1 min-w-0">
                       <h4 className="text-lg font-black text-secondary flex items-center gap-3 truncate">

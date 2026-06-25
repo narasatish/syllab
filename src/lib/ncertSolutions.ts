@@ -36,22 +36,41 @@ export function loadNcertSolutions(): Promise<Record<string, NcertQA[]>> {
 
 export function qaForKey(key: string): NcertQA[] { return BANK[key] || []; }
 
-/** Unique chapters that have solutions, with display metadata from SYLLABUS. */
+const SMALL_WORDS = new Set(['and', 'of', 'the', 'a', 'an', 'to', 'in', 'on', 'for', 'with', 'its']);
+function titleizeSlug(slug: string): string {
+  return slug.split('-').filter(Boolean)
+    .map((w, i) => (i > 0 && SMALL_WORDS.has(w)) ? w : w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+/**
+ * Unique chapters that have solutions. Driven by the BANK keys (the JSON is the
+ * source of truth) so any class/subject/chapter with solutions surfaces — this
+ * keeps the page aligned with the sitemap/prerender (which also read the bank).
+ * Display titles use SYLLABUS where available (nicer), else are derived from the
+ * chapter slug.
+ */
 export function chaptersWithSolutions(): NcertChapter[] {
-  const seen = new Set<string>();
-  const out: NcertChapter[] = [];
+  const titleByKey = new Map<string, string>();
   for (const ch of SYLLABUS) {
-    const key = `${ch.classLevel}::${ch.subject}::${ncertSlug(ch.title)}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
+    titleByKey.set(`${ch.classLevel}::${ch.subject}::${ncertSlug(ch.title)}`, ch.title);
+  }
+  const out: NcertChapter[] = [];
+  for (const key of Object.keys(BANK)) {
     if (!(BANK[key] && BANK[key].length)) continue;
+    const i1 = key.indexOf('::');
+    const i2 = key.indexOf('::', i1 + 2);
+    if (i1 < 0 || i2 < 0) continue;
+    const classLevel = key.slice(0, i1);
+    const subject = key.slice(i1 + 2, i2);
+    const slug = key.slice(i2 + 2);
     out.push({
       key,
-      classLevel: String(ch.classLevel),
-      subject: ch.subject,
-      title: ch.title,
-      slug: ncertSlug(ch.title),
-      subjectSlug: ncertSlug(ch.subject),
+      classLevel,
+      subject,
+      title: titleByKey.get(key) || titleizeSlug(slug),
+      slug,
+      subjectSlug: ncertSlug(subject),
     });
   }
   return out;

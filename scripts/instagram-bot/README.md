@@ -1,182 +1,123 @@
-# Syllab.in Instagram Auto-Poster
+# Syllab.in Instagram Automation — 10 posts/day
 
-Daily automated Instagram posts for **@syllab.in** — generates content with AI, renders a branded image, picks trending hashtags, and publishes via Instagram's official Graph API.
+End-to-end, fully automated Instagram content engine for **@syllab.in**. Every day
+it generates **10 unique posts** — **5 Reels, 3 Carousels, 2 Images** — from real
+Syllab website content (never repeated), writes algorithm-optimized captions +
+hashtags, and publishes via Instagram's **official Graph API**.
 
-## What it posts
+> **TL;DR:** `npm run ig:dry` → previews today's 10 posts (media in
+> `.instagram-bot-output/<date>/`, zero cost, no token needed). Add your Meta
+> token + flip `DRY_RUN` off to go live.
 
-Seven post types rotate daily (one per weekday):
+---
 
-| Day | Type | Example |
-|-----|------|---------|
-| Sun | GK Question | "Who designed the Indian National Flag?" with 4 options |
-| Mon | Daily Brain Teaser | Class 8 Maths MCQ |
-| Tue | Coding Tip | Python f-strings explained |
-| Wed | Logic Puzzle | "If 2 pencils cost ₹15..." with hint |
-| Thu | Exam Update | "CBSE confirms two-board policy for 2026" |
-| Fri | NCERT Study Hack | "Draw every Biology diagram twice" |
-| Sat | Motivation | "Your weakest subject is your biggest opportunity" |
+## What it makes, every day
 
-Each post: 1080×1080 branded gradient image, 100-180 word caption, 20-25 hashtags.
+| # | Format | Count | Source | Why |
+|---|--------|-------|--------|-----|
+| 1–5 | **Reel** (1080×1920 MP4) | 5 | GK quiz, PYQ, fun fact, full-forms | Video = widest reach |
+| 6–8 | **Carousel** (1080×1350 ×N) | 3 | PYQ solution, quiz reveal, fact deep-dive | Highest saves/shares |
+| 9–10 | **Image** (1080×1350 PNG) | 2 | Fun fact, GK | Fast scroll-stoppers |
 
-## Quick start (DRY RUN — no posting)
+Content is mined from **1,300+ atoms** across the site (fun facts, 180 GK MCQs,
+670+ PYQs, 470+ full-forms) and **deduped forever** — no post is ever repeated.
 
-This runs the full pipeline locally and saves the image without actually posting:
+## Architecture
+
+```
+run-daily.mjs                 ← orchestrator (plan → generate → publish → audit)
+lib/
+  data-loader.mjs             ← mines src/data/*.ts via esbuild (real site content)
+  dedup.mjs                   ← persistent registry → never repeats a post
+  content-engine.mjs          ← builds the 10-post plan (slides + reel scenes + caption)
+  hashtags.mjs                ← 2026 relevance-mix hashtag strategy (+ first comment)
+  renderer.mjs                ← branded SVG → PNG (themes, page dots, branding)
+  media-generators.mjs        ← image / carousel / reel (ffmpeg) generation
+  media-host.mjs              ← uploads media to a public URL (Firebase or 0x0.st)
+  publisher.mjs               ← Graph API: IMAGE / CAROUSEL / REELS publishing
+```
+
+## Quick start (DRY RUN — no token, no cost)
 
 ```bash
-cd scripts/instagram-bot
-DRY_RUN=true node post-daily.mjs
+npm run ig:dry                 # preview ALL 10 posts → .instagram-bot-output/<date>/
+node scripts/instagram-bot/run-daily.mjs --dry --max=2   # quick 2-post smoke
+node scripts/instagram-bot/run-daily.mjs --dry --type=reel   # only reels
 ```
 
-Output goes to `.instagram-bot-output/` in the repo root:
-- `<template>-<timestamp>.png` — the rendered image
-- `audit.jsonl` — log of what would have been posted
+## Going live (one-time Meta setup)
 
-Force a specific template:
-```bash
-DRY_RUN=true node post-daily.mjs --type=daily-question
-DRY_RUN=true node post-daily.mjs --type=puzzle
-DRY_RUN=true node post-daily.mjs --type=gk-fact
-DRY_RUN=true node post-daily.mjs --type=ncert-tip
-DRY_RUN=true node post-daily.mjs --type=exam-update
-DRY_RUN=true node post-daily.mjs --type=motivation
-DRY_RUN=true node post-daily.mjs --type=coding-tip
-```
-
-## Going live — Instagram Graph API setup
-
-**Why not username + password?** Instagram detects automated logins within days and bans accounts. The Graph API is the official, safe way and is **free**.
-
-### One-time setup (15 minutes)
-
-1. **Convert your Instagram to a Business or Creator account**
-   - Open Instagram → Profile → Menu (☰) → Settings → Account → "Switch to professional account"
-   - Pick "Creator" or "Business" — either works. Free.
-
-2. **Link to a Facebook Page**
-   - Create a Facebook Page at facebook.com/pages/create (free) — pick "Education"
-   - Instagram app → Settings → Account Center → Link Facebook account → connect the new Page
-
-3. **Create a Meta Developer App**
-   - Go to [developers.facebook.com](https://developers.facebook.com)
-   - Click "My Apps" → "Create App"
-   - App type: "Business" → fill name, email
-   - Add "Instagram Graph API" product to the app
-
-4. **Get an access token**
-   - In Meta Developer → your app → Tools → Graph API Explorer
-   - Add permissions: `instagram_basic`, `instagram_content_publish`, `pages_show_list`, `pages_read_engagement`
-   - Generate User Access Token → click "Generate Access Token" — copy it
-   - **Convert short-lived to long-lived** (lasts 60 days):
-     ```bash
-     curl -X GET "https://graph.facebook.com/v21.0/oauth/access_token?grant_type=fb_exchange_token&client_id=YOUR_APP_ID&client_secret=YOUR_APP_SECRET&fb_exchange_token=SHORT_LIVED_TOKEN"
-     ```
-   - **Get a never-expiring Page token** from that long-lived token:
-     ```bash
-     curl "https://graph.facebook.com/v21.0/me/accounts?access_token=LONG_LIVED_USER_TOKEN"
-     ```
-     The `access_token` field on your Page object is the one you want.
-
-5. **Get your Instagram Business Account ID**
-   ```bash
-   curl "https://graph.facebook.com/v21.0/me/accounts?fields=instagram_business_account&access_token=PAGE_TOKEN"
-   ```
-   The `instagram_business_account.id` field is what you need.
-
-6. **Set the environment variables**
-   Create `.env` (or use GitHub Actions secrets):
-   ```
-   IG_BUSINESS_ACCOUNT_ID=17841401234567890
-   IG_ACCESS_TOKEN=EAAJZAa...                  # the Page token from step 4
-   GEMINI_API_KEY=AIza...                       # optional but recommended
-   ```
-
-### Test a real post
-
-Once env vars are set:
-```bash
-node scripts/instagram-bot/post-daily.mjs --type=motivation
-```
-
-You should see the post appear on @syllab.in within ~10 seconds.
-
-## Schedule daily posts
-
-### Option A: GitHub Actions (free, recommended)
-
-Create `.github/workflows/instagram-daily.yml`:
-
-```yaml
-name: Instagram Daily Post
-on:
-  schedule:
-    - cron: '30 3 * * *'   # 9:00 AM IST every day (3:30 UTC)
-  workflow_dispatch:        # also runs manually from GitHub UI
-
-jobs:
-  post:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: '20' }
-      - run: npm ci
-      - run: node scripts/instagram-bot/post-daily.mjs
-        env:
-          IG_BUSINESS_ACCOUNT_ID: ${{ secrets.IG_BUSINESS_ACCOUNT_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-```
-
-Add the secrets at GitHub → Settings → Secrets and variables → Actions.
-
-### Option B: Render cron job
-
-If you already deploy to Render, add a Cron Job service:
-- Schedule: `30 3 * * *`
-- Command: `node scripts/instagram-bot/post-daily.mjs`
-- Add the same env vars under "Environment"
-
-### Option C: Local cron (your own server)
-
-```bash
-# crontab -e
-30 3 * * * cd /path/to/syllab && IG_BUSINESS_ACCOUNT_ID=... IG_ACCESS_TOKEN=... node scripts/instagram-bot/post-daily.mjs >> /var/log/syllab-ig.log 2>&1
-```
-
-## File layout
+1. Convert @syllab.in to an **Instagram Business/Creator** account and link it to a
+   **Facebook Page**.
+2. Create an app at [developers.facebook.com](https://developers.facebook.com) →
+   add **Instagram Graph API** → generate a **long-lived Page access token** with
+   scopes: `instagram_basic`, `instagram_content_publish`, `pages_show_list`,
+   `pages_read_engagement`.
+3. Get your **Instagram Business Account ID** (Graph API Explorer →
+   `me/accounts` → `instagram_business_account`).
+4. Set env vars (locally) **or** GitHub repo secrets (for the scheduled workflow):
 
 ```
-scripts/instagram-bot/
-├── README.md              ← you are here
-├── post-daily.mjs         ← main entry point
-├── content-generator.mjs  ← Gemini-powered content writer
-├── image-generator.mjs    ← SVG → 1080×1080 PNG renderer
-├── hashtag-picker.mjs     ← rotates 20-25 trending edu hashtags
-├── instagram-api.mjs      ← Graph API client (post + publish)
-└── post-templates.json    ← 7 template recipes
+IG_BUSINESS_ACCOUNT_ID=1784xxxxxxxxxxx
+IG_ACCESS_TOKEN=EAAG...               # long-lived
+# RECOMMENDED — free Pexels key → real photo backgrounds (the @information_unlocked
+# look). Without it, posts use premium gradients (still on-brand). Get one at
+# https://www.pexels.com/api/  (free, instant):
+PEXELS_API_KEY=563492ad...
+# optional — host media on your own bucket instead of the free 0x0.st:
+FIREBASE_STORAGE_BUCKET=gen-lang-client-0838820295.appspot.com
+GOOGLE_APPLICATION_CREDENTIALS=./service-account.json
 ```
 
-## Customising
+> **Design note:** the poster engine (`lib/renderer.mjs`) is the "factsdailyy /
+> @information_unlocked" style — real Pexels photo + dark scrim + bold **Anton**
+> headline + accent chip + branded CTA slide. Fonts live in `assets/fonts/`.
+>
+> **Reels:** with `PEXELS_API_KEY` set, fact/GK/timeline reels use **real looping
+> stock VIDEO** behind the text (highest reach); without it they use a photo/
+> gradient slideshow. Formula/code/MCQ reels always use clean static cards.
+> Slides are paced slow (min 2.8s) for readability; each reel gets a different
+> calm track from `assets/music/`. Mix is **6 reels + 3 carousels + 2 images**
+> (tune via `IG_REELS` / `IG_CAROUSELS` / `IG_IMAGES`).
 
-- **Add a new post type** → edit `post-templates.json` (add a new entry)
-- **Change visual style** → edit `image-generator.mjs` (`buildSvg`)
-- **Update hashtags** → edit `hashtag-picker.mjs`
-- **Different daily rotation** → edit `WEEKDAY_TYPES` in `post-daily.mjs`
+5. Post for real: `npm run ig:run`
 
-## Troubleshooting
+## Scheduling (automatic)
 
-- **`Container create failed (400)`** → image URL not reachable or caption too long (max 2200 chars)
-- **`Permissions error`** → access token missing scopes; regenerate with all 4 scopes
-- **Token expired** → Page tokens are valid until you revoke them, BUT user tokens expire in 60 days. Use Page tokens (step 4 in setup).
-- **Posts not appearing** → check that Instagram account is Business/Creator (Personal accounts cannot use the API)
+`.github/workflows/instagram-daily.yml` runs **5 times/day at IST peak hours**
+(07:30, 12:30, 16:00, 19:30, 21:30) — **2 posts per slot** for maximum reach and
+natural spacing. The dedup registry + day-plan are committed back so the slots
+share one plan and content never repeats. The workflow is **skipped until
+`IG_ACCESS_TOKEN` is set**, so it never fails before setup. Trigger a manual dry
+run anytime from the **Actions tab → Run workflow**.
 
-## Audit log
+## Algorithm strategy baked in
 
-Every run (dry or real) appends to `.instagram-bot-output/audit.jsonl`. Each line is one JSON record with timestamp, template, post ID, and full caption.
+- **Formats by reach:** Reels weighted highest (5/10), carousels for saves (3/10).
+- **Hooks:** first line of every caption is a scroll-stopper (the first ~125 chars
+  are what Instagram shows).
+- **Engagement prompts:** every post ends with a question + a "Save 🔖 & share" +
+  follow CTA → drives comments/saves/shares (the strongest ranking signals).
+- **Hashtags:** relevance-first pyramid (2 broad + 5 medium + 5 niche + 1 branded)
+  in-caption, **rotated per post** (identical blocks get throttled); a deeper set
+  is posted as the **first comment**.
+- **Timing:** 5 peak-hour slots spread across the day.
+- **Consistency:** 10/day, every day, forever — the single biggest growth lever.
 
-## Safety
+## Customisation
 
-- Bot **never logs in with username/password** — uses official Graph API tokens
-- Bot **never deletes or comments** on posts — only publishes new ones
-- Bot **never auto-replies** to DMs or comments
-- Manual review encouraged — set `DRY_RUN=true` to inspect first
+- **Music for reels:** drop any `.mp3` into `scripts/instagram-bot/assets/music/`
+  — it's used automatically (otherwise reels ship a silent track). ⚠️ Instagram's
+  Graph API **cannot** attach its *trending/licensed* audio to API-posted reels;
+  only audio embedded in the video file is allowed. For trending-audio reels,
+  post by hand.
+- **Themes / branding:** edit `lib/renderer.mjs` (`THEMES`, footer, layout).
+- **Content mix / sources:** edit `lib/content-engine.mjs` (`buildDayPlan`) and
+  `lib/data-loader.mjs` (`loadAtoms`).
+
+## Limits & safety
+
+- Instagram allows **25 published posts / 24h** per account; we post 10. ✓
+- DRY_RUN is the default for previews — **zero API calls, zero cost.**
+- The old single-post bot (`post-daily.mjs`) is kept for reference; `run-daily.mjs`
+  supersedes it.

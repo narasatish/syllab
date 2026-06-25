@@ -10,6 +10,7 @@ import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { cn } from '../lib/utils';
 import { exportNcertChapterAsPDF } from '../lib/printPdf';
+import { usePathname } from '../lib/isomorphic';
 import {
   loadNcertSolutions, chaptersWithSolutions, findChapter, qaForKey,
   type NcertChapter,
@@ -25,7 +26,7 @@ function parsePath(pathname: string): { classLevel?: string; subjSlug?: string; 
 
 export default function NcertSolutions() {
   const [ready, setReady] = useState(false);
-  const [path, setPath] = useState(() => (typeof window !== 'undefined' ? window.location.pathname : '/ncert-solutions'));
+  const [path, setPath] = useState(usePathname());
 
   useEffect(() => {
     loadNcertSolutions().then(() => setReady(true));
@@ -76,7 +77,7 @@ function NcertIndex({ all, go }: { all: NcertChapter[]; go: (to: string) => void
       <SEO
         title="Free NCERT Solutions for Class 6–12 (CBSE) — Chapter-wise Answers | Syllab.in"
         description="Free NCERT solutions for CBSE Class 6 to 12 — chapter-wise, step-by-step answers to textbook exercises in Science, Maths, Physics, Chemistry & Biology for Indian students."
-        keywords="NCERT solutions free, NCERT solutions Class 10, NCERT solutions Class 9, NCERT solutions Class 12, CBSE NCERT solutions chapter wise, NCERT Science solutions, NCERT Maths solutions, free textbook solutions India"
+        keywords="NCERT solutions free, NCERT solutions Class 9, NCERT solutions Class 10, NCERT solutions Class 11, NCERT solutions Class 12, CBSE NCERT solutions chapter wise, NCERT Maths solutions, NCERT Physics solutions, NCERT Chemistry solutions, NCERT Biology solutions, free textbook solutions India"
         url={`${SITE}/ncert-solutions`}
         jsonLd={{
           '@context': 'https://schema.org', '@type': 'CollectionPage',

@@ -13,6 +13,7 @@ import React, {
 } from 'react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { motion, AnimatePresence } from 'motion/react';
+import { usePathname, useHydrated } from '../lib/isomorphic';
 import { recordLearningActivity } from '../lib/progressTracker';
 import {
   BookOpen,
@@ -1256,19 +1257,27 @@ interface SkillsLabProps {
 }
 
 export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabProps) {
+  // SSR-safe: usePathname() yields the request URL on the server and
+  // window.location.pathname on the client — same value per route, so the
+  // deep-linked language matches across hydration (no mismatch).
+  const ssrPathname = usePathname();
   const [activeLangId, setActiveLangId] = useState<string>(() => {
     // Honor a deep link like /coding/<lang>[/<topic>] so visitors landing from
     // Google (or sharing a link) open the right language instead of the default.
-    if (typeof window !== 'undefined') {
-      const seg = window.location.pathname.split('/').filter(Boolean); // ['coding','python',...]
-      if (seg[0] === 'coding' && seg[1] && LANGUAGES.some((l) => l.id === seg[1])) return seg[1];
-    }
+    const seg = ssrPathname.split('/').filter(Boolean); // ['coding','python',...]
+    if (seg[0] === 'coding' && seg[1] && LANGUAGES.some((l) => l.id === seg[1])) return seg[1];
     return 'python';
   });
   const [activeTopicId, setActiveTopicId] = useState<string>('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'topic' | 'career' | 'challenges' | 'projects'>('topic');
-  const [completed, setCompleted] = useState<Record<string, string[]>>(loadCompleted);
+  // SSR-safe: empty on server + first client render (matches), then load saved
+  // progress after hydration so completed badges don't cause a hydration mismatch.
+  const [completed, setCompleted] = useState<Record<string, string[]>>({});
+  const hydratedForCompleted = useHydrated();
+  useEffect(() => {
+    if (hydratedForCompleted) setCompleted(loadCompleted());
+  }, [hydratedForCompleted]);
   const [pointsToast, setPointsToast] = useState<{ pts: number; topic: string } | null>(null);
   const [topicsLoading, setTopicsLoading] = useState(false);
   // Bumped when a language finishes loading so the topics memo re-reads the cache

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { FULL_ARTICLES } from '../data/updateArticles';
 import {
@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import StructuredData from '../seo/StructuredData';
+import StudyNudge from '../components/StudyNudge';
+import { getStreak } from '../lib/gamification';
 import HomeFeatureGrid from '../components/HomeFeatureGrid';
 import HomeInteractiveDemo from '../components/HomeInteractiveDemo';
 import WhatsNew from '../components/WhatsNew';
@@ -79,6 +81,27 @@ const HOME_SCHEMA = [
 ];
 
 export default function HomePage({ setTab, currentUser, stats, userClass }: HomePageProps) {
+  // "Pick up where you left off" — reads the client-side breadcrumb App writes on
+  // every learning-area visit. Shown only when recent (≤14 days) so it never feels stale.
+  const [resume, setResume] = useState<{ tab: string; label: string; ts: number } | null>(null);
+  const [streakAtRisk, setStreakAtRisk] = useState(0);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('syllab_last_visit');
+      if (raw) {
+        const v = JSON.parse(raw);
+        if (v && v.tab && v.label && Date.now() - (v.ts || 0) < 14 * 86400000) setResume(v);
+      }
+    } catch { /* ignore */ }
+    // Streak nudge: active streak but nothing done today → remind them to keep it alive.
+    try {
+      const s = getStreak();
+      const d = new Date();
+      const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+      if (s.count >= 1 && s.last !== today) setStreakAtRisk(s.count);
+    } catch { /* ignore */ }
+  }, []);
+
   const handleClassClick = (classNum: number) => {
     if (setTab) {
       setTab(`class_${classNum}`);
@@ -136,6 +159,43 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           description: 'AI-powered learning platform for Indian students, Class 1–12. NCERT-aligned, free.',
         }}
       />
+
+      {/* Retention: keep-your-streak nudge when nothing's been done today */}
+      {streakAtRisk > 0 && (
+        <div className="px-4 pt-4">
+          <button
+            onClick={() => setTab?.('daily')}
+            className="flex w-full items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 px-5 py-4 text-left shadow-sm transition-all hover:shadow-md dark:border-amber-900/40 dark:from-amber-950/30 dark:to-orange-950/20"
+          >
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-widest text-amber-600">🔥 Keep your streak alive</p>
+              <p className="mt-0.5 text-base font-black text-slate-800 dark:text-slate-100">You're on a {streakAtRisk}-day streak — do one quick thing today!</p>
+            </div>
+            <span className="shrink-0 rounded-full bg-amber-500 px-4 py-2 text-xs font-black text-white shadow-sm">Today's quiz →</span>
+          </button>
+        </div>
+      )}
+
+      {/* Retention: one-tap return to the last learning area visited */}
+      {resume && (
+        <div className="px-4 pt-4">
+          <button
+            onClick={() => setTab?.(resume.tab)}
+            className="flex w-full items-center justify-between gap-3 rounded-2xl border border-emerald-100 bg-gradient-to-r from-emerald-50 to-teal-50 px-5 py-4 text-left shadow-sm transition-all hover:shadow-md"
+          >
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">↩ Pick up where you left off</p>
+              <p className="mt-0.5 text-base font-black text-slate-800">{resume.label}</p>
+            </div>
+            <span className="shrink-0 rounded-full bg-emerald-500 px-4 py-2 text-xs font-black text-white shadow-sm">Continue →</span>
+          </button>
+        </div>
+      )}
+
+      {/* Personal "revise your weak chapters" nudge from Study Room memory */}
+      <div className="px-4 pt-4">
+        <StudyNudge onOpenStudyRoom={() => setTab?.('study_room')} />
+      </div>
 
       <style>{`
         @keyframes float-slow {
@@ -303,6 +363,26 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         </div>
       </section>
 
+      {/* ── USP HIGHLIGHTS — what makes Syllab different (keep it to 3) ───────── */}
+      <section className="max-w-6xl mx-auto px-5 pt-10">
+        <div className="grid gap-4 sm:grid-cols-3">
+          {([
+            { tab: 'learning_lab', emoji: '🎓', title: 'AI Tuition Teacher', desc: 'Daily homework by class & chapter — type or upload your answers, get marked instantly with XP. Like a private tutor, free.', badge: 'NEW', grad: 'from-emerald-500 to-teal-600' },
+            { tab: 'important_questions', emoji: '🎯', title: 'Important Questions', desc: 'Chapter-wise board-exam questions for Class 6–12, each with a full AI answer.', badge: 'NEW', grad: 'from-violet-500 to-indigo-600' },
+            { tab: 'syllabus', emoji: '👶', title: 'Kids Zone + Worksheets', desc: 'Free preschool learning, stories, games & 200+ printable worksheets.', badge: 'FREE', grad: 'from-pink-500 to-rose-600' },
+          ]).map((c) => (
+            <button key={c.tab} onClick={() => { setTab?.(c.tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${c.grad} p-5 text-left text-white shadow-lg transition-transform hover:-translate-y-1`}>
+              {c.badge ? <span className="absolute right-3 top-3 rounded-full bg-white/25 px-2 py-0.5 text-[10px] font-black tracking-wider">{c.badge}</span> : null}
+              <div className="text-4xl">{c.emoji}</div>
+              <h3 className="mt-3 text-lg font-black">{c.title}</h3>
+              <p className="mt-1 text-sm font-medium text-white/85">{c.desc}</p>
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-black text-white/90">Explore →</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
       {/* ── PICK YOUR CLASS ──────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16 pb-16 sm:pb-20">
         <div className="text-center mb-10">
@@ -462,7 +542,7 @@ const FAQS = [
   },
   {
     q: 'Is Syllab.in completely free?',
-    a: 'Yes. Core features including Skills Lab (Python, AI, SQL, Java, HTML, CSS, JS), AI Tutor, chapter practice, and daily challenges are completely free. No credit card required. No hidden subscription.',
+    a: 'Yes. Core features including the AI Tuition Teacher (personalized daily homework with instant marking), Skills Lab (Python, AI, SQL, Java, HTML, CSS, JS), AI Tutor, chapter practice, and daily challenges are completely free. No credit card required. No hidden subscription.',
   },
   {
     q: 'Which classes does Syllab cover?',

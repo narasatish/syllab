@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { getUserStats, UserStats } from '../lib/api';
 import MasteryProgress from '../components/MasteryProgress';
 import ProactiveNudge from '../components/ProactiveNudge';
+import StudyNudge from '../components/StudyNudge';
 
 interface DashboardPageProps {
   currentUser: FirebaseUser | null;
@@ -119,6 +120,9 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
       {/* Proactive Nudge — surfaces weakest topic */}
       <ProactiveNudge mistakes={mistakes} setTab={setTab} />
 
+      {/* Study Room memory — recent + weak chapters from flashcard sessions */}
+      <StudyNudge onOpenStudyRoom={() => setTab('study_room')} variant="card" />
+
       {!currentUser && (
         <div className="bg-yellow-50 border border-yellow-200 text-yellow-700 px-4 py-3 rounded-xl text-sm">
           ⚠️ Login to track your performance, XP, accuracy, and streak over time.
@@ -129,21 +133,38 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
         {leaderboardTab === 'stats' ? (
           <motion.div key="stats" className="space-y-8">
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
-              {[
-                { label: 'Global Rank', value: stats.rank, icon: Trophy },
-                { label: 'XP Score', value: stats.xp, icon: Clock3 },
-                { label: 'Lvl', value: stats.level, icon: Star },
-                { label: 'Streak', value: `${stats.streak}d`, icon: Zap },
-                { label: 'Accuracy', value: `${stats.accuracy}%`, icon: BarChart3 },
-              ].map((stat, i) => (
-                <div key={i} className="bg-white p-6 rounded-3xl border text-center">
-                  <stat.icon className="mx-auto mb-2 text-primary" size={20} />
-                  <div className="text-xs text-gray-400">{stat.label}</div>
-                  <div className="text-xl font-bold">{stat.value}</div>
-                </div>
-              ))}
-            </div>
+            {!currentUser ? (
+              <div className="bg-blue-50 border border-blue-200 rounded-3xl p-8 text-center">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                  Sign in to track your progress
+                </h3>
+                <p className="text-slate-600 mb-6">
+                  Create your free Syllab account to see your XP, accuracy, streak, and compete on the global leaderboard.
+                </p>
+                <button
+                  onClick={() => setTab('profile')}
+                  className="inline-block px-8 py-3 bg-primary text-white rounded-2xl font-bold hover:bg-emerald-600 transition-colors"
+                >
+                  Sign In Now
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
+                {[
+                  { label: 'Global Rank', value: stats.rank, icon: Trophy },
+                  { label: 'XP Score', value: stats.xp, icon: Clock3 },
+                  { label: 'Lvl', value: stats.level, icon: Star },
+                  { label: 'Streak', value: `${stats.streak}d`, icon: Zap },
+                  { label: 'Accuracy', value: `${stats.accuracy}%`, icon: BarChart3 },
+                ].map((stat, i) => (
+                  <div key={i} className="bg-white p-6 rounded-3xl border text-center">
+                    <stat.icon className="mx-auto mb-2 text-primary" size={20} />
+                    <div className="text-xs text-gray-400">{stat.label}</div>
+                    <div className="text-xl font-bold">{stat.value}</div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {/* Mastery Progression */}
             <div className="bg-white p-6 rounded-2xl border border-slate-100">
@@ -214,7 +235,12 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
           </motion.div>
         ) : (
           <motion.div key="leaderboard" className="bg-white p-6 rounded-2xl">
-            <h3 className="text-center font-bold mb-4">Leaderboard</h3>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-center flex-1 font-bold">Leaderboard</h3>
+              <span className="text-xs bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full font-semibold">
+                Sample — sign in & compete
+              </span>
+            </div>
             {entries.map((entry, i) => (
               <div key={i} className="flex justify-between py-2">
                 <span>{entry.displayName}</span>

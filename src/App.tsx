@@ -5,8 +5,8 @@
 
 import React, { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { trackPageview } from './lib/analytics';
+import { usePathname } from './lib/isomorphic';
 import {
-  Baby,
   BookOpen,
   Bot,
   Building2,
@@ -14,7 +14,6 @@ import {
   ChartNoAxesCombined,
   ChevronDown,
   ClipboardList,
-  FileText,
   Eye,
   EyeOff,
   Home,
@@ -30,13 +29,15 @@ import {
   Zap,
 } from 'lucide-react';
 import { AVATAR_REWARDS, isAvatarUnlocked } from './data/avatarRewards';
-import { AnimatePresence, motion } from 'framer-motion';
 import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { cn } from './lib/utils';
 import SEO from './components/SEO';
 import InstallPrompt from './components/InstallPrompt';
 import ColdStartBanner from './components/ColdStartBanner';
-import PomodoroTimer from './components/PomodoroTimer';
+// Lazy — PomodoroTimer is an opt-in focus widget that uses framer-motion. Loading
+// it lazily keeps the vendor-motion chunk out of the entry/critical path (it loads
+// in the background after first paint instead of blocking mobile LCP).
+const PomodoroTimer = React.lazy(() => import('./components/PomodoroTimer'));
 import DarkModeToggle from './components/DarkModeToggle';
 import { FIREBASE_AUTH_ENABLED, FIRESTORE_FEATURES_ENABLED } from './lib/cloudFeatures';
 import { SYLLABUS } from './data/syllabus';
@@ -100,6 +101,40 @@ const NcertSolutionsPage = React.lazy(() => import('./pages/NcertSolutions'));
 const LiveQuizPage = React.lazy(() => import('./pages/LiveQuiz'));
 const AlternativesPage = React.lazy(() => import('./pages/Alternatives'));
 const KidsPage = React.lazy(() => import('./pages/Kids'));
+const GkQuestionsPage = React.lazy(() => import('./pages/GkQuestions'));
+const ImportantQuestionsPage = React.lazy(() => import('./pages/ImportantQuestions'));
+const MockExamLandingPage = React.lazy(() => import('./pages/MockExamLanding'));
+const CollegePredictorLandingPage = React.lazy(() => import('./pages/CollegePredictorLanding'));
+const EnglishTopicsPage = React.lazy(() => import('./pages/EnglishTopics'));
+const CareerGuidesPage = React.lazy(() => import('./pages/CareerGuides'));
+const PreviousYearPapersPage = React.lazy(() => import('./pages/PreviousYearPapers'));
+const FormulaSheetsPage = React.lazy(() => import('./pages/FormulaSheets'));
+const StateBoardSolutionsPage = React.lazy(() => import('./pages/StateBoardSolutions'));
+const AiHubPage = React.lazy(() => import('./pages/AiHub'));
+const EmbedPage = React.lazy(() => import('./pages/EmbedPage'));
+const MedicalCollegesPage = React.lazy(() => import('./pages/MedicalColleges'));
+const CollegeFinderPage = React.lazy(() => import('./pages/CollegeFinder'));
+const ScholarshipsPage = React.lazy(() => import('./pages/Scholarships'));
+const DifferencesPage = React.lazy(() => import('./pages/Differences'));
+const FullFormsPage = React.lazy(() => import('./pages/FullForms'));
+const GlossaryPage = React.lazy(() => import('./pages/Glossary'));
+const RevisionNotesPage = React.lazy(() => import('./pages/RevisionNotes'));
+const SamplePapersPage = React.lazy(() => import('./pages/SamplePapers'));
+const MathsTablesPage = React.lazy(() => import('./pages/MathsTables'));
+const EnglishWritingPage = React.lazy(() => import('./pages/EnglishWriting'));
+const ChapterMcqsPage = React.lazy(() => import('./pages/ChapterMcqs'));
+const StaticGkPage = React.lazy(() => import('./pages/StaticGk'));
+const VisualLearningPage = React.lazy(() => import('./pages/VisualLearning'));
+const TimelinesPage = React.lazy(() => import('./pages/Timelines'));
+const WhatToStudyPage = React.lazy(() => import('./pages/WhatToStudy'));
+const QuizDuelPage = React.lazy(() => import('./pages/QuizDuel'));
+const PyqsPage = React.lazy(() => import('./pages/Pyqs'));
+const KidsSubjectLandingPage = React.lazy(() => import('./pages/KidsSubjectLanding'));
+const EnglishVocabPage = React.lazy(() => import('./pages/EnglishVocab'));
+const EnglishLiteraturePage = React.lazy(() => import('./pages/EnglishLiterature'));
+const ConceptExplainersPage = React.lazy(() => import('./pages/ConceptExplainers'));
+const SolvedExamplesPage = React.lazy(() => import('./pages/SolvedExamples'));
+const LabPracticalsPage = React.lazy(() => import('./pages/LabPracticals'));
 const DoubtSolverPage = React.lazy(() => import('./pages/Scan'));
 const MicrolearningPage = React.lazy(() => import('./pages/Microlearning'));
 const StudyRoomPage = React.lazy(() => import('./pages/StudyRoom'));
@@ -194,6 +229,38 @@ const TAB_TO_PATH: Record<string, string> = {
   study_room: '/study-room',
   calculators: '/calculators',
   worksheets: '/worksheets',
+  important_questions: '/important-questions',
+  english_grammar: '/english-grammar',
+  career_guides: '/career',
+  college_predictor: '/college-predictor',
+  previous_year_papers: '/previous-year-papers',
+  formula_sheets: '/formula-sheets',
+  state_board_solutions: '/state-board-solutions',
+  ai_hub: '/ai-hub',
+  embed: '/embed',
+  medical_colleges: '/medical-colleges',
+  college_finder: '/best-colleges',
+  scholarships: '/scholarships',
+  differences: '/difference-between',
+  full_forms: '/full-forms',
+  glossary: '/glossary',
+  revision_notes: '/revision-notes',
+  sample_papers: '/sample-papers',
+  maths_tables: '/maths-tables',
+  english_writing: '/english-writing',
+  chapter_mcqs: '/mcqs',
+  static_gk: '/gk-facts',
+  visual_learning: '/visual-learning',
+  timelines: '/timelines',
+  what_to_study: '/what-to-study',
+  quiz_duel: '/quiz-duel',
+  pyqs: '/pyqs',
+  kids_subject: '/maths-for-kids',
+  english_vocab: '/vocabulary',
+  english_literature: '/english-literature',
+  concepts: '/concepts',
+  solved_examples: '/solved-examples',
+  lab_practicals: '/lab-practicals',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -205,6 +272,33 @@ const LEGACY_PATH_TO_TAB: Record<string, string> = {
   '/skills-lab': 'skills_lab',
   '/english-lab': 'english_lab',
   '/general-knowledge': 'general_knowledge',
+};
+
+// Secondary nav items grouped under an "Explore ▾" dropdown to keep the top bar clean.
+// Organised into clear categories so the menu reads cleanly (and maps 1:1 to the
+// sections a mobile app would use). english_vocab + static_gk are intentionally
+// absent — they live inside the English page and the GK hub respectively.
+const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
+  { heading: 'Study Material', ids: ['important_questions', 'pyqs', 'what_to_study', 'revision_notes', 'concepts', 'visual_learning', 'timelines', 'solved_examples', 'sample_papers', 'chapter_mcqs', 'lab_practicals'] },
+  { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
+  { heading: 'English', ids: ['english_writing', 'english_literature'] },
+  { heading: 'General Knowledge', ids: ['general_knowledge'] },
+  { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'career', 'updates'] },
+];
+const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
+
+// Learning areas worth offering as "pick up where you left off" on Home.
+// (Excludes home/profile/dashboard/login/parent — those aren't study activities.)
+const RESUMABLE_TABS: Record<string, string> = {
+  syllabus: '📚 Syllabus',
+  arena: '🎯 Practice',
+  mock_tests: '📝 Mock Tests',
+  learning_lab: '🤖 AI Tutor',
+  skills_lab: '⚡ Coding',
+  english_lab: '🔤 English',
+  daily: '📅 Daily Challenge',
+  general_knowledge: '🧠 General Knowledge',
+  study_room: '⏱️ Study Room',
 };
 
 const PATH_TO_TAB: Record<string, string> = Object.fromEntries(
@@ -227,6 +321,41 @@ function resolveTab(pathname: string): string {
   if (pathname === '/live-quiz' || pathname.startsWith('/live-quiz/')) return 'live_quiz';
   if (pathname === '/free-alternatives' || pathname.endsWith('-alternative')) return 'alternatives';
   if (pathname === '/kids' || pathname.startsWith('/kids/')) return 'kids';
+  if (pathname === '/gk-questions' || pathname.startsWith('/gk-questions/')) return 'gk_questions';
+  if (pathname === '/important-questions' || pathname.startsWith('/important-questions/')) return 'important_questions';
+  // SEO landing clusters (deep routes → their own pages; bare /mock-tests stays the main page).
+  if (pathname.startsWith('/mock-tests/')) return 'mock_exam';
+  if (pathname === '/english-grammar' || pathname.startsWith('/english-grammar/')) return 'english_grammar';
+  if (pathname === '/career' || pathname.startsWith('/career/')) return 'career_guides';
+  if (pathname === '/college-predictor' || pathname.startsWith('/college-predictor/')) return 'college_predictor';
+  if (pathname === '/previous-year-papers' || pathname.startsWith('/previous-year-papers/')) return 'previous_year_papers';
+  if (pathname === '/formula-sheets' || pathname.startsWith('/formula-sheets/')) return 'formula_sheets';
+  if (pathname === '/state-board-solutions' || pathname.startsWith('/state-board-solutions/')) return 'state_board_solutions';
+  if (pathname === '/ai-hub' || pathname.startsWith('/ai-hub/')) return 'ai_hub';
+  if (pathname === '/embed') return 'embed';
+  if (pathname === '/medical-colleges' || pathname.startsWith('/medical-colleges/')) return 'medical_colleges';
+  if (pathname === '/best-colleges' || pathname.startsWith('/best-colleges/') || pathname === '/colleges-accepting' || pathname.startsWith('/colleges-accepting/')) return 'college_finder';
+  if (pathname === '/scholarships') return 'scholarships';
+  if (pathname === '/difference-between' || pathname.startsWith('/difference-between/')) return 'differences';
+  if (pathname === '/full-forms' || pathname.startsWith('/full-forms/')) return 'full_forms';
+  if (pathname === '/glossary' || pathname.startsWith('/glossary/')) return 'glossary';
+  if (pathname === '/revision-notes' || pathname.startsWith('/revision-notes/')) return 'revision_notes';
+  if (pathname === '/sample-papers' || pathname.startsWith('/sample-papers/')) return 'sample_papers';
+  if (pathname === '/maths-tables' || pathname.startsWith('/maths-tables/')) return 'maths_tables';
+  if (pathname === '/english-writing' || pathname.startsWith('/english-writing/')) return 'english_writing';
+  if (pathname === '/mcqs' || pathname.startsWith('/mcqs/')) return 'chapter_mcqs';
+  if (pathname === '/gk-facts' || pathname.startsWith('/gk-facts/')) return 'static_gk';
+  if (pathname === '/visual-learning' || pathname.startsWith('/visual-learning/')) return 'visual_learning';
+  if (pathname === '/timelines' || pathname.startsWith('/timelines/')) return 'timelines';
+  if (pathname === '/what-to-study' || pathname.startsWith('/what-to-study/')) return 'what_to_study';
+  if (pathname === '/quiz-duel') return 'quiz_duel';
+  if (pathname === '/pyqs' || pathname.startsWith('/pyqs/')) return 'pyqs';
+  if (['/maths-for-kids', '/science-for-kids', '/english-for-kids'].includes(pathname)) return 'kids_subject';
+  if (pathname === '/vocabulary' || pathname.startsWith('/vocabulary/')) return 'english_vocab';
+  if (pathname === '/english-literature' || pathname.startsWith('/english-literature/')) return 'english_literature';
+  if (pathname === '/concepts' || pathname.startsWith('/concepts/')) return 'concepts';
+  if (pathname === '/solved-examples' || pathname.startsWith('/solved-examples/')) return 'solved_examples';
+  if (pathname === '/lab-practicals' || pathname.startsWith('/lab-practicals/')) return 'lab_practicals';
   if (pathname === '/doubt-solver') return 'doubt_solver';
   if (pathname === '/micro' || pathname.startsWith('/micro/')) return 'microlearning';
   // Coding deep links (/coding/<lang>, /coding/<lang>/<topic>) — without this,
@@ -239,9 +368,9 @@ function resolveTab(pathname: string): string {
 
 const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string; jsonLd?: Record<string, unknown> | Record<string, unknown>[] }> = {
   worksheets: {
-    title: 'Free Printable Worksheets — Tracing Letters, Numbers, Shapes (PDF) | Syllab.in',
-    description: 'Download free printable worksheets for Pre-KG, LKG & UKG kids: alphabet tracing (A–Z), number tracing & counting, and shapes — print or save as PDF. Free, watermarked, made-in-India worksheets for early learning.',
-    keywords: 'free printable worksheets, alphabet tracing worksheets pdf, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, kindergarten worksheets free download India, pre-kg worksheets pdf',
+    title: 'Free Printable Worksheets — Letters, Phonics, Maths, Reading & More (PDF) | Syllab.in',
+    description: 'Download 100+ free printable worksheets for Pre-KG to Class 2: letters & tracing, phonics, sight words, reading, maths, shapes and more — print or save as PDF. Free, no signup.',
+    keywords: 'free printable worksheets, alphabet tracing worksheets pdf, phonics worksheets, sight words worksheet, reading comprehension worksheets kids, addition subtraction worksheets, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, colors worksheet, science worksheets kindergarten, social emotional worksheets, kindergarten worksheets free download India, pre-kg worksheets pdf',
     url: 'https://syllab.in/worksheets',
   },
   calculators: {
@@ -743,12 +872,8 @@ function LoginModal({
   if (authStep === 'role') {
     return (
       <div className="fixed inset-0 z-[60] flex items-end justify-center overflow-y-auto p-3 sm:items-center sm:p-4">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 16 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          className="relative w-full max-w-md rounded-[1.75rem] bg-white p-6 shadow-2xl sm:rounded-[2.5rem] sm:p-10"
-        >
+        <div className="app-overlay-in absolute inset-0 bg-slate-900/60 backdrop-blur-sm" />
+        <div className="app-card-in relative w-full max-w-md rounded-[1.75rem] bg-white p-6 shadow-2xl sm:rounded-[2.5rem] sm:p-10">
           <div className="text-center mb-8">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-3xl shadow-xl shadow-emerald-500/20">
               👋
@@ -783,24 +908,18 @@ function LoginModal({
           <p className="mt-6 text-center text-[10px] font-bold uppercase tracking-widest text-slate-300">
             You can change this later in your profile
           </p>
-        </motion.div>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="fixed inset-0 z-[60] flex items-end justify-center overflow-y-auto p-3 sm:items-center sm:p-4">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+      <div
+        className="app-overlay-in absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
         onClick={loading ? undefined : onClose}
       />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 16 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-md overflow-y-auto rounded-[1.75rem] bg-white p-5 shadow-2xl sm:max-h-[calc(100dvh-2rem)] sm:rounded-[2.5rem] sm:p-8 md:p-10"
-      >
+      <div className="app-card-in relative max-h-[calc(100dvh-1.5rem)] w-full max-w-md overflow-y-auto rounded-[1.75rem] bg-white p-5 shadow-2xl sm:max-h-[calc(100dvh-2rem)] sm:rounded-[2.5rem] sm:p-8 md:p-10">
         <button
           type="button"
           onClick={onClose}
@@ -975,19 +1094,21 @@ function LoginModal({
             </div>
           ) : null}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState(() => resolveTab(window.location.pathname));
+  // SSR-safe: usePathname() returns the request URL on the server and
+  // window.location.pathname on the client — same value per route, so the
+  // initial activeTab (and thus rendered page) matches across hydration.
+  const initialPath = usePathname();
+  const [activeTab, setActiveTab] = useState(() => resolveTab(initialPath));
   const [parentBannerHidden, setParentBannerHidden] = useState(false);
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
   const [stats, setStats] = useState<UserStats>(DEFAULT_USER_STATS);
   const [progress, setProgress] = useState<UserProgress>(DEFAULT_USER_PROGRESS);
-  const [loading, setLoading] = useState(true);
-  const [authLoading, setAuthLoading] = useState(true);
   const [appError, setAppError] = useState<string | null>(null);
   const [practiceConfig, setPracticeConfig] = useState<Record<string, unknown> | null>(null);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
@@ -997,14 +1118,19 @@ export default function App() {
   const [userClass, setUserClass] = useState(getStoredClass);
   const [userRole, setUserRole] = useState<'student' | 'parent' | null>(getStoredRole);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [moreNavOpen, setMoreNavOpen] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const profileDropdownRef = useRef<HTMLDivElement>(null);
+  const moreNavRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (profileDropdownRef.current && !profileDropdownRef.current.contains(e.target as Node)) {
         setProfileDropdownOpen(false);
+      }
+      if (moreNavRef.current && !moreNavRef.current.contains(e.target as Node)) {
+        setMoreNavOpen(false);
       }
     };
     document.addEventListener('mousedown', handler);
@@ -1023,7 +1149,6 @@ export default function App() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setAuthLoading(false);
       try {
         if (user) {
           setCurrentUser(user);
@@ -1089,9 +1214,6 @@ export default function App() {
     return () => unsubscribe();
   }, []);
 
-  useEffect(() => {
-    setLoading(false);
-  }, []);
 
   const handleAuthComplete = (role: 'student' | 'parent') => {
     setUserRole(role);
@@ -1111,6 +1233,12 @@ export default function App() {
     if (window.location.pathname !== path) {
       window.history.pushState({ tab }, '', path);
     }
+    // Retention: remember the last learning area so Home can offer a one-tap
+    // "pick up where you left off". Purely client-side (localStorage) — no cost.
+    try {
+      const label = RESUMABLE_TABS[tab];
+      if (label) localStorage.setItem('syllab_last_visit', JSON.stringify({ tab, label, ts: Date.now() }));
+    } catch { /* ignore quota/private-mode */ }
     // Tell any open modal (PPT viewer, concept viewer, tutor, etc.) to close.
     // Modals subscribe to this event so navbar clicks always escape.
     window.dispatchEvent(new CustomEvent('syllab:navigate'));
@@ -1203,10 +1331,33 @@ export default function App() {
     { id: 'skills_lab',        label: 'Coding',           icon: Zap },
     { id: 'english_lab',       label: 'English',          icon: BookOpen },
     { id: 'study_room',        label: 'Study Room',       icon: Timer },
-    { id: 'kids',              label: 'Junior',           icon: Baby },
-    { id: 'worksheets',        label: 'Worksheets',       icon: FileText },
+    // Junior + Worksheets are reached from inside the Syllabus page (a section),
+    // not the top bar, to keep the nav uncluttered. Routes still exist for SEO.
     { id: 'daily',             label: 'Daily Challenge',  icon: CalendarDays },
-    { id: 'general_knowledge', label: 'GK Quiz',          icon: BookOpen },
+    { id: 'general_knowledge', label: 'General Knowledge', icon: BookOpen },
+    { id: 'important_questions', label: 'Important Questions', icon: Target },
+    { id: 'differences',       label: 'Difference Between',  icon: BookOpen },
+    { id: 'concepts',          label: 'Concepts Explained',  icon: BookOpen },
+    { id: 'visual_learning',   label: 'Visual Learning',     icon: Sparkles },
+    { id: 'timelines',         label: 'History Timelines',   icon: BookOpen },
+    { id: 'what_to_study',     label: 'What to Study',       icon: Target },
+    { id: 'pyqs',              label: 'Previous Year Qs',    icon: BookOpen },
+    { id: 'quiz_duel',         label: 'Quiz Duel',           icon: Zap },
+    { id: 'solved_examples',   label: 'Solved Examples',     icon: BookOpen },
+    { id: 'lab_practicals',    label: 'Lab Practicals',      icon: BookOpen },
+    { id: 'revision_notes',    label: 'Revision Notes',      icon: BookOpen },
+    { id: 'sample_papers',     label: 'Sample Papers',       icon: BookOpen },
+    { id: 'chapter_mcqs',      label: 'Chapter MCQs',        icon: BookOpen },
+    { id: 'maths_tables',      label: 'Maths Tables',        icon: BookOpen },
+    { id: 'english_writing',   label: 'English Writing',     icon: BookOpen },
+    { id: 'english_literature', label: 'English Literature',  icon: BookOpen },
+    // Vocabulary (/vocabulary cluster) now lives inside the English page's
+    // Vocabulary tab; GK Facts + Biographies (/gk-facts) now live inside the
+    // General Knowledge hub. Routes + pages stay live for SEO — just removed
+    // from the top nav to keep one clean entry point each.
+    { id: 'glossary',          label: 'Glossary',            icon: BookOpen },
+    { id: 'full_forms',        label: 'Full Forms',          icon: BookOpen },
+    { id: 'ai_hub',            label: 'AI for Students',  icon: Sparkles },
     { id: 'career',            label: 'Career & Colleges', icon: Building2 },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
@@ -1217,7 +1368,6 @@ export default function App() {
     ...(userRole !== 'student' ? [{ id: 'parent', label: 'Parent Hub', icon: Users }] : []),
   ];
 
-  const isInitializing = loading || authLoading;
   const seo = PAGE_SEO[activeTab] || PAGE_SEO.home;
 
   return (
@@ -1240,13 +1390,13 @@ export default function App() {
         </button>
 
         <nav className="hidden items-center gap-1 rounded-2xl border border-slate-200/50 bg-white shadow-sm p-1.5 lg:flex">
-          {navItems.map((item) => (
+          {navItems.filter((item) => !MORE_NAV_IDS.includes(item.id)).map((item) => (
             <button
               key={item.id}
               type="button"
               onClick={() => navigate(item.id)}
               className={cn(
-                'relative rounded-xl px-5 py-2.5 text-[9px] font-black uppercase tracking-widest transition-all',
+                'relative rounded-xl px-4 py-2.5 text-[9px] font-black uppercase tracking-widest transition-all',
                 activeTab === item.id
                   ? 'bg-secondary text-white shadow-xl shadow-slate-900/20'
                   : item.featured
@@ -1263,6 +1413,54 @@ export default function App() {
               )}
             </button>
           ))}
+          {/* More ▾ — secondary items grouped to keep the bar uncluttered */}
+          {(() => {
+            const moreItems = navItems.filter((item) => MORE_NAV_IDS.includes(item.id));
+            if (!moreItems.length) return null;
+            const activeInMore = moreItems.some((m) => m.id === activeTab);
+            return (
+              <div className="relative" ref={moreNavRef}>
+                <button
+                  type="button"
+                  onClick={() => setMoreNavOpen((o) => !o)}
+                  className={cn(
+                    'relative flex items-center gap-1 rounded-xl px-4 py-2.5 text-[9px] font-black uppercase tracking-widest transition-all',
+                    activeInMore ? 'bg-secondary text-white shadow-xl shadow-slate-900/20' : 'text-slate-500 hover:text-secondary',
+                  )}
+                >
+                  Explore <ChevronDown size={12} className={cn('transition-transform', moreNavOpen && 'rotate-180')} />
+                </button>
+                {moreNavOpen && (
+                  <div className="absolute right-0 top-full z-50 mt-2 max-h-[70vh] w-64 overflow-y-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl">
+                    {MORE_NAV_GROUPS.map((group) => {
+                      const groupItems = group.ids
+                        .map((id) => navItems.find((n) => n.id === id))
+                        .filter((n): n is { id: string; label: string; icon: any; featured?: boolean } => Boolean(n));
+                      if (!groupItems.length) return null;
+                      return (
+                        <div key={group.heading} className="mb-1 last:mb-0">
+                          <p className="px-3 pb-1 pt-2 text-[9px] font-black uppercase tracking-widest text-slate-400">{group.heading}</p>
+                          {groupItems.map((item) => (
+                            <button
+                              key={item.id}
+                              type="button"
+                              onClick={() => { navigate(item.id); setMoreNavOpen(false); }}
+                              className={cn(
+                                'flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-black transition-colors',
+                                activeTab === item.id ? 'bg-emerald-50 text-emerald-700' : 'text-slate-600 hover:bg-slate-50',
+                              )}
+                            >
+                              {item.label}
+                            </button>
+                          ))}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -1351,13 +1549,9 @@ export default function App() {
       </header>
       ) : null}
 
-      <AnimatePresence>
-        {isMobileMenuOpen ? (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 overflow-y-auto bg-white px-6 pt-24 pb-10 lg:hidden"
+      {isMobileMenuOpen ? (
+          <div
+            className="app-menu-in fixed inset-0 z-40 overflow-y-auto bg-white px-6 pt-24 pb-10 lg:hidden"
           >
             {/* Profile strip */}
             {currentUser ? (
@@ -1416,9 +1610,8 @@ export default function App() {
                 </button>
               ))}
             </div>
-          </motion.div>
+          </div>
         ) : null}
-      </AnimatePresence>
 
       <LoginModal
         isOpen={isLoginModalOpen}
@@ -1473,27 +1666,17 @@ export default function App() {
             </div>
           ) : null}
 
-          {isInitializing ? (
-            <div className="flex h-[calc(100vh-160px)] flex-col items-center justify-center space-y-4">
-              <div className="h-12 w-12 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                Initializing platform settings...
-              </p>
-            </div>
-          ) : (
+          {/* Content-first: page renders immediately on the server and on first
+              client paint (no full-page auth spinner — it blocked SSR page bodies
+              and hurt LCP). Auth-dependent UI handles a null user and updates in
+              place once onAuthStateChanged resolves. */}
+          {(
             <Suspense fallback={<PageFallback />}>
               {/* Route-level safety net: a crash in ONE page shows a recovery
                   card in the content area while the nav bar stays usable. Keyed
                   by activeTab so navigating away resets the boundary. */}
               <ErrorBoundary key={activeTab}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.12 }}
-                >
+                <div key={activeTab} className="app-route-in">
                   {activeTab === 'home' ? <HomePage setTab={navigate} currentUser={currentUser} stats={stats} userClass={userClass} /> : null}
                   {activeTab === 'syllabus' ? (
                     <SyllabusPage
@@ -1559,31 +1742,137 @@ export default function App() {
                   {activeTab === 'study_room' ? <StudyRoomPage onExit={() => navigate('home')} userUid={currentUser?.uid} userName={currentUser?.displayName || currentUser?.email?.split('@')[0] || null} /> : null}
                   {activeTab === 'calculators' ? <CalculatorsPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
+                  {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
+                  {activeTab === 'important_questions' ? <ImportantQuestionsPage setTab={navigate} /> : null}
+                  {activeTab === 'mock_exam' ? <MockExamLandingPage setTab={navigate} /> : null}
+                  {activeTab === 'college_predictor' ? <CollegePredictorLandingPage setTab={navigate} /> : null}
+                  {activeTab === 'english_grammar' ? <EnglishTopicsPage setTab={navigate} /> : null}
+                  {activeTab === 'career_guides' ? <CareerGuidesPage setTab={navigate} /> : null}
+                  {activeTab === 'previous_year_papers' ? <PreviousYearPapersPage setTab={navigate} /> : null}
+                  {activeTab === 'formula_sheets' ? <FormulaSheetsPage setTab={navigate} /> : null}
+                  {activeTab === 'state_board_solutions' ? <StateBoardSolutionsPage /> : null}
+                  {activeTab === 'ai_hub' ? <AiHubPage setTab={navigate} /> : null}
+                  {activeTab === 'embed' ? <EmbedPage /> : null}
+                  {activeTab === 'medical_colleges' ? <MedicalCollegesPage /> : null}
+                  {activeTab === 'college_finder' ? <CollegeFinderPage /> : null}
+                  {activeTab === 'scholarships' ? <ScholarshipsPage /> : null}
+                  {activeTab === 'differences' ? <DifferencesPage setTab={navigate} /> : null}
+                  {activeTab === 'full_forms' ? <FullFormsPage setTab={navigate} /> : null}
+                  {activeTab === 'glossary' ? <GlossaryPage setTab={navigate} /> : null}
+                  {activeTab === 'revision_notes' ? <RevisionNotesPage setTab={navigate} /> : null}
+                  {activeTab === 'sample_papers' ? <SamplePapersPage setTab={navigate} /> : null}
+                  {activeTab === 'maths_tables' ? <MathsTablesPage setTab={navigate} /> : null}
+                  {activeTab === 'english_writing' ? <EnglishWritingPage setTab={navigate} /> : null}
+                  {activeTab === 'chapter_mcqs' ? <ChapterMcqsPage setTab={navigate} /> : null}
+                  {activeTab === 'static_gk' ? <StaticGkPage setTab={navigate} /> : null}
+                  {activeTab === 'visual_learning' ? <VisualLearningPage setTab={navigate} currentUser={currentUser} /> : null}
+                  {activeTab === 'timelines' ? <TimelinesPage /> : null}
+                  {activeTab === 'what_to_study' ? <WhatToStudyPage setTab={navigate} /> : null}
+                  {activeTab === 'quiz_duel' ? <QuizDuelPage currentUser={currentUser} /> : null}
+                  {activeTab === 'pyqs' ? <PyqsPage /> : null}
+                  {activeTab === 'kids_subject' ? <KidsSubjectLandingPage setTab={navigate} /> : null}
+                  {activeTab === 'english_vocab' ? <EnglishVocabPage setTab={navigate} /> : null}
+                  {activeTab === 'english_literature' ? <EnglishLiteraturePage setTab={navigate} /> : null}
+                  {activeTab === 'concepts' ? <ConceptExplainersPage setTab={navigate} /> : null}
+                  {activeTab === 'solved_examples' ? <SolvedExamplesPage setTab={navigate} /> : null}
+                  {activeTab === 'lab_practicals' ? <LabPracticalsPage setTab={navigate} /> : null}
                   {activeTab === 'privacy' ? (
-                    <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
-                      <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>
-                      <div className="space-y-6 text-slate-700">
-                        <p className="text-center text-lg font-semibold text-slate-500">Coming soon...</p>
-                        <p className="text-sm">Our comprehensive Privacy Policy is being prepared. We are committed to protecting your personal information and ensuring transparency about how we collect, use, and protect your data.</p>
-                        <p className="text-sm">Please check back soon for the complete Privacy Policy document.</p>
+                    <section className="prose-syllab rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto dark:bg-slate-900 dark:shadow-black/30">
+                      <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-slate-100 mb-2">Privacy Policy</h1>
+                      <p className="text-xs font-bold text-slate-400 mb-6">Last updated: 11 June 2026</p>
+                      <div className="space-y-5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        <p>Syllab.in ("Syllab", "we", "us") is a free learning platform for students in India. We respect your privacy and keep data collection to the minimum needed to run the service. This policy explains what we collect, why, and your choices.</p>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">1. Information we collect</h2>
+                          <ul className="list-disc pl-5 space-y-1">
+                            <li><strong>Account details</strong> (optional): if you sign in, your name, email and class/board — to save your progress.</li>
+                            <li><strong>Learning activity</strong>: quizzes, practice, study sessions and progress, so we can show your dashboard.</li>
+                            <li><strong>On‑device storage</strong>: we use your browser's local storage (e.g. cached answers, preferences) — this stays on your device.</li>
+                            <li><strong>Basic analytics</strong>: anonymised usage data to improve the product. We do not sell your data.</li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">2. How we use it</h2>
+                          <p>To provide and improve learning features, save your progress, personalise content to your class/board, and keep the service secure. We do <strong>not</strong> sell or rent personal data, and we do not show third‑party behavioural ads to children.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">3. Children's privacy</h2>
+                          <p>Syllab is used by school students, including those under 18. We collect only what is necessary for learning. In line with India's Digital Personal Data Protection (DPDP) Act, 2023, we expect a parent or guardian to provide consent for a child's account. Parents can request access to or deletion of a child's data by contacting us.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">4. Service providers</h2>
+                          <p>We use trusted providers to run Syllab — Google Firebase (authentication, database, hosting) and AI APIs that generate explanations. They process data only to provide their service, under their own security and privacy terms.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">5. Data security &amp; retention</h2>
+                          <p>We use reasonable technical safeguards (encrypted connections, access rules) to protect data. We keep account and progress data only while your account is active, or as required by law.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">6. Your rights</h2>
+                          <p>You can access, correct or delete your personal data, and withdraw consent, at any time. To do so, email us and we'll act on your request promptly.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">7. Changes &amp; contact</h2>
+                          <p>We may update this policy and will revise the date above. Questions or requests? Email <a href="mailto:narasatish966@gmail.com" className="font-bold text-primary hover:underline">narasatish966@gmail.com</a>.</p>
+                        </div>
                       </div>
                     </section>
                   ) : null}
                   {activeTab === 'terms' ? (
-                    <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
-                      <h1 className="text-4xl font-black text-slate-900 mb-6">Terms of Service</h1>
-                      <div className="space-y-6 text-slate-700">
-                        <p className="text-center text-lg font-semibold text-slate-500">Coming soon...</p>
-                        <p className="text-sm">Our Terms of Service are being prepared. These terms will outline the rules and regulations for the use of Syllab.in, including your rights and responsibilities as a user.</p>
-                        <p className="text-sm">Please check back soon for the complete Terms of Service document.</p>
+                    <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto dark:bg-slate-900 dark:shadow-black/30">
+                      <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-slate-100 mb-2">Terms of Service</h1>
+                      <p className="text-xs font-bold text-slate-400 mb-6">Last updated: 11 June 2026</p>
+                      <div className="space-y-5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        <p>By using Syllab.in you agree to these terms. Please read them. If you do not agree, please do not use the service.</p>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">1. The service</h2>
+                          <p>Syllab provides free educational content and tools (syllabus notes, practice, mock tests, an AI tutor, a career &amp; college predictor, worksheets and more) for students in India. Features may change or improve over time.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">2. Eligibility</h2>
+                          <p>Syllab is intended for school students. If you are under 18, you should use Syllab with the involvement and consent of a parent or guardian.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">3. Acceptable use</h2>
+                          <p>Use Syllab for learning. Do not misuse it — no attempts to break, overload or reverse‑engineer the service, no scraping at scale, no uploading unlawful or harmful content, and no using the AI features to generate abusive or unsafe content.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">4. Educational guidance only</h2>
+                          <p>All content — including AI answers, rank/college predictions, cut‑offs, fees and placement figures — is <strong>indicative and for guidance only</strong>, and may contain errors. Always verify important decisions against official sources (NCERT/CBSE, the exam board, JoSAA/MCC/NTA, and college websites). Syllab does not provide professional, legal, medical or financial advice.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">5. Intellectual property</h2>
+                          <p>Syllab's name, design and original content belong to Syllab. You may use the content for personal, non‑commercial learning. Third‑party names and trademarks belong to their owners.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">6. Disclaimers &amp; liability</h2>
+                          <p>The service is provided "as is", without warranties. To the extent permitted by law, Syllab is not liable for any loss arising from reliance on the content or from interruptions to the free service.</p>
+                        </div>
+
+                        <div>
+                          <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-1.5">7. Changes, termination &amp; law</h2>
+                          <p>We may update these terms (we'll revise the date above) and may suspend accounts that misuse the service. These terms are governed by the laws of India. Questions? Email <a href="mailto:narasatish966@gmail.com" className="font-bold text-primary hover:underline">narasatish966@gmail.com</a>.</p>
+                        </div>
                       </div>
                     </section>
                   ) : null}
                   {activeTab.startsWith('class_') ? (
                     <ClassPage classNum={parseInt(activeTab.replace('class_', ''), 10)} setTab={navigate} />
                   ) : null}
-                </motion.div>
-              </AnimatePresence>
+                </div>
               </ErrorBoundary>
             </Suspense>
           )}
@@ -1592,20 +1881,13 @@ export default function App() {
 
       {!isMockExamMode ? (
       <div className="fixed bottom-5 right-5 z-[55] flex flex-col items-end gap-3">
-        <AnimatePresence>
-          {isTutorOpen ? (
-            <motion.div
-              initial={{ opacity: 0, y: 18, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 18, scale: 0.96 }}
-              className="h-[min(680px,calc(100dvh-7rem))] w-[min(420px,calc(100vw-2rem))]"
-            >
+        {isTutorOpen ? (
+            <div className="app-tutor-in h-[min(680px,calc(100dvh-7rem))] w-[min(420px,calc(100vw-2rem))]">
               <Suspense fallback={<div className="h-full rounded-3xl bg-white p-8 text-center text-sm font-bold text-slate-400 shadow-2xl">Loading tutor...</div>}>
                 <TutorPage currentUser={currentUser} floating onClose={() => setTutorOpen(false)} />
               </Suspense>
-            </motion.div>
+            </div>
           ) : null}
-        </AnimatePresence>
         <button
           type="button"
           onClick={() => setTutorOpen((open) => !open)}
@@ -1623,93 +1905,122 @@ export default function App() {
 
       {/* Show Pomodoro Timer on practice/syllabus pages */}
       {!isMockExamMode && (activeTab === 'arena' || activeTab === 'syllabus') && (
-        <PomodoroTimer />
+        <Suspense fallback={null}><PomodoroTimer /></Suspense>
       )}
 
       {!isMockExamMode ? (
-      <footer className="bg-secondary text-white border-t border-slate-800 py-24 px-8 mt-24">
-        <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-12">
-          <div className="space-y-8">
+      <footer className="bg-secondary text-white border-t border-slate-800 py-16 px-4 sm:px-6 sm:py-20 md:py-24 mt-24">
+        <div className="mx-auto max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+          <div className="space-y-6 sm:space-y-8">
             <button
               onClick={() => navigate('home')}
-              className="flex items-center gap-3 transition-opacity hover:opacity-80"
+              className="flex items-center gap-2 sm:gap-3 transition-opacity hover:opacity-80"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-xl font-black text-white shadow-lg shadow-emerald-500/20">
+              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl bg-primary text-base sm:text-xl font-black text-white shadow-lg shadow-emerald-500/20 shrink-0">
                 S
               </div>
-              <span className="font-heading text-2xl font-black tracking-tight">Syllab</span>
+              <span className="font-heading text-lg sm:text-2xl font-black tracking-tight">Syllab</span>
             </button>
-            <p className="text-sm text-slate-400 font-medium leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
               India's AI-powered learning platform for CBSE NCERT practice, concepts, and exam readiness from Class 1 to 12.
             </p>
           </div>
 
           <div>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Learning Hub</h2>
-            <ul className="space-y-4">
-              <li><button onClick={() => navigate('syllabus')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus</button></li>
-              <li><button onClick={() => navigate('arena')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
-              <li><button onClick={() => navigate('daily')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>
-              <li><button onClick={() => navigate('mock_tests')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
-              <li><button onClick={() => navigate('progress')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Dashboard</button></li>
-              <li><button onClick={() => navigate('learning_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Tutor</button></li>
-              <li><button onClick={() => setTutorOpen(true)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
-              <li><button onClick={() => navigate('prep_hub')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Preparation Guides</button></li>
-              <li><button onClick={() => navigate('blog')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Blog</button></li>
-              <li><button onClick={() => navigate('skills_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Coding</button></li>
-              <li><button onClick={() => navigate('english_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">English</button></li>
-              <li><button onClick={() => navigate('general_knowledge')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">GK Quiz</button></li>
+            <h2 className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-primary mb-4 sm:mb-8">Learning Hub</h2>
+            <ul className="space-y-2 sm:space-y-4">
+              <li><button onClick={() => navigate('syllabus')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus</button></li>
+              <li><button onClick={() => navigate('arena')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
+              <li><button onClick={() => navigate('daily')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>
+              <li><button onClick={() => navigate('mock_tests')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
+              <li><button onClick={() => navigate('progress')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Dashboard</button></li>
+              <li><button onClick={() => navigate('learning_lab')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Tutor</button></li>
+              <li><button onClick={() => setTutorOpen(true)} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
+              <li><button onClick={() => navigate('prep_hub')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Preparation Guides</button></li>
+              <li><button onClick={() => navigate('blog')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Blog</button></li>
+              <li><button onClick={() => navigate('skills_lab')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Coding</button></li>
+              <li><button onClick={() => navigate('english_lab')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">English</button></li>
+              <li><button onClick={() => navigate('general_knowledge')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">General Knowledge</button></li>
               {/* Real <a href> so search engines pass link equity to these SEO pages */}
-              <li><a href="/career-predictor" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Career & College Predictor</a></li>
-              <li><a href="/colleges" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Top Engineering Colleges</a></li>
-              <li><a href="/ncert-solutions" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">NCERT Solutions</a></li>
-              <li><a href="/live-quiz" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Live Quiz Game</a></li>
-              <li><a href="/free-alternatives" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Alternatives</a></li>
-              <li><a href="/kids" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Kids Zone (Pre-KG–Class 3)</a></li>
-              <li><a href="/doubt-solver" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">📸 Photo Doubt Solver</a></li>
-              <li><a href="/micro" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">⚡ 5-Min Microlearning</a></li>
-              <li><button onClick={() => navigate('parent')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Parent Hub</button></li>
-              <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
+              <li><a href="/career-predictor" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Career & College Predictor</a></li>
+              <li><a href="/colleges" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Top Engineering Colleges</a></li>
+              <li><a href="/medical-colleges" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Top Medical Colleges (MBBS)</a></li>
+              <li><a href="/best-colleges/cse" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Best CSE Colleges</a></li>
+              <li><a href="/colleges-accepting/jee-main" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Colleges Accepting JEE</a></li>
+              <li><a href="/scholarships" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Scholarships</a></li>
+              <li><a href="/difference-between" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Difference Between</a></li>
+              <li><a href="/concepts" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Concepts Explained</a></li>
+              <li><a href="/solved-examples" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Solved Examples</a></li>
+              <li><a href="/lab-practicals" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Lab Practicals</a></li>
+              <li><a href="/revision-notes" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Revision Notes</a></li>
+              <li><a href="/sample-papers" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Sample Papers</a></li>
+              <li><a href="/mcqs" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Chapter MCQs</a></li>
+              <li><a href="/maths-tables" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Maths Tables</a></li>
+              <li><a href="/english-writing" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">English Writing</a></li>
+              <li><a href="/english-literature" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">English Literature</a></li>
+              <li><a href="/vocabulary" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Vocabulary</a></li>
+              <li><a href="/gk-facts" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">GK Facts</a></li>
+              <li><a href="/glossary" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Glossary</a></li>
+              <li><a href="/full-forms" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Full Forms</a></li>
+              <li><a href="/ncert-solutions" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">NCERT Solutions</a></li>
+              <li><a href="/live-quiz" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Live Quiz Game</a></li>
+              <li><a href="/free-alternatives" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Alternatives</a></li>
+              <li><a href="/kids" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Kids Zone (Pre-KG–Class 3)</a></li>
+              <li><a href="/doubt-solver" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">📸 Photo Doubt Solver</a></li>
+              <li><a href="/micro" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">⚡ 5-Min Microlearning</a></li>
+              <li><a href="/important-questions" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Important Questions</a></li>
+              <li><a href="/english-grammar" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">English Grammar</a></li>
+              <li><a href="/career" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Career Guides</a></li>
+              <li><a href="/previous-year-papers" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Previous Year Papers</a></li>
+              <li><a href="/formula-sheets" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Formula Sheets (PDF)</a></li>
+              <li><a href="/state-board-solutions" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">State Board Solutions</a></li>
+              <li><a href="/ai-hub" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI for Students</a></li>
+              <li><a href="/embed" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Link to Us / Embed</a></li>
+              <li><a href="/mock-tests/jee-main" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">JEE Main Mock Test</a></li>
+              <li><a href="/mock-tests/neet" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">NEET Mock Test</a></li>
+              <li><a href="/college-predictor" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">College Predictor</a></li>
+              <li><button onClick={() => navigate('parent')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Parent Hub</button></li>
+              <li><button onClick={() => navigate('sitemap')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">By Class</h2>
-            <ul className="space-y-4">
+            <h2 className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-primary mb-4 sm:mb-8">By Class</h2>
+            <ul className="space-y-2 sm:space-y-4">
               {[1,2,3,4,5,6,7,8,9,10,11,12].map((c) => (
-                <li key={c}><button onClick={() => navigate(`class_${c}`)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Class {c}</button></li>
+                <li key={c}><button onClick={() => navigate(`class_${c}`)} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Class {c}</button></li>
               ))}
             </ul>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-5 mt-10">Colleges by State</h2>
-            <ul className="space-y-4">
+            <h2 className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-primary mb-3 sm:mb-5 mt-6 sm:mt-10">Colleges by State</h2>
+            <ul className="space-y-2 sm:space-y-4">
               {[
                 ['national', 'IITs & NITs'], ['tamil-nadu', 'Tamil Nadu'], ['karnataka', 'Karnataka'],
                 ['maharashtra', 'Maharashtra'], ['telangana', 'Telangana'], ['andhra-pradesh', 'Andhra Pradesh'],
                 ['delhi-ncr', 'Delhi-NCR'], ['west-bengal', 'West Bengal'],
               ].map(([slug, label]) => (
-                <li key={slug}><a href={`/colleges/${slug}`} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">{label} Colleges</a></li>
+                <li key={slug}><a href={`/colleges/${slug}`} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">{label} Colleges</a></li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Company</h2>
-            <ul className="space-y-4">
-              <li><button onClick={() => navigate('about')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Our Mission</button></li>
-              <li><button onClick={() => navigate('contact')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Contact Support</button></li>
-              <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Sitemap</button></li>
+            <h2 className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-primary mb-4 sm:mb-8">Company</h2>
+            <ul className="space-y-2 sm:space-y-4">
+              <li><button onClick={() => navigate('about')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Our Mission</button></li>
+              <li><button onClick={() => navigate('contact')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Contact Support</button></li>
+              <li><button onClick={() => navigate('sitemap')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Sitemap</button></li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Weekly Newsletter</h2>
-            <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+            <h2 className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-primary mb-4 sm:mb-8">Weekly Newsletter</h2>
+            <p className="text-xs sm:text-sm text-slate-400 mb-4 sm:mb-6 leading-relaxed">
               Get weekly study tips, new chapters and exam updates delivered to your inbox.
             </p>
             {newsletterStatus === 'success' ? (
-              <div className="flex items-center gap-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 px-4 py-3">
-                <span className="text-emerald-400 font-black text-sm">✓</span>
-                <span className="text-emerald-400 text-sm font-bold">You're subscribed!</span>
+              <div className="flex items-center gap-2 rounded-lg sm:rounded-xl bg-emerald-500/10 border border-emerald-500/20 px-3 sm:px-4 py-2 sm:py-3">
+                <span className="text-emerald-400 font-black text-xs sm:text-sm">✓</span>
+                <span className="text-emerald-400 text-xs sm:text-sm font-bold">You're subscribed!</span>
               </div>
             ) : (
               <form
@@ -1724,7 +2035,7 @@ export default function App() {
                   );
                   setNewsletterStatus(result.success ? 'success' : 'error');
                 }}
-                className="space-y-3"
+                className="space-y-2 sm:space-y-3"
               >
                 <input
                   type="email"
@@ -1732,27 +2043,27 @@ export default function App() {
                   onChange={(e) => { setNewsletterEmail(e.target.value); setNewsletterStatus('idle'); }}
                   placeholder="your@email.com"
                   required
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-primary focus:bg-white/10 transition-all"
+                  className="w-full rounded-lg sm:rounded-xl bg-white/5 border border-white/10 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-white placeholder-slate-500 outline-none focus:border-primary focus:bg-white/10 transition-all"
                 />
                 <button
                   type="submit"
                   disabled={newsletterStatus === 'loading'}
-                  className="w-full rounded-xl bg-primary py-3 text-sm font-black text-white transition-all hover:bg-emerald-400 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full rounded-lg sm:rounded-xl bg-primary py-2 sm:py-3 text-xs sm:text-sm font-black text-white transition-all hover:bg-emerald-400 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {newsletterStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
                 </button>
                 {newsletterStatus === 'error' && (
-                  <p className="text-xs text-red-400 font-bold">Could not subscribe — please try again.</p>
+                  <p className="text-[10px] sm:text-xs text-red-400 font-bold">Could not subscribe — please try again.</p>
                 )}
               </form>
             )}
           </div>
         </div>
-        <div className="mx-auto max-w-7xl mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">© 2026 Syllab AI. Designed for Excellence.</div>
-          <div className="flex gap-8">
-            <button type="button" onClick={() => navigate('privacy')} className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors">Privacy Policy</button>
-            <button type="button" onClick={() => navigate('terms')} className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors">Terms of Service</button>
+        <div className="mx-auto max-w-7xl mt-16 sm:mt-20 md:mt-24 pt-6 sm:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+          <div className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-500 text-center md:text-left">© 2026 Syllab AI. Designed for Excellence.</div>
+          <div className="flex gap-4 sm:gap-8 flex-wrap justify-center">
+            <button type="button" onClick={() => navigate('privacy')} className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors">Privacy Policy</button>
+            <button type="button" onClick={() => navigate('terms')} className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors">Terms of Service</button>
           </div>
         </div>
       </footer>

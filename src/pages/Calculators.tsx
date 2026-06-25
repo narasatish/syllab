@@ -3,11 +3,12 @@
  * attendance "can I bunk?"). Pure client-side; each is an indexable SEO page.
  */
 import { useState } from 'react';
-import { Percent, GraduationCap, CalendarCheck } from 'lucide-react';
+import { Percent, GraduationCap, CalendarCheck, Target, Plus, Trash2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import {
   percentage, cgpaToPercentage, percentageToCgpa,
   attendancePercent, classesYouCanSkip, classesToReachTarget,
+  marksNeededForTarget, semesterGpa,
 } from '../lib/calculators';
 
 function Field({ label, value, onChange, placeholder }: { label: string; value: string; onChange: (v: string) => void; placeholder?: string }) {
@@ -56,6 +57,26 @@ export default function Calculators() {
   const skip = attValid ? classesYouCanSkip(num(att), num(attTot), tgt) : 0;
   const reach = attValid ? classesToReachTarget(num(att), num(attTot), tgt) : 0;
   const curAtt = attValid ? attendancePercent(num(att), num(attTot)) : 0;
+
+  // Marks needed in final exam to hit a target overall %
+  const [scored, setScored] = useState('');
+  const [maxSoFar, setMaxSoFar] = useState('');
+  const [finalMax, setFinalMax] = useState('');
+  const [goal, setGoal] = useState('75');
+  const needValid = num(maxSoFar) > 0 && num(finalMax) > 0 && !Number.isNaN(num(scored)) && num(goal) > 0;
+  const needed = needValid ? marksNeededForTarget(num(scored), num(maxSoFar), num(finalMax), num(goal)) : 0;
+
+  // Semester GPA (SGPA) — dynamic subject rows
+  const [gpaRows, setGpaRows] = useState<{ points: string; credits: string }[]>([
+    { points: '', credits: '' }, { points: '', credits: '' }, { points: '', credits: '' },
+  ]);
+  const setGpaRow = (i: number, key: 'points' | 'credits', v: string) =>
+    setGpaRows((rows) => rows.map((r, idx) => (idx === i ? { ...r, [key]: v } : r)));
+  const addGpaRow = () => setGpaRows((rows) => [...rows, { points: '', credits: '' }]);
+  const removeGpaRow = (i: number) => setGpaRows((rows) => (rows.length > 1 ? rows.filter((_, idx) => idx !== i) : rows));
+  const gpaParsed = gpaRows.map((r) => ({ points: num(r.points), credits: num(r.credits) }));
+  const gpaHasInput = gpaParsed.some((r) => r.credits > 0 && !Number.isNaN(r.points));
+  const sgpa = semesterGpa(gpaParsed);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
@@ -109,11 +130,65 @@ export default function Calculators() {
           ) : <p className="mt-4 text-center text-xs text-slate-400">Enter your attendance to see if you can take a day off 😉</p>}
         </Card>
 
-        {/* Info */}
-        <Card icon={<span>💡</span>} title="More tools coming">
-          <p className="text-sm leading-relaxed text-slate-600">Rank predictor, GPA (sem-wise), and exam-score targets are on the way. These free tools are built to help every Indian student plan smarter — no login, no ads.</p>
+        {/* Marks needed in final/board exam */}
+        <Card icon={<Target size={18} className="text-primary" />} title="Marks needed in final exam">
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="Scored so far" value={scored} onChange={setScored} placeholder="320" />
+            <Field label="Out of (so far)" value={maxSoFar} onChange={setMaxSoFar} placeholder="400" />
+            <Field label="Final exam max" value={finalMax} onChange={setFinalMax} placeholder="100" />
+            <Field label="Target overall %" value={goal} onChange={setGoal} placeholder="75" />
+          </div>
+          {needValid ? (
+            <div className="mt-4 rounded-xl bg-indigo-50 p-3 text-center">
+              {needed === -1 ? (
+                <>
+                  <div className="text-lg font-black text-rose-600">Not reachable</div>
+                  <div className="text-[11px] font-bold text-rose-500/80">even full marks won't hit {num(goal)}%</div>
+                </>
+              ) : needed === 0 ? (
+                <>
+                  <div className="text-2xl font-black text-emerald-700">Already there 🎉</div>
+                  <div className="text-[11px] font-bold text-emerald-600/80">you've locked in {num(goal)}%</div>
+                </>
+              ) : (
+                <>
+                  <div className="text-2xl font-black text-indigo-700">{needed}<span className="text-base">/{num(finalMax)}</span></div>
+                  <div className="text-[11px] font-bold text-indigo-600/80">needed to reach {num(goal)}% overall</div>
+                </>
+              )}
+            </div>
+          ) : <p className="mt-4 text-center text-xs text-slate-400">Plan your board/final exam target instantly.</p>}
+        </Card>
+
+        {/* Semester GPA (SGPA) */}
+        <Card icon={<GraduationCap size={18} className="text-primary" />} title="Semester GPA (SGPA)">
+          <div className="space-y-2">
+            {gpaRows.map((r, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <input type="number" inputMode="decimal" value={r.points} onChange={(e) => setGpaRow(i, 'points', e.target.value)} placeholder="Grade pts (e.g. 9)" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-primary focus:bg-white" />
+                <input type="number" inputMode="decimal" value={r.credits} onChange={(e) => setGpaRow(i, 'credits', e.target.value)} placeholder="Credits" className="w-28 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-primary focus:bg-white" />
+                <button type="button" onClick={() => removeGpaRow(i)} aria-label="Remove subject" className="shrink-0 rounded-lg p-2 text-slate-400 hover:bg-rose-50 hover:text-rose-500"><Trash2 size={15} /></button>
+              </div>
+            ))}
+          </div>
+          <button type="button" onClick={addGpaRow} className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"><Plus size={14} /> Add subject</button>
+          <div className="mt-3 rounded-xl bg-violet-50 p-3 text-center">
+            <div className="text-2xl font-black text-violet-700">{gpaHasInput ? sgpa.toFixed(2) : '—'}</div>
+            <div className="text-[11px] font-bold text-violet-600/80">your SGPA (credit-weighted)</div>
+          </div>
         </Card>
       </div>
+
+      {/* SEO content — high-intent, indexable, no clutter */}
+      <section className="mt-10 space-y-4 text-sm leading-relaxed text-slate-600">
+        <h2 className="text-lg font-black text-slate-900">How these free student calculators work</h2>
+        <p><strong className="text-slate-800">Marks → percentage:</strong> percentage = (marks obtained ÷ total marks) × 100. Works for any exam — unit tests, half-yearly, CBSE board, or college internals.</p>
+        <p><strong className="text-slate-800">CGPA ↔ percentage:</strong> CBSE uses percentage = CGPA × 9.5. Enter either value to convert instantly for your Class 10 or 12 result.</p>
+        <p><strong className="text-slate-800">Attendance "can I bunk?":</strong> tells you how many classes you can safely skip — or must attend — to stay at the 75% most colleges require.</p>
+        <p><strong className="text-slate-800">Marks needed in final exam:</strong> enter what you've scored so far and your target overall percentage; we tell you the exact marks needed in the upcoming board or final paper.</p>
+        <p><strong className="text-slate-800">Semester GPA (SGPA):</strong> SGPA = Σ(grade points × credits) ÷ Σ(credits). Add a row per subject for a credit-weighted result.</p>
+        <p className="text-xs text-slate-400">All tools run entirely in your browser. No login, no ads, nothing stored — free for every Indian student.</p>
+      </section>
     </div>
   );
 }

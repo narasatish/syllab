@@ -18,19 +18,43 @@ export function isAnalyticsEnabled(): boolean {
 }
 
 export function initAnalytics(): void {
-  if (loaded || !isAnalyticsEnabled() || typeof window === 'undefined') return;
+  if (loaded || typeof window === 'undefined') return;
+  if (!isAnalyticsEnabled() && !isClarityEnabled()) return;
   loaded = true;
+
+  if (isAnalyticsEnabled()) {
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(s);
+
+    const w = window as unknown as { dataLayer: unknown[]; gtag: (...a: unknown[]) => void };
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = function gtag() { w.dataLayer.push(arguments); };
+    w.gtag('js', new Date());
+    // anonymize_ip for privacy; send_page_view:false because we send them manually.
+    w.gtag('config', GA_ID, { send_page_view: false, anonymize_ip: true });
+  }
+
+  initClarity();
+  // Because init is deferred to idle, the app's first route effect may have fired
+  // before gtag existed — record the landing pageview now so it isn't lost.
+  try { trackPageview(window.location.pathname + window.location.search); } catch { /* ignore */ }
+}
+
+// ── Microsoft Clarity (free heatmaps + session replay) ───────────────────────
+// INERT until you set VITE_CLARITY_ID (your Clarity project id). Ships safely now.
+const CLARITY_ID = import.meta.env.VITE_CLARITY_ID as string | undefined;
+function isClarityEnabled(): boolean { return !!CLARITY_ID && import.meta.env.PROD; }
+function initClarity(): void {
+  if (!isClarityEnabled() || typeof window === 'undefined') return;
+  // Official Clarity snippet (typed, no inline string eval).
+  const w = window as unknown as Record<string, unknown> & { clarity?: (...a: unknown[]) => void };
+  w.clarity = w.clarity || function (...args: unknown[]) { (w.clarity as unknown as { q: unknown[] }).q = (w.clarity as unknown as { q?: unknown[] }).q || []; ((w.clarity as unknown as { q: unknown[] }).q).push(args); };
   const s = document.createElement('script');
   s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  s.src = `https://www.clarity.ms/tag/${CLARITY_ID}`;
   document.head.appendChild(s);
-
-  const w = window as unknown as { dataLayer: unknown[]; gtag: (...a: unknown[]) => void };
-  w.dataLayer = w.dataLayer || [];
-  w.gtag = function gtag() { w.dataLayer.push(arguments); };
-  w.gtag('js', new Date());
-  // anonymize_ip for privacy; send_page_view:false because we send them manually.
-  w.gtag('config', GA_ID, { send_page_view: false, anonymize_ip: true });
 }
 
 /** Record a virtual pageview on client-side route change. */
