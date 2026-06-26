@@ -363,8 +363,48 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         </div>
       </section>
 
+      {/* ── REAL-NUMBERS TRUST BAND + SNAP & SOLVE (conversion) ──────────────── */}
+      <section className="reveal max-w-6xl mx-auto px-5 pt-10">
+        <h2 className="sr-only">Why students choose Syllab</h2>
+        <div className="grid gap-4 lg:grid-cols-[1.5fr_1fr]">
+          {/* Verifiable free-content stats — real counts, no inflated claims */}
+          <div className="rounded-[1.5rem] border border-slate-100 bg-white p-5 sm:p-7" style={{ boxShadow: 'var(--shadow-soft)' }}>
+            <span className="eyebrow mb-4">Everything free · no login needed</span>
+            <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {[
+                { n: '3,900+', l: 'free study pages' },
+                { n: '890+', l: 'previous-year Qs' },
+                { n: '470+', l: 'full-form guides' },
+                { n: '1–12', l: 'classes covered' },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="text-2xl font-extrabold text-secondary sm:text-3xl">{s.n}</div>
+                  <div className="mt-1 text-xs font-semibold text-slate-600">{s.l}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-sm font-medium text-slate-600">
+              CBSE · NCERT · JEE · NEET — notes, mock tests, formula sheets &amp; a free AI tutor. No paywall, ever.
+            </p>
+          </div>
+          {/* Snap & Solve — surface the existing AI doubt solver prominently */}
+          <button
+            onClick={() => { setTab?.('doubt_solver'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="hover-lift group relative overflow-hidden rounded-[1.5rem] p-6 text-left text-white"
+            style={{ backgroundImage: 'var(--grad-vivid)', boxShadow: '0 16px 40px -10px rgba(139,92,246,.45)' }}
+          >
+            <span className="absolute right-4 top-4 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-black tracking-wider">FREE</span>
+            <div className="text-4xl">📸</div>
+            <h3 className="mt-3 text-xl font-extrabold">Snap &amp; Solve a doubt</h3>
+            <p className="mt-1.5 text-sm font-medium text-white/90">Stuck on a question? Photograph it and get a clear, step-by-step AI solution in seconds.</p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-black">Open the doubt solver →</span>
+          </button>
+        </div>
+      </section>
+
       {/* ── USP HIGHLIGHTS — what makes Syllab different (keep it to 3) ───────── */}
       <section className="reveal max-w-6xl mx-auto px-5 pt-10">
+        <h2 className="sr-only">What makes Syllab different</h2>
         <div className="grid gap-4 sm:grid-cols-3">
           {([
             { tab: 'learning_lab', emoji: '🎓', title: 'AI Tuition Teacher', desc: 'Daily homework by class & chapter — type or upload your answers, get marked instantly with XP. Like a private tutor, free.', badge: 'NEW', grad: 'from-emerald-500 to-teal-600' },
@@ -393,7 +433,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
             Pick your class.
           </h2>
-          <p className="text-slate-500 font-medium">
+          <p className="text-slate-600 font-medium">
             Personalized content for every grade — Class 1 to 12.
           </p>
         </div>
@@ -513,7 +553,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tighter mb-4">
             Your learning journey starts now.
           </h2>
-          <p className="text-slate-500 font-medium mb-8 max-w-md mx-auto leading-relaxed">
+          <p className="text-slate-600 font-medium mb-8 max-w-md mx-auto leading-relaxed">
             Join thousands of students learning Python, AI, and more — completely free. No card, no spam.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
@@ -584,7 +624,7 @@ function FaqSection() {
         <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
           Got questions?
         </h2>
-        <p className="text-slate-500 font-medium">Everything you need to know about Syllab.in</p>
+        <p className="text-slate-600 font-medium">Everything you need to know about Syllab.in</p>
       </div>
 
       <div className="space-y-3">
