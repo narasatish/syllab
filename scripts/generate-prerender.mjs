@@ -13,7 +13,7 @@
  * Run: node scripts/generate-prerender.mjs  (called by npm run build automatically)
  */
 
-import { promises as fs, readFileSync } from 'node:fs';
+import { promises as fs, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
@@ -1041,6 +1041,7 @@ for (const f of FULL_FORMS_DATA) {
     title: `${t} Full Form — Meaning, Definition & Uses | Syllab.in`,
     description: desc,
     keywords: `${t.toLowerCase()} full form, full form of ${t.toLowerCase()}, what does ${t.toLowerCase()} stand for, ${t.toLowerCase()} meaning, ${t.toLowerCase()} abbreviation`,
+    noindex: true, // Post-March-2026 update: thin templated content (1–2 sentences) drags domain quality.
     jsonLd: [
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Full Forms', item: `${SITE}/full-forms` },
@@ -1983,10 +1984,14 @@ ${esc(topicContent.syntaxText)}
     `;
   }
 
+  // Homepage uses H2 because the React app renders the primary H1 ("Learn smarter with AI by your side").
+  // For all other pages, use H1 for the page title.
+  const headingTag = route.path === '/' ? 'h2' : 'h1';
+
   return `
     <article style="max-width: 800px; margin: 0 auto; padding: 1rem 1.5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; line-height: 1.6;">
       ${breadcrumb}
-      <h1 style="font-size: 1.8rem; margin: 0.5rem 0 1rem 0; color: #222;">${esc(title)}</h1>
+      <${headingTag} style="font-size: 1.8rem; margin: 0.5rem 0 1rem 0; color: #222;">${esc(title)}</${headingTag}>
       <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #666;">${esc(desc)}</p>
       ${tldrBlock}
       ${richContent}
@@ -2227,8 +2232,14 @@ async function main() {
   // (React 19 prerender → resolves lazy routes) and hydrate on the client. Falls
   // back per-route to the boot-skeleton path if a render throws, so the build is
   // never blocked. SSR_LIMIT=N renders only the first N routes (for fast testing).
-  const SSR = process.env.SSR_PRERENDER === '1';
-  const SSR_LIMIT = process.env.SSR_LIMIT ? parseInt(process.env.SSR_LIMIT, 10) : Infinity;
+  // SSR auto-enables when the compiled bundle exists (so `npm run build` does it
+  // with no fragile cross-platform env vars). Scope: an allowlist of routes —
+  // default just the homepage `/` (the LCP-critical landing page), verified to
+  // hydrate cleanly. Override with SSR_ROUTES="/,/x" or SSR_LIMIT=N for testing.
+  const SSR_BUNDLE = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+  const SSR = process.env.SSR_PRERENDER === '1' || existsSync(SSR_BUNDLE);
+  const SSR_LIMIT = process.env.SSR_LIMIT ? parseInt(process.env.SSR_LIMIT, 10) : null;
+  const SSR_ROUTES = new Set((process.env.SSR_ROUTES || '/').split(',').map((s) => s.trim()).filter(Boolean));
   let render = null;
   let ssrOk = 0;
   let ssrFail = 0;
@@ -2261,7 +2272,8 @@ async function main() {
 
     try {
       let ssrBody;
-      if (render && i <= SSR_LIMIT) {
+      const ssrThisRoute = SSR_LIMIT != null ? i <= SSR_LIMIT : SSR_ROUTES.has(route.path);
+      if (render && ssrThisRoute) {
         try {
           const { body } = await render(route.path);
           if (body && body.length > 200) { ssrBody = body; ssrOk++; }
