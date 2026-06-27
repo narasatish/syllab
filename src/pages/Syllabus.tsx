@@ -12,6 +12,8 @@ import { loadConcept } from '../lib/api';
 import { getDeepPptLesson, DeepPptLesson, prewarmPptBackend } from '../lib/pptLessonApi';
 import WebSlideViewer from '../components/WebSlideViewer';
 import LessonViewer from '../components/LessonViewer';
+import StoryLessonViewer from '../components/StoryLessonViewer';
+import { getStoryLesson, type StoryLesson } from '../data/storyLessons';
 import DeckViewer from '../components/DeckViewer';
 import HtmlDeckViewer from '../components/HtmlDeckViewer';
 import { getDeckUrl } from '../data/chapterDecks';
@@ -564,6 +566,8 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   const [deck, setDeck] = useState<{ url: string; chapter: Chapter } | null>(null);
   // Generated HTML deck (free, emoji/CSS designed) — used when no PDF deck exists
   const [htmlDeck, setHtmlDeck] = useState<{ url: string; chapter: Chapter } | null>(null);
+  // Story-based lesson (narrative teaching) — opens StoryLessonViewer.
+  const [storyLesson, setStoryLesson] = useState<StoryLesson | null>(null);
 
   // Close all modals if user navigates away via navbar — defensive fix for
   // "stuck on page" reports where a tab click didn't visibly change page.
@@ -580,6 +584,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       setLessonChapter(null);
       setDeck(null);
       setHtmlDeck(null);
+      setStoryLesson(null);
     };
     window.addEventListener('syllab:navigate', onNavigate);
     return () => window.removeEventListener('syllab:navigate', onNavigate);
@@ -588,7 +593,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   // While any fullscreen lesson/deck viewer is open, mark <body> so the global
   // AI-tutor FAB hides (it's nested-stacking-context vs the FAB and would overlap
   // the slide Next button on mobile). The viewer has its own "Ask AI" control.
-  const lessonOpen = !!(pptLesson || pptLoading || deck || htmlDeck);
+  const lessonOpen = !!(pptLesson || pptLoading || deck || htmlDeck || storyLesson);
   useEffect(() => {
     document.body.classList.toggle('lesson-open', lessonOpen);
     return () => document.body.classList.remove('lesson-open');
@@ -1225,6 +1230,21 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
               </div>
             </div>
 
+            {/* Story Mode — narrative lesson where concepts are taught through a
+                journey. Shown only for chapters that have a story lesson authored. */}
+            {(() => {
+              const story = getStoryLesson(chapter.classLevel, chapter.subject, chapter.title);
+              return story ? (
+                <button
+                  onClick={() => setStoryLesson(story)}
+                  className="mb-3 flex w-full items-center justify-center gap-2 rounded-2xl py-3.5 text-[10px] font-black uppercase tracking-widest text-white shadow-md transition-all hover:-translate-y-0.5"
+                  style={{ backgroundImage: 'var(--grad-vivid)' }}
+                >
+                  <BookOpen size={14} /> Story Mode · learn through a story
+                </button>
+              ) : null;
+            })()}
+
             <div className="grid grid-cols-2 gap-3 mb-3">
               {/* Lesson button — opens the polished provided deck if one exists,
                   otherwise the AI-generated lesson. */}
@@ -1309,6 +1329,22 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           />
         )}
       </AnimatePresence>
+
+      {/* Story-based lesson — fullscreen on mobile, centered card on desktop */}
+      {storyLesson && (
+        <div
+          className="fixed inset-0 z-[70] flex items-stretch justify-center bg-slate-900/60 backdrop-blur-sm sm:items-center sm:p-4"
+          onClick={() => setStoryLesson(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative flex w-full flex-col bg-white shadow-2xl sm:max-w-4xl sm:rounded-[2rem]"
+            style={{ height: '100dvh', maxHeight: '100dvh' }}
+          >
+            <StoryLessonViewer lesson={storyLesson} onClose={() => setStoryLesson(null)} />
+          </div>
+        </div>
+      )}
 
       {/* Small Kids Zone box — shown for older students (the full banner is hidden for them) */}
       {!showFullJunior ? (
