@@ -585,6 +585,15 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
     return () => window.removeEventListener('syllab:navigate', onNavigate);
   }, []);
 
+  // While any fullscreen lesson/deck viewer is open, mark <body> so the global
+  // AI-tutor FAB hides (it's nested-stacking-context vs the FAB and would overlap
+  // the slide Next button on mobile). The viewer has its own "Ask AI" control.
+  const lessonOpen = !!(pptLesson || pptLoading || deck || htmlDeck);
+  useEffect(() => {
+    document.body.classList.toggle('lesson-open', lessonOpen);
+    return () => document.body.classList.remove('lesson-open');
+  }, [lessonOpen]);
+
   // Pinned chapters now live in Firestore (cloud-synced across devices).
   // Guests see an empty list and a soft prompt when they try to pin.
   const { pins: pinnedChapters, togglePin: togglePinCloud, isAuthed: pinsAuthed } = usePinnedChapters();

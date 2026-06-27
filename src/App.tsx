@@ -1883,7 +1883,7 @@ export default function App() {
       </main>
 
       {!isMockExamMode ? (
-      <div className="fixed bottom-5 right-5 z-[55] flex flex-col items-end gap-3">
+      <div id="tutor-fab" className="fixed bottom-5 right-5 z-[55] flex flex-col items-end gap-3">
         {isTutorOpen ? (
             <div className="app-tutor-in h-[min(680px,calc(100dvh-7rem))] w-[min(420px,calc(100vw-2rem))]">
               <Suspense fallback={<div className="h-full rounded-3xl bg-white p-8 text-center text-sm font-bold text-slate-400 shadow-2xl">Loading tutor...</div>}>

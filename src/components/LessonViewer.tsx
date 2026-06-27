@@ -554,12 +554,27 @@ export default function LessonViewer({
 
 /* ─── Image (calls onFail so the slide can fall back to full-width text) ──────── */
 function SlideImage({ image, onFail }: { image: LessonImage; onFail: () => void }) {
+  // Reliability on mobile: (1) eager load — these are the slide's focal content,
+  // one per slide; `loading="lazy"` inside a fixed/transitioning modal frequently
+  // never fires on mobile → blank. (2) referrerPolicy=no-referrer bypasses hotlink
+  // protection that blocks some image CDNs. (3) retry once with a cache-bust before
+  // giving up, since mobile networks blip. Only after a real failure do we drop it.
+  const retries = useRef(0);
+  const onError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (retries.current < 1) {
+      retries.current += 1;
+      const el = e.currentTarget;
+      el.src = image.url + (image.url.includes('?') ? '&' : '?') + 'retry=' + retries.current;
+    } else {
+      onFail();
+    }
+  };
   return (
     <figure className="flex flex-col items-center">
       <div className="overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-white/20">
         <img
-          src={image.url} alt={image.alt} onError={onFail}
-          loading="lazy"
+          src={image.url} alt={image.alt} onError={onError}
+          decoding="async" referrerPolicy="no-referrer"
           className="max-h-[40vh] sm:max-h-[52vh] w-auto object-contain bg-white"
         />
       </div>
