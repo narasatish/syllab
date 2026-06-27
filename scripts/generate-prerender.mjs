@@ -2239,7 +2239,16 @@ async function main() {
   const SSR_BUNDLE = path.join(ROOT, 'dist-ssr', 'entry-server.js');
   const SSR = process.env.SSR_PRERENDER === '1' || existsSync(SSR_BUNDLE);
   const SSR_LIMIT = process.env.SSR_LIMIT ? parseInt(process.env.SSR_LIMIT, 10) : null;
-  const SSR_ROUTES = new Set((process.env.SSR_ROUTES || '/').split(',').map((s) => s.trim()).filter(Boolean));
+  // Allowlist: homepage only for now. The homepage hydrates cleanly; broader
+  // content/hub pages currently throw a hydration mismatch (React #418) and must
+  // have that root-caused before they're added here (else the LCP benefit erodes
+  // and the console fills with errors). Override/expand via SSR_ROUTES="/,/x".
+  const DEFAULT_SSR_ROUTES = ['/'];
+  const SSR_ROUTES = new Set(
+    process.env.SSR_ROUTES
+      ? process.env.SSR_ROUTES.split(',').map((s) => s.trim()).filter(Boolean)
+      : DEFAULT_SSR_ROUTES,
+  );
   let render = null;
   let ssrOk = 0;
   let ssrFail = 0;
