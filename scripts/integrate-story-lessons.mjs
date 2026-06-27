@@ -5,20 +5,18 @@
  * against the StoryLesson shape, dedupes by slug, and writes
  * src/data/storyLessonsGenerated.ts. Re-runnable.
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const TR = 'C:/Users/naras/.claude/projects/C--Users-naras-Documents-Codex-2026-05-07/ed09d89a-e215-41c0-94ed-a68232336379/tool-results';
+const GEN_DIR = path.join(ROOT, 'src', 'data', 'story-gen');
 
-const SOURCES = [
-  ['class-1', path.join(ROOT, 'class-1-lessons.json')],
-  ['class-2', path.join(TR, 'toolu_015o9NvUgYghPRfad7FgFHSo.json')],
-  ['class-3', path.join(ROOT, 'src', 'data', 'story-gen', 'class-3.json')],
-  ['class-4', path.join(TR, 'toolu_01VbUkeahkr7Tv3SY9Srhx4G.json')],
-  ['class-5', path.join(TR, 'toolu_011cmwGA7V2PKSzV2zQdLjn8.json')],
-];
+// All subagent-authored class files live in src/data/story-gen/class-*.json.
+const SOURCES = (existsSync(GEN_DIR) ? readdirSync(GEN_DIR) : [])
+  .filter((f) => /^class-\d+\.json$/.test(f))
+  .sort()
+  .map((f) => [f.replace('.json', ''), path.join(GEN_DIR, f)]);
 
 /** Pull the JSON-array text out of whatever wrapper/fences the agent used. */
 function extractArrayText(raw) {

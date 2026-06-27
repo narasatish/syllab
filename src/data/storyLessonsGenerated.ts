@@ -8870,5 +8870,4541 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "✨"
       }
     ]
+  },
+  {
+    "slug": "class-6-mathematics-linesandangles",
+    "classLevel": "6",
+    "subject": "Mathematics",
+    "chapter": "Lines and Angles",
+    "chapterAliases": [],
+    "title": "Raj's Geometry Adventure",
+    "hook": "Raj discovers lines and angles hidden in his apartment building.",
+    "characters": [
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "curious student"
+      },
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "math mentor"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Discovery",
+        "storyContext": "Raj looks out his window and sees the edges of buildings. Meera points out that edges are really lines.",
+        "points": [],
+        "inSimpleWords": "Lines are straight paths that go on forever.",
+        "emoji": "🏢"
+      },
+      {
+        "kind": "concept",
+        "title": "What is a Line?",
+        "storyContext": "Meera draws a line on paper with a ruler. She explains that a line has no endpoints and goes on infinitely.",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A line is a straight path with no endpoints, extending infinitely in both directions."
+          }
+        ],
+        "inSimpleWords": "A line never ends, it keeps going forever both ways.",
+        "emoji": "📏"
+      },
+      {
+        "kind": "concept",
+        "title": "Line Segment and Ray",
+        "storyContext": "Raj sees the edge of his table (line segment) and the beam of sunlight (ray) coming through the window.",
+        "points": [
+          {
+            "label": "Line Segment",
+            "text": "A line segment has two endpoints. Example: the edge of Raj's desk."
+          },
+          {
+            "label": "Ray",
+            "text": "A ray has one starting point and extends infinitely in one direction. Example: sunlight from a window."
+          }
+        ],
+        "inSimpleWords": "A segment has two ends, a ray has one starting point.",
+        "emoji": "☀️"
+      },
+      {
+        "kind": "concept",
+        "title": "What is an Angle?",
+        "storyContext": "Meera opens a book like a door hinge. She says the opening between the pages is an angle.",
+        "points": [
+          {
+            "label": "Angle",
+            "text": "An angle is formed when two rays meet at a common point called the vertex."
+          }
+        ],
+        "inSimpleWords": "An angle is the space between two rays meeting at a point.",
+        "emoji": "📖"
+      },
+      {
+        "kind": "example",
+        "title": "Types of Angles",
+        "storyContext": "Raj measures different angles at home: the door (90°), a clock hand position (45°), and a stretched rope (180°).",
+        "example": {
+          "problem": "Classify these angles: 35°, 90°, 120°, 180°",
+          "solution": "35° is acute (less than 90°), 90° is right, 120° is obtuse (between 90° and 180°), 180° is straight."
+        },
+        "inSimpleWords": "Acute angles are small, right angles are corners, obtuse are wide.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "concept",
+        "title": "Measuring Angles",
+        "storyContext": "Meera teaches Raj to use a protractor to measure the angle formed by the book pages.",
+        "points": [
+          {
+            "label": "Protractor",
+            "text": "A protractor is a tool to measure angles. Place the center on the vertex and read the degree marking."
+          }
+        ],
+        "inSimpleWords": "Use a protractor to measure angles in degrees.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "example",
+        "title": "Finding Angles Around You",
+        "storyContext": "Raj finds angles in his room: corner of floor (90°), clock showing 3:00 (90°), open notebook (varies).",
+        "example": {
+          "problem": "What angle does a clock hand make at 3:00 and 6:00?",
+          "solution": "At 3:00, the angle is 90°. At 6:00, the angle is 180°."
+        },
+        "inSimpleWords": "Clock hands make different angles at different times.",
+        "emoji": "🕐"
+      },
+      {
+        "kind": "challenge",
+        "title": "Angle Hunt",
+        "storyContext": "Meera challenges Raj to find and classify 5 angles in his home.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Find angles at home: door frame (90°), pencil box lid, scissors opening, window corners."
+          }
+        ],
+        "inSimpleWords": "Look around and name the angles you see.",
+        "emoji": "🔭"
+      },
+      {
+        "kind": "recap",
+        "title": "Lines and Angles Review",
+        "storyContext": "Raj summarizes what he learned: lines never end, rays have one start, angles form between two rays.",
+        "points": [
+          {
+            "label": "Lines",
+            "text": "Infinite straight paths with no endpoints."
+          },
+          {
+            "label": "Segments & Rays",
+            "text": "Segments have two endpoints, rays have one."
+          },
+          {
+            "label": "Angles",
+            "text": "Formed by two rays meeting at a vertex."
+          }
+        ],
+        "inSimpleWords": "Lines, segments, rays, and angles are the building blocks of geometry.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-mathematics-numberplay",
+    "classLevel": "6",
+    "subject": "Mathematics",
+    "chapter": "Number Play",
+    "chapterAliases": [],
+    "title": "Meera's Magic Numbers",
+    "hook": "Meera finds hidden patterns in numbers while organizing her school supplies.",
+    "characters": [
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "pattern finder"
+      },
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "curious friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Numbers Everywhere",
+        "storyContext": "Meera counts her pencils: 2, 4, 6, 8, 10. She notices every number is made of pairs.",
+        "points": [],
+        "inSimpleWords": "Numbers follow patterns we can discover.",
+        "emoji": "✏️"
+      },
+      {
+        "kind": "concept",
+        "title": "Even and Odd Numbers",
+        "storyContext": "Meera arranges pencils in pairs. Some pencils pair perfectly (even), one pencil is left alone (odd).",
+        "points": [
+          {
+            "label": "Even Numbers",
+            "text": "Numbers divisible by 2 with no remainder: 2, 4, 6, 8, 10, 12..."
+          },
+          {
+            "label": "Odd Numbers",
+            "text": "Numbers that leave remainder 1 when divided by 2: 1, 3, 5, 7, 9, 11..."
+          }
+        ],
+        "inSimpleWords": "Even numbers divide by 2 perfectly, odd numbers don't.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "example",
+        "title": "Finding Factors",
+        "storyContext": "Meera arranges 12 pencils in different rectangular groups: 2×6, 3×4, 1×12.",
+        "example": {
+          "problem": "Find all factors of 12.",
+          "solution": "Factors of 12: 1, 2, 3, 4, 6, 12 (numbers that divide 12 with no remainder)."
+        },
+        "inSimpleWords": "Factors are numbers that divide another number evenly.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "concept",
+        "title": "Multiples",
+        "storyContext": "Raj notices that if 3 is a factor, then 3, 6, 9, 12, 15... are multiples of 3.",
+        "points": [
+          {
+            "label": "Multiple",
+            "text": "A multiple of a number is the result of multiplying it by any whole number."
+          }
+        ],
+        "inSimpleWords": "Multiples are what you get when you skip-count.",
+        "emoji": "➕"
+      },
+      {
+        "kind": "example",
+        "title": "Multiples and Factors Together",
+        "storyContext": "Meera asks: if 5 is a factor of 20, then 20 is a multiple of 5.",
+        "example": {
+          "problem": "List multiples of 4. Then find which numbers have 4 as a factor.",
+          "solution": "Multiples of 4: 4, 8, 12, 16, 20... Numbers with 4 as factor: 4, 8, 12, 16, 20 (same list!)."
+        },
+        "inSimpleWords": "If X is a factor, then numbers it makes are multiples of X.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "concept",
+        "title": "Prime and Composite",
+        "storyContext": "Meera groups numbers: some (like 2, 3, 5, 7) can only be divided by 1 and themselves (prime). Others (like 4, 6, 8, 9) have more factors (composite).",
+        "points": [
+          {
+            "label": "Prime",
+            "text": "A number with exactly two factors: 1 and itself. Examples: 2, 3, 5, 7, 11, 13."
+          },
+          {
+            "label": "Composite",
+            "text": "A number with more than two factors. Examples: 4, 6, 8, 9, 10, 12."
+          }
+        ],
+        "inSimpleWords": "Prime numbers can't be divided except by 1 and themselves.",
+        "emoji": "🌟"
+      },
+      {
+        "kind": "example",
+        "title": "Identifying Prime Numbers",
+        "storyContext": "Raj tries to divide 13 by 2, 3, 4... None work. 13 is prime!",
+        "example": {
+          "problem": "Is 15 prime or composite?",
+          "solution": "15 = 3 × 5, so it has factors 1, 3, 5, 15. It is composite."
+        },
+        "inSimpleWords": "Divide by small numbers; if nothing works except 1, it's prime.",
+        "emoji": "💎"
+      },
+      {
+        "kind": "challenge",
+        "title": "Number Detective",
+        "storyContext": "Meera challenges Raj: find all prime numbers between 1 and 20, then find all multiples of 3.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Primes 1-20: 2, 3, 5, 7, 11, 13, 17, 19. Multiples of 3: 3, 6, 9, 12, 15, 18."
+          }
+        ],
+        "inSimpleWords": "Use division rules to identify number patterns.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "recap",
+        "title": "Number Play Review",
+        "storyContext": "Meera and Raj summarize: even/odd divide numbers, factors divide evenly, multiples come from skip-counting, primes are special.",
+        "points": [
+          {
+            "label": "Concepts",
+            "text": "Even (÷2), Odd (÷2 with remainder), Factors (divide evenly), Multiples (skip-count)."
+          },
+          {
+            "label": "Special Numbers",
+            "text": "Prime (two factors), Composite (more than two factors)."
+          }
+        ],
+        "inSimpleWords": "All numbers have patterns in how they divide and multiply.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-mathematics-primetime",
+    "classLevel": "6",
+    "subject": "Mathematics",
+    "chapter": "Prime Time",
+    "chapterAliases": [],
+    "title": "The Prime Number Quest",
+    "hook": "Raj and Meera discover which numbers stand alone and why they matter.",
+    "characters": [
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "explorer"
+      },
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "guide"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Building Blocks",
+        "storyContext": "Meera shows Raj that every number is made of prime number building blocks, like atoms in chemistry.",
+        "points": [],
+        "inSimpleWords": "Prime numbers are nature's building blocks of all numbers.",
+        "emoji": "🧱"
+      },
+      {
+        "kind": "concept",
+        "title": "Prime Factorization",
+        "storyContext": "Raj breaks 12 into primes: 12 = 2 × 2 × 3. He draws a tree showing how 12 splits into smaller primes.",
+        "points": [
+          {
+            "label": "Prime Factorization",
+            "text": "Writing a number as a product of only prime numbers. Example: 12 = 2² × 3."
+          }
+        ],
+        "inSimpleWords": "Every number can be broken into prime number pieces.",
+        "emoji": "🌳"
+      },
+      {
+        "kind": "example",
+        "title": "Factor Trees",
+        "storyContext": "Meera and Raj draw trees for different numbers, each ending in prime leaves.",
+        "example": {
+          "problem": "Find prime factorization of 30.",
+          "solution": "30 = 2 × 15 = 2 × 3 × 5. Prime factorization: 2 × 3 × 5."
+        },
+        "inSimpleWords": "Keep dividing by small primes until only primes remain.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "concept",
+        "title": "GCD and LCM",
+        "storyContext": "Meera finds the Greatest Common Divisor (GCD) and Least Common Multiple (LCM) using prime factors.",
+        "points": [
+          {
+            "label": "GCD",
+            "text": "Greatest Common Divisor: largest number dividing both. Use shared prime factors."
+          },
+          {
+            "label": "LCM",
+            "text": "Least Common Multiple: smallest number divisible by both. Use all prime factors."
+          }
+        ],
+        "inSimpleWords": "GCD is the biggest shared divider, LCM is the smallest common multiple.",
+        "emoji": "🔑"
+      },
+      {
+        "kind": "example",
+        "title": "Finding GCD and LCM",
+        "storyContext": "Raj finds GCD and LCM of 12 and 18 using their prime factorizations.",
+        "example": {
+          "problem": "Find GCD and LCM of 12 and 18.",
+          "solution": "12 = 2² × 3, 18 = 2 × 3². GCD = 2 × 3 = 6. LCM = 2² × 3² = 36."
+        },
+        "inSimpleWords": "GCD uses only shared primes, LCM uses all primes.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "concept",
+        "title": "Sieves and Prime Patterns",
+        "storyContext": "Meera shows the Sieve of Eratosthenes: crossing out multiples to find all primes up to 50.",
+        "points": [
+          {
+            "label": "Sieve Method",
+            "text": "Cross out all multiples of each prime to find remaining primes."
+          }
+        ],
+        "inSimpleWords": "Eliminate multiples to reveal all prime numbers.",
+        "emoji": "🎣"
+      },
+      {
+        "kind": "example",
+        "title": "Prime Sieve Practice",
+        "storyContext": "Raj uses the sieve for numbers 1-30: mark 2, cross 4,6,8...; mark 3, cross 9,15,21...; mark 5, cross 25...",
+        "example": {
+          "problem": "Use Sieve of Eratosthenes to find primes up to 30.",
+          "solution": "Primes up to 30: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29."
+        },
+        "inSimpleWords": "Mark each prime, cross out all its multiples.",
+        "emoji": "🧮"
+      },
+      {
+        "kind": "challenge",
+        "title": "Prime Power Challenge",
+        "storyContext": "Meera asks Raj to find prime factorizations of 36 and 45, then their GCD.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "36 = 2² × 3², 45 = 3² × 5. GCD = 9. Verify by division."
+          }
+        ],
+        "inSimpleWords": "Use prime factors to solve GCD and LCM puzzles.",
+        "emoji": "💪"
+      },
+      {
+        "kind": "recap",
+        "title": "Prime Time Review",
+        "storyContext": "Raj and Meera recap: all numbers are built from primes, factor trees show the structure, GCD/LCM solve real problems.",
+        "points": [
+          {
+            "label": "Prime Factorization",
+            "text": "Every number = unique product of primes."
+          },
+          {
+            "label": "GCD & LCM",
+            "text": "Essential for fractions and problem-solving."
+          },
+          {
+            "label": "Sieves",
+            "text": "Ancient method to find all primes in a range."
+          }
+        ],
+        "inSimpleWords": "Primes are nature's number building blocks.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-mathematics-perimeterandarea",
+    "classLevel": "6",
+    "subject": "Mathematics",
+    "chapter": "Perimeter and Area",
+    "chapterAliases": [],
+    "title": "Measuring Meera's Garden",
+    "hook": "Meera plans to fence and paint her garden, learning perimeter and area.",
+    "characters": [
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "gardener"
+      },
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "helper"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Garden Plans",
+        "storyContext": "Meera wants to fence her rectangular garden and paint the ground. She needs to know how much fence (perimeter) and paint (area).",
+        "points": [],
+        "inSimpleWords": "Perimeter measures the distance around, area measures the space inside.",
+        "emoji": "🌱"
+      },
+      {
+        "kind": "concept",
+        "title": "What is Perimeter?",
+        "storyContext": "Raj walks around Meera's garden boundary. The total distance he walks is the perimeter.",
+        "points": [
+          {
+            "label": "Perimeter",
+            "text": "Sum of all side lengths around a closed shape."
+          }
+        ],
+        "inSimpleWords": "Perimeter is the distance around the outside of a shape.",
+        "emoji": "🚶"
+      },
+      {
+        "kind": "example",
+        "title": "Perimeter of Rectangles",
+        "storyContext": "Meera's garden is 8 meters long and 5 meters wide. How much fencing does she need?",
+        "example": {
+          "problem": "Find perimeter of a rectangle with length 8 m and width 5 m.",
+          "solution": "Perimeter = 2(length + width) = 2(8 + 5) = 2(13) = 26 meters."
+        },
+        "inSimpleWords": "Perimeter of rectangle = 2 × (length + width).",
+        "emoji": "📏"
+      },
+      {
+        "kind": "concept",
+        "title": "What is Area?",
+        "storyContext": "Meera measures how many square meter tiles fit in her garden. Each tile is 1m × 1m.",
+        "points": [
+          {
+            "label": "Area",
+            "text": "Measure of space inside a closed shape, measured in square units."
+          }
+        ],
+        "inSimpleWords": "Area is how much space covers the shape.",
+        "emoji": "🎨"
+      },
+      {
+        "kind": "example",
+        "title": "Area of Rectangles",
+        "storyContext": "Meera's garden 8m × 5m is covered by 40 square tiles, each 1m × 1m.",
+        "example": {
+          "problem": "Find area of the same garden (8 m × 5 m).",
+          "solution": "Area = length × width = 8 × 5 = 40 square meters."
+        },
+        "inSimpleWords": "Area of rectangle = length × width.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "concept",
+        "title": "Area of Other Shapes",
+        "storyContext": "Raj notices different garden shapes: triangular flower beds and circular fountain.",
+        "points": [
+          {
+            "label": "Triangle Area",
+            "text": "Area = ½ × base × height."
+          },
+          {
+            "label": "Circle Area",
+            "text": "Area = π × r² (where r is radius)."
+          }
+        ],
+        "inSimpleWords": "Different shapes have different area formulas.",
+        "emoji": "🔶"
+      },
+      {
+        "kind": "example",
+        "title": "Mixed Shapes",
+        "storyContext": "A triangular flower bed has base 6m and height 4m. What is its area?",
+        "example": {
+          "problem": "Find area of triangle with base 6 m and height 4 m.",
+          "solution": "Area = ½ × 6 × 4 = ½ × 24 = 12 square meters."
+        },
+        "inSimpleWords": "Triangle area is half of the rectangle with same base and height.",
+        "emoji": "🌸"
+      },
+      {
+        "kind": "challenge",
+        "title": "Garden Redesign",
+        "storyContext": "Meera wants to expand her garden or change its shape. Raj calculates new perimeter and area.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "If Meera makes the garden 10m × 6m, new perimeter = 32m, new area = 60 sq.m."
+          }
+        ],
+        "inSimpleWords": "Use formulas to compare different garden sizes.",
+        "emoji": "🌿"
+      },
+      {
+        "kind": "recap",
+        "title": "Perimeter and Area Review",
+        "storyContext": "Meera buys fencing (perimeter) and paint (area) for her garden.",
+        "points": [
+          {
+            "label": "Perimeter",
+            "text": "Sum of all sides; Rectangle = 2(l+w)."
+          },
+          {
+            "label": "Area",
+            "text": "Space inside; Rectangle = l×w, Triangle = ½bh."
+          },
+          {
+            "label": "Units",
+            "text": "Perimeter in units (m), Area in square units (m²)."
+          }
+        ],
+        "inSimpleWords": "Perimeter fences a garden, area paints its ground.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-mathematics-fractions",
+    "classLevel": "6",
+    "subject": "Mathematics",
+    "chapter": "Fractions",
+    "chapterAliases": [],
+    "title": "Sharing Pizza with Fractions",
+    "hook": "Raj and Meera share a pizza and learn fractions the fun way.",
+    "characters": [
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "pizza lover"
+      },
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "fraction teacher"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Pizza Division",
+        "storyContext": "A pizza arrives. Raj cuts it into 8 equal slices. He eats 3 slices. Meera says he ate 3/8 of the pizza.",
+        "points": [],
+        "inSimpleWords": "Fractions show parts of a whole.",
+        "emoji": "🍕"
+      },
+      {
+        "kind": "concept",
+        "title": "Understanding Fractions",
+        "storyContext": "Meera points out: 3 slices (numerator) out of 8 total slices (denominator).",
+        "points": [
+          {
+            "label": "Numerator",
+            "text": "Top number: how many parts we have."
+          },
+          {
+            "label": "Denominator",
+            "text": "Bottom number: how many equal parts the whole is divided into."
+          }
+        ],
+        "inSimpleWords": "Numerator is top (parts chosen), denominator is bottom (parts total).",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "example",
+        "title": "Types of Fractions",
+        "storyContext": "Raj notices different slicing: 1/4 (one quarter), 1/2 (one half), 3/8 (three eighths).",
+        "example": {
+          "problem": "Classify 2/5, 5/5, 7/5 as proper, improper, or equal to 1.",
+          "solution": "2/5 is proper (less than 1). 5/5 equals 1. 7/5 is improper (more than 1)."
+        },
+        "inSimpleWords": "Proper < 1, improper ≥ 1. Mixed numbers combine whole + proper.",
+        "emoji": "🥧"
+      },
+      {
+        "kind": "concept",
+        "title": "Equivalent Fractions",
+        "storyContext": "Meera cuts two pizzas differently: one into 4 slices (Raj eats 2 = 2/4), another into 8 slices (Meera eats 4 = 4/8). They ate the same amount!",
+        "points": [
+          {
+            "label": "Equivalent",
+            "text": "Fractions that represent the same part of a whole. Example: 2/4 = 4/8."
+          }
+        ],
+        "inSimpleWords": "Different fractions can mean the same amount.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "example",
+        "title": "Simplifying Fractions",
+        "storyContext": "Raj wonders if 6/9 can be simplified. Meera divides both by 3: 6/9 = 2/3.",
+        "example": {
+          "problem": "Simplify 12/16 to lowest terms.",
+          "solution": "GCD(12,16) = 4. 12/16 = 3/4 (divide top and bottom by 4)."
+        },
+        "inSimpleWords": "Divide numerator and denominator by their GCD.",
+        "emoji": "✂️"
+      },
+      {
+        "kind": "concept",
+        "title": "Adding and Subtracting Fractions",
+        "storyContext": "Raj ate 1/4 pizza, Meera ate 2/4. Together they ate 1/4 + 2/4 = 3/4.",
+        "points": [
+          {
+            "label": "Same Denominator",
+            "text": "Add/subtract numerators, keep denominator: 1/4 + 2/4 = 3/4."
+          }
+        ],
+        "inSimpleWords": "Same denominator: add/subtract tops, keep bottom same.",
+        "emoji": "➕"
+      },
+      {
+        "kind": "example",
+        "title": "Finding Common Denominators",
+        "storyContext": "Raj wants to add 1/3 + 1/4. Meera finds LCM(3,4) = 12: 1/3 = 4/12, 1/4 = 3/12, sum = 7/12.",
+        "example": {
+          "problem": "Add 1/3 + 1/4.",
+          "solution": "LCM(3,4) = 12. 1/3 = 4/12, 1/4 = 3/12. 4/12 + 3/12 = 7/12."
+        },
+        "inSimpleWords": "Find common denominator using LCM before adding.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "challenge",
+        "title": "Pizza Math Challenge",
+        "storyContext": "Raj eats 3/8, Meera eats 2/8, their friend eats 1/8. What fraction remains?",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Eaten: 3/8 + 2/8 + 1/8 = 6/8 = 3/4. Remaining: 1 - 3/4 = 1/4."
+          }
+        ],
+        "inSimpleWords": "Use addition to find total, subtract from 1.",
+        "emoji": "🤔"
+      },
+      {
+        "kind": "recap",
+        "title": "Fractions Review",
+        "storyContext": "Raj and Meera finish their pizza lesson.",
+        "points": [
+          {
+            "label": "Basics",
+            "text": "Numerator (parts chosen), Denominator (total parts)."
+          },
+          {
+            "label": "Operations",
+            "text": "Simplify using GCD, add/subtract using common denominators."
+          },
+          {
+            "label": "Real Use",
+            "text": "Fractions describe sharing, measuring, cooking, time."
+          }
+        ],
+        "inSimpleWords": "Fractions are ways to show parts of a whole.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-mathematics-datahandlingandpresentation",
+    "classLevel": "6",
+    "subject": "Mathematics",
+    "chapter": "Data Handling and Presentation",
+    "chapterAliases": [],
+    "title": "Collecting School Survey Data",
+    "hook": "Raj and Meera survey classmates to learn how to collect and display data.",
+    "characters": [
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "data collector"
+      },
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "data analyst"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Survey",
+        "storyContext": "Raj asks classmates: 'What is your favorite subject?' Meera organizes the answers: Math (8), Science (6), English (4), Hindi (5), Sports (7).",
+        "points": [],
+        "inSimpleWords": "Data is information we collect and organize.",
+        "emoji": "📋"
+      },
+      {
+        "kind": "concept",
+        "title": "Collecting Data",
+        "storyContext": "Meera explains: data can come from surveys, observations, or measurements. Always ask clear questions.",
+        "points": [
+          {
+            "label": "Types of Data",
+            "text": "Qualitative (colors, preferences), Quantitative (numbers, measurements)."
+          }
+        ],
+        "inSimpleWords": "Data is facts and information collected carefully.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "example",
+        "title": "Tallying and Frequency",
+        "storyContext": "Raj uses tally marks to count: Math |||||| || (8 votes), Science |||| | (6 votes).",
+        "example": {
+          "problem": "Make a frequency table for favorite colors: Red (7), Blue (9), Green (5), Yellow (4).",
+          "solution": "Color | Tally | Frequency\nRed | |||||| | 7\nBlue | |||||||| | 9\nGreen | ||||| | 5\nYellow | |||| | 4"
+        },
+        "inSimpleWords": "Tally marks and frequency tables organize counted data.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "concept",
+        "title": "Pictographs and Bar Charts",
+        "storyContext": "Meera draws a bar chart: each bar's height shows how many votes each subject got.",
+        "points": [
+          {
+            "label": "Pictograph",
+            "text": "Uses pictures to represent data; 1 picture = a fixed number of items."
+          },
+          {
+            "label": "Bar Chart",
+            "text": "Uses rectangular bars to compare quantities across categories."
+          }
+        ],
+        "inSimpleWords": "Charts make data easy to see and compare at a glance.",
+        "emoji": "📈"
+      },
+      {
+        "kind": "example",
+        "title": "Making a Bar Chart",
+        "storyContext": "Raj draws the favorite subject bar chart: y-axis = number of votes (0-8), x-axis = subjects.",
+        "example": {
+          "problem": "Draw a bar chart for favorite sport: Cricket (10), Football (8), Basketball (6), Tennis (4).",
+          "solution": "Bars rise to 10, 8, 6, 4 respectively. Cricket has the tallest bar, tennis the shortest."
+        },
+        "inSimpleWords": "Height of bar = amount of data for that category.",
+        "emoji": "📉"
+      },
+      {
+        "kind": "concept",
+        "title": "Mean, Median, Mode",
+        "storyContext": "Meera analyzes the vote numbers: Mean (average), Median (middle), Mode (most common).",
+        "points": [
+          {
+            "label": "Mean",
+            "text": "Sum of all values ÷ number of values."
+          },
+          {
+            "label": "Median",
+            "text": "Middle value when arranged in order."
+          },
+          {
+            "label": "Mode",
+            "text": "Value that appears most often."
+          }
+        ],
+        "inSimpleWords": "Mean is average, median is middle, mode is most common.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "example",
+        "title": "Finding Mean, Median, Mode",
+        "storyContext": "Vote counts: 8, 6, 4, 5, 7. Find mean, median, mode.",
+        "example": {
+          "problem": "Scores: 8, 6, 4, 5, 7. Find mean, median, mode.",
+          "solution": "Mean = (8+6+4+5+7)÷5 = 30÷5 = 6. Median (ordered: 4,5,6,7,8) = 6. Mode = none (all appear once)."
+        },
+        "inSimpleWords": "Mean uses all values, median ignores outliers, mode shows preference.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "challenge",
+        "title": "Survey and Present",
+        "storyContext": "Meera asks Raj to survey 20 classmates on favorite games, make a bar chart, and find mean players per game.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Collect data → Tally → Frequency table → Bar chart → Calculate mean."
+          }
+        ],
+        "inSimpleWords": "Go from survey to organized chart to statistical analysis.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "recap",
+        "title": "Data Handling Review",
+        "storyContext": "Raj and Meera review the complete data journey.",
+        "points": [
+          {
+            "label": "Collection",
+            "text": "Ask clear questions, record carefully."
+          },
+          {
+            "label": "Organization",
+            "text": "Frequency tables, pictographs, bar charts."
+          },
+          {
+            "label": "Analysis",
+            "text": "Mean (average), Median (middle), Mode (most)."
+          }
+        ],
+        "inSimpleWords": "Data tells stories when collected and presented clearly.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-science-diversityintheliving world",
+    "classLevel": "6",
+    "subject": "Science",
+    "chapter": "Diversity in the Living World",
+    "chapterAliases": [
+      "Diversity in Living World"
+    ],
+    "title": "Raj's Nature Hike Classification",
+    "hook": "Raj explores a nature trail and learns how scientists organize all living things.",
+    "characters": [
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "naturalist"
+      },
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "nature guide"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Nature Trail Discovery",
+        "storyContext": "During a hike, Raj spots plants, insects, birds, and mammals. Meera explains these are all organisms, but they're organized into different groups.",
+        "points": [],
+        "inSimpleWords": "Living things come in many different types.",
+        "emoji": "🌳"
+      },
+      {
+        "kind": "concept",
+        "title": "What Makes Things Alive?",
+        "storyContext": "Meera shows Raj that all living things move, eat, grow, reproduce, and respond to their environment.",
+        "points": [
+          {
+            "label": "Characteristics",
+            "text": "Growth, reproduction, response to environment, use of energy, homeostasis."
+          }
+        ],
+        "inSimpleWords": "Living things grow, move, reproduce, and respond to their world.",
+        "emoji": "🌿"
+      },
+      {
+        "kind": "example",
+        "title": "Kingdom Kingdoms",
+        "storyContext": "Raj learns the five kingdoms: Animals (move, eat), Plants (make own food), Fungi (decompose), Protists (single-celled mostly), Bacteria (tiny, everywhere).",
+        "example": {
+          "problem": "Classify these as animal, plant, or fungus: dog, rice, mushroom, tree, ant.",
+          "solution": "Dog and ant are animals. Rice and tree are plants. Mushroom is fungus."
+        },
+        "inSimpleWords": "Five major kingdoms organize all life on Earth.",
+        "emoji": "🦁"
+      },
+      {
+        "kind": "concept",
+        "title": "Vertebrates and Invertebrates",
+        "storyContext": "Raj notices the bird has bones (backbone), but the butterfly doesn't. Meera explains vertebrates have spines, invertebrates don't.",
+        "points": [
+          {
+            "label": "Vertebrates",
+            "text": "Have backbone: fish, amphibians, reptiles, birds, mammals."
+          },
+          {
+            "label": "Invertebrates",
+            "text": "No backbone: insects, worms, crustaceans, mollusks, spiders."
+          }
+        ],
+        "inSimpleWords": "Vertebrates have backbones, invertebrates don't.",
+        "emoji": "🦴"
+      },
+      {
+        "kind": "example",
+        "title": "Animal Classification",
+        "storyContext": "Raj sorts animals he sees: sparrow (bird), lizard (reptile), beetle (insect), frog (amphibian), fish (fish).",
+        "example": {
+          "problem": "Classify: whale, snake, octopus, cow, eagle.",
+          "solution": "Whale and cow are mammals. Snake is reptile. Octopus is mollusk. Eagle is bird."
+        },
+        "inSimpleWords": "Groups share features: birds have feathers, fish have gills, mammals feed milk.",
+        "emoji": "🐦"
+      },
+      {
+        "kind": "concept",
+        "title": "Plants: Different Types",
+        "storyContext": "Meera points out mosses (no roots), ferns (have roots but no seeds), and flowering plants (have seeds and flowers).",
+        "points": [
+          {
+            "label": "Mosses",
+            "text": "Simple plants, no roots or seeds, reproduce by spores."
+          },
+          {
+            "label": "Ferns",
+            "text": "Have roots and leaves, reproduce by spores."
+          },
+          {
+            "label": "Seed Plants",
+            "text": "Flowering and cone-bearing plants, reproduce by seeds."
+          }
+        ],
+        "inSimpleWords": "Plants get more complex: mosses → ferns → seed plants.",
+        "emoji": "🌱"
+      },
+      {
+        "kind": "example",
+        "title": "Finding Plant Types",
+        "storyContext": "Raj identifies moss on a rock, fern in shade, and flowers in sunlight on the trail.",
+        "example": {
+          "problem": "You find three plants: one very simple on wet rock, one with leaves but no flowers, one with bright flowers. Classify each.",
+          "solution": "Rock plant is moss. Leafy plant is fern. Flowering plant is a seed plant (flowering plant)."
+        },
+        "inSimpleWords": "Observe roots, seeds, and leaves to identify plant types.",
+        "emoji": "🍃"
+      },
+      {
+        "kind": "challenge",
+        "title": "Classify Your Neighborhood",
+        "storyContext": "Meera challenges Raj to list 10 organisms he sees at home and classify each by kingdom and type.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Note at least one animal, one plant, and one microorganism (like fungus bread mold)."
+          }
+        ],
+        "inSimpleWords": "Look around and classify living things by their features.",
+        "emoji": "🏠"
+      },
+      {
+        "kind": "recap",
+        "title": "Diversity Review",
+        "storyContext": "Raj and Meera finish the hike, appreciating Earth's incredible variety of life.",
+        "points": [
+          {
+            "label": "Kingdoms",
+            "text": "Animals, Plants, Fungi, Protists, Bacteria."
+          },
+          {
+            "label": "Animals",
+            "text": "Vertebrates (backbone) or Invertebrates (no backbone)."
+          },
+          {
+            "label": "Plants",
+            "text": "Mosses, Ferns, or Seed Plants (simple to complex)."
+          }
+        ],
+        "inSimpleWords": "Life's diversity is organized by shared features.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-science-exploringmagnets",
+    "classLevel": "6",
+    "subject": "Science",
+    "chapter": "Exploring Magnets",
+    "chapterAliases": [],
+    "title": "Meera's Magnetic Adventure",
+    "hook": "Meera discovers invisible forces when magnets attract and repel around her home.",
+    "characters": [
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "magnet explorer"
+      },
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "assistant"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Magnetic Discovery",
+        "storyContext": "Meera picks up iron nails with a magnet. Raj asks, 'Why do they stick?' Meera explains that magnets have invisible pulling power.",
+        "points": [],
+        "inSimpleWords": "Magnets are objects with invisible pulling and pushing forces.",
+        "emoji": "🧲"
+      },
+      {
+        "kind": "concept",
+        "title": "What is a Magnet?",
+        "storyContext": "Meera shows different magnets: bar magnet, horseshoe magnet, electromagnet. They all attract iron and steel.",
+        "points": [
+          {
+            "label": "Magnet",
+            "text": "Object with magnetic field; attracts iron and steel; has poles (north and south)."
+          }
+        ],
+        "inSimpleWords": "A magnet attracts certain metals without touching them.",
+        "emoji": "⭐"
+      },
+      {
+        "kind": "example",
+        "title": "Magnetic and Non-Magnetic",
+        "storyContext": "Meera tests objects: iron (attracted), aluminum foil (not attracted), steel (attracted), plastic (not attracted).",
+        "example": {
+          "problem": "Test these with a magnet: nail, rubber, coin, spoon, plastic bag.",
+          "solution": "Nail and spoon attract (if metal). Rubber, coin, plastic bag don't attract."
+        },
+        "inSimpleWords": "Iron, steel, and nickel are magnetic; most others are not.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "concept",
+        "title": "Magnetic Poles",
+        "storyContext": "Meera labels a bar magnet: North pole (N) and South pole (S). She notices they attract but opposite poles repel each other.",
+        "points": [
+          {
+            "label": "Poles",
+            "text": "Every magnet has North and South poles. Opposite poles attract, like poles repel."
+          }
+        ],
+        "inSimpleWords": "N and S poles attract each other. N-N or S-S repel.",
+        "emoji": "↔️"
+      },
+      {
+        "kind": "example",
+        "title": "Attraction and Repulsion",
+        "storyContext": "Raj holds two bar magnets: N-S together (pull), N-N together (push). Meera explains the rule.",
+        "example": {
+          "problem": "Magnet A (N-S) and Magnet B (N-S). If A's north faces B's south, do they attract or repel?",
+          "solution": "Opposite poles (N-S) attract each other."
+        },
+        "inSimpleWords": "Opposite poles attract, same poles push away.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "concept",
+        "title": "Magnetic Field",
+        "storyContext": "Meera sprinkles iron filings around a magnet. The filings arrange in a pattern, showing the invisible magnetic field.",
+        "points": [
+          {
+            "label": "Magnetic Field",
+            "text": "Invisible region around a magnet where magnetic force acts."
+          }
+        ],
+        "inSimpleWords": "Magnetic field is the invisible area where magnet's force works.",
+        "emoji": "🌀"
+      },
+      {
+        "kind": "example",
+        "title": "Observing Magnetic Fields",
+        "storyContext": "Iron filings create patterns around the magnet showing field lines radiating from poles.",
+        "example": {
+          "problem": "A magnet attracts a nail from 5 cm away. Is the nail in the magnetic field?",
+          "solution": "Yes, the nail feels attraction from 5 cm away, so it's in the magnetic field region."
+        },
+        "inSimpleWords": "If a magnet pulls something without touching, it's in the magnetic field.",
+        "emoji": "🌐"
+      },
+      {
+        "kind": "challenge",
+        "title": "Magnet Experiments",
+        "storyContext": "Meera challenges Raj to predict: will a magnet work through paper? Glass? Water? Test and explain.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Magnetic force passes through paper and glass but weakens. Water also allows force to pass."
+          }
+        ],
+        "inSimpleWords": "Magnetic fields pass through many materials.",
+        "emoji": "🧪"
+      },
+      {
+        "kind": "recap",
+        "title": "Magnets Review",
+        "storyContext": "Meera and Raj explore everyday magnets: in compasses, door latches, magnetic stickers.",
+        "points": [
+          {
+            "label": "Basics",
+            "text": "Magnets attract iron/steel via invisible poles (N and S)."
+          },
+          {
+            "label": "Rules",
+            "text": "Opposite poles attract, like poles repel, field passes through materials."
+          },
+          {
+            "label": "Uses",
+            "text": "Compasses, electromagnets, motors, toys, separation tools."
+          }
+        ],
+        "inSimpleWords": "Magnets are forces that work through invisible fields.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-science-measurementoflengthandmotion",
+    "classLevel": "6",
+    "subject": "Science",
+    "chapter": "Measurement of Length and Motion",
+    "chapterAliases": [
+      "Measurement of Length and Motion",
+      "Length and Motion"
+    ],
+    "title": "Raj's Running Track Measurements",
+    "hook": "Raj measures distances and times his runs, learning to quantify motion.",
+    "characters": [
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "athlete"
+      },
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "scientist"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Track Day",
+        "storyContext": "Raj wants to know how far he runs and how fast. Meera brings measuring tape and stopwatch.",
+        "points": [],
+        "inSimpleWords": "Length tells us distance, time tells us how fast.",
+        "emoji": "🏃"
+      },
+      {
+        "kind": "concept",
+        "title": "Standard Units of Length",
+        "storyContext": "Meera explains: centimeter (cm), meter (m), kilometer (km). The meter is the standard unit.",
+        "points": [
+          {
+            "label": "Metric Units",
+            "text": "mm (millimeter), cm (centimeter), m (meter), km (kilometer). 1 m = 100 cm."
+          }
+        ],
+        "inSimpleWords": "Meter is the main unit; 100 cm = 1 meter.",
+        "emoji": "📏"
+      },
+      {
+        "kind": "example",
+        "title": "Measuring Length",
+        "storyContext": "Raj measures the track: 100 meters long. Using a measuring tape, he records: 100.0 m.",
+        "example": {
+          "problem": "A track is 100 meters. Express in centimeters and kilometers.",
+          "solution": "100 m = 10,000 cm (multiply by 100). 100 m = 0.1 km (divide by 1,000)."
+        },
+        "inSimpleWords": "Convert between units: multiply or divide by 10s.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "concept",
+        "title": "Time Measurement",
+        "storyContext": "Meera uses a stopwatch to time Raj's run. She records seconds, minutes.",
+        "points": [
+          {
+            "label": "Units",
+            "text": "Second (s), minute (min), hour (h). 1 min = 60 s, 1 hour = 60 min."
+          }
+        ],
+        "inSimpleWords": "Second is the main unit; 60 seconds = 1 minute.",
+        "emoji": "⏱️"
+      },
+      {
+        "kind": "example",
+        "title": "Calculating Speed",
+        "storyContext": "Raj runs 100 meters in 20 seconds. Meera calculates his speed: 100÷20 = 5 meters per second.",
+        "example": {
+          "problem": "Raj runs 100 m in 20 s. What is his speed?",
+          "solution": "Speed = distance ÷ time = 100 m ÷ 20 s = 5 m/s (meters per second)."
+        },
+        "inSimpleWords": "Speed = distance traveled ÷ time taken.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "Motion Concepts",
+        "storyContext": "Meera explains: motion is change in position. Speed is how fast, velocity includes direction.",
+        "points": [
+          {
+            "label": "Speed",
+            "text": "How fast something moves: distance ÷ time."
+          },
+          {
+            "label": "Velocity",
+            "text": "Speed with direction: '5 m/s north'."
+          },
+          {
+            "label": "Acceleration",
+            "text": "Change in speed or direction: speeding up, slowing down."
+          }
+        ],
+        "inSimpleWords": "Speed shows how fast, velocity includes direction.",
+        "emoji": "🚀"
+      },
+      {
+        "kind": "example",
+        "title": "Real Motion Scenarios",
+        "storyContext": "Raj experiments: walk at constant speed (slow), jog (medium), sprint (fast), then suddenly stop.",
+        "example": {
+          "problem": "Raj walks 30 m in 10 s, then runs 50 m in 10 s. Which is faster?",
+          "solution": "Walk: 30÷10 = 3 m/s. Run: 50÷10 = 5 m/s. Running is faster."
+        },
+        "inSimpleWords": "Faster motion covers more distance in same time.",
+        "emoji": "💨"
+      },
+      {
+        "kind": "challenge",
+        "title": "Motion Analysis",
+        "storyContext": "Meera challenges Raj to measure his friend's 200 m dash time and calculate speed.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "If 200 m in 40 s, then speed = 200÷40 = 5 m/s."
+          }
+        ],
+        "inSimpleWords": "Use stopwatch and measuring tape to find real speeds.",
+        "emoji": "🏅"
+      },
+      {
+        "kind": "recap",
+        "title": "Length and Motion Review",
+        "storyContext": "Raj and Meera review track measurements and motion calculations.",
+        "points": [
+          {
+            "label": "Length",
+            "text": "Standard units: cm, m, km. Convert by multiplying/dividing by 10s."
+          },
+          {
+            "label": "Motion",
+            "text": "Speed = distance ÷ time. Velocity includes direction."
+          },
+          {
+            "label": "Measurement Tools",
+            "text": "Measuring tape for length, stopwatch for time."
+          }
+        ],
+        "inSimpleWords": "Measure distance with tape, time with stopwatch, calculate speed.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-science-temperatureanditsmeausurement",
+    "classLevel": "6",
+    "subject": "Science",
+    "chapter": "Temperature and its Measurement",
+    "chapterAliases": [
+      "Temperature Measurement"
+    ],
+    "title": "Meera's Thermometer Exploration",
+    "hook": "Meera discovers how to measure temperature safely and accurately.",
+    "characters": [
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "temperature scientist"
+      },
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "observer"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Feeling Hot and Cold",
+        "storyContext": "Meera dunks her hand in cold water, then hot water. She realizes touch isn't precise. A thermometer measures temperature accurately.",
+        "points": [],
+        "inSimpleWords": "Temperature measures how hot or cold something is.",
+        "emoji": "🌡️"
+      },
+      {
+        "kind": "concept",
+        "title": "What is Temperature?",
+        "storyContext": "Meera explains: temperature measures the kinetic energy of molecules. Hot = fast-moving molecules, cold = slow-moving.",
+        "points": [
+          {
+            "label": "Temperature",
+            "text": "Measure of how fast atoms/molecules move. Higher temp = faster motion."
+          }
+        ],
+        "inSimpleWords": "Hot things have fast-moving particles, cold things have slow ones.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "Thermometer Types",
+        "storyContext": "Raj finds three thermometers: mercury (traditional), alcohol (colored liquid), digital (electronic display).",
+        "points": [
+          {
+            "label": "Liquid Thermometers",
+            "text": "Mercury or alcohol rises in tube as temperature increases."
+          },
+          {
+            "label": "Digital Thermometers",
+            "text": "Electronic sensors display temperature as numbers."
+          }
+        ],
+        "inSimpleWords": "Thermometers measure temperature using rising liquid or electronics.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "example",
+        "title": "Reading a Thermometer",
+        "storyContext": "Meera shows Raj how to read a liquid thermometer: find the top of the liquid column, read the number.",
+        "example": {
+          "problem": "A thermometer shows the liquid rising to the 37 line. What is the temperature?",
+          "solution": "Temperature is 37°C (Celsius). Always read at the top of the liquid level, eye level."
+        },
+        "inSimpleWords": "Read thermometer at the top of the liquid, at eye level.",
+        "emoji": "👁️"
+      },
+      {
+        "kind": "concept",
+        "title": "Temperature Scales",
+        "storyContext": "Meera explains two scales: Celsius (water freezes at 0°C, boils at 100°C) and Fahrenheit (32°F to 212°F).",
+        "points": [
+          {
+            "label": "Celsius",
+            "text": "Used in India and most countries. Water freezes at 0°C, boils at 100°C."
+          },
+          {
+            "label": "Fahrenheit",
+            "text": "Used in USA. Water freezes at 32°F, boils at 212°F."
+          }
+        ],
+        "inSimpleWords": "Celsius: 0° (freeze) to 100° (boil). Most countries use Celsius.",
+        "emoji": "🌍"
+      },
+      {
+        "kind": "example",
+        "title": "Measuring Body Temperature",
+        "storyContext": "Meera takes her body temperature: the thermometer reads 37°C (normal and healthy).",
+        "example": {
+          "problem": "A person's body temperature is 37°C. Is this normal or is the person sick?",
+          "solution": "37°C is normal body temperature. Fever starts around 38°C."
+        },
+        "inSimpleWords": "Normal body temperature is about 37°C.",
+        "emoji": "💊"
+      },
+      {
+        "kind": "example",
+        "title": "Water Temperature States",
+        "storyContext": "Meera heats ice to water to steam: 0°C (ice), 25°C (room temp), 37°C (body), 100°C (boiling).",
+        "example": {
+          "problem": "At what temperature does ice melt? At what temperature does water boil?",
+          "solution": "Ice melts at 0°C. Water boils at 100°C (at sea level)."
+        },
+        "inSimpleWords": "0°C (freeze) is ice, 100°C (boil) is steam, between is liquid water.",
+        "emoji": "❄️"
+      },
+      {
+        "kind": "challenge",
+        "title": "Temperature Recording",
+        "storyContext": "Raj records temperatures throughout the day: morning (20°C), noon (28°C), evening (22°C).",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Record indoor temperature at 3 times daily for a week. Graph the data."
+          }
+        ],
+        "inSimpleWords": "Observe and record temperature changes over time.",
+        "emoji": "📈"
+      },
+      {
+        "kind": "recap",
+        "title": "Temperature Review",
+        "storyContext": "Meera and Raj recap thermometer safety and accurate measurement.",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Temperature measures particle motion (kinetic energy)."
+          },
+          {
+            "label": "Measurement",
+            "text": "Use thermometers (liquid or digital), read at eye level, at top of liquid."
+          },
+          {
+            "label": "Scale",
+            "text": "Celsius: 0° (freeze), 37° (body), 100° (boil)."
+          }
+        ],
+        "inSimpleWords": "Thermometers safely measure temperature on the Celsius scale.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-science-journeythroughstatesofwater",
+    "classLevel": "6",
+    "subject": "Science",
+    "chapter": "A Journey through States of Water",
+    "chapterAliases": [
+      "States of Water"
+    ],
+    "title": "Water's Three Forms Quest",
+    "hook": "Raj and Meera trace water's transformation through solid, liquid, and gas.",
+    "characters": [
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "water explorer"
+      },
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "cycle guide"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Ice to Steam",
+        "storyContext": "Meera shows Raj ice in a freezer, liquid water in a glass, and steam from boiling water. Same thing, three forms!",
+        "points": [],
+        "inSimpleWords": "Water changes form at different temperatures.",
+        "emoji": "💧"
+      },
+      {
+        "kind": "concept",
+        "title": "Solid: Ice",
+        "storyContext": "Raj touches ice: hard, cold, keeps shape. Molecules are locked in place, vibrating only slightly.",
+        "points": [
+          {
+            "label": "Solid Water",
+            "text": "Ice forms at 0°C or below. Molecules are tightly packed, don't move freely."
+          }
+        ],
+        "inSimpleWords": "Ice is solid: hard, heavy, keeps its shape.",
+        "emoji": "❄️"
+      },
+      {
+        "kind": "concept",
+        "title": "Liquid: Water",
+        "storyContext": "Meera pours water: flows, takes shape of container, molecules slide past each other.",
+        "points": [
+          {
+            "label": "Liquid Water",
+            "text": "Forms between 0°C and 100°C. Molecules move freely, giving water fluidity."
+          }
+        ],
+        "inSimpleWords": "Water is liquid: flows, takes container shape.",
+        "emoji": "🌊"
+      },
+      {
+        "kind": "concept",
+        "title": "Gas: Steam",
+        "storyContext": "Boiling water produces steam: invisible gas where molecules fly freely through air.",
+        "points": [
+          {
+            "label": "Gaseous Water",
+            "text": "Steam forms above 100°C. Molecules move very fast, spread out widely."
+          }
+        ],
+        "inSimpleWords": "Steam is gas: spreads everywhere, invisible.",
+        "emoji": "☁️"
+      },
+      {
+        "kind": "example",
+        "title": "Melting and Freezing",
+        "storyContext": "Raj watches ice melt to water (melting) and water freeze to ice (freezing).",
+        "example": {
+          "problem": "Ice at 0°C warms to 50°C. What happens?",
+          "solution": "At 0°C ice melts to water. As temp rises to 50°C, water stays liquid and gets warmer."
+        },
+        "inSimpleWords": "Melting: solid → liquid. Freezing: liquid → solid.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "concept",
+        "title": "Evaporation and Condensation",
+        "storyContext": "Meera leaves wet clothes in sun; they dry (evaporation). Morning dew appears on grass (condensation).",
+        "points": [
+          {
+            "label": "Evaporation",
+            "text": "Liquid water turns to steam/vapor, especially in heat."
+          },
+          {
+            "label": "Condensation",
+            "text": "Water vapor cools and turns back to liquid (like foggy mirror)."
+          }
+        ],
+        "inSimpleWords": "Evaporation: liquid → gas. Condensation: gas → liquid.",
+        "emoji": "🌬️"
+      },
+      {
+        "kind": "example",
+        "title": "Water Cycle Journey",
+        "storyContext": "Raj traces the cycle: sun evaporates ocean water (vapor) → rises and cools → condenses into clouds → falls as rain → flows to ocean.",
+        "example": {
+          "problem": "Trace the water cycle: sun heats ocean, clouds form, rain falls.",
+          "solution": "Evaporation (sun heats water) → Condensation (vapor cools to clouds) → Precipitation (rain falls) → Runoff (returns to ocean)."
+        },
+        "inSimpleWords": "Water evaporates (rises), condenses (clouds), falls as rain, returns to ocean.",
+        "emoji": "🌍"
+      },
+      {
+        "kind": "challenge",
+        "title": "State Transitions",
+        "storyContext": "Meera challenges Raj: at what temperature does each transition occur?",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Melting: 0°C. Boiling: 100°C. Freezing: 0°C. Condensation occurs below boiling point."
+          }
+        ],
+        "inSimpleWords": "Learn the key temperatures: 0° (solid ↔ liquid) and 100° (liquid ↔ gas).",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "recap",
+        "title": "States of Water Review",
+        "storyContext": "Raj and Meera recap the journey: ice, water, steam, and the cycle that sustains all life.",
+        "points": [
+          {
+            "label": "Solid (Ice)",
+            "text": "Below 0°C. Hard, fixed shape, molecules locked."
+          },
+          {
+            "label": "Liquid (Water)",
+            "text": "0°C to 100°C. Flows, takes shape, molecules move freely."
+          },
+          {
+            "label": "Gas (Steam)",
+            "text": "Above 100°C. Invisible, spreads out, molecules very fast."
+          },
+          {
+            "label": "Cycle",
+            "text": "Evaporation → Condensation → Precipitation → Runoff."
+          }
+        ],
+        "inSimpleWords": "Water cycles through solid, liquid, and gas forms, powering Earth's weather.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-6-science-materialsaroundus",
+    "classLevel": "6",
+    "subject": "Science",
+    "chapter": "Materials Around Us",
+    "chapterAliases": [],
+    "title": "Meera's Material Detective Adventure",
+    "hook": "Meera investigates the materials in her classroom and home, discovering their properties.",
+    "characters": [
+      {
+        "name": "Meera",
+        "emoji": "👧",
+        "role": "material scientist"
+      },
+      {
+        "name": "Raj",
+        "emoji": "👦",
+        "role": "explorer"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Classroom Materials",
+        "storyContext": "Meera looks around: wood desk, metal chair, plastic bottle, glass window, paper book. Each material behaves differently.",
+        "points": [],
+        "inSimpleWords": "Everything is made of different materials with unique properties.",
+        "emoji": "🏫"
+      },
+      {
+        "kind": "concept",
+        "title": "What are Materials?",
+        "storyContext": "Raj asks, 'What's a material?' Meera explains: materials are substances with specific properties, like hardness, color, and flexibility.",
+        "points": [
+          {
+            "label": "Material",
+            "text": "Substance from which objects are made. Each has unique properties (hardness, color, texture, flexibility)."
+          }
+        ],
+        "inSimpleWords": "Materials are what things are made from.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "example",
+        "title": "Types of Materials",
+        "storyContext": "Meera sorts materials: metals (iron, aluminum), plastics (bottles, bags), ceramics (clay, tiles), wood, glass, rubber.",
+        "example": {
+          "problem": "Classify these by material type: iron nail, plastic cup, clay pot, wooden spoon, glass plate.",
+          "solution": "Nail: metal. Cup: plastic. Pot: ceramic. Spoon: wood. Plate: glass."
+        },
+        "inSimpleWords": "Common materials: metal, plastic, ceramic, wood, glass, rubber.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "concept",
+        "title": "Natural and Synthetic",
+        "storyContext": "Meera observes: cotton (natural), wool (natural), plastic (synthetic), steel (synthetic from iron ore).",
+        "points": [
+          {
+            "label": "Natural",
+            "text": "Come from nature: cotton, wool, silk, wood, leather, rubber."
+          },
+          {
+            "label": "Synthetic",
+            "text": "Made by humans: plastic, nylon, polyester, steel, concrete."
+          }
+        ],
+        "inSimpleWords": "Natural materials from nature, synthetic materials made by humans.",
+        "emoji": "🌿"
+      },
+      {
+        "kind": "example",
+        "title": "Properties of Materials",
+        "storyContext": "Raj tests: metal spoon conducts heat (conductor), plastic spoon doesn't (insulator). Glass breaks (brittle), rubber stretches (elastic).",
+        "example": {
+          "problem": "Which is best for a handle: metal, plastic, or wood? Why?",
+          "solution": "Plastic or wood: they're insulators (don't conduct heat/cold) and have some flex. Metal conducts heat and can burn hands."
+        },
+        "inSimpleWords": "Different materials have different usefulness for different jobs.",
+        "emoji": "⚙️"
+      },
+      {
+        "kind": "concept",
+        "title": "Physical Properties",
+        "storyContext": "Meera lists physical properties: hardness, transparency, flexibility, electrical conductivity, thermal conductivity, density.",
+        "points": [
+          {
+            "label": "Hardness",
+            "text": "Diamond is very hard, lead is soft."
+          },
+          {
+            "label": "Transparency",
+            "text": "Glass is transparent, wood is opaque."
+          },
+          {
+            "label": "Conductivity",
+            "text": "Metals conduct electricity well, plastic doesn't."
+          }
+        ],
+        "inSimpleWords": "Properties describe how materials behave and look.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "example",
+        "title": "Choosing Materials",
+        "storyContext": "Raj selects materials for tasks: metal for cooking pots (conducts heat), plastic for water bottles (doesn't rust), glass for windows (transparent).",
+        "example": {
+          "problem": "You need a material for an electric wire. Choose metal, plastic, or wood. Why?",
+          "solution": "Metal: conducts electricity well. Plastic or wood: insulators, used as wire sheath."
+        },
+        "inSimpleWords": "Match material properties to what you need.",
+        "emoji": "💡"
+      },
+      {
+        "kind": "challenge",
+        "title": "Material Hunt",
+        "storyContext": "Meera challenges Raj to find 8 objects at home, identify the material, and list one key property.",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Example: spoon (metal, conducts heat), cup (ceramic, hard), pen (plastic, flexible)."
+          }
+        ],
+        "inSimpleWords": "Look around and identify materials and their properties.",
+        "emoji": "🏠"
+      },
+      {
+        "kind": "recap",
+        "title": "Materials Review",
+        "storyContext": "Meera and Raj finish their material journey, appreciating how material science shapes everyday objects.",
+        "points": [
+          {
+            "label": "Types",
+            "text": "Metal, plastic, ceramic, wood, glass, rubber, natural, synthetic."
+          },
+          {
+            "label": "Properties",
+            "text": "Hardness, transparency, conductivity, flexibility, density."
+          },
+          {
+            "label": "Selection",
+            "text": "Match material properties to the job needed."
+          }
+        ],
+        "inSimpleWords": "The right material for the right job makes everything work better.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-mathematics-large-numbers-around-us",
+    "classLevel": "7",
+    "subject": "Mathematics",
+    "chapter": "Large Numbers Around Us",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Count the City",
+    "hook": "Help Arjun and Priya explore their city and understand how large numbers describe the world around them!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A curious 12-year-old who loves exploring his city"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "Arjun's smart classmate who notices numbers everywhere"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Mystery in Numbers",
+        "storyContext": "On a Saturday morning, Arjun and Priya explore their Delhi neighborhood. They see a banner: Welcome! Population: 16 million! Arjun asks, What does 16 million even look like?",
+        "points": [],
+        "inSimpleWords": "Arjun and Priya wonder about very big numbers.",
+        "emoji": "🏙️"
+      },
+      {
+        "kind": "concept",
+        "title": "Ones, Tens, Hundreds",
+        "storyContext": "Priya pulls out her notebook. Let me show you, she says. She writes: 1, 10, 100, 1000. Each step multiplies by 10! Like building blocks stacked higher and higher.",
+        "points": [
+          {
+            "label": "Place Value",
+            "text": "1 (one), 10 (ten), 100 (hundred), 1,000 (thousand)"
+          }
+        ],
+        "example": {
+          "problem": "Write 5 hundreds and 7 tens and 3 ones.",
+          "solution": "573"
+        },
+        "inSimpleWords": "Numbers build up by tens, like stairs.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "concept",
+        "title": "Thousands and Lakhs",
+        "storyContext": "They reach a market. Look! says Arjun, pointing at a sign: ₹15,000 — Laptop Price. Priya writes: 1,000 = one thousand. 1,00,000 = one lakh. Indian rupees use lakhs!",
+        "points": [
+          {
+            "label": "Indian Place Value",
+            "text": "1,00,000 = 1 lakh. We group by 2s after hundreds: 1,00,000; 10,00,000 = 10 lakh; 1,00,00,000 = 1 crore"
+          }
+        ],
+        "example": {
+          "problem": "How many lakhs are in 25,00,000?",
+          "solution": "25 lakhs"
+        },
+        "inSimpleWords": "India uses lakhs and crores for big money.",
+        "emoji": "💰"
+      },
+      {
+        "kind": "story",
+        "title": "Counting the Crowd",
+        "storyContext": "A festival starts in the park. Look at all these people! says Priya. A volunteer says: Last year, 2,50,000 people came to this festival! Arjun's eyes widen. 2 lakh 50 thousand?",
+        "points": [
+          {
+            "label": "Reading Large Numbers",
+            "text": "2,50,000 = 2 lakhs and 50 thousands"
+          }
+        ],
+        "inSimpleWords": "Big festivals have hundreds of thousands of visitors.",
+        "emoji": "🎉"
+      },
+      {
+        "kind": "example",
+        "title": "Comparing Large Numbers",
+        "storyContext": "A news report shows: Delhi has 1,60,00,000 people. Mumbai has 2,04,00,000. Arjun compares on his fingers. Priya says, Mumbai is bigger by 44 lakhs!",
+        "points": [
+          {
+            "label": "Comparing",
+            "text": "Line up digits from right. Compare place by place, left to right."
+          }
+        ],
+        "example": {
+          "problem": "Which is bigger: 5,67,890 or 5,76,890?",
+          "solution": "5,76,890 is bigger because 7 ten-thousands > 6 ten-thousands"
+        },
+        "inSimpleWords": "Compare number sizes by checking digit positions.",
+        "emoji": "📈"
+      },
+      {
+        "kind": "story",
+        "title": "A Billion Stars",
+        "storyContext": "At an astronomy show, the guide says: Our Milky Way has 1,00,00,00,000 stars - 1 billion! Priya writes: 1,00,00,00,000 = 1 crore x 100. Arjun gasps. Thats... bigger than our city!",
+        "points": [
+          {
+            "label": "1 Billion",
+            "text": "1,00,00,00,000 = 100 crores = 1 billion"
+          }
+        ],
+        "inSimpleWords": "A billion is 100 crores - way bigger than cities.",
+        "emoji": "⭐"
+      },
+      {
+        "kind": "recap",
+        "title": "Arjun and Priya's Discovery",
+        "storyContext": "As the sun sets, Arjun and Priya sit in the park. Priya says: Numbers describe everything - cities, crowds, stars, even time! Arjun smiles. From ones to billions, numbers are everywhere!",
+        "points": [
+          {
+            "label": "Key Takeaway",
+            "text": "Place value: ones, tens, hundreds, thousands, lakhs, crores, billions. Each shift right multiplies by 10."
+          }
+        ],
+        "inSimpleWords": "Large numbers describe the world around you.",
+        "emoji": "🌍"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-mathematics-arithmetic-expressions",
+    "classLevel": "7",
+    "subject": "Mathematics",
+    "chapter": "Arithmetic Expressions",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Solve the Festival Budget",
+    "hook": "Help Arjun and Priya plan a school festival by solving arithmetic expressions!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A practical 12-year-old helping organize a school event"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "The smart mathematician ensuring calculations are correct"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Planning the School Festival",
+        "storyContext": "Arjun and Priya are asked to budget for the annual school festival. The principal says: Food costs 3,000, decorations cost 2,000, and prizes cost 1,500. What's the total? Priya writes: 3,000 + 2,000 + 1,500.",
+        "points": [],
+        "inSimpleWords": "Add costs to find the total budget.",
+        "emoji": "🎪"
+      },
+      {
+        "kind": "concept",
+        "title": "Order of Operations (BODMAS)",
+        "storyContext": "Priya teaches Arjun: We follow BODMAS - Brackets, Orders, Division, Multiplication, Addition, Subtraction. Always in that order! She writes: 2 + 3 x 4. Not 5 x 4 = 20. But 3 x 4 first = 12, then 2 + 12 = 14.",
+        "points": [
+          {
+            "label": "BODMAS Rule",
+            "text": "Do Brackets first, then Orders (powers), then ÷ and ×, then + and −. Work left to right for equal priority."
+          }
+        ],
+        "example": {
+          "problem": "Solve: 10 + 2 × 3",
+          "solution": "2 × 3 = 6 first. Then 10 + 6 = 16"
+        },
+        "inSimpleWords": "Multiply and divide before adding and subtracting.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "concept",
+        "title": "Brackets Matter",
+        "storyContext": "Arjun says: What if I calculate (3 + 2) × 4? Priya nods. Brackets first! 3 + 2 = 5, then 5 × 4 = 20. Different from 3 + 2 × 4 = 3 + 8 = 11!",
+        "points": [
+          {
+            "label": "Brackets",
+            "text": "Solve inside brackets first. (3 + 2) × 4 = 5 × 4 = 20"
+          }
+        ],
+        "example": {
+          "problem": "Which is bigger: (2 + 3) × 5 or 2 + 3 × 5?",
+          "solution": "(2 + 3) × 5 = 5 × 5 = 25. And 2 + 3 × 5 = 2 + 15 = 17. First is bigger."
+        },
+        "inSimpleWords": "Brackets are calculated first.",
+        "emoji": "( )"
+      },
+      {
+        "kind": "story",
+        "title": "Solving the Budget Puzzle",
+        "storyContext": "A vendor offers: Buy 10 samosas at ₹5 each, or 20 at ₹4 each. Buy 2 of each offer! Priya writes: (10 × 5) + (20 × 4) = 50 + 80 = 130. Arjun checks her work. Perfect!",
+        "points": [
+          {
+            "label": "Real-world expressions",
+            "text": "Food budgets need careful calculation with brackets and multiplication."
+          }
+        ],
+        "inSimpleWords": "Use math to plan real festivals and costs.",
+        "emoji": "🥗"
+      },
+      {
+        "kind": "example",
+        "title": "Division and Multiplication Together",
+        "storyContext": "The budget has 12,000. It's split equally among 4 committees. Each gets 3,000. Then, each committee spends 2,000. How much is left total? Priya writes: (12,000 ÷ 4) - 2,000 = 3,000 - 2,000 = 1,000 per committee. Total left: 1,000 × 4 = 4,000.",
+        "points": [
+          {
+            "label": "Mixed operations",
+            "text": "12,000 ÷ 4 - 2,000 = 3,000 - 2,000 = 1,000 (per committee)"
+          }
+        ],
+        "example": {
+          "problem": "24 ÷ 3 × 2 = ?",
+          "solution": "24 ÷ 3 = 8, then 8 × 2 = 16 (left to right for equal priority)"
+        },
+        "inSimpleWords": "Divide and multiply in the order they appear.",
+        "emoji": "➗"
+      },
+      {
+        "kind": "story",
+        "title": "The Final Calculation",
+        "storyContext": "Principal asks: If we spend 3,000 + 2,000 + 1,500 today and get a 10% discount on food, what's the final cost? Priya calculates: 10% of 3,000 = 300. So (3,000 - 300) + 2,000 + 1,500 = 2,700 + 2,000 + 1,500 = 6,200.",
+        "points": [
+          {
+            "label": "Discount calculation",
+            "text": "10% of 3,000 = 300. 3,000 - 300 = 2,700. Then add the rest."
+          }
+        ],
+        "inSimpleWords": "Use expressions to calculate real budgets with discounts.",
+        "emoji": "💳"
+      },
+      {
+        "kind": "recap",
+        "title": "Arjun and Priya's Success",
+        "storyContext": "The festival is a hit! Arjun and Priya present the final report: Total spent = 6,200. Budget left = 800. The principal smiles. You solved this with perfect arithmetic!",
+        "points": [
+          {
+            "label": "Arithmetic Mastery",
+            "text": "Use BODMAS, brackets, and careful order to solve real problems."
+          }
+        ],
+        "inSimpleWords": "Arithmetic expressions solve real-world budgets and plans.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-mathematics-a-peek-beyond-the-point",
+    "classLevel": "7",
+    "subject": "Mathematics",
+    "chapter": "A Peek Beyond the Point",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Explore Geometry",
+    "hook": "Discover points, lines, and angles in the world around you with Arjun and Priya!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A curious builder who sees shapes in buildings"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A geometry expert explaining the world's structure"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Tiny Dot and Endless Lines",
+        "storyContext": "Walking through Delhi, Arjun spots a dusty ground. He draws a single dot with his finger. What's that? he asks. Priya replies: That's a point - it has no length, width, or height. It's just a location! Then she draws a line through it. A line goes on forever in both directions!",
+        "points": [],
+        "inSimpleWords": "A point is a tiny location. A line goes forever.",
+        "emoji": "📍"
+      },
+      {
+        "kind": "concept",
+        "title": "Line Segments and Rays",
+        "storyContext": "Priya continues: A line segment is part of a line - it has two endpoints. Like the edge of a door. She draws a segment. A ray starts at one point and goes on forever in one direction. Like a laser beam!",
+        "points": [
+          {
+            "label": "Segments vs. Rays",
+            "text": "Line segment: two endpoints (finite). Ray: one endpoint, goes forever in one direction."
+          }
+        ],
+        "example": {
+          "problem": "Name the line segment between points A and B.",
+          "solution": "Line segment AB (or BA)"
+        },
+        "inSimpleWords": "A segment has two ends. A ray has one end.",
+        "emoji": "→"
+      },
+      {
+        "kind": "concept",
+        "title": "Where Lines Meet — Angles",
+        "storyContext": "They look at a street corner where two roads meet. That's an angle! says Priya, pointing. Two rays meeting at a point, called the vertex. The space between them is the angle. She shows Arjun with her arms. 90 degrees is a right angle - like a corner of a book!",
+        "points": [
+          {
+            "label": "Angle Basics",
+            "text": "Two rays from one point form an angle. The point is the vertex. Angles measured in degrees. 90° = right angle."
+          }
+        ],
+        "example": {
+          "problem": "What's the angle at the corner of a square book?",
+          "solution": "90 degrees (right angle)"
+        },
+        "inSimpleWords": "Angles measure the space between two rays.",
+        "emoji": "∠"
+      },
+      {
+        "kind": "story",
+        "title": "Parallel Lines Never Meet",
+        "storyContext": "Walking past railway tracks, Arjun points: Look - two lines that never meet! Priya nods: These are parallel lines. They stay the same distance apart forever. Watch how the electricity wires above do the same thing!",
+        "points": [
+          {
+            "label": "Parallel Lines",
+            "text": "Lines that never meet, no matter how far they extend. Stay the same distance apart."
+          }
+        ],
+        "inSimpleWords": "Parallel lines never cross or touch.",
+        "emoji": "║"
+      },
+      {
+        "kind": "example",
+        "title": "Intersecting Lines and Angles",
+        "storyContext": "Two roads cross in an X shape. When lines intersect, Priya explains, they create 4 angles. Opposite angles are equal! She measures with a protractor. This angle is 60 degrees. The opposite is also 60 degrees!",
+        "points": [
+          {
+            "label": "Vertical Angles",
+            "text": "When two lines cross, opposite angles are equal."
+          }
+        ],
+        "example": {
+          "problem": "If one angle is 70°, what's the opposite angle?",
+          "solution": "Also 70° (vertical angles are equal)"
+        },
+        "inSimpleWords": "Opposite angles at intersections are always equal.",
+        "emoji": "✕"
+      },
+      {
+        "kind": "story",
+        "title": "Acute, Right, and Obtuse",
+        "storyContext": "Priya shows Arjun three angles: a sharp one (acute), a square corner (right), and a wide one (obtuse). An acute angle is less than 90°. A right angle is exactly 90°. An obtuse angle is more than 90° but less than 180°. Arjun laughs. Like faces - happy (acute), neutral (right), surprised (obtuse)!",
+        "points": [
+          {
+            "label": "Angle Types",
+            "text": "Acute: < 90°. Right: = 90°. Obtuse: > 90° but < 180°. Straight: = 180°."
+          }
+        ],
+        "inSimpleWords": "Angles are sharp, square, or wide.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "recap",
+        "title": "The Geometry All Around",
+        "storyContext": "As the sun sets, Arjun and Priya look at the city skyline - dots of lights, lines of streets, angles of buildings. Geometry is everywhere! says Arjun. Priya smiles. Yes. Points, lines, and angles build our world.",
+        "points": [
+          {
+            "label": "Geometry Fundamentals",
+            "text": "Points, lines, segments, rays, angles, and their relationships form the foundation of all shapes."
+          }
+        ],
+        "inSimpleWords": "Geometry is the study of space, points, and shapes.",
+        "emoji": "🏗️"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-mathematics-parallel-and-intersecting-lines",
+    "classLevel": "7",
+    "subject": "Mathematics",
+    "chapter": "Parallel and Intersecting Lines",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Navigate City Streets",
+    "hook": "Discover how parallel and intersecting lines shape our cities!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A curious navigator mapping city patterns"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A geometry expert explaining street designs"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Grid of Streets",
+        "storyContext": "Arjun and Priya look at a city map. Notice the pattern? says Priya. North-South streets run parallel - they never meet. East-West streets also run parallel. But North-South and East-West streets intersect at right angles! Arjun traces with his finger. Like a giant grid!",
+        "points": [],
+        "inSimpleWords": "Cities are laid out with parallel and intersecting streets.",
+        "emoji": "🗺️"
+      },
+      {
+        "kind": "concept",
+        "title": "Parallel Lines — Always the Same Distance",
+        "storyContext": "They measure two North-South streets. These are always 500 meters apart, Priya explains, pointing at her map. No matter how far north or south you go, they stay 500 meters apart. That makes them parallel.",
+        "points": [
+          {
+            "label": "Parallel Lines",
+            "text": "Lines that never intersect and maintain constant distance apart. Symbol: ∥"
+          }
+        ],
+        "example": {
+          "problem": "Are railway tracks parallel?",
+          "solution": "Yes, they maintain equal distance and never meet"
+        },
+        "inSimpleWords": "Parallel lines stay the same distance forever.",
+        "emoji": "📏"
+      },
+      {
+        "kind": "concept",
+        "title": "Intersecting Lines and Their Angles",
+        "storyContext": "At a road crossing, Priya sets up a protractor. When two lines intersect, they create four angles. Watch! She points. The angle on the top-left and bottom-right are equal. The angle on the top-right and bottom-left are also equal! Arjun checks: 65° and 65°! And 115° and 115°!",
+        "points": [
+          {
+            "label": "Vertical Angles",
+            "text": "When two lines intersect, opposite angles are equal."
+          }
+        ],
+        "example": {
+          "problem": "Two lines intersect. One angle is 45°. Find the other three angles.",
+          "solution": "Opposite angle: 45°. Adjacent angles: 135° each"
+        },
+        "inSimpleWords": "Opposite angles at intersections are always equal.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "story",
+        "title": "A Transversal Cuts Through Parallel Lines",
+        "storyContext": "Priya draws three lines on paper: two parallel horizontal lines, and one diagonal line cutting through both. This diagonal is a transversal - it intersects both parallel lines! Arjun asks: Do the angles match? Priya smiles. Yes! Corresponding angles are equal!",
+        "points": [
+          {
+            "label": "Transversal Angles",
+            "text": "When a transversal crosses parallel lines: corresponding angles are equal, alternate angles are equal."
+          }
+        ],
+        "inSimpleWords": "A transversal cuts parallel lines at matching angles.",
+        "emoji": "╱"
+      },
+      {
+        "kind": "example",
+        "title": "Finding Angles with a Transversal",
+        "storyContext": "A slanted power line (transversal) crosses two parallel streets. Priya measures one angle: 70°. By the transversal property, the corresponding angle at the other street is also 70°. And the alternate angle is 70° too! Arjun nods. Geometry is predictable!",
+        "points": [
+          {
+            "label": "Angle Relationships",
+            "text": "Corresponding angles are equal. Alternate interior angles are equal. Co-interior angles sum to 180°."
+          }
+        ],
+        "example": {
+          "problem": "A transversal crosses two parallel lines at 60°. What's the alternate interior angle?",
+          "solution": "Also 60° (alternate angles are equal)"
+        },
+        "inSimpleWords": "Angles match when parallel lines are cut by a transversal.",
+        "emoji": "✓"
+      },
+      {
+        "kind": "story",
+        "title": "Perpendicular Lines — The 90-Degree Special",
+        "storyContext": "They spot a lamp post standing straight up, crossing a horizontal cable. These lines are perpendicular, says Priya. They intersect at exactly 90 degrees. Arjun checks with a square corner. Perfect! Symbol is ⊥.",
+        "points": [
+          {
+            "label": "Perpendicular Lines",
+            "text": "Lines that intersect at 90 degrees. Symbol: ⊥"
+          }
+        ],
+        "inSimpleWords": "Perpendicular lines cross at right angles (90°).",
+        "emoji": "⊥"
+      },
+      {
+        "kind": "recap",
+        "title": "City Geometry Unlocked",
+        "storyContext": "Walking home through the planned city streets, Arjun points out parallel lines, intersections, and perpendicular lamp posts. Our city is built on geometry! he says. Priya agrees. And now you can read it all!",
+        "points": [
+          {
+            "label": "Summary",
+            "text": "Parallel lines stay apart. Intersecting lines cross. Transversals create angle relationships. Perpendicular lines meet at 90°."
+          }
+        ],
+        "inSimpleWords": "Parallel and intersecting lines design cities.",
+        "emoji": "🌆"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-mathematics-working-with-fractions",
+    "classLevel": "7",
+    "subject": "Mathematics",
+    "chapter": "Working with Fractions",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Share a Pizza",
+    "hook": "Learn fractions by sharing pizza and sweets with Arjun and Priya!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A pizza-loving 12-year-old learning to share fairly"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A fair-minded math expert"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Pizza Divided",
+        "storyContext": "At a cafe, Arjun and Priya order a pizza cut into 8 equal slices. Arjun takes 3 slices. That's 3/8 of the pizza, says Priya. The top number tells us how many parts we have. The bottom number tells us how many equal parts the whole pizza is cut into.",
+        "points": [],
+        "inSimpleWords": "A fraction shows a part of a whole.",
+        "emoji": "🍕"
+      },
+      {
+        "kind": "concept",
+        "title": "Numerator and Denominator",
+        "storyContext": "Priya teaches: In 3/8, the 3 is the numerator - the number on top, showing how many parts we have. The 8 is the denominator - the number on bottom, showing the total parts. She draws a pizza diagram. If we have 3/8, we're missing 5/8. Together: 3/8 + 5/8 = 8/8 = 1 whole pizza!",
+        "points": [
+          {
+            "label": "Parts of a Fraction",
+            "text": "Numerator (top): parts we have. Denominator (bottom): total parts the whole is divided into."
+          }
+        ],
+        "example": {
+          "problem": "In 5/12, what do 5 and 12 represent?",
+          "solution": "5 = parts we have. 12 = total parts in the whole"
+        },
+        "inSimpleWords": "Top number = parts we have. Bottom number = total parts.",
+        "emoji": "🥧"
+      },
+      {
+        "kind": "concept",
+        "title": "Adding Fractions (Same Denominator)",
+        "storyContext": "Priya has 2/8 of a barfi. Arjun has 3/8. Let's combine them! says Priya. 2/8 + 3/8: we just add the top numbers and keep the bottom. 2 + 3 = 5, so we get 5/8.",
+        "points": [
+          {
+            "label": "Adding Fractions",
+            "text": "If denominators are the same, add numerators: a/c + b/c = (a+b)/c"
+          }
+        ],
+        "example": {
+          "problem": "1/5 + 2/5 = ?",
+          "solution": "(1+2)/5 = 3/5"
+        },
+        "inSimpleWords": "Add fractions by adding tops if bottoms match.",
+        "emoji": "➕"
+      },
+      {
+        "kind": "story",
+        "title": "Finding Common Denominators",
+        "storyContext": "Arjun has 1/2 of a gulab jamun. Priya has 1/3. Can we add these? asks Arjun. Priya thinks. 1/2 = 3/6 and 1/3 = 2/6. Now they have the same bottom! 3/6 + 2/6 = 5/6! Arjun's eyes light up. We found a common denominator!",
+        "points": [
+          {
+            "label": "Common Denominators",
+            "text": "Rewrite fractions so they have the same denominator. Find the LCM of the denominators."
+          }
+        ],
+        "example": {
+          "problem": "Add 1/2 + 1/4",
+          "solution": "1/2 = 2/4. So 2/4 + 1/4 = 3/4"
+        },
+        "inSimpleWords": "Make bottoms the same before adding fractions.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "example",
+        "title": "Multiplying Fractions",
+        "storyContext": "Arjun says: What's 1/2 of 2/3 of a chocolate bar? Priya multiplies: 1/2 x 2/3: multiply tops and bottoms. (1x2)/(2x3) = 2/6 = 1/3. She shades a bar to show. Yes, exactly 1/3 of a bar!",
+        "points": [
+          {
+            "label": "Multiplying Fractions",
+            "text": "(a/b) x (c/d) = (a×c)/(b×d). Multiply tops and bottoms."
+          }
+        ],
+        "example": {
+          "problem": "1/3 × 3/4 = ?",
+          "solution": "(1×3)/(3×4) = 3/12 = 1/4"
+        },
+        "inSimpleWords": "Multiply fractions by multiplying tops and bottoms.",
+        "emoji": "✕"
+      },
+      {
+        "kind": "story",
+        "title": "Equivalent Fractions",
+        "storyContext": "Priya draws two pizzas: one cut into 4 slices with 2 shaded, another cut into 8 slices with 4 shaded. Look! 2/4 and 4/8 show the same amount - they're equivalent fractions! Multiply or divide top and bottom by the same number.",
+        "points": [
+          {
+            "label": "Equivalent Fractions",
+            "text": "2/4 = 4/8 = 1/2. Multiply or divide top and bottom by the same number."
+          }
+        ],
+        "inSimpleWords": "Same amount can be written as different fractions.",
+        "emoji": "≈"
+      },
+      {
+        "kind": "recap",
+        "title": "Pizza Math Mastered",
+        "storyContext": "Walking home, Arjun and Priya review: Fractions have numerators and denominators. We add by finding common bottoms. We multiply by multiplying tops and bottoms. Equivalent fractions show the same parts differently. Arjun smiles. Now I can split anything fairly!",
+        "points": [
+          {
+            "label": "Fraction Mastery",
+            "text": "Understand parts and wholes. Add with common denominators. Multiply numerators and denominators. Simplify to equivalent fractions."
+          }
+        ],
+        "inSimpleWords": "Fractions are parts of wholes, shared and calculated.",
+        "emoji": "🎓"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-mathematics-number-play",
+    "classLevel": "7",
+    "subject": "Mathematics",
+    "chapter": "Number Play",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Discover Number Magic",
+    "hook": "Explore factors, multiples, and prime numbers in this fun number adventure!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "An enthusiastic puzzle-solver discovering patterns"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A number theorist revealing number secrets"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "What Divides Into 12?",
+        "storyContext": "At home, Arjun arranges 12 candies in rows. I can make 2 rows of 6, or 3 rows of 4, or 4 rows of 3! Priya nods. Those are factors of 12 - numbers that divide evenly into 12. Factors of 12 are: 1, 2, 3, 4, 6, and 12.",
+        "points": [],
+        "inSimpleWords": "Factors divide evenly into a number.",
+        "emoji": "🍬"
+      },
+      {
+        "kind": "concept",
+        "title": "Prime and Composite Numbers",
+        "storyContext": "Priya shows Arjun cards with numbers: A prime number has exactly two factors: 1 and itself. Like 7 - only 1 and 7 divide into it! She shows another: 12 has many factors. It's composite. Arjun asks: Is 1 prime? Priya shakes her head. 1 is special - neither prime nor composite.",
+        "points": [
+          {
+            "label": "Prime vs. Composite",
+            "text": "Prime: exactly 2 factors (1 and itself). Examples: 2, 3, 5, 7, 11, 13. Composite: more than 2 factors. Example: 12."
+          }
+        ],
+        "example": {
+          "problem": "Is 9 prime or composite?",
+          "solution": "Composite. Factors: 1, 3, 9"
+        },
+        "inSimpleWords": "Prime numbers only divide by 1 and themselves.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "concept",
+        "title": "Multiples — Skip Counting",
+        "storyContext": "Priya counts: Multiples of 3 are: 3, 6, 9, 12, 15, 18... She hops on a number line. Each time, I skip by 3. These are all multiples of 3 - they all have 3 as a factor!",
+        "points": [
+          {
+            "label": "Multiples",
+            "text": "Multiples of n: n×1, n×2, n×3... Example: multiples of 5 are 5, 10, 15, 20..."
+          }
+        ],
+        "example": {
+          "problem": "List the first 5 multiples of 4.",
+          "solution": "4, 8, 12, 16, 20"
+        },
+        "inSimpleWords": "Multiples are what you get by skip-counting.",
+        "emoji": "🦘"
+      },
+      {
+        "kind": "story",
+        "title": "GCD — Finding the Greatest Common Factor",
+        "storyContext": "Arjun has 12 marbles, Priya has 18. They want to divide them into equal piles with no leftovers. What's the largest pile size that works for both? asks Arjun. Priya lists: Factors of 12: 1, 2, 3, 4, 6, 12. Factors of 18: 1, 2, 3, 6, 9, 18. The greatest common factor is 6! They make 2 piles of 6 marbles each.",
+        "points": [
+          {
+            "label": "GCD (Greatest Common Divisor)",
+            "text": "The largest number that divides evenly into two numbers. GCD(12, 18) = 6"
+          }
+        ],
+        "inSimpleWords": "GCD is the largest number dividing both.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "example",
+        "title": "LCM — Finding the Least Common Multiple",
+        "storyContext": "Arjun's bus comes every 4 minutes. Priya's comes every 6 minutes. When will both buses arrive together? Priya calculates: Multiples of 4: 4, 8, 12, 16, 20... Multiples of 6: 6, 12, 18, 24... The least common multiple is 12. Both buses arrive together every 12 minutes!",
+        "points": [
+          {
+            "label": "LCM (Least Common Multiple)",
+            "text": "The smallest number that is a multiple of both. LCM(4, 6) = 12"
+          }
+        ],
+        "example": {
+          "problem": "Find LCM(5, 8)",
+          "solution": "Multiples of 5: 5, 10, 15, 20, 25, 30, 35, 40... Multiples of 8: 8, 16, 24, 32, 40... LCM = 40"
+        },
+        "inSimpleWords": "LCM is the smallest number both divide into.",
+        "emoji": "⏰"
+      },
+      {
+        "kind": "story",
+        "title": "Divisibility Rules Make It Faster",
+        "storyContext": "Priya teaches shortcuts: A number is divisible by 2 if it's even. By 3 if its digit sum is divisible by 3. By 5 if it ends in 0 or 5. By 10 if it ends in 0. She checks 135: 1+3+5=9, which is divisible by 3, so 135 is too! Arjun tries 156: 1+5+6=12, divisible by 3! 156 ÷ 3 = 52!",
+        "points": [
+          {
+            "label": "Divisibility Shortcuts",
+            "text": "Divisible by 2: even. By 3: digit sum is divisible by 3. By 5: ends in 0/5. By 10: ends in 0."
+          }
+        ],
+        "inSimpleWords": "Use shortcuts to check if numbers divide evenly.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "recap",
+        "title": "The World of Number Patterns",
+        "storyContext": "Arjun and Priya review their number adventure: factors, primes, composites, multiples, GCD, LCM. Numbers have hidden patterns! says Arjun. Priya smiles. Yes. And now you can see them all.",
+        "points": [
+          {
+            "label": "Number Fundamentals",
+            "text": "Factors divide into numbers. Primes have 2 factors. Multiples are skip-counted. GCD and LCM solve shared problems."
+          }
+        ],
+        "inSimpleWords": "Number patterns connect factors, multiples, and primes.",
+        "emoji": "🔢"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-science-nutrition-in-plants",
+    "classLevel": "7",
+    "subject": "Science",
+    "chapter": "Nutrition in Plants",
+    "chapterAliases": [],
+    "title": "Arjun and Priya's Garden Adventure",
+    "hook": "Discover how plants make their own food in this green story!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A curious gardener wondering how plants grow"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A plant scientist explaining photosynthesis"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Why Do Plants Need Roots?",
+        "storyContext": "In their school garden, Arjun plants a seed. Priya says: The roots do two important jobs. First, they hold the plant in soil so it doesn't tip over. Second, they absorb water and minerals from the soil - that's nutrition! Arjun digs carefully. So roots are like a food pipeline?",
+        "points": [],
+        "inSimpleWords": "Roots absorb water and minerals for plant nutrition.",
+        "emoji": "🌱"
+      },
+      {
+        "kind": "concept",
+        "title": "Green Power — Photosynthesis",
+        "storyContext": "Priya points at the green leaves. Inside these leaves, plants have a special power! They trap sunlight and use it to make food from water and air. It's called photosynthesis! She writes: Sunlight + Water + Carbon Dioxide = Glucose (sugar) + Oxygen.",
+        "points": [
+          {
+            "label": "Photosynthesis",
+            "text": "Plants make glucose (food) using sunlight, water, and carbon dioxide. They release oxygen as a bonus!"
+          }
+        ],
+        "example": {
+          "problem": "What three things does a plant need for photosynthesis?",
+          "solution": "Sunlight, water, and carbon dioxide (from air)"
+        },
+        "inSimpleWords": "Plants make food using sun, water, and air.",
+        "emoji": "☀️"
+      },
+      {
+        "kind": "concept",
+        "title": "Chlorophyll — The Green Pigment",
+        "storyContext": "Arjun asks: Why are leaves green? Priya smiles. Because of chlorophyll - a green pigment inside leaf cells. It captures sunlight! She holds up a leaf to the sun. Chlorophyll absorbs red and blue light, but reflects green light. That's why it looks green to us!",
+        "points": [
+          {
+            "label": "Chlorophyll",
+            "text": "Green pigment in plant cells that captures sunlight for photosynthesis. It absorbs red/blue light and reflects green."
+          }
+        ],
+        "inSimpleWords": "Chlorophyll is the green pigment that traps sunlight.",
+        "emoji": "🍃"
+      },
+      {
+        "kind": "story",
+        "title": "Heterotrophic Plants — Dodder and Mistletoe",
+        "storyContext": "Priya points at a vine wrapping around a tree. Not all plants are green! Some, like dodder, can't make their own food. They're parasites - they steal nutrients from other plants! Arjun shivers. That's mean! Priya nods. It's nature's strategy. Most plants are autotrophs and make their own food. A few are parasites.",
+        "points": [
+          {
+            "label": "Autotrophs vs. Parasites",
+            "text": "Autotrophs (like most plants) make their own food. Parasites (like dodder) steal food from host plants."
+          }
+        ],
+        "inSimpleWords": "Most plants make food. Some steal it from other plants.",
+        "emoji": "🌿"
+      },
+      {
+        "kind": "example",
+        "title": "Minerals Plants Need",
+        "storyContext": "Priya shows a withered plant next to a healthy one. This plant had water but lacked nutrients. Plants need: nitrogen (for growth), phosphorus (for roots and flowers), potassium (for strength). She sprinkles fertilizer on the soil. Now it has all the minerals it needs!",
+        "points": [
+          {
+            "label": "Essential Minerals",
+            "text": "Nitrogen: growth. Phosphorus: roots/flowers. Potassium: strength. Plants absorb these through roots."
+          }
+        ],
+        "example": {
+          "problem": "Why do farmers add fertilizer to soil?",
+          "solution": "To provide nitrogen, phosphorus, and potassium plants need for healthy growth"
+        },
+        "inSimpleWords": "Plants need minerals from soil for good health.",
+        "emoji": "💪"
+      },
+      {
+        "kind": "story",
+        "title": "Transpiration — Plants Release Water",
+        "storyContext": "Arjun covers a plant with a plastic bag. Within hours, water droplets appear inside. Where did that come from? he asks. Priya explains: Plants absorb more water than they use. They release extra water vapor through leaves - that's transpiration. The bag traps it, showing us!",
+        "points": [
+          {
+            "label": "Transpiration",
+            "text": "Plants release water vapor through leaves. It's like plant sweating on a hot day."
+          }
+        ],
+        "inSimpleWords": "Plants release water through leaves as vapor.",
+        "emoji": "💧"
+      },
+      {
+        "kind": "recap",
+        "title": "The Complete Plant Story",
+        "storyContext": "Arjun and Priya sit under a mango tree. Roots absorb water and minerals. Leaves capture sunlight and make food. Plants release oxygen for us to breathe and water for the ecosystem. Everything is connected! says Priya. Arjun smiles. Plants are farmers of sunlight!",
+        "points": [
+          {
+            "label": "Plant Nutrition Summary",
+            "text": "Roots absorb water/minerals. Photosynthesis makes food. Chlorophyll captures light. Plants are autotrophs except parasites."
+          }
+        ],
+        "inSimpleWords": "Plants are self-feeding organisms using sun energy.",
+        "emoji": "🌳"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-science-nutrition-in-animals",
+    "classLevel": "7",
+    "subject": "Science",
+    "chapter": "Nutrition in Animals",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Explore Food Chains",
+    "hook": "Follow how animals eat and digest food in this natural story!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A curious observer of animal behavior"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "An animal nutrition expert"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Who Eats Whom?",
+        "storyContext": "At a wildlife sanctuary, Arjun watches a deer eating grass, then a tiger stalking the deer. Nature's food chain! says Priya. Grass gets energy from the sun. Deer eats grass. Tiger eats deer. Energy flows from one to the next.",
+        "points": [],
+        "inSimpleWords": "Energy moves through food chains: plants to herbivores to carnivores.",
+        "emoji": "🦁"
+      },
+      {
+        "kind": "concept",
+        "title": "Herbivores, Carnivores, and Omnivores",
+        "storyContext": "Priya points: Herbivores like deer eat only plants. Carnivores like tigers eat only meat. Omnivores like bears eat plants AND meat. Arjun asks: Which are humans? Priya smiles. Humans are omnivores - we eat both!",
+        "points": [
+          {
+            "label": "Animal Types",
+            "text": "Herbivores: plants. Carnivores: meat. Omnivores: both. Decomposers: dead matter (bacteria, fungi)."
+          }
+        ],
+        "example": {
+          "problem": "Is a cow a herbivore or omnivore?",
+          "solution": "Herbivore - cows eat only grass and plants"
+        },
+        "inSimpleWords": "Animals eat plants, meat, or both.",
+        "emoji": "🦌"
+      },
+      {
+        "kind": "concept",
+        "title": "The Digestive System — Breaking Down Food",
+        "storyContext": "Priya draws the digestive system: Food enters the mouth, goes down the esophagus, enters the stomach where it's mixed with acids and churned, then moves to the small intestine where nutrients are absorbed, and finally exits as waste. Arjun follows along. It's a long journey!",
+        "points": [
+          {
+            "label": "Digestive Journey",
+            "text": "Mouth → Esophagus → Stomach (churning + acids) → Small intestine (nutrient absorption) → Large intestine → Excretion"
+          }
+        ],
+        "example": {
+          "problem": "Where are nutrients absorbed in the digestive system?",
+          "solution": "In the small intestine"
+        },
+        "inSimpleWords": "Digestive system breaks food into usable nutrients.",
+        "emoji": "🍽️"
+      },
+      {
+        "kind": "story",
+        "title": "Teeth Built for the Job",
+        "storyContext": "Arjun looks at different animal skulls. Herbivores have flat molars for grinding plants. Carnivores have sharp canines for tearing meat. Omnivores have both! Priya nods. Evolution shaped teeth for diet!",
+        "points": [
+          {
+            "label": "Teeth Adaptation",
+            "text": "Incisors: cutting. Canines: tearing. Molars: grinding. Each tooth type suits different diets."
+          }
+        ],
+        "inSimpleWords": "Teeth shape matches what an animal eats.",
+        "emoji": "🦷"
+      },
+      {
+        "kind": "example",
+        "title": "Stomach and Intestines — Different Sizes",
+        "storyContext": "Priya compares: Herbivores like cows have long intestines to digest tough plant fiber - takes a long time! Carnivores like tigers have short intestines because meat is easier to digest. Their stomachs are huge to hold big meals!",
+        "points": [
+          {
+            "label": "Digestive Adaptations",
+            "text": "Herbivores: long intestines for fiber. Carnivores: short intestines, large stomachs. Each adapted to diet."
+          }
+        ],
+        "example": {
+          "problem": "Why do herbivores need longer intestines?",
+          "solution": "Plant fiber needs more time and length to be broken down and nutrients absorbed"
+        },
+        "inSimpleWords": "Intestine length matches how easy food is to digest.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "story",
+        "title": "Decomposers Close the Loop",
+        "storyContext": "Arjun spots fungi on a dead log. Dead things rot, he observes. Priya explains: Decomposers like bacteria and fungi break down dead matter and return nutrients to soil. Nothing is wasted in nature! A new plant sprouts from the enriched soil. The cycle continues!",
+        "points": [
+          {
+            "label": "Decomposers",
+            "text": "Bacteria and fungi break down dead organisms, returning nutrients to soil for plants."
+          }
+        ],
+        "inSimpleWords": "Decomposers recycle dead matter into soil nutrients.",
+        "emoji": "🍄"
+      },
+      {
+        "kind": "recap",
+        "title": "The Circle of Life",
+        "storyContext": "Walking through the sanctuary, Arjun and Priya see everything connected: plants make food, herbivores eat plants, carnivores eat herbivores, decomposers recycle the dead. It's one big system! says Arjun. Priya nods. Every creature has a role.",
+        "points": [
+          {
+            "label": "Nutrition in Animals",
+            "text": "Food chains link herbivores, carnivores, omnivores. Digestive systems extract nutrients. Decomposers recycle. Nature cycles endlessly."
+          }
+        ],
+        "inSimpleWords": "All animals depend on food chains and nutrients.",
+        "emoji": "🌍"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-science-heat",
+    "classLevel": "7",
+    "subject": "Science",
+    "chapter": "Heat",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Understand Temperature and Heat",
+    "hook": "Explore how heat transfers and changes everything around us!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A curious learner feeling heat in everyday life"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A heat scientist explaining thermal energy"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Heat vs. Temperature — Not the Same!",
+        "storyContext": "On a hot day, Arjun complains: It's so hot! Priya says: Temperature is what a thermometer measures - how fast molecules move. Heat is the energy that flows from hot to cold. They're different! She holds a cup of hot chai and a cup of cold water. The chai has higher temperature. But it has less heat energy than a swimming pool because it's smaller!",
+        "points": [],
+        "inSimpleWords": "Temperature measures hotness. Heat is thermal energy flow.",
+        "emoji": "🌡️"
+      },
+      {
+        "kind": "concept",
+        "title": "How Heat Transfers — Conduction",
+        "storyContext": "Priya places a metal spoon in hot tea. Soon the spoon handle gets hot too! That's conduction - heat traveling through a solid without it moving. She waits. Metals are good conductors. Wood is not - that's why wooden handles don't burn! Arjun touches cautiously. Science protects us!",
+        "points": [
+          {
+            "label": "Conduction",
+            "text": "Heat travels through solid materials. Good conductors: metals. Poor conductors: wood, plastic, air."
+          }
+        ],
+        "example": {
+          "problem": "Why don't you burn your hand on a wooden spoon in hot water?",
+          "solution": "Wood is a poor conductor - heat transfers very slowly through it"
+        },
+        "inSimpleWords": "Conduction moves heat through solids.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "How Heat Transfers — Convection",
+        "storyContext": "Priya boils water. Watch the bubbles rise! She points. Hot water becomes less dense and rises. Cold water sinks. This circular motion is convection - how heat travels in liquids and gases. That's how your room gets warm from a heater in the corner!",
+        "points": [
+          {
+            "label": "Convection",
+            "text": "Hot fluids (liquid/gas) rise. Cold fluids sink. Creates circular currents. Example: air in a room from a heater."
+          }
+        ],
+        "example": {
+          "problem": "How does a heater warm a room?",
+          "solution": "Hot air rises and circulates (convection), spreading warmth throughout"
+        },
+        "inSimpleWords": "Convection moves heat through fluids by circulation.",
+        "emoji": "🌪️"
+      },
+      {
+        "kind": "story",
+        "title": "How Heat Transfers — Radiation",
+        "storyContext": "Arjun stands in sunlight. The sun warms me, but there's no air or solid between us! Priya explains: That's radiation - heat travels as waves through empty space. The sun's rays reach Earth directly. No medium needed!, She points at a lamp. Infrared heat lamps use radiation too.",
+        "points": [
+          {
+            "label": "Radiation",
+            "text": "Heat travels as electromagnetic waves. Works through empty space. Sun's rays, heat lamps, fire."
+          }
+        ],
+        "inSimpleWords": "Radiation sends heat through empty space as waves.",
+        "emoji": "☀️"
+      },
+      {
+        "kind": "example",
+        "title": "Insulation Stops Heat Loss",
+        "storyContext": "Priya shows a thermos flask. To keep tea hot, we use insulation - materials that prevent heat loss. The flask has air gaps between layers because air is a poor conductor. So heat stays trapped inside! She pours hot tea into a normal cup and a thermos. Hours later, the thermos is still warm. That's insulation working!",
+        "points": [
+          {
+            "label": "Insulation",
+            "text": "Materials or air gaps that prevent heat transfer. Traps heat inside. Examples: thermos, wool, foam."
+          }
+        ],
+        "example": {
+          "problem": "Why do animals have fur?",
+          "solution": "Fur insulates - it traps air, preventing body heat from escaping"
+        },
+        "inSimpleWords": "Insulation prevents heat from leaving objects.",
+        "emoji": "🧊"
+      },
+      {
+        "kind": "story",
+        "title": "Heat Changes Matter — Melting and Boiling",
+        "storyContext": "Priya heats ice. At 0 degrees C, ice melts to water - the solid becomes liquid. At 100 degrees C, water boils to steam - the liquid becomes gas. Arjun watches the transformations. Heat makes solids liquid, and liquids gas!",
+        "points": [
+          {
+            "label": "State Changes",
+            "text": "Melting (solid→liquid at 0°C). Boiling (liquid→gas at 100°C). Reverse: freezing and condensation."
+          }
+        ],
+        "inSimpleWords": "Heat makes solids liquid, liquids gaseous.",
+        "emoji": "❄️"
+      },
+      {
+        "kind": "recap",
+        "title": "Heat Powers Our World",
+        "storyContext": "Arjun and Priya sit by a fire. Heat transfers by conduction, convection, and radiation. It changes matter, warms homes, cooks food, powers machines. Heat is everywhere! says Priya. Arjun nods. And now I understand it all!",
+        "points": [
+          {
+            "label": "Heat Mastery",
+            "text": "Temperature vs. heat. Three transfer methods. Conduction through solids. Convection in fluids. Radiation through space. Insulation stops loss."
+          }
+        ],
+        "inSimpleWords": "Heat is thermal energy that moves and changes everything.",
+        "emoji": "🔥"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-science-acids-bases-and-salts",
+    "classLevel": "7",
+    "subject": "Science",
+    "chapter": "Acids Bases and Salts",
+    "chapterAliases": [],
+    "title": "Arjun and Priya's Chemistry Kitchen",
+    "hook": "Discover acids, bases, and salts in your own kitchen!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A curious kitchen chemist experimenting safely"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A chemistry expert explaining reactions"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Taste Testing with the pH Scale",
+        "storyContext": "Priya sets up containers: lemon juice, baking soda solution, table salt water. Let's understand acids and bases! She uses litmus paper - red for acids, blue for bases. Lemon juice turns red: That's acidic! Baking soda turns blue: That's basic or alkaline! Salt water stays neutral. Arjun, everything has a pH!",
+        "points": [],
+        "inSimpleWords": "pH scale measures if something is acidic, basic, or neutral.",
+        "emoji": "🍋"
+      },
+      {
+        "kind": "concept",
+        "title": "What Are Acids?",
+        "storyContext": "Priya explains: Acids have a sour taste and turn litmus red. Lemon juice, vinegar, and your stomach acid are all acidic! She shows examples: Citric acid (in citrus), acetic acid (in vinegar), hydrochloric acid (in stomachs). Acids have pH less than 7 on the pH scale.",
+        "points": [
+          {
+            "label": "Acids",
+            "text": "Sour taste. Turn litmus red. pH < 7. Examples: lemon, vinegar, stomach acid."
+          }
+        ],
+        "example": {
+          "problem": "Is apple juice acidic or basic?",
+          "solution": "Acidic - apples contain citric acid, sour taste"
+        },
+        "inSimpleWords": "Acids are sour and turn red litmus paper.",
+        "emoji": "🥒"
+      },
+      {
+        "kind": "concept",
+        "title": "What Are Bases?",
+        "storyContext": "Priya shows soap and baking soda. These are basic - also called alkaline. They have a bitter taste, feel slippery, and turn litmus blue. Bases have pH greater than 7. Arjun asks: Why is soap slippery? Priya smiles. That's a property of bases!",
+        "points": [
+          {
+            "label": "Bases",
+            "text": "Bitter taste. Slippery feel. Turn litmus blue. pH > 7. Examples: soap, baking soda, ammonia."
+          }
+        ],
+        "example": {
+          "problem": "Why do you use soap (a base) to wash hands?",
+          "solution": "Bases break down and remove oils, making washing effective"
+        },
+        "inSimpleWords": "Bases are bitter, slippery, and turn blue litmus paper.",
+        "emoji": "🧼"
+      },
+      {
+        "kind": "story",
+        "title": "Neutralization — Acid + Base = Salt + Water",
+        "storyContext": "Priya pours lemon juice (acid) into baking soda (base). Fizz! It reacts. When acids and bases meet, they neutralize each other! She lets it settle. The result is salt and water - neutral pH = 7. Arjun tastes: Not sour anymore, not bitter either!",
+        "points": [
+          {
+            "label": "Neutralization",
+            "text": "Acid + Base → Salt + Water. Example: lemon juice + baking soda → sodium citrate (salt) + water"
+          }
+        ],
+        "inSimpleWords": "Acids and bases neutralize each other to make salts.",
+        "emoji": "⚗️"
+      },
+      {
+        "kind": "example",
+        "title": "Real-World Neutralization",
+        "storyContext": "Arjun has heartburn. Priya explains: Your stomach produces too much acid. A base like milk of magnesia neutralizes it! She shows another: Ant stings inject formic acid. Baking soda paste neutralizes it! Arjun nods. Neutralization heals!",
+        "points": [
+          {
+            "label": "Medical Applications",
+            "text": "Antacids (bases) neutralize stomach acid. Baking soda neutralizes stings and burns."
+          }
+        ],
+        "example": {
+          "problem": "How does baking soda help an ant sting?",
+          "solution": "Baking soda (base) neutralizes formic acid (from the ant), reducing pain"
+        },
+        "inSimpleWords": "Neutralization helps treat acid problems in body.",
+        "emoji": "💊"
+      },
+      {
+        "kind": "story",
+        "title": "What Are Salts?",
+        "storyContext": "Priya shows table salt. This is sodium chloride - a salt. Salts form when acids and bases neutralize. Most salts are white crystals and taste salty! Arjun asks: Are all salts from acid-base reactions? Priya nods. Yes! And salts are essential - your body needs them!",
+        "points": [
+          {
+            "label": "Salts",
+            "text": "Form from acid-base neutralization. Usually white crystals. Taste salty. Essential for body (sodium, chloride in sweat)."
+          }
+        ],
+        "inSimpleWords": "Salts form when acids meet bases.",
+        "emoji": "🧂"
+      },
+      {
+        "kind": "recap",
+        "title": "Chemistry in the Kitchen",
+        "storyContext": "Priya and Arjun clean up their kitchen experiment. Acids and bases are all around us - in food, cleaning, medicine. And when they meet, they neutralize to form salts. Chemistry is in everything! says Priya. Arjun grins. The kitchen is a chemistry lab!",
+        "points": [
+          {
+            "label": "Acids, Bases, Salts",
+            "text": "Acids: sour, pH < 7, red litmus. Bases: bitter, slippery, pH > 7, blue litmus. Salts: neutral, formed from neutralization."
+          }
+        ],
+        "inSimpleWords": "Acids, bases, and salts are everyday chemistry.",
+        "emoji": "🧪"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-science-physical-and-chemical-changes",
+    "classLevel": "7",
+    "subject": "Science",
+    "chapter": "Physical and Chemical Changes",
+    "chapterAliases": [],
+    "title": "Arjun and Priya's Transformation Lab",
+    "hook": "Learn the difference between physical and chemical changes!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "An experimenter noticing how things change"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A change scientist explaining transformations"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Breaking Ice — What Happens?",
+        "storyContext": "Arjun drops an ice cube into a cup. It melts to water, then he heats it to steam. It changed forms! he says. Priya nods. But it's still H2O - water molecules. The substance didn't change, just its physical state. That's a physical change!",
+        "points": [],
+        "inSimpleWords": "Physical changes alter appearance but not substance.",
+        "emoji": "❄️"
+      },
+      {
+        "kind": "concept",
+        "title": "Physical Changes — Reversible Transformations",
+        "storyContext": "Priya demonstrates: Melting ice (solid→liquid), boiling water (liquid→gas), cutting paper, mixing salt and sand - these are all physical changes. You can reverse most of them! Freeze water to ice again. Condense steam back to water. Arjun tries mixing salt and sand. I can separate them with a magnet or sieve - the materials stay the same!",
+        "points": [
+          {
+            "label": "Physical Changes",
+            "text": "Change shape, size, or state. No new substance forms. Reversible. Examples: melting, freezing, cutting, mixing."
+          }
+        ],
+        "example": {
+          "problem": "Is tearing paper a physical change?",
+          "solution": "Yes - the paper's size/shape changed, but it's still paper"
+        },
+        "inSimpleWords": "Physical changes are reversible and don't create new materials.",
+        "emoji": "✂️"
+      },
+      {
+        "kind": "concept",
+        "title": "Chemical Changes — New Substances Form",
+        "storyContext": "Priya lights a candle. Watch this! Wax melts (physical), then burns (chemical). Burning combines wax with oxygen, creating carbon dioxide and water vapor - completely new substances! You can't turn them back into wax. That's a chemical change!",
+        "points": [
+          {
+            "label": "Chemical Changes",
+            "text": "New substances form. Often irreversible. Examples: burning, rusting, digestion, cooking, fermentation."
+          }
+        ],
+        "example": {
+          "problem": "Is cooking an egg a chemical change?",
+          "solution": "Yes - heat transforms protein structure, creating new substances (cooked egg), can't be reversed"
+        },
+        "inSimpleWords": "Chemical changes create new substances and are usually irreversible.",
+        "emoji": "🔥"
+      },
+      {
+        "kind": "story",
+        "title": "Signs of Chemical Changes",
+        "storyContext": "Priya shows Arjun clues: Heat released (burning), color change (rusting: red to brown), gas bubbles (vinegar + baking soda), smell change (cooking), light produced (sparkler). She demonstrates each. These signs tell us a chemical change happened!",
+        "points": [
+          {
+            "label": "Chemical Change Signs",
+            "text": "Heat released/absorbed. Color change. Gas bubbles. Odor change. Light production. Explosion."
+          }
+        ],
+        "inSimpleWords": "Chemical changes show heat, color, gas, smell, or light.",
+        "emoji": "💥"
+      },
+      {
+        "kind": "example",
+        "title": "Rusting — A Slow Chemical Change",
+        "storyContext": "Priya shows an iron nail turning orange-brown. This is rust - iron oxidizing when it meets oxygen and water. It's a chemical change. The iron becomes iron oxide - a new substance! Unlike melting wax, you can't reverse rust easily. That's why we paint metal to protect it!",
+        "points": [
+          {
+            "label": "Oxidation (Rusting)",
+            "text": "Iron + Oxygen + Water → Iron Oxide (rust). Irreversible chemical change. Prevents by painting or coating."
+          }
+        ],
+        "example": {
+          "problem": "How do you prevent iron from rusting?",
+          "solution": "Paint, coat with oil, or use stainless steel - prevents contact with oxygen and water"
+        },
+        "inSimpleWords": "Rust is iron chemically combining with oxygen.",
+        "emoji": "🦀"
+      },
+      {
+        "kind": "story",
+        "title": "Digestion — A Series of Chemical Changes",
+        "storyContext": "Arjun eats an apple. Priya explains: Your saliva starts breaking down food (chemical change). Your stomach acid and enzymes continue. Nutrients are created for your body to absorb. That's why you can't un-digest food - chemical changes made it become different molecules!",
+        "points": [
+          {
+            "label": "Digestion",
+            "text": "Series of chemical reactions. Food broken into absorbable nutrients. Irreversible. Enzymes and acids essential."
+          }
+        ],
+        "inSimpleWords": "Digestion breaks food into new nutrients via chemistry.",
+        "emoji": "🍎"
+      },
+      {
+        "kind": "recap",
+        "title": "Changes Everywhere",
+        "storyContext": "Arjun and Priya review: Physical changes alter appearance but substance stays the same - reversible. Chemical changes create new substances - usually irreversible. From burning to rusting to cooking to digestion, the world is full of transformations! Priya smiles. Now you know the difference!",
+        "points": [
+          {
+            "label": "Summary",
+            "text": "Physical: reversible, same substance. Chemical: irreversible, new substance. Signs: heat, color, gas, smell, light."
+          }
+        ],
+        "inSimpleWords": "Physical changes are reversible. Chemical changes are usually permanent.",
+        "emoji": "🌍"
+      }
+    ]
+  },
+  {
+    "slug": "class-7-science-respiration-in-organisms",
+    "classLevel": "7",
+    "subject": "Science",
+    "chapter": "Respiration in Organisms",
+    "chapterAliases": [],
+    "title": "Arjun and Priya Discover Breathing and Energy",
+    "hook": "Explore how all living things breathe and get energy!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "A curious athlete noticing his breathing"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "A biology expert explaining cellular respiration"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Why Do We Breathe?",
+        "storyContext": "After running, Arjun breathes heavily. Why am I breathing so fast? Priya explains: Your cells need oxygen to release energy from food. That process is respiration. It's not just breathing - breathing is how you get oxygen in. Respiration happens inside every cell!",
+        "points": [],
+        "inSimpleWords": "Breathing brings oxygen. Respiration releases energy from food.",
+        "emoji": "🫁"
+      },
+      {
+        "kind": "concept",
+        "title": "Aerobic Respiration — With Oxygen",
+        "storyContext": "Priya writes an equation: Glucose + Oxygen → Carbon Dioxide + Water + Energy (ATP). With oxygen, cells completely break down glucose. This releases lots of energy! Your muscles, brain, everything uses this energy to function. That's aerobic respiration - the main way we get energy.",
+        "points": [
+          {
+            "label": "Aerobic Respiration",
+            "text": "Glucose + O2 → CO2 + H2O + Energy. Happens in mitochondria. Most efficient way to get energy."
+          }
+        ],
+        "example": {
+          "problem": "What do your cells produce when they use oxygen?",
+          "solution": "Carbon dioxide and water (plus energy)"
+        },
+        "inSimpleWords": "Aerobic respiration needs oxygen to release lots of energy.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "Anaerobic Respiration — Without Oxygen",
+        "storyContext": "During a sprint, Arjun's muscles work so hard they run low on oxygen. Your muscles switch to anaerobic respiration! says Priya. They break down glucose WITHOUT oxygen - but it's less efficient. You feel tired and your muscles ache because lactic acid builds up. That's why athletes pant after sprinting - they're repaying their oxygen debt!",
+        "points": [
+          {
+            "label": "Anaerobic Respiration",
+            "text": "Glucose → Lactic acid + Some energy (in animals). Happens when oxygen is low. Less efficient. Causes muscle fatigue."
+          }
+        ],
+        "example": {
+          "problem": "Why do your muscles ache after intense exercise?",
+          "solution": "Lactic acid buildup from anaerobic respiration in low-oxygen conditions"
+        },
+        "inSimpleWords": "Anaerobic respiration works without oxygen but less efficiently.",
+        "emoji": "💪"
+      },
+      {
+        "kind": "story",
+        "title": "Breathing in Humans — the Respiratory System",
+        "storyContext": "Priya shows a lung diagram. Air enters your nose, travels down the trachea, splits into bronchi into both lungs. Inside tiny air sacs called alveoli, oxygen enters your blood! CO2 leaves your blood to be exhaled. Arjun follows. It's a gas exchange!",
+        "points": [
+          {
+            "label": "Breathing Process",
+            "text": "Nose → Trachea → Bronchi → Lungs → Alveoli. Oxygen diffuses into blood. CO2 diffuses out. Diaphragm contracts to pull air in."
+          }
+        ],
+        "inSimpleWords": "Lungs exchange oxygen for carbon dioxide.",
+        "emoji": "💨"
+      },
+      {
+        "kind": "example",
+        "title": "Respiration in Plants",
+        "storyContext": "Priya shows a potted plant. Plants photosynthesize during the day (make glucose and oxygen). But at night and all the time, they respire! They take in some oxygen and release CO2, just like us. They use glucose for growth and energy. Arjun asks: So plants both make and consume oxygen? Priya nods. They do!",
+        "points": [
+          {
+            "label": "Plant Respiration",
+            "text": "Plants respire 24/7 using glucose for energy. Day: photosynthesis > respiration (net O2 release). Night: respiration only."
+          }
+        ],
+        "example": {
+          "problem": "Do plants need oxygen?",
+          "solution": "Yes - roots especially need oxygen to respire and absorb water/minerals"
+        },
+        "inSimpleWords": "Plants also respire using oxygen and releasing CO2.",
+        "emoji": "🌱"
+      },
+      {
+        "kind": "story",
+        "title": "Respiration in Other Organisms",
+        "storyContext": "Priya shows examples: Fish have gills to extract dissolved oxygen from water. Insects have tiny holes called spiracles for air. Earthworms breathe through their moist skin! Even bacteria respire - they're alive and need energy. Arjun smiles. Everyone needs to respire!",
+        "points": [
+          {
+            "label": "Respiration Variety",
+            "text": "Fish: gills extract dissolved O2. Insects: spiracles. Earthworms: skin diffusion. Bacteria: aerobic/anaerobic. All release energy from food."
+          }
+        ],
+        "inSimpleWords": "All living things respire to get energy.",
+        "emoji": "🐟"
+      },
+      {
+        "kind": "recap",
+        "title": "The Breath of Life",
+        "storyContext": "Arjun and Priya sit peacefully. Every breath, every moment, trillions of cells in your body are respiring - breaking down glucose with oxygen to release energy. Without respiration, there's no life. That's why breathing matters so much! says Priya. Arjun takes a deep breath. I'll never forget that!",
+        "points": [
+          {
+            "label": "Respiration Summary",
+            "text": "Aerobic: glucose + O2 → CO2 + H2O + Energy. Anaerobic: glucose → lactic acid + less energy. All life respires."
+          }
+        ],
+        "inSimpleWords": "Respiration releases energy from food - it's how life works.",
+        "emoji": "🫀"
+      }
+    ]
+  },
+  {
+    "slug": "class-8-mathematics-square-cube",
+    "classLevel": "8",
+    "subject": "Mathematics",
+    "chapter": "A Square and A Cube",
+    "chapterAliases": [
+      "Squares and Cubes",
+      "Perfect Squares and Cubes"
+    ],
+    "title": "Priya's Secret Garden Grid",
+    "hook": "Priya is designing a square garden in Mumbai to plant herbs. Her friend Arjun wonders why squaring and cubing numbers matters for real life—until a giant terracotta cube planter arrives.",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "🌿",
+        "role": "math enthusiast"
+      },
+      {
+        "name": "Arjun",
+        "emoji": "🔧",
+        "role": "curious builder"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Garden Grid Mystery",
+        "storyContext": "Priya sketches her dream herb garden: a perfect square plot in her Mumbai balcony. 'If each side is 8 meters, how many square meters of soil do I need?' Arjun laughs: 'Just count the tiles!' But there are too many. Priya shows him the shortcut: 8 × 8 = 64 square meters.",
+        "emoji": "🌱",
+        "inSimpleWords": "A square number is a number times itself."
+      },
+      {
+        "kind": "concept",
+        "title": "Perfect Squares Defined",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A perfect square is the product of a number multiplied by itself: n² = n × n"
+          },
+          {
+            "label": "Examples",
+            "text": "1² = 1, 2² = 4, 3² = 9, 4² = 16, 5² = 25, 6² = 36, 7² = 49, 8² = 64, 9² = 81, 10² = 100"
+          },
+          {
+            "label": "Visual",
+            "text": "3² forms a 3×3 grid = 9 unit squares (think chessboard tiles)"
+          }
+        ],
+        "emoji": "⬜",
+        "inSimpleWords": "Perfect squares are numbers that form grids."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Garden Area",
+        "example": {
+          "problem": "Priya's square garden has each side 6 meters. What is the total area?",
+          "solution": "Area = side × side = 6 × 6 = 36 square meters. So 6² = 36."
+        },
+        "emoji": "📐",
+        "inSimpleWords": "6 squared equals 36 square meters."
+      },
+      {
+        "kind": "story",
+        "title": "The Giant Cube Planter",
+        "storyContext": "A massive terracotta cube arrives at Priya's building. Arjun opens the manual: 'This cube holds exactly 3 cubic meters of soil. How many unit cubes fit inside?' Priya thinks: 'If each edge is 2 meters... 2 × 2 × 2 = 8 cubes!'",
+        "emoji": "📦",
+        "inSimpleWords": "A cube number is multiplying a number three times."
+      },
+      {
+        "kind": "concept",
+        "title": "Perfect Cubes Defined",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A perfect cube is a number multiplied by itself three times: n³ = n × n × n"
+          },
+          {
+            "label": "Examples",
+            "text": "1³ = 1, 2³ = 8, 3³ = 27, 4³ = 64, 5³ = 125, 6³ = 216, 7³ = 343, 8³ = 512, 9³ = 729, 10³ = 1000"
+          },
+          {
+            "label": "Volume Context",
+            "text": "3³ = 27 means a 3×3×3 cube holds 27 unit cubes (like sugar cubes stacked)"
+          }
+        ],
+        "emoji": "🧊",
+        "inSimpleWords": "Perfect cubes are numbers that form 3D blocks."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Terracotta Planter",
+        "example": {
+          "problem": "A cubic planter has edges of 4 meters. What volume of soil fits inside?",
+          "solution": "Volume = length × width × height = 4 × 4 × 4 = 64 cubic meters. So 4³ = 64."
+        },
+        "emoji": "🏺",
+        "inSimpleWords": "4 cubed equals 64 cubic meters volume."
+      },
+      {
+        "kind": "recap",
+        "title": "Squares and Cubes",
+        "points": [
+          {
+            "text": "Perfect squares (n²) are used for area of square plots."
+          },
+          {
+            "text": "Perfect cubes (n³) are used for volume of cubic containers."
+          },
+          {
+            "text": "Priya designs gardens, Arjun builds—both use math daily in Mumbai."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Squares and cubes help measure space and volume."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-mathematics-power-play",
+    "classLevel": "8",
+    "subject": "Mathematics",
+    "chapter": "Power Play",
+    "chapterAliases": [
+      "Exponents",
+      "Laws of Exponents"
+    ],
+    "title": "Arjun's Bacteria Lab",
+    "hook": "Arjun observes bacteria doubling every hour in his school science lab. 2, 4, 8, 16... By day 10, the count is huge. Priya uses exponents to predict it: 2¹⁰ = 1024. How does she do it so fast?",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🔬",
+        "role": "science explorer"
+      },
+      {
+        "name": "Priya",
+        "emoji": "📊",
+        "role": "pattern solver"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Doubling Bacteria Count",
+        "storyContext": "Arjun's biology class grows bacteria in a petri dish. Day 1: 2 cells. Day 2: 4. Day 3: 8. By day 5, he counts 32 cells. 'But how do I predict day 10 without counting all week?' Priya smiles: 'Use powers. On day 10, you'll have 2 to the power 10.'",
+        "emoji": "🦠",
+        "inSimpleWords": "Exponents are shortcuts for repeated multiplication."
+      },
+      {
+        "kind": "concept",
+        "title": "Exponent Notation",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "aⁿ means 'a multiplied by itself n times.' a is the base, n is the exponent or power."
+          },
+          {
+            "label": "Reading",
+            "text": "2³ = 'two to the power three' or 'two cubed' = 2 × 2 × 2 = 8"
+          },
+          {
+            "label": "Zero Exponent",
+            "text": "Any number to the power 0 equals 1: a⁰ = 1 (e.g., 5⁰ = 1)"
+          }
+        ],
+        "emoji": "⬆️",
+        "inSimpleWords": "Exponents show how many times to multiply."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Bacteria Growth",
+        "example": {
+          "problem": "On day 6, Arjun has 2⁶ bacteria. Calculate the count.",
+          "solution": "2⁶ = 2 × 2 × 2 × 2 × 2 × 2 = 64 bacteria on day 6."
+        },
+        "emoji": "🧬",
+        "inSimpleWords": "2 to the power 6 is 64 bacteria."
+      },
+      {
+        "kind": "concept",
+        "title": "Laws of Exponents",
+        "points": [
+          {
+            "label": "Multiplication Rule",
+            "text": "aᵐ × aⁿ = aᵐ⁺ⁿ (multiply: add exponents). E.g., 2³ × 2² = 2⁵ = 32"
+          },
+          {
+            "label": "Division Rule",
+            "text": "aᵐ ÷ aⁿ = aᵐ⁻ⁿ (divide: subtract exponents). E.g., 2⁵ ÷ 2² = 2³ = 8"
+          },
+          {
+            "label": "Power of Power",
+            "text": "(aᵐ)ⁿ = aᵐˣⁿ (raise to power: multiply exponents). E.g., (2²)³ = 2⁶ = 64"
+          }
+        ],
+        "emoji": "🔀",
+        "inSimpleWords": "Rules make big exponent problems simpler."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Applying Laws",
+        "example": {
+          "problem": "Simplify 3⁴ × 3². Then calculate the result.",
+          "solution": "3⁴ × 3² = 3⁴⁺² = 3⁶ = 729. Using the multiplication rule saves time."
+        },
+        "emoji": "🧮",
+        "inSimpleWords": "Combine exponents using the multiplication rule."
+      },
+      {
+        "kind": "recap",
+        "title": "Power Play Summary",
+        "points": [
+          {
+            "text": "Exponents aⁿ replace repeated multiplication."
+          },
+          {
+            "text": "Laws of exponents simplify big calculations."
+          },
+          {
+            "text": "Arjun predicts bacteria; Priya predicts using powers."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Exponents make patterns and growth easy."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-mathematics-quadrilaterals",
+    "classLevel": "8",
+    "subject": "Mathematics",
+    "chapter": "Quadrilaterals",
+    "chapterAliases": [
+      "Four-sided Shapes",
+      "Properties of Quadrilaterals"
+    ],
+    "title": "Building Mumbai's Community Center",
+    "hook": "Arjun's uncle is renovating a community center in Mumbai. He needs to choose between square, rectangular, and diamond-shaped plots. Priya explains the angle and side properties. Which shape is sturdiest?",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🏗️",
+        "role": "construction helper"
+      },
+      {
+        "name": "Priya",
+        "emoji": "📐",
+        "role": "geometry expert"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Choosing the Plot Shape",
+        "storyContext": "Arjun's uncle shows three land plots for the community center: one perfectly square, one rectangular, and one diamond-shaped (rhombus). 'Which is strongest?' he asks. Priya pulls out her geometry notes: 'It depends on their angles and sides. All quadrilaterals have 4 sides and angles summing to 360°.'",
+        "emoji": "🏢",
+        "inSimpleWords": "Quadrilaterals are 4-sided closed figures."
+      },
+      {
+        "kind": "concept",
+        "title": "Angle Sum Property",
+        "points": [
+          {
+            "label": "Rule",
+            "text": "Sum of all interior angles in any quadrilateral = 360°"
+          },
+          {
+            "label": "Proof Context",
+            "text": "Divide any quadrilateral into 2 triangles. Each triangle = 180°. Total = 360°."
+          },
+          {
+            "label": "Example",
+            "text": "Rectangle: 90° + 90° + 90° + 90° = 360°. Diamond (rhombus): all 4 angles also sum to 360°."
+          }
+        ],
+        "emoji": "📏",
+        "inSimpleWords": "All 4 angles in a quadrilateral add to 360°."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Finding Unknown Angle",
+        "example": {
+          "problem": "A quadrilateral has angles 80°, 100°, and 75°. Find the 4th angle.",
+          "solution": "Sum of angles = 360°. 4th angle = 360° - (80° + 100° + 75°) = 360° - 255° = 105°."
+        },
+        "emoji": "🎯",
+        "inSimpleWords": "Find missing angles using the 360° rule."
+      },
+      {
+        "kind": "concept",
+        "title": "Types of Quadrilaterals",
+        "points": [
+          {
+            "label": "Square",
+            "text": "4 equal sides, 4 right angles (90° each). Most stable for building."
+          },
+          {
+            "label": "Rectangle",
+            "text": "Opposite sides equal, 4 right angles. Flexible length-to-width ratio."
+          },
+          {
+            "label": "Rhombus (Diamond)",
+            "text": "4 equal sides but angles NOT all 90°. Angles come in pairs (opposite angles equal)."
+          },
+          {
+            "label": "Trapezium",
+            "text": "One pair of parallel sides. Most irregular of the common types."
+          }
+        ],
+        "emoji": "🔷",
+        "inSimpleWords": "Different quadrilaterals have different properties."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Rhombus Angles",
+        "example": {
+          "problem": "A rhombus plot has two angles of 60° each. Find the other two angles.",
+          "solution": "In a rhombus, opposite angles are equal. If 2 angles = 60°, then 60° + 60° + ? + ? = 360°. The other two angles = (360° - 120°) ÷ 2 = 120° each."
+        },
+        "emoji": "💎",
+        "inSimpleWords": "Rhombus has opposite angles that are equal."
+      },
+      {
+        "kind": "recap",
+        "title": "Quadrilaterals Overview",
+        "points": [
+          {
+            "text": "All quadrilaterals have 4 sides and angles summing to 360°."
+          },
+          {
+            "text": "Squares and rectangles are most stable for construction."
+          },
+          {
+            "text": "Each type has unique angle and side properties."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Quadrilaterals are essential shapes in building."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-mathematics-number-play",
+    "classLevel": "8",
+    "subject": "Mathematics",
+    "chapter": "Number Play",
+    "chapterAliases": [
+      "Divisibility Rules",
+      "Prime and Composite Numbers"
+    ],
+    "title": "The School Lunch Mystery",
+    "hook": "The school lunch manager in Delhi needs to divide 144 chapatis equally among students. Priya and Arjun discover divisibility shortcuts: 144 is even (divisible by 2), sums digits to 9 (divisible by 9). How many ways can they divide the chapatis?",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "🍛",
+        "role": "problem solver"
+      },
+      {
+        "name": "Arjun",
+        "emoji": "🎓",
+        "role": "discovery partner"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Dividing Lunch Equally",
+        "storyContext": "The school has 144 chapatis to serve for lunch. The manager asks: 'Can I divide them equally among 8 students? Among 9? Among 5?' Priya flips through her number tricks notebook: 'Let me check the divisibility rules. 144 ends in 4, so it's even (divisible by 2). Add digits: 1+4+4=9, divisible by 9!'",
+        "emoji": "🧠",
+        "inSimpleWords": "Divisibility rules find factors without dividing."
+      },
+      {
+        "kind": "concept",
+        "title": "Divisibility Rules",
+        "points": [
+          {
+            "label": "Divisibility by 2",
+            "text": "Number ends in 0, 2, 4, 6, or 8. E.g., 144 ends in 4 → divisible by 2."
+          },
+          {
+            "label": "Divisibility by 3",
+            "text": "Sum of digits is divisible by 3. E.g., 144: 1+4+4=9 (divisible by 3) → 144 divisible by 3."
+          },
+          {
+            "label": "Divisibility by 9",
+            "text": "Sum of digits is divisible by 9. E.g., 144: 1+4+4=9 → divisible by 9."
+          },
+          {
+            "label": "Divisibility by 5",
+            "text": "Number ends in 0 or 5. E.g., 145 ends in 5 → divisible by 5."
+          }
+        ],
+        "emoji": "✂️",
+        "inSimpleWords": "Quick tricks test if numbers divide evenly."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Chapati Division",
+        "example": {
+          "problem": "Check if 144 chapatis can be divided equally among 9 students.",
+          "solution": "Use divisibility by 9: sum of digits = 1+4+4 = 9. Since 9 is divisible by 9, 144 is divisible by 9. Each student gets 144÷9 = 16 chapatis."
+        },
+        "emoji": "🍞",
+        "inSimpleWords": "144 divided by 9 gives exactly 16 per student."
+      },
+      {
+        "kind": "concept",
+        "title": "Prime vs. Composite",
+        "points": [
+          {
+            "label": "Prime Number",
+            "text": "A number with exactly 2 factors: 1 and itself. E.g., 2, 3, 5, 7, 11, 13, 17, 19 are prime."
+          },
+          {
+            "label": "Composite Number",
+            "text": "A number with more than 2 factors. E.g., 4 (factors: 1,2,4), 6 (factors: 1,2,3,6), 144 (many factors)."
+          },
+          {
+            "label": "1 is Special",
+            "text": "1 has only 1 factor (itself), so it's neither prime nor composite."
+          }
+        ],
+        "emoji": "🔢",
+        "inSimpleWords": "Primes have 2 factors; composites have more."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Prime Check",
+        "example": {
+          "problem": "Is 17 a prime number? List all its factors.",
+          "solution": "Factors of 17: 1 and 17 only. Since it has exactly 2 factors, 17 is prime. (No other number divides 17 evenly.)"
+        },
+        "emoji": "⭐",
+        "inSimpleWords": "17 is prime because only 1 and 17 divide it."
+      },
+      {
+        "kind": "recap",
+        "title": "Number Play Summary",
+        "points": [
+          {
+            "text": "Divisibility rules save time without actual division."
+          },
+          {
+            "text": "Prime numbers have exactly 2 factors; composites have more."
+          },
+          {
+            "text": "144 chapatis divide equally—Priya solved it with rules."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Number tricks reveal hidden factors."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-mathematics-proportional-reasoning-1",
+    "classLevel": "8",
+    "subject": "Mathematics",
+    "chapter": "Proportional Reasoning-1",
+    "chapterAliases": [
+      "Ratios and Proportions",
+      "Direct Proportion"
+    ],
+    "title": "Recipe Scaling for a School Festival",
+    "hook": "Priya's mother makes a kheer (rice pudding) for 4 people using 1 cup rice, 2 cups milk, 3 tbsp ghee. For 20 people at the school festival, how much of each ingredient? Arjun uses ratios to scale the recipe perfectly.",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "👩‍🍳",
+        "role": "kitchen mathematician"
+      },
+      {
+        "name": "Arjun",
+        "emoji": "🔍",
+        "role": "ratio calculator"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Scaling the Festival Kheer",
+        "storyContext": "Priya's mother's kheer recipe serves 4 people: 1 cup rice, 2 cups milk, 3 tbsp ghee. The school festival expects 20 people. 'Do I just add more randomly?' she asks. Arjun says: 'No! Scale using ratios. The recipe must stay in the same proportion.'",
+        "emoji": "🍚",
+        "inSimpleWords": "Proportions scale recipes and measurements."
+      },
+      {
+        "kind": "concept",
+        "title": "Ratios Explained",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A ratio compares two quantities. Rice : Milk = 1 : 2 means for every 1 cup rice, use 2 cups milk."
+          },
+          {
+            "label": "Equivalent Ratios",
+            "text": "1:2 = 2:4 = 3:6 = 5:10. Multiply or divide both parts by the same number."
+          },
+          {
+            "label": "Scaling Factor",
+            "text": "Original 4 people → 20 people: scale factor = 20÷4 = 5. Multiply all ingredients by 5."
+          }
+        ],
+        "emoji": "⚖️",
+        "inSimpleWords": "Ratios show how quantities relate to each other."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Scaling Kheer",
+        "example": {
+          "problem": "Scale the kheer recipe for 20 people. Original (4 people): 1 cup rice, 2 cups milk, 3 tbsp ghee.",
+          "solution": "Scale factor = 20÷4 = 5. New recipe: 1×5 = 5 cups rice, 2×5 = 10 cups milk, 3×5 = 15 tbsp ghee."
+        },
+        "emoji": "✨",
+        "inSimpleWords": "Multiply all ingredients by the scale factor."
+      },
+      {
+        "kind": "concept",
+        "title": "Direct Proportion",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Two quantities are directly proportional if as one increases, the other increases at the same rate."
+          },
+          {
+            "label": "Ratio Check",
+            "text": "If x and y are directly proportional, x:y is always the same. E.g., 1 rice : 2 milk stays 5 rice : 10 milk (ratio 1:2 unchanged)."
+          },
+          {
+            "label": "Formula",
+            "text": "y = kx, where k is the constant of proportionality. E.g., milk = 2 × rice."
+          }
+        ],
+        "emoji": "📈",
+        "inSimpleWords": "Directly proportional means equal scaling always."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Money and Items",
+        "example": {
+          "problem": "If 3 notebooks cost Rs 60, what do 7 notebooks cost? (Assuming direct proportion.)",
+          "solution": "Cost per notebook = 60÷3 = Rs 20. Cost of 7 notebooks = 7×20 = Rs 140. Alternatively: 3:60 = 7:x → x = (7×60)÷3 = Rs 140."
+        },
+        "emoji": "💰",
+        "inSimpleWords": "Cost scales directly with number of items."
+      },
+      {
+        "kind": "recap",
+        "title": "Proportional Reasoning",
+        "points": [
+          {
+            "text": "Ratios compare quantities; equivalent ratios stay proportional."
+          },
+          {
+            "text": "Scaling factor multiplies all ingredients or quantities."
+          },
+          {
+            "text": "Direct proportion means one quantity drives another at constant rate."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Proportions scale recipes and prices perfectly."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-mathematics-fractions-disguise",
+    "classLevel": "8",
+    "subject": "Mathematics",
+    "chapter": "Fractions in Disguise",
+    "chapterAliases": [
+      "Rational Numbers",
+      "Decimals as Fractions"
+    ],
+    "title": "Cricket Scores and Batting Averages",
+    "hook": "Arjun watches an Indian cricket match. The batter has a batting average of 0.75 (three hits in four attempts). Is that the same as ¾? Priya shows him how decimals, fractions, and percentages are all the same number dressed up differently.",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🏏",
+        "role": "cricket fan"
+      },
+      {
+        "name": "Priya",
+        "emoji": "🎭",
+        "role": "number translator"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Batting Average Mystery",
+        "storyContext": "Arjun watches the IPL (Indian Premier League) match on TV. Commentator says: 'Batter's average this season: 0.75.' Arjun wonders: 'Is that good?' Priya says: '0.75 = ¾ = 75%. That means 3 hits out of every 4 attempts. Pretty good for cricket!'",
+        "emoji": "⚾",
+        "inSimpleWords": "Decimals, fractions, and percentages are the same."
+      },
+      {
+        "kind": "concept",
+        "title": "Fractions to Decimals",
+        "points": [
+          {
+            "label": "Conversion",
+            "text": "Divide numerator by denominator. E.g., ¾ = 3÷4 = 0.75"
+          },
+          {
+            "label": "Examples",
+            "text": "½ = 0.5, ⅕ = 0.2, ⅖ = 0.4, ⅗ = 0.6, ⅘ = 0.8"
+          },
+          {
+            "label": "Repeating Decimals",
+            "text": "⅓ = 0.333... (repeating). ⅙ = 0.1666... (repeating). Write with bar: 0.3̄"
+          }
+        ],
+        "emoji": "🔄",
+        "inSimpleWords": "Divide numerator by denominator to get decimal."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Cricket Batting Average",
+        "example": {
+          "problem": "A cricketer hits 5 fours in 8 deliveries. Express as fraction, decimal, and percentage.",
+          "solution": "Fraction: ⅝. Decimal: 5÷8 = 0.625. Percentage: 0.625 × 100 = 62.5%. All three express the same batting success."
+        },
+        "emoji": "📊",
+        "inSimpleWords": "⅝ = 0.625 = 62.5% all mean the same."
+      },
+      {
+        "kind": "concept",
+        "title": "Decimals to Fractions",
+        "points": [
+          {
+            "label": "Method",
+            "text": "Write decimal over appropriate power of 10. E.g., 0.75 = 75/100, then simplify to ¾."
+          },
+          {
+            "label": "Simplification",
+            "text": "Find GCD of numerator and denominator. E.g., 75/100: GCD=25 → (75÷25)/(100÷25) = ¾"
+          },
+          {
+            "label": "Examples",
+            "text": "0.5 = 5/10 = ½. 0.2 = 2/10 = ⅕. 0.25 = 25/100 = ¼. 0.125 = 125/1000 = ⅛"
+          }
+        ],
+        "emoji": "🔢",
+        "inSimpleWords": "Put decimal over 10, 100, 1000 to make fraction."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Percentage to Fraction",
+        "example": {
+          "problem": "Express 40% as a fraction in simplest form.",
+          "solution": "40% = 40/100. GCD(40,100)=20. Simplify: (40÷20)/(100÷20) = ⅖. So 40% = ⅖."
+        },
+        "emoji": "📈",
+        "inSimpleWords": "40% equals two-fifths of the whole."
+      },
+      {
+        "kind": "recap",
+        "title": "Fractions in Disguise",
+        "points": [
+          {
+            "text": "Decimals, fractions, and percentages express the same quantity."
+          },
+          {
+            "text": "Convert by dividing (fraction to decimal) or using powers of 10 (decimal to fraction)."
+          },
+          {
+            "text": "Cricket batting average 0.75 = ¾ = 75%—all the same 'disguised' number."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "One number, three different disguises."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-science-crop-production",
+    "classLevel": "8",
+    "subject": "Science",
+    "chapter": "Crop Production and Management",
+    "chapterAliases": [
+      "Agriculture",
+      "Farming Techniques"
+    ],
+    "title": "Priya's Organic Farm in Punjab",
+    "hook": "Priya's grandparents run an organic farm near Amritsar, Punjab. They grow wheat and rice using rotation, composting, and natural pest control. How do crop selection, soil quality, and water management make farming successful?",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "🌾",
+        "role": "curious farmer granddaughter"
+      },
+      {
+        "name": "Grandpa Baldev",
+        "emoji": "👨‍🌾",
+        "role": "farming wisdom keeper"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Grandpa's Wheat Field",
+        "storyContext": "Priya visits the Punjab farm during harvest. Golden wheat fields stretch for acres. 'Grandpa, how do you keep this soil so rich year after year?' Baldev smiles: 'We rotate crops—wheat one year, legumes next. We compost, we let the land rest. The soil is living.'",
+        "emoji": "🌾",
+        "inSimpleWords": "Good farming needs planning, soil care, and rotation."
+      },
+      {
+        "kind": "concept",
+        "title": "Essential Crop Requirements",
+        "points": [
+          {
+            "label": "Soil Nutrients",
+            "text": "Crops need Nitrogen (N), Phosphorus (P), Potassium (K). NPK varies by crop type. Wheat needs high N; legumes add N to soil."
+          },
+          {
+            "label": "Water Management",
+            "text": "Irrigation timing is critical. Wheat in Punjab: rabi crop (winter); rice: kharif (monsoon). Wrong water = crop failure."
+          },
+          {
+            "label": "Sunlight & Temperature",
+            "text": "Wheat thrives in cool season. Rice in warm, monsoon season. Altitude and latitude affect crop choice."
+          }
+        ],
+        "emoji": "💧",
+        "inSimpleWords": "Crops need nutrients, water, light, and right temperature."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Crop Rotation",
+        "example": {
+          "problem": "Grandpa grows wheat (high N demand) year 1. What should he grow year 2 to restore nitrogen?",
+          "solution": "Grow legumes (chickpea, peas, clover). They have nitrogen-fixing bacteria in roots that add N to soil. Year 3: wheat again, with richer soil."
+        },
+        "emoji": "♻️",
+        "inSimpleWords": "Rotate wheat and legumes every 2 years."
+      },
+      {
+        "kind": "concept",
+        "title": "Pest & Weed Control",
+        "points": [
+          {
+            "label": "Natural Pest Control",
+            "text": "Use ladybugs to eat aphids, neem oil spray, crop rotation to break pest cycles. Avoid pesticides that poison soil."
+          },
+          {
+            "label": "Weed Management",
+            "text": "Pull weeds by hand (organic farms). Mulching prevents weed growth. Wrong: herbicides that harm beneficial insects."
+          },
+          {
+            "label": "Intercropping",
+            "text": "Plant maize + beans together. Beans climb maize; maize shades soil. Both thrive; pests confused."
+          }
+        ],
+        "emoji": "🐛",
+        "inSimpleWords": "Natural methods protect crops and soil."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Neem Spray Application",
+        "example": {
+          "problem": "Grandpa notices aphids on wheat. Mix neem oil spray (organic): 2% neem oil in water. Spray at sunrise. How often?",
+          "solution": "Spray every 7-10 days during pest season. Repeat 3-4 times. Natural neem targets aphids without harming bees or soil microbes."
+        },
+        "emoji": "🌿",
+        "inSimpleWords": "Neem spray every 7-10 days controls aphids."
+      },
+      {
+        "kind": "recap",
+        "title": "Sustainable Farming",
+        "points": [
+          {
+            "text": "Crop rotation, composting, and natural pest control sustain soil health."
+          },
+          {
+            "text": "Water, nutrients, sunlight, and temperature must match crop needs."
+          },
+          {
+            "text": "Grandpa's Punjab farm thrives using age-old organic wisdom."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Respect soil, rotate crops, use nature wisely."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-science-microorganisms-friend-foe",
+    "classLevel": "8",
+    "subject": "Science",
+    "chapter": "Microorganisms - Friend and Foe",
+    "chapterAliases": [
+      "Bacteria, Viruses, Fungi",
+      "Microbes"
+    ],
+    "title": "Arjun's Lab Discoveries",
+    "hook": "Arjun swabs different surfaces in his Delhi school: bathroom, kitchen, hands before/after washing. Under the microscope, he sees millions of bacteria. Some are helpful (yogurt bacteria). Some cause disease. How do we tell good from bad?",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🔬",
+        "role": "microbe explorer"
+      },
+      {
+        "name": "Mrs. Sharma",
+        "emoji": "👩‍🏫",
+        "role": "biology teacher"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Swab Under the Microscope",
+        "storyContext": "Arjun grows bacteria cultures in petri dishes from different school locations. 'Mrs. Sharma, the bathroom sample has way more colonies than the kitchen!' She nods: 'Bacteria are everywhere—most harmless, some useful, few dangerous. Let's identify them.'",
+        "emoji": "🦠",
+        "inSimpleWords": "Bacteria are tiny single-celled organisms everywhere."
+      },
+      {
+        "kind": "concept",
+        "title": "Types of Microorganisms",
+        "points": [
+          {
+            "label": "Bacteria",
+            "text": "Single-celled, no nucleus. Some helpful (gut bacteria aid digestion), some harmful (cause infections). Reproduce by splitting in two."
+          },
+          {
+            "label": "Fungi",
+            "text": "Molds, yeasts, mushrooms. Fungi break down dead matter. Some edible (mushrooms), some toxic (food mold)."
+          },
+          {
+            "label": "Viruses",
+            "text": "Smaller than bacteria, need host cell to replicate. Cause colds, flu, COVID. Not living, but parasitic."
+          },
+          {
+            "label": "Protozoa",
+            "text": "Single-celled protists. Some harmful (malaria parasite), some eat bacteria (benefit ecosystems)."
+          }
+        ],
+        "emoji": "👁️",
+        "inSimpleWords": "Bacteria, fungi, and viruses are microorganisms."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Yogurt Bacteria",
+        "example": {
+          "problem": "Yogurt is made from Lactobacillus bacteria. How is this beneficial?",
+          "solution": "Lactobacillus ferments milk sugar (lactose) into lactic acid, curdling milk into yogurt. This bacteria also aids human digestion and boosts immunity. A friendly helper microbe."
+        },
+        "emoji": "🥛",
+        "inSimpleWords": "Yogurt bacteria are helpful friends."
+      },
+      {
+        "kind": "concept",
+        "title": "Helpful vs. Harmful Microbes",
+        "points": [
+          {
+            "label": "Helpful Bacteria",
+            "text": "Yogurt (Lactobacillus), gut bacteria (aid digestion), soil bacteria (fix nitrogen for plants), decomposers (break down waste)."
+          },
+          {
+            "label": "Harmful Bacteria",
+            "text": "Streptococcus (sore throat), E. coli (food poisoning), Salmonella (diarrhea), Tuberculosis (TB)."
+          },
+          {
+            "label": "Prevention",
+            "text": "Wash hands, clean food, cook properly, get vaccines, boil water, cover mouth when coughing."
+          }
+        ],
+        "emoji": "✋",
+        "inSimpleWords": "Good microbes help us; bad ones need prevention."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Hand Washing Impact",
+        "example": {
+          "problem": "Arjun swabs his hands before and after washing. Before: 500 bacterial colonies. After washing with soap: 50 colonies. Why?",
+          "solution": "Soap breaks bacterial cell membranes. Mechanical scrubbing removes bacteria. Hand washing reduces disease risk by ~50%. Essential hygiene habit."
+        },
+        "emoji": "🧼",
+        "inSimpleWords": "Washing removes 90% of harmful bacteria."
+      },
+      {
+        "kind": "recap",
+        "title": "Microbe Summary",
+        "points": [
+          {
+            "text": "Bacteria, fungi, and viruses are everywhere."
+          },
+          {
+            "text": "Some microbes help us (yogurt, gut health, decomposition); others cause disease."
+          },
+          {
+            "text": "Arjun's lab proves: hygiene and knowledge protect health."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Not all microbes are bad—some are essential."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-science-combustion-flame",
+    "classLevel": "8",
+    "subject": "Science",
+    "chapter": "Combustion and Flame",
+    "chapterAliases": [
+      "Burning",
+      "Fire and Heat"
+    ],
+    "title": "Priya's Diwali Diya Experiment",
+    "hook": "During Diwali celebrations in Delhi, Priya lights dozens of oil diyas (earthen lamps). 'Why does the flame burn?' she wonders. Her science teacher explains: combustion needs three things—fuel, oxygen, and heat. Remove any one, the flame dies.",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "🪔",
+        "role": "curious celebrator"
+      },
+      {
+        "name": "Science Teacher",
+        "emoji": "👨‍🏫",
+        "role": "flame expert"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Why Diyas Burn",
+        "storyContext": "Priya fills oil diyas for Diwali. She lights one, and it glows warmly. 'Why does oil burn? And why does the flame need air?' The teacher says: 'Burn is a chemical reaction. Oil is fuel. It mixes with oxygen in air, and the heat keeps it going.'",
+        "emoji": "🔥",
+        "inSimpleWords": "Burning (combustion) is a chemical reaction."
+      },
+      {
+        "kind": "concept",
+        "title": "The Combustion Triangle",
+        "points": [
+          {
+            "label": "Three Requirements",
+            "text": "Fuel (oil, wood, coal, gas), Oxygen (from air), Heat (ignition temperature). All three → fire. Remove one → flame dies."
+          },
+          {
+            "label": "Fuel Types",
+            "text": "Combustible materials: oil, wood, coal, petrol, LPG, wax. Each has different ignition temperature."
+          },
+          {
+            "label": "Ignition Temperature",
+            "text": "Minimum heat needed to start combustion. Oil ~370°C, wood ~300°C, petrol ~250°C. Above this, fuel burns if oxygen present."
+          }
+        ],
+        "emoji": "⛺",
+        "inSimpleWords": "Fire needs fuel, oxygen, and heat together."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Diya Burning",
+        "example": {
+          "problem": "A diya burns with oil + cotton wick. Explain why it keeps burning despite cool air outside.",
+          "solution": "Fuel: oil (wick absorbs it). Oxygen: air around flame provides it. Heat: combustion reaction sustains ~600°C at flame. As long as all three are present, diya burns. Wind or water removes oxygen or heat → flame dies."
+        },
+        "emoji": "🌬️",
+        "inSimpleWords": "Diya burns because fuel, oxygen, and heat persist."
+      },
+      {
+        "kind": "concept",
+        "title": "Flame Stages & Safety",
+        "points": [
+          {
+            "label": "Combustion Reaction",
+            "text": "Fuel + Oxygen → Carbon Dioxide + Water + Energy (heat & light). E.g., oil combustion: C₈H₁₈ + 12O₂ → 8CO₂ + 9H₂O + heat"
+          },
+          {
+            "label": "Flame Properties",
+            "text": "Blue flame: complete combustion, efficient, cool to watch. Yellow/orange: incomplete combustion, soot produced, less efficient."
+          },
+          {
+            "label": "Fire Safety",
+            "text": "Remove fuel (extinguish source), reduce oxygen (smother with blanket), cool flame (water). Never throw water on oil fire—spreads it."
+          }
+        ],
+        "emoji": "🧯",
+        "inSimpleWords": "Complete combustion (blue) is cleaner and safer."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Extinguishing a Fire",
+        "example": {
+          "problem": "Oil lamp catches fire on the floor. How to extinguish safely?",
+          "solution": "NEVER use water (spreads oil). Instead: smother with blanket to cut oxygen. Or use sand to cool and suffocate flame. Move away and call adults. Oil fire needs oxygen removal, not water."
+        },
+        "emoji": "🛑",
+        "inSimpleWords": "Smother oil fire with blanket, not water."
+      },
+      {
+        "kind": "recap",
+        "title": "Combustion and Flame",
+        "points": [
+          {
+            "text": "Combustion = fuel + oxygen + heat. Remove any one → no fire."
+          },
+          {
+            "text": "Blue flame (complete) vs. yellow flame (incomplete) differ in efficiency."
+          },
+          {
+            "text": "Priya's Diwali diyas glow safely when combustion is understood."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Understanding fire keeps celebrations safe."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-science-conservation-plants-animals",
+    "classLevel": "8",
+    "subject": "Science",
+    "chapter": "Conservation of Plants and Animals",
+    "chapterAliases": [
+      "Endangered Species",
+      "Habitat Protection"
+    ],
+    "title": "Arjun's Tiger Reserve Visit",
+    "hook": "Arjun and his school visit Bandhavgarh Tiger Reserve in Madhya Pradesh. A guide explains: only 3,000 tigers remain in India. Habitat loss, poaching, and climate change threaten them. How can communities and laws protect endangered species?",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🐯",
+        "role": "young conservationist"
+      },
+      {
+        "name": "Reserve Guide",
+        "emoji": "🦜",
+        "role": "wildlife educator"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Tiger in Danger",
+        "storyContext": "At Bandhavgarh Reserve, the guide shows Arjun a tiger pug mark (paw print) in mud. 'This tiger roams 50 square kilometers. But forests shrink. Villagers hunt prey. Poachers hunt tigers for pelts. Without protection, tigers vanish in 20 years.'",
+        "emoji": "🐾",
+        "inSimpleWords": "Endangered animals need habitats and protection laws."
+      },
+      {
+        "kind": "concept",
+        "title": "Causes of Extinction",
+        "points": [
+          {
+            "label": "Habitat Loss",
+            "text": "Forests cleared for farms, cities, dams. Tigers need unbroken forests to hunt. Fragmented habitat = small populations → extinction risk."
+          },
+          {
+            "label": "Poaching & Hunting",
+            "text": "Illegal killing for horns, pelts, meat. Rhinos hunted for horns (used in traditional medicine). Elephants for ivory."
+          },
+          {
+            "label": "Climate Change",
+            "text": "Temperature rise, drought, flood affect food chains. Prey species decline → predators starve. Seasons shift → breeding patterns disrupt."
+          },
+          {
+            "label": "Pollution",
+            "text": "Pesticides accumulate in food chains. Factory waste poisons rivers. Species sensitive to pollution decline first."
+          }
+        ],
+        "emoji": "⚠️",
+        "inSimpleWords": "Habitat loss, poaching, and climate change threaten species."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Tiger Population Math",
+        "example": {
+          "problem": "India had 10,000 tigers in 1900. By 1970: 1,800. By 2022: 3,700 (through reserves). What happened?",
+          "solution": "1900-1970: 88% decline (habitat loss, unrestricted hunting). 1970-2022: recovery via Project Tiger (protection laws, reserves, anti-poaching patrols). Shows: laws work, but recovery takes decades."
+        },
+        "emoji": "📊",
+        "inSimpleWords": "Project Tiger laws brought tigers back from brink."
+      },
+      {
+        "kind": "concept",
+        "title": "Conservation Strategies",
+        "points": [
+          {
+            "label": "Protected Areas",
+            "text": "National parks and reserves: legal protection, anti-poaching teams, habitat restoration. Bandhavgarh, Sundarbans (Bengal tigers), Gir (Asiatic lions)."
+          },
+          {
+            "label": "Wildlife Laws",
+            "text": "India: Wildlife Protection Act 1972. Ban illegal trade. Project Tiger, Project Elephant, Project Rhinoceros. Penalties for poaching."
+          },
+          {
+            "label": "Community Involvement",
+            "text": "Train local guides, employ reserve staff from villages. Compensation for livestock lost to predators. Education: villagers become conservationists."
+          },
+          {
+            "label": "Captive Breeding",
+            "text": "Breed endangered species in zoos/reserves, reintroduce to wild. Indian rhinoceros (1 left in 1900) → now 3,500 via breeding + protection."
+          }
+        ],
+        "emoji": "🛡️",
+        "inSimpleWords": "Protected reserves, laws, and community action save species."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Project Tiger Success",
+        "example": {
+          "problem": "Project Tiger (launched 1973) protects tigers in 51 reserves across India. How does this save them?",
+          "solution": "Reserves provide continuous forest (habitat). Anti-poaching patrols prevent hunting. Wildlife corridors link reserves so tigers breed freely. Monitoring tracks population. Result: tigers increased from 1,827 (1972) to 3,747 (2022)."
+        },
+        "emoji": "✓",
+        "inSimpleWords": "Project Tiger's reserves, corridors, and patrols work."
+      },
+      {
+        "kind": "recap",
+        "title": "Conservation Imperative",
+        "points": [
+          {
+            "text": "Habitat loss, poaching, climate change drive extinction."
+          },
+          {
+            "text": "Protected reserves, laws, and community involvement restore populations."
+          },
+          {
+            "text": "Arjun learns: every person can help conserve India's wildlife."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Protect habitats, enforce laws, involve communities."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-science-reproduction-animals",
+    "classLevel": "8",
+    "subject": "Science",
+    "chapter": "Reproduction in Animals",
+    "chapterAliases": [
+      "Life Cycles",
+      "Sexual and Asexual Reproduction"
+    ],
+    "title": "Priya's Fish Tank Journey",
+    "hook": "Priya keeps guppies in a home aquarium in Bangalore. She notices babies appearing. Her guppies reproduce sexually (male + female). Meanwhile, her biology class studies asexual reproducers like starfish and hydra. How do different animals create the next generation?",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "🐠",
+        "role": "aquarium keeper"
+      },
+      {
+        "name": "Biology Teacher",
+        "emoji": "👨‍🏫",
+        "role": "reproduction guide"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Baby Guppies Everywhere",
+        "storyContext": "Priya's aquarium suddenly has dozens of tiny guppies. 'I only had 2 adult fish!' she says. Teacher explains: 'Your male and female guppies mated. The female is viviparous—she carries babies inside and gives live birth. Sexual reproduction combines two parents.'",
+        "emoji": "🐟",
+        "inSimpleWords": "Animals reproduce to create offspring for the next generation."
+      },
+      {
+        "kind": "concept",
+        "title": "Sexual Reproduction",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Offspring created from two parents: male + female gametes (sperm + egg). Offspring inherit DNA from both parents, so unique."
+          },
+          {
+            "label": "Stages",
+            "text": "Mating → Fertilization (sperm + egg fuse) → Development. Timing varies: guppies (live birth), chickens (eggs), humans (9-month pregnancy)."
+          },
+          {
+            "label": "Examples",
+            "text": "Guppies, dogs, cats, humans, birds, snakes—most animals reproduce sexually. Variation in offspring → adaptation to environment."
+          }
+        ],
+        "emoji": "👶",
+        "inSimpleWords": "Sexual reproduction needs male and female parents."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Guppy Life Cycle",
+        "example": {
+          "problem": "Priya's female guppy is pregnant for 3 weeks. How many babies might she have? (Guppies bear 10-50 live young per cycle.)",
+          "solution": "Gestation: 3 weeks. Birth: 20-30 live guppies (viviparous). Babies grow in 3-4 months to adulthood. Priya's population explodes! (She must control breeding or rehome excess.)"
+        },
+        "emoji": "📈",
+        "inSimpleWords": "Guppies give live birth every 3-4 weeks."
+      },
+      {
+        "kind": "concept",
+        "title": "Asexual Reproduction",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Offspring created from ONE parent only. No gametes. Offspring are genetic clones of parent."
+          },
+          {
+            "label": "Methods",
+            "text": "Binary fission (bacteria splits in two), budding (hydra grows bud → detaches as new animal), fragmentation (starfish arm breaks off → regenerates)."
+          },
+          {
+            "label": "Examples",
+            "text": "Hydra (freshwater), starfish, some flatworms, bacteria, plants (runners, tubers). Advantage: fast population growth. Disadvantage: no variation → less adaptation."
+          }
+        ],
+        "emoji": "🔄",
+        "inSimpleWords": "Asexual reproduction uses one parent only."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Hydra Budding",
+        "example": {
+          "problem": "Biology class observes hydra under microscope. A bud forms on the side. In 5 days, it detaches as a new hydra. Is this sexual?",
+          "solution": "No—budding is asexual. One parent, no gametes, genetically identical offspring. Hydra (freshwater polyp) reproduces this way when food is plentiful. Sexual reproduction occurs only under stress."
+        },
+        "emoji": "🔬",
+        "inSimpleWords": "Hydra budding is asexual—one parent, clones."
+      },
+      {
+        "kind": "recap",
+        "title": "Reproduction Summary",
+        "points": [
+          {
+            "text": "Sexual reproduction (male + female) creates variation; asexual (one parent) creates clones."
+          },
+          {
+            "text": "Guppies: sexual, live-bearing. Hydra: asexual, budding."
+          },
+          {
+            "text": "Priya's aquarium shows nature's endless cycle of life."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Sexual and asexual—both ways life continues."
+      }
+    ]
+  },
+  {
+    "slug": "class-8-science-force-pressure",
+    "classLevel": "8",
+    "subject": "Science",
+    "chapter": "Force and Pressure",
+    "chapterAliases": [
+      "Mechanics",
+      "Newton's Laws"
+    ],
+    "title": "Arjun's Cricket Ball Physics",
+    "hook": "Arjun plays cricket at a Delhi park. When he hits the ball hard, it flies far. When he hits softly, it barely rolls. Force applied changes motion. He also notices his cricket spike shoes sink in wet grass while flat shoes don't. Pressure (force per area) explains both.",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🏏",
+        "role": "cricket player"
+      },
+      {
+        "name": "Physics Coach",
+        "emoji": "👨‍🎓",
+        "role": "motion mentor"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Hard Hit, Far Ball",
+        "storyContext": "Arjun hits a cricket ball with full force—it soars across the field. 'I hit gently earlier and it barely moved.' Coach explains: 'Force changes motion. Greater force → greater acceleration. Newton's second law: F = ma. More force, more speed.'",
+        "emoji": "⚾",
+        "inSimpleWords": "Force causes changes in motion."
+      },
+      {
+        "kind": "concept",
+        "title": "What is Force?",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Force is a push or pull that changes motion (velocity) or shape. Measured in Newtons (N). Every change in motion requires force."
+          },
+          {
+            "label": "Newton's Second Law",
+            "text": "F = ma. Force = mass × acceleration. Larger force → faster acceleration. 1 Newton accelerates 1 kg at 1 m/s²."
+          },
+          {
+            "label": "Examples",
+            "text": "Bat hitting ball (force), gravity pulling things down (force), friction slowing motion (force), engine pushing car (force)."
+          }
+        ],
+        "emoji": "💪",
+        "inSimpleWords": "Force is push or pull that changes motion."
+      },
+      {
+        "kind": "example",
+        "title": "Example 1: Cricket Ball Force",
+        "example": {
+          "problem": "A cricket ball (mass 0.16 kg) is hit by Arjun's bat. The ball's velocity changes from 0 to 30 m/s in 0.02 seconds. Calculate force.",
+          "solution": "Acceleration = (30-0)/0.02 = 1,500 m/s². Force = 0.16 × 1,500 = 240 Newtons. A powerful hit!"
+        },
+        "emoji": "📐",
+        "inSimpleWords": "Force on ball = mass × acceleration."
+      },
+      {
+        "kind": "concept",
+        "title": "Pressure Explained",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Pressure = Force / Area. Same force on small area = high pressure. Same force on large area = low pressure."
+          },
+          {
+            "label": "Formula",
+            "text": "P = F/A. Measured in Pascals (Pa) or N/m². Example: 100 N over 0.01 m² = 10,000 Pa."
+          },
+          {
+            "label": "Real Life",
+            "text": "Spike shoes: sharp point (small area) → high pressure → sinks in wet grass. Flat shoes: large area → low pressure → stays on surface."
+          }
+        ],
+        "emoji": "🔽",
+        "inSimpleWords": "Pressure is force spread over area."
+      },
+      {
+        "kind": "example",
+        "title": "Example 2: Spike vs. Flat Shoes",
+        "example": {
+          "problem": "Arjun weighs 50 kg (490 N force on ground). Spike shoe contact area: 1 cm². Flat shoe: 100 cm². Calculate pressure in each.",
+          "solution": "Spike pressure = 490 N / 0.0001 m² = 4,900,000 Pa (extremely high). Flat pressure = 490 N / 0.01 m² = 49,000 Pa. Spikes sink; flat shoes spread force, stay on surface."
+        },
+        "emoji": "👟",
+        "inSimpleWords": "Spikes concentrate force; flat shoes spread it."
+      },
+      {
+        "kind": "recap",
+        "title": "Force and Pressure",
+        "points": [
+          {
+            "text": "Force (F = ma) changes motion; pressure = force/area concentrates or disperses it."
+          },
+          {
+            "text": "Hard hit = large force = far ball. Spike shoes = high pressure = sink."
+          },
+          {
+            "text": "Arjun's cricket game demonstrates physics every day."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Force and pressure explain motion and impact."
+      }
+    ]
   }
 ];
