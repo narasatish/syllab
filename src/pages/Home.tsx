@@ -20,8 +20,10 @@ import SEO from '../components/SEO';
 import StructuredData from '../seo/StructuredData';
 import StudyNudge from '../components/StudyNudge';
 import { getStreak } from '../lib/gamification';
-import HomeFeatureGrid from '../components/HomeFeatureGrid';
-import HomeInteractiveDemo from '../components/HomeInteractiveDemo';
+// Below-the-fold — lazy so they don't sit on the homepage's critical render path
+// (the hero/LCP element paints without waiting for this JS to parse/execute).
+const HomeFeatureGrid = React.lazy(() => import('../components/HomeFeatureGrid'));
+const HomeInteractiveDemo = React.lazy(() => import('../components/HomeInteractiveDemo'));
 import WhatsNew from '../components/WhatsNew';
 
 interface HomePageProps {
@@ -450,10 +452,12 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       </section>
 
       {/* ── WHAT YOU CAN DO — 6 animated feature tiles ──────────────────────── */}
-      <HomeFeatureGrid onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+      <React.Suspense fallback={<div className="min-h-[40vh]" aria-hidden="true" />}>
+        <HomeFeatureGrid onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
 
-      {/* ── SEE IT IN ACTION — interactive demo carousel ─────────────────── */}
-      <HomeInteractiveDemo onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+        {/* ── SEE IT IN ACTION — interactive demo carousel ─────────────────── */}
+        <HomeInteractiveDemo onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+      </React.Suspense>
 
       {/* ── WHAT'S NEW — Latest blog posts & new features ─────────────────── */}
       <WhatsNew
