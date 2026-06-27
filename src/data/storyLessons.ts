@@ -7,6 +7,8 @@
  * authored lessons and AI-generated ones render identically.
  */
 
+import { STORY_LESSONS_GENERATED } from './storyLessonsGenerated';
+
 export interface StoryCharacter {
   name: string;
   emoji?: string;
@@ -163,6 +165,9 @@ export const STORY_LESSONS: StoryLesson[] = [
   },
 ];
 
+/** Hand-authored flagship lessons + all subagent-generated lessons. */
+const ALL_STORY_LESSONS: StoryLesson[] = [...STORY_LESSONS, ...STORY_LESSONS_GENERATED];
+
 /** Look up a story lesson by chapter identity (class + subject + chapter title). */
 export function getStoryLesson(classLevel?: string, subject?: string, chapter?: string): StoryLesson | null {
   if (!classLevel || !chapter) return null;
@@ -170,7 +175,7 @@ export function getStoryLesson(classLevel?: string, subject?: string, chapter?: 
   const cls = String(classLevel).replace(/[^0-9]/g, '');
   const wantChapter = norm(chapter);
   return (
-    STORY_LESSONS.find((l) => {
+    ALL_STORY_LESSONS.find((l) => {
       if (l.classLevel !== cls) return false;
       const subjOk = !subject || norm(l.subject) === norm(subject) || norm(l.subject).startsWith(norm(subject).slice(0, 4));
       if (!subjOk) return false;
