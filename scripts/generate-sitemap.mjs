@@ -264,11 +264,11 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/difference-between/${d.slug}`, priority: 0.7, changefreq: 'monthly' });
   }
 
-  // Full Forms cluster
+  // Full Forms cluster — marked noindex (thin content: 1–2 sentence definitions with
+  // minimal unique value). These are SEO-scaled templates that drag domain quality.
+  // Index only the hub, not individual forms.
   urls.push({ loc: '/full-forms', priority: 0.8, changefreq: 'weekly' });
-  for (const f of getFullForms(ROOT)) {
-    urls.push({ loc: `/full-forms/${f.slug}`, priority: 0.6, changefreq: 'monthly' });
-  }
+  // Individual full form pages are omitted to avoid thin-content penalty
 
   // Glossary cluster
   urls.push({ loc: '/glossary', priority: 0.8, changefreq: 'weekly' });
