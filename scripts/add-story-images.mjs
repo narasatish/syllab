@@ -81,7 +81,7 @@ async function pexelsUrl(query) {
 
 async function main() {
   if (!KEY) { console.error('No PEXELS_API_KEY found — aborting.'); process.exit(1); }
-  const files = readdirSync(GEN_DIR).filter((f) => /^class-\d+\.json$/.test(f)).sort();
+  const files = readdirSync(GEN_DIR).filter((f) => /^class-[\w-]+\.json$/.test(f)).sort();
   let added = 0, slides = 0, skipped = 0;
   for (const f of files) {
     const fp = path.join(GEN_DIR, f);

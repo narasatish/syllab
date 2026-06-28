@@ -14,7 +14,7 @@ const GEN_DIR = path.join(ROOT, 'src', 'data', 'story-gen');
 
 // All subagent-authored class files live in src/data/story-gen/class-*.json.
 const SOURCES = (existsSync(GEN_DIR) ? readdirSync(GEN_DIR) : [])
-  .filter((f) => /^class-\d+\.json$/.test(f))
+  .filter((f) => /^class-[\w-]+\.json$/.test(f))
   .sort()
   .map((f) => [f.replace('.json', ''), path.join(GEN_DIR, f)]);
 

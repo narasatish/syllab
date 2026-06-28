@@ -16394,5 +16394,6015 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       }
     ]
+  },
+  {
+    "slug": "class-1-english-alphabet-a-to-m",
+    "classLevel": "1",
+    "subject": "English",
+    "chapter": "Alphabet A to M",
+    "chapterAliases": [
+      "First Half Alphabet"
+    ],
+    "title": "Arun and Maya's Amazing Adventure",
+    "hook": "Join Arun and Maya as they explore letters A to M in a magical forest!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A is for Apple",
+        "storyContext": "Arun finds a red apple under an old tree. Maya claps with joy!",
+        "points": [
+          {
+            "label": "Letter A",
+            "text": "Looks like a triangle with a bar across"
+          }
+        ],
+        "inSimpleWords": "Apple starts with the letter A!",
+        "emoji": "🍎",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A is for Apple — Alphabet A to M"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "B is for Ball",
+        "storyContext": "Maya kicks a blue ball high in the sky. Arun catches it with a laugh!",
+        "points": [
+          {
+            "label": "Letter B",
+            "text": "Looks like a stick with two bumps"
+          }
+        ],
+        "inSimpleWords": "Ball starts with the letter B!",
+        "emoji": "⚽",
+        "image": {
+          "url": "https://images.pexels.com/photos/6203512/pexels-photo-6203512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "B is for Ball — Alphabet A to M"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "C is for Cat",
+        "storyContext": "A curious orange cat follows them on their walk through the village.",
+        "points": [
+          {
+            "label": "Letter C",
+            "text": "Looks like a moon shape opening to the right"
+          }
+        ],
+        "inSimpleWords": "Cat starts with the letter C!",
+        "emoji": "🐱",
+        "image": {
+          "url": "https://images.pexels.com/photos/375114/pexels-photo-375114.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "C is for Cat — Alphabet A to M"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "D is for Dog",
+        "storyContext": "A friendly dog named Dinu runs up to greet Arun and Maya with tail wags!",
+        "points": [
+          {
+            "label": "Letter D",
+            "text": "Looks like a stick with a bump on one side"
+          }
+        ],
+        "inSimpleWords": "Dog starts with the letter D!",
+        "emoji": "🐕",
+        "image": {
+          "url": "https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "D is for Dog — Alphabet A to M"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "E to H",
+        "storyContext": "They find eggs in a nest, meet five birds flying, go down a green garden path, and hide under a huge rock!",
+        "points": [
+          {
+            "label": "Letter E",
+            "text": "Egg starts with E"
+          },
+          {
+            "label": "Letter F",
+            "text": "Five starts with F"
+          },
+          {
+            "label": "Letter G",
+            "text": "Garden starts with G"
+          },
+          {
+            "label": "Letter H",
+            "text": "Hide starts with H"
+          }
+        ],
+        "inSimpleWords": "Four more letters to learn and remember!",
+        "emoji": "🥚✋🌿🏔️",
+        "image": {
+          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "E to H — Alphabet A to M"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "I is for Ice-cream",
+        "storyContext": "At the market, Arun and Maya buy delicious ice-cream in flavors they love.",
+        "points": [
+          {
+            "label": "Letter I",
+            "text": "Looks like a tall stick with dots on top and bottom"
+          }
+        ],
+        "inSimpleWords": "Ice-cream starts with the letter I!",
+        "emoji": "🍦",
+        "image": {
+          "url": "https://images.pexels.com/photos/17161106/pexels-photo-17161106.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "I is for Ice-cream — Alphabet A to M"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "J to M",
+        "storyContext": "They jump over a jug, fly a kite on a breezy day, climb a ladder, and play in mud!",
+        "points": [
+          {
+            "label": "Letter J",
+            "text": "Jump starts with J"
+          },
+          {
+            "label": "Letter K",
+            "text": "Kite starts with K"
+          },
+          {
+            "label": "Letter L",
+            "text": "Ladder starts with L"
+          },
+          {
+            "label": "Letter M",
+            "text": "Mud starts with M"
+          }
+        ],
+        "inSimpleWords": "Four more letters done! You are learning fast!",
+        "emoji": "🪜 🪁 🪜 🤎",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "J to M — Alphabet A to M"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "A to M Memories",
+        "storyContext": "Arun and Maya sit under the tree, tracing letters in the sand as the sun sets.",
+        "points": [
+          {
+            "label": "A to M",
+            "text": "12 letters learned in one amazing day!"
+          }
+        ],
+        "inSimpleWords": "A B C D E F G H I J K L M — you know them all!",
+        "emoji": "⭐",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A to M Memories — Alphabet A to M"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-1-english-alphabet-n-to-z",
+    "classLevel": "1",
+    "subject": "English",
+    "chapter": "Alphabet N to Z",
+    "chapterAliases": [
+      "Second Half Alphabet"
+    ],
+    "title": "Arun and Maya's Night Time Discovery",
+    "hook": "Arun and Maya explore the night sky and discover letters N to Z!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "N is for Nest and O is for Orange",
+        "storyContext": "Arun spots a bird's nest high in a tree. Maya picks an orange from a nearby bush.",
+        "points": [
+          {
+            "label": "Letter N",
+            "text": "Nest starts with N"
+          },
+          {
+            "label": "Letter O",
+            "text": "Orange starts with O"
+          }
+        ],
+        "inSimpleWords": "Two more letters as night begins to fall!",
+        "emoji": "🪶🍊",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "N is for Nest and O is for Orange — Alphabet N to Z"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "P is for Pig and Q is for Queen",
+        "storyContext": "They pass a sleeping pig in the farmyard. Maya pretends to be a queen with a crown!",
+        "points": [
+          {
+            "label": "Letter P",
+            "text": "Pig starts with P"
+          },
+          {
+            "label": "Letter Q",
+            "text": "Queen starts with Q"
+          }
+        ],
+        "inSimpleWords": "A pig and a queen show us two new letters!",
+        "emoji": "🐷👑",
+        "image": {
+          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "P is for Pig and Q is for Queen — Alphabet N to Z"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "R is for Rain and S is for Sun",
+        "storyContext": "Dark rain clouds gather, but they know tomorrow the sun will shine bright again.",
+        "points": [
+          {
+            "label": "Letter R",
+            "text": "Rain starts with R"
+          },
+          {
+            "label": "Letter S",
+            "text": "Sun starts with S"
+          }
+        ],
+        "inSimpleWords": "Rain and sun bring weather lessons today!",
+        "emoji": "🌧️☀️",
+        "image": {
+          "url": "https://images.pexels.com/photos/13594133/pexels-photo-13594133.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "R is for Rain and S is for Sun — Alphabet N to Z"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "T is for Tiger and U is for Umbrella",
+        "storyContext": "They see a painting of a tiger in a cave. Maya carries an umbrella to stay dry.",
+        "points": [
+          {
+            "label": "Letter T",
+            "text": "Tiger starts with T"
+          },
+          {
+            "label": "Letter U",
+            "text": "Umbrella starts with U"
+          }
+        ],
+        "inSimpleWords": "A tiger and umbrella teach two new sounds!",
+        "emoji": "🐅☂️",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "T is for Tiger and U is for Umbrella — Alphabet N to Z"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "V is for Violin and W is for Water",
+        "storyContext": "Arun hears a beautiful violin playing. Maya splashes in water nearby.",
+        "points": [
+          {
+            "label": "Letter V",
+            "text": "Violin starts with V"
+          },
+          {
+            "label": "Letter W",
+            "text": "Water starts with W"
+          }
+        ],
+        "inSimpleWords": "Music and water show us two more letters!",
+        "emoji": "🎻💧",
+        "image": {
+          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "V is for Violin and W is for Water — Alphabet N to Z"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "X is for Xylophone",
+        "storyContext": "They hear a child playing a colorful xylophone in the village square!",
+        "points": [
+          {
+            "label": "Letter X",
+            "text": "Xylophone starts with X"
+          }
+        ],
+        "inSimpleWords": "Xylophone makes a musical letter sound!",
+        "emoji": "🎵",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "X is for Xylophone — Alphabet N to Z"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Y is for Yak and Z is for Zoo",
+        "storyContext": "In a book, Arun sees a yak. Maya dreams of visiting a zoo full of animals.",
+        "points": [
+          {
+            "label": "Letter Y",
+            "text": "Yak starts with Y"
+          },
+          {
+            "label": "Letter Z",
+            "text": "Zoo starts with Z"
+          }
+        ],
+        "inSimpleWords": "A yak and zoo finish all 26 letters!",
+        "emoji": "🦬🦁",
+        "image": {
+          "url": "https://images.pexels.com/photos/28656564/pexels-photo-28656564.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Y is for Yak and Z is for Zoo — Alphabet N to Z"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "N to Z Complete!",
+        "storyContext": "Arun and Maya write all 26 letters on the ground under the stars.",
+        "points": [
+          {
+            "label": "Full Alphabet",
+            "text": "N O P Q R S T U V W X Y Z — completed!"
+          }
+        ],
+        "inSimpleWords": "All 26 letters learned! You are an alphabet champion!",
+        "emoji": "🌟",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "N to Z Complete! — Alphabet N to Z"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-1-english-vowels-and-consonants",
+    "classLevel": "1",
+    "subject": "English",
+    "chapter": "Vowels and Consonants",
+    "chapterAliases": [
+      "Learning Vowel Sounds"
+    ],
+    "title": "Arun and Maya's Sound Adventure",
+    "hook": "Listen and learn as Arun and Maya discover the magic of vowel and consonant sounds!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A is for Vowel",
+        "storyContext": "Arun opens his mouth wide and says 'Ahhh' like at the doctor's office!",
+        "points": [
+          {
+            "label": "Vowel A",
+            "text": "Five special letters called vowels: A E I O U"
+          }
+        ],
+        "inSimpleWords": "A is a special vowel sound we can sing!",
+        "emoji": "🎤",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A is for Vowel — Vowels and Consonants"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "E and I are Vowels Too",
+        "storyContext": "Maya says 'Eee' like she sees something. Arun says 'Iiii' like a mouse squeaking!",
+        "points": [
+          {
+            "label": "Vowel E",
+            "text": "E makes a long 'eee' sound"
+          },
+          {
+            "label": "Vowel I",
+            "text": "I makes a high 'iii' sound"
+          }
+        ],
+        "inSimpleWords": "E and I are vowels that sound different!",
+        "emoji": "👀🐭",
+        "image": {
+          "url": "https://images.pexels.com/photos/8500312/pexels-photo-8500312.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "E and I are Vowels Too — Vowels and Consonants"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "O and U Complete Vowels",
+        "storyContext": "Arun says 'Ohhh' when he sees the moon. Maya says 'Uhhh' when confused!",
+        "points": [
+          {
+            "label": "Vowel O",
+            "text": "O makes a round 'ohhh' sound"
+          },
+          {
+            "label": "Vowel U",
+            "text": "U makes a deep 'uh' sound"
+          }
+        ],
+        "inSimpleWords": "O and U are the last two vowel sounds!",
+        "emoji": "🌙❓",
+        "image": {
+          "url": "https://images.pexels.com/photos/375114/pexels-photo-375114.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "O and U Complete Vowels — Vowels and Consonants"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Five Vowels Together",
+        "storyContext": "Arun and Maya sit in a circle and sing all five vowel sounds together!",
+        "points": [
+          {
+            "label": "All Vowels",
+            "text": "A E I O U — the five magic vowels"
+          }
+        ],
+        "inSimpleWords": "A E I O U are the five vowel letters!",
+        "emoji": "🎵",
+        "image": {
+          "url": "https://images.pexels.com/photos/8363771/pexels-photo-8363771.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Five Vowels Together — Vowels and Consonants"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "B is for Consonant",
+        "storyContext": "Arun says 'Bbb' and his lips vibrate. These sounds need vowels to be heard clearly!",
+        "points": [
+          {
+            "label": "Consonant B",
+            "text": "Most other letters are consonants"
+          }
+        ],
+        "inSimpleWords": "B is a consonant that needs a vowel helper!",
+        "emoji": "👄",
+        "image": {
+          "url": "https://images.pexels.com/photos/1337386/pexels-photo-1337386.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "B is for Consonant — Vowels and Consonants"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "More Consonants",
+        "storyContext": "Maya lists consonants: C, D, F, G, H... Arun makes all their sounds with her!",
+        "points": [
+          {
+            "label": "More Consonants",
+            "text": "C D F G H J K L M N P R S T V W X Y Z"
+          }
+        ],
+        "inSimpleWords": "Consonants are all the other letter sounds!",
+        "emoji": "🔤",
+        "image": {
+          "url": "https://images.pexels.com/photos/6936013/pexels-photo-6936013.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "More Consonants — Vowels and Consonants"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Consonant + Vowel = Word",
+        "storyContext": "Arun says 'B' + 'A' = 'BA'. Maya says 'C' + 'A' = 'CA'. Together they make words!",
+        "example": {
+          "problem": "B alone sounds 'bbb' but we cannot hear it clearly",
+          "solution": "B + A = 'BA' — now it's a clear sound!"
+        },
+        "inSimpleWords": "Consonants and vowels work together to make words!",
+        "emoji": "🔤🔤",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Consonant + Vowel = Word — Vowels and Consonants"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Vowels and Consonants",
+        "storyContext": "Under the banyan tree, Arun and Maya write vowels in red and consonants in blue!",
+        "points": [
+          {
+            "label": "5 Vowels",
+            "text": "A E I O U"
+          },
+          {
+            "label": "21 Consonants",
+            "text": "All the other letters"
+          }
+        ],
+        "inSimpleWords": "Five vowels and many consonants make all words!",
+        "emoji": "🌳",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vowels and Consonants — Vowels and Consonants"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-1-english-simple-sentences",
+    "classLevel": "1",
+    "subject": "English",
+    "chapter": "Simple Sentences",
+    "chapterAliases": [
+      "Making Sentences",
+      "First Sentences"
+    ],
+    "title": "Arun and Maya Make Sentences",
+    "hook": "Watch Arun and Maya build their first sentences together!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "What is a Sentence?",
+        "storyContext": "Arun says 'I like milk.' Maya says 'I like honey.' These are sentences!",
+        "points": [
+          {
+            "label": "Sentence",
+            "text": "A sentence tells us a complete idea"
+          }
+        ],
+        "inSimpleWords": "A sentence is words that tell us something!",
+        "emoji": "🥛",
+        "image": {
+          "url": "https://images.pexels.com/photos/33789451/pexels-photo-33789451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is a Sentence? — Simple Sentences"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Sentences Need Words in Order",
+        "storyContext": "Maya says 'The cat sat.' Arun tries to say 'Sat the cat.' It sounds funny!",
+        "points": [
+          {
+            "label": "Word Order",
+            "text": "Words in a sentence must be in the right order"
+          }
+        ],
+        "inSimpleWords": "Words must go in the right order to make sense!",
+        "emoji": "🐱",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sentences Need Words in Order — Simple Sentences"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Who and What - Subject and Action",
+        "storyContext": "Arun says 'The boy runs.' 'The boy' is WHO, 'runs' is the ACTION.",
+        "points": [
+          {
+            "label": "Subject",
+            "text": "'The boy' tells us WHO"
+          },
+          {
+            "label": "Action",
+            "text": "'runs' tells us WHAT they do"
+          }
+        ],
+        "inSimpleWords": "Every sentence needs a WHO and a WHAT happens!",
+        "emoji": "🏃",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864398/pexels-photo-31864398.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Who and What - Subject and Action — Simple Sentences"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Simple Sentence Pattern",
+        "storyContext": "Maya teaches: Subject + Verb = Simple Sentence. She writes on the sand.",
+        "points": [
+          {
+            "label": "Pattern",
+            "text": "WHO (subject) + DOES WHAT (verb) = sentence"
+          }
+        ],
+        "inSimpleWords": "Subject and verb together make a complete sentence!",
+        "emoji": "📝",
+        "image": {
+          "url": "https://images.pexels.com/photos/11309631/pexels-photo-11309631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Simple Sentence Pattern — Simple Sentences"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Making Sentences",
+        "storyContext": "Arun and Maya practice together. Arun says a subject, Maya adds the action.",
+        "example": {
+          "problem": "I have words: 'dog', 'runs', 'the' — can we make a sentence?",
+          "solution": "The dog runs. (subject 'the dog' + action 'runs')"
+        },
+        "inSimpleWords": "Subject + Verb = A sentence that makes sense!",
+        "emoji": "🐕",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Making Sentences — Simple Sentences"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "More Simple Sentences",
+        "storyContext": "Arun says 'The girl eats rice.' Maya says 'The bird flies high.' Both are perfect sentences!",
+        "points": [
+          {
+            "label": "Sentence 1",
+            "text": "The girl eats rice."
+          },
+          {
+            "label": "Sentence 2",
+            "text": "The bird flies high."
+          }
+        ],
+        "inSimpleWords": "Practice making more sentences with your own ideas!",
+        "emoji": "✈️",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "More Simple Sentences — Simple Sentences"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Sentences Must End with a Period",
+        "storyContext": "Arun says 'I see a butterfly' but forgets the period. Maya adds a dot at the end!",
+        "points": [
+          {
+            "label": "Period (.)",
+            "text": "Every sentence ends with a period (.)"
+          }
+        ],
+        "inSimpleWords": "Always put a period at the end of a sentence!",
+        "emoji": "🦋",
+        "image": {
+          "url": "https://images.pexels.com/photos/35516973/pexels-photo-35516973.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sentences Must End with a Period — Simple Sentences"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Sentences Are Complete Thoughts",
+        "storyContext": "Arun and Maya write three sentences about their day on the wall!",
+        "points": [
+          {
+            "label": "Sentence 1",
+            "text": "The sun shines brightly."
+          },
+          {
+            "label": "Sentence 2",
+            "text": "We play in the garden."
+          },
+          {
+            "label": "Sentence 3",
+            "text": "The wind blows gently."
+          }
+        ],
+        "inSimpleWords": "A sentence = WHO + DOES WHAT + period (.)!",
+        "emoji": "☀️",
+        "image": {
+          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sentences Are Complete Thoughts — Simple Sentences"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-2-english-capital-and-small-letters",
+    "classLevel": "2",
+    "subject": "English",
+    "chapter": "Capital and Small Letters",
+    "chapterAliases": [
+      "Upper and Lower Case"
+    ],
+    "title": "Arun and Maya's Big and Small Letter Quest",
+    "hook": "Arun and Maya discover when to use big (capital) and small letters!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Big Letters are Called CAPITALS",
+        "storyContext": "At school, the teacher shows Arun and Maya a big 'A' and a small 'a' on the board.",
+        "points": [
+          {
+            "label": "Capital Letter",
+            "text": "The BIG letter form is called a CAPITAL letter"
+          }
+        ],
+        "inSimpleWords": "Big letters are called CAPITAL letters!",
+        "emoji": "🔤",
+        "image": {
+          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Big Letters are Called CAPITALS — Capital and Small Letters"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Every Sentence Starts with Capital",
+        "storyContext": "Maya reads: 'My name is Maya.' Arun points to the big 'M' at the start!",
+        "points": [
+          {
+            "label": "Rule 1",
+            "text": "Every sentence ALWAYS starts with a capital letter"
+          }
+        ],
+        "inSimpleWords": "Start sentences with a BIG capital letter!",
+        "emoji": "📖",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Every Sentence Starts with Capital — Capital and Small Letters"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Names Get Capital Letters",
+        "storyContext": "Arun writes his name: ARUN. Maya writes hers: MAYA. They use capitals!",
+        "points": [
+          {
+            "label": "Rule 2",
+            "text": "Names of people ALWAYS start with a capital letter"
+          }
+        ],
+        "inSimpleWords": "Names start with capital letters always!",
+        "emoji": "📝",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Names Get Capital Letters — Capital and Small Letters"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Places Need Capitals Too",
+        "storyContext": "Maya says 'I live in Delhi.' Arun says 'I live in Mumbai.' Both cities start with capitals!",
+        "points": [
+          {
+            "label": "Rule 3",
+            "text": "Names of places ALWAYS start with a capital letter"
+          }
+        ],
+        "inSimpleWords": "City and country names start with capitals!",
+        "emoji": "🏙️",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Places Need Capitals Too — Capital and Small Letters"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Days and Months Need Capitals",
+        "storyContext": "Arun says 'Monday is the first day.' Maya says 'January is the first month.' Both use capitals!",
+        "points": [
+          {
+            "label": "Rule 4",
+            "text": "Days and months ALWAYS start with a capital letter"
+          }
+        ],
+        "inSimpleWords": "Days and months start with big capital letters!",
+        "emoji": "📅",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Days and Months Need Capitals — Capital and Small Letters"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Capital or Small Letter?",
+        "storyContext": "Arun and Maya play a game: when do we use capitals?",
+        "example": {
+          "problem": "Write: i like eating apples on monday",
+          "solution": "I like eating apples on Monday. (Start + name 'I' + day 'Monday' need capitals)"
+        },
+        "inSimpleWords": "Capital at start, names, places, days, months!",
+        "emoji": "🍎",
+        "image": {
+          "url": "https://images.pexels.com/photos/1337386/pexels-photo-1337386.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Capital or Small Letter? — Capital and Small Letters"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Small Letters for Most Words",
+        "storyContext": "Maya explains: most words use small letters in the middle of a sentence!",
+        "points": [
+          {
+            "label": "Rule 5",
+            "text": "Words in the middle of sentences use SMALL letters"
+          }
+        ],
+        "inSimpleWords": "Use small letters for most words in a sentence!",
+        "emoji": "✍️",
+        "image": {
+          "url": "https://images.pexels.com/photos/1337386/pexels-photo-1337386.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Small Letters for Most Words — Capital and Small Letters"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Capital and Small Letters",
+        "storyContext": "Arun and Maya write their 'Capital Letter Rules' poster!",
+        "points": [
+          {
+            "label": "Use CAPITALS for",
+            "text": "Start of sentence, names, places, days, months"
+          },
+          {
+            "label": "Use SMALL for",
+            "text": "Most other words in the middle"
+          }
+        ],
+        "inSimpleWords": "Capitals at start, names, places. Smalls for others!",
+        "emoji": "📋",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Capital and Small Letters — Capital and Small Letters"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-2-english-punctuation",
+    "classLevel": "2",
+    "subject": "English",
+    "chapter": "Punctuation",
+    "chapterAliases": [
+      "Periods, Commas, Question Marks"
+    ],
+    "title": "Arun and Maya's Punctuation Adventure",
+    "hook": "Learn the magic dots and marks that help sentences tell their story!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Period Stops the Sentence",
+        "storyContext": "Arun writes 'I like rice' and puts a dot. The sentence stops here!",
+        "points": [
+          {
+            "label": "Period (.)",
+            "text": "A period stops a sentence. It means the idea is complete"
+          }
+        ],
+        "inSimpleWords": "A period (.) ends a sentence with a complete idea!",
+        "emoji": "⏹️",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Period Stops the Sentence — Punctuation"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Question Marks Ask Questions",
+        "storyContext": "Maya asks 'Do you like tea?' and puts a curvy mark with a dot.",
+        "points": [
+          {
+            "label": "Question Mark (?)",
+            "text": "A question mark ends a sentence that ASKS something"
+          }
+        ],
+        "inSimpleWords": "Question mark (?) ends a sentence that asks!",
+        "emoji": "❓",
+        "image": {
+          "url": "https://images.pexels.com/photos/32327241/pexels-photo-32327241.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Question Marks Ask Questions — Punctuation"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Exclamation Marks Show Feeling",
+        "storyContext": "Arun shouts 'What a big snake!' and uses a mark that shows his surprise!",
+        "points": [
+          {
+            "label": "Exclamation Mark (!)",
+            "text": "An exclamation mark shows excitement or surprise"
+          }
+        ],
+        "inSimpleWords": "Exclamation mark (!) shows big feelings and excitement!",
+        "emoji": "🎉",
+        "image": {
+          "url": "https://images.pexels.com/photos/5905502/pexels-photo-5905502.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Exclamation Marks Show Feeling — Punctuation"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Three Sentence Ending Marks",
+        "storyContext": "Maya draws all three marks and explains when to use each one.",
+        "points": [
+          {
+            "label": "Period (.)",
+            "text": "Normal sentence"
+          },
+          {
+            "label": "Question (?)",
+            "text": "Asking sentence"
+          },
+          {
+            "label": "Exclamation (!)",
+            "text": "Excited sentence"
+          }
+        ],
+        "inSimpleWords": "Period stops. Question asks. Exclamation shows feeling!",
+        "emoji": "📝",
+        "image": {
+          "url": "https://images.pexels.com/photos/8423410/pexels-photo-8423410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Three Sentence Ending Marks — Punctuation"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Comma Separates Ideas",
+        "storyContext": "Arun writes 'I like apples, mangoes, and bananas.' The commas help us pause!",
+        "points": [
+          {
+            "label": "Comma (,)",
+            "text": "A comma separates words or ideas in a list"
+          }
+        ],
+        "inSimpleWords": "Commas (,) separate items in a list!",
+        "emoji": "🍌",
+        "image": {
+          "url": "https://images.pexels.com/photos/30893290/pexels-photo-30893290.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Comma Separates Ideas — Punctuation"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Using Punctuation Correctly",
+        "storyContext": "Arun and Maya practice putting the right marks in the right places.",
+        "example": {
+          "problem": "I like rice bread and milk",
+          "solution": "I like rice, bread, and milk. (commas separate the list)"
+        },
+        "inSimpleWords": "Use correct punctuation to make sentences clear!",
+        "emoji": "✍️",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Using Punctuation Correctly — Punctuation"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "More Punctuation Marks",
+        "storyContext": "Maya shows apostrophes (for 'can't') and quotation marks (for what people say)!",
+        "points": [
+          {
+            "label": "Apostrophe (')",
+            "text": "Apostrophe shows missing letters: can't, don't"
+          },
+          {
+            "label": "Quotation Marks ('')",
+            "text": "Quotation marks show exactly what someone said"
+          }
+        ],
+        "inSimpleWords": "Apostrophes and quotes help write correct sentences!",
+        "emoji": "💬",
+        "image": {
+          "url": "https://images.pexels.com/photos/1337386/pexels-photo-1337386.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "More Punctuation Marks — Punctuation"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Punctuation Marks Matter",
+        "storyContext": "Arun and Maya create a 'Punctuation Helper' chart for their classroom!",
+        "points": [
+          {
+            "label": "End marks",
+            "text": ". ? !"
+          },
+          {
+            "label": "Separators",
+            "text": ", (comma)"
+          },
+          {
+            "label": "Special marks",
+            "text": "' (apostrophe), '' (quotes)"
+          }
+        ],
+        "inSimpleWords": "Every punctuation mark has an important job!",
+        "emoji": "📊",
+        "image": {
+          "url": "https://images.pexels.com/photos/7947757/pexels-photo-7947757.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Punctuation Marks Matter — Punctuation"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-2-english-singular-and-plural",
+    "classLevel": "2",
+    "subject": "English",
+    "chapter": "Singular and Plural",
+    "chapterAliases": [
+      "One and Many"
+    ],
+    "title": "Arun and Maya's One and Many Adventure",
+    "hook": "Discover how English words change when there's one thing or many things!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Singular = One Thing",
+        "storyContext": "Arun holds up one apple. He says 'apple' — that's singular!",
+        "points": [
+          {
+            "label": "Singular",
+            "text": "Singular means ONE thing or person"
+          }
+        ],
+        "inSimpleWords": "Singular is the word for ONE thing!",
+        "emoji": "🍎",
+        "image": {
+          "url": "https://images.pexels.com/photos/6482238/pexels-photo-6482238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Singular = One Thing — Singular and Plural"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Plural = Many Things",
+        "storyContext": "Maya holds up five apples. She says 'apples' — that's plural!",
+        "points": [
+          {
+            "label": "Plural",
+            "text": "Plural means MORE than ONE (many things)"
+          }
+        ],
+        "inSimpleWords": "Plural is the word for MANY things!",
+        "emoji": "🍎🍎🍎",
+        "image": {
+          "url": "https://images.pexels.com/photos/8466783/pexels-photo-8466783.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Plural = Many Things — Singular and Plural"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Most Plurals Add 's'",
+        "storyContext": "Arun shows: one cat is 'cat', many cats are 'cats'. Just add 's'!",
+        "points": [
+          {
+            "label": "Add s",
+            "text": "cat → cats, book → books, dog → dogs"
+          }
+        ],
+        "inSimpleWords": "Add 's' to most words to make them plural!",
+        "emoji": "🐱🐱",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Most Plurals Add 's' — Singular and Plural"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Words Ending in 'x, z, s' Add 'es'",
+        "storyContext": "Maya shows: box → boxes, buzz → buzzes, class → classes!",
+        "points": [
+          {
+            "label": "Add es",
+            "text": "Words ending in x, z, s, sh, ch add 'es'"
+          }
+        ],
+        "inSimpleWords": "Add 'es' to words ending in x, z, s, sh, ch!",
+        "emoji": "📦",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Words Ending in 'x, z, s' Add 'es' — Singular and Plural"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Words Ending in 'y' Change",
+        "storyContext": "Arun says: one baby, many babies. The 'y' becomes 'ies'!",
+        "points": [
+          {
+            "label": "y to ies",
+            "text": "baby → babies, lady → ladies, city → cities"
+          }
+        ],
+        "inSimpleWords": "Change 'y' to 'ies' for words ending in consonant+y!",
+        "emoji": "👶👶",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Words Ending in 'y' Change — Singular and Plural"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Irregular Plurals",
+        "storyContext": "Maya shows words that don't follow the rules!",
+        "example": {
+          "problem": "Singular: child, foot, tooth, person. Plural?",
+          "solution": "children, feet, teeth, people. These are IRREGULAR!"
+        },
+        "inSimpleWords": "Some words change completely to make plural!",
+        "emoji": "🦷",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Irregular Plurals — Singular and Plural"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Practice with Sentences",
+        "storyContext": "Arun says 'I have one book.' Maya says 'I have many books.'",
+        "points": [
+          {
+            "label": "Singular sentence",
+            "text": "The boy plays."
+          },
+          {
+            "label": "Plural sentence",
+            "text": "The boys play."
+          }
+        ],
+        "inSimpleWords": "Use singular and plural words in your sentences!",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Practice with Sentences — Singular and Plural"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Singular and Plural",
+        "storyContext": "Arun and Maya make a list of singular and plural word pairs!",
+        "points": [
+          {
+            "label": "Add s",
+            "text": "cat → cats, book → books"
+          },
+          {
+            "label": "Add es",
+            "text": "box → boxes, class → classes"
+          },
+          {
+            "label": "Irregular",
+            "text": "child → children, foot → feet"
+          }
+        ],
+        "inSimpleWords": "One thing = singular. Many = plural. Learn the rules!",
+        "emoji": "📋",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Singular and Plural — Singular and Plural"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-2-english-opposites",
+    "classLevel": "2",
+    "subject": "English",
+    "chapter": "Opposites",
+    "chapterAliases": [
+      "Antonyms",
+      "Opposite Words"
+    ],
+    "title": "Arun and Maya Find Opposite Words",
+    "hook": "Explore the fun world of opposites with Arun and Maya!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Hot and Cold are Opposites",
+        "storyContext": "Arun touches hot tea and says 'Hot!' Maya drinks cold water and says 'Cold!' They're opposite!",
+        "points": [
+          {
+            "label": "Opposites",
+            "text": "Words that mean completely different things"
+          }
+        ],
+        "inSimpleWords": "Hot and cold are opposite words!",
+        "emoji": "☕❄️",
+        "image": {
+          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Hot and Cold are Opposites — Opposites"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Big and Small",
+        "storyContext": "Maya shows a big watermelon and a small grape. 'Big and small are opposites!',she says.",
+        "points": [
+          {
+            "label": "Big ↔ Small",
+            "text": "These words mean completely opposite sizes"
+          }
+        ],
+        "inSimpleWords": "Big and small are opposite size words!",
+        "emoji": "🍉🫐",
+        "image": {
+          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Big and Small — Opposites"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Happy and Sad",
+        "storyContext": "Arun laughs and feels happy. But when he loses his toy, he feels sad!",
+        "points": [
+          {
+            "label": "Happy ↔ Sad",
+            "text": "These are opposite feelings"
+          }
+        ],
+        "inSimpleWords": "Happy and sad are opposite feelings!",
+        "emoji": "😊😢",
+        "image": {
+          "url": "https://images.pexels.com/photos/4491703/pexels-photo-4491703.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Happy and Sad — Opposites"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Fast and Slow",
+        "storyContext": "Arun runs very fast! Maya walks very slowly. They move opposite ways!",
+        "points": [
+          {
+            "label": "Fast ↔ Slow",
+            "text": "These words mean opposite speeds"
+          }
+        ],
+        "inSimpleWords": "Fast and slow are opposite speed words!",
+        "emoji": "🏃🚶",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Fast and Slow — Opposites"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Light and Dark, Day and Night",
+        "storyContext": "When the sun rises, it's light and day. When it sets, it's dark and night!",
+        "points": [
+          {
+            "label": "Light ↔ Dark",
+            "text": "Opposite brightness"
+          },
+          {
+            "label": "Day ↔ Night",
+            "text": "Opposite times"
+          }
+        ],
+        "inSimpleWords": "Light and dark, day and night are opposites!",
+        "emoji": "☀️🌙",
+        "image": {
+          "url": "https://images.pexels.com/photos/239861/pexels-photo-239861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Light and Dark, Day and Night — Opposites"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "More Opposite Pairs",
+        "storyContext": "Arun and Maya play an opposites matching game!",
+        "example": {
+          "problem": "Find opposite words: tall, clean, old, young, wet",
+          "solution": "short, dirty, new, old (pair), dry — opposites found!"
+        },
+        "inSimpleWords": "Different words can mean complete opposites!",
+        "emoji": "🎮",
+        "image": {
+          "url": "https://images.pexels.com/photos/6936013/pexels-photo-6936013.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "More Opposite Pairs — Opposites"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "More Opposite Words",
+        "storyContext": "Arun says: open/closed, loud/quiet, left/right, up/down!",
+        "points": [
+          {
+            "label": "Position opposites",
+            "text": "left/right, up/down, in/out"
+          },
+          {
+            "label": "Action opposites",
+            "text": "open/close, start/stop"
+          }
+        ],
+        "inSimpleWords": "Positions and actions have opposite words too!",
+        "emoji": "🔄",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "More Opposite Words — Opposites"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Opposites Everywhere",
+        "storyContext": "Arun and Maya write their favorite opposite pairs on the wall!",
+        "points": [
+          {
+            "label": "Feeling opposites",
+            "text": "happy/sad, brave/scared"
+          },
+          {
+            "label": "Description opposites",
+            "text": "big/small, hot/cold"
+          },
+          {
+            "label": "Action opposites",
+            "text": "fast/slow, start/stop"
+          }
+        ],
+        "inSimpleWords": "Opposite words mean completely different things!",
+        "emoji": "⭐",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Opposites Everywhere — Opposites"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-2-english-rhyming-words",
+    "classLevel": "2",
+    "subject": "English",
+    "chapter": "Rhyming Words",
+    "chapterAliases": [
+      "Words That Sound Alike",
+      "Rhyme Time"
+    ],
+    "title": "Arun and Maya's Rhyme Time",
+    "hook": "Discover the magic of words that sound the same at the end!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "What Are Rhyming Words?",
+        "storyContext": "Arun sings 'cat' and Maya sings 'bat'. They sound the same at the end!",
+        "points": [
+          {
+            "label": "Rhymes",
+            "text": "Words that sound the same at the end"
+          }
+        ],
+        "inSimpleWords": "Rhyming words sound the same at the end!",
+        "emoji": "🐱⚾",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Are Rhyming Words? — Rhyming Words"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Cat, Hat, Bat, Rat",
+        "storyContext": "Arun lists words: cat, hat, bat, rat. They all rhyme because they end the same way!",
+        "points": [
+          {
+            "label": "'at' rhyme family",
+            "text": "cat, hat, bat, rat, mat, fat, sat"
+          }
+        ],
+        "inSimpleWords": "Cat, hat, bat all rhyme together nicely!",
+        "emoji": "🐭",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Cat, Hat, Bat, Rat — Rhyming Words"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Dog, Fog, Log, Hog",
+        "storyContext": "Maya shows: dog, fog, log, hog. All end with 'og' sound!",
+        "points": [
+          {
+            "label": "'og' rhyme family",
+            "text": "dog, fog, log, hog, bog, clog"
+          }
+        ],
+        "inSimpleWords": "Dog, fog, log rhyme with the 'og' sound!",
+        "emoji": "🐕",
+        "image": {
+          "url": "https://images.pexels.com/photos/6346770/pexels-photo-6346770.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Dog, Fog, Log, Hog — Rhyming Words"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Sun, Run, Fun, Bun",
+        "storyContext": "Arun jumps and shouts: 'Rhyming is fun! I like to run and eat a bun!'",
+        "points": [
+          {
+            "label": "'un' rhyme family",
+            "text": "sun, run, fun, bun, gun, nun, stun"
+          }
+        ],
+        "inSimpleWords": "Sun, run, fun rhyme with the 'un' sound!",
+        "emoji": "☀️",
+        "image": {
+          "url": "https://images.pexels.com/photos/239861/pexels-photo-239861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sun, Run, Fun, Bun — Rhyming Words"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Make Rhyming Pairs",
+        "storyContext": "Maya teaches: take a word and find another word that rhymes with it!",
+        "points": [
+          {
+            "label": "Finding rhymes",
+            "text": "Listen to the last sounds and match them"
+          }
+        ],
+        "inSimpleWords": "Find words that end with the same sound!",
+        "emoji": "👂",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Make Rhyming Pairs — Rhyming Words"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Creating Rhyming Sentences",
+        "storyContext": "Arun and Maya make a rhyming sentence together!",
+        "example": {
+          "problem": "Make a rhyming sentence with 'cat' and 'hat'.",
+          "solution": "'The cat wore a hat.' Cat and hat rhyme!"
+        },
+        "inSimpleWords": "Use rhyming words to make fun sentences!",
+        "emoji": "👒",
+        "image": {
+          "url": "https://images.pexels.com/photos/7869446/pexels-photo-7869446.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Creating Rhyming Sentences — Rhyming Words"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Rhyming Words in Poems",
+        "storyContext": "Maya recites: 'Roses are red, violets are blue.' The words rhyme and sound beautiful!",
+        "points": [
+          {
+            "label": "Poems",
+            "text": "Poems often use rhyming words to sound pretty"
+          }
+        ],
+        "inSimpleWords": "Poems use rhyming words to sound nice!",
+        "emoji": "🌹",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Rhyming Words in Poems — Rhyming Words"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Rhyming Words Everywhere",
+        "storyContext": "Arun and Maya write their own rhyming poem together!",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Rhyming words sound the same at the end"
+          },
+          {
+            "label": "Rhyme families",
+            "text": "cat/hat, dog/fog, sun/fun, rat/bat"
+          }
+        ],
+        "inSimpleWords": "Rhyming words sound alike and make poems fun!",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/239861/pexels-photo-239861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Rhyming Words Everywhere — Rhyming Words"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-3-english-nouns-and-pronouns",
+    "classLevel": "3",
+    "subject": "English",
+    "chapter": "Nouns and Pronouns",
+    "chapterAliases": [
+      "Names and Replacements"
+    ],
+    "title": "Arun and Maya's Noun and Pronoun Journey",
+    "hook": "Learn how nouns name things and pronouns replace them!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "What is a Noun?",
+        "storyContext": "Arun points: 'Look! A dog, a tree, a house! These are all nouns — they name things!'",
+        "points": [
+          {
+            "label": "Noun",
+            "text": "A word that names a person, place, animal, or thing"
+          }
+        ],
+        "inSimpleWords": "Nouns are words that name people, places, things!",
+        "emoji": "🐕",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is a Noun? — Nouns and Pronouns"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Nouns Name People",
+        "storyContext": "Maya lists: 'Arun, teacher, doctor, mother — these are nouns for people!'",
+        "points": [
+          {
+            "label": "Person nouns",
+            "text": "boy, girl, teacher, doctor, mother, farmer, police"
+          }
+        ],
+        "inSimpleWords": "Nouns that name people are person words!",
+        "emoji": "👨‍⚕️",
+        "image": {
+          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Nouns Name People — Nouns and Pronouns"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Nouns Name Places",
+        "storyContext": "Arun says: 'Delhi, school, park, temple — these are places. All nouns!'",
+        "points": [
+          {
+            "label": "Place nouns",
+            "text": "city, school, park, temple, library, garden, beach"
+          }
+        ],
+        "inSimpleWords": "Nouns that name places are place words!",
+        "emoji": "🏛️",
+        "image": {
+          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Nouns Name Places — Nouns and Pronouns"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Nouns Name Animals and Things",
+        "storyContext": "Maya points to things: 'Dog, cat, book, pencil, chair — all nouns!'",
+        "points": [
+          {
+            "label": "Animal and thing nouns",
+            "text": "dog, cat, bird, book, pencil, chair, table, toy"
+          }
+        ],
+        "inSimpleWords": "Nouns name animals and objects too!",
+        "emoji": "✏️",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Nouns Name Animals and Things — Nouns and Pronouns"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What is a Pronoun?",
+        "storyContext": "Arun says: 'Instead of saying Arun every time, I say I or me. That's a pronoun!'",
+        "points": [
+          {
+            "label": "Pronoun",
+            "text": "A word that replaces a noun"
+          }
+        ],
+        "inSimpleWords": "Pronouns replace nouns in sentences!",
+        "emoji": "🔄",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is a Pronoun? — Nouns and Pronouns"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "I, You, He, She, It, We, They",
+        "storyContext": "Maya teaches the main pronouns: 'I am Maya. You are my friend. He is Arun. She/It/We/They too!'",
+        "points": [
+          {
+            "label": "Personal pronouns",
+            "text": "I, you, he, she, it, we, they"
+          }
+        ],
+        "inSimpleWords": "I, you, he, she, it, we, they are pronouns!",
+        "emoji": "👥",
+        "image": {
+          "url": "https://images.pexels.com/photos/6482238/pexels-photo-6482238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "I, You, He, She, It, We, They — Nouns and Pronouns"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Using Pronouns Instead of Nouns",
+        "storyContext": "Arun shows how to replace nouns with pronouns!",
+        "example": {
+          "problem": "Maya likes books. Maya reads books. Maya writes about books.",
+          "solution": "Maya likes books. She reads them. She writes about them. (She replaces Maya, them replaces books)"
+        },
+        "inSimpleWords": "Use pronouns to avoid repeating the noun!",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/9364859/pexels-photo-9364859.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Using Pronouns Instead of Nouns — Nouns and Pronouns"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "My, Your, His, Her, Our, Their",
+        "storyContext": "Maya says: 'This is my pencil. That is your book. This is his toy. That's her doll.'",
+        "points": [
+          {
+            "label": "Possessive pronouns",
+            "text": "my, your, his, her, its, our, their"
+          }
+        ],
+        "inSimpleWords": "Possessive pronouns show who owns something!",
+        "emoji": "🎁",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "My, Your, His, Her, Our, Their — Nouns and Pronouns"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Nouns and Pronouns",
+        "storyContext": "Arun and Maya create a chart showing nouns and their pronoun replacements!",
+        "points": [
+          {
+            "label": "Nouns",
+            "text": "Name people, places, animals, things"
+          },
+          {
+            "label": "Pronouns",
+            "text": "I, you, he, she, it, we, they (replace nouns)"
+          },
+          {
+            "label": "Possessives",
+            "text": "my, your, his, her, our, their (show who owns)"
+          }
+        ],
+        "inSimpleWords": "Nouns name. Pronouns replace. Both are important!",
+        "emoji": "🌟",
+        "image": {
+          "url": "https://images.pexels.com/photos/28656564/pexels-photo-28656564.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Nouns and Pronouns — Nouns and Pronouns"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-3-english-verbs",
+    "classLevel": "3",
+    "subject": "English",
+    "chapter": "Verbs",
+    "chapterAliases": [
+      "Action Words",
+      "Doing Words"
+    ],
+    "title": "Arun and Maya's Action-Packed Verb Adventure",
+    "hook": "Discover verbs — the words that show action and movement!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "What is a Verb?",
+        "storyContext": "Arun jumps and says 'Jump! That's a verb — an action word!' Maya runs and shouts 'Run!'",
+        "points": [
+          {
+            "label": "Verb",
+            "text": "A word that shows action or what someone does"
+          }
+        ],
+        "inSimpleWords": "Verbs are action words that show doing!",
+        "emoji": "🏃",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is a Verb? — Verbs"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Run, Jump, Eat, Sleep",
+        "storyContext": "Maya makes a list: 'I run, I jump, I eat, I sleep — all verbs that show what I do!'",
+        "points": [
+          {
+            "label": "Action verbs",
+            "text": "run, jump, eat, sleep, play, walk, dance, sing"
+          }
+        ],
+        "inSimpleWords": "Run, jump, eat are all action verbs!",
+        "emoji": "🍽️",
+        "image": {
+          "url": "https://images.pexels.com/photos/10646550/pexels-photo-10646550.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Run, Jump, Eat, Sleep — Verbs"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Write, Read, Draw, Think",
+        "storyContext": "Arun does homework: 'I write answers, I read questions, I draw pictures, I think carefully!'",
+        "points": [
+          {
+            "label": "Action verbs",
+            "text": "write, read, draw, think, learn, understand, remember"
+          }
+        ],
+        "inSimpleWords": "Write, read, draw, think show different actions!",
+        "emoji": "✏️",
+        "image": {
+          "url": "https://images.pexels.com/photos/5905847/pexels-photo-5905847.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Write, Read, Draw, Think — Verbs"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Can, Help, Give, Take",
+        "storyContext": "Maya helps Arun: 'I can lift this! I help my friend! I give him a pencil. He takes it!'",
+        "points": [
+          {
+            "label": "More verbs",
+            "text": "can, help, give, take, make, build, break, fix"
+          }
+        ],
+        "inSimpleWords": "Help, give, take show actions between people!",
+        "emoji": "🤝",
+        "image": {
+          "url": "https://images.pexels.com/photos/34511907/pexels-photo-34511907.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Can, Help, Give, Take — Verbs"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Being Verbs: Is, Are, Am, Was, Were",
+        "storyContext": "Arun says: 'I am happy. She is smart. They are friends. I was sleepy. We were tired!'",
+        "points": [
+          {
+            "label": "Being verbs",
+            "text": "is, are, am, was, were (show state of being, not action)"
+          }
+        ],
+        "inSimpleWords": "Being verbs show who or what something is!",
+        "emoji": "😊",
+        "image": {
+          "url": "https://images.pexels.com/photos/8653974/pexels-photo-8653974.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Being Verbs: Is, Are, Am, Was, Were — Verbs"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Verbs in Sentences",
+        "storyContext": "Arun and Maya write sentences using different verbs!",
+        "example": {
+          "problem": "Complete these: The cat ___. The boy ___. She ___ milk.",
+          "solution": "The cat sleeps. The boy plays. She drinks milk. (sleeps, plays, drinks are verbs)"
+        },
+        "inSimpleWords": "Every sentence needs a verb to show action!",
+        "emoji": "🐱",
+        "image": {
+          "url": "https://images.pexels.com/photos/6502823/pexels-photo-6502823.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Verbs in Sentences — Verbs"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Verbs Can Change",
+        "storyContext": "Maya shows: 'I play today. I played yesterday. I will play tomorrow. The verb changes with time!'",
+        "points": [
+          {
+            "label": "Verb tenses",
+            "text": "play (now), played (past), will play (future)"
+          }
+        ],
+        "inSimpleWords": "Verbs change when we talk about different times!",
+        "emoji": "⏰",
+        "image": {
+          "url": "https://images.pexels.com/photos/6502823/pexels-photo-6502823.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Verbs Can Change — Verbs"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Verbs Show Action",
+        "storyContext": "Arun and Maya make a poster of all their favorite action verbs!",
+        "points": [
+          {
+            "label": "Action verbs",
+            "text": "run, jump, eat, write, read, play, dance, sing"
+          },
+          {
+            "label": "Being verbs",
+            "text": "is, are, am, was, were"
+          },
+          {
+            "label": "Verb tenses",
+            "text": "present, past, future (changes with time)"
+          }
+        ],
+        "inSimpleWords": "Verbs are the most important words in sentences!",
+        "emoji": "💪",
+        "image": {
+          "url": "https://images.pexels.com/photos/6502823/pexels-photo-6502823.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Verbs Show Action — Verbs"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-3-english-adjectives",
+    "classLevel": "3",
+    "subject": "English",
+    "chapter": "Adjectives",
+    "chapterAliases": [
+      "Describing Words",
+      "How Things Look"
+    ],
+    "title": "Arun and Maya's Describing Word Adventure",
+    "hook": "Learn adjectives — words that describe how things look, feel, and are!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "What is an Adjective?",
+        "storyContext": "Arun holds a big red apple. 'Big and red — these words describe the apple!' says Maya.",
+        "points": [
+          {
+            "label": "Adjective",
+            "text": "A word that describes a noun (how it looks, feels, or is)"
+          }
+        ],
+        "inSimpleWords": "Adjectives are describing words for nouns!",
+        "emoji": "🍎",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is an Adjective? — Adjectives"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Adjectives Describe Size",
+        "storyContext": "Arun says: 'This is a big house. This is a small house. Big and small describe size!'",
+        "points": [
+          {
+            "label": "Size adjectives",
+            "text": "big, small, large, tiny, huge, long, short, wide, narrow"
+          }
+        ],
+        "inSimpleWords": "Big, small, tiny describe how big something is!",
+        "emoji": "🏠",
+        "image": {
+          "url": "https://images.pexels.com/photos/8613122/pexels-photo-8613122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Adjectives Describe Size — Adjectives"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Adjectives Describe Color",
+        "storyContext": "Maya paints: 'A red heart, a blue sky, a yellow sun, a green tree!'",
+        "points": [
+          {
+            "label": "Color adjectives",
+            "text": "red, blue, yellow, green, orange, purple, pink, black, white"
+          }
+        ],
+        "inSimpleWords": "Red, blue, green describe the color of things!",
+        "emoji": "🎨",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Adjectives Describe Color — Adjectives"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Adjectives Describe Feelings",
+        "storyContext": "Arun says: 'I feel happy. The movie is funny. The noise is loud and scary!'",
+        "points": [
+          {
+            "label": "Feeling adjectives",
+            "text": "happy, sad, funny, scary, brave, shy, angry, friendly"
+          }
+        ],
+        "inSimpleWords": "Adjectives can describe feelings too!",
+        "emoji": "😊",
+        "image": {
+          "url": "https://images.pexels.com/photos/8613122/pexels-photo-8613122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Adjectives Describe Feelings — Adjectives"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Adjectives Describe Texture and Taste",
+        "storyContext": "Maya touches a smooth silk cloth and a rough rope. Arun tastes sweet candy and sour lemon!",
+        "points": [
+          {
+            "label": "Texture/taste",
+            "text": "soft, hard, smooth, rough, wet, dry, sweet, sour, spicy, delicious"
+          }
+        ],
+        "inSimpleWords": "Adjectives describe how things feel and taste!",
+        "emoji": "👅",
+        "image": {
+          "url": "https://images.pexels.com/photos/16365469/pexels-photo-16365469.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Adjectives Describe Texture and Taste — Adjectives"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Using Adjectives in Sentences",
+        "storyContext": "Arun and Maya write sentences with lots of describing words!",
+        "example": {
+          "problem": "Write: 'I have a dog.' Add adjectives to make it more interesting.",
+          "solution": "I have a big, brown, friendly dog. (big, brown, friendly are adjectives)"
+        },
+        "inSimpleWords": "Adjectives make sentences more interesting!",
+        "emoji": "🐕",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Using Adjectives in Sentences — Adjectives"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Adjectives Describe Numbers and More",
+        "storyContext": "Maya says: 'I have one apple, three books, many toys, few pencils, first place, last runner!'",
+        "points": [
+          {
+            "label": "More adjectives",
+            "text": "one, two, many, few, first, last, new, old, good, bad, beautiful, ugly"
+          }
+        ],
+        "inSimpleWords": "Adjectives describe numbers and qualities too!",
+        "emoji": "🏆",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Adjectives Describe Numbers and More — Adjectives"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Adjectives Describe Everything",
+        "storyContext": "Arun and Maya write a colorful story full of describing words!",
+        "points": [
+          {
+            "label": "Size and shape",
+            "text": "big, small, long, short, round, square"
+          },
+          {
+            "label": "Color",
+            "text": "red, blue, green, yellow, orange, purple"
+          },
+          {
+            "label": "Feelings and qualities",
+            "text": "happy, sad, beautiful, ugly, good, bad, brave, shy"
+          }
+        ],
+        "inSimpleWords": "Adjectives make describing easier and fun!",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/2463330/pexels-photo-2463330.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Adjectives Describe Everything — Adjectives"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-3-english-tenses-basic",
+    "classLevel": "3",
+    "subject": "English",
+    "chapter": "Tenses Basic",
+    "chapterAliases": [
+      "Past, Present, Future",
+      "Time Words"
+    ],
+    "title": "Arun and Maya's Time Travel Tenses",
+    "hook": "Journey through past, present, and future with verbs that change with time!",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "curious explorer"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "brave friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "What is Tense?",
+        "storyContext": "Arun explains: 'Tense shows WHEN an action happens — now, yesterday, or tomorrow!'",
+        "points": [
+          {
+            "label": "Tense",
+            "text": "The time when an action happens (past, present, or future)"
+          }
+        ],
+        "inSimpleWords": "Tense tells us WHEN something happens!",
+        "emoji": "⏰",
+        "image": {
+          "url": "https://images.pexels.com/photos/6437478/pexels-photo-6437478.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is Tense? — Tenses Basic"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Present Tense: Right Now",
+        "storyContext": "Maya says: 'I play now. I eat now. I read now. This is PRESENT TENSE!'",
+        "points": [
+          {
+            "label": "Present tense",
+            "text": "Action happening RIGHT NOW: play, eat, read, run, jump, sing"
+          }
+        ],
+        "inSimpleWords": "Present tense = action happening RIGHT NOW!",
+        "emoji": "🎮",
+        "image": {
+          "url": "https://images.pexels.com/photos/27176095/pexels-photo-27176095.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Present Tense: Right Now — Tenses Basic"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Past Tense: Yesterday",
+        "storyContext": "Arun remembers: 'I played yesterday. I ate yesterday. I read yesterday. This is PAST TENSE!'",
+        "points": [
+          {
+            "label": "Past tense",
+            "text": "Action that already happened: played, ate, read, ran, jumped, sang"
+          }
+        ],
+        "inSimpleWords": "Past tense = action that already happened!",
+        "emoji": "📅",
+        "image": {
+          "url": "https://images.pexels.com/photos/5329056/pexels-photo-5329056.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Past Tense: Yesterday — Tenses Basic"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Future Tense: Tomorrow",
+        "storyContext": "Maya dreams: 'I will play tomorrow. I will eat tomorrow. I will read tomorrow. FUTURE TENSE!'",
+        "points": [
+          {
+            "label": "Future tense",
+            "text": "Action that will happen: will play, will eat, will read, will run"
+          }
+        ],
+        "inSimpleWords": "Future tense = action that will happen!",
+        "emoji": "🔮",
+        "image": {
+          "url": "https://images.pexels.com/photos/8294664/pexels-photo-8294664.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Future Tense: Tomorrow — Tenses Basic"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "How Verbs Change with Tense",
+        "storyContext": "Arun shows how the same action verb changes: play (now), played (before), will play (later)!",
+        "points": [
+          {
+            "label": "Present",
+            "text": "play, eat, run, read"
+          },
+          {
+            "label": "Past",
+            "text": "played, ate, ran, read"
+          },
+          {
+            "label": "Future",
+            "text": "will play, will eat, will run, will read"
+          }
+        ],
+        "inSimpleWords": "The same verb changes form for each time!",
+        "emoji": "🔄",
+        "image": {
+          "url": "https://images.pexels.com/photos/6502823/pexels-photo-6502823.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "How Verbs Change with Tense — Tenses Basic"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Using All Three Tenses",
+        "storyContext": "Arun and Maya write about the same action in past, present, and future!",
+        "example": {
+          "problem": "Write sentences with 'eat': past, now, and future.",
+          "solution": "I ate rice yesterday. I eat rice today. I will eat rice tomorrow. (ate, eat, will eat)"
+        },
+        "inSimpleWords": "Same verb, different tense = different time!",
+        "emoji": "🍚",
+        "image": {
+          "url": "https://images.pexels.com/photos/9364859/pexels-photo-9364859.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Using All Three Tenses — Tenses Basic"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Irregular Verbs: Special Ones",
+        "storyContext": "Maya shows verbs that don't follow the normal rules: go/went/will go, eat/ate/will eat, run/ran/will run!",
+        "points": [
+          {
+            "label": "Irregular verbs",
+            "text": "go→went, eat→ate, run→ran, is→was, have→had (don't add 'ed')"
+          }
+        ],
+        "inSimpleWords": "Some verbs change in special ways in past!",
+        "emoji": "⚡",
+        "image": {
+          "url": "https://images.pexels.com/photos/6482238/pexels-photo-6482238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Irregular Verbs: Special Ones — Tenses Basic"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Three Tenses, Three Times",
+        "storyContext": "Arun and Maya create a timeline showing past, present, and future actions!",
+        "points": [
+          {
+            "label": "Past tense",
+            "text": "Yesterday: I played, I ate, I ran, I read"
+          },
+          {
+            "label": "Present tense",
+            "text": "Now: I play, I eat, I run, I read"
+          },
+          {
+            "label": "Future tense",
+            "text": "Tomorrow: I will play, I will eat, I will run"
+          }
+        ],
+        "inSimpleWords": "Past = done. Present = now. Future = coming soon!",
+        "emoji": "🌍",
+        "image": {
+          "url": "https://images.pexels.com/photos/27864656/pexels-photo-27864656.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Three Tenses, Three Times — Tenses Basic"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-4-english-parts-of-speech",
+    "classLevel": "4",
+    "subject": "English",
+    "chapter": "Parts of Speech",
+    "title": "Arjun and Priya Learn the Magic Words",
+    "hook": "Every word in English has a special job. Meet Arjun and Priya as they discover the eight magic word types!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "curious learner"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "word explorer"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Arjun's Word Discovery",
+        "storyContext": "Arjun finds a mysterious book that labels every word. He calls his friend Priya to help decode it.",
+        "emoji": "📖",
+        "inSimpleWords": "Every word has a job in English.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Arjun's Word Discovery — Parts of Speech"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Nouns: The Name Givers",
+        "storyContext": "Priya points: 'These words name things.' They spot dog, school, happiness, Arjun.",
+        "points": [
+          {
+            "label": "What is a noun?",
+            "text": "A word that names a person, place, thing, or idea"
+          },
+          {
+            "label": "Examples",
+            "text": "Teacher, Delhi, book, courage"
+          }
+        ],
+        "emoji": "🐕",
+        "inSimpleWords": "Nouns name people, places, things, feelings.",
+        "image": {
+          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Nouns: The Name Givers — Parts of Speech"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Verbs: The Action Words",
+        "storyContext": "Arjun jumps. Priya runs. Their action book glows brightly. 'These are verbs!' Arjun shouts.",
+        "points": [
+          {
+            "label": "What is a verb?",
+            "text": "A word that shows action or state of being"
+          },
+          {
+            "label": "Examples",
+            "text": "Run, sing, sleep, think, is, become"
+          }
+        ],
+        "emoji": "💨",
+        "inSimpleWords": "Verbs show what someone is doing.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Verbs: The Action Words — Parts of Speech"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Adjectives: The Describers",
+        "storyContext": "The book is old. It has beautiful pages and mysterious words. Priya laughs: 'These paint pictures!'",
+        "points": [
+          {
+            "label": "What is an adjective?",
+            "text": "A word that describes a noun"
+          },
+          {
+            "label": "Examples",
+            "text": "Happy, blue, small, brilliant, soft"
+          }
+        ],
+        "emoji": "🎨",
+        "inSimpleWords": "Adjectives describe how things look.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Adjectives: The Describers — Parts of Speech"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Adverbs: The Detail Givers",
+        "storyContext": "They read slowly. The words appear suddenly. Everything happens quickly. 'Adverbs tell HOW!' Priya explains.",
+        "points": [
+          {
+            "label": "What is an adverb?",
+            "text": "A word that describes a verb, adjective, or another adverb"
+          },
+          {
+            "label": "Examples",
+            "text": "Quickly, happily, very, slowly, almost"
+          }
+        ],
+        "emoji": "⚡",
+        "inSimpleWords": "Adverbs tell how, when, or where.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Adverbs: The Detail Givers — Parts of Speech"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "More Parts of Speech",
+        "storyContext": "Arjun finds four more types: pronouns (he, she), prepositions (in, under), conjunctions (and, but), and interjections (Wow!).",
+        "example": {
+          "problem": "What parts of speech haven't we learned?",
+          "solution": "Pronouns (I, you, they), Prepositions (in, on), Conjunctions (and, or), Interjections (Ouch!)"
+        },
+        "emoji": "🔤",
+        "inSimpleWords": "Eight word types work together in sentences.",
+        "image": {
+          "url": "https://images.pexels.com/photos/6936013/pexels-photo-6936013.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "More Parts of Speech — Parts of Speech"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Spot the Parts",
+        "storyContext": "Arjun points to a sentence: 'The happy child ran quickly to the park.' Can you label each word type?",
+        "points": [
+          {
+            "label": "Try this",
+            "text": "The (article) happy (adjective) child (noun) ran (verb) quickly (adverb)"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Identify nouns, verbs, and adjectives easily.",
+        "image": {
+          "url": "https://images.pexels.com/photos/18471527/pexels-photo-18471527.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Spot the Parts — Parts of Speech"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Book's Final Gift",
+        "storyContext": "The magical book closes. Arjun and Priya realize they can now build sentences with confidence and power.",
+        "emoji": "✨",
+        "inSimpleWords": "Understanding parts of speech unlocks English.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Book's Final Gift — Parts of Speech"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Your Word Powers",
+        "storyContext": "Eight types: noun, verb, adjective, adverb, pronoun, preposition, conjunction, interjection.",
+        "emoji": "🏆",
+        "inSimpleWords": "Every word has a job. Learn it!",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Your Word Powers — Parts of Speech"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-4-english-tenses",
+    "classLevel": "4",
+    "subject": "English",
+    "chapter": "Tenses",
+    "title": "Arjun and Priya Travel Through Time",
+    "hook": "Past, present, future. Three time zones to explore with Arjun and Priya!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "time traveler"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "tense expert"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Time Machine",
+        "storyContext": "Arjun and Priya discover a strange device. 'It shows three times,' Priya whispers. 'Past, now, and future!'",
+        "emoji": "⏰",
+        "inSimpleWords": "Verbs change shape in different times.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Time Machine — Tenses"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Past Tense: What Already Happened",
+        "storyContext": "They look at the screen. 'Yesterday, we walked to school. I ate mango.' Priya explains: these events finished.",
+        "points": [
+          {
+            "label": "What is past tense?",
+            "text": "Verbs that show actions already completed"
+          },
+          {
+            "label": "Examples",
+            "text": "walked, played, ate, learned, sang"
+          }
+        ],
+        "emoji": "🕐",
+        "inSimpleWords": "Past tense: actions that already happened.",
+        "image": {
+          "url": "https://images.pexels.com/photos/30893290/pexels-photo-30893290.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Past Tense: What Already Happened — Tenses"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Present Tense: What's Happening Now",
+        "storyContext": "The device shows: 'Right now, I walk. I eat. I am happy.' Arjun says, 'It's happening RIGHT NOW!'",
+        "points": [
+          {
+            "label": "What is present tense?",
+            "text": "Verbs that show actions happening now"
+          },
+          {
+            "label": "Examples",
+            "text": "walk, play, eat, learn, am singing"
+          }
+        ],
+        "emoji": "🕑",
+        "inSimpleWords": "Present tense: actions happening now.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Present Tense: What's Happening Now — Tenses"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Future Tense: What Will Happen",
+        "storyContext": "They see tomorrow's screen: 'Tomorrow, I will walk. I will play cricket. I will be happy.' Future is coming!",
+        "points": [
+          {
+            "label": "What is future tense?",
+            "text": "Verbs that show actions that will happen"
+          },
+          {
+            "label": "Examples",
+            "text": "will walk, will play, will eat, will go, will sing"
+          }
+        ],
+        "emoji": "🕒",
+        "inSimpleWords": "Future tense: actions that will happen.",
+        "image": {
+          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Future Tense: What Will Happen — Tenses"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Three Tenses in One Story",
+        "storyContext": "Priya tells: 'Yesterday I played (past). Today I play (present). Tomorrow I will play (future).' One action, three tenses!",
+        "example": {
+          "problem": "How do I write the same action in three tenses?",
+          "solution": "Past: walked. Present: walk. Future: will walk."
+        },
+        "emoji": "📝",
+        "inSimpleWords": "Same verb changes with different times.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8423410/pexels-photo-8423410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Three Tenses in One Story — Tenses"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Time Zone Quiz",
+        "storyContext": "Arjun points to verbs. Is 'ran' past or present? Is 'will jump' future or past? Priya checks each answer.",
+        "points": [
+          {
+            "label": "Spot it",
+            "text": "ran (past), jumps (present), will run (future)"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Learn to spot past, present, future.",
+        "image": {
+          "url": "https://images.pexels.com/photos/3985012/pexels-photo-3985012.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Time Zone Quiz — Tenses"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Time Machine's Secret",
+        "storyContext": "The device shows: all three times matter. Your past shapes who you are. Your present is your power. Your future waits.",
+        "emoji": "💫",
+        "inSimpleWords": "Tenses help us tell complete stories.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11200121/pexels-photo-11200121.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Time Machine's Secret — Tenses"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Master Tenses Today",
+        "storyContext": "Past (walked), Present (walk), Future (will walk). Three gears of time.",
+        "emoji": "🏆",
+        "inSimpleWords": "Tenses show when things happen.",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864451/pexels-photo-31864451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Master Tenses Today — Tenses"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-4-english-articles",
+    "classLevel": "4",
+    "subject": "English",
+    "chapter": "Articles",
+    "title": "Arjun and Priya Find the Magic Three",
+    "hook": "A, an, the—three tiny words with big jobs. Discover when to use each one!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "article seeker"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "grammar guide"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Three Mysterious Words",
+        "storyContext": "Arjun finds three old coins: 'a', 'an', and 'the'. Priya says, 'These aren't coins—they're magic words!'",
+        "emoji": "🪙",
+        "inSimpleWords": "Three small words do big jobs.",
+        "image": {
+          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Three Mysterious Words — Articles"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Indefinite Article: A",
+        "storyContext": "Priya holds one coin. 'Use A for nouns starting with consonants. A dog. A book. A school. It means one, not special.'",
+        "points": [
+          {
+            "label": "What does A do?",
+            "text": "Introduces a general, non-specific noun (consonant sounds)"
+          },
+          {
+            "label": "Examples",
+            "text": "a dog, a ball, a pen, a house"
+          }
+        ],
+        "emoji": "🐕",
+        "inSimpleWords": "A: use before consonant sounds.",
+        "image": {
+          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Indefinite Article: A — Articles"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Indefinite Article: An",
+        "storyContext": "The second coin glows. 'An is for vowels. An apple. An elephant. An ice cream. Different sound, different article!'",
+        "points": [
+          {
+            "label": "What does An do?",
+            "text": "Introduces a general noun (vowel sounds)"
+          },
+          {
+            "label": "Examples",
+            "text": "an apple, an elephant, an orange, an idea"
+          }
+        ],
+        "emoji": "🍎",
+        "inSimpleWords": "An: use before vowel sounds.",
+        "image": {
+          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Indefinite Article: An — Articles"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Definite Article: The",
+        "storyContext": "The third coin is brightest. 'The is for specific things you know about. THE dog in our house. THE book on the table.'",
+        "points": [
+          {
+            "label": "What does The do?",
+            "text": "Points to a specific, known noun"
+          },
+          {
+            "label": "Examples",
+            "text": "the dog, the sun, the school, the teacher"
+          }
+        ],
+        "emoji": "⭐",
+        "inSimpleWords": "The: use for known, specific things.",
+        "image": {
+          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Definite Article: The — Articles"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Articles in Sentences",
+        "storyContext": "Arjun reads: 'I have a cat. The cat is orange. An orange cat is cute.' Three articles, three jobs!",
+        "example": {
+          "problem": "When do I choose a, an, or the?",
+          "solution": "a/an = general things. the = specific things you know."
+        },
+        "emoji": "📖",
+        "inSimpleWords": "Match articles to each noun type.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8639570/pexels-photo-8639570.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Articles in Sentences — Articles"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Fill the Articles",
+        "storyContext": "Priya gives Arjun blanks: '__ apple is red. __ dog barks at __ tree. __ sun is bright.' Choose a, an, or the!",
+        "points": [
+          {
+            "label": "Answer",
+            "text": "An apple. A dog barks at the tree. The sun."
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Practice choosing the right article.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Fill the Articles — Articles"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Coins Unite",
+        "storyContext": "The three coins merge. Arjun realizes: a, an, and the are partners. Together they help sentences sound perfect.",
+        "emoji": "✨",
+        "inSimpleWords": "Articles are glue for good English.",
+        "image": {
+          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Coins Unite — Articles"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Master These Three",
+        "storyContext": "A (consonants), An (vowels), The (specific). Use them every day!",
+        "emoji": "🏆",
+        "inSimpleWords": "Three articles unlock clear writing.",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864451/pexels-photo-31864451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Master These Three — Articles"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-4-english-letter-and-story-writing",
+    "classLevel": "4",
+    "subject": "English",
+    "chapter": "Letter and Story Writing",
+    "title": "Arjun and Priya Write Their Adventures",
+    "hook": "Learn to write perfect letters and thrilling stories. Arjun and Priya become writers!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "story writer"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "letter master"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Writing Challenge",
+        "storyContext": "Arjun's grandmother asks for a letter. His friend Priya needs a story for her school. They decide to write together.",
+        "emoji": "✍️",
+        "inSimpleWords": "Good writing needs planning and practice.",
+        "image": {
+          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Writing Challenge — Letter and Story Writing"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Writing a Formal Letter",
+        "storyContext": "Priya teaches: address, date, greeting, body, closing, signature. 'Each part has a place,' she says carefully.",
+        "points": [
+          {
+            "label": "Letter parts",
+            "text": "Date, Address, Greeting (Dear...), Body, Closing (Yours), Signature"
+          },
+          {
+            "label": "Example",
+            "text": "Date: 25 June 2026. Body: Tell why you're writing. Closing: With love / Sincerely"
+          }
+        ],
+        "emoji": "📮",
+        "inSimpleWords": "Letters have five main parts.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8471861/pexels-photo-8471861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Writing a Formal Letter — Letter and Story Writing"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Letter Sample",
+        "storyContext": "Arjun writes: 'Dear Grandma, I am fine. School is good. I miss you. Love, Arjun.' Simple and warm.",
+        "example": {
+          "problem": "How do I start and end a letter?",
+          "solution": "Start: 'Dear [name]'. End: 'Yours truly' or 'With love'."
+        },
+        "emoji": "💌",
+        "inSimpleWords": "Write clearly and politely in letters.",
+        "image": {
+          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Letter Sample — Letter and Story Writing"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Story Writing: The Structure",
+        "storyContext": "Priya sketches: beginning (introduce), middle (problem), end (solution). 'Every story needs these three!'",
+        "points": [
+          {
+            "label": "Beginning",
+            "text": "Introduce characters and setting"
+          },
+          {
+            "label": "Middle",
+            "text": "A problem or exciting event happens"
+          },
+          {
+            "label": "End",
+            "text": "The problem is solved or lesson learned"
+          }
+        ],
+        "emoji": "📖",
+        "inSimpleWords": "Stories have start, middle, end.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8301231/pexels-photo-8301231.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Story Writing: The Structure — Letter and Story Writing"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Story Sample",
+        "storyContext": "Arjun writes: 'A boy lost his ball. He searched the garden. His dog found it in the bushes.' Complete story!",
+        "example": {
+          "problem": "How do I make a story exciting?",
+          "solution": "Create a problem. Show how the character solves it. Use clear, interesting words."
+        },
+        "emoji": "🎬",
+        "inSimpleWords": "Make stories engaging with details.",
+        "image": {
+          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Story Sample — Letter and Story Writing"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Write Your Letter and Story",
+        "storyContext": "Priya challenges: 'Write a letter to a friend. Then write a short story about your happiest day.'",
+        "points": [
+          {
+            "label": "Remember",
+            "text": "Letters are polite. Stories are creative. Both need clear handwriting."
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Practice writing letters and stories.",
+        "image": {
+          "url": "https://images.pexels.com/photos/1337386/pexels-photo-1337386.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Write Your Letter and Story — Letter and Story Writing"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Success and Sharing",
+        "storyContext": "Arjun sends his letter. His grandmother replies with joy. Priya reads her story aloud in class. Both writers beam!",
+        "emoji": "🌟",
+        "inSimpleWords": "Writing connects hearts and minds.",
+        "image": {
+          "url": "https://images.pexels.com/photos/1337386/pexels-photo-1337386.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Success and Sharing — Letter and Story Writing"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Write Well, Write Bold",
+        "storyContext": "Letters teach manners. Stories teach imagination. Both are powers.",
+        "emoji": "🏆",
+        "inSimpleWords": "Good writing opens new worlds.",
+        "image": {
+          "url": "https://images.pexels.com/photos/1337386/pexels-photo-1337386.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Write Well, Write Bold — Letter and Story Writing"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-4-english-conversation-practice",
+    "classLevel": "4",
+    "subject": "English",
+    "chapter": "Conversation Practice",
+    "title": "Arjun and Priya Learn to Talk",
+    "hook": "Speaking English is an art. Arjun and Priya practice conversations every day!",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "conversation learner"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "speech partner"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Conversation Club",
+        "storyContext": "Arjun is nervous to speak English. Priya invites him to a conversation club. Together they practice every day.",
+        "emoji": "🗣️",
+        "inSimpleWords": "Speaking gets easier with practice.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Conversation Club — Conversation Practice"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Greetings and Introductions",
+        "storyContext": "Priya smiles: 'Hello, Arjun! My name is Priya. What's your name?' Arjun replies: 'Hi! I'm Arjun. Nice to meet you!'",
+        "points": [
+          {
+            "label": "Useful phrases",
+            "text": "Hello, Hi, Good morning, What's your name? My name is..."
+          },
+          {
+            "label": "Polite responses",
+            "text": "Nice to meet you, Pleased to meet you, How are you?"
+          }
+        ],
+        "emoji": "👋",
+        "inSimpleWords": "Greetings are the first step.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Greetings and Introductions — Conversation Practice"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Questions and Answers",
+        "storyContext": "Priya asks: 'How are you?' Arjun answers: 'I'm fine, thank you. How are you?' They listen and respond.",
+        "points": [
+          {
+            "label": "Common questions",
+            "text": "How are you? What do you like? Where are you from? What's your hobby?"
+          },
+          {
+            "label": "Good answers",
+            "text": "I'm fine, thanks. I like reading. I'm from Delhi. My hobby is cricket."
+          }
+        ],
+        "emoji": "❓",
+        "inSimpleWords": "Ask questions. Listen to answers.",
+        "image": {
+          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Questions and Answers — Conversation Practice"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "A Real Conversation",
+        "storyContext": "Priya: 'Do you like books?' Arjun: 'Yes, I do. I like adventure books.' Priya: 'Me too! Which is your favorite?'",
+        "example": {
+          "problem": "How do I keep a conversation going?",
+          "solution": "Ask follow-up questions. Share your ideas. Listen carefully."
+        },
+        "emoji": "💬",
+        "inSimpleWords": "Take turns. Ask and answer.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Real Conversation — Conversation Practice"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Daily Phrases and Politeness",
+        "storyContext": "Arjun learns: 'Please, Thank you, You're welcome, Excuse me, Sorry.' These words make conversations smooth.",
+        "points": [
+          {
+            "label": "Polite words",
+            "text": "Please, Thank you, You're welcome, Excuse me, I'm sorry"
+          },
+          {
+            "label": "When to use",
+            "text": "Always say please when asking. Say thank you after help. Say sorry when you make mistakes."
+          }
+        ],
+        "emoji": "🤝",
+        "inSimpleWords": "Politeness makes friends.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Daily Phrases and Politeness — Conversation Practice"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Role Play Practice",
+        "storyContext": "Priya and Arjun practice: At the market, in class, at home, with a teacher. They try different situations.",
+        "points": [
+          {
+            "label": "Try these",
+            "text": "Ordering food, asking for directions, making friends, joining a game"
+          }
+        ],
+        "emoji": "🎭",
+        "inSimpleWords": "Practice conversations everywhere.",
+        "image": {
+          "url": "https://images.pexels.com/photos/17161106/pexels-photo-17161106.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Role Play Practice — Conversation Practice"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Arjun's Confidence",
+        "storyContext": "After weeks of practice, Arjun speaks English without fear. He makes new friends. His words flow naturally.",
+        "emoji": "⭐",
+        "inSimpleWords": "Practice builds confidence.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Arjun's Confidence — Conversation Practice"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Speak With Courage",
+        "storyContext": "Greetings, questions, polite words. Speak daily. Make mistakes. Keep trying!",
+        "emoji": "🏆",
+        "inSimpleWords": "Speaking English is a superpower.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Speak With Courage — Conversation Practice"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-5-english-papas-spectacles",
+    "classLevel": "5",
+    "subject": "English",
+    "chapter": "Papa's Spectacles",
+    "title": "Papa's Spectacles: A Father's Love",
+    "hook": "A boy learns that sometimes love is hidden in the smallest things—like a pair of old spectacles.",
+    "characters": [
+      {
+        "name": "The Boy",
+        "emoji": "👦",
+        "role": "curious son"
+      },
+      {
+        "name": "Papa",
+        "emoji": "👨",
+        "role": "loving father"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Lost Spectacles",
+        "storyContext": "A boy finds his Papa's old spectacles in a drawer. They're cracked. The frames are bent. Papa sees him holding them and smiles.",
+        "emoji": "👓",
+        "inSimpleWords": "Old glasses hold big memories.",
+        "image": {
+          "url": "https://images.pexels.com/photos/6936476/pexels-photo-6936476.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Lost Spectacles — Papa's Spectacles"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Why Papa Wears Them",
+        "storyContext": "Papa explains: 'I wear these to see clearly. Not just with eyes—with my heart. These glasses help me see YOU clearly.'",
+        "points": [
+          {
+            "label": "Papa's wisdom",
+            "text": "We see not just with eyes but with hearts and minds"
+          },
+          {
+            "label": "The lesson",
+            "text": "True sight means understanding others' feelings and needs"
+          }
+        ],
+        "emoji": "❤️",
+        "inSimpleWords": "Love helps us see truly.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Why Papa Wears Them — Papa's Spectacles"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Through Papa's Spectacles",
+        "storyContext": "The boy wears the spectacles. Through them, he sees Papa working hard. He sees Papa sacrifice. He sees Papa's love in small acts.",
+        "emoji": "🔍",
+        "inSimpleWords": "Love is shown in small actions.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Through Papa's Spectacles — Papa's Spectacles"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "What the Boy Sees",
+        "storyContext": "Papa waking early. Papa bringing food. Papa listening quietly. Papa fixing broken toys. All with love.",
+        "example": {
+          "problem": "How does Papa show love without saying it?",
+          "solution": "Through work, care, attention, sacrifice, and time spent together"
+        },
+        "emoji": "💝",
+        "inSimpleWords": "Actions speak louder than words.",
+        "image": {
+          "url": "https://images.pexels.com/photos/2101261/pexels-photo-2101261.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What the Boy Sees — Papa's Spectacles"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Cracked Lenses",
+        "storyContext": "The spectacles are old and broken, yet Papa treasures them. 'Things we use daily become precious,' he tells his son.",
+        "points": [
+          {
+            "label": "The deeper truth",
+            "text": "Broken things can still be beautiful if filled with memory and meaning"
+          },
+          {
+            "label": "Life lesson",
+            "text": "We too have cracks, but we are still valuable and loved"
+          }
+        ],
+        "emoji": "✨",
+        "inSimpleWords": "Broken things can be most precious.",
+        "image": {
+          "url": "https://images.pexels.com/photos/6685541/pexels-photo-6685541.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Cracked Lenses — Papa's Spectacles"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "What Do YOU See?",
+        "storyContext": "The boy asks himself: When I look at my parents with my heart, what do I see? What sacrifices have they made for me?",
+        "points": [
+          {
+            "label": "Reflect",
+            "text": "Think of small ways your parents/elders show love every day"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Notice love in everyday moments.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Do YOU See? — Papa's Spectacles"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Boy Understands",
+        "storyContext": "He returns the spectacles. Papa puts them on. The boy now knows: his father's love is in every look, every word, every deed.",
+        "emoji": "🌈",
+        "inSimpleWords": "Understanding brings gratitude.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Boy Understands — Papa's Spectacles"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "See With Your Heart",
+        "storyContext": "Papa's spectacles teach: true sight is love. It sees beyond the broken. It sees the good in everyone.",
+        "emoji": "🏆",
+        "inSimpleWords": "Love shows us the real truth.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "See With Your Heart — Papa's Spectacles"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "New Words Learned",
+        "storyContext": "Spectacles (glasses), sacrifice (giving up for others), treasure (value deeply), cracked (broken), sacred (holy, important).",
+        "points": [
+          {
+            "label": "Word bank",
+            "text": "spectacles, sacrifice, precious, gratitude, vision"
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "New words for new understanding.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "New Words Learned — Papa's Spectacles"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-5-english-the-wise-parrot",
+    "classLevel": "5",
+    "subject": "English",
+    "chapter": "The Wise Parrot",
+    "title": "The Wise Parrot's Teaching",
+    "hook": "A magical parrot teaches a king and his sons that wisdom isn't found in riches, but in truth.",
+    "characters": [
+      {
+        "name": "The Parrot",
+        "emoji": "🦜",
+        "role": "wise teacher"
+      },
+      {
+        "name": "The King",
+        "emoji": "👑",
+        "role": "seeker of truth"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The King's Question",
+        "storyContext": "A powerful king finds a magical parrot in his palace garden. He asks: 'What is the greatest treasure in this world?' The parrot smiles mysteriously.",
+        "emoji": "🏰",
+        "inSimpleWords": "A king seeks wisdom from a parrot.",
+        "image": {
+          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The King's Question — The Wise Parrot"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Parrot's Trial",
+        "storyContext": "The parrot says: 'I will teach you, but you must listen carefully. Truth is harder to accept than lies.'",
+        "emoji": "🎓",
+        "inSimpleWords": "Truth is often hidden in simple words.",
+        "image": {
+          "url": "https://images.pexels.com/photos/36020695/pexels-photo-36020695.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Parrot's Trial — The Wise Parrot"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The First Lesson: Honesty",
+        "storyContext": "The parrot asks the king: 'If your minister lies to save you, and a servant tells truth that brings pain, which is greater?' The king thinks hard.",
+        "points": [
+          {
+            "label": "The parrot's teaching",
+            "text": "Honesty is always greater than deception, even when it hurts"
+          },
+          {
+            "label": "The lesson",
+            "text": "A king who hears truth can rule wisely; one who hears lies will fail"
+          }
+        ],
+        "emoji": "⚖️",
+        "inSimpleWords": "Truth matters more than comfort.",
+        "image": {
+          "url": "https://images.pexels.com/photos/36020695/pexels-photo-36020695.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The First Lesson: Honesty — The Wise Parrot"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "The King Tests His Sons",
+        "storyContext": "The king asks his three sons: 'Which is more precious—gold or honesty?' Each gives a different answer. The parrot judges their wisdom.",
+        "example": {
+          "problem": "When should we choose honesty over other things?",
+          "solution": "Always. Honesty builds trust, loyalty, and real success"
+        },
+        "emoji": "💎",
+        "inSimpleWords": "Character is worth more than wealth.",
+        "image": {
+          "url": "https://images.pexels.com/photos/36020695/pexels-photo-36020695.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The King Tests His Sons — The Wise Parrot"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Parrot's Final Gift",
+        "storyContext": "The parrot reveals: 'The greatest treasure is not in vaults or crowns. It lives in a pure heart that speaks truth.'",
+        "points": [
+          {
+            "label": "What is real wealth?",
+            "text": "Not gold, not land, not power—but truth, kindness, and integrity"
+          },
+          {
+            "label": "The warning",
+            "text": "A kingdom built on lies will crumble; one built on truth will last forever"
+          }
+        ],
+        "emoji": "✨",
+        "inSimpleWords": "Wisdom is truth spoken with love.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Parrot's Final Gift — The Wise Parrot"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "What Would You Do?",
+        "storyContext": "If you found your best friend cheating, would you tell the truth and hurt them, or stay silent and comfort them?",
+        "points": [
+          {
+            "label": "The wise choice",
+            "text": "Tell the truth kindly. Real friendship means helping them become better"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Real friends tell truth with care.",
+        "image": {
+          "url": "https://images.pexels.com/photos/35160053/pexels-photo-35160053.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Would You Do? — The Wise Parrot"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Parrot Flies Away",
+        "storyContext": "The parrot flies high into the sky. The king realizes: the parrot's words will echo forever in his heart and his kingdom.",
+        "emoji": "🌅",
+        "inSimpleWords": "Wisdom stays with us always.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Parrot Flies Away — The Wise Parrot"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Be Like the Wise Parrot",
+        "storyContext": "Speak truth. Value honesty. Choose character over comfort. These are the treasures that make a king—or a person—truly great.",
+        "emoji": "🏆",
+        "inSimpleWords": "Truth is the greatest treasure.",
+        "image": {
+          "url": "https://images.pexels.com/photos/36020695/pexels-photo-36020695.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Be Like the Wise Parrot — The Wise Parrot"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "New Words Learned",
+        "storyContext": "Treasure (precious thing), honesty (truthfulness), integrity (moral strength), wisdom (deep knowledge), deception (trickery).",
+        "points": [
+          {
+            "label": "Word bank",
+            "text": "treasure, honesty, wisdom, integrity, deception, vaults"
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "New words about truth and values.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "New Words Learned — The Wise Parrot"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-5-english-the-frog",
+    "classLevel": "5",
+    "subject": "English",
+    "chapter": "The Frog",
+    "title": "The Frog's Great Leap",
+    "hook": "A frog dreams big. Against all odds, he learns that courage and determination can overcome any obstacle.",
+    "characters": [
+      {
+        "name": "The Frog",
+        "emoji": "🐸",
+        "role": "determined dreamer"
+      },
+      {
+        "name": "The Old Frog",
+        "emoji": "🐢",
+        "role": "wise elder"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Frog's Dream",
+        "storyContext": "A young frog sits at the bottom of a deep well. He looks up at the tiny circle of sky above. 'I want to reach that sky,' he whispers.",
+        "emoji": "🌟",
+        "inSimpleWords": "Big dreams start in small places.",
+        "image": {
+          "url": "https://images.pexels.com/photos/16137455/pexels-photo-16137455.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Frog's Dream — The Frog"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Impossible Well",
+        "storyContext": "The well is very deep. The frog is very small. Other frogs laugh: 'You'll never jump that high. You'll always be here.'",
+        "emoji": "🕳️",
+        "inSimpleWords": "Others doubt, but the frog believes.",
+        "image": {
+          "url": "https://images.pexels.com/photos/14025659/pexels-photo-14025659.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Impossible Well — The Frog"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The First Leap",
+        "storyContext": "The frog gathers all his strength. He jumps! Higher, higher... but falls back down. He doesn't give up. He tries again. And again.",
+        "points": [
+          {
+            "label": "Courage means",
+            "text": "Trying even when you might fail"
+          },
+          {
+            "label": "Determination means",
+            "text": "Standing up each time you fall"
+          }
+        ],
+        "emoji": "💪",
+        "inSimpleWords": "Failure is just practice.",
+        "image": {
+          "url": "https://images.pexels.com/photos/34082713/pexels-photo-34082713.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The First Leap — The Frog"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Learning From Falls",
+        "storyContext": "Each jump teaches the frog something. His legs grow stronger. His hope grows deeper. He remembers: every fall brings him closer to success.",
+        "example": {
+          "problem": "What if I keep failing at something I want?",
+          "solution": "Keep trying. Each attempt makes you stronger and smarter"
+        },
+        "emoji": "🔄",
+        "inSimpleWords": "Practice makes perfect.",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864451/pexels-photo-31864451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Learning From Falls — The Frog"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Breaking Point",
+        "storyContext": "After many days, the frog is exhausted. An old frog appears and says: 'I failed many times too. But I kept jumping. You can too.'",
+        "points": [
+          {
+            "label": "The elder's wisdom",
+            "text": "Even the wisest had to fail first to learn"
+          },
+          {
+            "label": "Hope restored",
+            "text": "Your struggle is not a sign of weakness—it's proof of your strength"
+          }
+        ],
+        "emoji": "🤝",
+        "inSimpleWords": "Never give up on your dream.",
+        "image": {
+          "url": "https://images.pexels.com/photos/3874176/pexels-photo-3874176.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Breaking Point — The Frog"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Final Jump",
+        "storyContext": "With renewed energy, the frog takes a deep breath. He jumps with all his might. Up, up, up! His head breaks through the circle of sky!",
+        "emoji": "🌈",
+        "inSimpleWords": "Dreams come true with hard work.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5329056/pexels-photo-5329056.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Final Jump — The Frog"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "What's Your Well?",
+        "storyContext": "What dream feels impossible to you? What obstacle stands in your way? How will you be like the frog and keep jumping?",
+        "points": [
+          {
+            "label": "Your challenge",
+            "text": "Choose one goal and work toward it every day, no matter how small the progress"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "You too can leap beyond limits.",
+        "image": {
+          "url": "https://images.pexels.com/photos/6482238/pexels-photo-6482238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What's Your Well? — The Frog"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "The Frog's Gift",
+        "storyContext": "The frog reached the sky because he believed. He jumped when others doubted. He rose when he fell. You can do the same.",
+        "emoji": "🏆",
+        "inSimpleWords": "Courage defeats any obstacle.",
+        "image": {
+          "url": "https://images.pexels.com/photos/16137455/pexels-photo-16137455.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Frog's Gift — The Frog"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "New Words Learned",
+        "storyContext": "Obstacle (barrier), determination (never-give-up spirit), courage (bravery), exhausted (very tired), renewed (given new energy).",
+        "points": [
+          {
+            "label": "Word bank",
+            "text": "obstacle, determination, courage, exhausted, renewed, strength"
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "Words of heroes and dreamers.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "New Words Learned — The Frog"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-5-english-gilli-danda",
+    "classLevel": "5",
+    "subject": "English",
+    "chapter": "Gilli Danda",
+    "title": "Gilli Danda: A Village Game",
+    "hook": "An ancient Indian game teaches friendship, skill, and the joy of playing outdoors together.",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "game player"
+      },
+      {
+        "name": "Ravi",
+        "emoji": "👦",
+        "role": "game master"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "An Old Game in a Village",
+        "storyContext": "In a small village, children gather at sunset with two wooden sticks. Arjun watches as Ravi teaches him gilli danda, a game played for centuries.",
+        "emoji": "🏘️",
+        "inSimpleWords": "Ancient games connect us to history.",
+        "image": {
+          "url": "https://images.pexels.com/photos/239861/pexels-photo-239861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "An Old Game in a Village — Gilli Danda"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What is Gilli Danda?",
+        "storyContext": "Ravi explains: 'The gilli is a small stick, the danda is bigger. You tap the gilli to make it fly, then hit it far. Try to run and win!'",
+        "points": [
+          {
+            "label": "The game",
+            "text": "A bat-and-stick game with roots in Indian villages for over 2,500 years"
+          },
+          {
+            "label": "The rules",
+            "text": "Tap the stick to flip it, then hit it as far as you can. Run and return before others catch you"
+          }
+        ],
+        "emoji": "🎮",
+        "inSimpleWords": "Gilli danda is skill and speed.",
+        "image": {
+          "url": "https://images.pexels.com/photos/24428857/pexels-photo-24428857.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is Gilli Danda? — Gilli Danda"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Arjun's First Try",
+        "storyContext": "Arjun grips the danda nervously. He taps the gilli. It flies! He swings hard and hits it far across the field. He laughs with joy.",
+        "emoji": "⚡",
+        "inSimpleWords": "Practice brings confidence.",
+        "image": {
+          "url": "https://images.pexels.com/photos/33786603/pexels-photo-33786603.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Arjun's First Try — Gilli Danda"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Teamwork and Strategy",
+        "storyContext": "Ravi teaches: 'Watch your opponent. Learn where they hit. Play as a team. The player who hits farthest and returns safely wins.'",
+        "example": {
+          "problem": "How do you win at gilli danda?",
+          "solution": "Skill (hitting far), speed (running fast), and strategy (reading the game)"
+        },
+        "emoji": "🎯",
+        "inSimpleWords": "Games teach teamwork and thinking.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5621962/pexels-photo-5621962.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Teamwork and Strategy — Gilli Danda"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Why This Game Matters",
+        "storyContext": "As the sun sets, Ravi tells Arjun: 'This game connects us to our grandparents and their grandparents. It's part of who we are as Indians.'",
+        "points": [
+          {
+            "label": "Cultural treasure",
+            "text": "Gilli danda is part of Indian heritage, played across villages for millennia"
+          },
+          {
+            "label": "Life lesson",
+            "text": "Sometimes the simplest games teach the deepest lessons about courage, skill, and community"
+          }
+        ],
+        "emoji": "🇮🇳",
+        "inSimpleWords": "Games carry culture and history.",
+        "image": {
+          "url": "https://images.pexels.com/photos/239861/pexels-photo-239861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Why This Game Matters — Gilli Danda"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Play and Learn",
+        "storyContext": "Arjun challenges his friends to play. They form teams. They laugh. They celebrate. They build memories under the village sky.",
+        "points": [
+          {
+            "label": "Your turn",
+            "text": "Learn gilli danda or another traditional game. Play with friends. Feel the connection to your heritage"
+          }
+        ],
+        "emoji": "🎪",
+        "inSimpleWords": "Share games, build friendship.",
+        "image": {
+          "url": "https://images.pexels.com/photos/24428857/pexels-photo-24428857.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Play and Learn — Gilli Danda"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Sunset Wisdom",
+        "storyContext": "As the game ends, Ravi and Arjun sit together. They realize: the game isn't just about winning. It's about playing together, laughing, and making memories.",
+        "emoji": "🌅",
+        "inSimpleWords": "Games are about joy, not just winning.",
+        "image": {
+          "url": "https://images.pexels.com/photos/239861/pexels-photo-239861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sunset Wisdom — Gilli Danda"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Gilli Danda Teaches Us",
+        "storyContext": "A simple game with two sticks teaches skill, courage, strategy, and community. It reminds us that the best treasures are time with friends.",
+        "emoji": "🏆",
+        "inSimpleWords": "Traditional games are forever precious.",
+        "image": {
+          "url": "https://images.pexels.com/photos/31763369/pexels-photo-31763369.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Gilli Danda Teaches Us — Gilli Danda"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "New Words Learned",
+        "storyContext": "Gilli (small stick), danda (larger stick), heritage (cultural inheritance), strategy (game plan), traditional (passed down through time).",
+        "points": [
+          {
+            "label": "Word bank",
+            "text": "gilli, danda, heritage, tradition, strategy, community"
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "Words that celebrate our culture.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "New Words Learned — Gilli Danda"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-6-english-the-raven-and-the-fox",
+    "classLevel": "6",
+    "subject": "English",
+    "chapter": "The Raven and the Fox",
+    "title": "The Raven and the Fox: A Fable of Flattery",
+    "hook": "A vain raven learns a bitter lesson when a cunning fox uses flattery to steal his cheese.",
+    "characters": [
+      {
+        "name": "The Raven",
+        "emoji": "🐦",
+        "role": "vain bird"
+      },
+      {
+        "name": "The Fox",
+        "emoji": "🦊",
+        "role": "cunning trickster"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Prize Cheese",
+        "storyContext": "A raven sits on a high branch with a piece of cheese in his beak. Below, a hungry fox looks up and smiles slyly. 'What a beautiful raven,' she thinks.",
+        "emoji": "🧀",
+        "inSimpleWords": "Vanity makes us easy targets.",
+        "image": {
+          "url": "https://images.pexels.com/photos/32327241/pexels-photo-32327241.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Prize Cheese — The Raven and the Fox"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Fox's Plan",
+        "storyContext": "The fox approaches sweetly: 'Dear Raven, I've heard your voice is the most beautiful of all birds. Would you sing for me?'",
+        "emoji": "🎵",
+        "inSimpleWords": "Flattery can hide bad intentions.",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Fox's Plan — The Raven and the Fox"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Pride and Vanity",
+        "storyContext": "The raven's chest swells with pride. He has always wished to be recognized for his beauty and his voice. The fox's words touch his heart.",
+        "points": [
+          {
+            "label": "What is vanity?",
+            "text": "Excessive pride in one's appearance, abilities, or importance"
+          },
+          {
+            "label": "The danger",
+            "text": "Vanity makes us believe false compliments and blind us to deception"
+          }
+        ],
+        "emoji": "💫",
+        "inSimpleWords": "Pride clouds our judgment.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Pride and Vanity — The Raven and the Fox"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "The Raven Opens His Beak",
+        "storyContext": "Unable to resist, the raven opens his beak to sing. The cheese falls! The fox catches it and laughs: 'You've been fooled, foolish bird!'",
+        "example": {
+          "problem": "Why did the raven fall for such an obvious trick?",
+          "solution": "Because vanity wants to believe compliments, even when they seem too good to be true"
+        },
+        "emoji": "😢",
+        "inSimpleWords": "Vanity leads to our own downfall.",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Raven Opens His Beak — The Raven and the Fox"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Lesson of Flattery",
+        "storyContext": "The raven realizes too late: the fox didn't care about his voice. She only wanted the cheese. Her words were tricks, not truth.",
+        "points": [
+          {
+            "label": "About flattery",
+            "text": "False praise often hides bad intentions. Real friends admire you, but don't ask you to sacrifice things"
+          },
+          {
+            "label": "The moral",
+            "text": "Be wise. Question compliments that ask you to do strange things. A true friend never manipulates you"
+          }
+        ],
+        "emoji": "⚠️",
+        "inSimpleWords": "Not all praise is sincere.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Lesson of Flattery — The Raven and the Fox"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Spot the Flattery",
+        "storyContext": "Someone says: 'You're so smart, you could break that school rule without consequence!' How would you respond?",
+        "points": [
+          {
+            "label": "The answer",
+            "text": "Recognize the flattery. Refuse the trap. Real friends don't ask you to do wrong things"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Guard against flattery in real life.",
+        "image": {
+          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Spot the Flattery — The Raven and the Fox"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Raven's Wisdom",
+        "storyContext": "The raven sits alone, sad and wiser. He learns: kindness matters more than compliments. Humility protects better than pride.",
+        "emoji": "🌙",
+        "inSimpleWords": "Humility is our best defense.",
+        "image": {
+          "url": "https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Raven's Wisdom — The Raven and the Fox"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "The Fable's Gift",
+        "storyContext": "The raven and fox teach us: vanity blinds us. Flattery can deceive us. The answer is humility and wisdom.",
+        "emoji": "🏆",
+        "inSimpleWords": "Be humble. Be wise. Be safe.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8922399/pexels-photo-8922399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Fable's Gift — The Raven and the Fox"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "New Words Learned",
+        "storyContext": "Vanity (excessive pride), flattery (false praise), deception (trickery), humility (modesty), slyly (cleverly and sneakily).",
+        "points": [
+          {
+            "label": "Word bank",
+            "text": "vanity, flattery, deception, humility, sly, manipulate"
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "Words of wisdom and warning.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "New Words Learned — The Raven and the Fox"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-6-english-rama-to-the-rescue",
+    "classLevel": "6",
+    "subject": "English",
+    "chapter": "Rama to the Rescue",
+    "title": "Rama to the Rescue: Courage and Duty",
+    "hook": "From the Ramayana, Rama's journey teaches us about duty, courage, and the triumph of good over evil.",
+    "characters": [
+      {
+        "name": "Rama",
+        "emoji": "🏹",
+        "role": "brave prince"
+      },
+      {
+        "name": "Sita",
+        "emoji": "👑",
+        "role": "princess in need"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Sita Is Taken",
+        "storyContext": "The evil Ravana captures Princess Sita and takes her across the ocean to his island kingdom of Lanka. Rama learns of her suffering and swears to rescue her.",
+        "emoji": "💔",
+        "inSimpleWords": "Even heroes face their darkest tests.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5329056/pexels-photo-5329056.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sita Is Taken — Rama to the Rescue"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Journey Begins",
+        "storyContext": "Rama and his loyal brother Lakshmana, joined by the brave monkey king Hanuman, begin a dangerous journey across mountains and oceans.",
+        "emoji": "🗻",
+        "inSimpleWords": "True friends stand with you always.",
+        "image": {
+          "url": "https://images.pexels.com/photos/12719341/pexels-photo-12719341.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Journey Begins — Rama to the Rescue"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Duty Over Comfort",
+        "storyContext": "Rama could have stayed in his palace, safe and comfortable. Instead, he chose duty: to save Sita and protect dharma (righteousness).",
+        "points": [
+          {
+            "label": "Rama's choice",
+            "text": "He left comfort, family, and safety to fulfill his duty"
+          },
+          {
+            "label": "The lesson",
+            "text": "True courage means doing what is right, even when it is hard and dangerous"
+          }
+        ],
+        "emoji": "⚔️",
+        "inSimpleWords": "Duty matters more than comfort.",
+        "image": {
+          "url": "https://images.pexels.com/photos/12719341/pexels-photo-12719341.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Duty Over Comfort — Rama to the Rescue"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Hanuman's Loyalty",
+        "storyContext": "Hanuman, Rama's devoted follower, offers his service: 'I will cross the ocean alone to find Sita and bring news to you.' He loves Rama with all his heart.",
+        "example": {
+          "problem": "How do we show loyalty to those we love?",
+          "solution": "By standing with them, helping them, and never abandoning them in times of need"
+        },
+        "emoji": "🐵",
+        "inSimpleWords": "Loyalty is love in action.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Hanuman's Loyalty — Rama to the Rescue"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Battle for Dharma",
+        "storyContext": "Rama and Ravana clash in a final battle. Rama fights not from anger, but from duty. He defeats evil and rescues Sita, restoring righteousness.",
+        "points": [
+          {
+            "label": "Good vs. evil",
+            "text": "Rama represents dharma (righteousness), Ravana represents adharma (unrighteousness)"
+          },
+          {
+            "label": "The truth",
+            "text": "Good will always triumph over evil, but it requires courage, sacrifice, and unwavering truth"
+          }
+        ],
+        "emoji": "⚡",
+        "inSimpleWords": "Good triumphs through courage.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Battle for Dharma — Rama to the Rescue"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "What Would You Do?",
+        "storyContext": "If someone you loved was in danger far away, would you risk everything to rescue them? What sacrifices would you make?",
+        "points": [
+          {
+            "label": "Your answer",
+            "text": "Think about the people you love and the duties you have toward them"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Love and duty shape who we are.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Would You Do? — Rama to the Rescue"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Sita's Return",
+        "storyContext": "Sita is found and rescued! But Rama's duty extends beyond: he must rule justly and protect his kingdom for all his people.",
+        "emoji": "✨",
+        "inSimpleWords": "Victory brings new responsibilities.",
+        "image": {
+          "url": "https://images.pexels.com/photos/9903736/pexels-photo-9903736.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sita's Return — Rama to the Rescue"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Rama's Legacy",
+        "storyContext": "Rama teaches: courage faces evil. Duty binds us to those we love. Righteousness triumphs. These are truths that echo through millennia.",
+        "emoji": "🏆",
+        "inSimpleWords": "Rama shows us how to live truly.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5329056/pexels-photo-5329056.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Rama's Legacy — Rama to the Rescue"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "New Words Learned",
+        "storyContext": "Dharma (righteousness), adharma (unrighteousness), loyalty (faithful devotion), sacrifice (giving up for others), triumph (victory).",
+        "points": [
+          {
+            "label": "Word bank",
+            "text": "dharma, adharma, loyalty, duty, sacrifice, triumph, righteousness"
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "Words of Indian epic wisdom.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "New Words Learned — Rama to the Rescue"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-6-english-the-unlikely-best-friends",
+    "classLevel": "6",
+    "subject": "English",
+    "chapter": "The Unlikely Best Friends",
+    "title": "The Unlikely Best Friends: Friendship Beyond Differences",
+    "hook": "A lion and a mouse prove that true friendship knows no size, strength, or difference. Together, they're unstoppable.",
+    "characters": [
+      {
+        "name": "The Lion",
+        "emoji": "🦁",
+        "role": "powerful but kind"
+      },
+      {
+        "name": "The Mouse",
+        "emoji": "🐭",
+        "role": "small but brave"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "An Unlikely Meeting",
+        "storyContext": "A tiny mouse stumbles into a lion's den. The lion could crush him with one paw. Instead, the mouse looks up bravely and says: 'Please don't hurt me.'",
+        "emoji": "🤝",
+        "inSimpleWords": "Kindness can bridge any gap.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8922399/pexels-photo-8922399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "An Unlikely Meeting — The Unlikely Best Friends"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Mouse's Promise",
+        "storyContext": "The lion smiles and lets the mouse go free. The mouse bows and promises: 'Someday, I will repay your kindness.' The lion laughs at such a small promise.",
+        "emoji": "💝",
+        "inSimpleWords": "Even small promises matter.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5745519/pexels-photo-5745519.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Mouse's Promise — The Unlikely Best Friends"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Friendship Without Judgment",
+        "storyContext": "The lion and mouse become friends. The lion doesn't look down on the mouse for being small. The mouse doesn't fear the lion for being strong. They see each other's hearts.",
+        "points": [
+          {
+            "label": "True friendship",
+            "text": "Doesn't judge by size, strength, wealth, or appearance"
+          },
+          {
+            "label": "The lesson",
+            "text": "Real friends value character and kindness, not external differences"
+          }
+        ],
+        "emoji": "👥",
+        "inSimpleWords": "Friendship sees the real you.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Friendship Without Judgment — The Unlikely Best Friends"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "The Rescue",
+        "storyContext": "One day, hunters capture the lion in a net. He roars in anger and fear. The mouse appears and gnaws through the ropes with tiny but determined teeth.",
+        "example": {
+          "problem": "How can a tiny mouse help a mighty lion?",
+          "solution": "Through courage, determination, and the fact that friendship isn't about size—it's about heart"
+        },
+        "emoji": "⛓️",
+        "inSimpleWords": "Small acts of courage matter most.",
+        "image": {
+          "url": "https://images.pexels.com/photos/34082713/pexels-photo-34082713.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Rescue — The Unlikely Best Friends"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Power of Helping Others",
+        "storyContext": "The lion is free! He realizes: the mouse kept his promise. A small friend with a big heart is worth more than a thousand powerful enemies.",
+        "points": [
+          {
+            "label": "The wisdom",
+            "text": "Never underestimate anyone. Never assume you can't make a difference"
+          },
+          {
+            "label": "About gratitude",
+            "text": "True friends remember kindness and return it, no matter the cost"
+          }
+        ],
+        "emoji": "🌟",
+        "inSimpleWords": "Kindness always comes back.",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Power of Helping Others — The Unlikely Best Friends"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Find Your Unlikely Friend",
+        "storyContext": "Is there someone very different from you whom you could befriend? What differences do you notice? What similarities do you share?",
+        "points": [
+          {
+            "label": "Your reflection",
+            "text": "The best friendships often cross boundaries of age, background, ability, and belief"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Differences make friendships richer.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Find Your Unlikely Friend — The Unlikely Best Friends"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Friends Forever",
+        "storyContext": "The lion and mouse walk together through the forest. The lion tall and strong, the mouse small but brave. They need each other. They complete each other.",
+        "emoji": "🌲",
+        "inSimpleWords": "True friendship is forever.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5621962/pexels-photo-5621962.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Friends Forever — The Unlikely Best Friends"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "The Fable's Truth",
+        "storyContext": "Size doesn't matter. Strength doesn't matter. What matters is kindness, loyalty, courage, and the choice to see the best in others.",
+        "emoji": "🏆",
+        "inSimpleWords": "All hearts are equal in friendship.",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Fable's Truth — The Unlikely Best Friends"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "New Words Learned",
+        "storyContext": "Unlikely (surprising), determined (fixed in purpose), gratitude (thankfulness), character (moral qualities), loyalty (faithfulness).",
+        "points": [
+          {
+            "label": "Word bank",
+            "text": "unlikely, determined, gratitude, character, loyalty, kindness"
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "Words that celebrate true friendship.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "New Words Learned — The Unlikely Best Friends"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-6-english-what-a-bird-thought",
+    "classLevel": "6",
+    "subject": "English",
+    "chapter": "What a Bird Thought",
+    "title": "What a Bird Thought: A Gentle Poem of Perspective",
+    "hook": "Through a bird's eyes, we see that the world we know is vast and mysterious to those who see it differently.",
+    "characters": [
+      {
+        "name": "The Bird",
+        "emoji": "🕊️",
+        "role": "observer and dreamer"
+      },
+      {
+        "name": "The Child",
+        "emoji": "👧",
+        "role": "curious wonderer"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Bird's Window",
+        "storyContext": "A small bird perches on a child's window. It watches the world of rooms and houses below. To the bird, human spaces are as strange as clouds are to us.",
+        "emoji": "🪟",
+        "inSimpleWords": "Every creature sees the world differently.",
+        "image": {
+          "url": "https://images.pexels.com/photos/9060601/pexels-photo-9060601.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Bird's Window — What a Bird Thought"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What Does the Bird Think?",
+        "storyContext": "The bird wonders: What are these glass barriers? Why don't humans fly? Why do they stay in boxes? To the bird, humans are the curious creatures.",
+        "points": [
+          {
+            "label": "Perspective shift",
+            "text": "Things we think are normal seem strange to others who see them differently"
+          },
+          {
+            "label": "The learning",
+            "text": "Understanding how others view our world teaches us humility and empathy"
+          }
+        ],
+        "emoji": "🤔",
+        "inSimpleWords": "Different eyes see different truths.",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Does the Bird Think? — What a Bird Thought"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Bird's Freedom",
+        "storyContext": "The bird flies away, soaring above the houses. The child watches from the window. Each sees the other as unable to understand their world.",
+        "emoji": "🌤️",
+        "inSimpleWords": "Freedom looks different to different beings.",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Bird's Freedom — What a Bird Thought"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "What the Bird Knows",
+        "storyContext": "The bird knows the vastness of the sky, the joy of wind under wings, the loneliness of migration. These are truths the child might never fully understand.",
+        "example": {
+          "problem": "How do we understand things so different from us?",
+          "solution": "Through imagination, kindness, and respect for ways of life unlike our own"
+        },
+        "emoji": "🌍",
+        "inSimpleWords": "Imagination bridges all differences.",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What the Bird Knows — What a Bird Thought"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Poem's Deeper Meaning",
+        "storyContext": "The poem teaches: we are all creatures in a vast world. What seems normal to us is strange to others. Every perspective is valid.",
+        "points": [
+          {
+            "label": "About empathy",
+            "text": "To understand someone, try to see the world through their eyes"
+          },
+          {
+            "label": "The beauty",
+            "text": "Diversity of perspective makes the world richer, not more confusing"
+          }
+        ],
+        "emoji": "💫",
+        "inSimpleWords": "Kindness grows from understanding.",
+        "image": {
+          "url": "https://images.pexels.com/photos/32961009/pexels-photo-32961009.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Poem's Deeper Meaning — What a Bird Thought"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "See Through Another's Eyes",
+        "storyContext": "Choose an animal: a dog, fish, or ant. What might they think about human life? How might their day look from their perspective?",
+        "points": [
+          {
+            "label": "Try this",
+            "text": "Write or draw what a dog might think about your daily life. How strange might it seem to them?"
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Perspective teaches empathy.",
+        "image": {
+          "url": "https://images.pexels.com/photos/36385086/pexels-photo-36385086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "See Through Another's Eyes — What a Bird Thought"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Connection Across Worlds",
+        "storyContext": "The bird flies back to the window. The child smiles. For a moment, their eyes meet. Two worlds touch, and each wonders about the other.",
+        "emoji": "✨",
+        "inSimpleWords": "We're all connected by wonder.",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Connection Across Worlds — What a Bird Thought"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "The Lesson of Perspective",
+        "storyContext": "What a bird thinks teaches us: the world is vast. Perspectives vary. Kindness means honoring all ways of seeing and being.",
+        "emoji": "🏆",
+        "inSimpleWords": "Every viewpoint has value and beauty.",
+        "image": {
+          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Lesson of Perspective — What a Bird Thought"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "New Words Learned",
+        "storyContext": "Perspective (way of seeing), empathy (understanding others' feelings), migrant (one who travels), vast (very large), validity (truth or worth).",
+        "points": [
+          {
+            "label": "Word bank",
+            "text": "perspective, empathy, vast, wonder, diverse, perception"
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "Words that deepen understanding.",
+        "image": {
+          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "New Words Learned — What a Bird Thought"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-7-english-day-river-spoke",
+    "classLevel": "7",
+    "subject": "English",
+    "chapter": "The Day the River Spoke",
+    "chapterAliases": [
+      "River's Voice"
+    ],
+    "title": "When the River Whispered Secrets",
+    "hook": "A river finds its voice and teaches a village an ancient truth.",
+    "characters": [
+      {
+        "name": "Ravi",
+        "emoji": "👦",
+        "role": "Curious village boy"
+      },
+      {
+        "name": "The River",
+        "emoji": "🌊",
+        "role": "Ancient force of nature"
+      },
+      {
+        "name": "Village Elder",
+        "emoji": "👴",
+        "role": "Keeper of wisdom"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Boy by the Water's Edge",
+        "storyContext": "Ravi sits alone by the river at sunrise, listening to its constant flow. He has always felt drawn to its sound, but today something feels different—expectant.",
+        "points": [
+          {
+            "label": "Setting",
+            "text": "A small village where the river runs through daily life"
+          },
+          {
+            "label": "Mood",
+            "text": "Peaceful, slightly magical, and mysterious"
+          }
+        ],
+        "inSimpleWords": "A boy hears the river like never before",
+        "emoji": "🌅",
+        "image": {
+          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Boy by the Water's Edge — The Day the River Spoke"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The River Begins to Speak",
+        "storyContext": "The river's sound shifts—not words exactly, but a voice that Ravi understands in his heart. It speaks of its journey from the mountains, of feeding the crops and carrying away sorrows.",
+        "points": [
+          {
+            "label": "What the river says",
+            "text": "I have carried your joys and washed away your tears for a thousand years"
+          }
+        ],
+        "inSimpleWords": "The river shares its story of patience and service",
+        "emoji": "💬",
+        "image": {
+          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The River Begins to Speak — The Day the River Spoke"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The River's Lesson on Flow",
+        "storyContext": "The river teaches Ravi that life, like water, must keep moving. It doesn't fight the rocks—it flows around them. It doesn't hold onto the past; it carries everything forward.",
+        "points": [
+          {
+            "label": "The teaching",
+            "text": "Obstacles don't stop flowing water; they only change its direction"
+          },
+          {
+            "label": "Life metaphor",
+            "text": "Problems and challenges shape our journey but don't end it"
+          }
+        ],
+        "inSimpleWords": "Problems shape us, not stop us",
+        "emoji": "🪨",
+        "image": {
+          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The River's Lesson on Flow — The Day the River Spoke"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "A Forgotten Truth Remembered",
+        "storyContext": "Ravi learns that the village once knew this wisdom—their ancestors drank from the river not just for water, but to remember they were part of something bigger, something eternal.",
+        "points": [
+          {
+            "label": "Cultural connection",
+            "text": "Rivers are sacred to our ancestors and traditions"
+          }
+        ],
+        "inSimpleWords": "Our roots run as deep as rivers run long",
+        "emoji": "🌳",
+        "image": {
+          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Forgotten Truth Remembered — The Day the River Spoke"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "When Ravi Shares the Message",
+        "storyContext": "Ravi runs to the village elder and recounts what he heard. The elder smiles and says: 'The river doesn't speak with words—it speaks through listening.'",
+        "example": {
+          "problem": "The village has forgotten why they value the river",
+          "solution": "One boy's attention and one river's patience bring the lesson back alive"
+        },
+        "inSimpleWords": "Listening teaches more than talking ever can",
+        "emoji": "👂",
+        "image": {
+          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "When Ravi Shares the Message — The Day the River Spoke"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Flow, Adapt, Eternal",
+        "points": [
+          {
+            "label": "Flow",
+            "text": "To move continuously and naturally (like water, life, time)"
+          },
+          {
+            "label": "Adapt",
+            "text": "To change and adjust to new situations without losing your essence"
+          },
+          {
+            "label": "Eternal",
+            "text": "Something that lasts forever, unchanging through time"
+          }
+        ],
+        "inSimpleWords": "Words that help us understand the river's wisdom",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Flow, Adapt, Eternal — The Day the River Spoke"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "The River's Gift: Embrace Flow",
+        "storyContext": "Nature teaches us to keep moving forward, to flow around obstacles, and to remember our connection to something timeless and bigger than ourselves.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "Life flows best when we stop fighting change and start flowing with it"
+          },
+          {
+            "label": "Life lesson",
+            "text": "Like rivers, we are strongest when we adapt, persist, and remember our roots"
+          }
+        ],
+        "inSimpleWords": "Flow like water; last like time",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The River's Gift: Embrace Flow — The Day the River Spoke"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-7-english-try-again",
+    "classLevel": "7",
+    "subject": "English",
+    "chapter": "Try Again",
+    "chapterAliases": [
+      "Never Give Up"
+    ],
+    "title": "The Power of One More Attempt",
+    "hook": "Every failure is one step closer to success when you refuse to quit.",
+    "characters": [
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "Determined student"
+      },
+      {
+        "name": "Mathematics",
+        "emoji": "🔢",
+        "role": "The challenge she faces"
+      },
+      {
+        "name": "Mother",
+        "emoji": "👩",
+        "role": "Steady voice of encouragement"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "First Attempt: The Disappointment",
+        "storyContext": "Maya fails her first maths test. She stares at the red mark and feels her confidence crumble. Her friends move on to the next chapter, but Maya is stuck on shame.",
+        "points": [
+          {
+            "label": "Emotion",
+            "text": "Fear that she's not smart enough"
+          },
+          {
+            "label": "Reality",
+            "text": "One failure, one test—nothing more"
+          }
+        ],
+        "inSimpleWords": "One test feels like the end of everything",
+        "emoji": "😔",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "First Attempt: The Disappointment — Try Again"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Voice That Says Try Again",
+        "storyContext": "Her mother finds her crying. Instead of fixing the problem, she says: 'Did you try everything possible? If not, then you haven't failed—you've just collected one way that doesn't work.'",
+        "points": [
+          {
+            "label": "Reframe",
+            "text": "Failure is data, not destiny"
+          }
+        ],
+        "inSimpleWords": "Failure is feedback, not finish",
+        "emoji": "💬",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Voice That Says Try Again — Try Again"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Attempt Two: A Different Strategy",
+        "storyContext": "Maya doesn't give up. She finds a tutor, practices daily, and asks questions. She fails again—but this time she scores higher. More importantly, she begins to understand.",
+        "points": [
+          {
+            "label": "Progress",
+            "text": "Second attempt shows improvement, even if not perfect"
+          },
+          {
+            "label": "Learning",
+            "text": "Each try teaches her something new about herself"
+          }
+        ],
+        "inSimpleWords": "The second try teaches more than the first",
+        "emoji": "📈",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Attempt Two: A Different Strategy — Try Again"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Attempt Three: Confidence Returns",
+        "storyContext": "By the third attempt, Maya not only passes—she scores well. But more important, she knows she did it. No one else handed it to her. She earned it.",
+        "points": [
+          {
+            "label": "Success",
+            "text": "Built on repeated effort and refusal to quit"
+          },
+          {
+            "label": "Inner strength",
+            "text": "She discovered her own resilience"
+          }
+        ],
+        "inSimpleWords": "Success comes to those who keep trying",
+        "emoji": "🏆",
+        "image": {
+          "url": "https://images.pexels.com/photos/6482238/pexels-photo-6482238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Attempt Three: Confidence Returns — Try Again"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "When Others Notice the Change",
+        "storyContext": "Her friends ask how she did it. Maya smiles and says: 'I tried again. And again. And again. Until trying became winning.'",
+        "example": {
+          "problem": "Failing and feeling defeated",
+          "solution": "Trying again with a better plan, more effort, and more belief"
+        },
+        "inSimpleWords": "One more try often makes all the difference",
+        "emoji": "💪",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "When Others Notice the Change — Try Again"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Persist, Resilience, Attempt",
+        "points": [
+          {
+            "label": "Persist",
+            "text": "To keep going even when things are hard"
+          },
+          {
+            "label": "Resilience",
+            "text": "The strength to bounce back after a fall"
+          },
+          {
+            "label": "Attempt",
+            "text": "An effort or try, whether successful or not"
+          }
+        ],
+        "inSimpleWords": "Words that build champions from struggle",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/38291754/pexels-photo-38291754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Persist, Resilience, Attempt — Try Again"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Try Again: The Secret of the Undefeated",
+        "storyContext": "The only true failure is not trying at all. Every attempt, even failed ones, moves you forward. Success belongs to those willing to try one more time.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "Failure is the tuition paid to wisdom; keep paying until you graduate"
+          },
+          {
+            "label": "Life lesson",
+            "text": "Your age at success is less important than your refusal to stop trying"
+          }
+        ],
+        "inSimpleWords": "Keep trying; success follows persistence",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Try Again: The Secret of the Undefeated — Try Again"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-7-english-three-days-see",
+    "classLevel": "7",
+    "subject": "English",
+    "chapter": "Three Days to See",
+    "chapterAliases": [
+      "If You Had Three Days",
+      "The Gift of Sight"
+    ],
+    "title": "Three Days to See Everything That Matters",
+    "hook": "What would you do if you could only see for three days? A profound reflection on gratitude.",
+    "characters": [
+      {
+        "name": "Helen",
+        "emoji": "👩",
+        "role": "Woman who reimagines sight"
+      },
+      {
+        "name": "An Imagined Friend",
+        "emoji": "👫",
+        "role": "Our guide through the days"
+      },
+      {
+        "name": "Nature and Time",
+        "emoji": "⏳",
+        "role": "The real teachers"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Day One: See the People I Love",
+        "storyContext": "If given three days to see, the first day would be spent with loved ones—studying their faces, the way they move, the expressions they wear when they laugh or think.",
+        "points": [
+          {
+            "label": "Focus",
+            "text": "The faces of those who matter most"
+          },
+          {
+            "label": "Realization",
+            "text": "We often live with people we've stopped truly seeing"
+          }
+        ],
+        "inSimpleWords": "A day to see the faces of those we love",
+        "emoji": "👨‍👩‍👧",
+        "image": {
+          "url": "https://images.pexels.com/photos/6482238/pexels-photo-6482238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Day One: See the People I Love — Three Days to See"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Day Two: See the Beauty of the World",
+        "storyContext": "The second day is spent in nature—watching a sunset paint the sky, studying the detail of a leaf, watching water move. Not rushing, just seeing.",
+        "points": [
+          {
+            "label": "Nature's gifts",
+            "text": "Colors, shapes, light, movement—all around us, usually ignored"
+          },
+          {
+            "label": "Gratitude",
+            "text": "We take beauty for granted until it's gone"
+          }
+        ],
+        "inSimpleWords": "A day to see the art of creation",
+        "emoji": "🌅",
+        "image": {
+          "url": "https://images.pexels.com/photos/31965567/pexels-photo-31965567.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Day Two: See the Beauty of the World — Three Days to See"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Day Three: See How We Live",
+        "storyContext": "The last day is spent in the world—seeing how people work, play, struggle, and dream. The streets, the shops, the ordinary magic of everyday life.",
+        "points": [
+          {
+            "label": "Perspective",
+            "text": "How other people live teaches us about ourselves"
+          }
+        ],
+        "inSimpleWords": "A day to understand the human world",
+        "emoji": "🌍",
+        "image": {
+          "url": "https://images.pexels.com/photos/26861411/pexels-photo-26861411.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Day Three: See How We Live — Three Days to See"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Real Gift: Seeing Beyond Sight",
+        "storyContext": "The exercise isn't about eyes—it's about attention. Even those with sight often live blind. True sight means truly looking at what we have right now.",
+        "points": [
+          {
+            "label": "Real blindness",
+            "text": "Ignoring beauty because we're used to it"
+          },
+          {
+            "label": "Real sight",
+            "text": "Giving full attention to what's in front of us"
+          }
+        ],
+        "inSimpleWords": "Most of us have eyes but don't see",
+        "emoji": "👁️",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864391/pexels-photo-31864391.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Real Gift: Seeing Beyond Sight — Three Days to See"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "What This Teaches Us Today",
+        "storyContext": "A student reads this and decides to truly look at her mother for a minute—really look. She notices things she'd never seen before: how her hands move, the depth in her eyes. One minute of true sight changes everything.",
+        "example": {
+          "problem": "We live surrounded by beauty and people we love but barely see them",
+          "solution": "Practice true attention—stop rushing and actually look at what matters"
+        },
+        "inSimpleWords": "Real sight begins with paying real attention",
+        "emoji": "💝",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What This Teaches Us Today — Three Days to See"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Grateful, Precious, Awareness",
+        "points": [
+          {
+            "label": "Grateful",
+            "text": "Feeling thankful for what you have, not what you lack"
+          },
+          {
+            "label": "Precious",
+            "text": "Valuable and rare—worth protecting and honoring"
+          },
+          {
+            "label": "Awareness",
+            "text": "True notice of what's actually around you in this moment"
+          }
+        ],
+        "inSimpleWords": "Words that teach us to see like we're about to lose it",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Grateful, Precious, Awareness — Three Days to See"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Three Days to See: The Gift Is Now",
+        "storyContext": "We don't need three days to see—we have today. The real question is: will we truly look at the faces we love, the beauty around us, and the remarkable ordinary life we're living?",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "True sight means paying real attention to what's already yours"
+          },
+          {
+            "label": "Action",
+            "text": "Stop rushing; really look at one person, one moment, one beauty today"
+          }
+        ],
+        "inSimpleWords": "You already have three days: yesterday, today, tomorrow",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/8423410/pexels-photo-8423410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Three Days to See: The Gift Is Now — Three Days to See"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-7-english-funny-man",
+    "classLevel": "7",
+    "subject": "English",
+    "chapter": "A Funny Man",
+    "chapterAliases": [
+      "The Man Who Made Others Laugh"
+    ],
+    "title": "The Wisdom Hidden in Laughter",
+    "hook": "A comic teaches the village that sometimes the funniest person carries the deepest truths.",
+    "characters": [
+      {
+        "name": "Govinda",
+        "emoji": "🤡",
+        "role": "The village comedian"
+      },
+      {
+        "name": "The Village",
+        "emoji": "👥",
+        "role": "His audience and sometimes his target"
+      },
+      {
+        "name": "A Wealthy Man",
+        "emoji": "💼",
+        "role": "Someone who learns from laughter"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Funny Man Arrives",
+        "storyContext": "Govinda walks into the village with jokes, pranks, and exaggerated movements. He is poor, ragged, and dismissed by the wealthy. But the poor and children laugh until their sides hurt.",
+        "points": [
+          {
+            "label": "Status",
+            "text": "Society sees him as low and useless"
+          },
+          {
+            "label": "Truth",
+            "text": "He brings more joy than any rich man in the village"
+          }
+        ],
+        "inSimpleWords": "A poor man with the richest gift: laughter",
+        "emoji": "😂",
+        "image": {
+          "url": "https://images.pexels.com/photos/24428857/pexels-photo-24428857.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Funny Man Arrives — A Funny Man"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "When a Rich Man Wants to Hire Him",
+        "storyContext": "A wealthy businessman hires Govinda to entertain at his feast. But Govinda uses his humor to gently mock the rich man's greed, vanity, and unkindness. The guests laugh—but so does the truth.",
+        "points": [
+          {
+            "label": "Hidden message",
+            "text": "The funniest jokes say what needs to be said without anger"
+          },
+          {
+            "label": "Power",
+            "text": "Humor can teach where lectures cannot"
+          }
+        ],
+        "inSimpleWords": "His jokes say what silence hides",
+        "emoji": "🎭",
+        "image": {
+          "url": "https://images.pexels.com/photos/37956313/pexels-photo-37956313.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "When a Rich Man Wants to Hire Him — A Funny Man"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Rich Man's Realization",
+        "storyContext": "After laughing at jokes about himself, the wealthy man begins to see his own foolishness. His anger turns to shame, then to change. The funny man has taught him through laughter.",
+        "points": [
+          {
+            "label": "Transformation",
+            "text": "A man changes because of what made him laugh, not what made him sad"
+          }
+        ],
+        "inSimpleWords": "Laughter heals what anger wounds",
+        "emoji": "💡",
+        "image": {
+          "url": "https://images.pexels.com/photos/8922399/pexels-photo-8922399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Rich Man's Realization — A Funny Man"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Deeper Gift of Humor",
+        "storyContext": "Govinda's humor isn't just entertainment—it's wisdom in disguise. A good joke speaks truth in a way that doesn't hurt. It opens ears that pride has closed.",
+        "points": [
+          {
+            "label": "Humor as mirror",
+            "text": "Comedy shows us ourselves without shame"
+          },
+          {
+            "label": "Humor as medicine",
+            "text": "Laughter heals pain and brings people closer together"
+          }
+        ],
+        "inSimpleWords": "The best jokes teach the deepest lessons",
+        "emoji": "🎪",
+        "image": {
+          "url": "https://images.pexels.com/photos/6482238/pexels-photo-6482238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Deeper Gift of Humor — A Funny Man"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "When the Village Sees the Truth",
+        "storyContext": "A student uses humor to help a bully see his own meanness. When everyone laughs, the bully gets it—not because he was attacked, but because he was seen and forgiven.",
+        "example": {
+          "problem": "A bully hurt others and no lecture changed him",
+          "solution": "Good humor showed him the truth in a way he could hear it"
+        },
+        "inSimpleWords": "Kindness wrapped in laughter reaches hearts lectures never can",
+        "emoji": "❤️",
+        "image": {
+          "url": "https://images.pexels.com/photos/24428857/pexels-photo-24428857.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "When the Village Sees the Truth — A Funny Man"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Humor, Mock, Wisdom",
+        "points": [
+          {
+            "label": "Humor",
+            "text": "The quality of being funny; but also the perception of truth through laughter"
+          },
+          {
+            "label": "Mock",
+            "text": "To laugh at someone's follies, but gently—showing, not shaming"
+          },
+          {
+            "label": "Wisdom",
+            "text": "Understanding that grows when we can laugh at ourselves"
+          }
+        ],
+        "inSimpleWords": "Words that teach us humor is more than giggles",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/38291754/pexels-photo-38291754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Humor, Mock, Wisdom — A Funny Man"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "A Funny Man: Laughter as Truth",
+        "storyContext": "The wisest teachers sometimes wear the costume of fools. True humor teaches without wounding; it brings people together by showing them what they need to see about themselves.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "A good joke is a gift wrapped in laughter that gives you truth"
+          },
+          {
+            "label": "Life lesson",
+            "text": "The ability to laugh at yourself is the beginning of wisdom"
+          }
+        ],
+        "inSimpleWords": "The funniest people teach us most seriously",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/8501530/pexels-photo-8501530.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Funny Man: Laughter as Truth — A Funny Man"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-7-english-paper-boats",
+    "classLevel": "7",
+    "subject": "English",
+    "chapter": "Paper Boats",
+    "chapterAliases": [
+      "Where Do Dreams Float"
+    ],
+    "title": "Dreams That Float on Water",
+    "hook": "A child's paper boats carry wishes downstream toward hope and meaning.",
+    "characters": [
+      {
+        "name": "A Child",
+        "emoji": "👧",
+        "role": "Dreamer and creator"
+      },
+      {
+        "name": "The Stream",
+        "emoji": "💧",
+        "role": "Carrier of dreams"
+      },
+      {
+        "name": "The Mother",
+        "emoji": "👩",
+        "role": "Keeper of wonder"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Child Folds Paper into Boats",
+        "storyContext": "With careful hands, a child folds paper boats. Each one is a wish, a hope, a dream written or imagined. The river waits below—a pathway to somewhere magical.",
+        "points": [
+          {
+            "label": "Creation",
+            "text": "From paper and imagination comes an object of meaning"
+          },
+          {
+            "label": "Ritual",
+            "text": "The child understands these boats carry something important"
+          }
+        ],
+        "inSimpleWords": "Folding wishes into paper boats",
+        "emoji": "⛵",
+        "image": {
+          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Child Folds Paper into Boats — Paper Boats"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Setting Them Free",
+        "storyContext": "The child releases the boats into the stream. Each one floats downstream, carrying its wish into the unknown. The child watches, neither sad nor wholly happy—just present.",
+        "points": [
+          {
+            "label": "Letting go",
+            "text": "Hopes can only travel if released"
+          },
+          {
+            "label": "Trust",
+            "text": "The child trusts something bigger to carry the wish forward"
+          }
+        ],
+        "inSimpleWords": "Releasing dreams into the current of life",
+        "emoji": "🌊",
+        "image": {
+          "url": "https://images.pexels.com/photos/13077899/pexels-photo-13077899.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Setting Them Free — Paper Boats"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Mother Asks: Where Do They Go?",
+        "storyContext": "The mother joins the child. 'Where do you think they go?' she asks. The child doesn't answer with logic—only with the feeling that they go somewhere that matters, somewhere real.",
+        "points": [
+          {
+            "label": "Mystery",
+            "text": "Not all important things have logical destinations"
+          },
+          {
+            "label": "Meaning",
+            "text": "The journey is as important as arrival"
+          }
+        ],
+        "inSimpleWords": "The magic is in the believing, not the knowing",
+        "emoji": "🤔",
+        "image": {
+          "url": "https://images.pexels.com/photos/9872961/pexels-photo-9872961.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Mother Asks: Where Do They Go? — Paper Boats"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What Paper Boats Really Mean",
+        "storyContext": "The boats represent how we send our hopes and dreams into the world. We create them with intention, release them with faith, and trust that they matter even when we cannot follow where they go.",
+        "points": [
+          {
+            "label": "Symbolism",
+            "text": "Paper boats are how childhood understands destiny"
+          },
+          {
+            "label": "Truth",
+            "text": "Many of our deepest wishes are released and trusted to the universe"
+          }
+        ],
+        "inSimpleWords": "Dreams need rivers and courage to matter",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/13077899/pexels-photo-13077899.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Paper Boats Really Mean — Paper Boats"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "A Grown-Up Remembers",
+        "storyContext": "A teenager remembers folding boats as a child. She realizes now that she still sends out wishes—through effort, kindness, art, and dreams. The rivers are just different now.",
+        "example": {
+          "problem": "As we grow, we stop making wishes, stop trusting they matter",
+          "solution": "Rediscovering that we still fold paper boats—just with different hands"
+        },
+        "inSimpleWords": "Growing up means folding bigger boats with deeper hopes",
+        "emoji": "🎯",
+        "image": {
+          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Grown-Up Remembers — Paper Boats"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Intention, Destiny, Wonder",
+        "points": [
+          {
+            "label": "Intention",
+            "text": "The purpose and meaning we put into what we create"
+          },
+          {
+            "label": "Destiny",
+            "text": "The path our hopes follow once we release them"
+          },
+          {
+            "label": "Wonder",
+            "text": "The magical feeling of believing in something bigger than we are"
+          }
+        ],
+        "inSimpleWords": "Words that help us understand the language of dreams",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/38291754/pexels-photo-38291754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Intention, Destiny, Wonder — Paper Boats"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Paper Boats: Where Dreams Float Forever",
+        "storyContext": "Every dream we release matters, whether or not we see where it lands. The act of creating it, folding it with care, and releasing it with hope is the real magic.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "Our hopes matter not because they're guaranteed to arrive, but because we dared to send them"
+          },
+          {
+            "label": "Life lesson",
+            "text": "Never stop folding paper boats—they are how we stay connected to hope"
+          }
+        ],
+        "inSimpleWords": "Keep folding; keep releasing; keep trusting",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/13077899/pexels-photo-13077899.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Paper Boats: Where Dreams Float Forever — Paper Boats"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-8-english-wit-won-hearts",
+    "classLevel": "8",
+    "subject": "English",
+    "chapter": "The Wit that Won Hearts",
+    "chapterAliases": [
+      "Cleverness Over Cruelty"
+    ],
+    "title": "When Clever Words Build Bridges",
+    "hook": "A clever person uses wit not to wound but to win friendship and respect.",
+    "characters": [
+      {
+        "name": "Manohar",
+        "emoji": "🧠",
+        "role": "A man known for his wit"
+      },
+      {
+        "name": "The Proud Minister",
+        "emoji": "👑",
+        "role": "A man needing humbling"
+      },
+      {
+        "name": "The King",
+        "emoji": "👨‍⚖️",
+        "role": "Witness to wisdom"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Man of Quick Tongue",
+        "storyContext": "Manohar is known in the kingdom for his wit and clever responses. When others speak foolishness, he has a response that makes people laugh and think. But many fear him—a sharp tongue can wound.",
+        "points": [
+          {
+            "label": "Danger of wit",
+            "text": "Intelligence without kindness can isolate and harm"
+          },
+          {
+            "label": "Complexity",
+            "text": "Clever people are not always loved"
+          }
+        ],
+        "inSimpleWords": "Smart words without kindness hurt more than help",
+        "emoji": "💬",
+        "image": {
+          "url": "https://images.pexels.com/photos/8922399/pexels-photo-8922399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Man of Quick Tongue — The Wit that Won Hearts"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "When a Proud Minister Challenges Him",
+        "storyContext": "A newly appointed minister, proud and arrogant, tries to publicly humiliate Manohar to prove his own importance. Instead of striking back harshly, Manohar chooses something harder: a witty response that makes the minister laugh at himself.",
+        "points": [
+          {
+            "label": "Choice",
+            "text": "Wit can attack or teach—Manohar chooses to teach"
+          },
+          {
+            "label": "Effect",
+            "text": "The minister is surprised by kindness wrapped in cleverness"
+          }
+        ],
+        "inSimpleWords": "Making someone laugh at themselves changes hearts",
+        "emoji": "🎭",
+        "image": {
+          "url": "https://images.pexels.com/photos/6482238/pexels-photo-6482238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "When a Proud Minister Challenges Him — The Wit that Won Hearts"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Minister's Transformation",
+        "storyContext": "Instead of becoming enemies, the minister and Manohar become friends. The minister realizes his pride was the joke all along. Manohar's wit didn't destroy him—it showed him truth gently.",
+        "points": [
+          {
+            "label": "Power of wit",
+            "text": "Real cleverness builds friendships, not enemies"
+          },
+          {
+            "label": "The lesson",
+            "text": "You win hearts by making people laugh WITH you, not at you"
+          }
+        ],
+        "inSimpleWords": "Real wit makes enemies into friends",
+        "emoji": "❤️",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Minister's Transformation — The Wit that Won Hearts"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Three Kinds of Clever People",
+        "storyContext": "Some use wit to wound. Some use it to entertain. The rarest use it to elevate others and teach truth without shame. Manohar belongs to the rarest kind.",
+        "points": [
+          {
+            "label": "Type 1: The Bully",
+            "text": "Uses cleverness to attack and reduce others"
+          },
+          {
+            "label": "Type 2: The Entertainer",
+            "text": "Uses cleverness to amuse but rarely to teach"
+          },
+          {
+            "label": "Type 3: The Sage",
+            "text": "Uses cleverness to reveal truth with kindness"
+          }
+        ],
+        "inSimpleWords": "Clever words can wound, amuse, or teach",
+        "emoji": "🧭",
+        "image": {
+          "url": "https://images.pexels.com/photos/8423410/pexels-photo-8423410.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Three Kinds of Clever People — The Wit that Won Hearts"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "In a Modern School",
+        "storyContext": "A witty student could mock a struggling classmate or use that same wit to explain a difficult concept in a funny way that makes learning fun. One shows cruelty; one shows wisdom.",
+        "example": {
+          "problem": "Clever students sometimes use wit to feel superior",
+          "solution": "Using intelligence to help others understand, not to make them feel small"
+        },
+        "inSimpleWords": "Same brain, different heart—vastly different outcomes",
+        "emoji": "🎯",
+        "image": {
+          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "In a Modern School — The Wit that Won Hearts"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Wit, Arrogance, Humility",
+        "points": [
+          {
+            "label": "Wit",
+            "text": "Intelligence expressed with clever, quick words—but it's a choice how to aim it"
+          },
+          {
+            "label": "Arrogance",
+            "text": "Believing you're better than others; blinding yourself to your own foolishness"
+          },
+          {
+            "label": "Humility",
+            "text": "Strength that knows itself and sees others clearly; laughing at your own failures"
+          }
+        ],
+        "inSimpleWords": "Words that separate clever from wise",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Wit, Arrogance, Humility — The Wit that Won Hearts"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Wit That Wins Hearts: Choose Kindness",
+        "storyContext": "The most powerful wit isn't the sharpest or the loudest—it's the wit that makes people feel smarter and better about themselves, not smaller. That's the wit that wins actual hearts.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "Wit without kindness wounds; wit with kindness teaches and bridges"
+          },
+          {
+            "label": "Life lesson",
+            "text": "Use your intelligence to elevate others, and everyone rises with you"
+          }
+        ],
+        "inSimpleWords": "Real power is lifting others up with your words",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Wit That Wins Hearts: Choose Kindness — The Wit that Won Hearts"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-8-english-wisdom-paves-way",
+    "classLevel": "8",
+    "subject": "English",
+    "chapter": "Wisdom Paves the Way",
+    "chapterAliases": [
+      "Knowledge and Character"
+    ],
+    "title": "When Understanding Guides Your Path",
+    "hook": "A scholar learns that book knowledge without character cannot solve real problems.",
+    "characters": [
+      {
+        "name": "Vikram",
+        "emoji": "📖",
+        "role": "A learned student"
+      },
+      {
+        "name": "A Villager",
+        "emoji": "👨‍🌾",
+        "role": "Facing a real problem"
+      },
+      {
+        "name": "An Elder",
+        "emoji": "👴",
+        "role": "Teacher of true wisdom"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Scholar Full of Knowledge",
+        "storyContext": "Vikram has studied hard, memorized texts, and earned respect for his learning. But he views the world through books, not experience. When faced with a real problem, he is lost.",
+        "points": [
+          {
+            "label": "Limitation",
+            "text": "Knowledge without application is decoration, not tools"
+          },
+          {
+            "label": "Truth",
+            "text": "Books teach what people have discovered; life teaches what you need to discover"
+          }
+        ],
+        "inSimpleWords": "Books fill the mind; life fills the soul",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Scholar Full of Knowledge — Wisdom Paves the Way"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "A Real Problem Arrives",
+        "storyContext": "A villager comes seeking help. His crop is failing, his family is hungry, and no book has a chapter on his exact situation. Vikram searches his memory—but memory has no answer for this kind of pain.",
+        "points": [
+          {
+            "label": "Gap",
+            "text": "Knowledge doesn't always have an answer; wisdom does"
+          },
+          {
+            "label": "Realization",
+            "text": "Vikram begins to see the difference between knowing and understanding"
+          }
+        ],
+        "inSimpleWords": "The smartest books can't answer a broken heart",
+        "emoji": "💔",
+        "image": {
+          "url": "https://images.pexels.com/photos/20286949/pexels-photo-20286949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Real Problem Arrives — Wisdom Paves the Way"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Elder's Path",
+        "storyContext": "An elder listens, understands, and suggests not a book answer but a real solution: share resources with neighbors, diversify crops, ask for help. The solution combines knowledge with character—with compassion.",
+        "points": [
+          {
+            "label": "Wisdom",
+            "text": "Knowing is having facts; wisdom is knowing how to use them for good"
+          },
+          {
+            "label": "Character",
+            "text": "True problem-solving requires caring about the answer, not just knowing it"
+          }
+        ],
+        "inSimpleWords": "Wisdom is knowledge plus compassion plus action",
+        "emoji": "🤝",
+        "image": {
+          "url": "https://images.pexels.com/photos/20286949/pexels-photo-20286949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Elder's Path — Wisdom Paves the Way"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Knowledge vs. Wisdom: The Real Difference",
+        "storyContext": "Knowledge is information gathered. Wisdom is understanding how to use it for good. A person full of knowledge but empty of wisdom is like a library on fire—impressive but useless.",
+        "points": [
+          {
+            "label": "Knowledge",
+            "text": "The facts you collect (what, when, where, how)"
+          },
+          {
+            "label": "Wisdom",
+            "text": "The insight to know when and why to use it (the purpose, the heart)"
+          }
+        ],
+        "inSimpleWords": "Knowledge is information; wisdom is understanding what to do with it",
+        "emoji": "🧠",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Knowledge vs. Wisdom: The Real Difference — Wisdom Paves the Way"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Vikram's Real Learning",
+        "storyContext": "Vikram now studies differently. He studies not to fill his mind but to understand people, nature, and meaning. He becomes a teacher, not because he knows more, but because he understands better.",
+        "example": {
+          "problem": "A scholar knows much but cannot help a suffering villager",
+          "solution": "Learning to listen, understand, and care transforms knowledge into wisdom"
+        },
+        "inSimpleWords": "The best scholars learn from those they thought were simple",
+        "emoji": "🌱",
+        "image": {
+          "url": "https://images.pexels.com/photos/5329056/pexels-photo-5329056.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vikram's Real Learning — Wisdom Paves the Way"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Wisdom, Character, Compassion",
+        "points": [
+          {
+            "label": "Wisdom",
+            "text": "The quality of good judgment combined with understanding deeper truths"
+          },
+          {
+            "label": "Character",
+            "text": "Who you are when no one is watching; your values lived out in action"
+          },
+          {
+            "label": "Compassion",
+            "text": "The ability to feel what others feel and act on that feeling with kindness"
+          }
+        ],
+        "inSimpleWords": "Words that teach us wisdom isn't in books alone",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/38291754/pexels-photo-38291754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Wisdom, Character, Compassion — Wisdom Paves the Way"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Wisdom Paves the Way: Choose Understanding Over Information",
+        "storyContext": "The path forward is paved not by those who know the most, but by those who understand the deepest. Wisdom is knowledge applied with character toward the good of others.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "A brilliant mind without a good heart is lost in a room full of answers"
+          },
+          {
+            "label": "Life lesson",
+            "text": "Study to understand, not to impress; learn to help, not to prove yourself"
+          }
+        ],
+        "inSimpleWords": "The wisest path is paved with character, not credentials",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Wisdom Paves the Way: Choose Understanding Over Information — Wisdom Paves the Way"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-8-english-somebodys-mother",
+    "classLevel": "8",
+    "subject": "English",
+    "chapter": "Somebody's Mother",
+    "chapterAliases": [
+      "Kindness Unseen"
+    ],
+    "title": "Every Stranger Is Somebody's Mother",
+    "hook": "A poem teaches us to see the invisible people we pass every day.",
+    "characters": [
+      {
+        "name": "A Young Person",
+        "emoji": "👤",
+        "role": "Learning to see"
+      },
+      {
+        "name": "An Elderly Woman",
+        "emoji": "👵",
+        "role": "Invisible but precious"
+      },
+      {
+        "name": "The World Around",
+        "emoji": "🌍",
+        "role": "Filled with unseen mothers"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "Crossing the Street",
+        "storyContext": "A young person sees an elderly woman crossing the street slowly. Most people hurry past, lost in their phones. But one person stops, offers her arm, and helps her cross. Why? Because they see—she is somebody's mother.",
+        "points": [
+          {
+            "label": "Invisible people",
+            "text": "We see elderly people but don't see their value"
+          },
+          {
+            "label": "Hidden relationships",
+            "text": "Every person is someone's child, parent, friend"
+          }
+        ],
+        "inSimpleWords": "The old woman is someone's heart walking the Earth",
+        "emoji": "👵",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Crossing the Street — Somebody's Mother"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "A Simple Act, A Profound Truth",
+        "storyContext": "When the young person offers help, they've done more than a kind act. They've said: 'I see you. I know you matter. You are somebody's mother, and that means something.'",
+        "points": [
+          {
+            "label": "What kindness says",
+            "text": "I recognize your humanity even if the world has forgotten it"
+          },
+          {
+            "label": "The impact",
+            "text": "A five-minute help can confirm a week of feeling invisible"
+          }
+        ],
+        "inSimpleWords": "Kindness is saying 'I see you and you matter'",
+        "emoji": "💫",
+        "image": {
+          "url": "https://images.pexels.com/photos/8471861/pexels-photo-8471861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Simple Act, A Profound Truth — Somebody's Mother"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Mother of This Invisible Woman",
+        "storyContext": "Somewhere, the elderly woman's child worries about her. They hope strangers are kind to her. When one kind person appears, an invisible prayer is answered.",
+        "points": [
+          {
+            "label": "Circle of care",
+            "text": "When you're kind to someone's mother, you're answering another's prayer"
+          }
+        ],
+        "inSimpleWords": "Every act of kindness is love traveling in time",
+        "emoji": "🙏",
+        "image": {
+          "url": "https://images.pexels.com/photos/9872961/pexels-photo-9872961.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Mother of This Invisible Woman — Somebody's Mother"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Invisible People Among Us",
+        "storyContext": "Every day we pass people we don't really see: the cleaner, the street vendor, the elderly, the tired. Each one is someone's mother, someone's love, someone's world.",
+        "points": [
+          {
+            "label": "Invisibility",
+            "text": "Happens not by intention but by habit—we don't look"
+          },
+          {
+            "label": "The pain",
+            "text": "Being unseen, especially when elderly, is a quiet kind of loneliness"
+          }
+        ],
+        "inSimpleWords": "The invisible people live among us, watching us look right through them",
+        "emoji": "👻",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Invisible People Among Us — Somebody's Mother"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "A Student Sees Differently",
+        "storyContext": "After reading this poem, a student notices the schoolkeeper who cleans each morning. They'd never spoken to her. Now they greet her, ask her name, hear her story. She becomes visible. She becomes human again.",
+        "example": {
+          "problem": "We ignore the people around us who do necessary work",
+          "solution": "Seeing them as humans—as somebody's mother or child—changes everything"
+        },
+        "inSimpleWords": "Seeing someone changes how they feel about being alive",
+        "emoji": "👀",
+        "image": {
+          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Student Sees Differently — Somebody's Mother"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Invisible, Compassion, Dignity",
+        "points": [
+          {
+            "label": "Invisible",
+            "text": "Not seen or acknowledged, even when present; treated as background"
+          },
+          {
+            "label": "Compassion",
+            "text": "The ability to see someone's full humanity and act from that seeing"
+          },
+          {
+            "label": "Dignity",
+            "text": "The worth that every person has simply by being human"
+          }
+        ],
+        "inSimpleWords": "Words that teach us to really look at people",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/38291754/pexels-photo-38291754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Invisible, Compassion, Dignity — Somebody's Mother"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Somebody's Mother: The Power of Seeing",
+        "storyContext": "Every person we meet is somebody's love, somebody's worry, somebody's prayer. When we see them—truly see them—we give them back their humanity and we honor everyone they mean to.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "Every person is somebody's mother, somebody's child—treat them that way"
+          },
+          {
+            "label": "Action",
+            "text": "Today, notice one invisible person and help them become visible"
+          }
+        ],
+        "inSimpleWords": "See the invisible; honor the unseen",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/8471861/pexels-photo-8471861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Somebody's Mother: The Power of Seeing — Somebody's Mother"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-8-english-verghese-kurien-dream",
+    "classLevel": "8",
+    "subject": "English",
+    "chapter": "Verghese Kurien - I Too Had a Dream",
+    "chapterAliases": [
+      "The Man Who Made Milk Famous",
+      "From Dream to Movement"
+    ],
+    "title": "One Man's Dream Fed a Billion",
+    "hook": "The true story of how one person's determination transformed an entire industry and a nation.",
+    "characters": [
+      {
+        "name": "Verghese Kurien",
+        "emoji": "👨",
+        "role": "Visionary engineer and reformer"
+      },
+      {
+        "name": "Farmers of India",
+        "emoji": "👨‍🌾",
+        "role": "The backbone of his dream"
+      },
+      {
+        "name": "The White Revolution",
+        "emoji": "🥛",
+        "role": "A movement he led"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "A Dream Begins in Anand",
+        "storyContext": "Verghese Kurien arrives in Anand, Gujarat, as a young engineer. He sees farmers struggling, dairy being wasted, and potential everywhere. He dreams of a revolution—not political, but in milk production and fairness.",
+        "points": [
+          {
+            "label": "Vision",
+            "text": "Seeing what others cannot yet imagine"
+          },
+          {
+            "label": "Starting point",
+            "text": "Understanding problems through the eyes of those living them"
+          }
+        ],
+        "inSimpleWords": "A young man sees where others see only poverty",
+        "emoji": "💭",
+        "image": {
+          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Dream Begins in Anand — Verghese Kurien - I Too Had a Dream"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Cooperative Model",
+        "storyContext": "Instead of building a company that would profit from farmers, Kurien builds a cooperative—the farmers themselves own it. The milk supply chain is revolutionized. Farmers are no longer victims but partners.",
+        "points": [
+          {
+            "label": "Innovation",
+            "text": "True revolution is often a better way of organizing, not new technology"
+          },
+          {
+            "label": "Justice",
+            "text": "Profit and fairness can walk together"
+          }
+        ],
+        "inSimpleWords": "He gave power back to those who owned the milk",
+        "emoji": "🤝",
+        "image": {
+          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Cooperative Model — Verghese Kurien - I Too Had a Dream"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The White Revolution Spreads",
+        "storyContext": "What began in one village spread across India. Milk production exploded. India went from importing milk to exporting it. Millions of farmers, especially women, gained economic power and dignity.",
+        "points": [
+          {
+            "label": "Scale",
+            "text": "One person's dream can transform a nation's future"
+          },
+          {
+            "label": "Impact",
+            "text": "Millions were lifted from poverty because one man believed in them"
+          }
+        ],
+        "inSimpleWords": "One dream became millions of better lives",
+        "emoji": "🌍",
+        "image": {
+          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The White Revolution Spreads — Verghese Kurien - I Too Had a Dream"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What Made Him Different",
+        "storyContext": "Kurien could have built a profitable company. Instead, he built a system where farmers owned their destiny. He saw profit as a tool for justice, not as the final goal.",
+        "points": [
+          {
+            "label": "Leadership",
+            "text": "A true leader serves those they lead, not the other way around"
+          },
+          {
+            "label": "Long view",
+            "text": "Patience to build something that matters over decades"
+          }
+        ],
+        "inSimpleWords": "Great leaders serve, not rule",
+        "emoji": "🏛️",
+        "image": {
+          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Made Him Different — Verghese Kurien - I Too Had a Dream"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "A Young Person Inspired",
+        "storyContext": "A student reads Kurien's story and decides that career isn't about salary—it's about impact. She chooses to work where she can serve others, making a smaller salary but a bigger difference.",
+        "example": {
+          "problem": "Young people chase money, losing sight of meaning",
+          "solution": "Seeing someone who sacrificed comfort for impact changes everything"
+        },
+        "inSimpleWords": "Real success is lifting others up with you",
+        "emoji": "🎯",
+        "image": {
+          "url": "https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Young Person Inspired — Verghese Kurien - I Too Had a Dream"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Cooperative, Revolution, Legacy",
+        "points": [
+          {
+            "label": "Cooperative",
+            "text": "A group working together where all have equal ownership and voice"
+          },
+          {
+            "label": "Revolution",
+            "text": "A profound change, often not violent but transformative"
+          },
+          {
+            "label": "Legacy",
+            "text": "What you leave behind that continues to help long after you're gone"
+          }
+        ],
+        "inSimpleWords": "Words that build movements, not just companies",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Cooperative, Revolution, Legacy — Verghese Kurien - I Too Had a Dream"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "I Too Had a Dream: From Vision to Movement",
+        "storyContext": "Kurien's dream reminds us that one person with vision, courage, and commitment to justice can change the lives of millions. His white revolution fed a nation and proved that profit and compassion can coexist.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "A dream for others' good is more powerful than a dream for yourself alone"
+          },
+          {
+            "label": "Life lesson",
+            "text": "Your success will be measured by how many others rise with you"
+          }
+        ],
+        "inSimpleWords": "Dream for others; change the world",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "I Too Had a Dream: From Vision to Movement — Verghese Kurien - I Too Had a Dream"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-8-english-magic-brush-dreams",
+    "classLevel": "8",
+    "subject": "English",
+    "chapter": "The Magic Brush of Dreams",
+    "chapterAliases": [
+      "Art and Reality",
+      "The Artist's Gift"
+    ],
+    "title": "When Art Creates What Seems Impossible",
+    "hook": "An artist's brush doesn't just paint pictures—it paints possibilities into existence.",
+    "characters": [
+      {
+        "name": "A Poor Painter",
+        "emoji": "🎨",
+        "role": "Artist with a magical gift"
+      },
+      {
+        "name": "The Village",
+        "emoji": "👥",
+        "role": "Transformed by art"
+      },
+      {
+        "name": "The Magic Brush",
+        "emoji": "✨",
+        "role": "Portal between dream and reality"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "An Artist So Poor He Nearly Has Nothing",
+        "storyContext": "A talented painter has no money, no gallery, no recognition. But he has a brush, paint made from what he can afford, and visions in his head. Each night he paints by candlelight—not for money, but because he must.",
+        "points": [
+          {
+            "label": "Dedication",
+            "text": "Art created from love, not hope of reward"
+          },
+          {
+            "label": "Truth",
+            "text": "The real artist creates regardless of whether anyone sees"
+          }
+        ],
+        "inSimpleWords": "Poor in money, rich in vision",
+        "emoji": "💭",
+        "image": {
+          "url": "https://images.pexels.com/photos/14907377/pexels-photo-14907377.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "An Artist So Poor He Nearly Has Nothing — The Magic Brush of Dreams"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "A Painting Comes Alive",
+        "storyContext": "One night, the painter creates an image so vivid—of a river, of trees, of hope—that something impossible happens. The painting doesn't just represent reality; it births it. The village that sees it feels alive in a way it never had.",
+        "points": [
+          {
+            "label": "Magic",
+            "text": "Not supernatural, but the real power of great art to transform feeling"
+          },
+          {
+            "label": "Effect",
+            "text": "When you paint truth, you create possibility"
+          }
+        ],
+        "inSimpleWords": "Brush strokes that wake up the soul",
+        "emoji": "🎨",
+        "image": {
+          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Painting Comes Alive — The Magic Brush of Dreams"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Village Transformed by Seeing",
+        "storyContext": "The village looks at the painting and begins to dream. If the painter could imagine such beauty, then such beauty might be possible. The painting becomes a map to hope.",
+        "points": [
+          {
+            "label": "Power of vision",
+            "text": "Art shows us what could be, making us brave enough to build it"
+          }
+        ],
+        "inSimpleWords": "A painting becomes a promise",
+        "emoji": "🌈",
+        "image": {
+          "url": "https://images.pexels.com/photos/346820/pexels-photo-346820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Village Transformed by Seeing — The Magic Brush of Dreams"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What Is a Magic Brush?",
+        "storyContext": "The magic brush represents any act of true creation—a poem, a song, a drawing, even a kind act or a built community. When we create from our truest vision, we don't just make art; we make reality.",
+        "points": [
+          {
+            "label": "The real magic",
+            "text": "Art doesn't describe the world; it creates it through the hearts of those who see it"
+          },
+          {
+            "label": "The gift",
+            "text": "An artist gives others permission to dream"
+          }
+        ],
+        "inSimpleWords": "Art is how we paint what we want into being",
+        "emoji": "🖌️",
+        "image": {
+          "url": "https://images.pexels.com/photos/7269617/pexels-photo-7269617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Is a Magic Brush? — The Magic Brush of Dreams"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "A Student Becomes an Artist",
+        "storyContext": "A student who felt powerless starts to draw. First small, then bigger. Through art, she paints her fears into smaller shapes, her dreams into brighter colors. Other students see and are inspired to believe in their own dreams.",
+        "example": {
+          "problem": "People feel stuck, limited, powerless to change their lives",
+          "solution": "Art becomes the brush that paints new possibilities"
+        },
+        "inSimpleWords": "Create beauty; create hope; create possibility",
+        "emoji": "🎯",
+        "image": {
+          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A Student Becomes an Artist — The Magic Brush of Dreams"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vocabulary: Imagination, Inspiration, Creation",
+        "points": [
+          {
+            "label": "Imagination",
+            "text": "The ability to see what doesn't exist yet and believe in it"
+          },
+          {
+            "label": "Inspiration",
+            "text": "The spark that moves you to create something from nothing"
+          },
+          {
+            "label": "Creation",
+            "text": "The act of bringing something new into the world through your hands"
+          }
+        ],
+        "inSimpleWords": "Words that unlock the artist in all of us",
+        "emoji": "📚",
+        "image": {
+          "url": "https://images.pexels.com/photos/38291754/pexels-photo-38291754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vocabulary: Imagination, Inspiration, Creation — The Magic Brush of Dreams"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "The Magic Brush: Every Dream Needs an Artist",
+        "storyContext": "The magic brush reminds us that art isn't decoration—it's how we imagine the future into being. Every great change begins as an artist's dream. Our world is still waiting for your brush.",
+        "points": [
+          {
+            "label": "Moral",
+            "text": "The world is shaped by those brave enough to paint their dreams"
+          },
+          {
+            "label": "Life lesson",
+            "text": "You have a magic brush too—use it to paint the world you want to see"
+          }
+        ],
+        "inSimpleWords": "Dream it, paint it, live it",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/11200121/pexels-photo-11200121.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Magic Brush: Every Dream Needs an Artist — The Magic Brush of Dreams"
+        }
+      }
+    ]
   }
 ];
