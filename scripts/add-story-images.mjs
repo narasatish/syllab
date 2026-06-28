@@ -158,8 +158,18 @@ async function main() {
         slides++;
         // Skip slides already concept-matched (tagged with .q) unless --force.
         if (!FORCE && slide.image && slide.image.q) { kept++; continue; }
-        const q = pickQuery(slide, lesson);
-        const urls = await urlsFor(q);
+        let q = pickQuery(slide, lesson);
+        let urls = await urlsFor(q);
+        if (!urls.length) {
+          // Broader fallback (routes to Wikimedia, which has no rate limit and
+          // carries concept diagrams) so no slide stays blank.
+          const subj = /sci|world|evs/i.test(lesson.subject) ? 'science' : /math/i.test(lesson.subject) ? 'mathematics' : 'classroom';
+          const chapWord = String(lesson.chapter || '').toLowerCase().split(/\s+/).find((w) => w.length > 3 && !STOP.has(w));
+          for (const fb of [chapWord, `${subj} education`, subj].filter(Boolean)) {
+            urls = await urlsFor(fb);
+            if (urls.length) { q = fb; break; }
+          }
+        }
         if (urls.length) {
           const i = (counter.get(q) || 0);
           counter.set(q, i + 1);
