@@ -113,17 +113,36 @@ function pickQuery(slide, lesson) {
 
 const cache = new Map(); // query -> [urls]
 let rateLimited = false;
+
+// Wikimedia Commons image search — no key, no rate limit. Used as a fallback when
+// Pexels is exhausted, so coverage reaches 100%.
+async function wikimedia(query) {
+  try {
+    const u = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=${encodeURIComponent(query)}&gsrlimit=10&prop=imageinfo&iiprop=url&iiurlwidth=900&format=json&origin=*`;
+    const r = await fetch(u, { headers: { 'User-Agent': 'SyllabStoryImages/1.0 (educational)' } });
+    const j = await r.json();
+    const pages = (j && j.query && j.query.pages) || {};
+    return Object.values(pages)
+      .map((p) => p.imageinfo && p.imageinfo[0] && p.imageinfo[0].thumburl)
+      .filter((url) => url && /\.(jpe?g|png)$/i.test(url.split('?')[0]));
+  } catch { return []; }
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function urlsFor(query) {
   if (cache.has(query)) return cache.get(query);
-  if (!KEY || rateLimited) return [];
-  try {
-    const r = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&orientation=landscape&size=medium&per_page=15`, { headers: { Authorization: KEY } });
-    if (r.status === 429) { rateLimited = true; console.warn('  ⚠️ Pexels rate-limited.'); return []; }
-    const j = await r.json();
-    const urls = ((j && j.photos) || []).map((p) => p.src.large || p.src.medium).filter(Boolean);
-    cache.set(query, urls);
-    return urls;
-  } catch { return []; }
+  await sleep(150); // pace network requests so Wikimedia/Pexels don't throttle
+  let urls = [];
+  if (KEY && !rateLimited) {
+    try {
+      const r = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&orientation=landscape&size=medium&per_page=15`, { headers: { Authorization: KEY } });
+      if (r.status === 429) { rateLimited = true; console.warn('  ⚠️ Pexels rate-limited — falling back to Wikimedia.'); }
+      else { const j = await r.json(); urls = ((j && j.photos) || []).map((p) => p.src.large || p.src.medium).filter(Boolean); }
+    } catch { /* fall through */ }
+  }
+  if (!urls.length) urls = await wikimedia(query);
+  cache.set(query, urls);
+  return urls;
 }
 
 async function main() {
