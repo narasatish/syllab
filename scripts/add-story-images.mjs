@@ -137,13 +137,14 @@ async function main() {
     for (const lesson of lessons) {
       for (const slide of lesson.slides || []) {
         slides++;
-        if (!FORCE && slide.image && slide.image.url) { kept++; continue; }
+        // Skip slides already concept-matched (tagged with .q) unless --force.
+        if (!FORCE && slide.image && slide.image.q) { kept++; continue; }
         const q = pickQuery(slide, lesson);
         const urls = await urlsFor(q);
         if (urls.length) {
           const i = (counter.get(q) || 0);
           counter.set(q, i + 1);
-          slide.image = { url: urls[i % urls.length], alt: `${slide.title} — ${lesson.chapter}` };
+          slide.image = { url: urls[i % urls.length], alt: `${slide.title} — ${lesson.chapter}`, q };
           set++;
         } else if (slide.image && slide.image.url) {
           kept++; // keep old if we couldn't fetch a new one

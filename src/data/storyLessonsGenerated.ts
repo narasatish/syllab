@@ -3050,7 +3050,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "53 - 28 = 25 with borrowing!",
         "emoji": "💪",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6936081/pexels-photo-6936081.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Try: 53 - 28 — Subtraction with Borrowing"
         }
       },
@@ -3208,7 +3208,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "4 × 5 = 20 (multiplication solves real problems).",
         "emoji": "❓",
         "image": {
-          "url": "https://images.pexels.com/photos/5412110/pexels-photo-5412110.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9756322/pexels-photo-9756322.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Multiplication Story — Multiplication Tables 2-5"
         }
       },
@@ -3317,7 +3317,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Indian money has coins and colorful notes!",
         "emoji": "💵",
         "image": {
-          "url": "https://images.pexels.com/photos/26861411/pexels-photo-26861411.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/14546935/pexels-photo-14546935.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Festival Day Shopping — Money Counting"
         }
       },
@@ -3334,7 +3334,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "₹1, ₹2, ₹5, ₹10 coins from small to big.",
         "emoji": "🪙",
         "image": {
-          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/30413636/pexels-photo-30413636.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Indian Coins — Money Counting"
         }
       },
@@ -3447,7 +3447,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Ravi gets ₹15 back as change!",
         "emoji": "🎉",
         "image": {
-          "url": "https://images.pexels.com/photos/12719282/pexels-photo-12719282.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1337384/pexels-photo-1337384.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Real Purchase — Money Counting"
         }
       },
@@ -3556,7 +3556,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Short hand is hours, long hand is minutes.",
         "emoji": "👏",
         "image": {
-          "url": "https://images.pexels.com/photos/7799594/pexels-photo-7799594.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/14100589/pexels-photo-14100589.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Two Hands — Telling Time"
         }
       },
@@ -3855,7 +3855,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "We are living things too!",
         "emoji": "👨‍👩‍👦",
         "image": {
-          "url": "https://images.pexels.com/photos/8471861/pexels-photo-8471861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8471908/pexels-photo-8471908.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Humans Are Living — Living and Non-Living"
         }
       },
@@ -3949,7 +3949,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Birds make nests in trees!",
         "emoji": "🪶",
         "image": {
-          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12568037/pexels-photo-12568037.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Nests for Birds — Animals and Their Homes"
         }
       },
@@ -4028,7 +4028,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Snails carry their homes!",
         "emoji": "🐚",
         "image": {
-          "url": "https://images.pexels.com/photos/36385086/pexels-photo-36385086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/3172278/pexels-photo-3172278.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Shells and Coral Homes — Animals and Their Homes"
         }
       },
@@ -4201,7 +4201,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Clouds are cooled water vapor!",
         "emoji": "☁️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9060601/pexels-photo-9060601.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Clouds Form — Water Cycle"
         }
       },
@@ -4299,7 +4299,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Water cycles through evaporation, clouds, and rain!",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36344428/pexels-photo-36344428.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Water Journey Ends — Water Cycle"
         }
       }
@@ -4374,7 +4374,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Protein helps us grow tall and strong!",
         "emoji": "💪",
         "image": {
-          "url": "https://images.pexels.com/photos/12166411/pexels-photo-12166411.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5327509/pexels-photo-5327509.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Protein for Growing — Healthy Food"
         }
       },
@@ -4649,7 +4649,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Flip the numbers; multiplication answer stays same.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/10256311/pexels-photo-10256311.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Order Doesn't Matter — Multiplication"
         }
       },
@@ -4674,7 +4674,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Multiplication makes counting groups quick and easy.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/17161106/pexels-photo-17161106.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12194256/pexels-photo-12194256.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Arun Masters Multiplication — Multiplication"
         }
       }
@@ -4734,7 +4734,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Division shares things equally into groups.",
         "emoji": "÷",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/10346224/pexels-photo-10346224.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division Means Sharing — Division"
         }
       },
@@ -4749,7 +4749,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Twenty-four divided by six equals four chocolates.",
         "emoji": "🎂",
         "image": {
-          "url": "https://images.pexels.com/photos/8927931/pexels-photo-8927931.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8794060/pexels-photo-8794060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Sharing the Chocolates — Division"
         }
       },
@@ -4770,7 +4770,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Multiplication and division are opposite operations.",
         "emoji": "🔁",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9756164/pexels-photo-9756164.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division and Multiplication are Opposites — Division"
         }
       },
@@ -4785,7 +4785,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Twenty oranges in five baskets equals four each.",
         "emoji": "🧺",
         "image": {
-          "url": "https://images.pexels.com/photos/36621206/pexels-photo-36621206.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9511825/pexels-photo-9511825.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fruit Baskets — Division"
         }
       },
@@ -4802,7 +4802,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fifteen divided by three equals five rotlis each.",
         "emoji": "🍽️",
         "image": {
-          "url": "https://images.pexels.com/photos/9345661/pexels-photo-9345661.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6974475/pexels-photo-6974475.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division in the Kitchen — Division"
         }
       },
@@ -4842,7 +4842,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Division ensures fair, equal sharing among everyone.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/8927931/pexels-photo-8927931.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5859230/pexels-photo-5859230.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Party Success with Division — Division"
         }
       }
@@ -4885,7 +4885,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "One pizza cut into two equal halves for sharing.",
         "emoji": "🍕",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28528515/pexels-photo-28528515.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Cutting the Pizza — Fractions"
         }
       },
@@ -4910,7 +4910,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "A fraction shows parts of one whole thing.",
         "emoji": "⅟",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28528516/pexels-photo-28528516.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What is a Fraction? — Fractions"
         }
       },
@@ -4961,7 +4961,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Three equal thirds make one complete whole pizza.",
         "emoji": "🍴",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9993754/pexels-photo-9993754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Three Friends, Three Thirds Pizza — Fractions"
         }
       },
@@ -4995,7 +4995,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Two out of eight equals one fourth of chocolate.",
         "emoji": "🍫",
         "image": {
-          "url": "https://images.pexels.com/photos/8927931/pexels-photo-8927931.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7699376/pexels-photo-7699376.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Chocolate Bar Sharing — Fractions"
         }
       },
@@ -5020,7 +5020,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions show parts of a whole in daily life.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/31884411/pexels-photo-31884411.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6493565/pexels-photo-6493565.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fractions Are Everywhere — Fractions"
         }
       }
@@ -5311,7 +5311,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Different positions of the minute hand show minutes.",
         "emoji": "⏱️",
         "image": {
-          "url": "https://images.pexels.com/photos/7548729/pexels-photo-7548729.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/745365/pexels-photo-745365.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Minutes Past the Hour — Time and Calendar"
         }
       },
@@ -5460,7 +5460,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Roots drink water and anchor plants firmly down.",
         "emoji": "📍",
         "image": {
-          "url": "https://images.pexels.com/photos/37992842/pexels-photo-37992842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4202324/pexels-photo-4202324.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Roots: Drink Water and Hold On — Plants - Parts and Functions"
         }
       },
@@ -5475,7 +5475,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Different plants have different kinds of roots.",
         "emoji": "🥕",
         "image": {
-          "url": "https://images.pexels.com/photos/37992842/pexels-photo-37992842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9413758/pexels-photo-9413758.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Two Types of Roots — Plants - Parts and Functions"
         }
       },
@@ -5500,7 +5500,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The stem carries water up and holds leaves high.",
         "emoji": "🌿",
         "image": {
-          "url": "https://images.pexels.com/photos/584420/little-pink-flowers-cute-584420.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11771299/pexels-photo-11771299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Stem: Transport and Support — Plants - Parts and Functions"
         }
       },
@@ -5659,7 +5659,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Birds have feathers, wings, and lay eggs in nests.",
         "emoji": "🐦",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36208720/pexels-photo-36208720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Birds: Built to Fly — Animals - Birds, Insects, Fish"
         }
       },
@@ -5674,7 +5674,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Some birds fly, but all birds have feathers.",
         "emoji": "🐧",
         "image": {
-          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36507113/pexels-photo-36507113.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Sparrow vs Penguin — Animals - Birds, Insects, Fish"
         }
       },
@@ -5703,7 +5703,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Insects have six legs and three body sections always.",
         "emoji": "🐝",
         "image": {
-          "url": "https://images.pexels.com/photos/35516973/pexels-photo-35516973.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8844226/pexels-photo-8844226.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Insects: Six Legs and Exoskeletons — Animals - Birds, Insects, Fish"
         }
       },
@@ -5747,7 +5747,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fish have scales, fins, and gills for water life.",
         "emoji": "🐠",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4862611/pexels-photo-4862611.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fish: Scales, Fins, Gills — Animals - Birds, Insects, Fish"
         }
       },
@@ -5789,7 +5789,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Different animals are built for different environments.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28805066/pexels-photo-28805066.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Nature's Diversity — Animals - Birds, Insects, Fish"
         }
       }
@@ -5877,7 +5877,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Muscles pull bones to make your body move.",
         "emoji": "🏃",
         "image": {
-          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5714269/pexels-photo-5714269.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Muscles: The Movers — Our Body"
         }
       },
@@ -5910,7 +5910,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Five senses let us experience the whole world.",
         "emoji": "👁️",
         "image": {
-          "url": "https://images.pexels.com/photos/13594133/pexels-photo-13594133.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/3695875/pexels-photo-3695875.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Five Senses — Our Body"
         }
       },
@@ -5925,7 +5925,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Reflexes protect us from danger without thinking.",
         "emoji": "🔥",
         "image": {
-          "url": "https://images.pexels.com/photos/13594133/pexels-photo-13594133.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/17559311/pexels-photo-17559311.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Reflex Arc — Our Body"
         }
       },
@@ -6080,7 +6080,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Shadows form when objects block light rays.",
         "emoji": "🚫",
         "image": {
-          "url": "https://images.pexels.com/photos/18820283/pexels-photo-18820283.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11674535/pexels-photo-11674535.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "How Shadows Form — Light and Shadow"
         }
       },
@@ -6105,7 +6105,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Light distance changes the size of shadows.",
         "emoji": "🔍",
         "image": {
-          "url": "https://images.pexels.com/photos/18820283/pexels-photo-18820283.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5790926/pexels-photo-5790926.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Shadow Sizes Change — Light and Shadow"
         }
       },
@@ -6120,7 +6120,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Sun angle changes shadow size throughout the day.",
         "emoji": "🌅",
         "image": {
-          "url": "https://images.pexels.com/photos/239861/pexels-photo-239861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36680341/pexels-photo-36680341.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Sun Shadows During the Day — Light and Shadow"
         }
       },
@@ -6162,7 +6162,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Shadow puppets show how light and objects interact.",
         "emoji": "🎯",
         "image": {
-          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9409257/pexels-photo-9409257.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Create Shadow Art — Light and Shadow"
         }
       },
@@ -6526,7 +6526,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "A smaller symbol before a bigger one means subtract.",
         "emoji": "➖",
         "image": {
-          "url": "https://images.pexels.com/photos/8923967/pexels-photo-8923967.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5960/healthy-wood-red-apple.jpg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Subtraction Rule — Roman Numerals"
         }
       },
@@ -6541,7 +6541,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Smaller left of bigger means minus.",
         "emoji": "📖",
         "image": {
-          "url": "https://images.pexels.com/photos/8923967/pexels-photo-8923967.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36174369/pexels-photo-36174369.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Subtraction in Action — Roman Numerals"
         }
       },
@@ -6595,7 +6595,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Learn M (1000) and D (500) for bigger years.",
         "emoji": "📅",
         "image": {
-          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37343397/pexels-photo-37343397.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Mystery Book Dates — Roman Numerals"
         }
       },
@@ -6612,7 +6612,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Roman numerals live in our modern world.",
         "emoji": "🌍",
         "image": {
-          "url": "https://images.pexels.com/photos/31884411/pexels-photo-31884411.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/17861553/pexels-photo-17861553.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Roman Numerals Are Everywhere! — Roman Numerals"
         }
       },
@@ -6641,7 +6641,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Ancient Romans gave us a clever number code.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/31884411/pexels-photo-31884411.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/425027/pexels-photo-425027.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Roman Numeral Recap — Roman Numerals"
         }
       }
@@ -6724,7 +6724,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Groups × items per group = total items.",
         "emoji": "📦",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5412110/pexels-photo-5412110.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Multiplying by Groups — Multiplication and Division"
         }
       },
@@ -6753,7 +6753,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Division splits a big group into equal parts.",
         "emoji": "➗",
         "image": {
-          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5888393/pexels-photo-5888393.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division as Sharing Equally — Multiplication and Division"
         }
       },
@@ -6768,7 +6768,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Share the total fairly into groups.",
         "emoji": "🏏",
         "image": {
-          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/3768146/pexels-photo-3768146.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division in Action — Multiplication and Division"
         }
       },
@@ -6797,7 +6797,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Memorize key multiplication facts.",
         "emoji": "📝",
         "image": {
-          "url": "https://images.pexels.com/photos/5412110/pexels-photo-5412110.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28387803/pexels-photo-28387803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Multiplication Tables (Up to 10 × 10) — Multiplication and Division"
         }
       },
@@ -6818,7 +6818,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Check if numbers divide evenly.",
         "emoji": "🎒",
         "image": {
-          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/13509965/pexels-photo-13509965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Mixed-Up Order — Multiplication and Division"
         }
       },
@@ -6864,7 +6864,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Multiplication and division are speedy math superpowers.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/35024347/pexels-photo-35024347.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/32211714/pexels-photo-32211714.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Multiplication & Division Mastered — Multiplication and Division"
         }
       }
@@ -6907,7 +6907,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions show parts of something whole.",
         "emoji": "🍰",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12645179/pexels-photo-12645179.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Birthday Cake Bake — Fractions and Decimals"
         }
       },
@@ -6932,7 +6932,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Top = parts taken, bottom = total parts.",
         "emoji": "📐",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5903111/pexels-photo-5903111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Understanding Fractions — Fractions and Decimals"
         }
       },
@@ -6947,7 +6947,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Halves, thirds, quarters are common fractions.",
         "emoji": "🎂",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/25956012/pexels-photo-25956012.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fractions in Real Cakes — Fractions and Decimals"
         }
       },
@@ -6972,7 +6972,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Smaller bottom means a bigger slice.",
         "emoji": "⚖️",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8205203/pexels-photo-8205203.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Comparing Fractions — Fractions and Decimals"
         }
       },
@@ -7005,7 +7005,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Decimals show parts using a point.",
         "emoji": "🔢",
         "image": {
-          "url": "https://images.pexels.com/photos/33789451/pexels-photo-33789451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7986984/pexels-photo-7986984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Intro to Decimals — Fractions and Decimals"
         }
       },
@@ -7020,7 +7020,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions and decimals are two ways to say the same part.",
         "emoji": "🥄",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/27098503/pexels-photo-27098503.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fractions and Decimals Together — Fractions and Decimals"
         }
       },
@@ -7058,7 +7058,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fair sharing needs fractions and decimals.",
         "emoji": "🎉",
         "image": {
-          "url": "https://images.pexels.com/photos/35024347/pexels-photo-35024347.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9685234/pexels-photo-9685234.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Party Success — Fractions and Decimals"
         }
       },
@@ -7087,7 +7087,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions and decimals split whole things fairly.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/14907377/pexels-photo-14907377.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/3987096/pexels-photo-3987096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fractions & Decimals Recap — Fractions and Decimals"
         }
       }
@@ -7174,7 +7174,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Perimeter = add all the sides.",
         "emoji": "📏",
         "image": {
-          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6636342/pexels-photo-6636342.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Calculating Perimeter — Geometry Shapes"
         }
       },
@@ -7272,7 +7272,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Volume = space inside 3D shapes.",
         "emoji": "🏠",
         "image": {
-          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/34817524/pexels-photo-34817524.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Garden Structure — Geometry Shapes"
         }
       },
@@ -7364,7 +7364,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The solar system is our home in space.",
         "emoji": "🚀",
         "image": {
-          "url": "https://images.pexels.com/photos/239861/pexels-photo-239861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/20376399/pexels-photo-20376399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Blast Off to Space! — The Solar System"
         }
       },
@@ -7422,7 +7422,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Eight planets orbit the Sun in order.",
         "emoji": "🪐",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/20376388/pexels-photo-20376388.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Eight Planets — The Solar System"
         }
       },
@@ -7437,7 +7437,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Rocky planets near the Sun are too harsh for Earth life.",
         "emoji": "🔴",
         "image": {
-          "url": "https://images.pexels.com/photos/9060601/pexels-photo-9060601.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/20376409/pexels-photo-20376409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Mercury to Mars: The Inner Planets — The Solar System"
         }
       },
@@ -7481,7 +7481,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The Moon dances around Earth every month.",
         "emoji": "🌙",
         "image": {
-          "url": "https://images.pexels.com/photos/375114/pexels-photo-375114.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/30264827/pexels-photo-30264827.png?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Moon: Earth's Faithful Friend — The Solar System"
         }
       },
@@ -7502,7 +7502,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The asteroid belt is cosmic rubble.",
         "emoji": "☄️",
         "image": {
-          "url": "https://images.pexels.com/photos/7605955/pexels-photo-7605955.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/20376393/pexels-photo-20376393.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Asteroid Belt Mystery — The Solar System"
         }
       },
@@ -7519,7 +7519,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Earth is special, and we must care for it.",
         "emoji": "🌍",
         "image": {
-          "url": "https://images.pexels.com/photos/375114/pexels-photo-375114.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7605955/pexels-photo-7605955.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Home Sweet Earth — The Solar System"
         }
       },
@@ -7552,7 +7552,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The solar system is our cosmic home to explore.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7605886/pexels-photo-7605886.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Solar System Recap — The Solar System"
         }
       }
@@ -7623,7 +7623,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Forces are pushes or pulls that change motion.",
         "emoji": "💪",
         "image": {
-          "url": "https://images.pexels.com/photos/6203512/pexels-photo-6203512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4115441/pexels-photo-4115441.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What Is a Force? — Force and Motion"
         }
       },
@@ -7638,7 +7638,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Gravity pulls down; friction slows the slide.",
         "emoji": "📉",
         "image": {
-          "url": "https://images.pexels.com/photos/35160053/pexels-photo-35160053.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11423986/pexels-photo-11423986.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Forces on the Slide — Force and Motion"
         }
       },
@@ -7667,7 +7667,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Speed = distance ÷ time.",
         "emoji": "🏃",
         "image": {
-          "url": "https://images.pexels.com/photos/9785603/pexels-photo-9785603.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/19176962/pexels-photo-19176962.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Motion and Speed — Force and Motion"
         }
       },
@@ -7711,7 +7711,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Things resist changing their motion.",
         "emoji": "🎯",
         "image": {
-          "url": "https://images.pexels.com/photos/6203512/pexels-photo-6203512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12335350/pexels-photo-12335350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Newton's First Law: Things Keep Doing What They Do — Force and Motion"
         }
       },
@@ -7749,7 +7749,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Science explains how our world moves.",
         "emoji": "🎪",
         "image": {
-          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/32839325/pexels-photo-32839325.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Playground Physics Master — Force and Motion"
         }
       },
@@ -7782,7 +7782,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Forces make things move or stop.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/9785603/pexels-photo-9785603.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7019211/pexels-photo-7019211.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Force and Motion Recap — Force and Motion"
         }
       }
@@ -7824,7 +7824,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Water journeys across land, sky, and sea forever.",
         "emoji": "🌊",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/443422/pexels-photo-443422.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "A Droplet's Adventure Begins — The Water Cycle"
         }
       },
@@ -7897,7 +7897,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Cold air turns vapor into water droplets (clouds).",
         "emoji": "☁️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37040051/pexels-photo-37040051.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Condensation: Vapor Becomes Clouds — The Water Cycle"
         }
       },
@@ -7962,7 +7962,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Water cycles forever: ocean → sky → rain → ocean.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/15938543/pexels-photo-15938543.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Complete Water Cycle — The Water Cycle"
         }
       },
@@ -8012,7 +8012,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Water journeys endlessly: heat, rise, cool, fall, collect.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4028958/pexels-photo-4028958.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Water Cycle Recap — The Water Cycle"
         }
       }
@@ -8084,7 +8084,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Chewing and spit start breaking down food.",
         "emoji": "👅",
         "image": {
-          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/14537684/pexels-photo-14537684.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Mouth: First Stop — Human Body and Digestion"
         }
       },
@@ -8128,7 +8128,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Stomach acid churns food into paste.",
         "emoji": "🫔",
         "image": {
-          "url": "https://images.pexels.com/photos/2101261/pexels-photo-2101261.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7009483/pexels-photo-7009483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Esophagus and Stomach — Human Body and Digestion"
         }
       },
@@ -8197,7 +8197,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Glucose powers your brain, muscles, and every organ.",
         "emoji": "🧠",
         "image": {
-          "url": "https://images.pexels.com/photos/13594133/pexels-photo-13594133.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/3926651/pexels-photo-3926651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Tracking Nutrients — Human Body and Digestion"
         }
       },
@@ -8247,7 +8247,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Your digestive system is an amazing processing factory.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Digestion Complete — Human Body and Digestion"
         }
       }
@@ -8336,7 +8336,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Two slices out of four is 2/4 or half the cake.",
         "emoji": "➕",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8380047/pexels-photo-8380047.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Working with Fractions — Fractions"
         }
       },
@@ -8357,7 +8357,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Half a cake = 2/4 = 4/8. Different numbers, same part.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1552642/pexels-photo-1552642.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Equivalent Fractions — Fractions"
         }
       },
@@ -8378,7 +8378,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "1/2 and 2/4 are the same amount, just different names.",
         "emoji": "⚖️",
         "image": {
-          "url": "https://images.pexels.com/photos/8927931/pexels-photo-8927931.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/2260555/pexels-photo-2260555.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Comparing Fractions — Fractions"
         }
       },
@@ -8395,7 +8395,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "One ribbon, five equal pieces: each piece is 1/5.",
         "emoji": "🎀",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8471699/pexels-photo-8471699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Your Fraction Challenge — Fractions"
         }
       },
@@ -8420,7 +8420,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions help us describe parts of things in real life.",
         "emoji": "🌍",
         "image": {
-          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28528515/pexels-photo-28528515.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fractions in Daily Life — Fractions"
         }
       },
@@ -8441,7 +8441,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "1/4 plus 2/4 equals 3/4 of the pizza.",
         "emoji": "🍕",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28528516/pexels-photo-28528516.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Adding Simple Fractions — Fractions"
         }
       },
@@ -8462,7 +8462,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "5/4 is bigger than one whole cake piece.",
         "emoji": "📦",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7699376/pexels-photo-7699376.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Proper and Improper Fractions — Fractions"
         }
       },
@@ -8491,7 +8491,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions name parts of a whole using two numbers.",
         "emoji": "✨",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6493565/pexels-photo-6493565.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Anaya and Ravi's Fraction Lesson — Fractions"
         }
       }
@@ -8782,7 +8782,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Distance measures how far apart two places are.",
         "emoji": "🗺️",
         "image": {
-          "url": "https://images.pexels.com/photos/346820/pexels-photo-346820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8828412/pexels-photo-8828412.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Mystery Map — Far and Near"
         }
       },
@@ -8807,7 +8807,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Use small units for near things, big units for far things.",
         "emoji": "📏",
         "image": {
-          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/19585984/pexels-photo-19585984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Units of Measurement — Far and Near"
         }
       },
@@ -8828,7 +8828,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "2 kilometers is 2000 meters long.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/7548729/pexels-photo-7548729.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4919433/pexels-photo-4919433.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Converting Units — Far and Near"
         }
       },
@@ -8853,7 +8853,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Our body can help estimate distances quickly.",
         "emoji": "👣",
         "image": {
-          "url": "https://images.pexels.com/photos/346820/pexels-photo-346820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1631778/pexels-photo-1631778.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Measuring Real Distances — Far and Near"
         }
       },
@@ -8874,7 +8874,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Map scale helps find real distances from drawn maps.",
         "emoji": "🗺️",
         "image": {
-          "url": "https://images.pexels.com/photos/346820/pexels-photo-346820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8799152/pexels-photo-8799152.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Finding the Treasure Distance — Far and Near"
         }
       },
@@ -8891,7 +8891,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Calculate how many steps for a 3 kilometer walk.",
         "emoji": "🚶",
         "image": {
-          "url": "https://images.pexels.com/photos/17161106/pexels-photo-17161106.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/15884015/pexels-photo-15884015.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Your Distance Challenge — Far and Near"
         }
       },
@@ -8912,7 +8912,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "First change to the same unit, then compare distances.",
         "emoji": "⚖️",
         "image": {
-          "url": "https://images.pexels.com/photos/17161106/pexels-photo-17161106.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/10396176/pexels-photo-10396176.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Comparing Distances — Far and Near"
         }
       },
@@ -8933,7 +8933,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Perimeter is the total distance around a shape.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/33786603/pexels-photo-33786603.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6636374/pexels-photo-6636374.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Perimeter: Distance Around — Far and Near"
         }
       },
@@ -9030,7 +9030,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Dividing things equally helps us share fairly.",
         "emoji": "🐄",
         "image": {
-          "url": "https://images.pexels.com/photos/35270836/pexels-photo-35270836.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11688197/pexels-photo-11688197.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Welcome to the Dairy Farm — The Dairy Farm"
         }
       },
@@ -9059,7 +9059,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Division splits things fairly into equal groups.",
         "emoji": "📦",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8617541/pexels-photo-8617541.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division: Sharing Equally — The Dairy Farm"
         }
       },
@@ -9080,7 +9080,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "28 ÷ 5 makes 5 full bottles with 3 liters extra.",
         "emoji": "🥛",
         "image": {
-          "url": "https://images.pexels.com/photos/33789451/pexels-photo-33789451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/14966052/pexels-photo-14966052.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division with Remainders — The Dairy Farm"
         }
       },
@@ -9101,7 +9101,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Multiply to combine groups; divide to separate groups.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/5412110/pexels-photo-5412110.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7373694/pexels-photo-7373694.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Multiplication and Division: Opposites — The Dairy Farm"
         }
       },
@@ -9139,7 +9139,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Divide 72 by 8 to find space for each cow.",
         "emoji": "🌾",
         "image": {
-          "url": "https://images.pexels.com/photos/35270836/pexels-photo-35270836.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/17504886/pexels-photo-17504886.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Your Farm Math Challenge — The Dairy Farm"
         }
       },
@@ -9181,7 +9181,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "36 crates divide evenly into 4 boxes of 9 each.",
         "emoji": "📊",
         "image": {
-          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11070641/pexels-photo-11070641.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Word Problems from the Farm — The Dairy Farm"
         }
       },
@@ -9202,7 +9202,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Knowing multiplication helps us divide faster.",
         "emoji": "📚",
         "image": {
-          "url": "https://images.pexels.com/photos/10041350/pexels-photo-10041350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/10634585/pexels-photo-10634585.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division Patterns and Times Tables — The Dairy Farm"
         }
       },
@@ -9231,7 +9231,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Division and multiplication solve real farm problems.",
         "emoji": "✨",
         "image": {
-          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/35184089/pexels-photo-35184089.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Anaya and Ravi's Dairy Farm Lessons — The Dairy Farm"
         }
       }
@@ -9403,7 +9403,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Patterns repeat or grow following a rule.",
         "emoji": "🔁",
         "image": {
-          "url": "https://images.pexels.com/photos/11200121/pexels-photo-11200121.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/21418849/pexels-photo-21418849.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Patterns and Sequences — Shapes and Patterns"
         }
       },
@@ -9424,7 +9424,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Pattern: 3, 6, 9... continues by adding 3 each time.",
         "emoji": "📊",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6639841/pexels-photo-6639841.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Identifying Pattern Rules — Shapes and Patterns"
         }
       },
@@ -9441,7 +9441,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Figure out pattern rules and predict what comes next.",
         "emoji": "🎨",
         "image": {
-          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36101862/pexels-photo-36101862.png?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Your Pattern Challenge — Shapes and Patterns"
         }
       },
@@ -9466,7 +9466,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Symmetrical shapes have two identical mirrored halves.",
         "emoji": "🦋",
         "image": {
-          "url": "https://images.pexels.com/photos/584420/little-pink-flowers-cute-584420.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12915964/pexels-photo-12915964.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Symmetry and Reflection — Shapes and Patterns"
         }
       },
@@ -9542,7 +9542,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Weight and capacity help us cook recipes correctly.",
         "emoji": "🍰",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1740902/pexels-photo-1740902.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Baking a Cake with Math — Weight and Capacity"
         }
       },
@@ -9567,7 +9567,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Grams for light things, kilograms for heavy things.",
         "emoji": "⚖️",
         "image": {
-          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12572535/pexels-photo-12572535.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Units of Weight — Weight and Capacity"
         }
       },
@@ -9588,7 +9588,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Total ingredients: 200 + 100 + 50 = 350 grams.",
         "emoji": "🥄",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5964491/pexels-photo-5964491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Weighing Recipe Ingredients — Weight and Capacity"
         }
       },
@@ -9613,7 +9613,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Milliliters measure small amounts, liters measure big amounts.",
         "emoji": "🥛",
         "image": {
-          "url": "https://images.pexels.com/photos/33789451/pexels-photo-33789451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8113768/pexels-photo-8113768.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Units of Capacity (Volume) — Weight and Capacity"
         }
       },
@@ -9659,7 +9659,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Different objects have very different weights.",
         "emoji": "🍎",
         "image": {
-          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37252615/pexels-photo-37252615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Weighing Different Objects — Weight and Capacity"
         }
       },
@@ -9676,7 +9676,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "How many 250g cakes fit in 5 kilograms?",
         "emoji": "🎂",
         "image": {
-          "url": "https://images.pexels.com/photos/32333371/pexels-photo-32333371.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12616001/pexels-photo-12616001.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Your Kitchen Math Challenge — Weight and Capacity"
         }
       },
@@ -9697,7 +9697,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Weight and capacity help in cooking and shopping.",
         "emoji": "🛒",
         "image": {
-          "url": "https://images.pexels.com/photos/26861411/pexels-photo-26861411.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/13208025/pexels-photo-13208025.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Weight and Capacity in Daily Life — Weight and Capacity"
         }
       },
@@ -9722,7 +9722,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "One liter of water weighs one kilogram.",
         "emoji": "💧",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6303718/pexels-photo-6303718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Relationship Between Weight and Capacity — Weight and Capacity"
         }
       },
@@ -9751,7 +9751,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Weight and capacity measure how heavy and how full.",
         "emoji": "✨",
         "image": {
-          "url": "https://images.pexels.com/photos/26861411/pexels-photo-26861411.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/10895042/pexels-photo-10895042.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Anaya and Ravi's Measurement Mastery — Weight and Capacity"
         }
       }
@@ -9820,7 +9820,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Young rivers flow fast downhill in steep valleys.",
         "emoji": "⛰️",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/29793799/pexels-photo-29793799.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Upper Course: Youth of the River — Journey of a River"
         }
       },
@@ -9866,7 +9866,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Adult rivers flow slower and curve across flat lands.",
         "emoji": "🌊",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/14750401/pexels-photo-14750401.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Middle Course: Adult River — Journey of a River"
         }
       },
@@ -9887,7 +9887,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Curved river loops sometimes separate into oxbow lakes.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/13231254/pexels-photo-13231254.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Meanders and Oxbow Lakes — Journey of a River"
         }
       },
@@ -9933,7 +9933,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Deltas have rich soil perfect for farming.",
         "emoji": "🌾",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36678421/pexels-photo-36678421.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Nile Delta and Other Famous Deltas — Journey of a River"
         }
       },
@@ -9950,7 +9950,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Trace a river from mountain source to sea.",
         "emoji": "🗺️",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8774737/pexels-photo-8774737.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Your River Journey Challenge — Journey of a River"
         }
       },
@@ -9979,7 +9979,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Rivers carry water in the endless water cycle.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12616141/pexels-photo-12616141.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Rivers and the Water Cycle — Journey of a River"
         }
       },
@@ -10008,7 +10008,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Rivers journey from mountains to sea, shaping Earth.",
         "emoji": "✨",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/35742851/pexels-photo-35742851.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Anaya and Ravi's River Discovery — Journey of a River"
         }
       }
@@ -10237,7 +10237,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Different foods give energy, growth, and health.",
         "emoji": "🥕",
         "image": {
-          "url": "https://images.pexels.com/photos/36621206/pexels-photo-36621206.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/29148133/pexels-photo-29148133.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Food and Nutrition — The Mystery of Food"
         }
       },
@@ -10310,7 +10310,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Energy makes things move, heat, and light up.",
         "emoji": "⚽",
         "image": {
-          "url": "https://images.pexels.com/photos/6203512/pexels-photo-6203512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/34563722/pexels-photo-34563722.png?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Bouncing Ball — Energy - How Things Work"
         }
       },
@@ -10335,7 +10335,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Potential energy stores power; kinetic uses it in motion.",
         "emoji": "📍",
         "image": {
-          "url": "https://images.pexels.com/photos/6203512/pexels-photo-6203512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/18250155/pexels-photo-18250155.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Kinetic and Potential Energy — Energy - How Things Work"
         }
       },
@@ -10456,7 +10456,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Levers and pulleys help us use energy wisely.",
         "emoji": "🔧",
         "image": {
-          "url": "https://images.pexels.com/photos/27864656/pexels-photo-27864656.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/30751483/pexels-photo-30751483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Simple Machines Use Energy — Energy - How Things Work"
         }
       },
@@ -10498,7 +10498,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Using energy wisely helps save resources for future.",
         "emoji": "🌍",
         "image": {
-          "url": "https://images.pexels.com/photos/2101261/pexels-photo-2101261.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/30889521/pexels-photo-30889521.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Energy Conservation and Efficiency — Energy - How Things Work"
         }
       },
@@ -10672,7 +10672,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Water evaporates, condenses, falls as rain, and repeats.",
         "emoji": "☁️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8333068/pexels-photo-8333068.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Water Cycle in Action — Water - The Essence of Life"
         }
       },
@@ -11096,7 +11096,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Prime numbers can't be divided except by 1 and themselves.",
         "emoji": "🌟",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/374916/pexels-photo-374916.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Prime and Composite — Number Play"
         }
       },
@@ -11201,7 +11201,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Every number can be broken into prime number pieces.",
         "emoji": "🌳",
         "image": {
-          "url": "https://images.pexels.com/photos/11249199/pexels-photo-11249199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/374918/pexels-photo-374918.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Prime Factorization — Prime Time"
         }
       },
@@ -11252,7 +11252,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "GCD uses only shared primes, LCM uses all primes.",
         "emoji": "✨",
         "image": {
-          "url": "https://images.pexels.com/photos/5063392/pexels-photo-5063392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6238068/pexels-photo-6238068.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Finding GCD and LCM — Prime Time"
         }
       },
@@ -11269,7 +11269,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Eliminate multiples to reveal all prime numbers.",
         "emoji": "🎣",
         "image": {
-          "url": "https://images.pexels.com/photos/11309631/pexels-photo-11309631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7256091/pexels-photo-7256091.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Sieves and Prime Patterns — Prime Time"
         }
       },
@@ -11284,7 +11284,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Mark each prime, cross out all its multiples.",
         "emoji": "🧮",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8613094/pexels-photo-8613094.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Prime Sieve Practice — Prime Time"
         }
       },
@@ -11301,7 +11301,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Use prime factors to solve GCD and LCM puzzles.",
         "emoji": "💪",
         "image": {
-          "url": "https://images.pexels.com/photos/7548729/pexels-photo-7548729.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6256258/pexels-photo-6256258.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Prime Power Challenge — Prime Time"
         }
       },
@@ -11361,7 +11361,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Perimeter measures the distance around, area measures the space inside.",
         "emoji": "🌱",
         "image": {
-          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5750359/pexels-photo-5750359.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Garden Plans — Perimeter and Area"
         }
       },
@@ -11378,7 +11378,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Perimeter is the distance around the outside of a shape.",
         "emoji": "🚶",
         "image": {
-          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6636373/pexels-photo-6636373.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What is Perimeter? — Perimeter and Area"
         }
       },
@@ -11503,7 +11503,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Perimeter fences a garden, area paints its ground.",
         "emoji": "✅",
         "image": {
-          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5750188/pexels-photo-5750188.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Perimeter and Area Review — Perimeter and Area"
         }
       }
@@ -11538,7 +11538,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions show parts of a whole.",
         "emoji": "🍕",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6963903/pexels-photo-6963903.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Pizza Division — Fractions"
         }
       },
@@ -11559,7 +11559,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Numerator is top (parts chosen), denominator is bottom (parts total).",
         "emoji": "🔢",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12645179/pexels-photo-12645179.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Understanding Fractions — Fractions"
         }
       },
@@ -11574,7 +11574,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Proper < 1, improper ≥ 1. Mixed numbers combine whole + proper.",
         "emoji": "🥧",
         "image": {
-          "url": "https://images.pexels.com/photos/11354699/pexels-photo-11354699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5903111/pexels-photo-5903111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Types of Fractions — Fractions"
         }
       },
@@ -11591,7 +11591,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Different fractions can mean the same amount.",
         "emoji": "⚖️",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/25956012/pexels-photo-25956012.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Equivalent Fractions — Fractions"
         }
       },
@@ -11606,7 +11606,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Divide numerator and denominator by their GCD.",
         "emoji": "✂️",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8205203/pexels-photo-8205203.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Simplifying Fractions — Fractions"
         }
       },
@@ -11623,7 +11623,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Same denominator: add/subtract tops, keep bottom same.",
         "emoji": "➕",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/27098503/pexels-photo-27098503.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Adding and Subtracting Fractions — Fractions"
         }
       },
@@ -11638,7 +11638,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Find common denominator using LCM before adding.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/5063392/pexels-photo-5063392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1337385/pexels-photo-1337385.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Finding Common Denominators — Fractions"
         }
       },
@@ -11655,7 +11655,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Use addition to find total, subtract from 1.",
         "emoji": "🤔",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9685234/pexels-photo-9685234.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Pizza Math Challenge — Fractions"
         }
       },
@@ -11680,7 +11680,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions are ways to show parts of a whole.",
         "emoji": "✅",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/3987096/pexels-photo-3987096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fractions Review — Fractions"
         }
       }
@@ -11732,7 +11732,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Data is facts and information collected carefully.",
         "emoji": "🔍",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7948032/pexels-photo-7948032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Collecting Data — Data Handling and Presentation"
         }
       },
@@ -11768,7 +11768,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Charts make data easy to see and compare at a glance.",
         "emoji": "📈",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7947757/pexels-photo-7947757.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Pictographs and Bar Charts — Data Handling and Presentation"
         }
       },
@@ -11783,7 +11783,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Height of bar = amount of data for that category.",
         "emoji": "📉",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7580765/pexels-photo-7580765.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Making a Bar Chart — Data Handling and Presentation"
         }
       },
@@ -11919,7 +11919,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Living things grow, move, reproduce, and respond to their world.",
         "emoji": "🌿",
         "image": {
-          "url": "https://images.pexels.com/photos/7105837/pexels-photo-7105837.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37241726/pexels-photo-37241726.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What Makes Things Alive? — Diversity in the Living World"
         }
       },
@@ -11955,7 +11955,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Vertebrates have backbones, invertebrates don't.",
         "emoji": "🦴",
         "image": {
-          "url": "https://images.pexels.com/photos/36385086/pexels-photo-36385086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/14810091/pexels-photo-14810091.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Vertebrates and Invertebrates — Diversity in the Living World"
         }
       },
@@ -12052,7 +12052,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Life's diversity is organized by shared features.",
         "emoji": "✅",
         "image": {
-          "url": "https://images.pexels.com/photos/37992842/pexels-photo-37992842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37443358/pexels-photo-37443358.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Diversity Review — Diversity in the Living World"
         }
       }
@@ -12087,7 +12087,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Magnets are objects with invisible pulling and pushing forces.",
         "emoji": "🧲",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/38075220/pexels-photo-38075220.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Magnetic Discovery — Exploring Magnets"
         }
       },
@@ -12104,7 +12104,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "A magnet attracts certain metals without touching them.",
         "emoji": "⭐",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11756275/pexels-photo-11756275.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What is a Magnet? — Exploring Magnets"
         }
       },
@@ -12119,7 +12119,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Iron, steel, and nickel are magnetic; most others are not.",
         "emoji": "🔍",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36397935/pexels-photo-36397935.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Magnetic and Non-Magnetic — Exploring Magnets"
         }
       },
@@ -12136,7 +12136,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "N and S poles attract each other. N-N or S-S repel.",
         "emoji": "↔️",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/16273145/pexels-photo-16273145.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Magnetic Poles — Exploring Magnets"
         }
       },
@@ -12151,7 +12151,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Opposite poles attract, same poles push away.",
         "emoji": "🔄",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/15805961/pexels-photo-15805961.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Attraction and Repulsion — Exploring Magnets"
         }
       },
@@ -12168,7 +12168,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Magnetic field is the invisible area where magnet's force works.",
         "emoji": "🌀",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4400549/pexels-photo-4400549.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Magnetic Field — Exploring Magnets"
         }
       },
@@ -12183,7 +12183,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "If a magnet pulls something without touching, it's in the magnetic field.",
         "emoji": "🌐",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/29372694/pexels-photo-29372694.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Observing Magnetic Fields — Exploring Magnets"
         }
       },
@@ -12200,7 +12200,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Magnetic fields pass through many materials.",
         "emoji": "🧪",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/33565497/pexels-photo-33565497.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Magnet Experiments — Exploring Magnets"
         }
       },
@@ -12225,7 +12225,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Magnets are forces that work through invisible fields.",
         "emoji": "✅",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/18687845/pexels-photo-18687845.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Magnets Review — Exploring Magnets"
         }
       }
@@ -12352,7 +12352,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Speed shows how fast, velocity includes direction.",
         "emoji": "🚀",
         "image": {
-          "url": "https://images.pexels.com/photos/5414582/pexels-photo-5414582.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/32129418/pexels-photo-32129418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Motion Concepts — Measurement of Length and Motion"
         }
       },
@@ -12367,7 +12367,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Faster motion covers more distance in same time.",
         "emoji": "💨",
         "image": {
-          "url": "https://images.pexels.com/photos/12719282/pexels-photo-12719282.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/122252/pexels-photo-122252.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Real Motion Scenarios — Measurement of Length and Motion"
         }
       },
@@ -12384,7 +12384,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Use stopwatch and measuring tape to find real speeds.",
         "emoji": "🏅",
         "image": {
-          "url": "https://images.pexels.com/photos/9785603/pexels-photo-9785603.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12973767/pexels-photo-12973767.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Motion Analysis — Measurement of Length and Motion"
         }
       },
@@ -12409,7 +12409,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Measure distance with tape, time with stopwatch, calculate speed.",
         "emoji": "✅",
         "image": {
-          "url": "https://images.pexels.com/photos/5414582/pexels-photo-5414582.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/18563111/pexels-photo-18563111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Length and Motion Review — Measurement of Length and Motion"
         }
       }
@@ -12446,7 +12446,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Temperature measures how hot or cold something is.",
         "emoji": "🌡️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37588632/pexels-photo-37588632.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Feeling Hot and Cold — Temperature and its Measurement"
         }
       },
@@ -12520,7 +12520,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Celsius: 0° (freeze) to 100° (boil). Most countries use Celsius.",
         "emoji": "🌍",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4022769/pexels-photo-4022769.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Temperature Scales — Temperature and its Measurement"
         }
       },
@@ -12550,7 +12550,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "0°C (freeze) is ice, 100°C (boil) is steam, between is liquid water.",
         "emoji": "❄️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5994625/pexels-photo-5994625.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Water Temperature States — Temperature and its Measurement"
         }
       },
@@ -12567,7 +12567,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Observe and record temperature changes over time.",
         "emoji": "📈",
         "image": {
-          "url": "https://images.pexels.com/photos/5995227/pexels-photo-5995227.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8670205/pexels-photo-8670205.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Temperature Recording — Temperature and its Measurement"
         }
       },
@@ -12592,7 +12592,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Thermometers safely measure temperature on the Celsius scale.",
         "emoji": "✅",
         "image": {
-          "url": "https://images.pexels.com/photos/8471861/pexels-photo-8471861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4022334/pexels-photo-4022334.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Temperature Review — Temperature and its Measurement"
         }
       }
@@ -12680,7 +12680,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Steam is gas: spreads everywhere, invisible.",
         "emoji": "☁️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5015375/pexels-photo-5015375.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Gas: Steam — A Journey through States of Water"
         }
       },
@@ -12731,7 +12731,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Water evaporates (rises), condenses (clouds), falls as rain, returns to ocean.",
         "emoji": "🌍",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4589089/pexels-photo-4589089.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Water Cycle Journey — A Journey through States of Water"
         }
       },
@@ -12748,7 +12748,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Learn the key temperatures: 0° (solid ↔ liquid) and 100° (liquid ↔ gas).",
         "emoji": "🎯",
         "image": {
-          "url": "https://images.pexels.com/photos/5995227/pexels-photo-5995227.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9182633/pexels-photo-9182633.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "State Transitions — A Journey through States of Water"
         }
       },
@@ -12812,7 +12812,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Everything is made of different materials with unique properties.",
         "emoji": "🏫",
         "image": {
-          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/18503424/pexels-photo-18503424.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Classroom Materials — Materials Around Us"
         }
       },
@@ -12829,7 +12829,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Materials are what things are made from.",
         "emoji": "🔍",
         "image": {
-          "url": "https://images.pexels.com/photos/8471987/pexels-photo-8471987.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/38300320/pexels-photo-38300320.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What are Materials? — Materials Around Us"
         }
       },
@@ -12844,7 +12844,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Common materials: metal, plastic, ceramic, wood, glass, rubber.",
         "emoji": "🔗",
         "image": {
-          "url": "https://images.pexels.com/photos/5621934/pexels-photo-5621934.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/130193/pexels-photo-130193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Types of Materials — Materials Around Us"
         }
       },
@@ -12880,7 +12880,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Different materials have different usefulness for different jobs.",
         "emoji": "⚙️",
         "image": {
-          "url": "https://images.pexels.com/photos/35160053/pexels-photo-35160053.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7767756/pexels-photo-7767756.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Properties of Materials — Materials Around Us"
         }
       },
@@ -12905,7 +12905,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Properties describe how materials behave and look.",
         "emoji": "✨",
         "image": {
-          "url": "https://images.pexels.com/photos/5414582/pexels-photo-5414582.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28678222/pexels-photo-28678222.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Physical Properties — Materials Around Us"
         }
       },
@@ -12920,7 +12920,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Match material properties to what you need.",
         "emoji": "💡",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/19879544/pexels-photo-19879544.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Choosing Materials — Materials Around Us"
         }
       },
@@ -12937,7 +12937,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Look around and identify materials and their properties.",
         "emoji": "🏠",
         "image": {
-          "url": "https://images.pexels.com/photos/35160053/pexels-photo-35160053.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11006487/pexels-photo-11006487.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Material Hunt — Materials Around Us"
         }
       },
@@ -12962,7 +12962,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The right material for the right job makes everything work better.",
         "emoji": "✅",
         "image": {
-          "url": "https://images.pexels.com/photos/11200121/pexels-photo-11200121.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7307676/pexels-photo-7307676.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Materials Review — Materials Around Us"
         }
       }
@@ -13018,7 +13018,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Numbers build up by tens, like stairs.",
         "emoji": "📊",
         "image": {
-          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1383379/pexels-photo-1383379.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Ones, Tens, Hundreds — Large Numbers Around Us"
         }
       },
@@ -13146,7 +13146,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Add costs to find the total budget.",
         "emoji": "🎪",
         "image": {
-          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8819389/pexels-photo-8819389.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Planning the School Festival — Arithmetic Expressions"
         }
       },
@@ -13188,7 +13188,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Brackets are calculated first.",
         "emoji": "( )",
         "image": {
-          "url": "https://images.pexels.com/photos/7548729/pexels-photo-7548729.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1337385/pexels-photo-1337385.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Brackets Matter — Arithmetic Expressions"
         }
       },
@@ -13205,7 +13205,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Use math to plan real festivals and costs.",
         "emoji": "🥗",
         "image": {
-          "url": "https://images.pexels.com/photos/2101261/pexels-photo-2101261.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/14766893/pexels-photo-14766893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Solving the Budget Puzzle — Arithmetic Expressions"
         }
       },
@@ -13226,7 +13226,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Divide and multiply in the order they appear.",
         "emoji": "➗",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4562971/pexels-photo-4562971.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Division and Multiplication Together — Arithmetic Expressions"
         }
       },
@@ -13635,7 +13635,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Add fractions by adding tops if bottoms match.",
         "emoji": "➕",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8380047/pexels-photo-8380047.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Adding Fractions (Same Denominator) — Working with Fractions"
         }
       },
@@ -13656,7 +13656,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Make bottoms the same before adding fractions.",
         "emoji": "🎯",
         "image": {
-          "url": "https://images.pexels.com/photos/3946250/pexels-photo-3946250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/1552642/pexels-photo-1552642.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Finding Common Denominators — Working with Fractions"
         }
       },
@@ -13677,7 +13677,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Multiply fractions by multiplying tops and bottoms.",
         "emoji": "✕",
         "image": {
-          "url": "https://images.pexels.com/photos/8927931/pexels-photo-8927931.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/2260555/pexels-photo-2260555.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Multiplying Fractions — Working with Fractions"
         }
       },
@@ -13694,7 +13694,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Same amount can be written as different fractions.",
         "emoji": "≈",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8471699/pexels-photo-8471699.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Equivalent Fractions — Working with Fractions"
         }
       },
@@ -13711,7 +13711,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Fractions are parts of wholes, shared and calculated.",
         "emoji": "🎓",
         "image": {
-          "url": "https://images.pexels.com/photos/31596394/pexels-photo-31596394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28528515/pexels-photo-28528515.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Pizza Math Mastered — Working with Fractions"
         }
       }
@@ -13933,7 +13933,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Chlorophyll is the green pigment that traps sunlight.",
         "emoji": "🍃",
         "image": {
-          "url": "https://images.pexels.com/photos/37992842/pexels-photo-37992842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/18041512/pexels-photo-18041512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Chlorophyll — The Green Pigment — Nutrition in Plants"
         }
       },
@@ -14189,7 +14189,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Temperature measures hotness. Heat is thermal energy flow.",
         "emoji": "🌡️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8738463/pexels-photo-8738463.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Heat vs. Temperature — Not the Same! — Heat"
         }
       },
@@ -14210,7 +14210,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Conduction moves heat through solids.",
         "emoji": "⚡",
         "image": {
-          "url": "https://images.pexels.com/photos/35160053/pexels-photo-35160053.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/266388/pexels-photo-266388.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "How Heat Transfers — Conduction — Heat"
         }
       },
@@ -14231,7 +14231,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Convection moves heat through fluids by circulation.",
         "emoji": "🌪️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11828629/pexels-photo-11828629.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "How Heat Transfers — Convection — Heat"
         }
       },
@@ -14248,7 +14248,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Radiation sends heat through empty space as waves.",
         "emoji": "☀️",
         "image": {
-          "url": "https://images.pexels.com/photos/15569096/pexels-photo-15569096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/3699573/pexels-photo-3699573.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "How Heat Transfers — Radiation — Heat"
         }
       },
@@ -14269,7 +14269,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Insulation prevents heat from leaving objects.",
         "emoji": "🧊",
         "image": {
-          "url": "https://images.pexels.com/photos/35160053/pexels-photo-35160053.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8193811/pexels-photo-8193811.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Insulation Stops Heat Loss — Heat"
         }
       },
@@ -14286,7 +14286,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Heat makes solids liquid, liquids gaseous.",
         "emoji": "❄️",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/35160053/pexels-photo-35160053.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Heat Changes Matter — Melting and Boiling — Heat"
         }
       },
@@ -14529,7 +14529,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Chemical changes create new substances and are usually irreversible.",
         "emoji": "🔥",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8991555/pexels-photo-8991555.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Chemical Changes — New Substances Form — Physical and Chemical Changes"
         }
       },
@@ -14584,7 +14584,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Digestion breaks food into new nutrients via chemistry.",
         "emoji": "🍎",
         "image": {
-          "url": "https://images.pexels.com/photos/29047032/pexels-photo-29047032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37201842/pexels-photo-37201842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Digestion — A Series of Chemical Changes — Physical and Chemical Changes"
         }
       },
@@ -14601,7 +14601,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Physical changes are reversible. Chemical changes are usually permanent.",
         "emoji": "🌍",
         "image": {
-          "url": "https://images.pexels.com/photos/3946250/pexels-photo-3946250.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37261964/pexels-photo-37261964.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Changes Everywhere — Physical and Chemical Changes"
         }
       }
@@ -14836,7 +14836,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📦",
         "inSimpleWords": "A cube number is multiplying a number three times.",
         "image": {
-          "url": "https://images.pexels.com/photos/37992842/pexels-photo-37992842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/15251149/pexels-photo-15251149.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Giant Cube Planter — A Square and A Cube"
         }
       },
@@ -14860,7 +14860,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🧊",
         "inSimpleWords": "Perfect cubes are numbers that form 3D blocks.",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7117502/pexels-photo-7117502.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Perfect Cubes Defined — A Square and A Cube"
         }
       },
@@ -15008,7 +15008,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🧮",
         "inSimpleWords": "Combine exponents using the multiplication rule.",
         "image": {
-          "url": "https://images.pexels.com/photos/5063392/pexels-photo-5063392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/38115907/pexels-photo-38115907.png?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Example 2: Applying Laws — Power Play"
         }
       },
@@ -15246,7 +15246,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🍞",
         "inSimpleWords": "144 divided by 9 gives exactly 16 per student.",
         "image": {
-          "url": "https://images.pexels.com/photos/5063392/pexels-photo-5063392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/26754382/pexels-photo-26754382.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Example 1: Chapati Division — Number Play"
         }
       },
@@ -15270,7 +15270,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🔢",
         "inSimpleWords": "Primes have 2 factors; composites have more.",
         "image": {
-          "url": "https://images.pexels.com/photos/1329297/pexels-photo-1329297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8471854/pexels-photo-8471854.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Prime vs. Composite — Number Play"
         }
       },
@@ -15284,7 +15284,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "⭐",
         "inSimpleWords": "17 is prime because only 1 and 17 divide it.",
         "image": {
-          "url": "https://images.pexels.com/photos/5063392/pexels-photo-5063392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5200770/pexels-photo-5200770.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Example 2: Prime Check — Number Play"
         }
       },
@@ -15342,7 +15342,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🍚",
         "inSimpleWords": "Proportions scale recipes and measurements.",
         "image": {
-          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8819846/pexels-photo-8819846.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Scaling the Festival Kheer — Proportional Reasoning-1"
         }
       },
@@ -15500,7 +15500,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🔄",
         "inSimpleWords": "Divide numerator by denominator to get decimal.",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/28528516/pexels-photo-28528516.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fractions to Decimals — Fractions in Disguise"
         }
       },
@@ -15514,7 +15514,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📊",
         "inSimpleWords": "⅝ = 0.625 = 62.5% all mean the same.",
         "image": {
-          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7699376/pexels-photo-7699376.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Example 1: Cricket Batting Average — Fractions in Disguise"
         }
       },
@@ -15538,7 +15538,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🔢",
         "inSimpleWords": "Put decimal over 10, 100, 1000 to make fraction.",
         "image": {
-          "url": "https://images.pexels.com/photos/8923803/pexels-photo-8923803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6493565/pexels-photo-6493565.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Decimals to Fractions — Fractions in Disguise"
         }
       },
@@ -15552,7 +15552,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📈",
         "inSimpleWords": "40% equals two-fifths of the whole.",
         "image": {
-          "url": "https://images.pexels.com/photos/5063392/pexels-photo-5063392.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12645179/pexels-photo-12645179.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Example 2: Percentage to Fraction — Fractions in Disguise"
         }
       },
@@ -15573,7 +15573,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "✅",
         "inSimpleWords": "One number, three different disguises.",
         "image": {
-          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5903111/pexels-photo-5903111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Fractions in Disguise — Fractions in Disguise"
         }
       }
@@ -15610,7 +15610,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🌾",
         "inSimpleWords": "Good farming needs planning, soil care, and rotation.",
         "image": {
-          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/32461462/pexels-photo-32461462.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Grandpa's Wheat Field — Crop Production and Management"
         }
       },
@@ -15634,7 +15634,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "💧",
         "inSimpleWords": "Crops need nutrients, water, light, and right temperature.",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/36462091/pexels-photo-36462091.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Essential Crop Requirements — Crop Production and Management"
         }
       },
@@ -15648,7 +15648,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "♻️",
         "inSimpleWords": "Rotate wheat and legumes every 2 years.",
         "image": {
-          "url": "https://images.pexels.com/photos/20286949/pexels-photo-20286949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/10908895/pexels-photo-10908895.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Example 1: Crop Rotation — Crop Production and Management"
         }
       },
@@ -15707,7 +15707,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "✅",
         "inSimpleWords": "Respect soil, rotate crops, use nature wisely.",
         "image": {
-          "url": "https://images.pexels.com/photos/27597007/pexels-photo-27597007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/2382904/pexels-photo-2382904.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Sustainable Farming — Crop Production and Management"
         }
       }
@@ -15920,7 +15920,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🌬️",
         "inSimpleWords": "Diya burns because fuel, oxygen, and heat persist.",
         "image": {
-          "url": "https://images.pexels.com/photos/10182772/pexels-photo-10182772.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/30959071/pexels-photo-30959071.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Example 1: Diya Burning — Combustion and Flame"
         }
       },
@@ -16086,7 +16086,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🛡️",
         "inSimpleWords": "Protected reserves, laws, and community action save species.",
         "image": {
-          "url": "https://images.pexels.com/photos/13594133/pexels-photo-13594133.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/17374833/pexels-photo-17374833.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Conservation Strategies — Conservation of Plants and Animals"
         }
       },
@@ -16121,7 +16121,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "✅",
         "inSimpleWords": "Protect habitats, enforce laws, involve communities.",
         "image": {
-          "url": "https://images.pexels.com/photos/6991105/pexels-photo-6991105.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/30889519/pexels-photo-30889519.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Conservation Imperative — Conservation of Plants and Animals"
         }
       }
@@ -16158,7 +16158,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🐟",
         "inSimpleWords": "Animals reproduce to create offspring for the next generation.",
         "image": {
-          "url": "https://images.pexels.com/photos/36385086/pexels-photo-36385086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12829694/pexels-photo-12829694.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Baby Guppies Everywhere — Reproduction in Animals"
         }
       },
@@ -16182,7 +16182,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "👶",
         "inSimpleWords": "Sexual reproduction needs male and female parents.",
         "image": {
-          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/26932439/pexels-photo-26932439.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Sexual Reproduction — Reproduction in Animals"
         }
       },
@@ -16220,7 +16220,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🔄",
         "inSimpleWords": "Asexual reproduction uses one parent only.",
         "image": {
-          "url": "https://images.pexels.com/photos/37992842/pexels-photo-37992842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/12284846/pexels-photo-12284846.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Asexual Reproduction — Reproduction in Animals"
         }
       },
@@ -16255,7 +16255,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "✅",
         "inSimpleWords": "Sexual and asexual—both ways life continues.",
         "image": {
-          "url": "https://images.pexels.com/photos/6776105/pexels-photo-6776105.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/31622292/pexels-photo-31622292.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Reproduction Summary — Reproduction in Animals"
         }
       }
@@ -16316,7 +16316,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "💪",
         "inSimpleWords": "Force is push or pull that changes motion.",
         "image": {
-          "url": "https://images.pexels.com/photos/6203512/pexels-photo-6203512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37299598/pexels-photo-37299598.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What is Force? — Force and Pressure"
         }
       },
@@ -16330,7 +16330,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📐",
         "inSimpleWords": "Force on ball = mass × acceleration.",
         "image": {
-          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/32349681/pexels-photo-32349681.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Example 1: Cricket Ball Force — Force and Pressure"
         }
       },
@@ -16389,7 +16389,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "✅",
         "inSimpleWords": "Force and pressure explain motion and impact.",
         "image": {
-          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6962132/pexels-photo-6962132.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Force and Pressure — Force and Pressure"
         }
       }
@@ -16448,7 +16448,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Ball starts with the letter B!",
         "emoji": "⚽",
         "image": {
-          "url": "https://images.pexels.com/photos/6203512/pexels-photo-6203512.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/34962064/pexels-photo-34962064.png?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "B is for Ball — Alphabet A to M"
         }
       },
@@ -16511,7 +16511,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Four more letters to learn and remember!",
         "emoji": "🥚✋🌿🏔️",
         "image": {
-          "url": "https://images.pexels.com/photos/37144291/pexels-photo-37144291.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/26648532/pexels-photo-26648532.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "E to H — Alphabet A to M"
         }
       },
@@ -16641,7 +16641,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "A pig and a queen show us two new letters!",
         "emoji": "🐷👑",
         "image": {
-          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/20515274/pexels-photo-20515274.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "P is for Pig and Q is for Queen — Alphabet N to Z"
         }
       },
@@ -17028,7 +17028,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Subject and verb together make a complete sentence!",
         "emoji": "📝",
         "image": {
-          "url": "https://images.pexels.com/photos/11309631/pexels-photo-11309631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/7013458/pexels-photo-7013458.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Simple Sentence Pattern — Simple Sentences"
         }
       },
@@ -17148,7 +17148,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Big letters are called CAPITAL letters!",
         "emoji": "🔤",
         "image": {
-          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/20556421/pexels-photo-20556421.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Big Letters are Called CAPITALS — Capital and Small Letters"
         }
       },
@@ -17558,7 +17558,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Change 'y' to 'ies' for words ending in consonant+y!",
         "emoji": "👶👶",
         "image": {
-          "url": "https://images.pexels.com/photos/135129/pexels-photo-135129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/37806832/pexels-photo-37806832.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Words Ending in 'y' Change — Singular and Plural"
         }
       },
@@ -18118,7 +18118,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Possessive pronouns show who owns something!",
         "emoji": "🎁",
         "image": {
-          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/5009160/pexels-photo-5009160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "My, Your, His, Her, Our, Their — Nouns and Pronouns"
         }
       },
@@ -18688,7 +18688,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📖",
         "inSimpleWords": "Every word has a job in English.",
         "image": {
-          "url": "https://images.pexels.com/photos/8762862/pexels-photo-8762862.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/11911071/pexels-photo-11911071.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Arjun's Word Discovery — Parts of Speech"
         }
       },
@@ -19009,7 +19009,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🪙",
         "inSimpleWords": "Three small words do big jobs.",
         "image": {
-          "url": "https://images.pexels.com/photos/1006060/pexels-photo-1006060.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/34926379/pexels-photo-34926379.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Three Mysterious Words — Articles"
         }
       },
@@ -19159,7 +19159,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "✍️",
         "inSimpleWords": "Good writing needs planning and practice.",
         "image": {
-          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/3231359/pexels-photo-3231359.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Writing Challenge — Letter and Story Writing"
         }
       },
@@ -19349,7 +19349,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "❓",
         "inSimpleWords": "Ask questions. Listen to answers.",
         "image": {
-          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/13509632/pexels-photo-13509632.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Questions and Answers — Conversation Practice"
         }
       },
@@ -19699,7 +19699,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🎯",
         "inSimpleWords": "Real friends tell truth with care.",
         "image": {
-          "url": "https://images.pexels.com/photos/35160053/pexels-photo-35160053.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4275989/pexels-photo-4275989.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What Would You Do? — The Wise Parrot"
         }
       },
@@ -19949,7 +19949,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🎮",
         "inSimpleWords": "Gilli danda is skill and speed.",
         "image": {
-          "url": "https://images.pexels.com/photos/24428857/pexels-photo-24428857.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/4399499/pexels-photo-4399499.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What is Gilli Danda? — Gilli Danda"
         }
       },
@@ -20170,7 +20170,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🎯",
         "inSimpleWords": "Guard against flattery in real life.",
         "image": {
-          "url": "https://images.pexels.com/photos/18012456/pexels-photo-18012456.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/6217466/pexels-photo-6217466.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Spot the Flattery — The Raven and the Fox"
         }
       },
@@ -20253,7 +20253,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🗻",
         "inSimpleWords": "True friends stand with you always.",
         "image": {
-          "url": "https://images.pexels.com/photos/12719341/pexels-photo-12719341.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/17184744/pexels-photo-17184744.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Journey Begins — Rama to the Rescue"
         }
       },
@@ -20556,7 +20556,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🪟",
         "inSimpleWords": "Every creature sees the world differently.",
         "image": {
-          "url": "https://images.pexels.com/photos/9060601/pexels-photo-9060601.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/33949893/pexels-photo-33949893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Bird's Window — What a Bird Thought"
         }
       },
@@ -20577,7 +20577,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🤔",
         "inSimpleWords": "Different eyes see different truths.",
         "image": {
-          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/30603171/pexels-photo-30603171.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What Does the Bird Think? — What a Bird Thought"
         }
       },
@@ -20588,7 +20588,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🌤️",
         "inSimpleWords": "Freedom looks different to different beings.",
         "image": {
-          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/31058566/pexels-photo-31058566.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Bird's Freedom — What a Bird Thought"
         }
       },
@@ -20603,7 +20603,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🌍",
         "inSimpleWords": "Imagination bridges all differences.",
         "image": {
-          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/9409146/pexels-photo-9409146.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What the Bird Knows — What a Bird Thought"
         }
       },
@@ -20652,7 +20652,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "✨",
         "inSimpleWords": "We're all connected by wonder.",
         "image": {
-          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/30750710/pexels-photo-30750710.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Connection Across Worlds — What a Bird Thought"
         }
       },
@@ -20663,7 +20663,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🏆",
         "inSimpleWords": "Every viewpoint has value and beauty.",
         "image": {
-          "url": "https://images.pexels.com/photos/30174893/pexels-photo-30174893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/10688108/pexels-photo-10688108.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Lesson of Perspective — What a Bird Thought"
         }
       },
@@ -20748,7 +20748,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The river shares its story of patience and service",
         "emoji": "💬",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/15146122/pexels-photo-15146122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The River Begins to Speak — The Day the River Spoke"
         }
       },
@@ -20769,7 +20769,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Problems shape us, not stop us",
         "emoji": "🪨",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/2682181/pexels-photo-2682181.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The River's Lesson on Flow — The Day the River Spoke"
         }
       },
@@ -20801,7 +20801,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Listening teaches more than talking ever can",
         "emoji": "👂",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/15404426/pexels-photo-15404426.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "When Ravi Shares the Message — The Day the River Spoke"
         }
       },
@@ -20846,7 +20846,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Flow like water; last like time",
         "emoji": "✨",
         "image": {
-          "url": "https://images.pexels.com/photos/14115984/pexels-photo-14115984.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/13061831/pexels-photo-13061831.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The River's Gift: Embrace Flow — The Day the River Spoke"
         }
       }
@@ -21450,7 +21450,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The magic is in the believing, not the knowing",
         "emoji": "🤔",
         "image": {
-          "url": "https://images.pexels.com/photos/9872961/pexels-photo-9872961.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8083429/pexels-photo-8083429.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Mother Asks: Where Do They Go? — Paper Boats"
         }
       },
@@ -21781,7 +21781,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The smartest books can't answer a broken heart",
         "emoji": "💔",
         "image": {
-          "url": "https://images.pexels.com/photos/20286949/pexels-photo-20286949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/34479827/pexels-photo-34479827.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "A Real Problem Arrives — Wisdom Paves the Way"
         }
       },
@@ -21802,7 +21802,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Wisdom is knowledge plus compassion plus action",
         "emoji": "🤝",
         "image": {
-          "url": "https://images.pexels.com/photos/20286949/pexels-photo-20286949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/16298196/pexels-photo-16298196.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Elder's Path — Wisdom Paves the Way"
         }
       },
@@ -22105,7 +22105,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "A young man sees where others see only poverty",
         "emoji": "💭",
         "image": {
-          "url": "https://images.pexels.com/photos/11997156/pexels-photo-11997156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/20269183/pexels-photo-20269183.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "A Dream Begins in Anand — Verghese Kurien - I Too Had a Dream"
         }
       },
@@ -22318,7 +22318,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "A painting becomes a promise",
         "emoji": "🌈",
         "image": {
-          "url": "https://images.pexels.com/photos/346820/pexels-photo-346820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "url": "https://images.pexels.com/photos/8828681/pexels-photo-8828681.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Village Transformed by Seeing — The Magic Brush of Dreams"
         }
       },
