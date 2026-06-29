@@ -45,6 +45,11 @@ const PRESETS = [
   { label: '50 / 10', focus: 50, brk: 10 },
   { label: '15 / 3', focus: 15, brk: 3 },
 ];
+const TOUR_STEPS = [
+  { emoji: '⏱️', title: 'Your focus timer', body: 'Start a Pomodoro block to study in focused sprints. Your streak, daily goal and completed blocks all live here.' },
+  { emoji: '💬', title: 'Meet Sahay, your AI buddy', body: 'Ask any doubt by text — or tap “Talk to Sahay” for hands-free voice. He explains, gives examples and cheers you on.' },
+  { emoji: '⚡', title: 'AI Flashcards', body: 'Generate quiz cards for your chapters. We remember what you get wrong and bring it back for spaced revision.' },
+];
 const STORE_KEY = 'syllab_studyroom_v1';
 const IDLE_NUDGE_MS = 12 * 60 * 1000;
 const FLASH_COUNTS = [10, 20, 30];
@@ -136,6 +141,13 @@ export default function StudyRoom({ onExit, userUid, userName }: Props) {
   const [cards, setCards] = useState<Flashcard[]>([]);
   const [fullscreen, setFullscreen] = useState(false);
   const [phoneReminder, setPhoneReminder] = useState(false);
+  // Onboarding coachmark tour (first entry only).
+  const [tourStep, setTourStep] = useState(-1);
+  // Session goal + reward.
+  const [flashAnswered, setFlashAnswered] = useState(0);
+  const goalBlocks = 2;
+  const goalCards = 20;
+  const [goalCelebrated, setGoalCelebrated] = useState(false);
 
   // ── Chapter completion + flashcards ─────────────────────────────────────────
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
@@ -416,7 +428,31 @@ export default function StudyRoom({ onExit, userUid, userName }: Props) {
     const chs = activeFlashRef.current.length ? activeFlashRef.current : (selectedChapters.length ? selectedChapters : chapterList.slice(0, 1));
     for (const ch of chs) recordChapterResult(ch, correct, total, today());
     setDueChapters(dueForReview(today())); // refresh the due list
+    setFlashAnswered((a) => a + total); // session-goal progress
   }, [selectedChapters, chapterList]);
+
+  // ── Onboarding tour (first entry) + session goal + Vibes presets ────────────
+  useEffect(() => {
+    if (!entered) return;
+    try { if (!localStorage.getItem('syllab_sr_tour_v1')) setTourStep(0); } catch { /* ignore */ }
+  }, [entered]);
+  const endTour = useCallback(() => { setTourStep(-1); try { localStorage.setItem('syllab_sr_tour_v1', '1'); } catch { /* ignore */ } }, []);
+  useEffect(() => {
+    if (tourStep < 0) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') endTour(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [tourStep, endTour]);
+
+  // Reward when the session goal is met.
+  useEffect(() => {
+    if (!goalCelebrated && blocksDone >= goalBlocks && flashAnswered >= goalCards) setGoalCelebrated(true);
+  }, [blocksDone, flashAnswered, goalCelebrated]);
+
+  // One-tap "Vibes" = theme + ambient sound together.
+  const applyVibe = useCallback((themeKey: string, amb: AmbienceKey) => {
+    setTheme(themeKey); chooseAmbience(amb);
+  }, [chooseAmbience]);
 
   const total = phase === 'focus' ? preset.focus * 60 : preset.brk * 60;
   const pct = Math.round(((total - secondsLeft) / total) * 100);
@@ -576,6 +612,33 @@ export default function StudyRoom({ onExit, userUid, userName }: Props) {
             </div>
           </div>
 
+          {/* Session goal + reward */}
+          <div className={cn('rounded-2xl border p-4 backdrop-blur', goalCelebrated ? 'border-emerald-400/40 bg-emerald-500/15' : 'border-white/10 bg-white/5')}>
+            {goalCelebrated ? (
+              <div className="text-center">
+                <p className="text-base font-black text-emerald-200">🎉 Session goal smashed!</p>
+                <p className="mt-1 text-xs text-white/70">{goalBlocks} focus blocks + {goalCards} flashcards done — brilliant work!</p>
+                <button onClick={() => void shareProgress()} className="mx-auto mt-3 inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-emerald-500 px-4 py-2 text-xs font-black text-white hover:bg-emerald-400">
+                  <Share2 size={14} /> Share my win
+                </button>
+              </div>
+            ) : (
+              <>
+                <p className="mb-3 text-xs font-black uppercase tracking-widest text-white/50">🎯 Today&apos;s goal</p>
+                {([['Focus blocks', blocksDone, goalBlocks], ['Flashcards', flashAnswered, goalCards]] as const).map(([lbl, val, tgt]) => (
+                  <div key={lbl} className="mb-2.5 last:mb-0">
+                    <div className="mb-1 flex items-center justify-between text-xs font-bold text-white/70">
+                      <span>{lbl}</span><span className="tabular-nums">{Math.min(val, tgt)}/{tgt}</span>
+                    </div>
+                    <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                      <div className="h-full rounded-full bg-emerald-400 transition-all" style={{ width: `${Math.min(100, (val / tgt) * 100)}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
+
           {/* Spaced repetition — chapters due for revision today */}
           {dueChapters.length ? (
             <div className="rounded-2xl border border-amber-400/30 bg-amber-500/10 p-4 backdrop-blur">
@@ -717,6 +780,26 @@ export default function StudyRoom({ onExit, userUid, userName }: Props) {
 
           {/* Focus theme */}
           <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+            <p className="mb-2 text-xs font-black uppercase tracking-widest text-white/50">🎚️ Vibes — set the mood in one tap</p>
+            <div className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {([
+                ['🌧️', 'Rainy Night', 'night', 'rain'],
+                ['📚', 'Library', 'forest', 'focus'],
+                ['🎧', 'Lo-Fi', 'aurora', 'lofi'],
+                ['🌊', 'Ocean Calm', 'ocean', 'ocean'],
+              ] as const).map(([emoji, label, th, amb]) => (
+                <button
+                  key={label}
+                  onClick={() => applyVibe(th, amb as AmbienceKey)}
+                  className={cn(
+                    'flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-xs font-bold transition-colors',
+                    theme === th && ambience === amb ? 'bg-emerald-500 text-white' : 'bg-white/10 text-white/80 hover:bg-white/20',
+                  )}
+                >
+                  <span aria-hidden>{emoji}</span> {label}
+                </button>
+              ))}
+            </div>
             <p className="mb-2 text-xs font-black uppercase tracking-widest text-white/50">🎨 Focus theme</p>
             <div className="flex flex-wrap gap-2">
               {Object.entries(THEMES).map(([key, t]) => (
@@ -789,6 +872,39 @@ export default function StudyRoom({ onExit, userUid, userName }: Props) {
               <div className="mt-4 flex gap-2">
                 <button onClick={() => setEnded(false)} className="flex-1 rounded-xl bg-slate-100 py-3 text-sm font-black text-slate-700 hover:bg-slate-200">Back to room</button>
                 {onExit ? <button onClick={onExit} className="flex-1 rounded-xl bg-emerald-500 py-3 text-sm font-black text-white hover:bg-emerald-400">Done</button> : null}
+              </div>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+
+      {/* Onboarding coachmark tour (first entry only) */}
+      <AnimatePresence>
+        {tourStep >= 0 && tourStep < TOUR_STEPS.length ? (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[85] flex items-end justify-center bg-slate-950/70 p-5 backdrop-blur-sm sm:items-center"
+            role="dialog" aria-modal="true" aria-label="Study Room guide" onClick={endTour}
+          >
+            <motion.div
+              initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-sm rounded-3xl border border-white/10 bg-slate-900 p-6 text-center shadow-2xl"
+            >
+              <div className="text-4xl" aria-hidden>{TOUR_STEPS[tourStep].emoji}</div>
+              <h3 className="mt-2 text-lg font-black text-white">{TOUR_STEPS[tourStep].title}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-white/70">{TOUR_STEPS[tourStep].body}</p>
+              <div className="mt-4 flex items-center justify-center gap-1.5">
+                {TOUR_STEPS.map((_, i) => <span key={i} className={cn('h-1.5 rounded-full transition-all', i === tourStep ? 'w-5 bg-emerald-400' : 'w-1.5 bg-white/20')} />)}
+              </div>
+              <div className="mt-5 flex items-center justify-between gap-3">
+                <button onClick={endTour} className="min-h-[44px] px-2 text-xs font-bold text-white/50 hover:text-white/80">Skip</button>
+                <button
+                  onClick={() => (tourStep + 1 < TOUR_STEPS.length ? setTourStep(tourStep + 1) : endTour())}
+                  className="inline-flex min-h-[44px] items-center gap-1.5 rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-black text-white hover:bg-emerald-400"
+                >
+                  {tourStep + 1 < TOUR_STEPS.length ? <>Next <ChevronRight size={15} /></> : 'Got it!'}
+                </button>
               </div>
             </motion.div>
           </motion.div>
