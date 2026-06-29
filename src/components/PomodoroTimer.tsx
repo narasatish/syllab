@@ -41,6 +41,13 @@ export default function PomodoroTimer() {
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [dismissed, setDismissed] = useState(() => {
+    try { return localStorage.getItem('syllab_pomodoro_hidden') === '1'; } catch { return false; }
+  });
+  const hidePermanently = () => {
+    try { localStorage.setItem('syllab_pomodoro_hidden', '1'); } catch { /* ignore */ }
+    setDismissed(true);
+  };
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Persist state to localStorage
@@ -144,20 +151,35 @@ export default function PomodoroTimer() {
     ? ((FOCUS_MINUTES * 60 - state.timeLeft) / (FOCUS_MINUTES * 60)) * 100
     : ((BREAK_MINUTES * 60 - state.timeLeft) / (BREAK_MINUTES * 60)) * 100;
 
+  if (dismissed) return null;
+
   return (
     <>
-      {/* Floating button when collapsed */}
+      {/* Floating button when collapsed (with a permanent-hide ✕) */}
       <AnimatePresence>
         {!isExpanded && (
-          <motion.button
+          <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            onClick={() => setIsExpanded(true)}
-            className="fixed bottom-6 left-6 z-40 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center font-black text-[10px] sm:text-xs"
+            className="fixed bottom-6 left-6 z-40"
           >
-            {formatTime(state.timeLeft)}
-          </motion.button>
+            <button
+              onClick={() => setIsExpanded(true)}
+              aria-label="Open focus timer"
+              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center font-black text-[10px] sm:text-xs"
+            >
+              {formatTime(state.timeLeft)}
+            </button>
+            <button
+              onClick={hidePermanently}
+              aria-label="Hide the focus timer"
+              title="Hide timer"
+              className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-700 text-white shadow ring-2 ring-white/70 hover:bg-slate-900"
+            >
+              <X size={11} />
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -174,12 +196,22 @@ export default function PomodoroTimer() {
             <div className={`bg-gradient-to-r ${phaseColor} p-6 text-white`}>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-black uppercase tracking-widest">{phaseLabel}</h3>
-                <button
-                  onClick={() => setIsExpanded(false)}
-                  className="p-1 hover:bg-white/20 rounded-lg transition-colors"
-                >
-                  <X size={18} />
-                </button>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={hidePermanently}
+                    className="rounded-lg px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white/80 hover:bg-white/20 hover:text-white transition-colors"
+                    title="Hide the timer permanently"
+                  >
+                    Hide
+                  </button>
+                  <button
+                    onClick={() => setIsExpanded(false)}
+                    aria-label="Collapse timer"
+                    className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
               </div>
 
               {/* Timer display */}
