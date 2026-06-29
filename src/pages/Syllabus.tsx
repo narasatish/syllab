@@ -1235,23 +1235,6 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
               </div>
             </div>
 
-            {/* Story Mode — narrative lesson where concepts are taught through a
-                journey. Shown only for chapters that have a story lesson authored. */}
-            {(() => {
-              // Prefer an uploaded PPT deck; fall back to the auto-generated story.
-              const uploaded = getUploadedDeck(chapter.classLevel, chapter.title);
-              const story = getStoryLesson(chapter.classLevel, chapter.subject, chapter.title);
-              return uploaded || story ? (
-                <button
-                  onClick={() => { if (uploaded) { setSlideDeck(uploaded); return; } if (story) setStoryLesson(story); }}
-                  className="mb-3 flex w-full items-center justify-center gap-2 rounded-2xl py-3.5 text-[10px] font-black uppercase tracking-widest text-white shadow-md transition-all hover:-translate-y-0.5"
-                  style={{ backgroundImage: 'var(--grad-vivid)' }}
-                >
-                  <BookOpen size={14} /> Story Lesson · this chapter as a PPT story
-                </button>
-              ) : null;
-            })()}
-
             <div className="grid grid-cols-2 gap-3 mb-3">
               {/* Lesson button — if a story-based lesson exists it IS the lesson PPT;
                   else the polished provided deck, else the AI-generated lesson. */}
