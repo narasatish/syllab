@@ -1,0 +1,943 @@
+[
+  {
+    "slug": "class-12-mathematics-integrals",
+    "classLevel": "12",
+    "subject": "Mathematics",
+    "chapter": "Integrals",
+    "title": "Nikhil's Distance Challenge",
+    "hook": "Nikhil's bike has a broken speedometer. He knows his speed over time but needs to find total distance traveled. Integration is his answer.",
+    "characters": [
+      {
+        "name": "Nikhil",
+        "emoji": "🚲",
+        "role": "Cyclist and data enthusiast"
+      },
+      {
+        "name": "Ravi",
+        "emoji": "📈",
+        "role": "Calculus teacher"
+      },
+      {
+        "name": "Dr. Sharma",
+        "emoji": "👨‍🏫",
+        "role": "Physics instructor"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Integrals",
+        "storyContext": "Nikhil's speedometer is broken, but his GPS logs speed v(t) every second. To find distance, he reverses differentiation — that's integration.",
+        "emoji": "∫"
+      },
+      {
+        "kind": "story",
+        "title": "The Broken Speedometer",
+        "storyContext": "Nikhil's data: v(t) = 20 − 2t m/s (speed decreasing linearly over time). He knows: distance = integral of speed. Ravi says: integration is the reverse of differentiation. If derivative of position gives velocity, integrating velocity gives position back.",
+        "emoji": "🚴"
+      },
+      {
+        "kind": "concept",
+        "title": "What is an Integral?",
+        "storyContext": "Ravi explains: An integral is the reverse of a derivative. If F'(x) = f(x), then ∫f(x)dx = F(x) + C.",
+        "points": [
+          {
+            "label": "Antiderivative",
+            "text": "F is an antiderivative of f if F'(x) = f(x)."
+          },
+          {
+            "label": "Indefinite integral",
+            "text": "∫f(x)dx represents ALL antiderivatives: F(x) + C, where C is an arbitrary constant."
+          },
+          {
+            "label": "Constant of integration",
+            "text": "C accounts for the fact that derivative of constant is 0. Different antiderivatives differ by a constant."
+          }
+        ],
+        "example": {
+          "problem": "Find ∫ 3x² dx.",
+          "solution": "We need F(x) such that F'(x) = 3x². F(x) = x³ works because (x³)' = 3x². So ∫ 3x² dx = x³ + C."
+        },
+        "inSimpleWords": "Integral = reverse of derivative. Antiderivative of f is any function whose derivative is f. Plus C because constants disappear in derivatives.",
+        "emoji": "↩️"
+      },
+      {
+        "kind": "concept",
+        "title": "Power Rule and Basic Integration",
+        "storyContext": "Ravi lists integration rules, starting with the most common.",
+        "points": [
+          {
+            "label": "Power rule",
+            "text": "∫ x^n dx = (x^{n+1}) / (n+1) + C (for n ≠ −1)."
+          },
+          {
+            "label": "Constant multiple",
+            "text": "∫ k·f(x) dx = k ∫ f(x) dx."
+          },
+          {
+            "label": "Sum rule",
+            "text": "∫ [f(x) + g(x)] dx = ∫ f(x) dx + ∫ g(x) dx."
+          },
+          {
+            "label": "Exponential and log",
+            "text": "∫ e^x dx = e^x + C. ∫ (1/x) dx = ln|x| + C."
+          }
+        ],
+        "example": {
+          "problem": "Find ∫ (5x² + 2x − 3) dx.",
+          "solution": "∫ 5x² dx + ∫ 2x dx − ∫ 3 dx = 5·(x³/3) + 2·(x²/2) − 3x + C = (5x³/3) + x² − 3x + C."
+        },
+        "inSimpleWords": "Power rule: bring exponent down, raise power by 1, divide by new exponent. Same linearity as derivatives.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Integrate Basic Polynomials",
+        "storyContext": "Nikhil tries his first integrals with Ravi coaching.",
+        "example": {
+          "problem": "Find ∫ (4x³ − 6x + 1) dx.",
+          "solution": "∫ 4x³ dx − ∫ 6x dx + ∫ 1 dx = 4·(x⁴/4) − 6·(x²/2) + x + C = x⁴ − 3x² + x + C."
+        },
+        "inSimpleWords": "Apply power rule term by term. Don't forget the constant of integration.",
+        "emoji": "✏️"
+      },
+      {
+        "kind": "concept",
+        "title": "From Velocity to Distance",
+        "storyContext": "Dr. Sharma connects physics and math: if v(t) = 20 − 2t, then distance s(t) = ∫ v(t) dt.",
+        "points": [
+          {
+            "label": "Position from velocity",
+            "text": "s(t) = ∫ v(t) dt. Integrating velocity gives position."
+          },
+          {
+            "label": "Example",
+            "text": "v(t) = 20 − 2t. s(t) = ∫ (20 − 2t) dt = 20t − t² + C."
+          },
+          {
+            "label": "Finding C",
+            "text": "Use initial condition. If Nikhil starts at s(0) = 0, then C = 0. So s(t) = 20t − t²."
+          }
+        ],
+        "example": {
+          "problem": "Nikhil's speed v(t) = 20 − 2t m/s. He starts at position 0. Find position at t = 5 seconds.",
+          "solution": "s(t) = ∫ (20−2t) dt = 20t − t² + C. With s(0) = 0: C = 0. s(5) = 20(5) − 5² = 100 − 25 = 75 meters."
+        },
+        "inSimpleWords": "Integrate velocity to get position. Use initial position to find the constant C.",
+        "emoji": "📍"
+      },
+      {
+        "kind": "story",
+        "title": "Speed Over Time",
+        "storyContext": "Nikhil plots his speed on a graph: a downward slope as his legs tire. Ravi points: 'The area under this curve is your distance!'",
+        "emoji": "📈"
+      },
+      {
+        "kind": "concept",
+        "title": "Definite Integral and Area",
+        "storyContext": "Ravi introduces definite integrals: ∫ᵃᵇ f(x) dx gives the signed area under the curve from x=a to x=b.",
+        "points": [
+          {
+            "label": "Notation",
+            "text": "∫ᵃᵇ f(x) dx is the definite integral from a to b (limits of integration)."
+          },
+          {
+            "label": "Fundamental Theorem of Calculus",
+            "text": "∫ᵃᵇ f(x) dx = F(b) − F(a), where F is an antiderivative of f."
+          },
+          {
+            "label": "Geometric interpretation",
+            "text": "If f(x) ≥ 0, the definite integral equals the area under the curve."
+          }
+        ],
+        "example": {
+          "problem": "Find ∫₀⁵ (20 − 2t) dt (distance traveled from t=0 to t=5).",
+          "solution": "Antiderivative: F(t) = 20t − t². ∫₀⁵ (20−2t) dt = F(5) − F(0) = (100−25) − 0 = 75 meters."
+        },
+        "inSimpleWords": "Definite integral has limits (a to b). Fundamental Theorem: evaluate antiderivative at b, subtract at a.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Calculate Distance",
+        "storyContext": "Nikhil calculates distances on different route segments.",
+        "example": {
+          "problem": "Speed v(t) = 15 − t m/s from t = 2 to t = 8. Find distance.",
+          "solution": "∫₂⁸ (15 − t) dt = [15t − t²/2]₂⁸ = (120 − 32) − (30 − 2) = 88 − 28 = 60 meters."
+        },
+        "inSimpleWords": "Definite integrals measure accumulated quantities over an interval.",
+        "emoji": "🏁"
+      },
+      {
+        "kind": "concept",
+        "title": "Substitution Method (u-substitution)",
+        "storyContext": "Some integrals look complex. Ravi teaches substitution to simplify.",
+        "points": [
+          {
+            "label": "Idea",
+            "text": "Let u = g(x). Then du = g'(x)dx. Rewrite integral in terms of u, integrate, substitute back."
+          },
+          {
+            "label": "Example",
+            "text": "∫ (2x)·cos(x²) dx. Let u = x², du = 2x dx. Then ∫ cos(u) du = sin(u) + C = sin(x²) + C."
+          }
+        ],
+        "example": {
+          "problem": "Find ∫ 3x² · sin(x³) dx.",
+          "solution": "Let u = x³, du = 3x² dx. ∫ sin(u) du = −cos(u) + C = −cos(x³) + C."
+        },
+        "inSimpleWords": "Substitution simplifies complex integrals. Replace inner function with u, find du, integrate, substitute back.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "story",
+        "title": "Curved Functions",
+        "storyContext": "Ravi presents trickier speed functions: v(t) = e^t (exponential acceleration), v(t) = sin(t) (oscillating). 'These need substitution,' he says.",
+        "emoji": "~"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Substitution",
+        "storyContext": "Nikhil tackles substitution problems.",
+        "example": {
+          "problem": "Find ∫ 2x · e^{x²} dx.",
+          "solution": "Let u = x², du = 2x dx. ∫ e^u du = e^u + C = e^{x²} + C."
+        },
+        "inSimpleWords": "Choose u to be the 'inner' function. Make sure du matches what's left.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "example",
+        "title": "Area Between Two Curves",
+        "storyContext": "Nikhil rides alongside his friend. Both their speeds vary over time. What's the total distance difference after 10 seconds?",
+        "points": [
+          {
+            "label": "Formula",
+            "text": "Area between curves f(x) and g(x) (f ≥ g) from a to b: ∫ᵃᵇ [f(x) − g(x)] dx."
+          }
+        ],
+        "example": {
+          "problem": "Nikhil: v₁(t) = 20−2t. Friend: v₂(t) = 15−t. Find distance difference from t=0 to t=5 seconds.",
+          "solution": "Difference = ∫₀⁵ [(20−2t) − (15−t)] dt = ∫₀⁵ (5−t) dt = [5t − t²/2]₀⁵ = (25 − 25/2) − 0 = 25/2 = 12.5 meters."
+        },
+        "inSimpleWords": "Area between curves = definite integral of (upper curve − lower curve). Shows accumulated difference.",
+        "emoji": "📈📉"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Comparing Two Routes",
+        "storyContext": "Nikhil plans two cycling routes and compares them.",
+        "example": {
+          "problem": "Route A: v(t) = 12 m/s (constant). Route B: v(t) = 10 + t m/s. Find total distance difference from t = 0 to t = 4.",
+          "solution": "∫₀⁴ [(10 + t) − 12] dt = ∫₀⁴ (t − 2) dt = [t²/2 − 2t]₀⁴ = (8 − 8) − 0 = 0 meters. Same total distance!"
+        },
+        "inSimpleWords": "Compare accumulated quantities by integrating the difference.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "concept",
+        "title": "Integration by Parts",
+        "storyContext": "For products of functions, Ravi teaches a powerful technique: integration by parts, based on the product rule for derivatives.",
+        "points": [
+          {
+            "label": "Formula",
+            "text": "∫ u dv = uv − ∫ v du"
+          },
+          {
+            "label": "How to choose",
+            "text": "Let u = function that simplifies on differentiation (logs, polynomials). Let dv = rest."
+          }
+        ],
+        "example": {
+          "problem": "Find ∫ x · e^x dx. Let u = x, dv = e^x dx. Then du = dx, v = e^x. By parts: ∫ x·e^x dx = x·e^x − ∫ e^x dx = x·e^x − e^x + C = e^x(x − 1) + C.",
+          "solution": "∫ x·e^x dx = e^x(x − 1) + C."
+        },
+        "inSimpleWords": "Integration by parts reverses the product rule. Choose u and dv so the resulting integral is simpler.",
+        "emoji": "✂️"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Complex Integration",
+        "storyContext": "Nikhil's actual speed is v(t) = 30·e^{−0.1t} m/s (exponential decay as he tires). Total distance after 10 seconds?",
+        "example": {
+          "problem": "Find s = ∫₀¹⁰ 30·e^{−0.1t} dt.",
+          "solution": "∫ 30·e^{−0.1t} dt: Let u = −0.1t, du = −0.1 dt, so dt = −10 du. ∫ 30·e^u · (−10) du = −300 e^u + C = −300 e^{−0.1t} + C. Definite integral: [−300 e^{−0.1t}]₀¹⁰ = −300·e^{−1} − (−300·e⁰) = −300/e + 300 ≈ −110.36 + 300 ≈ 189.64 meters."
+        },
+        "inSimpleWords": "For exponential integrals, use substitution or recall ∫ e^{ax} dx = (1/a)·e^{ax} + C.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "story",
+        "title": "The Triumphant Calculation",
+        "storyContext": "Nikhil finishes his calculation and shows Ravi the result. His GPS data is now transformed into a precise distance—189.6 meters. Ravi nods: 'Now you understand integration: from rate to quantity, from speed to distance.'",
+        "emoji": "🎉"
+      },
+      {
+        "kind": "concept",
+        "title": "Trigonometric Integrals",
+        "storyContext": "Ravi shows Nikhil that cyclic motions (like a pendulum) also integrate nicely.",
+        "points": [
+          {
+            "label": "Basic trigonometric integrals",
+            "text": "∫ sin(x) dx = −cos(x) + C, ∫ cos(x) dx = sin(x) + C, ∫ sec²(x) dx = tan(x) + C"
+          }
+        ],
+        "example": {
+          "problem": "Find ∫ 5·cos(2x) dx.",
+          "solution": "∫ 5·cos(2x) dx. Let u = 2x, du = 2dx, so dx = du/2. ∫ 5·cos(u) · (du/2) = (5/2)·sin(u) + C = (5/2)·sin(2x) + C."
+        },
+        "inSimpleWords": "Sines integrate to cosines (with sign), cosines to sines. Use substitution when the angle is scaled.",
+        "emoji": "🌊"
+      },
+      {
+        "kind": "recap",
+        "title": "What Nikhil Learned",
+        "storyContext": "Integration reversed differentiation, turning speed data into distance — a practical superpower.",
+        "points": [
+          {
+            "text": "Integral = reverse of derivative. Antiderivative F satisfies F'(x) = f(x)."
+          },
+          {
+            "text": "Indefinite integral: ∫ f(x) dx = F(x) + C (C = constant of integration)."
+          },
+          {
+            "text": "Power rule: ∫ x^n dx = x^{n+1}/(n+1) + C."
+          },
+          {
+            "text": "Definite integral: ∫ᵃᵇ f(x) dx = F(b) − F(a) (Fundamental Theorem of Calculus)."
+          },
+          {
+            "text": "Substitution and integration by parts simplify complex integrals."
+          },
+          {
+            "text": "Applications: distance from velocity, area under curves, area between curves, work, volume."
+          }
+        ],
+        "inSimpleWords": "Integration finds totals: distance from speed, area from height, accumulation from rate. Core tool for physics and engineering.",
+        "emoji": "🎓"
+      }
+    ]
+  },
+  {
+    "slug": "class-12-mathematics-application-of-integrals",
+    "classLevel": "12",
+    "subject": "Mathematics",
+    "chapter": "Application of Integrals",
+    "chapterAliases": [
+      "Applications of Integration"
+    ],
+    "title": "Priya's Harvest: Finding Area, Volume, and Balance",
+    "hook": "A farmer's daughter learns calculus by measuring fields and grain stores",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "👩‍🌾",
+        "role": "engineering student helping her father"
+      },
+      {
+        "name": "Ravi",
+        "emoji": "👨‍⚖️",
+        "role": "land surveyor"
+      },
+      {
+        "name": "Babuji",
+        "emoji": "👴",
+        "role": "Priya's father, farmer"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Application of Integrals",
+        "storyContext": "Priya returns to her village for summer break and discovers that calculus isn't abstract—it's alive in the fields, granaries, and river embankments all around her.",
+        "emoji": "🌾",
+        "image": {
+          "url": "https://images.pexels.com/photos/28881743/pexels-photo-28881743.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Application of Integrals — Application of Integrals",
+          "q": "village"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Village Challenge",
+        "storyContext": "Priya's father Babuji wants to know the exact area of an irregularly shaped wheat field bounded by the river's curve y = 6x - x² and the irrigation channel y = 0. The government surveyor Ravi says he'll charge 5,000 rupees. Priya says, 'Babuji, I can find it using integrals!' Her father laughs—but she's serious. When she gets the answer in minutes, Babuji realizes his daughter has learned something powerful.",
+        "emoji": "🏞️",
+        "image": {
+          "prompt": "wheat field",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Area Between Two Curves",
+        "storyContext": "Priya draws the boundary curves in the dust. The field is trapped between the parabola y = 6x - x² (the river's curve, opening downward) and the x-axis (the irrigation channel). To find area, she integrates.",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "The area A between curves y = f(x) and y = g(x) from x = a to x = b (where f(x) ≥ g(x)) is: A = ∫[a to b] (f(x) - g(x)) dx"
+          },
+          {
+            "label": "Finding limits",
+            "text": "First find where the curves intersect by solving f(x) = g(x). These are the bounds of integration."
+          },
+          {
+            "label": "Orientation",
+            "text": "Always integrate (upper curve) − (lower curve). If uncertain, sketch or evaluate at a test point."
+          }
+        ],
+        "example": {
+          "problem": "Priya's field: find area between y = 6x - x² and y = 0. Step 1: Find intersections. 6x - x² = 0 → x(6 - x) = 0 → x = 0 or x = 6. Step 2: Set up integral. A = ∫[0 to 6] (6x - x² - 0) dx = ∫[0 to 6] (6x - x²) dx. Step 3: Integrate. ∫(6x - x²) dx = 3x² - x³/3 + C. Step 4: Evaluate. A = [3(6)² - (6)³/3] − [0] = [108 - 72] = 36 square units.",
+          "solution": "Area = 36 square units. When surveyor Ravi measures it later, he gets the same answer. Priya's father is amazed—no fee charged!"
+        },
+        "inSimpleWords": "To find the area of a region trapped between two curves, subtract the lower curve from the upper curve, then integrate.",
+        "emoji": "📐",
+        "image": {
+          "prompt": "dust drawing",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Find Field Area",
+        "storyContext": "Priya's uncle has a field bounded by y = x and y = x².",
+        "example": {
+          "problem": "Find area between y = x and y = x² from their intersections. Intersections: x = x² → x(1 - x) = 0 → x = 0 or x = 1. Upper curve: y = x (since x > x² for 0 < x < 1). A = ∫₀¹ (x - x²) dx = [x²/2 - x³/3]₀¹ = (1/2 - 1/3) = 1/6 square units.",
+          "solution": "Area = 1/6 square units. The field is small but perfectly calculus-shaped!"
+        },
+        "inSimpleWords": "Always sketch or find intersections first to identify bounds and the upper/lower curves.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "concept",
+        "title": "Volume of Solids of Revolution",
+        "storyContext": "Priya's mother asks her to estimate how much grain can fit in the large earthen pot in the store. The pot is shaped like a solid of revolution—the potter rotated a curve around a vertical axis to form it. Priya realizes: this is calculus!",
+        "points": [
+          {
+            "label": "Disk Method",
+            "text": "When curve y = f(x) is rotated about the x-axis, volume V = π ∫[a to b] [f(x)]² dx. Each thin slice is a disk with radius f(x)."
+          },
+          {
+            "label": "Washer Method",
+            "text": "When region between two curves is rotated, V = π ∫[a to b] ([R(x)]² − [r(x)]²) dx, where R = outer radius, r = inner radius."
+          },
+          {
+            "label": "Shell Method",
+            "text": "Alternatively, rotate about y-axis using shells: V = 2π ∫[a to b] x · f(x) dx."
+          }
+        ],
+        "example": {
+          "problem": "The potter shapes a pot by rotating y = √x (from x = 0 to x = 4) about the x-axis. Find volume. Using disk method: V = π ∫[0 to 4] (√x)² dx = π ∫[0 to 4] x dx = π [x²/2][0 to 4] = π (8 − 0) = 8π cubic units.",
+          "solution": "Volume = 8π ≈ 25.13 cubic units. Priya tells her mother, 'This pot holds about 25 liters of grain!'"
+        },
+        "inSimpleWords": "Rotate a curve around an axis and use integrals to find the volume of the solid created.",
+        "emoji": "🏺",
+        "image": {
+          "prompt": "earthen pot",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Spinning Clay",
+        "storyContext": "Priya watches the potter at the village's craft fair, spinning clay on a wheel. Each vertical slice of the spinning curve creates a thin disk—and disks stack up to form the pot.",
+        "emoji": "🎡"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Disk Method",
+        "storyContext": "Priya calculates volume for a simpler pot shape.",
+        "example": {
+          "problem": "Rotate y = 2√x from x = 0 to x = 1 about the x-axis. V = π ∫₀¹ (2√x)² dx = π ∫₀¹ 4x dx = π [2x²]₀¹ = 2π cubic units.",
+          "solution": "Volume = 2π ≈ 6.28 cubic units."
+        },
+        "inSimpleWords": "Remember to square the radius before integrating. Disk volume = π r² h where h is the thickness.",
+        "emoji": "⚙️"
+      },
+      {
+        "kind": "concept",
+        "title": "Arc Length",
+        "storyContext": "Ravi the surveyor needs to measure the length of the river's curve that borders Priya's field—for a water-maintenance project. He can't just pace it out. Priya says, 'Use arc length integration!'",
+        "points": [
+          {
+            "label": "Arc Length Formula",
+            "text": "For smooth curve y = f(x) from x = a to x = b, arc length L = ∫[a to b] √(1 + [f'(x)]²) dx"
+          },
+          {
+            "label": "Parametric form",
+            "text": "If curve is x = x(t), y = y(t), then L = ∫[α to β] √([dx/dt]² + [dy/dt]²) dt"
+          }
+        ],
+        "example": {
+          "problem": "Find arc length of y = 6x - x² from x = 0 to x = 6 (Priya's field boundary). Step 1: Compute derivative. dy/dx = 6 - 2x. Step 2: Set up integral. L = ∫[0 to 6] √(1 + (6 - 2x)²) dx = ∫[0 to 6] √(1 + 36 - 24x + 4x²) dx = ∫[0 to 6] √(4x² - 24x + 37) dx. Step 3: This integral is complex (complete the square, use substitution). After integration, L ≈ 10.7 units.",
+          "solution": "The river's curve is approximately 10.7 units long. Ravi uses this to plan maintenance work."
+        },
+        "inSimpleWords": "To measure the true length of a curved path, integrate the rate of change in both x and y directions.",
+        "emoji": "📏",
+        "image": {
+          "prompt": "surveyor",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Simple Arc Length",
+        "storyContext": "Priya calculates the arc length of a straight-line segment for practice.",
+        "example": {
+          "problem": "Find arc length of y = 2x from x = 0 to x = 3. dy/dx = 2. L = ∫₀³ √(1 + 4) dx = ∫₀³ √5 dx = 3√5 ≈ 6.71 units.",
+          "solution": "Arc length = 3√5. (This should match the straight-line distance formula: √[(3−0)² + (6−0)²] = √45 = 3√5. ✓)"
+        },
+        "inSimpleWords": "For linear functions, arc length should match the Pythagorean distance—a good sanity check.",
+        "emoji": "✓"
+      },
+      {
+        "kind": "concept",
+        "title": "Surface Area of Revolution",
+        "storyContext": "A metalsmith in the village wants to make decorative water vessels by rotating metal bands into smooth surfaces. Priya helps calculate how much metal is needed—by finding surface area.",
+        "points": [
+          {
+            "label": "Surface Area Formula (about x-axis)",
+            "text": "S = 2π ∫[a to b] f(x) · √(1 + [f'(x)]²) dx"
+          },
+          {
+            "label": "Surface Area Formula (about y-axis)",
+            "text": "S = 2π ∫[a to b] x · √(1 + [f'(x)]²) dx"
+          }
+        ],
+        "example": {
+          "problem": "Rotate y = √x (x ∈ [0, 4]) about x-axis. Surface area: S = 2π ∫[0 to 4] √x · √(1 + 1/(4x)) dx = 2π ∫[0 to 4] √x · √((4x + 1)/(4x)) dx. After simplification and integration, S ≈ 30.8 square units.",
+          "solution": "The metalsmith needs enough material to cover approximately 30.8 square units of surface."
+        },
+        "inSimpleWords": "When you rotate a curve around an axis, the surface it sweeps has area = circumference at each point × arc length element.",
+        "emoji": "🎨",
+        "image": {
+          "prompt": "water vessels",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Metalsmith's Challenge",
+        "storyContext": "The metalsmith listens as Priya explains surface area of revolution. He nods slowly. 'So you're telling me calculus tells me exactly how much metal I need?' Priya smiles. 'Exactly.'",
+        "emoji": "🔧"
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: The Grain Silo",
+        "storyContext": "Babuji plans to build a silo for storing grain. It's shaped like a cone with height 8 m and base radius 3 m, formed by rotating the line y = (3/8)x about the y-axis for 0 ≤ y ≤ 8. Find total volume.",
+        "example": {
+          "problem": "A cone is formed by rotating y-values from 0 to 8; at height y, the radius is (3/8) × 8 = 3 at the base, scaling linearly. Using disk method (integrating perpendicular to axis of rotation): at height y, radius r(y) = (3y)/8. Volume = π ∫[0 to 8] [(3y)/8]² dy = π ∫[0 to 8] (9y²/64) dy = (9π/64) × [y³/3][0 to 8] = (9π/64) × (512/3) = (9π × 512)/(64 × 3) = 24π cubic meters.",
+          "solution": "Volume = 24π ≈ 75.4 cubic meters. Babuji can store roughly 75 cubic meters of grain—enough for the monsoon!"
+        },
+        "inSimpleWords": "Real silo volumes are found using calculus, not guesswork.",
+        "emoji": "🌾",
+        "image": {
+          "prompt": "grain silo",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Test Yourself: The River Bridge",
+        "storyContext": "A new bridge arches over the river, shaped like y = 4 - x² (for -2 ≤ x ≤ 2, measured in meters from the center). Find (a) the area under the arch (cross-sectional area if water fills under it), and (b) the arc length of the arch itself.",
+        "points": [
+          {
+            "text": "(a) Integrate to find area between y = 4 - x² and y = 0."
+          },
+          {
+            "text": "(b) Use dy/dx = -2x to set up and evaluate arc length integral."
+          }
+        ],
+        "example": {
+          "problem": "(a) Area = ∫[-2 to 2] (4 - x²) dx = [4x - x³/3][-2 to 2] = (8 - 8/3) − (−8 + 8/3) = (16/3) − (−16/3) = 32/3 ≈ 10.67 m². (b) Arc length = ∫[-2 to 2] √(1 + 4x²) dx ≈ 9.29 m (use numerical methods or table of integrals).",
+          "solution": "Area ≈ 10.67 m²; Arc length ≈ 9.29 m. Engineers use these to plan reinforcement."
+        },
+        "inSimpleWords": "Apply area and arc length formulas to a real-world bridge design.",
+        "emoji": "🌉",
+        "image": {
+          "prompt": "river bridge",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Centroid and Center of Mass",
+        "storyContext": "Babuji wonders where to position a support beam under his granary door to balance it perfectly. Priya explains: this is the centroid of the region.",
+        "points": [
+          {
+            "label": "Centroid x-coordinate",
+            "text": "x̄ = (1/A) ∫[a to b] x·f(x) dx, where A is the area."
+          },
+          {
+            "label": "Centroid y-coordinate",
+            "text": "ȳ = (1/A) ∫[a to b] (1/2)[f(x)]² dx (for region under y = f(x))."
+          }
+        ],
+        "example": {
+          "problem": "Find centroid of region under y = 6x - x² from x = 0 to x = 6. Area A = 36 (from earlier). x̄ = (1/36) ∫₀⁶ x(6x - x²) dx = (1/36) ∫₀⁶ (6x² - x³) dx = (1/36)[2x³ - x⁴/4]₀⁶ = (1/36)[432 - 324] = (1/36)·108 = 3. ȳ = (1/36) ∫₀⁶ (1/2)(6x - x²)² dx. After simplification, ȳ ≈ 2.4. Centroid is at (3, 2.4).",
+          "solution": "The centroid is at (3, 2.4). This is where Babuji should place the support to balance the granary load."
+        },
+        "inSimpleWords": "The centroid is the center of mass—the balance point of a 2D region.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "Area between curves: integrate (upper − lower) over the region."
+          },
+          {
+            "text": "Volume by revolution: use disk, washer, or shell methods depending on axis and region."
+          },
+          {
+            "text": "Arc length: ∫√(1 + (dy/dx)²) dx measures true path length."
+          },
+          {
+            "text": "Surface area of revolution: 2π × radius × arc element."
+          },
+          {
+            "text": "Centroid: the balance point of a region, found by averaging x and y over the area."
+          },
+          {
+            "text": "Always sketch the region, identify bounds, and choose the right method."
+          },
+          {
+            "text": "Real applications: crop fields, storage vessels, bridge designs, water infrastructure, balance."
+          }
+        ],
+        "inSimpleWords": "Integrals measure areas, volumes, lengths, surface areas, and balance points of real-world shapes.",
+        "emoji": "✅",
+        "image": {
+          "prompt": "village child",
+          "gq": true
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-12-mathematics-differential-equations",
+    "classLevel": "12",
+    "subject": "Mathematics",
+    "chapter": "Differential Equations",
+    "chapterAliases": [
+      "Differential Equations and Their Solutions"
+    ],
+    "title": "Arjun's Medicine: How Things Change Over Time",
+    "hook": "A pharmacist's son learns how differential equations predict medicine levels in the blood",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👨‍🎓",
+        "role": "physics student, curious"
+      },
+      {
+        "name": "Dr. Meena",
+        "emoji": "👨‍⚕️",
+        "role": "Arjun's father, pharmacist"
+      },
+      {
+        "name": "Lakshmi",
+        "emoji": "👩‍🔬",
+        "role": "chemistry teacher"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Differential Equations",
+        "storyContext": "Arjun notices that when his father dispenses medicine, doctors always ask: 'How fast does it leave the body?' This rate of change is governed by differential equations—the heartbeat of physics, biology, and engineering.",
+        "emoji": "💊",
+        "image": {
+          "prompt": "medicine",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Medication Mystery",
+        "storyContext": "Arjun's younger sister takes an antibiotic. The dosage is 250 mg at noon. By evening, the nurse measures the drug concentration in her blood: 200 mg. By next morning: 160 mg. Arjun asks his father, 'Is she getting worse?' Dr. Meena smiles. 'No—the body eliminates a fixed fraction of drug every few hours. If we know this rate, we can predict concentration at any time.' Arjun thinks: 'That sounds like a differential equation!' He's right.",
+        "emoji": "⏰",
+        "image": {
+          "prompt": "nurse",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What is a Differential Equation?",
+        "storyContext": "Lakshmi, Arjun's teacher, draws an equation on the board involving a function y and its derivative dy/dx. 'This is a differential equation—it says how y changes as x changes.'",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A differential equation is an equation relating a function y and its derivatives dy/dx, d²y/dx², etc."
+          },
+          {
+            "label": "Order",
+            "text": "The order is the highest derivative present. dy/dx + 2y = 0 is first-order. d²y/dx² - 5dy/dx + 6y = 0 is second-order."
+          },
+          {
+            "label": "Solution",
+            "text": "A solution is a function y(x) that satisfies the equation when substituted back."
+          },
+          {
+            "label": "General vs Particular",
+            "text": "General solution has arbitrary constants (C₁, C₂, ...). Particular solution results from initial conditions (y at a specific x)."
+          }
+        ],
+        "example": {
+          "problem": "Consider dy/dx = 3x². Find the general solution. Integrate: y = ∫3x² dx = x³ + C. Verify: dy/dx = d(x³ + C)/dx = 3x². ✓",
+          "solution": "General solution is y = x³ + C. If y(0) = 5 (initial condition), then 5 = 0 + C, so C = 5 and particular solution is y = x³ + 5."
+        },
+        "inSimpleWords": "A differential equation relates a quantity and how fast it changes. The solution is the quantity as a function.",
+        "emoji": "📊",
+        "image": {
+          "url": "https://images.pexels.com/photos/3825293/pexels-photo-3825293.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is a Differential Equation? — Differential Equations",
+          "q": "blackboard"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Verify a Solution",
+        "storyContext": "Arjun verifies that a candidate function solves a differential equation.",
+        "example": {
+          "problem": "Verify that y = e^{2x} is a solution to dy/dx = 2y. dy/dx = d(e^{2x})/dx = 2e^{2x}. And 2y = 2e^{2x}. They match! ✓",
+          "solution": "y = e^{2x} is indeed a solution to dy/dx = 2y."
+        },
+        "inSimpleWords": "To verify a solution, differentiate it and check that it satisfies the original equation.",
+        "emoji": "✓"
+      },
+      {
+        "kind": "concept",
+        "title": "Separable Differential Equations",
+        "storyContext": "Lakshmi teaches: 'Some equations are easy to solve if we can separate variables.' Arjun sees this as the key to the medicine problem.",
+        "points": [
+          {
+            "label": "Form",
+            "text": "An equation of the form dy/dx = f(x) · g(y) is separable if we can rearrange as dy/g(y) = f(x) dx."
+          },
+          {
+            "label": "Method",
+            "text": "Integrate both sides: ∫(1/g(y)) dy = ∫f(x) dx + C."
+          },
+          {
+            "label": "Exponential decay",
+            "text": "Common in nature: dM/dt = -kM (medicine leaving body). Solution: M(t) = M₀ e^(-kt), where M₀ is initial amount."
+          }
+        ],
+        "example": {
+          "problem": "Model Arjun's sister's medicine: dM/dt = -0.1M, where M is drug amount in mg and t is time in hours. Initial dose M(0) = 250 mg. Separate: dM/M = -0.1 dt. Integrate: ln|M| = -0.1t + C. At t=0: ln(250) = C. So ln(M) = -0.1t + ln(250). Solve: M(t) = 250 e^(-0.1t). At t=8 (evening): M(8) = 250 e^(-0.8) ≈ 250 × 0.449 ≈ 112 mg. At t=24 (next morning): M(24) = 250 e^(-2.4) ≈ 250 × 0.091 ≈ 23 mg.",
+          "solution": "M(t) = 250 e^(-0.1t). The concentration decays exponentially. After 24 hours, only ~23 mg remains, so a second dose is needed."
+        },
+        "inSimpleWords": "If a rate of change is proportional to the quantity (dy/dx = ky), the solution is exponential growth or decay.",
+        "emoji": "📉",
+        "image": {
+          "prompt": "medicine",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Exponential Patterns",
+        "storyContext": "Arjun sees a pattern in the medicine data. Every 24 hours, the amount stays roughly 1/11 of the previous day. 'That's exponential decay!' he shouts.",
+        "emoji": "~"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Solve Exponential Decay",
+        "storyContext": "Arjun solves a similar DE with different numbers.",
+        "example": {
+          "problem": "Solve dP/dt = -0.05P with P(0) = 1000. Separate and integrate: ln|P| = -0.05t + C. At t=0: C = ln(1000). P(t) = 1000 e^(-0.05t). At t = 20: P(20) = 1000 e^(-1) ≈ 368 units.",
+          "solution": "P(t) = 1000 e^(-0.05t). After 20 time units, about 37% remains."
+        },
+        "inSimpleWords": "Separable DEs with dP/dt = kP always solve to P(t) = P₀ e^(kt). If k < 0, decay; if k > 0, growth.",
+        "emoji": "📉"
+      },
+      {
+        "kind": "concept",
+        "title": "Linear Differential Equations of Order 1",
+        "storyContext": "Not all real-world problems decay purely exponentially. Sometimes there's an external input—like Arjun's sister getting a new dose of medicine while the old one is still leaving her body.",
+        "points": [
+          {
+            "label": "Standard form",
+            "text": "dy/dx + P(x)y = Q(x), where P and Q are functions of x."
+          },
+          {
+            "label": "Integrating factor",
+            "text": "Multiply both sides by e^(∫P(x) dx). Left side becomes d/dx[e^(∫P dx) · y]."
+          },
+          {
+            "label": "Solution",
+            "text": "y = e^(-∫P dx) · ∫Q · e^(∫P dx) dx + C · e^(-∫P dx)"
+          }
+        ],
+        "example": {
+          "problem": "Suppose sister takes 250 mg at noon, then 100 mg more at 6 PM, and body eliminates 10% per hour. Model as dy/dx + 0.1y = (input), where input is 0 until 6 PM, then becomes a new dose. For 0 ≤ t ≤ 6: dy/dt + 0.1y = 0. Solution: y = 250 e^(-0.1t). At t = 6, y(6) = 250 e^(-0.6) ≈ 136 mg. Then at t = 6, add 100 mg: new initial condition y(6) = 236 mg. For t > 6: solve anew with y(6) = 236.",
+          "solution": "y(t) = 250 e^(-0.1t) for 0 ≤ t ≤ 6, then y(t) ≈ 236 e^(-0.1(t-6)) for t > 6. Concentrations accumulate until body's elimination exceeds intake."
+        },
+        "inSimpleWords": "If a quantity both decays and receives new input, use linear DE methods to track the balance.",
+        "emoji": "⚖️",
+        "image": {
+          "prompt": "medicine",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Applications in Science and Engineering",
+        "storyContext": "Lakshmi shows Arjun real examples: Newton's law of cooling, bacterial growth, radioactive decay, electrical circuits, population dynamics. All are differential equations.",
+        "points": [
+          {
+            "label": "Newton's Law of Cooling",
+            "text": "dT/dt = -k(T - Tₐ), where T is object temp, Tₐ is ambient temp. Solution: T(t) = Tₐ + (T₀ - Tₐ)e^(-kt)."
+          },
+          {
+            "label": "Logistic Growth (population)",
+            "text": "dP/dt = rP(1 - P/K), where r is growth rate, K is carrying capacity. Realistic because growth slows as population approaches limit."
+          },
+          {
+            "label": "RL circuits (electricity)",
+            "text": "L(dI/dt) + RI = V, where L is inductance, R is resistance, V is voltage. Current I reaches steady state V/R."
+          }
+        ],
+        "example": {
+          "problem": "Hot tea at 80°C placed in room at 25°C. Cooling constant k = 0.05 min⁻¹. What's temperature after 10 minutes? T(10) = 25 + (80 - 25)e^(-0.05×10) = 25 + 55e^(-0.5) ≈ 25 + 55 × 0.606 ≈ 25 + 33.3 ≈ 58.3°C.",
+          "solution": "After 10 minutes, tea is about 58°C—still too hot to drink, but cooling steadily toward room temperature."
+        },
+        "inSimpleWords": "Differential equations model how real quantities change: temperature, population, current, concentration.",
+        "emoji": "🌡️",
+        "image": {
+          "prompt": "tea",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Newton's Discovery",
+        "storyContext": "Arjun learns that Isaac Newton used cooling equations to solve a murder mystery—by calculating when a body died based on its temperature. 'That's CSI, but with calculus!' he laughs.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Newton's Law of Cooling",
+        "storyContext": "Arjun models a cooling coffee cup.",
+        "example": {
+          "problem": "Coffee at 95°C is left in a 20°C room. After 5 minutes, it's 60°C. Find the cooling constant k, then estimate temperature at t = 15 min. Using T(t) = 20 + 75e^(-kt): 60 = 20 + 75e^(-5k) → 40 = 75e^(-5k) → e^(-5k) = 8/15 → -5k = ln(8/15) ≈ -0.62 → k ≈ 0.124 min⁻¹. At t = 15: T(15) = 20 + 75e^(-0.124×15) ≈ 20 + 75e^(-1.86) ≈ 20 + 75×0.156 ≈ 31.7°C.",
+          "solution": "The coffee reaches about 32°C after 15 minutes—cool enough to drink!"
+        },
+        "inSimpleWords": "Use initial conditions to find the cooling constant, then predict temperature at any future time.",
+        "emoji": "☕"
+      },
+      {
+        "kind": "concept",
+        "title": "Homogeneous and Non-homogeneous Equations",
+        "storyContext": "Lakshmi distinguishes two types of linear equations: those with only y (homogeneous) and those with an extra term (non-homogeneous, like our medicine dose model).",
+        "points": [
+          {
+            "label": "Homogeneous",
+            "text": "dy/dx + P(x)y = 0. Solution always has the form y = Ce^(-∫P dx)."
+          },
+          {
+            "label": "Non-homogeneous",
+            "text": "dy/dx + P(x)y = Q(x), where Q(x) ≠ 0. General solution = (homogeneous solution) + (particular solution)."
+          },
+          {
+            "label": "Finding particular solution",
+            "text": "Use variation of parameters or method of undetermined coefficients depending on form of Q."
+          }
+        ],
+        "example": {
+          "problem": "Solve dy/dx - 2y = e^(3x). Step 1: Homogeneous part. dy/dx - 2y = 0 has solution yₕ = Ce^(2x). Step 2: Particular solution. Try yₚ = Ae^(3x). Then dyₚ/dx = 3Ae^(3x). Substitute: 3Ae^(3x) - 2Ae^(3x) = e^(3x), so Ae^(3x) = e^(3x), thus A = 1. Step 3: General solution: y = Ce^(2x) + e^(3x).",
+          "solution": "y = Ce^(2x) + e^(3x). With initial condition y(0) = 0: 0 = C + 1, so C = -1, giving y = e^(3x) - e^(2x)."
+        },
+        "inSimpleWords": "Equations with external inputs (like medicine doses) are non-homogeneous. Solve by combining two parts: natural decay and forced response.",
+        "emoji": "🔄",
+        "image": {
+          "prompt": "medicine",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Antibiotic Therapy",
+        "storyContext": "Arjun calculates a complete antibiotic model. Dose is 200 mg every 12 hours. Body eliminates 15% per hour. What's the concentration just before the 4th dose (after 36 hours)?",
+        "example": {
+          "problem": "Between doses, dM/dt = -0.15M. At each dose, M increases by 200 mg. Solve piecewise: After 1st dose (t=0): M₀ = 200. At t=12⁻ (just before 2nd dose): M = 200e^(-0.15×12) = 200e^(-1.8) ≈ 200 × 0.165 ≈ 33 mg. After 2nd dose: M = 33 + 200 = 233. At t=24⁻: M = 233e^(-1.8) ≈ 38.5 mg. After 3rd dose: M = 38.5 + 200 = 238.5. At t=36⁻ (before 4th dose): M = 238.5e^(-1.8) ≈ 39.4 mg.",
+          "solution": "Just before the 4th dose, concentration is about 39.4 mg. After the 4th dose, it's 239.4 mg. The concentration stabilizes near this level after a few doses."
+        },
+        "inSimpleWords": "Real therapies involve repeated dosing and exponential elimination—use DEs to predict safe levels.",
+        "emoji": "💉",
+        "image": {
+          "prompt": "antibiotics",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Test Yourself: Water Tank Drainage",
+        "storyContext": "A cylindrical tank holds water. A tap at the bottom drains it. The rate of drainage is proportional to the square root of the height of water: dh/dt = -k√h, where k = 0.1, h is height in meters.",
+        "points": [
+          {
+            "text": "If h(0) = 1 meter, find h(t)."
+          },
+          {
+            "text": "How long until the tank is empty (h = 0)?"
+          }
+        ],
+        "example": {
+          "problem": "Separate: dh/√h = -0.1 dt. Integrate: 2√h = -0.1t + C. At t = 0, h = 1: 2√1 = C, so C = 2. Thus 2√h = -0.1t + 2, so √h = 1 - 0.05t, hence h = (1 - 0.05t)². Tank empty when 1 - 0.05t = 0, i.e., t = 20 seconds.",
+          "solution": "h(t) = (1 - 0.05t)² for 0 ≤ t ≤ 20. Tank empties in 20 seconds."
+        },
+        "inSimpleWords": "Separable equations model realistic draining and filling processes in engineering.",
+        "emoji": "💧",
+        "image": {
+          "prompt": "water tank",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Arjun's Realization",
+        "storyContext": "Arjun finishes solving the tank problem and looks up at his teacher. 'So differential equations are everywhere—medicine, cooling, draining water...' Lakshmi nods. 'Welcome to the language of the universe.'",
+        "emoji": "🌟"
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "A differential equation relates a function and its rate of change."
+          },
+          {
+            "text": "Order is the highest derivative; solution satisfies the equation."
+          },
+          {
+            "text": "Separable DEs: rearrange to get all y terms on one side, x on the other, then integrate."
+          },
+          {
+            "text": "Exponential decay/growth: M(t) = M₀ e^(kt) is the solution to dM/dt = kM."
+          },
+          {
+            "text": "Linear first-order DEs use integrating factor method."
+          },
+          {
+            "text": "Newton's Law of Cooling, logistic growth, and circuit equations are all differential equations."
+          },
+          {
+            "text": "Real applications: medicine concentration, cooling, population, circuits, draining tanks."
+          },
+          {
+            "text": "General solution has arbitrary constants; initial conditions give particular solutions."
+          }
+        ],
+        "inSimpleWords": "Differential equations predict how real systems change over time—essential for medicine, physics, engineering, biology.",
+        "emoji": "✅",
+        "image": {
+          "url": "https://images.pexels.com/photos/34526421/pexels-photo-34526421.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What We Learned — Differential Equations",
+          "q": "student"
+        }
+      }
+    ]
+  }
+]

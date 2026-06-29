@@ -1,0 +1,796 @@
+[
+  {
+    "slug": "class-12-mathematics-probability",
+    "classLevel": "12",
+    "subject": "Mathematics",
+    "chapter": "Probability",
+    "chapterAliases": [
+      "Probability Theory",
+      "Conditional Probability",
+      "Bayes Theorem"
+    ],
+    "title": "Aditya's Cricket: Odds, Decisions, and Uncertainty",
+    "hook": "A cricket analyst uses probability to predict match outcomes and make smart bets",
+    "characters": [
+      {
+        "name": "Aditya",
+        "emoji": "🏏",
+        "role": "cricket analyst and math enthusiast"
+      },
+      {
+        "name": "Deepak",
+        "emoji": "📊",
+        "role": "sports journalist"
+      },
+      {
+        "name": "Dr. Sharma",
+        "emoji": "👨‍🏫",
+        "role": "probability teacher"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Probability",
+        "storyContext": "Aditya watches cricket matches and wonders: how likely is a win given the current score and weather? His friend Deepak (a sports journalist) says, 'That's probability. Let me ask Dr. Sharma to teach us.'",
+        "emoji": "🎲",
+        "image": {
+          "url": "https://images.pexels.com/photos/35903110/pexels-photo-35903110.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Probability — Probability",
+          "q": "cricket match"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Cricket Match Prediction",
+        "storyContext": "India vs Pakistan in a Test match. After Day 1, India scores 300 in first innings, Pakistan replies. Dr. Sharma asks Aditya, 'What's the probability India wins?' Aditya says, 'I don't know—there are too many unknowns.' Dr. Sharma replies, 'Exactly. But we can assign probabilities based on historical data, current conditions, and Bayes' theorem. You can estimate it mathematically.'",
+        "emoji": "🏟️",
+        "image": {
+          "url": "https://images.pexels.com/photos/13509805/pexels-photo-13509805.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Cricket Match Prediction — Probability",
+          "q": "cricket match"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Sample Space, Events, and Basic Probability",
+        "storyContext": "Dr. Sharma starts with basics. 'Probability is about predicting uncertain outcomes. The sample space is all possible outcomes.'",
+        "points": [
+          {
+            "label": "Sample space (S)",
+            "text": "Set of all possible outcomes. For one die roll: S = {1, 2, 3, 4, 5, 6}."
+          },
+          {
+            "label": "Event (E)",
+            "text": "Subset of sample space. 'Rolling an even number' = {2, 4, 6}."
+          },
+          {
+            "label": "Probability",
+            "text": "P(E) = (number of favorable outcomes) / (total outcomes). For fair die, P(even) = 3/6 = 0.5."
+          },
+          {
+            "label": "Axioms",
+            "text": "(1) 0 ≤ P(E) ≤ 1, (2) P(S) = 1, (3) P(E ∪ F) = P(E) + P(F) if E, F are mutually exclusive."
+          }
+        ],
+        "example": {
+          "problem": "Coin toss: S = {H, T}. P(H) = 1/2. Two coins: S = {HH, HT, TH, TT}, all equally likely. P(at least one H) = 3/4.",
+          "solution": "In cricket: if a bowler takes a wicket 20% of the time (on average), P(wicket next ball) ≈ 0.2."
+        },
+        "inSimpleWords": "Probability is the chance of an outcome, ranging from 0 (impossible) to 1 (certain).",
+        "emoji": "🎯",
+        "image": {
+          "url": "https://images.pexels.com/photos/8830871/pexels-photo-8830871.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sample Space, Events, and Basic Probability — Probability",
+          "q": "coin toss"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Conditional Probability and Independence",
+        "storyContext": "Dr. Sharma asks, 'Given it's raining, what's the probability of India winning?' This is conditional probability—probability of one event given another event has occurred.",
+        "points": [
+          {
+            "label": "Conditional probability",
+            "text": "P(A|B) = P(A ∩ B) / P(B), the probability of A given B has occurred."
+          },
+          {
+            "label": "Multiplication rule",
+            "text": "P(A ∩ B) = P(A|B) · P(B) = P(B|A) · P(A)."
+          },
+          {
+            "label": "Independence",
+            "text": "Events A and B are independent if P(A|B) = P(A), i.e., B doesn't affect A. Then P(A ∩ B) = P(A) · P(B)."
+          },
+          {
+            "label": "Total probability",
+            "text": "If B₁, B₂, ..., Bₙ partition S, then P(A) = Σ P(A|Bᵢ)·P(Bᵢ)."
+          }
+        ],
+        "example": {
+          "problem": "Cricket: P(India wins | good batting form) = 0.7, P(good form) = 0.6. P(India wins) = 0.7 · 0.6 = 0.42. Also P(India wins | bad form) = 0.3, P(bad form) = 0.4, so P(India wins from bad form) = 0.3 · 0.4 = 0.12. Total: P(India wins) = 0.42 + 0.12 = 0.54.",
+          "solution": "P(India wins) ≈ 0.54 or 54%, calculated using total probability over batting conditions."
+        },
+        "inSimpleWords": "Conditional probability P(A|B) is the chance of A given we know B is true. Independent events don't affect each other.",
+        "emoji": "🔗",
+        "image": {
+          "url": "https://images.pexels.com/photos/19116705/pexels-photo-19116705.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Conditional Probability and Independence — Probability",
+          "q": "rain"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Bayes' Theorem",
+        "storyContext": "Dr. Sharma introduces Bayes' theorem. 'Suppose India wins. What's the probability they had good form?' This reverses conditional probability—going from effect to cause.",
+        "points": [
+          {
+            "label": "Bayes' theorem",
+            "text": "P(B|A) = P(A|B) · P(B) / P(A). Reverses a conditional probability."
+          },
+          {
+            "label": "Terms",
+            "text": "P(B) = prior (belief before data). P(A|B) = likelihood (data given belief). P(A) = evidence (observed data). P(B|A) = posterior (belief after data)."
+          },
+          {
+            "label": "Application",
+            "text": "Use Bayes to update beliefs as new information arrives."
+          }
+        ],
+        "example": {
+          "problem": "India won today. What's P(good form | win)? Using Bayes: P(good form | win) = P(win | good form) · P(good form) / P(win) = (0.7 · 0.6) / 0.54 = 0.42 / 0.54 ≈ 0.778 or 77.8%.",
+          "solution": "After observing a win, Aditya updates his belief that India had good form to 78%. This is powerful for making decisions based on outcomes."
+        },
+        "inSimpleWords": "Bayes' theorem updates beliefs when new evidence arrives. Prior probability (old belief) × likelihood (new evidence) / evidence = posterior (new belief).",
+        "emoji": "🧠",
+        "image": {
+          "prompt": "cricket win",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Random Variables and Distributions",
+        "storyContext": "Dr. Sharma says, 'Let's define X = number of wickets India loses in one innings. X is a random variable—it can be 0, 1, 2, ..., 10 with different probabilities.'",
+        "points": [
+          {
+            "label": "Random variable",
+            "text": "Function that assigns a numerical value to each outcome. Example: X = number of heads in 3 coin tosses; X ∈ {0, 1, 2, 3}."
+          },
+          {
+            "label": "Probability distribution",
+            "text": "For discrete X, P(X = x) for each possible value x. For continuous X, probability density function f(x)."
+          },
+          {
+            "label": "Expected value (mean)",
+            "text": "E(X) = Σ x · P(X = x) or E(X) = ∫ x · f(x) dx. Average outcome over many trials."
+          },
+          {
+            "label": "Variance",
+            "text": "Var(X) = E[(X − E(X))²]. Measures spread. Standard deviation σ = √Var(X)."
+          }
+        ],
+        "example": {
+          "problem": "One die roll. X = outcome, X ∈ {1, 2, 3, 4, 5, 6}, each with P = 1/6. E(X) = (1+2+3+4+5+6)/6 = 3.5. Var(X) = [(1−3.5)² + (2−3.5)² + ... + (6−3.5)²]/6 = (6.25+2.25+0.25+0.25+2.25+6.25)/6 = 35/6 ≈ 2.917. σ ≈ 1.71.",
+          "solution": "On average, a die roll is 3.5. Most rolls deviate by about 1.71 from this mean."
+        },
+        "inSimpleWords": "A random variable assigns numbers to outcomes. Its distribution shows probabilities. Mean is average; variance is spread.",
+        "emoji": "📈",
+        "image": {
+          "url": "https://images.pexels.com/photos/6308269/pexels-photo-6308269.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Random Variables and Distributions — Probability",
+          "q": "dice"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Binomial and Normal Distributions",
+        "storyContext": "Dr. Sharma explains the most common probability distributions used in real-world data.",
+        "points": [
+          {
+            "label": "Binomial distribution",
+            "text": "X ~ B(n, p): n independent trials, each with success probability p. P(X = k) = C(n,k) · p^k · (1−p)^(n−k). Mean = np; variance = np(1−p)."
+          },
+          {
+            "label": "Normal distribution",
+            "text": "X ~ N(μ, σ²): continuous, bell-shaped, symmetric. Described by mean μ and std dev σ. PDF: f(x) = (1/(σ√(2π))) · exp(−(x−μ)²/(2σ²))."
+          },
+          {
+            "label": "Central limit theorem",
+            "text": "If X₁, X₂, ..., Xₙ are independent with same distribution, then sum (or average) approaches normal as n → ∞."
+          }
+        ],
+        "example": {
+          "problem": "Bowler takes 4 wickets per 20 balls (p = 0.2). In 100 balls, X = wickets taken. X ~ B(100, 0.2). E(X) = 100 · 0.2 = 20. Var(X) = 100 · 0.2 · 0.8 = 16. σ = 4. P(15 ≤ X ≤ 25) ≈ 0.68 (within 1 std dev of mean, by empirical rule of normal approximation).",
+          "solution": "Bowler likely takes 15–25 wickets in 100 balls, with mean 20 and std dev 4."
+        },
+        "inSimpleWords": "Binomial counts successes in repeated trials. Normal is bell-shaped; most values cluster near the mean.",
+        "emoji": "📊",
+        "image": {
+          "prompt": "bowler",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Match Win Probability",
+        "storyContext": "India plays Australia in ODI. Historical data: India wins 50% of matches in Australia, 60% at home. Today's match is in Australia. India has a strong batting lineup today (good form), which increases win probability to 55% (vs 50% without). A rain forecast has 30% chance, which reduces win probability by 10 percentage points if it rains. Calculate P(India wins) using total probability.",
+        "example": {
+          "problem": "Define events: F = good form (P = 1), R = rain (P = 0.3). P(win | F, no R) = 0.55, P(win | F, R) = 0.45. No variation without form; assume it doesn't matter here. P(win) = P(win | no R) · P(no R) + P(win | R) · P(R) = 0.55 · 0.7 + 0.45 · 0.3 = 0.385 + 0.135 = 0.52.",
+          "solution": "P(India wins) ≈ 0.52 or 52%. Good form and favorable conditions give slight edge, but rain risk lowers it."
+        },
+        "inSimpleWords": "Use total probability by conditioning on all relevant uncertainties (form, weather, venue, etc.).",
+        "emoji": "🏏",
+        "image": {
+          "url": "https://images.pexels.com/photos/35887595/pexels-photo-35887595.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Full Problem: Match Win Probability — Probability",
+          "q": "cricket match"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Test Yourself: Bayes and Sports",
+        "storyContext": "A player has a disease detection test. The test is 95% accurate (P(positive | diseased) = 0.95). Disease prevalence in population is 1% (P(diseased) = 0.01). Player tests positive. What's the probability they actually have disease?",
+        "points": [
+          {
+            "text": "Apply Bayes' theorem."
+          },
+          {
+            "text": "Calculate P(diseased | positive test)."
+          }
+        ],
+        "example": {
+          "problem": "Let D = diseased, T+ = positive test. Given: P(T+ | D) = 0.95, P(D) = 0.01. Assume test is also 95% accurate at ruling out disease: P(T− | not D) = 0.95, so P(T+ | not D) = 0.05. P(D) = 0.01, P(not D) = 0.99. P(T+) = P(T+ | D)·P(D) + P(T+ | not D)·P(not D) = 0.95·0.01 + 0.05·0.99 = 0.0095 + 0.0495 = 0.059. P(D | T+) = P(T+ | D)·P(D) / P(T+) = (0.95·0.01) / 0.059 = 0.0095 / 0.059 ≈ 0.161 or 16.1%.",
+          "solution": "Despite a positive test, probability of actually having disease is only ~16%, because disease is rare. This shows importance of considering prior probability!"
+        },
+        "inSimpleWords": "Even with a good test, a rare disease remains unlikely after a positive result. Bayes' theorem accounts for base rates.",
+        "emoji": "💉",
+        "image": {
+          "prompt": "medical test",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "Sample space S: all possible outcomes. Event E: subset of S. Probability P(E) = favorable / total."
+          },
+          {
+            "text": "Conditional probability P(A|B) = P(A ∩ B) / P(B). Probability of A given B."
+          },
+          {
+            "text": "Independent events: P(A ∩ B) = P(A) · P(B)."
+          },
+          {
+            "text": "Total probability: P(A) = Σ P(A|Bᵢ)·P(Bᵢ) over partitions."
+          },
+          {
+            "text": "Bayes' theorem: P(B|A) = P(A|B)·P(B) / P(A). Updates beliefs with new evidence."
+          },
+          {
+            "text": "Random variable X: numerical outcome of experiment. Has distribution P(X=x) or f(x)."
+          },
+          {
+            "text": "Expected value E(X): average outcome. Variance Var(X): measure of spread."
+          },
+          {
+            "text": "Binomial B(n,p): n trials, success probability p. Normal N(μ,σ²): bell curve."
+          },
+          {
+            "text": "Applications: sports predictions, medical testing, insurance, quality control, decision-making under uncertainty."
+          }
+        ],
+        "inSimpleWords": "Probability quantifies uncertainty and helps make decisions when outcomes are not certain. Use Bayes to update beliefs as evidence arrives.",
+        "emoji": "✅",
+        "image": {
+          "prompt": "students",
+          "gq": true
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-12-physics-electric-charges-and-fields",
+    "classLevel": "12",
+    "subject": "Physics",
+    "chapter": "Electric Charges and Fields",
+    "title": "The Mystery of the Amber Beads",
+    "hook": "Anjali discovers why a comb attracts paper scraps after she combs her hair—and learns the law that powers the universe.",
+    "characters": [
+      {
+        "name": "Anjali",
+        "emoji": "👩",
+        "role": "Student observing electrostatic phenomena in her home lab"
+      },
+      {
+        "name": "Ravi",
+        "emoji": "👨",
+        "role": "Physics tutor who explains the science behind it"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Electric Charges and Fields",
+        "emoji": "⚡",
+        "storyContext": "Anjali combs her hair and notices the comb attracts tiny paper scraps. Why?",
+        "image": {
+          "url": "https://images.pexels.com/photos/12199101/pexels-photo-12199101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Electric Charges and Fields — Electric Charges and Fields",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Comb Experiment",
+        "emoji": "💇",
+        "storyContext": "Anjali is getting ready for school in Delhi. She combs her hair and spots something magical—the plastic comb now sticks to bits of paper on her study desk, even without touching them. 'Ravi uncle, what magic is this?' she asks her tutor. Ravi smiles. 'Not magic, Anjali—it's electric charge, the fundamental force that holds atoms together and powers lightning storms.'",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864418/pexels-photo-31864418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Comb Experiment — Electric Charges and Fields",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What is Electric Charge?",
+        "emoji": "📊",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Electric charge (q or Q) is a fundamental property of matter. There are two types: positive (protons) and negative (electrons). Like charges repel; opposite charges attract."
+          },
+          {
+            "label": "Unit",
+            "text": "Coulomb (C). Elementary charge e = 1.6 × 10^-19 C. An electron has charge −e; a proton has charge +e."
+          },
+          {
+            "label": "Conservation",
+            "text": "Total charge is conserved in an isolated system. Charges cannot be created or destroyed, only transferred."
+          }
+        ],
+        "image": {
+          "url": "https://images.pexels.com/photos/8363754/pexels-photo-8363754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is Electric Charge? — Electric Charges and Fields",
+          "q": "classroom"
+        },
+        "inSimpleWords": "Charge is the property that makes things attract or repel each other. It comes in two flavors—positive and negative—and cannot be made or destroyed."
+      },
+      {
+        "kind": "concept",
+        "title": "Coulomb's Law",
+        "emoji": "📐",
+        "points": [
+          {
+            "label": "Statement",
+            "text": "The electrostatic force between two point charges q1 and q2 separated by distance r is: F = k q1 q2 / r^2, where k = 8.99 × 10^9 N·m^2/C^2 (often approximated 9 × 10^9)."
+          },
+          {
+            "label": "Key insight",
+            "text": "Force is directly proportional to both charges and inversely proportional to the square of distance. Double the distance? Force drops to one-fourth."
+          },
+          {
+            "label": "Vector nature",
+            "text": "Force is along the line joining the charges. Repulsive if charges have the same sign, attractive if opposite signs."
+          }
+        ],
+        "example": {
+          "problem": "Two charges: q1 = 2 × 10^-6 C and q2 = 3 × 10^-6 C, separated by r = 0.1 m. Find the force between them.",
+          "solution": "F = k q1 q2 / r^2 = (9 × 10^9) × (2 × 10^-6) × (3 × 10^-6) / (0.1)^2 = (9 × 10^9) × (6 × 10^-12) / 0.01 = 5.4 N (repulsive, as both charges are positive)"
+        },
+        "inSimpleWords": "The force between two charges depends on how strong each charge is and how far apart they are. Closer = stronger force.",
+        "image": {
+          "url": "https://images.pexels.com/photos/256519/pexels-photo-256519.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Coulomb's Law — Electric Charges and Fields",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Electric Field",
+        "emoji": "🧲",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Electric field E at a point is the force per unit positive test charge: E = F / q_test, with units N/C or V/m."
+          },
+          {
+            "label": "Field from a point charge",
+            "text": "For a point charge Q at distance r: E = k Q / r^2, directed radially outward if Q > 0, inward if Q < 0."
+          },
+          {
+            "label": "Superposition",
+            "text": "Net field from multiple charges is the vector sum of individual fields. Fields add like vectors."
+          }
+        ],
+        "image": {
+          "url": "https://images.pexels.com/photos/9158761/pexels-photo-9158761.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Electric Field — Electric Charges and Fields",
+          "q": "classroom"
+        },
+        "inSimpleWords": "The electric field is the influence a charge spreads around itself. It tells you what force a test charge would feel at any point."
+      },
+      {
+        "kind": "concept",
+        "title": "Field Lines and Gauss's Law",
+        "emoji": "📍",
+        "points": [
+          {
+            "label": "Field lines",
+            "text": "Imaginary lines showing the direction of E. They start on positive charges and end on negative charges. Density of lines ∝ field strength."
+          },
+          {
+            "label": "Gauss's Law",
+            "text": "Total electric flux through a closed surface = Q_enclosed / ε₀, where ε₀ = 8.85 × 10^-12 C^2/(N·m^2). Mathematically: ∮ E·dA = Q_enclosed / ε₀."
+          },
+          {
+            "label": "Significance",
+            "text": "Gauss's law is a powerful tool for finding E when charge distribution is symmetric (sphere, cylinder, plate)."
+          }
+        ],
+        "inSimpleWords": "Field lines are invisible paths showing the direction of the field. Gauss's law lets you count the total field passing through a surface.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Field Lines and Gauss's Law — Electric Charges and Fields",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Conductors vs Insulators",
+        "emoji": "🔌",
+        "points": [
+          {
+            "label": "Conductors",
+            "text": "Metals (copper, aluminum) have free electrons. In electrostatic equilibrium, E = 0 inside, all charge sits on the surface. E is perpendicular to surface."
+          },
+          {
+            "label": "Insulators",
+            "text": "Non-metals (rubber, glass) have electrons bound to atoms. E penetrates; charges remain wherever placed."
+          },
+          {
+            "label": "Charging by induction",
+            "text": "Bringing a charged object near an uncharged conductor causes charges to separate, creating an induced charge. No actual charge transfer."
+          }
+        ],
+        "inSimpleWords": "In metals, charges are free to move and rush to the surface. In rubber or glass, charges stay put.",
+        "image": {
+          "url": "https://images.pexels.com/photos/10127242/pexels-photo-10127242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Conductors vs Insulators — Electric Charges and Fields",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Solved Problem: Three Charges in a Row",
+        "emoji": "🔢",
+        "example": {
+          "problem": "Three point charges: q1 = +1 μC at x = 0, q2 = −2 μC at x = 0.1 m, q3 = +1 μC at x = 0.2 m. Find the net force on q2.",
+          "solution": "Force on q2 from q1: F₁ = k (1 × 10^-6) (2 × 10^-6) / (0.1)^2 = 1.8 N, pointing right (attractive). Force on q2 from q3: F₃ = k (1 × 10^-6) (2 × 10^-6) / (0.1)^2 = 1.8 N, pointing left (attractive). Net force on q2 = 1.8 − 1.8 = 0 N (the two forces cancel)."
+        },
+        "inSimpleWords": "When a charge sits between two others of opposite sign, the forces can balance completely.",
+        "image": {
+          "url": "https://images.pexels.com/photos/19327746/pexels-photo-19327746.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Solved Problem: Three Charges in a Row — Electric Charges and Fields",
+          "q": "balloons"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: The Balloon Trick",
+        "emoji": "🎈",
+        "points": [
+          {
+            "text": "Anjali rubs a balloon on her dry hair and it sticks to the ceiling. The balloon acquires a negative charge of 5 μC. Assume the ceiling has an induced positive charge of 5 μC over an area of 0.01 m^2. Estimate the average electric field between the balloon and ceiling, assuming they are 0.05 m apart. (Hint: E ≈ σ / ε₀, where σ is surface charge density.)"
+          }
+        ],
+        "example": {
+          "problem": "What is the electric field and attractive force?",
+          "solution": "Charge density σ = 5 × 10^-6 / 0.01 = 5 × 10^-4 C/m^2. Electric field E = σ / ε₀ ≈ (5 × 10^-4) / (8.85 × 10^-12) ≈ 5.65 × 10^7 N/C. Force F = qE = (5 × 10^-6) × (5.65 × 10^7) ≈ 0.28 N ≈ 28 grams-force, enough to hold the balloon."
+        },
+        "image": {
+          "url": "https://images.pexels.com/photos/36650154/pexels-photo-36650154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Challenge: The Balloon Trick — Electric Charges and Fields",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What You've Learned",
+        "emoji": "✅",
+        "points": [
+          {
+            "text": "Electric charge exists in two types—positive and negative—and is conserved."
+          },
+          {
+            "text": "Coulomb's law: F = k q₁ q₂ / r², the inverse-square law for electrostatic force."
+          },
+          {
+            "text": "Electric field E = F / q_test measures the field strength; field lines show its direction."
+          },
+          {
+            "text": "Gauss's law: ∮ E·dA = Q_enclosed / ε₀, a powerful symmetry tool."
+          },
+          {
+            "text": "In conductors, charges rearrange to make E = 0 inside; in insulators, E penetrates."
+          }
+        ],
+        "inSimpleWords": "Charges push and pull via electric fields. The closer or stronger, the bigger the force. Metals hide the field inside; insulators let it through.",
+        "image": {
+          "url": "https://images.pexels.com/photos/256491/pexels-photo-256491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What You've Learned — Electric Charges and Fields",
+          "q": "classroom"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-12-physics-electrostatic-potential-and-capacitance",
+    "classLevel": "12",
+    "subject": "Physics",
+    "chapter": "Electrostatic Potential and Capacitance",
+    "title": "The Bottled Lightning: Capacitors",
+    "hook": "Ravi shows Anjali how a capacitor stores electric energy—and why camera flashes need them to survive.",
+    "characters": [
+      {
+        "name": "Anjali",
+        "emoji": "👩",
+        "role": "Student exploring energy storage in electrical circuits"
+      },
+      {
+        "name": "Ravi",
+        "emoji": "👨",
+        "role": "Tutor demonstrating capacitor function with a real camera flash"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Electrostatic Potential and Capacitance",
+        "emoji": "🔋",
+        "storyContext": "When Ravi's camera flash fails, Anjali asks why. 'The capacitor is discharged,' he says. 'A capacitor is like a battery that can store and release electrical energy almost instantly.'",
+        "image": {
+          "url": "https://images.pexels.com/photos/8500417/pexels-photo-8500417.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Electrostatic Potential and Capacitance — Electrostatic Potential and Capacitance",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Camera Flash",
+        "emoji": "📸",
+        "storyContext": "Anjali is at a wedding in Mumbai. The photographer's flash quits mid-ceremony. Ravi explains: 'The capacitor inside the flash stores electrical energy when the camera is idle. When you press the shutter, the capacitor releases all that energy at once, creating a bright pulse of light. Without capacitors, we couldn't have instant, bright flashes.'",
+        "image": {
+          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Camera Flash — Electrostatic Potential and Capacitance",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Electric Potential",
+        "emoji": "⚡",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Electric potential V at a point is the work per unit positive charge to bring a test charge from infinity to that point: V = W / q, with units volts (V) = J/C."
+          },
+          {
+            "label": "Potential from a point charge",
+            "text": "For a point charge Q: V = k Q / r. The potential is a scalar (not a vector). Reference point is at infinity (V = 0)."
+          },
+          {
+            "label": "Potential difference",
+            "text": "Voltage U_AB = V_A − V_B. This is the work per unit charge to move a charge from B to A."
+          }
+        ],
+        "image": {
+          "url": "https://images.pexels.com/photos/13840941/pexels-photo-13840941.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Electric Potential — Electrostatic Potential and Capacitance",
+          "q": "battery"
+        },
+        "inSimpleWords": "Potential is the 'height' of the electric field. Higher potential means more energy per charge. Moving against the field (uphill) costs work; moving downhill releases energy."
+      },
+      {
+        "kind": "concept",
+        "title": "Equipotentials and Relationship to E",
+        "emoji": "🗺️",
+        "points": [
+          {
+            "label": "Equipotential surfaces",
+            "text": "Surfaces where V is constant. No work is needed to move a charge along an equipotential. E is always perpendicular to equipotential surfaces."
+          },
+          {
+            "label": "E and V relationship",
+            "text": "Electric field is the negative gradient of potential: E = −dV/dr (in 1D). In other words, E points in the direction of steepest V decrease."
+          },
+          {
+            "label": "Uniform field",
+            "text": "Between two parallel plates separated by distance d at potentials V_A and V_B: E = |V_A − V_B| / d."
+          }
+        ],
+        "inSimpleWords": "Field lines are perpendicular to equipotentials. The field points downhill (from high to low potential).",
+        "image": {
+          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Equipotentials and Relationship to E — Electrostatic Potential and Capacitance",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What is a Capacitor?",
+        "emoji": "━━",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A capacitor is two conductors separated by an insulator. When charged, one plate holds +Q, the other −Q. Potential difference U appears between them."
+          },
+          {
+            "label": "Capacitance C",
+            "text": "Defined as C = Q / U, with units farads (F) = C/V. Higher C means the capacitor stores more charge for the same voltage."
+          },
+          {
+            "label": "Parallel plate capacitor",
+            "text": "For two square plates of area A, separated by distance d with permittivity ε₀: C = ε₀ A / d. Larger area or smaller gap ⟹ larger capacitance."
+          }
+        ],
+        "example": {
+          "problem": "A parallel plate capacitor has plates of area A = 0.01 m^2 and separation d = 0.001 m. Find its capacitance. (ε₀ = 8.85 × 10^-12 F/m)",
+          "solution": "C = ε₀ A / d = (8.85 × 10^-12) × 0.01 / 0.001 = (8.85 × 10^-12) × 10 = 8.85 × 10^-11 F = 88.5 pF (picofarads)"
+        },
+        "inSimpleWords": "A capacitor is an electrical container. Its capacitance tells you how much charge it holds for each volt applied.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is a Capacitor? — Electrostatic Potential and Capacitance",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Energy Stored in a Capacitor",
+        "emoji": "🔥",
+        "points": [
+          {
+            "label": "Energy formula",
+            "text": "Energy U = (1/2) C V^2 = (1/2) Q V = (1/2) Q^2 / C. Measured in joules (J). The energy is stored in the electric field between the plates."
+          },
+          {
+            "label": "Energy density",
+            "text": "Energy per unit volume in the field: u = (1/2) ε₀ E^2. For a parallel plate capacitor with field E = V/d, this gives U = (1/2) ε₀ E^2 × (A × d) = (1/2) ε₀ A V^2 / d."
+          },
+          {
+            "label": "Camera flash example",
+            "text": "A tiny capacitor charged to 300 V with C = 100 μF stores U = (1/2) × 100 × 10^-6 × (300)^2 ≈ 4.5 J—enough to power a bright flash."
+          }
+        ],
+        "inSimpleWords": "The more you charge a capacitor (higher Q or V), the more energy it stores. That's why camera flashes are dangerous—they hold a punch!",
+        "image": {
+          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Energy Stored in a Capacitor — Electrostatic Potential and Capacitance",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Capacitors in Series and Parallel",
+        "emoji": "🔗",
+        "points": [
+          {
+            "label": "Parallel connection",
+            "text": "Capacitors share the same voltage U. Total capacitance: C_total = C_1 + C_2 + C_3 + … (capacitances add). Larger total capacitance."
+          },
+          {
+            "label": "Series connection",
+            "text": "Capacitors share the same charge Q. Voltage divides. Reciprocals add: 1/C_total = 1/C_1 + 1/C_2 + 1/C_3 + … Smaller total capacitance."
+          },
+          {
+            "label": "Analogy",
+            "text": "Parallel is like adding tanks to a system—more storage. Series is like adding resistances—reduces flow."
+          }
+        ],
+        "example": {
+          "problem": "Two capacitors: C_1 = 2 μF and C_2 = 3 μF. Find total C in series and in parallel.",
+          "solution": "Parallel: C_total = 2 + 3 = 5 μF. Series: 1/C_total = 1/2 + 1/3 = 5/6, so C_total = 6/5 = 1.2 μF."
+        },
+        "inSimpleWords": "Parallel capacitors act like bigger containers (C adds). Series capacitors act like a narrower pipe (1/C adds).",
+        "image": {
+          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Capacitors in Series and Parallel — Electrostatic Potential and Capacitance",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Dielectrics in Capacitors",
+        "emoji": "🧊",
+        "points": [
+          {
+            "label": "Dielectric constant κ",
+            "text": "When an insulator (dielectric) is placed between plates, the capacitance increases: C_dielectric = κ C_vacuum, where κ > 1 (e.g., κ = 2 for paper, κ = 80 for water)."
+          },
+          {
+            "label": "Mechanism",
+            "text": "The dielectric's molecules polarize in response to the field, creating an internal field that opposes the applied field, allowing more charge to accumulate."
+          },
+          {
+            "label": "Practical use",
+            "text": "Dielectrics increase capacitance without changing plate area or separation. They also allow higher voltages before breakdown."
+          }
+        ],
+        "inSimpleWords": "Filling the gap with plastic, paper, or ceramic instead of air makes a capacitor store more charge—like packing more into the same container.",
+        "image": {
+          "url": "https://images.pexels.com/photos/12199101/pexels-photo-12199101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Dielectrics in Capacitors — Electrostatic Potential and Capacitance",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Solved Problem: Charging and Discharging",
+        "emoji": "⏱️",
+        "example": {
+          "problem": "A 10 μF capacitor is charged to 100 V, then connected across a 50 Ω resistor. How much energy is released? How long until it drops to 1 V?",
+          "solution": "Initial energy U_i = (1/2) × 10 × 10^-6 × (100)^2 = 0.05 J. Energy released = 0.05 J. Discharge follows V(t) = V_0 e^(-t/RC), where RC = 50 × 10 × 10^-6 = 5 × 10^-4 s. Time to 1 V: 1 = 100 e^(-t/RC), so e^(-t/RC) = 0.01, giving t = RC × ln(100) ≈ 5 × 10^-4 × 4.6 ≈ 2.3 × 10^-3 s = 2.3 ms."
+        },
+        "inSimpleWords": "When a capacitor discharges through a resistor, the voltage drops exponentially. A bigger capacitor or resistor means slower discharge.",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Series_circuit_2_resistors_no_meters.png",
+          "alt": "Solved Problem: Charging and Discharging — Electrostatic Potential and Capacitance",
+          "q": "circuit"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Designing a Defibrillator Capacitor",
+        "emoji": "❤️",
+        "points": [
+          {
+            "text": "A portable defibrillator must deliver 200 J of energy in one shock. The capacitor is charged to 4000 V. What capacitance C is needed? (Use U = (1/2) C V^2)"
+          }
+        ],
+        "example": {
+          "problem": "Solve for C.",
+          "solution": "200 = (1/2) C × (4000)^2, so 200 = (1/2) C × 1.6 × 10^7, giving C = 400 / 1.6 × 10^7 = 2.5 × 10^-5 F = 25 μF."
+        },
+        "image": {
+          "url": "https://images.pexels.com/photos/31864418/pexels-photo-31864418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Challenge: Designing a Defibrillator Capacitor — Electrostatic Potential and Capacitance",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What You've Learned",
+        "emoji": "✅",
+        "points": [
+          {
+            "text": "Electric potential V is work per unit charge; voltage is the potential difference U_AB = V_A − V_B."
+          },
+          {
+            "text": "Electric field E = −dV/dr is perpendicular to equipotential surfaces."
+          },
+          {
+            "text": "Capacitance C = Q / U measures charge storage; for parallel plates, C = ε₀ A / d."
+          },
+          {
+            "text": "Energy U = (1/2) C V^2 is stored in the electric field."
+          },
+          {
+            "text": "In parallel, C_total = C_1 + C_2; in series, 1/C_total = 1/C_1 + 1/C_2."
+          },
+          {
+            "text": "Dielectrics increase C by factor κ; they also allow higher voltages."
+          }
+        ],
+        "inSimpleWords": "Capacitors are electrical batteries that store energy in an electric field, release it instantly, and power flashy things like camera flashes and defibrillators.",
+        "image": {
+          "url": "https://images.pexels.com/photos/9040482/pexels-photo-9040482.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What You've Learned — Electrostatic Potential and Capacitance",
+          "q": "notebook"
+        }
+      }
+    ]
+  }
+]

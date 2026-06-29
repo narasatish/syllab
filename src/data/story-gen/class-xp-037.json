@@ -1,0 +1,1204 @@
+[
+  {
+    "slug": "class-11-mathematics-permutations-and-combinations",
+    "classLevel": "11",
+    "subject": "Mathematics",
+    "chapter": "Permutations and Combinations",
+    "chapterAliases": [
+      "Counting Principles",
+      "P and C"
+    ],
+    "title": "Arranging Friends and Choosing Teams: Counting Principles",
+    "hook": "How many ways can you arrange or select? Permutations and combinations count it all.",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🎭",
+        "role": "Event organizer arranging performances"
+      },
+      {
+        "name": "Priya",
+        "emoji": "📋",
+        "role": "Team selector for competitions"
+      },
+      {
+        "name": "Prof. Sharma",
+        "emoji": "👨‍🏫",
+        "role": "Mathematics mentor"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Permutations and Combinations: Counting Arrangements and Selections",
+        "emoji": "🎪",
+        "image": {
+          "prompt": "counting blocks",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Planning the School Talent Show",
+        "storyContext": "Arjun is organizing the talent show. 'In how many orders can 3 singers perform?' Priya asks: 'Or if we're picking 2 dancers from 5, how many ways?' Prof. Sharma: 'One counts arrangements (order matters), the other counts selections (order doesn't). Both use factorials and formulas.'",
+        "emoji": "🎤",
+        "image": {
+          "prompt": "talent show",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Factorial Notation",
+        "storyContext": "Prof. Sharma writes: 5! = 5 × 4 × 3 × 2 × 1 = 120. 'Factorial is the foundation of counting.'",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "n! = n × (n−1) × (n−2) × ... × 2 × 1."
+          },
+          {
+            "label": "Special cases",
+            "text": "0! = 1 (by definition). 1! = 1."
+          },
+          {
+            "label": "Growth",
+            "text": "n! grows very quickly: 5! = 120, 10! = 3,628,800."
+          }
+        ],
+        "example": {
+          "problem": "Calculate 4! and 6!.",
+          "solution": "4! = 4 × 3 × 2 × 1 = 24. 6! = 6 × 5 × 4! = 6 × 5 × 24 = 720."
+        },
+        "inSimpleWords": "Factorial n! is the product of all positive integers from 1 to n.",
+        "emoji": "📊",
+        "image": {
+          "prompt": "numbered blocks",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Permutations: Order Matters",
+        "storyContext": "Arjun has 5 singers but only 3 performance slots. 'How many different orderings are there?' Prof. Sharma: 'That's a permutation: P(5, 3).'",
+        "points": [
+          {
+            "label": "Permutation definition",
+            "text": "An arrangement of objects where ORDER MATTERS."
+          },
+          {
+            "label": "Formula",
+            "text": "P(n, r) = n! / (n−r)! — number of ways to arrange r objects from n."
+          },
+          {
+            "label": "Meaning",
+            "text": "P(n, r) counts ordered selections of r items from n items."
+          },
+          {
+            "label": "All together",
+            "text": "P(n, n) = n! (arranging all n objects)."
+          }
+        ],
+        "example": {
+          "problem": "How many ways can 3 singers perform in order from 5 singers?",
+          "solution": "P(5, 3) = 5! / (5−3)! = 5! / 2! = 120 / 2 = 60."
+        },
+        "inSimpleWords": "Permutation P(n, r) counts ordered arrangements; the first position has n choices, second has n−1, etc.",
+        "emoji": "🎯",
+        "image": {
+          "prompt": "singers line",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Why Order Matters in Performances",
+        "storyContext": "Arjun realizes that (Raja sings first, then Asha, then Meera) is DIFFERENT from (Meera sings first, then Raja, then Asha). The audience experience changes! That's why permutations care about order.",
+        "emoji": "🎼",
+        "inSimpleWords": "In permutations, the sequence/order creates different outcomes.",
+        "image": {
+          "prompt": "stage performance order",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Permutation Example: Podium Rankings",
+        "storyContext": "Three runners—Anil, Bina, and Chitra—finish a 100m race. How many different podium orderings (1st, 2nd, 3rd place)?",
+        "example": {
+          "problem": "How many ways can 3 runners finish in 1st, 2nd, 3rd place?",
+          "solution": "P(3, 3) = 3! = 6 orderings: (A,B,C), (A,C,B), (B,A,C), (B,C,A), (C,A,B), (C,B,A)."
+        },
+        "inSimpleWords": "When position/rank matters, use permutations.",
+        "emoji": "🏃",
+        "image": {
+          "prompt": "runners podium",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Combinations: Order Doesn't Matter",
+        "storyContext": "Priya asks: 'I need to pick 2 dancers for a duet from 5 dancers. How many ways can I choose them? The order doesn't matter — (Raj, Karan) is the same team as (Karan, Raj).'",
+        "points": [
+          {
+            "label": "Combination definition",
+            "text": "A selection of objects where ORDER DOES NOT MATTER."
+          },
+          {
+            "label": "Formula",
+            "text": "C(n, r) = n! / [r! × (n−r)!] — number of ways to choose r objects from n."
+          },
+          {
+            "label": "Notation",
+            "text": "Also written as ⁿCᵣ or (ⁿ_ᵣ)."
+          },
+          {
+            "label": "Relationship",
+            "text": "C(n, r) = P(n, r) / r! (divide out the ordering of r items)."
+          }
+        ],
+        "example": {
+          "problem": "How many ways can we choose 2 dancers from 5?",
+          "solution": "C(5, 2) = 5! / (2! × 3!) = 120 / (2 × 6) = 10."
+        },
+        "inSimpleWords": "Combination C(n, r) counts unordered selections; divide permutations by r! to remove the importance of order.",
+        "emoji": "🤝",
+        "image": {
+          "prompt": "dancers pair",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Why Order Doesn't Matter in Team Selection",
+        "storyContext": "Priya notices that picking dancers {Raja, Meera} is the SAME team as {Meera, Raja}. They dance together, so order is irrelevant. This is why combinations divide out the r! arrangements of the selected items.",
+        "emoji": "👥",
+        "inSimpleWords": "In combinations, the group/team is what counts, not the order within it.",
+        "image": {
+          "prompt": "team selection group",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Combination Example: Choosing Committee Members",
+        "storyContext": "A school needs to pick 3 students from a class of 8 for a cleanup committee. How many different committees can be formed?",
+        "example": {
+          "problem": "How many ways can we choose 3 students from 8?",
+          "solution": "C(8, 3) = 8! / (3! × 5!) = (8 × 7 × 6) / (3 × 2 × 1) = 336 / 6 = 56 committees."
+        },
+        "inSimpleWords": "When you just need to pick a group without caring about roles or positions, use combinations.",
+        "emoji": "📋",
+        "image": {
+          "prompt": "students committee",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Fundamental Counting Principle",
+        "storyContext": "Arjun designs event programs. 'There are 3 venues, 4 time slots, and 2 themes. How many programs are possible?' Prof. Sharma: 'Multiply: 3 × 4 × 2 = 24.'",
+        "points": [
+          {
+            "label": "Principle",
+            "text": "If task 1 has m ways and task 2 has n ways, together they have m × n ways."
+          },
+          {
+            "label": "Generalization",
+            "text": "For k tasks with n₁, n₂, ..., nₖ ways: total = n₁ × n₂ × ... × nₖ."
+          },
+          {
+            "label": "Without replacement",
+            "text": "If one choice affects the next, update the count for each step."
+          }
+        ],
+        "example": {
+          "problem": "A password has 2 digits (0–9), then 3 letters (A–Z). How many passwords?",
+          "solution": "First digit: 10 choices. Second digit: 10 choices. First letter: 26 choices. Second letter: 26 choices. Third letter: 26 choices. Total: 10 × 10 × 26 × 26 × 26 = 17,576,000."
+        },
+        "inSimpleWords": "Multiply the number of ways for each step to get the total number of ways for all steps combined.",
+        "emoji": "✖️",
+        "image": {
+          "prompt": "menu",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Building Choices Step by Step",
+        "storyContext": "Priya plans outfits: 3 shirts, 2 pants, 4 scarves. Prof. Sharma: 'For each shirt, pick any pants (6 combos). For each combo, pick any scarf (24 total). Multiply at each step: 3 × 2 × 4 = 24.'",
+        "emoji": "👗",
+        "inSimpleWords": "Fundamental counting: when tasks are independent, multiply the number of choices.",
+        "image": {
+          "prompt": "outfit combinations",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Seating Arrangement at a Dinner",
+        "storyContext": "A school dinner has 8 teachers and 10 students. Seats are arranged as: 1 head teacher, then 4 teachers on the left, 4 students on the right. How many seating arrangements?",
+        "example": {
+          "problem": "Count arrangements: pick 1 head teacher from 8, arrange 4 teachers from remaining 7, arrange 4 students from 10.",
+          "solution": "Head teacher: 8 choices. Remaining 4 teachers from 7: P(7, 4) = 7 × 6 × 5 × 4 = 840. 4 students from 10: P(10, 4) = 10 × 9 × 8 × 7 = 5,040. Total: 8 × 840 × 5,040 = 33,868,800."
+        },
+        "inSimpleWords": "Break into sub-problems; use permutation for ordered positions; multiply the counts.",
+        "emoji": "🪑",
+        "image": {
+          "prompt": "seating",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Permutations with Repetition",
+        "storyContext": "Arjun assigns 5 students to 3 subjects, allowing each student to take multiple subjects. 'How many assignments?' Prof. Sharma: 'Each student has 3 choices independently, so 3⁵.'",
+        "points": [
+          {
+            "label": "Formula",
+            "text": "Number of arrangements of n objects chosen from k types (with repetition): kⁿ."
+          },
+          {
+            "label": "Interpretation",
+            "text": "Each of n positions has k independent choices."
+          },
+          {
+            "label": "Example",
+            "text": "3-letter codes from alphabet: 26 × 26 × 26 = 26³."
+          }
+        ],
+        "example": {
+          "problem": "How many 4-letter sequences can be formed from {A, B, C}?",
+          "solution": "Each position has 3 choices: 3⁴ = 81."
+        },
+        "inSimpleWords": "With repetition allowed, each position has the full set of choices; multiply for each position.",
+        "emoji": "🔁",
+        "image": {
+          "prompt": "students",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Why Repetition Changes the Count",
+        "storyContext": "Priya realizes: if we assign 2 dancers to 3 dance styles with repetition allowed, dancer 1 has 3 choices, dancer 2 has 3 choices (can be the same style). That's 3 × 3 = 9 ways, not C(3,2) = 3.",
+        "emoji": "🎪",
+        "inSimpleWords": "Allowing repetition means objects/items can be reused across selections.",
+        "image": {
+          "prompt": "repeating patterns",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Repetition Example: Phone PIN Codes",
+        "storyContext": "An ATM PIN has 4 digits (0–9) and digits can repeat. How many PINs are possible?",
+        "example": {
+          "problem": "How many 4-digit PINs using digits 0–9 with repetition?",
+          "solution": "Each digit position has 10 choices: 10⁴ = 10,000 possible PINs."
+        },
+        "inSimpleWords": "When items repeat freely, use exponential counting (base choices)^(number of positions).",
+        "emoji": "🔐",
+        "image": {
+          "prompt": "keypad PIN",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Permutations with Identical Objects",
+        "storyContext": "Arjun arranges 5 flags: 2 red, 2 blue, 1 green. 'How many distinct arrangements?' Prof. Sharma: 'Divide by factorials of repetitions: 5! / (2! × 2! × 1!).'",
+        "points": [
+          {
+            "label": "Formula",
+            "text": "Arrangements of n objects where n₁ are identical, n₂ are identical, ...: n! / (n₁! × n₂! × ...)."
+          },
+          {
+            "label": "Intuition",
+            "text": "Start with n!, then divide out overcounting due to swaps of identical items."
+          }
+        ],
+        "example": {
+          "problem": "Arrange the letters in BOOK.",
+          "solution": "4 letters, but O appears twice. Arrangements = 4! / 2! = 24 / 2 = 12."
+        },
+        "inSimpleWords": "Count total permutations, then divide by factorials of the multiplicities of identical objects.",
+        "emoji": "🎨",
+        "image": {
+          "prompt": "flags",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Dividing Out Identical Items",
+        "storyContext": "Arjun arranges 3 balls: 1 red, 2 blue. If the blues were distinct (B₁, B₂), there'd be 3! = 6 orderings. But since both blues are identical, (Red, Blue₁, Blue₂) and (Red, Blue₂, Blue₁) look the same. So divide 3! by 2! = 3 distinct arrangements.",
+        "emoji": "🔵",
+        "inSimpleWords": "Identical objects reduce the count because swapping them doesn't create new arrangements.",
+        "image": {
+          "prompt": "colored balls arrangement",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Identical Objects Example: Necklace Beads",
+        "storyContext": "Arrange 7 beads on a necklace: 3 red, 2 green, 2 yellow. How many distinct necklaces?",
+        "example": {
+          "problem": "How many ways to arrange 7 beads with 3 identical red, 2 identical green, 2 identical yellow?",
+          "solution": "7! / (3! × 2! × 2!) = 5040 / (6 × 2 × 2) = 5040 / 24 = 210 distinct necklaces."
+        },
+        "inSimpleWords": "Divide by the factorial of each group's count to eliminate redundant orderings.",
+        "emoji": "📿",
+        "image": {
+          "prompt": "beads necklace",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Permutation vs Combination Quick Decision Tree",
+        "storyContext": "Prof. Sharma teaches: Ask yourself these questions: (1) Does order/position/rank matter? (2) Are we arranging or selecting?",
+        "points": [
+          {
+            "label": "Step 1",
+            "text": "Is order/sequence important in the problem?"
+          },
+          {
+            "label": "If YES",
+            "text": "Use permutation P(n,r). Examples: arrange books, order of runners, seating positions."
+          },
+          {
+            "label": "If NO",
+            "text": "Use combination C(n,r). Examples: select committee, choose items, form teams."
+          }
+        ],
+        "example": {
+          "problem": "Are these permutation or combination? (a) Arranging 4 friends in a photo. (b) Picking 3 fruits from 7.",
+          "solution": "(a) Permutation-order matters (positions). (b) Combination-we just pick, order doesn't matter."
+        },
+        "inSimpleWords": "Permutation = order matters; Combination = order doesn't matter.",
+        "emoji": "🎯",
+        "image": {
+          "prompt": "decision tree flowchart",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Mixed Counting Problem",
+        "storyContext": "A school committee has 8 people. They must elect a president (1 person), then choose a 3-person subcommittee from the remaining 7. How many ways?",
+        "example": {
+          "problem": "Find the number of ways to elect president and then select a subcommittee.",
+          "solution": "President: 8 choices. Subcommittee from remaining 7: C(7, 3) = 7! / (3! × 4!) = 35. Total: 8 × 35 = 280."
+        },
+        "inSimpleWords": "Use multiplication for sequential tasks; use P or C based on whether order matters within each task.",
+        "emoji": "🏆",
+        "image": {
+          "prompt": "committee",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Permutation vs. Combination",
+        "storyContext": "Arjun asks: 'If I arrange 5 books on a shelf, is that P or C? What if I just pick 3 books for a gift box without caring about order?'",
+        "example": {
+          "problem": "Arrange 5 books on a shelf vs. choose 3 books from 8 for a box.",
+          "solution": "Shelf (order matters): P(5,5) = 5! = 120. Gift box (order doesn't matter): C(8,3) = 56. Memorize: permutation = position-specific; combination = group-only."
+        },
+        "inSimpleWords": "Ask: does the order/position/arrangement matter? YES → permutation; NO → combination.",
+        "emoji": "❓",
+        "image": {
+          "prompt": "books shelf decision",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Complex Multi-Step Problem",
+        "storyContext": "A movie theater has 5 rows with 8 seats each. A group wants: row 1 seat for lead actor, row 2 seats for supporting actors (2 people, order matters), row 3 a group of 3 friends (order doesn't matter). Count all arrangements.",
+        "example": {
+          "problem": "Lead: C(8,1)=8. Supporting: P(8,2)=56. Friends: C(8,3)=56. Total: 8 × 56 × 56.",
+          "solution": "8 × 56 × 56 = 25,088 seating arrangements."
+        },
+        "inSimpleWords": "Decompose complex problems into independent sub-tasks and multiply.",
+        "emoji": "🎬",
+        "image": {
+          "prompt": "theater seats rows",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Permutations and Combinations: Key Takeaways",
+        "points": [
+          {
+            "text": "Factorial n! = n × (n−1) × ... × 2 × 1; 0! = 1."
+          },
+          {
+            "text": "Permutation P(n, r) = n! / (n−r)! — arrangements where ORDER MATTERS."
+          },
+          {
+            "text": "Combination C(n, r) = n! / [r! × (n−r)!] — selections where ORDER DOES NOT MATTER."
+          },
+          {
+            "text": "Fundamental counting principle: multiply the choices for each step."
+          },
+          {
+            "text": "With repetition: k^n arrangements of n items from k types."
+          },
+          {
+            "text": "With identical objects: divide by factorials of multiplicities."
+          }
+        ],
+        "inSimpleWords": "Permutations count ordered arrangements; combinations count unordered selections; use the counting principle for multi-step problems.",
+        "emoji": "✅",
+        "image": {
+          "prompt": "cards",
+          "gq": true
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-11-mathematics-binomial-theorem",
+    "classLevel": "11",
+    "subject": "Mathematics",
+    "chapter": "Binomial Theorem",
+    "chapterAliases": [
+      "Binomial Expansion"
+    ],
+    "title": "Expanding Powers: The Binomial Theorem Explained",
+    "hook": "How to expand (a + b)ⁿ without endless multiplication? The binomial theorem gives the formula.",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🧮",
+        "role": "Student frustrated with large expansions"
+      },
+      {
+        "name": "Priya",
+        "emoji": "✨",
+        "role": "Clever problem-solver"
+      },
+      {
+        "name": "Dr. Verma",
+        "emoji": "👨‍🔬",
+        "role": "Mathematician revealing patterns"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "The Binomial Theorem: Expanding and Patterns",
+        "emoji": "📐",
+        "image": {
+          "prompt": "tiles",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Expanding (x + y)¹⁰ by Hand",
+        "storyContext": "Arjun tries to expand (x + y)¹⁰ by multiplying out repeatedly. After (x + y)⁴, he's exhausted. Priya says: 'There's a pattern in the coefficients!' Dr. Verma reveals: 'That's Pascal's triangle and the binomial theorem — they give the expansion directly.'",
+        "emoji": "📊",
+        "image": {
+          "url": "https://images.pexels.com/photos/8580788/pexels-photo-8580788.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Expanding (x + y)¹⁰ by Hand — Binomial Theorem",
+          "q": "notebook"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Pascal's Triangle and Binomial Coefficients",
+        "storyContext": "Dr. Verma draws Pascal's triangle: row 0 is 1; row 1 is 1 1; row 2 is 1 2 1; row 3 is 1 3 3 1. 'Each entry is ⁿCᵣ.'",
+        "points": [
+          {
+            "label": "Pascal's triangle",
+            "text": "Row n, position r: entry = ⁿCᵣ (binomial coefficient)."
+          },
+          {
+            "label": "Binomial coefficient",
+            "text": "ⁿCᵣ = n! / [r! (n−r)!]."
+          },
+          {
+            "label": "Symmetry",
+            "text": "ⁿCᵣ = ⁿCₙ₋ᵣ (triangle is symmetric)."
+          },
+          {
+            "label": "Row sum",
+            "text": "Sum of row n: ⁿC₀ + ⁿC₁ + ... + ⁿCₙ = 2ⁿ."
+          }
+        ],
+        "example": {
+          "problem": "Find row 4 of Pascal's triangle (coefficients for (a + b)⁴).",
+          "solution": "⁴C₀ = 1, ⁴C₁ = 4, ⁴C₂ = 6, ⁴C₃ = 4, ⁴C₄ = 1. Row: 1 4 6 4 1."
+        },
+        "inSimpleWords": "Pascal's triangle contains all binomial coefficients; ⁿCᵣ is the number of ways to choose r from n.",
+        "emoji": "🔺",
+        "image": {
+          "url": "https://images.pexels.com/photos/7723725/pexels-photo-7723725.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Pascal's Triangle and Binomial Coefficients — Binomial Theorem",
+          "q": "triangle"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "How Pascal's Triangle Builds Itself",
+        "storyContext": "Priya notices: 'Each number in Pascal's triangle is the sum of the two numbers above it!' Dr. Verma: 'Exactly. That's the recursive pattern—it's self-generating. This is because ⁿCᵣ + ⁿCᵣ₊₁ = ⁿ⁺¹Cᵣ₊₁.'",
+        "emoji": "📈",
+        "inSimpleWords": "Each row builds from the previous row by summing adjacent pairs.",
+        "image": {
+          "prompt": "Pascal triangle recursive",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Pascal's Triangle Example: Finding Coefficients",
+        "storyContext": "Find the coefficients for (p + q)⁵ using Pascal's triangle.",
+        "example": {
+          "problem": "What are the binomial coefficients in row 5 of Pascal's triangle?",
+          "solution": "Row 5: ⁵C₀=1, ⁵C₁=5, ⁵C₂=10, ⁵C₃=10, ⁵C₄=5, ⁵C₅=1. So (p+q)⁵ = p⁵ + 5p⁴q + 10p³q² + 10p²q³ + 5pq⁴ + q⁵."
+        },
+        "inSimpleWords": "Read row n of Pascal's triangle to get all coefficients for (a+b)ⁿ.",
+        "emoji": "✨",
+        "image": {
+          "prompt": "triangle coefficients",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Binomial Theorem: Statement and Formula",
+        "storyContext": "Dr. Verma writes the theorem: (a + b)ⁿ = Σ ⁿCᵣ aⁿ⁻ʳ bʳ, r = 0 to n.",
+        "points": [
+          {
+            "label": "Binomial theorem",
+            "text": "(a + b)ⁿ = Σ (from r=0 to n) [ⁿCᵣ × aⁿ⁻ʳ × bʳ]."
+          },
+          {
+            "label": "General term",
+            "text": "Tᵣ₊₁ = ⁿCᵣ × aⁿ⁻ʳ × bʳ (the (r+1)th term)."
+          },
+          {
+            "label": "First few terms",
+            "text": "aⁿ + n·aⁿ⁻¹·b + [n(n−1)/2]·aⁿ⁻²·b² + ..."
+          },
+          {
+            "label": "Special case",
+            "text": "If a = b = 1: (1 + 1)ⁿ = 2ⁿ = sum of all binomial coefficients."
+          }
+        ],
+        "example": {
+          "problem": "Expand (x + 2)³ using the binomial theorem.",
+          "solution": "(x + 2)³ = ³C₀ x³ 2⁰ + ³C₁ x² 2¹ + ³C₂ x¹ 2² + ³C₃ x⁰ 2³ = x³ + 3x² × 2 + 3x × 4 + 8 = x³ + 6x² + 12x + 8."
+        },
+        "inSimpleWords": "The binomial theorem expands (a + b)ⁿ into a sum of terms using binomial coefficients.",
+        "emoji": "🎁",
+        "image": {
+          "prompt": "chalkboard",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Why the Binomial Theorem Works",
+        "storyContext": "Arjun asks: 'Why does the coefficient of the middle term have to be ⁿCᵣ?' Dr. Verma: 'When you expand (a+b)³, you choose which 2 of the 3 factors contribute b. That's C(3,2)=3 ways. For any term with bʳ, you choose r factors to give b—that's C(n,r) ways.'",
+        "emoji": "🔍",
+        "inSimpleWords": "The binomial coefficient ⁿCᵣ counts the ways to get each term in the expansion.",
+        "image": {
+          "prompt": "expansion factors",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Finding Specific Terms",
+        "storyContext": "Arjun asks: 'In the expansion of (a + b)¹⁰, what is the 5th term? Do I have to expand everything?' Priya: 'No — use the general term formula directly.'",
+        "points": [
+          {
+            "label": "General term",
+            "text": "Tᵣ₊₁ = ⁿCᵣ aⁿ⁻ʳ bʳ (the (r+1)th term from the left)."
+          },
+          {
+            "label": "Middle term",
+            "text": "If n is even: T_{n/2 + 1}. If n is odd: T_{(n+1)/2} and T_{(n+3)/2} (two middle terms)."
+          },
+          {
+            "label": "Last term",
+            "text": "Tₙ₊₁ = ⁿCₙ aⁿ⁻ⁿ bⁿ = bⁿ."
+          }
+        ],
+        "example": {
+          "problem": "Find the 5th term in (2x + 3y)⁸.",
+          "solution": "5th term = T₅ = ⁸C₄ (2x)⁸⁻⁴ (3y)⁴ = ⁸C₄ (2x)⁴ (3y)⁴ = 70 × 16x⁴ × 81y⁴ = 90,720 x⁴y⁴."
+        },
+        "inSimpleWords": "Use Tᵣ₊₁ = ⁿCᵣ aⁿ⁻ʳ bʳ to extract individual terms without expanding fully.",
+        "emoji": "🎯",
+        "image": {
+          "url": "https://images.pexels.com/photos/7788344/pexels-photo-7788344.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Finding Specific Terms — Binomial Theorem",
+          "q": "magnifying glass"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Extracting Terms Without Full Expansion",
+        "storyContext": "Priya realizes: 'Instead of expanding all 10 terms of (2x+3y)⁸, I just need the 5th term. I plug r=4 into the general term formula and get my answer instantly!'",
+        "emoji": "⚡",
+        "inSimpleWords": "The general term formula is a shortcut—it extracts any single term in one calculation.",
+        "image": {
+          "prompt": "specific term extraction",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Finding Terms Example: Middle Term",
+        "storyContext": "Find the middle term of (3a + 2b)⁶.",
+        "example": {
+          "problem": "What is the middle term of (3a + 2b)⁶?",
+          "solution": "n=6 (even), so middle term = T₄ = ⁶C₃ (3a)³ (2b)³ = 20 × 27a³ × 8b³ = 4320 a³b³."
+        },
+        "inSimpleWords": "For even n, the middle term is at position (n/2 + 1).",
+        "emoji": "🎪",
+        "image": {
+          "prompt": "middle of sequence",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Binomial Theorem for Rational and Negative Powers",
+        "storyContext": "Dr. Verma generalizes: 'The binomial theorem works for non-integer n too, but the series is infinite.' She writes: (1 + x)ⁿ = 1 + nx + [n(n−1)/2]x² + ..., valid for |x| < 1.",
+        "points": [
+          {
+            "label": "Binomial series",
+            "text": "(1 + x)ⁿ = Σ (from r=0 to ∞) [ⁿCᵣ xʳ], valid for |x| < 1."
+          },
+          {
+            "label": "Non-integer n",
+            "text": "ⁿCᵣ = [n(n−1)(n−2)...(n−r+1)] / r! (generalized binomial coefficient)."
+          },
+          {
+            "label": "Examples",
+            "text": "(1 + x)^{-1} = 1 − x + x² − x³ + ... (1 + x)^{1/2} = 1 + x/2 − x²/8 + ..."
+          }
+        ],
+        "example": {
+          "problem": "Find the first four terms of (1 + x)⁻².",
+          "solution": "(1 + x)⁻² = 1 + (−2)x + [−2(−3)/2]x² + [−2(−3)(−4)/6]x³ + ... = 1 − 2x + 3x² − 4x³ + ..."
+        },
+        "inSimpleWords": "The binomial series extends to non-integer powers; it's an infinite series converging for |x| < 1.",
+        "emoji": "♾️",
+        "image": {
+          "prompt": "infinity symbol",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "From Finite to Infinite Series",
+        "storyContext": "Arjun asks: 'What if n is not a whole number, like (1+x)^{1/2} (square root)?' Dr. Verma: 'Then the expansion never ends—it's an infinite series. But if |x| is small, the terms shrink quickly, so we can use just the first few terms.'",
+        "emoji": "∞",
+        "inSimpleWords": "Non-integer powers give infinite series; they converge when |x| < 1.",
+        "image": {
+          "prompt": "square root expansion",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Expansion and Coefficient Finding",
+        "storyContext": "Expand (x² + 2/x)⁶ and find the constant term (no x).",
+        "example": {
+          "problem": "Use the binomial theorem; the general term is Tᵣ₊₁ = ⁶Cᵣ (x²)⁶⁻ʳ (2/x)ʳ = ⁶Cᵣ × 2ʳ × x¹²⁻³ʳ. For constant term, set 12 − 3r = 0, so r = 4.",
+          "solution": "T₅ = ⁶C₄ × 2⁴ = 15 × 16 = 240."
+        },
+        "inSimpleWords": "Write the general term, set the exponent of x to zero, solve for r, then calculate that term's coefficient.",
+        "emoji": "✔️",
+        "image": {
+          "url": "https://images.pexels.com/photos/7117502/pexels-photo-7117502.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Full Problem: Expansion and Coefficient Finding — Binomial Theorem",
+          "q": "building blocks"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Finding Constant and Rational Terms",
+        "storyContext": "Arjun needs to find which term in (√x + 1/√x)⁸ has no x (constant) AND which has x⁰ (also constant). Dr. Verma hints: set the exponent of x to zero and solve.",
+        "example": {
+          "problem": "In (√x + 1/√x)⁸, find the term with no x. General term Tᵣ₊₁ = ⁸Cᵣ (√x)⁸⁻ʳ (1/√x)ʳ = ⁸Cᵣ x^{(8-r)/2 - r/2} = ⁸Cᵣ x^{4-r}. Set 4-r=0, so r=4.",
+          "solution": "T₅ = ⁸C₄ = 70 (constant term)."
+        },
+        "inSimpleWords": "Set the exponent of the variable to zero and solve for the position.",
+        "emoji": "🏆",
+        "image": {
+          "prompt": "constant term search",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Properties and Identities",
+        "storyContext": "Priya discovers patterns: 'ⁿC₀ + ⁿC₁ + ... + ⁿCₙ = 2ⁿ. But what if we alternate signs?' Dr. Verma: 'Then we get 0 (for n > 0).'",
+        "points": [
+          {
+            "label": "Sum of coefficients",
+            "text": "ⁿC₀ + ⁿC₁ + ... + ⁿCₙ = 2ⁿ (set a = b = 1)."
+          },
+          {
+            "label": "Alternating sum",
+            "text": "ⁿC₀ − ⁿC₁ + ⁿC₂ − ... = 0 (for n > 0) (set a = 1, b = −1)."
+          },
+          {
+            "label": "Pascal's identity",
+            "text": "ⁿCᵣ + ⁿCᵣ₊₁ = ⁿ⁺¹Cᵣ₊₁."
+          }
+        ],
+        "example": {
+          "problem": "Verify: ⁴C₀ − ⁴C₁ + ⁴C₂ − ⁴C₃ + ⁴C₄ = ?",
+          "solution": "1 − 4 + 6 − 4 + 1 = 0 ✓"
+        },
+        "inSimpleWords": "Binomial identities come from setting a and b to specific values in (a + b)ⁿ.",
+        "emoji": "🔗",
+        "image": {
+          "prompt": "rangoli",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Irrational Expansion",
+        "storyContext": "Arjun uses the binomial series to approximate √(1 + x) for small x. The series is (1 + x)^{1/2} = 1 + x/2 − x²/8 + x³/16 − .... Find the first four terms and approximate √1.04.",
+        "example": {
+          "problem": "Use the binomial series to approximate √1.04 with 4 terms.",
+          "solution": "(1.04)^{1/2} = (1 + 0.04)^{1/2} ≈ 1 + 0.02 − (0.04)²/8 + (0.04)³/16 = 1 + 0.02 − 0.0002 + 0.000004 ≈ 1.0198."
+        },
+        "inSimpleWords": "The binomial series gives a polynomial approximation for non-integer powers; use the first few terms for a good estimate.",
+        "emoji": "🏆",
+        "image": {
+          "url": "https://images.pexels.com/photos/8099506/pexels-photo-8099506.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Challenge: Irrational Expansion — Binomial Theorem",
+          "q": "ruler"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Finding Specific Coefficients",
+        "storyContext": "Find the coefficient of x⁵ in (2x - 1)⁸ using the binomial theorem directly, without full expansion.",
+        "example": {
+          "problem": "General term: Tᵣ₊₁ = ⁸Cᵣ (2x)⁸⁻ʳ (-1)ʳ. For x⁵, we need 8-r=5, so r=3.",
+          "solution": "T₄ = ⁸C₃ (2x)⁵ (-1)³ = 56 × 32x⁵ × (-1) = -1792x⁵. Coefficient = -1792."
+        },
+        "inSimpleWords": "Extract coefficients by setting powers equal and using the general term formula.",
+        "emoji": "📊",
+        "image": {
+          "prompt": "coefficient extraction",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "The Binomial Theorem: Key Takeaways",
+        "points": [
+          {
+            "text": "Binomial theorem: (a + b)ⁿ = Σ ⁿCᵣ aⁿ⁻ʳ bʳ (r = 0 to n)."
+          },
+          {
+            "text": "General term: Tᵣ₊₁ = ⁿCᵣ aⁿ⁻ʳ bʳ — find individual terms without full expansion."
+          },
+          {
+            "text": "Pascal's triangle gives binomial coefficients; row n has entries ⁿC₀, ⁿC₁, ..., ⁿCₙ."
+          },
+          {
+            "text": "Sum of coefficients: ⁿC₀ + ⁿC₁ + ... + ⁿCₙ = 2ⁿ."
+          },
+          {
+            "text": "Binomial series for non-integer n: (1 + x)ⁿ = Σ ⁿCᵣ xʳ (r = 0 to ∞), valid for |x| < 1."
+          },
+          {
+            "text": "Use the series to approximate irrational numbers and functions."
+          }
+        ],
+        "inSimpleWords": "The binomial theorem expands (a + b)ⁿ efficiently; it applies to integer powers and, as an infinite series, to non-integer powers.",
+        "emoji": "✅",
+        "image": {
+          "url": "https://images.pexels.com/photos/5861185/pexels-photo-5861185.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Binomial Theorem: Key Takeaways — Binomial Theorem",
+          "q": "notebook"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-11-mathematics-sequences-and-series",
+    "classLevel": "11",
+    "subject": "Mathematics",
+    "chapter": "Sequences and Series",
+    "title": "The Great Festival Money Trail",
+    "hook": "Priya saves money for Diwali in a growing pattern—discover the hidden math in daily decisions.",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "Student saving for Diwali"
+      },
+      {
+        "name": "Grandfather",
+        "emoji": "👴",
+        "role": "Mentor and mathematics enthusiast"
+      },
+      {
+        "name": "Kumar",
+        "emoji": "🧑",
+        "role": "Priya's friend tracking cricket scores"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Sequences and Series: The Festival Money Trail",
+        "storyContext": "Priya's grandmother challenges her: save for Diwali gifts using a special rule. Each day you get money that follows a pattern.",
+        "emoji": "🎇",
+        "inSimpleWords": "Numbers arranged in a special order, one after another, following a rule.",
+        "image": {
+          "url": "https://images.pexels.com/photos/6328893/pexels-photo-6328893.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sequences and Series: The Festival Money Trail — Sequences and Series",
+          "q": "money"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Diwali Savings Challenge",
+        "storyContext": "It's July. Priya's grandmother says: 'On day 1, I give you ₹2. On day 2, ₹4. On day 3, ₹8. Keep going until Diwali in October. Can you predict how much you'll have?' Priya starts writing: 2, 4, 8, 16, 32... Grandfather smiles and says, 'You've found a sequence. Now let's master its mathematics.'",
+        "emoji": "💰",
+        "inSimpleWords": "A sequence is a list of numbers arranged in order following a pattern.",
+        "image": {
+          "url": "https://images.pexels.com/photos/14907378/pexels-photo-14907378.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Diwali Savings Challenge — Sequences and Series",
+          "q": "rupees"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What is a Sequence?",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A sequence is a set of numbers arranged in a definite order, following a rule. Denoted a₁, a₂, a₃, ..., aₙ."
+          },
+          {
+            "label": "Arithmetic Sequence (AP)",
+            "text": "Each term differs from the previous by a constant d (common difference). Example: 5, 10, 15, 20, ... has d = 5."
+          },
+          {
+            "label": "General Term (AP)",
+            "text": "aₙ = a₁ + (n-1)d, where a₁ is the first term and d is the common difference."
+          }
+        ],
+        "example": {
+          "problem": "In a school, chairs are arranged for an assembly. Row 1 has 12 chairs, Row 2 has 14 chairs, Row 3 has 16 chairs. What is the 10th row?",
+          "solution": "This is an AP: a₁ = 12, d = 2. Using aₙ = a₁ + (n-1)d, a₁₀ = 12 + (10-1)×2 = 12 + 18 = 30 chairs."
+        },
+        "emoji": "📊",
+        "inSimpleWords": "In arithmetic sequences, you add the same number every time.",
+        "image": {
+          "prompt": "chairs",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Understanding Arithmetic Progression",
+        "storyContext": "Priya's cousin saves ₹100 per month for a year. Month 1: ₹100, Month 2: ₹200, Month 3: ₹300. Grandfather says: 'That's an arithmetic sequence where a₁=100 and d=100. Can you find the 12th month?' Priya calculates: ₹1200.",
+        "emoji": "🏦",
+        "inSimpleWords": "Arithmetic sequences have a constant difference—linear growth.",
+        "image": {
+          "prompt": "savings arithmetic",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "AP Example: Ladder Heights",
+        "storyContext": "A ladder has rungs: 1st rung is 0.5 m high, 2nd is 1 m, 3rd is 1.5 m. Find the 8th rung height.",
+        "example": {
+          "problem": "Ladder rungs in AP: a₁=0.5, d=0.5. Find a₈.",
+          "solution": "a₈ = 0.5 + (8-1)×0.5 = 0.5 + 3.5 = 4 m."
+        },
+        "inSimpleWords": "Use aₙ = a₁ + (n-1)d to find any term in arithmetic sequence.",
+        "emoji": "🪜",
+        "image": {
+          "prompt": "ladder rungs",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Geometric Sequences—The Doubling Rule",
+        "points": [
+          {
+            "label": "Geometric Sequence (GP)",
+            "text": "Each term is multiplied by a constant r (common ratio). Example: 2, 4, 8, 16, 32 has r = 2."
+          },
+          {
+            "label": "General Term (GP)",
+            "text": "aₙ = a₁ × r^(n-1), where a₁ is the first term and r is the common ratio."
+          },
+          {
+            "label": "Priya's Savings",
+            "text": "Day 1: ₹2, Day 2: ₹4, Day 3: ₹8. This is a GP with a₁ = 2, r = 2. By day 10: a₁₀ = 2 × 2^(10-1) = 2 × 512 = ₹1024."
+          }
+        ],
+        "example": {
+          "problem": "A rice farmer doubles his stock every month. He starts with 10 kg. How much will he have in 6 months?",
+          "solution": "GP: a₁ = 10, r = 2, n = 6. a₆ = 10 × 2^(6-1) = 10 × 32 = 320 kg."
+        },
+        "emoji": "📈",
+        "inSimpleWords": "In geometric sequences, you multiply by the same number every time—things grow fast!",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Tabanan-Regency_Indonesia_Rice-paddies-06.jpg/960px-Tabanan-Regency_Indonesia_Rice-paddies-06.jpg",
+          "alt": "Geometric Sequences—The Doubling Rule — Sequences and Series",
+          "q": "rice"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Exponential Growth in Real Life",
+        "storyContext": "Kumar tracks his video views: Day 1: 100 views, Day 2: 200 views, Day 3: 400 views. Grandfather says: 'That's exponential growth, r=2. By day 10, you'll have 100 × 2⁹ = 51,200 views!' Priya: 'But geometric sequences grow SO fast!'",
+        "emoji": "📱",
+        "inSimpleWords": "Geometric sequences model viral spread, population booms, and investments with compound interest.",
+        "image": {
+          "prompt": "exponential growth views",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "GP Example: Pandemic Spread",
+        "storyContext": "A disease spreads with each infected person infecting 3 others. Day 1: 2 infected, Day 2: 6 infected, Day 3: 18 infected. Find day 7.",
+        "example": {
+          "problem": "GP with a₁=2, r=3. Find a₇.",
+          "solution": "a₇ = 2 × 3^(7-1) = 2 × 729 = 1458 infected people."
+        },
+        "inSimpleWords": "Use aₙ = a₁ × r^(n-1) for geometric sequences.",
+        "emoji": "🔬",
+        "image": {
+          "prompt": "spread multiplication",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Sum of an Arithmetic Series",
+        "points": [
+          {
+            "label": "Series",
+            "text": "The sum of the terms of a sequence. If we add up the sequence 5, 10, 15, 20, we get a series."
+          },
+          {
+            "label": "Sum Formula (AP)",
+            "text": "Sₙ = n/2 × (2a₁ + (n-1)d) or Sₙ = n/2 × (a₁ + aₙ), where n is the number of terms."
+          },
+          {
+            "label": "Real Example",
+            "text": "A builder stacks pipes: row 1 has 5 pipes, row 2 has 7 pipes, row 3 has 9 pipes. Find total pipes in 10 rows."
+          }
+        ],
+        "example": {
+          "problem": "Row 1: 5 pipes, Row 2: 7, Row 3: 9 (AP with a₁ = 5, d = 2). Sum of 10 rows?",
+          "solution": "S₁₀ = 10/2 × (2×5 + (10-1)×2) = 5 × (10 + 18) = 5 × 28 = 140 pipes."
+        },
+        "emoji": "🏗️",
+        "inSimpleWords": "To add up an arithmetic sequence, use the average of first and last term times the count.",
+        "image": {
+          "prompt": "pipes",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Clever Summation Trick",
+        "storyContext": "Priya discovers: 'Instead of adding 1+2+3+...+100, I can pair them backwards: (1+100)+(2+99)+...=101×50=5050!' Grandfather: 'Exactly! The AP sum formula captures this pairing—multiply the average by the count.'",
+        "emoji": "💡",
+        "inSimpleWords": "The AP sum pairs first and last terms, then multiplies by half the count.",
+        "image": {
+          "prompt": "number pairing",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "AP Series Example: Total Distance",
+        "storyContext": "A car travels: hour 1: 10 km, hour 2: 20 km, hour 3: 30 km. Find total distance in 8 hours.",
+        "example": {
+          "problem": "AP with a₁=10, d=10. Find S₈.",
+          "solution": "S₈ = 8/2 × (2×10 + 7×10) = 4 × (20 + 70) = 4 × 90 = 360 km."
+        },
+        "inSimpleWords": "Sum formula for AP: Sₙ = n/2 × (first + last) or Sₙ = n/2 × (2a₁ + (n-1)d).",
+        "emoji": "🚗",
+        "image": {
+          "prompt": "car distance travel",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Sum of a Geometric Series",
+        "points": [
+          {
+            "label": "Finite GP Sum",
+            "text": "Sₙ = a₁(r^n - 1)/(r - 1) when r ≠ 1. For Priya's doubling money: S₁₀ = 2(2^10 - 1)/(2-1) = 2(1024-1) = ₹2046."
+          },
+          {
+            "label": "Infinite GP (r < 1)",
+            "text": "If |r| < 1, the sum converges: S = a₁/(1-r). Example: 1 + 1/2 + 1/4 + 1/8 + ... = 1/(1-0.5) = 2."
+          },
+          {
+            "label": "Real Life",
+            "text": "A city's population grows 5% yearly. After many years, what's the total cumulative growth? Use GP sum formulas."
+          }
+        ],
+        "example": {
+          "problem": "Priya's daily Diwali savings double each day for 5 days (₹2, ₹4, ₹8, ₹16, ₹32). Total savings?",
+          "solution": "S₅ = 2(2^5 - 1)/(2-1) = 2(32-1) = 2 × 31 = ₹62."
+        },
+        "emoji": "🎆",
+        "inSimpleWords": "Geometric series sums grow exponentially—useful for money, populations, and viral spread.",
+        "image": {
+          "url": "https://images.pexels.com/photos/14907379/pexels-photo-14907379.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sum of a Geometric Series — Sequences and Series",
+          "q": "rupees"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Divergence vs. Convergence Mystery",
+        "storyContext": "Grandfather explains: 'If r > 1, the GP grows forever—no finite sum. But if |r| < 1, the terms shrink to zero, and the series converges to S = a₁/(1-r). For example, 1 + 0.5 + 0.25 + 0.125 + ... forever equals 2.'",
+        "emoji": "🌊",
+        "inSimpleWords": "GP series converges (has a finite sum) only when |r| < 1.",
+        "image": {
+          "prompt": "convergence limit",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Infinite GP Series Example: Depreciation",
+        "storyContext": "A car loses 20% of its value each year. If it costs ₹1,00,000, what's the total value lost over its lifetime?",
+        "example": {
+          "problem": "Value retained: r = 0.8. Loss per year forms a series: 20,000 + 16,000 + 12,800 + ... = 20,000/(1-0.8) = 20,000/0.2 = ₹1,00,000.",
+          "solution": "Total value lost converges to the original cost (as expected, since car loses 20% per year—infinite years means total loss)."
+        },
+        "inSimpleWords": "For infinite GP with |r|<1, use S = a₁/(1-r).",
+        "emoji": "🚙",
+        "image": {
+          "prompt": "car depreciation value",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Kumar's Cricket Score Streak",
+        "storyContext": "Kumar scores in a cricket tournament: Match 1: 15 runs, Match 2: 20 runs, Match 3: 25 runs (increasing by 5 each match). He plays 12 matches. What is his total score?",
+        "points": [
+          {
+            "label": "Identify",
+            "text": "Arithmetic sequence: a₁ = 15, d = 5, n = 12."
+          },
+          {
+            "label": "Find 12th term",
+            "text": "a₁₂ = 15 + (12-1)×5 = 15 + 55 = 70 runs."
+          },
+          {
+            "label": "Sum formula",
+            "text": "S₁₂ = 12/2 × (15 + 70) = 6 × 85 = 510 runs total."
+          }
+        ],
+        "emoji": "🏏",
+        "inSimpleWords": "Use the AP sum formula when you know first term, difference, and number of terms.",
+        "image": {
+          "url": "https://images.pexels.com/photos/29463867/pexels-photo-29463867.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Full Problem: Kumar's Cricket Score Streak — Sequences and Series",
+          "q": "cricket"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Choosing AP or GP",
+        "storyContext": "Priya asks: 'Grandmother gives me ₹50 on day 1, then ₹50 more each day. Grandfather gives me ₹1 on day 1, then doubles it each day. Who's more generous after 10 days?'",
+        "example": {
+          "problem": "Grandmother (AP): S₁₀ = 50 + 100 + 150 + ... = 10/2 × (50 + 500) = 2750. Grandfather (GP): S₁₀ = 1(2¹⁰-1)/(2-1) = 1023. Who wins?",
+          "solution": "Grandmother gives ₹2750; Grandfather gives ₹1023. Grandmother is more generous for 10 days! But Grandfather's exponential growth will overtake by day 12."
+        },
+        "inSimpleWords": "Linear growth (AP) beats exponential (GP) at first, but exponential eventually dominates.",
+        "emoji": "🏆",
+        "image": {
+          "prompt": "AP vs GP growth",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Compound Interest",
+        "storyContext": "Priya invests ₹10,000 at 10% annual compound interest. After n years, amount = 10,000 × (1.1)ⁿ. Find total after 5 years, and compare to simple interest (50% over 5 years = ₹15,000).",
+        "example": {
+          "problem": "Compound: A₅ = 10,000 × (1.1)⁵ = 10,000 × 1.61051 ≈ ₹16,105. Simple: ₹15,000.",
+          "solution": "Compound interest yields ₹16,105 vs. simple ₹15,000—compound wins by ₹1,105! This GP-based growth is why compound interest is powerful over time."
+        },
+        "inSimpleWords": "Compound interest uses geometric growth; compare with linear simple interest.",
+        "emoji": "💰",
+        "image": {
+          "prompt": "investment growth chart",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Challenge: The Rice Granary",
+        "storyContext": "A farmer stores rice in bags. The 1st day he stores 100 kg, the 2nd day 200 kg, the 3rd day 300 kg. After 20 days, how much rice has he stored in total? (Hint: it's an AP.)",
+        "example": {
+          "problem": "Find the total rice stored over 20 days where day n stores 100n kg.",
+          "solution": "AP: a₁ = 100, a₂ = 200, d = 100. S₂₀ = 20/2 × (2×100 + 19×100) = 10 × (200 + 1900) = 10 × 2100 = 21000 kg."
+        },
+        "emoji": "🌾",
+        "inSimpleWords": "Sequences and series help predict totals in real work: production, savings, growth.",
+        "image": {
+          "prompt": "rice bags",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Sequences & Series Summary",
+        "points": [
+          {
+            "text": "Sequence: ordered list of numbers following a rule (a₁, a₂, a₃, ...)."
+          },
+          {
+            "text": "Arithmetic Sequence: constant difference d; aₙ = a₁ + (n-1)d; Sₙ = n/2 × (a₁ + aₙ)."
+          },
+          {
+            "text": "Geometric Sequence: constant ratio r; aₙ = a₁ × r^(n-1); Sₙ = a₁(r^n-1)/(r-1)."
+          },
+          {
+            "text": "Use AP for linear growth (stairs, rows, daily increases). Use GP for exponential growth (doubling, viral spread)."
+          },
+          {
+            "text": "Master both to solve real problems: harvests, savings, cricket scores, crowd sizes."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Sequences organize data; series sum them up. Both are tools for predicting and planning.",
+        "image": {
+          "url": "https://images.pexels.com/photos/32868841/pexels-photo-32868841.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sequences & Series Summary — Sequences and Series",
+          "q": "stairs"
+        }
+      }
+    ]
+  }
+]

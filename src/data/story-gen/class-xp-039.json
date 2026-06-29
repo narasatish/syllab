@@ -1,0 +1,1608 @@
+[
+  {
+    "slug": "class-11-mathematics-limits-and-derivatives",
+    "classLevel": "11",
+    "subject": "Mathematics",
+    "chapter": "Limits and Derivatives",
+    "title": "The Instantaneous Speed",
+    "hook": "How fast is a cricket ball moving at one instant? Limits and derivatives unlock the secret.",
+    "characters": [
+      {
+        "name": "Rohan",
+        "emoji": "🧑",
+        "role": "Cricket enthusiast and physics lover"
+      },
+      {
+        "name": "Coach Kumar",
+        "emoji": "👨",
+        "role": "Former fast bowler, now coach"
+      },
+      {
+        "name": "Aisha",
+        "emoji": "👧",
+        "role": "Science student analyzing motion"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Limits and Derivatives: The Math of Instant Change",
+        "storyContext": "Rohan watches the cricket match. A bowler delivers at 140 km/h—but how do we define speed at ONE instant, not over a distance?",
+        "emoji": "🏏",
+        "inSimpleWords": "Derivatives measure instantaneous rates of change—how fast something is changing at this very moment.",
+        "image": {
+          "prompt": "bowler",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Bowler's Speed",
+        "storyContext": "Coach Kumar explains to Rohan: 'Average speed is distance/time over a distance. But a radar gun measures speed at ONE instant—the ball's velocity now. That's where calculus comes in.' Aisha adds, 'We use limits to shrink the time interval to zero, then we get the derivative.' Coach nods: 'Exactly. Let me teach you both.'",
+        "emoji": "⚡",
+        "inSimpleWords": "Average speed over time versus instantaneous speed at a single moment—derivatives bridge the gap.",
+        "image": {
+          "prompt": "radar gun",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Limits: Approaching a Value",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "lim(x→a) f(x) = L means as x gets closer to a, f(x) gets closer to L."
+          },
+          {
+            "label": "Ball Distance",
+            "text": "Distance traveled: s(t) = 5t². As time t → 1, what is s(t)? s(1) = 5, s(0.9) = 4.05, s(0.99) = 4.9005. Limit is 5."
+          },
+          {
+            "label": "Left and Right Limits",
+            "text": "lim(x→a⁻) = left limit, lim(x→a⁺) = right limit. If both equal L, the limit exists."
+          }
+        ],
+        "example": {
+          "problem": "Find lim(x→2) (x² + 3x - 1).",
+          "solution": "Direct substitution: 2² + 3(2) - 1 = 4 + 6 - 1 = 9. Limit = 9."
+        },
+        "emoji": "🔍",
+        "inSimpleWords": "A limit is the value a function approaches as the input gets closer to a specific number.",
+        "image": {
+          "prompt": "target",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Rohan's Limit Problem",
+        "storyContext": "Rohan throws a ball upward. Its height h(t) = 20t - 5t² meters. At t=2, it reaches h(2) = 40 - 20 = 20 meters. But what if we want to know the height at almost-2? Aisha says: 'As t gets closer to 2, h(t) approaches 20. That's a limit!' Coach laughs: 'The ball knows calculus without studying it!'",
+        "emoji": "⬆️",
+        "inSimpleWords": "Limits help us find values at critical points even when the function might be undefined there.",
+        "image": {
+          "prompt": "ball throw",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Computing Limits",
+        "storyContext": "Aisha calculates lim(x→3) (x² - 9)/(x - 3). Direct substitution gives 0/0, which is undefined.",
+        "points": [
+          {
+            "label": "Factor and Cancel",
+            "text": "(x² - 9)/(x - 3) = (x-3)(x+3)/(x-3) = (x+3) for x ≠ 3."
+          },
+          {
+            "label": "Now Substitute",
+            "text": "lim(x→3) (x + 3) = 3 + 3 = 6."
+          },
+          {
+            "label": "Key Insight",
+            "text": "The limit exists even though the function is undefined at x=3. This 'hole' is called a removable discontinuity."
+          }
+        ],
+        "emoji": "✏️",
+        "inSimpleWords": "When direct substitution gives 0/0, factor and simplify to find the limit.",
+        "image": {
+          "prompt": "algebra",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Left and Right Limits",
+        "storyContext": "Rohan explores: what if a function behaves differently from the left and right?",
+        "example": {
+          "problem": "Find lim(x→2⁻) and lim(x→2⁺) for f(x) = (x-2)/|x-2|.",
+          "solution": "From left (x<2): |x-2| = -(x-2), so f(x) = (x-2)/[-(x-2)] = -1. lim(x→2⁻) = -1. From right (x>2): |x-2| = (x-2), so f(x) = (x-2)/(x-2) = 1. lim(x→2⁺) = 1. Limits differ, so lim(x→2) does NOT exist."
+        },
+        "emoji": "🔀",
+        "inSimpleWords": "When left and right limits differ, the overall limit does not exist.",
+        "image": {
+          "prompt": "fork",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Continuity at a Point",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "f is continuous at x = a if lim(x→a) f(x) = f(a)."
+          },
+          {
+            "label": "Three Conditions",
+            "text": "(1) f(a) exists, (2) lim(x→a) f(x) exists, (3) both are equal."
+          },
+          {
+            "label": "Real Example",
+            "text": "A cricket ball's height as it flies—continuous unless it gets caught. A function with a hole or jump is discontinuous."
+          }
+        ],
+        "example": {
+          "problem": "Is f(x) = (x² - 4)/(x - 2) continuous at x = 2?",
+          "solution": "f(2) is undefined (0/0). But lim(x→2) (x² - 4)/(x - 2) = lim(x→2) (x + 2) = 4. The function has a removable discontinuity at x = 2."
+        },
+        "emoji": "📈",
+        "inSimpleWords": "Continuous functions have no breaks, holes, or jumps—they graph as smooth, unbroken curves.",
+        "image": {
+          "url": "https://images.pexels.com/photos/17886383/pexels-photo-17886383.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Continuity at a Point — Limits and Derivatives",
+          "q": "bridge"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Breaking Continuity",
+        "storyContext": "Rohan asks Coach Kumar: 'What if the ball teleports? It's at height 10m, then instantly at 5m?' Coach says: 'That's a jump discontinuity—not smooth. In physics, continuous motion means no teleportation.' Aisha sketches two graphs: one smooth (continuous), one with a jump (discontinuous).",
+        "emoji": "✂️",
+        "inSimpleWords": "Discontinuities are breaks in a function's graph—jumps, holes, or vertical asymptotes.",
+        "image": {
+          "prompt": "discontinuous graph",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Continuity Check",
+        "storyContext": "Check if f(x) = 2x + 3 is continuous at x = 1.",
+        "points": [
+          {
+            "label": "f(1) exists?",
+            "text": "Yes: f(1) = 2(1) + 3 = 5."
+          },
+          {
+            "label": "lim(x→1) exists?",
+            "text": "Yes: lim(x→1) (2x + 3) = 5."
+          },
+          {
+            "label": "Are they equal?",
+            "text": "Yes: f(1) = 5 = limit. So f is continuous at x=1."
+          }
+        ],
+        "emoji": "✔️",
+        "inSimpleWords": "Linear functions are continuous everywhere—no breaks, jumps, or holes.",
+        "image": {
+          "prompt": "linear graph",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Derivative: Instantaneous Rate of Change",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Derivative f'(a) = lim(h→0) [f(a+h) - f(a)]/h. It is the slope of the tangent at x = a."
+          },
+          {
+            "label": "Geometric Meaning",
+            "text": "The slope of the tangent line to the curve at a point. For straight lines, it is the slope m."
+          },
+          {
+            "label": "Ball Velocity",
+            "text": "Distance s(t) = 5t². Velocity = ds/dt = lim(h→0) [5(t+h)² - 5t²]/h = 10t. At t=1, velocity = 10 m/s."
+          }
+        ],
+        "example": {
+          "problem": "Find the derivative of f(x) = x² at x = 3 using the definition.",
+          "solution": "f'(3) = lim(h→0) [(3+h)² - 9]/h = lim(h→0) [9 + 6h + h² - 9]/h = lim(h→0) (6h + h²)/h = lim(h→0) (6 + h) = 6."
+        },
+        "emoji": "📊",
+        "inSimpleWords": "The derivative at a point is the slope of the tangent line—it tells how fast the function is changing.",
+        "image": {
+          "prompt": "speedometer",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Rohan Finds Instantaneous Speed",
+        "storyContext": "Rohan measures a cricket ball's position over time: s(t) = 4t². At t=2, position is 16 meters. But what's the speed exactly at t=2? Coach says: 'Use the derivative formula. Let h shrink to zero.' Aisha calculates: as h→0, the secant line becomes a tangent. That slope is the instantaneous speed!",
+        "emoji": "🎯",
+        "inSimpleWords": "The derivative is the limit of average rates of change—as the interval shrinks to zero.",
+        "image": {
+          "prompt": "tangent line",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Derivative from Definition",
+        "storyContext": "Find f'(2) for f(x) = 3x² - 2.",
+        "points": [
+          {
+            "label": "Setup",
+            "text": "f'(2) = lim(h→0) [f(2+h) - f(2)]/h."
+          },
+          {
+            "label": "Compute f(2+h)",
+            "text": "f(2+h) = 3(2+h)² - 2 = 3(4 + 4h + h²) - 2 = 12 + 12h + 3h² - 2 = 10 + 12h + 3h²."
+          },
+          {
+            "label": "Compute f(2)",
+            "text": "f(2) = 3(4) - 2 = 10."
+          },
+          {
+            "label": "Simplify",
+            "text": "f'(2) = lim(h→0) [(10 + 12h + 3h²) - 10]/h = lim(h→0) (12h + 3h²)/h = lim(h→0) (12 + 3h) = 12."
+          }
+        ],
+        "emoji": "🔢",
+        "inSimpleWords": "The derivative definition requires algebra to expand, simplify, and take the limit.",
+        "image": {
+          "prompt": "algebra work",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Derivative Definition",
+        "storyContext": "Find f'(1) for f(x) = x³.",
+        "example": {
+          "problem": "Use the definition: f'(1) = lim(h→0) [f(1+h) - f(1)]/h for f(x) = x³.",
+          "solution": "f(1+h) = (1+h)³ = 1 + 3h + 3h² + h³. f(1) = 1. f'(1) = lim(h→0) [(1 + 3h + 3h² + h³ - 1)]/h = lim(h→0) (3h + 3h² + h³)/h = lim(h→0) (3 + 3h + h²) = 3."
+        },
+        "emoji": "💪",
+        "inSimpleWords": "Practice the definition to build intuition—later, rules make it faster.",
+        "image": {
+          "prompt": "cubic function",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Derivative Rules: Power, Product, Chain",
+        "points": [
+          {
+            "label": "Power Rule",
+            "text": "If f(x) = xⁿ, then f'(x) = n·x^(n-1). Example: f(x) = x³ → f'(x) = 3x²."
+          },
+          {
+            "label": "Sum Rule",
+            "text": "[f(x) + g(x)]' = f'(x) + g'(x)."
+          },
+          {
+            "label": "Product Rule",
+            "text": "[f(x)·g(x)]' = f'(x)·g(x) + f(x)·g'(x)."
+          },
+          {
+            "label": "Chain Rule",
+            "text": "[f(g(x))]' = f'(g(x))·g'(x). Used for composite functions."
+          }
+        ],
+        "example": {
+          "problem": "Find derivative of f(x) = 3x⁴ - 2x² + 5.",
+          "solution": "Using power rule: f'(x) = 12x³ - 4x."
+        },
+        "emoji": "📐",
+        "inSimpleWords": "Derivative rules let you find rates of change quickly without using limits every time.",
+        "image": {
+          "prompt": "formula",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Rules Save Time",
+        "storyContext": "Rohan says: 'Using the definition takes forever!' Coach smiles: 'True. Mathematicians found shortcuts—the power rule, product rule, chain rule. They're all derived from the definition, but we apply them directly now.'",
+        "emoji": "⚡",
+        "inSimpleWords": "Once you understand the definition, rules make derivatives easy.",
+        "image": {
+          "prompt": "shortcut",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Power Rule",
+        "storyContext": "Differentiate f(x) = 7x⁵.",
+        "points": [
+          {
+            "label": "Apply Power Rule",
+            "text": "n = 5. f'(x) = 5 · 7 · x^(5-1) = 35x⁴."
+          },
+          {
+            "label": "Verify at x=1",
+            "text": "f'(1) = 35(1)⁴ = 35. Slope of tangent at x=1 is 35."
+          }
+        ],
+        "emoji": "📈",
+        "inSimpleWords": "Power rule: differentiate xⁿ by bringing down n and reducing the exponent by 1.",
+        "image": {
+          "prompt": "power curve",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Chain Rule",
+        "storyContext": "Find the derivative of f(x) = (2x + 3)⁵.",
+        "points": [
+          {
+            "label": "Identify Composition",
+            "text": "f(x) = g(h(x)) where h(x) = 2x + 3 (inner), g(u) = u⁵ (outer)."
+          },
+          {
+            "label": "Apply Chain Rule",
+            "text": "f'(x) = g'(h(x)) · h'(x) = 5(2x + 3)⁴ · 2 = 10(2x + 3)⁴."
+          }
+        ],
+        "emoji": "⛓️",
+        "inSimpleWords": "Chain rule: differentiate the outer function, then multiply by the derivative of the inner function.",
+        "image": {
+          "prompt": "composite function",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Product Rule",
+        "storyContext": "Find f'(x) for f(x) = x² · sin(x).",
+        "example": {
+          "problem": "Differentiate f(x) = x² · sin(x).",
+          "solution": "Using product rule: f'(x) = (x²)' · sin(x) + x² · (sin(x))' = 2x · sin(x) + x² · cos(x) = 2x sin(x) + x² cos(x)."
+        },
+        "emoji": "🔧",
+        "inSimpleWords": "Product rule: (fg)' = f'g + fg'. Useful for multiplied functions.",
+        "image": {
+          "prompt": "product",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Physical Interpretation: Velocity and Acceleration",
+        "points": [
+          {
+            "label": "Velocity",
+            "text": "v(t) = ds/dt, where s is position. It is the first derivative of position."
+          },
+          {
+            "label": "Acceleration",
+            "text": "a(t) = dv/dt, where v is velocity. It is the second derivative of position."
+          },
+          {
+            "label": "Cricket Ball",
+            "text": "If s(t) = 5t² (position in meters), then v(t) = 10t (velocity), a(t) = 10 (constant acceleration = 10 m/s²)."
+          }
+        ],
+        "example": {
+          "problem": "A car's position is s(t) = 2t³ + t². Find velocity and acceleration at t = 2.",
+          "solution": "v(t) = 6t² + 2t. At t=2: v = 24 + 4 = 28 m/s. a(t) = 12t + 2. At t=2: a = 24 + 2 = 26 m/s²."
+        },
+        "emoji": "🚗",
+        "inSimpleWords": "Velocity is the rate of position change; acceleration is the rate of velocity change—both are derivatives.",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/02.Trinidad_%2859%29.JPG/960px-02.Trinidad_%2859%29.JPG",
+          "alt": "Physical Interpretation: Velocity and Acceleration — Limits and Derivatives",
+          "q": "car"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Coach Explains Motion",
+        "storyContext": "Coach Kumar tells Rohan: 'When the ball leaves my hand, its position changes. The rate of change is velocity—that's what the radar gun shows. If velocity itself changes, that's acceleration—my arm is still pushing!' Aisha draws the graphs: position (parabola), velocity (line), acceleration (constant).",
+        "emoji": "📍",
+        "inSimpleWords": "Derivatives connect position → velocity → acceleration. Each is the rate of change of the previous.",
+        "image": {
+          "prompt": "motion sequence",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Position, Velocity, Acceleration",
+        "storyContext": "A projectile's height is h(t) = 20t - 5t² meters. Find v(t) and a(t).",
+        "points": [
+          {
+            "label": "Position",
+            "text": "h(t) = 20t - 5t²."
+          },
+          {
+            "label": "Velocity",
+            "text": "v(t) = dh/dt = 20 - 10t."
+          },
+          {
+            "label": "Acceleration",
+            "text": "a(t) = dv/dt = -10 m/s² (gravity pulling down)."
+          }
+        ],
+        "emoji": "🚀",
+        "inSimpleWords": "Gravity creates constant negative acceleration of -10 m/s² (on Earth).",
+        "image": {
+          "prompt": "projectile motion",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: The Bowler's Delivery",
+        "storyContext": "A fast bowler's hand (with ball) position during delivery is s(t) = 10t² - 2t + 1 meters. What is the ball's velocity and acceleration at t = 0.5 seconds?",
+        "points": [
+          {
+            "label": "Velocity",
+            "text": "v(t) = ds/dt = 20t - 2. At t=0.5: v = 10 - 2 = 8 m/s."
+          },
+          {
+            "label": "Acceleration",
+            "text": "a(t) = dv/dt = 20 m/s² (constant)."
+          },
+          {
+            "label": "Interpretation",
+            "text": "At release (t=0.5s), the ball moves at 8 m/s and accelerates at constant 20 m/s² due to the bowler's arm motion."
+          }
+        ],
+        "emoji": "🏏",
+        "inSimpleWords": "Derivatives of position give velocity; derivatives of velocity give acceleration—the chain of motion.",
+        "image": {
+          "prompt": "bowler",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Challenge: The Pendulum Swing",
+        "storyContext": "A pendulum's angle is θ(t) = 0.5 sin(2t) radians. Find its angular velocity at t = π/4.",
+        "example": {
+          "problem": "Find dθ/dt for θ(t) = 0.5 sin(2t), then evaluate at t = π/4.",
+          "solution": "dθ/dt = 0.5 × cos(2t) × 2 = cos(2t). At t = π/4: dθ/dt = cos(π/2) = 0 rad/s. (The pendulum momentarily stops at the highest point.)"
+        },
+        "emoji": "⏰",
+        "inSimpleWords": "Derivatives of trigonometric functions describe oscillating motion—useful for pendulums, waves, and vibrations.",
+        "image": {
+          "prompt": "pendulum",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Why Limits Matter",
+        "storyContext": "Aisha reflects: 'Limits started with a puzzle—how do we define speed at an instant? Now I see: by shrinking the time interval until it's zero. That's beautiful!' Coach nods: 'Limits bridge the gap between the everyday (average speed) and the ideal (instantaneous speed).'",
+        "emoji": "🌉",
+        "inSimpleWords": "Limits connect discrete ideas (average) to continuous ones (instantaneous).",
+        "image": {
+          "prompt": "bridge concept",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Applications Beyond Cricket",
+        "storyContext": "Rohan asks: 'What else use derivatives?' Aisha lists: 'Medicine—drug concentration changes in blood. Economics—marginal cost. Weather—temperature rate of change. Biology—population growth rates. Everywhere something changes, derivatives apply!'",
+        "emoji": "🔬",
+        "inSimpleWords": "Derivatives model change in physics, economics, biology, medicine—any field where rates matter.",
+        "image": {
+          "prompt": "applications",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Limits and Derivatives Summary",
+        "points": [
+          {
+            "text": "Limit: lim(x→a) f(x) = L means f(x) approaches L as x approaches a."
+          },
+          {
+            "text": "Continuity: f is continuous at a if lim(x→a) f(x) = f(a)."
+          },
+          {
+            "text": "Derivative: f'(x) = lim(h→0) [f(x+h) - f(x)]/h. Slope of tangent line at x."
+          },
+          {
+            "text": "Power Rule: d/dx[xⁿ] = n·x^(n-1). Chain Rule: d/dx[f(g(x))] = f'(g(x))·g'(x)."
+          },
+          {
+            "text": "Velocity = ds/dt (first derivative). Acceleration = d²s/dt² (second derivative)."
+          },
+          {
+            "text": "Derivatives are the foundation of calculus—used in physics, engineering, economics, and motion analysis."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Derivatives measure how fast things change instantaneously—the core concept of differential calculus.",
+        "image": {
+          "url": "https://images.pexels.com/photos/9743014/pexels-photo-9743014.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Limits and Derivatives Summary — Limits and Derivatives",
+          "q": "notebook"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-11-mathematics-statistics",
+    "classLevel": "11",
+    "subject": "Mathematics",
+    "chapter": "Statistics",
+    "title": "Understanding Data: The Village Health Survey",
+    "hook": "A health worker surveys the village—learn to organize, analyze, and interpret data.",
+    "characters": [
+      {
+        "name": "Dr. Sharma",
+        "emoji": "👨",
+        "role": "Village health worker"
+      },
+      {
+        "name": "Neha",
+        "emoji": "👧",
+        "role": "Data-loving student helping survey"
+      },
+      {
+        "name": "Vikram",
+        "emoji": "🧑",
+        "role": "Farmer providing data on crops and health"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Statistics: Understanding Data from the Village",
+        "storyContext": "Dr. Sharma conducts a health survey of 100 villagers. Neha helps record heights, weights, and ages. Can they find patterns and predict health trends?",
+        "emoji": "📊",
+        "inSimpleWords": "Statistics is the science of collecting, organizing, analyzing, and interpreting data to find patterns.",
+        "image": {
+          "prompt": "villagers",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Health Survey Begins",
+        "storyContext": "Dr. Sharma measures heights of 100 children: 120, 125, 130, 128, ... Neha writes them down. 'How do we find the typical height? How spread out are the heights?' she asks. Dr. Sharma smiles: 'That's statistics. We calculate mean, median, and standard deviation.' Vikram joins: 'How do we show this data clearly?' Neha says, 'With histograms and frequency tables!'",
+        "emoji": "📈",
+        "inSimpleWords": "Organize raw data into tables and graphs to reveal patterns and averages.",
+        "image": {
+          "url": "https://images.pexels.com/photos/32314822/pexels-photo-32314822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Health Survey Begins — Statistics",
+          "q": "child"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Measures of Central Tendency: Mean, Median, Mode",
+        "points": [
+          {
+            "label": "Mean (Average)",
+            "text": "Mean = Σx / n, where Σx is sum of all values and n is count. Heights: 120, 125, 130, 128, 132 → Mean = (120+125+130+128+132)/5 = 635/5 = 127 cm."
+          },
+          {
+            "label": "Median",
+            "text": "Middle value when data is sorted. For 5 values: 120, 125, 128, 130, 132 → Median = 128 (3rd value)."
+          },
+          {
+            "label": "Mode",
+            "text": "Most frequent value. If heights 128, 130, 128, 128 appear most, Mode = 128."
+          }
+        ],
+        "example": {
+          "problem": "10 students' test scores: 65, 78, 82, 78, 90, 78, 85, 92, 88, 95. Find mean, median, and mode.",
+          "solution": "Mean = (65+78+82+78+90+78+85+92+88+95)/10 = 831/10 = 83.1. Sorted: 65,78,78,78,82,85,88,90,92,95. Median = (82+85)/2 = 83.5. Mode = 78 (appears 3 times)."
+        },
+        "emoji": "📍",
+        "inSimpleWords": "Mean is the average, median is the middle value, mode is the most common value.",
+        "image": {
+          "prompt": "test paper",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Dr. Sharma Compares Measures",
+        "storyContext": "Neha asks: 'Why three different measures? When do we use each?' Dr. Sharma explains: 'Mean is pulled by outliers—if one very tall child joins, mean shifts. Median is stable. Mode shows the most common height. Use mean for balanced data, median when outliers exist, mode to find most frequent values.'",
+        "emoji": "🤔",
+        "inSimpleWords": "Choose the right average: mean for balanced data, median for skewed data with outliers, mode for frequency.",
+        "image": {
+          "prompt": "comparison chart",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: When Median Beats Mean",
+        "storyContext": "Village wealth in rupees: 50,000, 55,000, 60,000, 65,000, 100,00,000 (one rich person).",
+        "points": [
+          {
+            "label": "Mean",
+            "text": "(50k + 55k + 60k + 65k + 1Cr) / 5 = 1.23Cr / 5 = 24.6L. Pulled high by outlier!"
+          },
+          {
+            "label": "Median",
+            "text": "Sorted: 50k, 55k, 60k, 65k, 1Cr. Median = 60k (middle value). More representative of typical wealth."
+          },
+          {
+            "label": "Lesson",
+            "text": "For skewed data (like income), median is more meaningful than mean."
+          }
+        ],
+        "emoji": "💰",
+        "inSimpleWords": "Outliers can distort the mean; use median for data with extreme values.",
+        "image": {
+          "prompt": "wealth distribution",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Find All Three",
+        "storyContext": "Ages of 7 villagers: 15, 22, 28, 35, 35, 40, 52.",
+        "example": {
+          "problem": "Calculate mean, median, and mode.",
+          "solution": "Mean = (15+22+28+35+35+40+52)/7 = 227/7 ≈ 32.4. Median = 35 (4th value). Mode = 35 (appears twice)."
+        },
+        "emoji": "📝",
+        "inSimpleWords": "Always sort data first to find median correctly.",
+        "image": {
+          "prompt": "sorted list",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Measures of Dispersion: Range, Variance, Standard Deviation",
+        "points": [
+          {
+            "label": "Range",
+            "text": "Range = Maximum - Minimum. Heights: 120 to 132 → Range = 132 - 120 = 12 cm."
+          },
+          {
+            "label": "Variance",
+            "text": "Variance σ² = Σ(x - mean)² / n. Measures how spread out data is from the mean."
+          },
+          {
+            "label": "Standard Deviation",
+            "text": "σ = √(variance). It is the 'average deviation' from the mean. Lower σ = data is tightly clustered; higher σ = data is spread out."
+          }
+        ],
+        "example": {
+          "problem": "Heights 120, 125, 130, 128, 132. Mean = 127. Find variance and standard deviation.",
+          "solution": "Deviations: -7, -2, 3, 1, 5. Squared: 49, 4, 9, 1, 25. Variance = (49+4+9+1+25)/5 = 88/5 = 17.6. SD = √17.6 ≈ 4.2 cm."
+        },
+        "emoji": "📊",
+        "inSimpleWords": "Variance and standard deviation measure how spread out data is—useful for assessing consistency.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5275836/pexels-photo-5275836.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Measures of Dispersion: Range, Variance, Standard Deviation — Statistics",
+          "q": "children"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Spread Matters",
+        "storyContext": "Neha observes: 'Two villages both have mean height 128 cm. But Village A heights range 120-136, Village B heights range 125-131. Are they the same?' Dr. Sharma says: 'No! Village B is more consistent. Standard deviation captures this spread.'",
+        "emoji": "📉",
+        "inSimpleWords": "Two datasets with same mean can have very different spreads—measure variance to compare consistency.",
+        "image": {
+          "prompt": "spread comparison",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Calculate Standard Deviation",
+        "storyContext": "Test scores: 70, 75, 80, 85, 90. Mean = 80.",
+        "points": [
+          {
+            "label": "Deviations from mean",
+            "text": "-10, -5, 0, 5, 10."
+          },
+          {
+            "label": "Squared deviations",
+            "text": "100, 25, 0, 25, 100."
+          },
+          {
+            "label": "Variance",
+            "text": "(100+25+0+25+100)/5 = 250/5 = 50."
+          },
+          {
+            "label": "Standard Deviation",
+            "text": "√50 ≈ 7.07. Typical score deviates about 7 points from mean."
+          }
+        ],
+        "emoji": "📐",
+        "inSimpleWords": "SD step-by-step: find mean, compute deviations, square them, average, take square root.",
+        "image": {
+          "prompt": "calculation steps",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Compare Dispersions",
+        "storyContext": "Dataset A: 10, 20, 30. Dataset B: 15, 20, 25. Both have mean 20. Which has larger SD?",
+        "example": {
+          "problem": "Calculate SD for both.",
+          "solution": "Dataset A deviations: -10, 0, 10 → squared: 100, 0, 100 → variance = 200/3 ≈ 66.7 → SD ≈ 8.16. Dataset B deviations: -5, 0, 5 → squared: 25, 0, 25 → variance = 50/3 ≈ 16.7 → SD ≈ 4.08. Dataset A is more spread."
+        },
+        "emoji": "🔍",
+        "inSimpleWords": "Larger standard deviation means data is more spread out from the mean.",
+        "image": {
+          "prompt": "spread comparison",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Frequency Distribution and Histograms",
+        "points": [
+          {
+            "label": "Frequency Table",
+            "text": "Organize data into classes. Heights 120-125: 5 children, 125-130: 12 children, 130-135: 8 children."
+          },
+          {
+            "label": "Histogram",
+            "text": "Bar graph where height of bar = frequency. Width = class width (constant). Used for continuous data."
+          },
+          {
+            "label": "Frequency Polygon",
+            "text": "Line graph connecting midpoints of histogram bars. Shows trend in data."
+          }
+        ],
+        "example": {
+          "problem": "100 children's heights grouped: 120-125 (15), 125-130 (35), 130-135 (30), 135-140 (20). Sketch the histogram.",
+          "solution": "x-axis: height ranges. y-axis: frequency. Bars at heights 15, 35, 30, 20 respectively. Tallest bar is 125-130 range (35 children)."
+        },
+        "emoji": "📈",
+        "inSimpleWords": "Frequency tables and histograms organize large datasets into visual patterns.",
+        "image": {
+          "url": "https://images.pexels.com/photos/3861957/pexels-photo-3861957.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Frequency Distribution and Histograms — Statistics",
+          "q": "histogram"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Grouping Raw Data",
+        "storyContext": "Dr. Sharma has 100 exact heights. Listing all would be overwhelming. Neha suggests: 'Let's group them into classes.' They create intervals of 5 cm and count frequencies. This 'frequency table' reveals the shape: most children cluster around 128 cm.",
+        "emoji": "📊",
+        "inSimpleWords": "Grouping data reveals distribution patterns—normal, skewed, bimodal, etc.",
+        "image": {
+          "prompt": "distribution curve",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Build a Frequency Table",
+        "storyContext": "Test scores of 20 students: 42, 50, 55, 60, 65, 68, 70, 72, 75, 78, 80, 82, 85, 88, 90, 92, 95, 98, 99, 100.",
+        "points": [
+          {
+            "label": "Define Classes",
+            "text": "40-50, 50-60, 60-70, 70-80, 80-90, 90-100 (class width = 10)."
+          },
+          {
+            "label": "Count Frequencies",
+            "text": "40-50: 2, 50-60: 2, 60-70: 3, 70-80: 4, 80-90: 4, 90-100: 5."
+          },
+          {
+            "label": "Visualize",
+            "text": "Bar graph shows most students scored 90-100 or 80-90 (high performers)."
+          }
+        ],
+        "emoji": "📝",
+        "inSimpleWords": "Class width depends on data range; choose width so you have 5-10 classes.",
+        "image": {
+          "prompt": "frequency table",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Histogram Interpretation",
+        "storyContext": "Looking at a histogram of house prices (in lakhs): 20-30 (5 homes), 30-40 (15), 40-50 (20), 50-60 (12), 60-70 (3).",
+        "example": {
+          "problem": "What can you infer about the housing market?",
+          "solution": "Most homes cost 40-50L (peak). Market skews toward 30-50L range. Few expensive homes (60-70L). Supply is concentrated in mid-range; luxury homes are rare."
+        },
+        "emoji": "🏠",
+        "inSimpleWords": "Histograms reveal market concentrations and trends at a glance.",
+        "image": {
+          "prompt": "market histogram",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Cumulative Frequency and Quartiles",
+        "points": [
+          {
+            "label": "Cumulative Frequency",
+            "text": "Running total of frequencies. Heights: 120-125 (5), then 125-130 (5+12=17), then 130-135 (17+8=25), etc."
+          },
+          {
+            "label": "Quartiles",
+            "text": "Q₁ (25th percentile), Q₂ (median, 50th), Q₃ (75th). Divide sorted data into 4 equal parts."
+          },
+          {
+            "label": "Interquartile Range",
+            "text": "IQR = Q₃ - Q₁. Measures middle 50% spread of data."
+          }
+        ],
+        "example": {
+          "problem": "For 100 children sorted by height, find Q₁ and Q₃. Q₁ is at position 25.5, Q₃ at 75.5.",
+          "solution": "If sorted heights at position 25.5 is 127 cm, then Q₁ = 127. If at position 75.5 is 135 cm, then Q₃ = 135. IQR = 135 - 127 = 8 cm."
+        },
+        "emoji": "📊",
+        "inSimpleWords": "Quartiles divide data into quarters—useful for understanding how data is distributed.",
+        "image": {
+          "url": "https://images.pexels.com/photos/34889832/pexels-photo-34889832.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Cumulative Frequency and Quartiles — Statistics",
+          "q": "children"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "From Frequency to Quartiles",
+        "storyContext": "Neha draws cumulative frequencies: running totals showing how many children have height ≤ each value. 'Where's the median?' she asks. Dr. Sharma: 'At 50 cumulative frequency—halfway. That's Q₂. Q₁ and Q₃ are at 25 and 75.'",
+        "emoji": "📈",
+        "inSimpleWords": "Cumulative frequency curves show percentiles visually—useful for finding quartiles.",
+        "image": {
+          "prompt": "cumulative curve",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Find Quartiles from Sorted Data",
+        "storyContext": "12 students' marks (sorted): 35, 42, 50, 58, 62, 66, 70, 74, 78, 82, 88, 95.",
+        "points": [
+          {
+            "label": "Median (Q₂)",
+            "text": "Position (n+1)/2 = 6.5. Average of 6th and 7th values: (66 + 70)/2 = 68."
+          },
+          {
+            "label": "Q₁",
+            "text": "Lower half: 35, 42, 50, 58, 62, 66. Q₁ = (50 + 58)/2 = 54."
+          },
+          {
+            "label": "Q₃",
+            "text": "Upper half: 70, 74, 78, 82, 88, 95. Q₃ = (78 + 82)/2 = 80."
+          },
+          {
+            "label": "IQR",
+            "text": "80 - 54 = 26 marks."
+          }
+        ],
+        "emoji": "🎯",
+        "inSimpleWords": "Split data at median; quartiles of those halves give Q₁ and Q₃.",
+        "image": {
+          "prompt": "quartile calculation",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Box Plot",
+        "storyContext": "Using the above data (Q₁=54, median=68, Q₃=80, min=35, max=95), sketch a box plot.",
+        "example": {
+          "problem": "Draw a box plot and interpret it.",
+          "solution": "Horizontal line from 35 to 95 (range). Box from Q₁=54 to Q₃=80. Line at median=68 inside box. Whiskers extend to min/max. The plot shows 50% of students scored 54-80, with median at 68—balanced distribution."
+        },
+        "emoji": "📦",
+        "inSimpleWords": "Box plots visualize spread, median, and outliers compactly.",
+        "image": {
+          "prompt": "box plot",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Correlation and Regression (Introduction)",
+        "points": [
+          {
+            "label": "Correlation",
+            "text": "Measures strength of linear relationship between two variables. Correlation coefficient r ranges from -1 to +1."
+          },
+          {
+            "label": "r = +1",
+            "text": "Perfect positive correlation: as one increases, other increases."
+          },
+          {
+            "label": "r = -1",
+            "text": "Perfect negative correlation: as one increases, other decreases."
+          },
+          {
+            "label": "r = 0",
+            "text": "No linear correlation. Example: child height vs. test score (weak)."
+          }
+        ],
+        "example": {
+          "problem": "A study shows age vs. income for 50 workers. Calculate correlation to see relationship strength.",
+          "solution": "Using formula or tools, if r = 0.75, there is strong positive correlation (older workers tend to earn more)."
+        },
+        "emoji": "🔗",
+        "inSimpleWords": "Correlation measures how two variables change together—positive (both up), negative (opposite), or zero (no link).",
+        "image": {
+          "prompt": "workers",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Vikram's Curiosity",
+        "storyContext": "Vikram asks: 'Does rainfall predict crop yield? Does more fertilizer mean bigger harvest?' Neha says: 'We can check with correlation! If rainfall and yield move together, r is high. If they're unrelated, r is near zero.'",
+        "emoji": "🌾",
+        "inSimpleWords": "Correlation quantifies whether two measurements move together—essential for predicting outcomes.",
+        "image": {
+          "prompt": "farm data",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Correlation Patterns",
+        "storyContext": "Three scenarios: (1) Height vs. weight (tall people often heavier), (2) Height vs. IQ (unrelated), (3) Temperature vs. Ice cream sales (hotter days → more sales).",
+        "points": [
+          {
+            "label": "Positive Correlation",
+            "text": "Height vs. weight (r ≈ 0.7). Taller people tend to weigh more."
+          },
+          {
+            "label": "No Correlation",
+            "text": "Height vs. IQ (r ≈ 0). Height tells nothing about intelligence."
+          },
+          {
+            "label": "Negative Correlation",
+            "text": "Price vs. demand (r ≈ -0.6). Higher prices → fewer buyers."
+          }
+        ],
+        "emoji": "📊",
+        "inSimpleWords": "Scatter plots reveal correlation visually: tight cluster (strong r), cloud (weak r), no pattern (r≈0).",
+        "image": {
+          "prompt": "correlation scatter",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Analyzing Crop Yields",
+        "storyContext": "Vikram records maize yields (in quintals) from 10 farms: 15, 18, 20, 22, 17, 21, 19, 23, 20, 18. Analyze the data.",
+        "points": [
+          {
+            "label": "Mean",
+            "text": "Sum = 193. Mean = 193/10 = 19.3 quintals."
+          },
+          {
+            "label": "Sorted Data",
+            "text": "15, 17, 18, 18, 19, 20, 20, 21, 22, 23."
+          },
+          {
+            "label": "Median",
+            "text": "Middle values are 19 and 20. Median = (19+20)/2 = 19.5 quintals."
+          },
+          {
+            "label": "Range",
+            "text": "23 - 15 = 8 quintals."
+          }
+        ],
+        "emoji": "🌾",
+        "inSimpleWords": "Statistical analysis reveals farm yield patterns—useful for predicting future harvests and planning.",
+        "image": {
+          "prompt": "maize",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Data Drives Decisions",
+        "storyContext": "Dr. Sharma tells Neha: 'Statistics isn't just numbers. It's stories. This data tells us which children are malnourished, which villages need health clinics, which crops thrive here. Numbers with context save lives and livelihoods.'",
+        "emoji": "❤️",
+        "inSimpleWords": "Statistics translates data into actionable insights—health, agriculture, policy, business.",
+        "image": {
+          "prompt": "impact",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Challenge: Class Test Analysis",
+        "storyContext": "Class test scores: 45, 67, 78, 82, 55, 90, 73, 88, 60, 95. Find mean, median, standard deviation, and identify outliers.",
+        "example": {
+          "problem": "Analyze class test scores. Calculate mean, median, SD. Is 95 an outlier?",
+          "solution": "Mean = 73.3. Sorted: 45,55,60,67,73,78,82,88,90,95. Median = 75.5. Using SD formula: σ ≈ 14.3. Using 3-sigma rule, 95 is within 3σ (73.3 + 3×14.3 = 116.2), so NOT a statistical outlier, but it's the highest score."
+        },
+        "emoji": "📝",
+        "inSimpleWords": "Outliers are data points far from the mean—identify them using standard deviation.",
+        "image": {
+          "prompt": "test paper",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Neha's Insight: From Numbers to Action",
+        "storyContext": "Neha presents the findings to the village council: 'Dr. Sharma's data shows 25% of children are malnourished. The correlation between family income and child weight is 0.68—clear link. We need to improve nutrition programs.' Vikram adds: 'Can we predict next year?' Neha: 'Yes! Trends and patterns let us forecast.'",
+        "emoji": "🎯",
+        "inSimpleWords": "Statistics isn't an end—it's the start of informed action and real-world problem-solving.",
+        "image": {
+          "prompt": "data presentation",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Statistics Summary",
+        "points": [
+          {
+            "text": "Mean (average), Median (middle), Mode (most frequent) are central tendencies."
+          },
+          {
+            "text": "Range, Variance, Standard Deviation measure data spread—lower SD = tighter clustering."
+          },
+          {
+            "text": "Frequency tables and histograms organize and visualize grouped data."
+          },
+          {
+            "text": "Cumulative frequency and quartiles divide data into parts; IQR measures middle 50%."
+          },
+          {
+            "text": "Correlation (r) measures relationship strength between two variables."
+          },
+          {
+            "text": "Statistics powers real decisions: health surveys, crop planning, quality control, market research."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Statistics transforms raw numbers into insights—mean, median, spread, and patterns reveal the story in data.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5784807/pexels-photo-5784807.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Statistics Summary — Statistics",
+          "q": "graph"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-11-mathematics-probability",
+    "classLevel": "11",
+    "subject": "Mathematics",
+    "chapter": "Probability",
+    "title": "The Game of Chance",
+    "hook": "Rolling dice, drawing cards, cricket match predictions—probability measures the likelihood of outcomes.",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "🧑",
+        "role": "Cricket commentator fascinated by odds"
+      },
+      {
+        "name": "Aunt Savita",
+        "emoji": "👩",
+        "role": "Mathematics teacher with a knack for games"
+      },
+      {
+        "name": "Zara",
+        "emoji": "👧",
+        "role": "Younger cousin exploring probability through card games"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Probability: Measuring Chance and Likelihood",
+        "storyContext": "Arjun commentates a cricket match. 'The batsman has a 60% chance of hitting a six on this ball,' he says. How do we calculate such odds?",
+        "emoji": "🎲",
+        "inSimpleWords": "Probability measures how likely an event is to happen—from 0 (impossible) to 1 (certain).",
+        "image": {
+          "url": "https://images.pexels.com/photos/35903110/pexels-photo-35903110.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Probability: Measuring Chance and Likelihood — Probability",
+          "q": "cricket"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Card Game Night",
+        "storyContext": "Aunt Savita gathers Arjun and Zara for a game. 'Here's a standard deck of 52 cards. If I draw one card, what's the chance it's a heart?' Zara thinks: 'There are 13 hearts, so 13/52 = 1/4 = 25%.' Aunt nods. 'Exactly! The probability is 0.25. Now let's explore the rules of probability.' Arjun adds: 'Can we predict cricket match outcomes?' Aunt smiles: 'We'll get there. First, master the basics.'",
+        "emoji": "🃏",
+        "inSimpleWords": "Probability = (favorable outcomes) / (total possible outcomes).",
+        "image": {
+          "prompt": "cards",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Sample Space and Events",
+        "points": [
+          {
+            "label": "Sample Space (S)",
+            "text": "Set of all possible outcomes. For a die: S = {1, 2, 3, 4, 5, 6}. |S| = 6."
+          },
+          {
+            "label": "Event",
+            "text": "Subset of sample space. Getting an even number: E = {2, 4, 6}. |E| = 3."
+          },
+          {
+            "label": "Probability of Event",
+            "text": "P(E) = |E| / |S| = 3/6 = 0.5. Probability ranges from 0 to 1."
+          }
+        ],
+        "example": {
+          "problem": "A spinner has 8 equal sections: 4 red, 2 blue, 2 green. Find P(red) and P(not red).",
+          "solution": "P(red) = 4/8 = 0.5. P(not red) = 1 - 0.5 = 0.5."
+        },
+        "emoji": "🎯",
+        "inSimpleWords": "Sample space lists all outcomes; an event is a subset. Probability is favorable outcomes divided by total outcomes.",
+        "image": {
+          "prompt": "spinner",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Aunt Savita's Die Game",
+        "storyContext": "Aunt rolls a fair die. 'Sample space is all faces: {1,2,3,4,5,6}. Event A: rolling odd = {1,3,5}. Event B: rolling >3 = {4,5,6}.' Arjun asks: 'Can events overlap?' Aunt smiles: 'Yes! {5} is in both. That's why we need rules for combining events.'",
+        "emoji": "🎲",
+        "inSimpleWords": "Events can overlap; use logic to count outcomes without double-counting.",
+        "image": {
+          "prompt": "dice outcomes",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Compound Events",
+        "storyContext": "Flip a coin twice. What's P(at least one head)?",
+        "points": [
+          {
+            "label": "Sample Space",
+            "text": "S = {HH, HT, TH, TT}. |S| = 4."
+          },
+          {
+            "label": "Event (at least 1 H)",
+            "text": "E = {HH, HT, TH}. |E| = 3."
+          },
+          {
+            "label": "Probability",
+            "text": "P(at least 1 H) = 3/4 = 0.75."
+          }
+        ],
+        "emoji": "🪙",
+        "inSimpleWords": "For 'at least one', count all outcomes with one or more of the desired result.",
+        "image": {
+          "prompt": "coin flip outcomes",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Sample Space",
+        "storyContext": "Aunt draws 2 cards from a 52-card deck without replacement. How many total outcomes? How many ways to draw 2 hearts?",
+        "example": {
+          "problem": "Find total outcomes and favorable outcomes for drawing 2 hearts.",
+          "solution": "Total outcomes: 52 × 51 = 2652 (first card: 52 choices, second: 51). Favorable (2 hearts): 13 × 12 = 156."
+        },
+        "emoji": "🃏",
+        "inSimpleWords": "Without replacement changes the second outcome—subtract 1 from the total for each draw.",
+        "image": {
+          "prompt": "cards drawn",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Classical and Empirical Probability",
+        "points": [
+          {
+            "label": "Classical Probability",
+            "text": "Used when outcomes are equally likely. P(E) = (# favorable) / (# possible)."
+          },
+          {
+            "label": "Empirical Probability",
+            "text": "Based on experiments: P(E) = (# times event occurred) / (# total trials). Used when classical method is hard."
+          },
+          {
+            "label": "Example",
+            "text": "Toss a coin 100 times: heads appear 52 times. Empirical P(heads) = 52/100 = 0.52 (close to theoretical 0.5)."
+          }
+        ],
+        "example": {
+          "problem": "A cricket batsman hits 40 sixes in 200 balls. Estimate P(six on next ball).",
+          "solution": "Empirical P(six) = 40/200 = 0.2 or 20%."
+        },
+        "emoji": "🏏",
+        "inSimpleWords": "Classical probability uses logic; empirical probability uses real data from experiments.",
+        "image": {
+          "url": "https://images.pexels.com/photos/9828007/pexels-photo-9828007.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Classical and Empirical Probability — Probability",
+          "q": "cricket"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Theory vs. Reality",
+        "storyContext": "Zara asks: 'A coin should have 50-50 odds. But when I flip it 10 times, I get 7 heads!' Aunt explains: 'That's empirical probability—real experiments vary. With 1000 flips, you'll approach 50-50. That's the law of large numbers.'",
+        "emoji": "📈",
+        "inSimpleWords": "Theory predicts long-run frequencies; individual experiments show variation.",
+        "image": {
+          "prompt": "experiment results",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Comparing Probabilities",
+        "storyContext": "A die is rolled 600 times. Count of each face: 1→95, 2→102, 3→98, 4→105, 5→100, 6→100.",
+        "points": [
+          {
+            "label": "Classical",
+            "text": "Each face should have P = 1/6 ≈ 0.167 or 100 times in 600 rolls."
+          },
+          {
+            "label": "Empirical",
+            "text": "Face 4 appeared 105 times → empirical P(4) = 105/600 = 0.175."
+          },
+          {
+            "label": "Close Match",
+            "text": "Empirical ≈ Classical, confirming the die is fair."
+          }
+        ],
+        "emoji": "🎲",
+        "inSimpleWords": "Fair objects have empirical probabilities close to classical predictions.",
+        "image": {
+          "prompt": "die rolls",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Rules of Probability: Addition and Multiplication",
+        "points": [
+          {
+            "label": "Addition Rule (OR)",
+            "text": "P(A or B) = P(A) + P(B) - P(A and B). For mutually exclusive events: P(A or B) = P(A) + P(B)."
+          },
+          {
+            "label": "Multiplication Rule (AND)",
+            "text": "P(A and B) = P(A) × P(B|A), where P(B|A) is conditional probability of B given A."
+          },
+          {
+            "label": "Independent Events",
+            "text": "If A and B are independent: P(A and B) = P(A) × P(B)."
+          }
+        ],
+        "example": {
+          "problem": "Draw a card, note it, put it back (draw with replacement). What's P(both hearts)?",
+          "solution": "P(1st heart) = 13/52 = 1/4. P(2nd heart | 1st heart) = 13/52 = 1/4 (independent). P(both hearts) = 1/4 × 1/4 = 1/16."
+        },
+        "emoji": "🔗",
+        "inSimpleWords": "Addition for 'or' (combine probabilities); multiplication for 'and' (successive events).",
+        "image": {
+          "prompt": "cards",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "OR vs. AND",
+        "storyContext": "Zara asks: 'What's P(rolling 2 or 3)?' Aunt: 'Add: 1/6 + 1/6 = 1/3. What's P(rolling 2 AND rolling odd)?' Zara: 'Multiply? But 2 is even, so P = 0.' Aunt grins: 'Right. Mutually exclusive events can't both happen.'",
+        "emoji": "⚡",
+        "inSimpleWords": "Use addition for 'or' events; multiplication for sequential or independent 'and' events.",
+        "image": {
+          "prompt": "probability rules",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Addition Rule",
+        "storyContext": "From a deck, P(heart) = 1/4, P(spade) = 1/4. What's P(heart or spade)?",
+        "points": [
+          {
+            "label": "Are they mutually exclusive?",
+            "text": "Yes—a card can't be both heart and spade."
+          },
+          {
+            "label": "Apply Addition",
+            "text": "P(heart or spade) = 1/4 + 1/4 = 1/2."
+          }
+        ],
+        "emoji": "♥️",
+        "inSimpleWords": "For mutually exclusive events, add probabilities directly.",
+        "image": {
+          "prompt": "card suits",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Multiplication Rule",
+        "storyContext": "Roll a die, then flip a coin. P(die shows 3 AND coin shows heads)?",
+        "points": [
+          {
+            "label": "Are they independent?",
+            "text": "Yes—die result doesn't affect coin."
+          },
+          {
+            "label": "Multiply",
+            "text": "P(3 and heads) = 1/6 × 1/2 = 1/12."
+          }
+        ],
+        "emoji": "🎲",
+        "inSimpleWords": "For independent events, multiply probabilities.",
+        "image": {
+          "prompt": "die and coin",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Combination Rule",
+        "storyContext": "Draw 2 cards without replacement. P(both hearts)?",
+        "example": {
+          "problem": "Find P(1st heart AND 2nd heart | 1st was heart).",
+          "solution": "P(1st heart) = 13/52. P(2nd heart | 1st heart) = 12/51 (only 12 hearts left). P(both) = (13/52) × (12/51) = 156/2652 ≈ 0.0588 or 5.88%."
+        },
+        "emoji": "🃏",
+        "inSimpleWords": "Without replacement, the second probability depends on the first outcome.",
+        "image": {
+          "prompt": "card sequence",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Conditional Probability",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "P(A|B) = P(A and B) / P(B). Probability of A given that B has already happened."
+          },
+          {
+            "label": "Card Example",
+            "text": "From a deck, draw a card without replacement. P(2nd is heart | 1st is heart) = 12/51 (only 12 hearts left out of 51 cards)."
+          },
+          {
+            "label": "Bayes' Theorem",
+            "text": "P(A|B) = P(B|A) × P(A) / P(B). Used to revise probabilities with new information."
+          }
+        ],
+        "example": {
+          "problem": "In a class, 60% pass Math, 80% pass Science, 50% pass both. Find P(pass Science | pass Math).",
+          "solution": "P(Science | Math) = P(both) / P(Math) = 0.50 / 0.60 = 5/6 ≈ 0.833 or 83.3%."
+        },
+        "emoji": "❓",
+        "inSimpleWords": "Conditional probability updates likelihood when new information is given—vital for decision-making.",
+        "image": {
+          "prompt": "students",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Arjun's Cricket Analysis",
+        "storyContext": "Arjun says: 'If a batsman usually hits 6s 20% of the time, but he's up against a spin bowler (weaker against spin), does his odds change?' Aunt Savita: 'Yes! That's conditional probability. P(six | spin bowler) differs from P(six | pace bowler).'",
+        "emoji": "🏏",
+        "inSimpleWords": "New information changes probabilities—use conditional probability to update estimates.",
+        "image": {
+          "prompt": "cricket strategy",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Bayes' Theorem",
+        "storyContext": "A disease test is 95% accurate. 1% of population has it. You test positive. What's the chance you actually have it?",
+        "points": [
+          {
+            "label": "Setup",
+            "text": "P(disease) = 0.01, P(+|disease) = 0.95, P(+|no disease) = 0.05."
+          },
+          {
+            "label": "Bayes",
+            "text": "P(disease|+) = P(+|disease)×P(disease) / P(+) = 0.95×0.01 / [0.95×0.01 + 0.05×0.99] = 0.0095 / 0.0590 ≈ 0.161 or 16%."
+          },
+          {
+            "label": "Surprising Result",
+            "text": "Despite 95% accuracy, probability of having disease is only 16%—most positives are false!"
+          }
+        ],
+        "emoji": "🔬",
+        "inSimpleWords": "Bayes' theorem combines test accuracy with base rate to find true probability.",
+        "image": {
+          "prompt": "medical test",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Random Variables and Probability Distribution",
+        "points": [
+          {
+            "label": "Random Variable (X)",
+            "text": "A function mapping outcomes to numbers. Example: rolling a die, X = number showing. X ∈ {1,2,3,4,5,6}."
+          },
+          {
+            "label": "Probability Distribution",
+            "text": "Table/function showing P(X = x) for each outcome. For a fair die: P(X=1)=P(X=2)=...=P(X=6)=1/6."
+          },
+          {
+            "label": "Expected Value (Mean)",
+            "text": "E(X) = Σ x × P(X=x). Average outcome over many trials. For a die: E(X) = 1/6 × (1+2+3+4+5+6) = 3.5."
+          }
+        ],
+        "example": {
+          "problem": "A game: roll a die, win ₹10 if even, lose ₹5 if odd. Find expected value.",
+          "solution": "Even: {2,4,6}, P = 1/2, payoff = +₹10. Odd: {1,3,5}, P = 1/2, payoff = -₹5. E(X) = 1/2 × 10 + 1/2 × (-5) = 5 - 2.5 = ₹2.50."
+        },
+        "emoji": "🎲",
+        "inSimpleWords": "Random variables assign numbers to outcomes; expected value is the long-run average.",
+        "image": {
+          "prompt": "die",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Expected Value in Games",
+        "storyContext": "Zara asks: 'If the expected value is ₹2.50 per roll, should I play?' Aunt: 'Only if you're betting less than ₹2.50! Expected value is your average profit per game.' Arjun nods: 'Like cricket odds—if you're paid ₹15 for a ₹10 bet at 60% odds, you make ₹1 expected profit.'",
+        "emoji": "💰",
+        "inSimpleWords": "Expected value is average long-term outcome—basis for fair gambling and decision-making.",
+        "image": {
+          "prompt": "casino game",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Example: Probability Distribution",
+        "storyContext": "Spin a wheel: 50% red (win ₹50), 30% blue (win ₹0), 20% black (lose ₹30). Find E(X).",
+        "points": [
+          {
+            "label": "Setup",
+            "text": "X: outcomes are {50, 0, -30} with probabilities {0.5, 0.3, 0.2}."
+          },
+          {
+            "label": "Expected Value",
+            "text": "E(X) = 50×0.5 + 0×0.3 + (-30)×0.2 = 25 + 0 - 6 = ₹19."
+          },
+          {
+            "label": "Interpretation",
+            "text": "On average, you make ₹19 per spin."
+          }
+        ],
+        "emoji": "🎡",
+        "inSimpleWords": "Multiply each outcome by its probability and sum—gives average payoff.",
+        "image": {
+          "prompt": "wheel spin",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Binomial Distribution",
+        "storyContext": "Flip a coin 3 times. What's P(exactly 2 heads)?",
+        "example": {
+          "problem": "Using binomial: n=3, k=2, p=0.5. Find P(X=2).",
+          "solution": "P(X=2) = C(3,2) × (0.5)² × (0.5)¹ = 3 × 0.25 × 0.5 = 0.375 or 37.5%. (Outcomes: HTH, HHT, THH—three ways.)"
+        },
+        "emoji": "🪙",
+        "inSimpleWords": "Binomial distribution counts successes in n independent trials—useful for repeated events.",
+        "image": {
+          "prompt": "coin flips",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: The Cricket Match",
+        "storyContext": "Arjun predicts: a batsman hits 3 sixes per 20 balls on average. In the next 3 balls, what's the probability he hits exactly 2 sixes?",
+        "points": [
+          {
+            "label": "Probability of six",
+            "text": "p = 3/20 = 0.15."
+          },
+          {
+            "label": "Probability of not six",
+            "text": "q = 1 - 0.15 = 0.85."
+          },
+          {
+            "label": "Exactly 2 in 3 (Binomial)",
+            "text": "P(X=2) = C(3,2) × p² × q¹ = 3 × (0.15)² × 0.85 = 3 × 0.0225 × 0.85 ≈ 0.057 or 5.7%."
+          }
+        ],
+        "emoji": "🏏",
+        "inSimpleWords": "Binomial probability calculates outcomes in repeated trials—useful for sports, quality control, surveys.",
+        "image": {
+          "url": "https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Full Problem: The Cricket Match — Probability",
+          "q": "cricket"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Probability Powers Prediction",
+        "storyContext": "Arjun reflects: 'I used to say 'the team might win' by feeling. Now I calculate odds! Probability turns intuition into numbers.' Aunt smiles: 'Exactly. It's not fortune-telling—it's informed prediction.'",
+        "emoji": "🎯",
+        "inSimpleWords": "Probability bridges intuition and logic—turning uncertainty into quantifiable risk.",
+        "image": {
+          "prompt": "prediction",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Challenge: The Lottery",
+        "storyContext": "A lottery draws 1 winning ticket from 1,000. You buy 5 tickets. What's the probability of winning at least one prize?",
+        "example": {
+          "problem": "Find P(at least 1 win out of 5 tickets from 1000).",
+          "solution": "P(at least 1) = 1 - P(none). P(lose all) = (999/1000)^5 ≈ 0.995. P(at least 1 win) ≈ 1 - 0.995 = 0.005 or 0.5%."
+        },
+        "emoji": "🎰",
+        "inSimpleWords": "For 'at least one' problems, calculate the complement: P(at least 1) = 1 - P(none).",
+        "image": {
+          "prompt": "lottery tickets",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Aunt Savita's Final Lesson",
+        "storyContext": "Arjun asks: 'Is probability just for games?' Aunt Savita shakes her head: 'No! Insurance, medicine, engineering, AI—every field needs probability. Weather forecasts? 70% chance of rain. Drug trials? 90% effective. All probability.' Zara grins: 'So we use math to handle real-world randomness!'",
+        "emoji": "🌍",
+        "inSimpleWords": "Probability is the universal language for dealing with uncertainty in every field of knowledge.",
+        "image": {
+          "prompt": "real world applications",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Probability Summary",
+        "points": [
+          {
+            "text": "Probability P(E) = (favorable outcomes) / (total outcomes). Range: 0 to 1."
+          },
+          {
+            "text": "Sample space = all outcomes. Event = subset of sample space."
+          },
+          {
+            "text": "Addition rule: P(A or B) = P(A) + P(B) - P(A and B)."
+          },
+          {
+            "text": "Multiplication rule: P(A and B) = P(A) × P(B|A)."
+          },
+          {
+            "text": "Conditional probability: P(A|B) = P(A and B) / P(B)."
+          },
+          {
+            "text": "Random variables map outcomes to numbers; expected value is the average over many trials."
+          },
+          {
+            "text": "Applications: gambling, weather forecasting, quality control, medical diagnosis, sports analytics."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "Probability is the mathematics of uncertainty—used to predict outcomes and make informed decisions under risk.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8899980/pexels-photo-8899980.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Probability Summary — Probability",
+          "q": "dice"
+        }
+      }
+    ]
+  }
+]

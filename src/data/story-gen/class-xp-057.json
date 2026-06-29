@@ -1,0 +1,791 @@
+[
+  {
+    "slug": "class-12-mathematics-vector-algebra",
+    "classLevel": "12",
+    "subject": "Mathematics",
+    "chapter": "Vector Algebra",
+    "chapterAliases": [
+      "Vectors and Scalars"
+    ],
+    "title": "Kavya's Dance: Motion, Force, and Direction",
+    "hook": "A dancer discovers how vectors describe both position and movement on stage",
+    "characters": [
+      {
+        "name": "Kavya",
+        "emoji": "💃",
+        "role": "classical Indian dancer"
+      },
+      {
+        "name": "Ramesh",
+        "emoji": "👨‍🏫",
+        "role": "dance choreographer"
+      },
+      {
+        "name": "Pradeep",
+        "emoji": "👨‍💼",
+        "role": "physics teacher and Ramesh's brother"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Vector Algebra",
+        "storyContext": "Kavya practices Bharatanatyam in her studio. Every move has direction and magnitude—steps, turns, hand movements. Her choreographer Ramesh says, 'This is vector algebra,' and Kavya's eyes light up.",
+        "emoji": "🎭",
+        "image": {
+          "prompt": "bharatanatyam",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Choreography Challenge",
+        "storyContext": "Ramesh is choreographing a group dance. He needs to describe where each dancer should move. He tells Kavya, 'Start at center. Move 3 meters east, then 4 meters north. Where do you end up?' Kavya thinks: 'That's not just about distance—it's about direction too!' Ramesh's brother Pradeep, a physics teacher, hears this and says, 'That's vector addition!' He shows them how vectors make dance positioning precise.",
+        "emoji": "🎶",
+        "image": {
+          "prompt": "dancers",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Scalars and Vectors",
+        "storyContext": "Pradeep draws on a board: 'A scalar is just a number—like distance traveled (5 km). A vector has both magnitude and direction—like displacement (5 km north).'",
+        "points": [
+          {
+            "label": "Scalar",
+            "text": "Quantity with magnitude only. Examples: distance (5 m), mass (70 kg), temperature (37°C)."
+          },
+          {
+            "label": "Vector",
+            "text": "Quantity with magnitude and direction. Examples: displacement (5 m north), velocity (20 m/s east), force (10 N downward)."
+          },
+          {
+            "label": "Notation",
+            "text": "Vectors are written as →AB or boldface v, or with arrow: $\\vec{v}$. Magnitude is |→v| or just v."
+          },
+          {
+            "label": "Components",
+            "text": "In 2D, vector v is written as v = (vₓ, vᵧ) or v = vₓ î + vᵧ ĵ, where î, ĵ are unit vectors along x, y axes."
+          }
+        ],
+        "example": {
+          "problem": "Kavya's first move: 3 meters east, 4 meters north. Using axes (east=x, north=y), displacement vector d = (3, 4) or d = 3î + 4ĵ. Magnitude |d| = √(3² + 4²) = √25 = 5 meters. Direction: angle θ = arctan(4/3) ≈ 53.1° from east.",
+          "solution": "Her displacement is a vector of magnitude 5 m at 53.1° north of east. She ends up 5 meters away from center."
+        },
+        "inSimpleWords": "Scalars are just numbers; vectors have size and direction. Use components to calculate exact positions.",
+        "emoji": "🧭",
+        "image": {
+          "prompt": "board",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Vector Addition and Subtraction",
+        "storyContext": "Kavya makes a second move: 2 meters west, 1 meter south. Ramesh asks, 'What's your total displacement?' This requires adding vectors.",
+        "points": [
+          {
+            "label": "Component addition",
+            "text": "If u = (uₓ, uᵧ) and v = (vₓ, vᵧ), then u + v = (uₓ + vₓ, uᵧ + vᵧ)."
+          },
+          {
+            "label": "Graphical method",
+            "text": "Place tail of second vector at head of first; resultant goes from tail of first to head of second (triangle/parallelogram rule)."
+          },
+          {
+            "label": "Subtraction",
+            "text": "u - v = u + (-v). Vector -v has same magnitude but opposite direction."
+          }
+        ],
+        "example": {
+          "problem": "Kavya's first move: d₁ = (3, 4). Second move: 2 meters west (−2 m, 0), 1 meter south (0, −1), so d₂ = (−2, −1). Total displacement: d = d₁ + d₂ = (3, 4) + (−2, −1) = (1, 3). Magnitude: |d| = √(1² + 3²) = √10 ≈ 3.16 meters. Direction: θ = arctan(3/1) ≈ 71.6° from east.",
+          "solution": "After both moves, Kavya is 3.16 meters away from center, at about 71.6° north of east."
+        },
+        "inSimpleWords": "Add vectors by adding their components separately. Subtract by adding the negative vector.",
+        "emoji": "➕",
+        "image": {
+          "prompt": "dancer",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Dot Product (Scalar Product)",
+        "storyContext": "Pradeep introduces the dot product: 'This tells us how much two vectors align or point in the same direction.' Ramesh uses this to calculate work in a dance lift.",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "For vectors u = (uₓ, uᵧ, u_z) and v = (vₓ, vᵧ, v_z), dot product u·v = uₓvₓ + uᵧvᵧ + u_zv_z."
+          },
+          {
+            "label": "Geometric form",
+            "text": "u·v = |u| |v| cos(θ), where θ is angle between vectors."
+          },
+          {
+            "label": "Properties",
+            "text": "u·v = v·u (commutative). If θ = 90°, then u·v = 0 (perpendicular vectors have zero dot product)."
+          },
+          {
+            "label": "Work in physics",
+            "text": "Work W = F·d = |F| |d| cos(θ), where F is force, d is displacement."
+          }
+        ],
+        "example": {
+          "problem": "In a dance lift, Pradeep models a dancer (Kavya) and partner (another performer). Force applied by partner: F = (40, 30, 10) N (x, y, z components). Displacement of Kavya: d = (0.5, 0.3, 0.2) m. Work = F·d = 40(0.5) + 30(0.3) + 10(0.2) = 20 + 9 + 2 = 31 joules.",
+          "solution": "Work done in the lift is 31 joules. Since this is positive, the lift raises Kavya successfully."
+        },
+        "inSimpleWords": "Dot product measures how two vectors align. Multiply corresponding components and add them up.",
+        "emoji": "⚡",
+        "image": {
+          "prompt": "dance lift",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Cross Product (Vector Product)",
+        "storyContext": "Pradeep says, 'The cross product gives a vector perpendicular to both original vectors. In dance, this describes rotation or torque.' Ramesh uses it for spinning moves.",
+        "points": [
+          {
+            "label": "Definition (3D)",
+            "text": "u × v = (uᵧv_z − u_zv_y, u_zv_x − uₓv_z, uₓv_y − uᵧv_x). Written as determinant: u × v = | î  ĵ  k̂ | | uₓ uᵧ u_z | | vₓ vᵧ v_z |"
+          },
+          {
+            "label": "Magnitude",
+            "text": "|u × v| = |u| |v| sin(θ), where θ is angle between u and v."
+          },
+          {
+            "label": "Direction",
+            "text": "u × v is perpendicular to both u and v. Direction given by right-hand rule: curl fingers from u to v; thumb points in direction of u × v."
+          },
+          {
+            "label": "Torque",
+            "text": "Torque τ = r × F, where r is position vector, F is force. Magnitude tells how strongly rotation occurs."
+          }
+        ],
+        "example": {
+          "problem": "Kavya spins around a vertical axis. Her position from axis: r = (2, 0, 0) meters. Force applied (by her muscles): F = (0, 10, 5) N. Torque: τ = r × F. Using determinant formula: τ = | î  ĵ  k̂ | | 2  0  0 | | 0 10 5 | = î(0×5 − 0×10) − ĵ(2×5 − 0×0) + k̂(2×10 − 0×0) = 0î − 10ĵ + 20k̂ = (0, −10, 20). Magnitude: |τ| = √(0² + 10² + 20²) = √500 ≈ 22.4 N·m.",
+          "solution": "Torque is about 22.4 N·m pointing mostly upward (positive z), causing clockwise spin when viewed from above."
+        },
+        "inSimpleWords": "Cross product gives a perpendicular vector. Its magnitude shows how strongly two vectors 'rotate' around each other.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "concept",
+        "title": "Unit Vectors and Direction Cosines",
+        "storyContext": "Pradeep teaches Kavya how to describe exact directions. 'A unit vector points in a direction with length 1. Use it as a compass.'",
+        "points": [
+          {
+            "label": "Unit vector",
+            "text": "u-hat = u / |u| gives unit vector in direction of u."
+          },
+          {
+            "label": "Direction cosines",
+            "text": "For vector v making angles α, β, γ with x, y, z axes: cos(α), cos(β), cos(γ) are direction cosines. cos²(α) + cos²(β) + cos²(γ) = 1."
+          },
+          {
+            "label": "Standard basis",
+            "text": "î = (1, 0, 0), ĵ = (0, 1, 0), k̂ = (0, 0, 1) are unit vectors along coordinate axes."
+          }
+        ],
+        "example": {
+          "problem": "Kavya's displacement d = (3, 4) meters. Find unit vector in this direction. |d| = 5. Unit vector: d-hat = (3/5, 4/5) = (0.6, 0.8). Direction cosines (2D): cos(α) = 0.6 (angle from x-axis ≈ 53.1°), cos(β) = 0.8 (angle from y-axis ≈ 36.9°). Verify: 0.6² + 0.8² = 0.36 + 0.64 = 1. ✓",
+          "solution": "Unit vector is (0.6, 0.8). This tells exactly which way Kavya is facing after her first displacement."
+        },
+        "inSimpleWords": "Unit vectors and direction cosines give precise compass directions for any displacement.",
+        "emoji": "🧭"
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Group Dance Positioning",
+        "storyContext": "Ramesh choreographs a formation of four dancers. Kavya at A starts at center (0, 0). Three others start at B = (3, 4), C = (−2, 5), D = (4, −1) in meters. What's the center of mass of the group?",
+        "example": {
+          "problem": "Center of mass = (sum of position vectors) / (number of dancers) = (A + B + C + D) / 4 = [(0, 0) + (3, 4) + (−2, 5) + (4, −1)] / 4 = (5, 8) / 4 = (1.25, 2). Kavya confirms: the choreography centers around (1.25, 2), about 2.4 meters from stage center.",
+          "solution": "Center of mass is at (1.25, 2). Ramesh uses this to plan the group's pivot point for synchronized turns."
+        },
+        "inSimpleWords": "Vector algebra helps choreograph group formations by calculating positions and centers.",
+        "emoji": "💃"
+      },
+      {
+        "kind": "challenge",
+        "title": "Test Yourself: Lift and Rotation",
+        "storyContext": "Two dancers: A at (0, 0) and B at (2, 3). They dance a move where A lifts B upward (in the z direction) by 1 meter, then they both rotate together. Use vectors to find B's new position.",
+        "points": [
+          {
+            "text": "Initial position of B: (2, 3, 0)."
+          },
+          {
+            "text": "After lift: B moves to (2, 3, 1)."
+          },
+          {
+            "text": "Find displacement, magnitude, and direction."
+          }
+        ],
+        "example": {
+          "problem": "Initial: B₀ = (2, 3, 0). Final: B₁ = (2, 3, 1). Displacement: Δr = B₁ − B₀ = (0, 0, 1). Magnitude: |Δr| = 1 meter (pure vertical lift). Direction: straight up (along k̂).",
+          "solution": "The lift moves B vertically 1 meter. B ends at (2, 3, 1), now 1 meter higher while maintaining horizontal position."
+        },
+        "inSimpleWords": "Use vector subtraction to track movement in 3D space during complex choreography.",
+        "emoji": "🎭"
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "Scalars are numbers; vectors have magnitude and direction."
+          },
+          {
+            "text": "Components: v = (vₓ, vᵧ, v_z) or v = vₓ î + vᵧ ĵ + v_z k̂."
+          },
+          {
+            "text": "Vector addition: add components separately."
+          },
+          {
+            "text": "Dot product u·v = |u| |v| cos(θ). Zero if perpendicular."
+          },
+          {
+            "text": "Cross product u × v is perpendicular to both, magnitude |u| |v| sin(θ)."
+          },
+          {
+            "text": "Unit vectors: divide by magnitude. Direction cosines: cos(α), cos(β), cos(γ) with sum of squares = 1."
+          },
+          {
+            "text": "Applications: displacement, force, work, torque, positioning in 3D space."
+          }
+        ],
+        "inSimpleWords": "Vectors describe position, movement, force, and rotation in space—essential for physics and engineering.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-12-mathematics-three-dimensional-geometry",
+    "classLevel": "12",
+    "subject": "Mathematics",
+    "chapter": "Three Dimensional Geometry",
+    "chapterAliases": [
+      "3D Geometry",
+      "Coordinate Geometry in 3D"
+    ],
+    "title": "Akshay's Construction: Building in 3D Space",
+    "hook": "An architect learns to work in three dimensions using coordinate geometry",
+    "characters": [
+      {
+        "name": "Akshay",
+        "emoji": "👨‍🏗️",
+        "role": "architecture student"
+      },
+      {
+        "name": "Rukhsana",
+        "emoji": "👩‍💼",
+        "role": "senior architect"
+      },
+      {
+        "name": "Vikram",
+        "emoji": "👨‍🎓",
+        "role": "mathematician friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Three Dimensional Geometry",
+        "storyContext": "Akshay interns at an architecture firm in Mumbai. His first project: design a small pavilion. The architects use 3D coordinates to plan every beam, column, and roof angle. 'Geometry isn't flat,' Rukhsana tells him. 'It's three-dimensional, and math is the blueprint.'",
+        "emoji": "🏗️"
+      },
+      {
+        "kind": "story",
+        "title": "The Pavilion Blueprint",
+        "storyContext": "Rukhsana sketches a pavilion with four corners. She places the origin (0, 0, 0) at ground level, center. Corners are at A(2, 2, 0), B(−2, 2, 0), C(−2, −2, 0), D(2, −2, 0). Four columns rise at each corner to height 4 meters: A'(2, 2, 4), B'(−2, 2, 4), C'(−2, −2, 4), D'(2, −2, 4). A roof beam connects A' to C'. Akshay asks, 'How do I describe this in math?' Vikram (his friend who's good at geometry) says, 'With 3D coordinates, lines, planes, and distances.'",
+        "emoji": "📐"
+      },
+      {
+        "kind": "concept",
+        "title": "3D Coordinate System and Distance",
+        "storyContext": "Vikram teaches Akshay the 3D Cartesian system: three perpendicular axes (x, y, z) with origin O(0, 0, 0). Every point P is (x, y, z).",
+        "points": [
+          {
+            "label": "3D Coordinates",
+            "text": "Point P(x, y, z): x is distance along x-axis, y along y-axis, z (height) along z-axis."
+          },
+          {
+            "label": "Distance formula",
+            "text": "Distance between P₁(x₁, y₁, z₁) and P₂(x₂, y₂, z₂) is d = √[(x₂−x₁)² + (y₂−y₁)² + (z₂−z₁)²]."
+          },
+          {
+            "label": "Section formula",
+            "text": "Point dividing line segment P₁P₂ in ratio m:n is R = ((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n), (mz₂+nz₁)/(m+n))."
+          }
+        ],
+        "example": {
+          "problem": "Pavilion roof beam from A'(2, 2, 4) to C'(−2, −2, 4). Distance = √[(−2−2)² + (−2−2)² + (4−4)²] = √[16 + 16 + 0] = √32 = 4√2 ≈ 5.66 meters. Midpoint M of beam: M = ((2−2)/2, (2−2)/2, (4+4)/2) = (0, 0, 4).",
+          "solution": "Roof beam is 4√2 ≈ 5.66 m long and its midpoint is at ground center, 4 m high."
+        },
+        "inSimpleWords": "In 3D, use (x, y, z) to place points. Distance is found by extending the 2D formula to three dimensions.",
+        "emoji": "📍"
+      },
+      {
+        "kind": "concept",
+        "title": "Direction Cosines and Ratios",
+        "storyContext": "Rukhsana points to a diagonal beam and asks Akshay, 'At what angles does this beam make with the x, y, z axes?' This is where direction cosines come in.",
+        "points": [
+          {
+            "label": "Direction cosines",
+            "text": "For line from P₁(x₁, y₁, z₁) to P₂(x₂, y₂, z₂): direction numbers are (x₂−x₁, y₂−y₁, z₂−z₁). Direction cosines are (cos α, cos β, cos γ), where cos α = (x₂−x₁)/d, etc., and d is distance."
+          },
+          {
+            "label": "Identity",
+            "text": "cos²α + cos²β + cos²γ = 1."
+          },
+          {
+            "label": "Direction ratios",
+            "text": "Often write as a:b:c (proportional to x-difference, y-difference, z-difference). Simplify by finding GCD."
+          }
+        ],
+        "example": {
+          "problem": "Diagonal column from A'(2, 2, 4) to opposite base corner C(−2, −2, 0). Direction numbers: (−2−2, −2−2, 0−4) = (−4, −4, −4) or simplified (−1, −1, −1) or (1, 1, 1). Distance = √(16 + 16 + 16) = √48 = 4√3. Direction cosines: cos α = −4/(4√3) = −1/√3, cos β = −1/√3, cos γ = −4/(4√3) = −1/√3. Verify: (−1/√3)² + (−1/√3)² + (−1/√3)² = 1/3 + 1/3 + 1/3 = 1. ✓",
+          "solution": "Direction ratios (1:1:1). Direction cosines (−1/√3, −1/√3, −1/√3), meaning the diagonal makes equal angles with all three axes."
+        },
+        "inSimpleWords": "Direction cosines tell the angles a line makes with x, y, z axes. They always sum (as squares) to 1.",
+        "emoji": "🔺"
+      },
+      {
+        "kind": "concept",
+        "title": "Equation of a Line in 3D",
+        "storyContext": "Vikram shows Akshay how to write the equation of any line in space—essential for specifying beams and columns in the design.",
+        "points": [
+          {
+            "label": "Vector form",
+            "text": "Line through point P₀(x₀, y₀, z₀) with direction ratios a:b:c is r = r₀ + t(a, b, c), where r₀ = (x₀, y₀, z₀) and t is parameter."
+          },
+          {
+            "label": "Parametric form",
+            "text": "x = x₀ + at, y = y₀ + bt, z = z₀ + ct (t is parameter, can be any real number)."
+          },
+          {
+            "label": "Symmetric form",
+            "text": "(x − x₀)/a = (y − y₀)/b = (z − z₀)/c (requires a, b, c ≠ 0)."
+          }
+        ],
+        "example": {
+          "problem": "Pavilion column from A(2, 2, 0) to A'(2, 2, 4). Direction: (0, 0, 4) or (0, 0, 1). Parametric: x = 2, y = 2, z = 0 + 1·t = t (for 0 ≤ t ≤ 4). Symmetric form: This is degenerate since x and y don't change. Better written as x = 2, y = 2, 0 ≤ z ≤ 4.",
+          "solution": "Column equation: x = 2, y = 2, 0 ≤ z ≤ 4. It's a vertical line at (2, 2)."
+        },
+        "inSimpleWords": "A line in 3D needs a starting point and a direction. Parametric equations let you find any point on the line.",
+        "emoji": "📏"
+      },
+      {
+        "kind": "concept",
+        "title": "Equation of a Plane",
+        "storyContext": "The roof of the pavilion is a flat plane. Rukhsana asks Akshay to describe its equation. This plane passes through four points at height z = 4.",
+        "points": [
+          {
+            "label": "General equation",
+            "text": "Plane equation: ax + by + cz + d = 0, where (a, b, c) is normal vector to the plane."
+          },
+          {
+            "label": "Point-normal form",
+            "text": "Plane through P₀(x₀, y₀, z₀) with normal (a, b, c): a(x − x₀) + b(y − y₀) + c(z − z₀) = 0."
+          },
+          {
+            "label": "Intercept form",
+            "text": "Plane with x-intercept a, y-intercept b, z-intercept c: x/a + y/b + z/c = 1."
+          }
+        ],
+        "example": {
+          "problem": "Roof plane passes through A'(2, 2, 4), B'(−2, 2, 4), C'(−2, −2, 4), D'(2, −2, 4). All have z = 4. Normal vector points vertically: (0, 0, 1). Plane equation: 0(x − 0) + 0(y − 0) + 1(z − 4) = 0, so z = 4. Or general form: 0x + 0y + 1z − 4 = 0.",
+          "solution": "Roof plane equation is z = 4. Any point on the roof has height exactly 4 meters."
+        },
+        "inSimpleWords": "A plane is defined by ax + by + cz + d = 0. The coefficients (a, b, c) are the normal direction perpendicular to the plane.",
+        "emoji": "🪟"
+      },
+      {
+        "kind": "concept",
+        "title": "Angle Between Lines and Planes",
+        "storyContext": "Rukhsana needs to know: (1) at what angle does a bracing diagonal meet a column? (2) at what angle does a slanted beam meet the roof plane?",
+        "points": [
+          {
+            "label": "Angle between two lines",
+            "text": "Lines with direction ratios a₁:b₁:c₁ and a₂:b₂:c₂. cos θ = |a₁a₂ + b₁b₂ + c₁c₂| / √(a₁² + b₁² + c₁²) √(a₂² + b₂² + c₂²)."
+          },
+          {
+            "label": "Angle between line and plane",
+            "text": "Line with direction (a, b, c); plane with normal (p, q, r). sin φ = |ap + bq + cr| / √(a² + b² + c²) √(p² + q² + r²)."
+          },
+          {
+            "label": "Perpendicularity",
+            "text": "Lines perpendicular if a₁a₂ + b₁b₂ + c₁c₂ = 0. Line perpendicular to plane if (a, b, c) parallel to (p, q, r)."
+          }
+        ],
+        "example": {
+          "problem": "Diagonal from A'(2, 2, 4) to C(−2, −2, 0) has direction (−4, −4, −4) ∝ (−1, −1, −1). Column has direction (0, 0, 1). Angle between: cos θ = |(−1)(0) + (−1)(0) + (−1)(1)| / √(1+1+1) √(0+0+1) = |−1| / √3 · 1 = 1/√3. So θ = arccos(1/√3) ≈ 54.7°.",
+          "solution": "The diagonal meets the column at about 54.7°. Structural engineers use this to calculate stresses."
+        },
+        "inSimpleWords": "Angles between lines and planes are found using dot products of direction and normal vectors.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Roof Truss Design",
+        "storyContext": "Rukhsana designs a roof truss connecting two opposite roof corners A'(2, 2, 4) and C'(−2, −2, 4), with a central support at height 5 meters directly above the origin: S(0, 0, 5). Find (a) lengths of the two diagonal braces A'S and C'S, (b) equation of plane containing A', C', S, and (c) check if all three points are coplanar.",
+        "example": {
+          "problem": "A'(2, 2, 4) to S(0, 0, 5): distance = √[(0−2)² + (0−2)² + (5−4)²] = √[4 + 4 + 1] = √9 = 3 m. C'(−2, −2, 4) to S(0, 0, 5): distance = √[(0+2)² + (0+2)² + (5−4)²] = √[4 + 4 + 1] = √9 = 3 m. Three points A', C', S determine a plane. Vectors in plane: A'S = (−2, −2, 1), C'S = (2, 2, 1). Normal = A'S × C'S = (−2, −2, 1) × (2, 2, 1) = (−2−2, −(−2−2), −4−(−4)) = (−4, 4, 0) ∝ (−1, 1, 0). Plane through S(0, 0, 5): −1(x−0) + 1(y−0) + 0(z−5) = 0, so −x + y = 0 or y = x.",
+          "solution": "Both diagonal braces are 3 meters long. The plane containing A', C', S is y = x. This defines the symmetry plane of the truss."
+        },
+        "inSimpleWords": "3D geometry lets architects design complex structures by calculating distances, angles, and plane equations.",
+        "emoji": "🏗️",
+        "image": {
+          "prompt": "roof truss",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Test Yourself: Corner Brace",
+        "storyContext": "A corner brace runs from A(2, 2, 0) to A'(2, 2, 4) and then to S(0, 0, 5). Find (a) total length of this path, (b) the straight-line distance from A to S.",
+        "points": [
+          {
+            "text": "(a) Length A to A' plus A' to S."
+          },
+          {
+            "text": "(b) Direct distance from A to S."
+          }
+        ],
+        "example": {
+          "problem": "(a) A to A': √[(2−2)² + (2−2)² + (4−0)²] = 4 m. A' to S: √[(0−2)² + (0−2)² + (5−4)²] = 3 m. Total path: 4 + 3 = 7 m. (b) A to S: √[(0−2)² + (0−2)² + (5−0)²] = √[4 + 4 + 25] = √33 ≈ 5.74 m.",
+          "solution": "Path length is 7 m; direct distance is √33 ≈ 5.74 m (shorter, as expected)."
+        },
+        "inSimpleWords": "Use distance formula repeatedly for paths with multiple segments.",
+        "emoji": "📏",
+        "image": {
+          "prompt": "brace",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "3D coordinates (x, y, z) locate points in space."
+          },
+          {
+            "text": "Distance: d = √[(x₂−x₁)² + (y₂−y₁)² + (z₂−z₁)²]."
+          },
+          {
+            "text": "Lines: parametric (x=x₀+at, y=y₀+bt, z=z₀+ct) or symmetric ((x−x₀)/a = (y−y₀)/b = (z−z₀)/c)."
+          },
+          {
+            "text": "Planes: ax + by + cz + d = 0. Normal vector (a, b, c) is perpendicular to plane."
+          },
+          {
+            "text": "Direction cosines satisfy cos²α + cos²β + cos²γ = 1."
+          },
+          {
+            "text": "Angle between lines uses dot product of direction vectors."
+          },
+          {
+            "text": "Angle between line and plane uses dot product of line direction and plane normal."
+          },
+          {
+            "text": "Applications: building design, structural engineering, astronomy, navigation."
+          }
+        ],
+        "inSimpleWords": "3D geometry is the mathematical language of architecture and engineering. Coordinate systems, lines, and planes define space.",
+        "emoji": "✅",
+        "image": {
+          "url": "https://images.pexels.com/photos/867483/pexels-photo-867483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What We Learned — Three Dimensional Geometry",
+          "q": "notebook"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-12-mathematics-linear-programming",
+    "classLevel": "12",
+    "subject": "Mathematics",
+    "chapter": "Linear Programming",
+    "chapterAliases": [
+      "Linear Programming Problem",
+      "LPP"
+    ],
+    "title": "Sophia's Bakery: Maximizing Profit",
+    "hook": "A baker uses linear programming to decide what to bake for maximum profit",
+    "characters": [
+      {
+        "name": "Sophia",
+        "emoji": "👩‍🍳",
+        "role": "bakery owner, entrepreneur"
+      },
+      {
+        "name": "Rahul",
+        "emoji": "👨‍💼",
+        "role": "accountant, Sophia's brother"
+      },
+      {
+        "name": "Ms. Chopra",
+        "emoji": "👩‍🏫",
+        "role": "mathematics teacher and family friend"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Linear Programming",
+        "storyContext": "Sophia opens a small bakery in Delhi. Every day she has limited flour, butter, and oven time. Some days she bakes bread; other days, cakes. She wants maximum profit. Her brother Rahul says, 'This is a math problem'—it's linear programming.",
+        "emoji": "🍰",
+        "image": {
+          "prompt": "bakery",
+          "gq": true
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Bakery Decision",
+        "storyContext": "Each day Sophia has: 10 kg flour, 2 kg butter. Bread uses 1 kg flour, 0.25 kg butter, takes 20 min, sells for ₹250 profit. Cake uses 1 kg flour, 0.5 kg butter, takes 30 min, sells for ₹400 profit. Oven capacity is 3 hours (180 min). How many breads and cakes should Sophia make to maximize profit? Rahul sketches constraints on a board. Ms. Chopra explains, 'This is linear programming—you have variables, constraints, and an objective to maximize.'",
+        "emoji": "⏱️",
+        "image": {
+          "prompt": "ingredients",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What is Linear Programming?",
+        "storyContext": "Ms. Chopra starts the lesson. 'Linear programming solves real-world optimization problems where we have limited resources and want to maximize or minimize an outcome.'",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Linear Programming Problem (LPP): optimize (maximize or minimize) a linear objective function subject to linear constraints (inequalities or equalities) and non-negativity conditions."
+          },
+          {
+            "label": "Objective function",
+            "text": "z = c₁x₁ + c₂x₂ + ... + cₙxₙ (profit, cost, etc. to optimize)."
+          },
+          {
+            "label": "Constraints",
+            "text": "Linear inequalities like a₁x₁ + a₂x₂ ≤ b (resource limits). Non-negativity: x₁, x₂, ... ≥ 0 (can't make negative items)."
+          },
+          {
+            "label": "Feasible region",
+            "text": "Set of all (x₁, x₂, ...) satisfying all constraints. Graphically, it's a polygon (in 2D) or polytope (in 3D+)."
+          }
+        ],
+        "example": {
+          "problem": "Sophia's LPP: Let x = breads, y = cakes. Objective: maximize Z = 250x + 400y (profit). Constraints: (1) 1x + 1y ≤ 10 (flour), (2) 0.25x + 0.5y ≤ 2 (butter), (3) 20x + 30y ≤ 180 (oven time), (4) x ≥ 0, y ≥ 0 (non-negativity).",
+          "solution": "This LPP describes Sophia's daily baking decision. The solution will be a point (x, y) where profit is highest while respecting all limits."
+        },
+        "inSimpleWords": "Linear programming finds the best combination of decisions when resources are limited and outcomes are proportional to decisions.",
+        "emoji": "📊",
+        "image": {
+          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is Linear Programming? — Linear Programming",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Graphical Method (2D Problems)",
+        "storyContext": "Ms. Chopra draws the constraints on a graph. She shows Sophia how to find the feasible region—the polygon where all constraints are satisfied.",
+        "points": [
+          {
+            "label": "Step 1: Plot constraints",
+            "text": "Draw each inequality as a boundary line. Shade the region where the inequality holds."
+          },
+          {
+            "label": "Step 2: Find feasible region",
+            "text": "Intersection of all shaded regions is the feasible region (usually a convex polygon)."
+          },
+          {
+            "label": "Step 3: Find corner points",
+            "text": "Optimal solution lies at a corner (vertex) of the feasible polygon. Find all corner points."
+          },
+          {
+            "label": "Step 4: Evaluate objective",
+            "text": "Calculate objective function Z at each corner. Maximum (or minimum) Z is the optimal value."
+          }
+        ],
+        "example": {
+          "problem": "Sophia's constraints: (1) x + y ≤ 10, (2) 0.25x + 0.5y ≤ 2, (3) 20x + 30y ≤ 180. Rewrite (2): x + 2y ≤ 8. Rewrite (3): 2x + 3y ≤ 18. Corner points of feasible region: O(0, 0), A(0, 4) [intersection of y-axis and x + 2y = 8], B(2, 3) [intersection of x + 2y = 8 and 2x + 3y = 18], C(6, 2) [intersection of x + y = 10 and 2x + 3y = 18], D(10, 0) [intersection of x + y = 10 and x-axis]. Check feasibility of each: O ✓, A ✓, B ✓, C ✓, D ✓. Evaluate Z = 250x + 400y at each: O: 0, A: 1600, B: 1700, C: 2300, D: 2500.",
+          "solution": "Maximum profit is ₹2500 at D(10, 0): make 10 breads, 0 cakes. Sophia checks: 10 breads use 10 kg flour ✓, 2.5 kg butter. Wait, this violates butter constraint! Let me recalculate. Actually, x + 2y ≤ 8 means 10 + 0 ≤ 8? No, 10 > 8. So D is infeasible. Recheck: feasible corners are O(0, 0), A(0, 4), B(2, 3), C(4, 2). Evaluate Z: O: 0, A: 1600, B: 1700, C: 1800. Maximum is ₹1800 at C(4, 2): make 4 breads and 2 cakes."
+        },
+        "inSimpleWords": "Draw constraints, find the feasible polygon, check corners, and pick the corner with highest (or lowest) objective value.",
+        "emoji": "📈",
+        "image": {
+          "url": "https://images.pexels.com/photos/5831258/pexels-photo-5831258.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Graphical Method (2D Problems) — Linear Programming",
+          "q": "graph"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Standard Form and Canonical Form",
+        "storyContext": "Ms. Chopra teaches Sophia how to convert any LPP into a standard form suitable for computer algorithms (like the simplex method).",
+        "points": [
+          {
+            "label": "Standard form",
+            "text": "All constraints are ≤ inequalities (for maximization) or ≥ (for minimization). All variables ≥ 0. Objective is maximize or minimize. All constants on RHS ≥ 0."
+          },
+          {
+            "label": "Canonical form",
+            "text": "Convert inequalities to equalities by adding slack variables (for ≤) or surplus variables (for ≥). Slack sᵢ ≥ 0; surplus eᵢ ≥ 0."
+          },
+          {
+            "label": "Slack variable example",
+            "text": "Constraint x + y ≤ 10 becomes x + y + s = 10 (s ≥ 0 is unused resource)."
+          },
+          {
+            "label": "Surplus variable example",
+            "text": "Constraint 2x + y ≥ 8 becomes 2x + y − e = 8 (e ≥ 0 is excess)."
+          }
+        ],
+        "example": {
+          "problem": "Sophia's LPP in canonical form: Maximize Z = 250x + 400y. Subject to: x + y + s₁ = 10, x + 2y + s₂ = 8, 2x + 3y + s₃ = 18, x, y, s₁, s₂, s₃ ≥ 0. Here, s₁ = unused flour capacity, s₂ = unused butter capacity, s₃ = unused oven time.",
+          "solution": "In canonical form, the problem is ready for simplex method or matrix algorithms."
+        },
+        "inSimpleWords": "Slack variables represent unused resources. Converting to canonical form makes the problem solvable by algorithms.",
+        "emoji": "⚙️",
+        "image": {
+          "url": "https://images.pexels.com/photos/17489150/pexels-photo-17489150.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Standard Form and Canonical Form — Linear Programming",
+          "q": "computer"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Unbounded and Infeasible Solutions",
+        "storyContext": "Ms. Chopra warns Sophia, 'Not all LPPs have a solution. Sometimes the feasible region is empty (infeasible). Other times, profit can grow infinitely (unbounded).'",
+        "points": [
+          {
+            "label": "Feasible region",
+            "text": "Must be non-empty for a solution to exist. If constraints contradict (e.g., x ≥ 10 and x ≤ 5), problem is infeasible."
+          },
+          {
+            "label": "Unbounded solution",
+            "text": "If feasible region extends to infinity in direction of objective improvement, optimal value is unbounded (e.g., 'profit → ∞ as production → ∞')."
+          },
+          {
+            "label": "Degenerate solution",
+            "text": "If two or more constraints are tight (active) at optimal point, solution is degenerate."
+          }
+        ],
+        "example": {
+          "problem": "Example of infeasible: x ≥ 5, y ≥ 3, x + y ≤ 7. No point satisfies all three (5 + 3 = 8 > 7). Example of unbounded: maximize Z = 2x + 3y subject to x ≥ 0, y ≥ 0 (no upper limit). As x, y → ∞, Z → ∞.",
+          "solution": "Sophia's bakery problem is neither unbounded nor infeasible because resources (flour, butter, time) are finite."
+        },
+        "inSimpleWords": "Always check if the feasible region exists and is bounded. Bad inputs lead to infeasible or unbounded problems.",
+        "emoji": "⚠️",
+        "image": {
+          "prompt": "roadblock",
+          "gq": true
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Sensitivity Analysis",
+        "storyContext": "Sophia asks, 'What if butter prices change? What if I can get more oven time? How does my answer change?' This is sensitivity analysis.",
+        "points": [
+          {
+            "label": "Shadow price (dual value)",
+            "text": "Marginal value of one unit of a resource. If flour's shadow price is ₹50, producing 1 more bread (using 1 kg flour) increases profit by ₹50."
+          },
+          {
+            "label": "Range of feasibility",
+            "text": "Range of RHS values (resource amount) over which optimal basis remains valid."
+          },
+          {
+            "label": "Range of optimality",
+            "text": "Range of objective coefficients (prices) over which current solution remains optimal."
+          }
+        ],
+        "example": {
+          "problem": "Suppose Sophia's optimal is 4 breads, 2 cakes (profit ₹1800). Shadow price of flour = ₹100 means: if she gets 11 kg flour instead of 10, new profit ≈ ₹1900. Shadow price of butter = ₹300 means: if she gets 2.5 kg butter, profit ≈ ₹1950.",
+          "solution": "Sensitivity analysis helps Sophia decide if buying extra butter (at a cost) is worth it. If butter costs ₹200/kg and shadow price is ₹300/kg, buy more!"
+        },
+        "inSimpleWords": "Shadow prices tell how profit changes when resource amounts change. Use them to decide if investing in more resources pays off.",
+        "emoji": "💰",
+        "image": {
+          "prompt": "gears",
+          "gq": true
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Full Solution: Sophia's Optimal Production",
+        "storyContext": "Ms. Chopra walks Sophia through the complete graphical solution. She finds all corner points of the feasible region and calculates profit at each.",
+        "example": {
+          "problem": "Feasible corners (verified): O(0, 0), A(0, 4), B(2, 3), C(4, 2). Profits: Z(O) = 0, Z(A) = 250·0 + 400·4 = 1600, Z(B) = 250·2 + 400·3 = 500 + 1200 = 1700, Z(C) = 250·4 + 400·2 = 1000 + 800 = 1800. Maximum is at C(4, 2) with profit ₹1800. Resource usage at C: flour = 4 + 2 = 6 kg (4 unused), butter = 1 + 1 = 2 kg (fully used), time = 80 + 60 = 140 min (40 unused).",
+          "solution": "Sophia should bake 4 breads and 2 cakes daily to maximize profit at ₹1800. Butter is the binding constraint. If she wants more profit, she should invest in more butter."
+        },
+        "inSimpleWords": "Graphical method finds the optimal corner by checking each vertex of the feasible region.",
+        "emoji": "🏆",
+        "image": {
+          "prompt": "target",
+          "gq": true
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Test Yourself: New Product",
+        "storyContext": "Sophia introduces pastries: 0.5 kg flour, 0.25 kg butter, 15 min oven, ₹300 profit. Formulate and solve the new LPP with x breads, y cakes, z pastries.",
+        "points": [
+          {
+            "text": "Objective: maximize Z = 250x + 400y + 300z."
+          },
+          {
+            "text": "Constraints: flour, butter, time, non-negativity."
+          }
+        ],
+        "example": {
+          "problem": "Constraints: 1x + 1y + 0.5z ≤ 10 (flour), 0.25x + 0.5y + 0.25z ≤ 2 (butter), 20x + 30y + 15z ≤ 180 (time), x,y,z ≥ 0. This is a 3-variable problem; graphical solution is hard (3D polytope). Use simplex method or software. Rough guess: maybe 5 breads, 0 cakes, 10 pastries? Check: flour = 5 + 0 + 5 = 10 ✓, butter = 1.25 + 0 + 2.5 = 3.75 > 2 ✗. Infeasible. Try 4 breads, 2 cakes, 0 pastries (our previous answer): profit = 1800. Try 0 breads, 0 cakes, 16 pastries? Flour = 8, butter = 4 > 2. Infeasible. Real optimum requires simplex/software.",
+          "solution": "With 3 variables, graphical method isn't practical. Use simplex method or linear programming software (Excel Solver, Python PuLP, etc.)."
+        },
+        "inSimpleWords": "For 3+ variables, graphical method becomes impractical. Use algorithms (simplex) or software.",
+        "emoji": "💻",
+        "image": {
+          "prompt": "pastries",
+          "gq": true
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "Linear Programming optimizes (maximize or minimize) a linear objective subject to linear constraints."
+          },
+          {
+            "text": "Feasible region: set of all solutions satisfying all constraints. Optimal solution lies at a corner."
+          },
+          {
+            "text": "Graphical method works for 2D. List all corners, evaluate objective at each, pick best."
+          },
+          {
+            "text": "Standard form: all ≤ constraints (or ≥), all variables ≥ 0, RHS ≥ 0."
+          },
+          {
+            "text": "Canonical form: convert ≤ to = by adding slack variables."
+          },
+          {
+            "text": "Shadow prices: marginal value of resources. Help decide if buying more resources is profitable."
+          },
+          {
+            "text": "Sensitivity analysis: how does solution change if parameters change?"
+          },
+          {
+            "text": "Applications: production planning, diet problems, transportation, resource allocation, business strategy."
+          }
+        ],
+        "inSimpleWords": "Linear programming is the math of optimal resource allocation. Find the corner of the feasible region with the best objective value.",
+        "emoji": "✅",
+        "image": {
+          "prompt": "students",
+          "gq": true
+        }
+      }
+    ]
+  }
+]
