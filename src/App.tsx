@@ -8,7 +8,6 @@ import { trackPageview } from './lib/analytics';
 import { usePathname } from './lib/isomorphic';
 import {
   BookOpen,
-  Bot,
   Building2,
   CalendarDays,
   ChartNoAxesCombined,
@@ -34,6 +33,7 @@ import { cn } from './lib/utils';
 import SEO from './components/SEO';
 import InstallPrompt from './components/InstallPrompt';
 import ColdStartBanner from './components/ColdStartBanner';
+import DraggableFab from './components/DraggableFab';
 // Lazy — PomodoroTimer is an opt-in focus widget that uses framer-motion. Loading
 // it lazily keeps the vendor-motion chunk out of the entry/critical path (it loads
 // in the background after first paint instead of blocking mobile LCP).
@@ -1883,23 +1883,15 @@ export default function App() {
       </main>
 
       {!isMockExamMode ? (
-      <div id="tutor-fab" className="fixed bottom-5 right-5 z-[55] flex flex-col items-end gap-3">
-        {isTutorOpen ? (
-            <div className="app-tutor-in h-[min(680px,calc(100dvh-7rem))] w-[min(420px,calc(100vw-2rem))]">
-              <Suspense fallback={<div className="h-full rounded-3xl bg-white p-8 text-center text-sm font-bold text-slate-400 shadow-2xl">Loading tutor...</div>}>
-                <TutorPage currentUser={currentUser} floating onClose={() => setTutorOpen(false)} />
-              </Suspense>
-            </div>
-          ) : null}
-        <button
-          type="button"
-          onClick={() => setTutorOpen((open) => !open)}
-          className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-2xl shadow-emerald-500/30 transition-transform hover:-translate-y-0.5"
-          aria-label={isTutorOpen ? 'Close AI tutor' : 'Open AI tutor'}
-        >
-          <Bot size={24} />
-        </button>
-      </div>
+        <DraggableFab
+          isOpen={isTutorOpen}
+          onToggle={() => setTutorOpen((open) => !open)}
+          panel={
+            <Suspense fallback={<div className="h-full rounded-3xl bg-white p-8 text-center text-sm font-bold text-slate-400 shadow-2xl">Loading tutor...</div>}>
+              <TutorPage currentUser={currentUser} floating onClose={() => setTutorOpen(false)} />
+            </Suspense>
+          }
+        />
       ) : null}
 
       {!isMockExamMode ? (
@@ -1913,7 +1905,7 @@ export default function App() {
 
       {!isMockExamMode ? (
       <footer className="bg-secondary text-white border-t border-slate-800 py-16 px-4 sm:px-6 sm:py-20 md:py-24 mt-24">
-        <div className="mx-auto max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+        <div className="mx-auto max-w-7xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
           <div className="space-y-6 sm:space-y-8">
             <button
               onClick={() => navigate('home')}
@@ -1932,9 +1924,9 @@ export default function App() {
             </p>
           </div>
 
-          <div>
+          <div className="md:col-span-2">
             <h2 className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-primary mb-4 sm:mb-8">Learning Hub</h2>
-            <ul className="space-y-2 sm:space-y-4">
+            <ul className="grid grid-cols-2 gap-x-5 gap-y-2 sm:gap-y-3 content-start">
               <li><button onClick={() => navigate('syllabus')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus</button></li>
               <li><button onClick={() => navigate('arena')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
               <li><button onClick={() => navigate('daily')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>

@@ -521,8 +521,8 @@ export default function StudyRoom({ onExit, userUid, userName }: Props) {
   return (
     <div className={cn('fixed inset-0 z-[60] overflow-y-auto bg-gradient-to-br text-white', THEMES[theme]?.bg || THEMES.aurora.bg)}>
       <Blobs />
-      {/* Top bar */}
-      <div className="relative flex items-center justify-between gap-3 px-5 py-4">
+      {/* Top bar — sticky so Exit is always reachable while scrolling */}
+      <div className="sticky top-0 z-40 flex items-center justify-between gap-3 border-b border-white/5 bg-slate-950/40 px-5 py-4 backdrop-blur-md">
         <div className="min-w-0">
           <p className="truncate text-sm font-black">📚 {goal}</p>
           <p className="flex items-center gap-2 text-xs text-white/60"><Flame size={12} className="text-amber-300" /> {savedStreak}d streak · {Math.round(store.totalMinutes / 60)}h total</p>

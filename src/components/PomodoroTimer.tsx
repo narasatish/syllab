@@ -42,7 +42,6 @@ export default function PomodoroTimer() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Persist state to localStorage
   useEffect(() => {
@@ -62,7 +61,7 @@ export default function PomodoroTimer() {
 
     timerRef.current = setInterval(() => {
       setState((prev) => {
-        let newTimeLeft = prev.timeLeft - 1;
+        const newTimeLeft = prev.timeLeft - 1;
 
         // Timer ended
         if (newTimeLeft <= 0) {
@@ -155,7 +154,7 @@ export default function PomodoroTimer() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             onClick={() => setIsExpanded(true)}
-            className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center font-black text-xs"
+            className="fixed bottom-6 left-6 z-40 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center font-black text-[10px] sm:text-xs"
           >
             {formatTime(state.timeLeft)}
           </motion.button>
@@ -169,7 +168,7 @@ export default function PomodoroTimer() {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed bottom-6 right-6 z-40 w-80 rounded-2xl bg-white shadow-2xl overflow-hidden"
+            className="fixed bottom-6 left-6 z-40 w-80 max-w-[calc(100vw-3rem)] rounded-2xl bg-white shadow-2xl overflow-hidden"
           >
             {/* Header */}
             <div className={`bg-gradient-to-r ${phaseColor} p-6 text-white`}>
