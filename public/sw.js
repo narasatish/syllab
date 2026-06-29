@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v192-2026-06-29-study-room-features';
+const CACHE_VERSION = 'syllab-v193-2026-06-29-ux-audit-fixes';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
