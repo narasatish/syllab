@@ -86,6 +86,23 @@
         }
       },
       {
+        "kind": "example",
+        "title": "Worked Example: Cricket Dice Game",
+        "storyContext": "Aditya invents a cricket dice game. Rolling a 6 = boundary (4 runs), rolling 1–3 = dot ball, rolling 4–5 = single/double.",
+        "example": {
+          "problem": "What is P(boundary)? What is P(runs ≥ 4)? If Aditya rolls 10 times, how many boundaries does he expect?",
+          "solution": "P(boundary) = P(6) = 1/6. P(runs ≥ 4) = P(6) = 1/6. Expected boundaries in 10 rolls = 10 × 1/6 ≈ 1.67."
+        },
+        "inSimpleWords": "Count favorable outcomes and divide by total outcomes. Scale up to expect outcomes over many trials.",
+        "emoji": "🎲"
+      },
+      {
+        "kind": "story",
+        "title": "The Rain Factor",
+        "storyContext": "Aditya notices that India's win probability drops when it rains. 'Is rain independent of winning?' he asks Dr. Sharma. 'No,' she says. 'Rain affects the conditions, so winning probability depends on rain. P(win | rain) ≠ P(win | no rain).'",
+        "emoji": "🌧️"
+      },
+      {
         "kind": "concept",
         "title": "Conditional Probability and Independence",
         "storyContext": "Dr. Sharma asks, 'Given it's raining, what's the probability of India winning?' This is conditional probability—probability of one event given another event has occurred.",
@@ -120,6 +137,17 @@
         }
       },
       {
+        "kind": "example",
+        "title": "Conditional Probability: Bowler Performance",
+        "storyContext": "Aditya tracks his favorite bowler. Against left-handers: 30% wicket rate. Against right-handers: 15% wicket rate. Facing 60% right-handers.",
+        "example": {
+          "problem": "What is P(bowler takes wicket)? If bowler takes a wicket, what is P(it was a right-hander)?",
+          "solution": "P(wicket) = P(wicket|right) × P(right) + P(wicket|left) × P(left) = 0.15 × 0.6 + 0.30 × 0.4 = 0.09 + 0.12 = 0.21. P(right | wicket) = P(wicket|right) × P(right) / P(wicket) = 0.09 / 0.21 ≈ 0.43."
+        },
+        "inSimpleWords": "Use total probability to find overall probability, then use Bayes to reverse the condition.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "concept",
         "title": "Bayes' Theorem",
         "storyContext": "Dr. Sharma introduces Bayes' theorem. 'Suppose India wins. What's the probability they had good form?' This reverses conditional probability—going from effect to cause.",
@@ -147,6 +175,23 @@
           "prompt": "cricket win",
           "gq": true
         }
+      },
+      {
+        "kind": "story",
+        "title": "Aditya's Belief Update",
+        "storyContext": "Before the match, Aditya thinks India has 60% chance of good form (his prior). After India wins, he updates: 78% chance they were in good form. This is Bayes in action—evidence (the win) changes his belief.",
+        "emoji": "💡"
+      },
+      {
+        "kind": "example",
+        "title": "Bayes Application: COVID Test",
+        "storyContext": "A cricket player tests positive for COVID. The test is 99% accurate (both positive and negative). COVID prevalence: 1%. What is P(actually infected)?",
+        "example": {
+          "problem": "Use Bayes' theorem to find P(infected | positive test).",
+          "solution": "P(positive | infected) = 0.99, P(infected) = 0.01. P(positive | not infected) = 0.01, P(not infected) = 0.99. P(positive) = 0.99 × 0.01 + 0.01 × 0.99 = 0.0198. P(infected | positive) = (0.99 × 0.01) / 0.0198 ≈ 0.50 or 50%. Even with a 99% accurate test, a rare disease has only 50% actual probability!"
+        },
+        "inSimpleWords": "The test is accurate, but the disease is rare, so a positive test only means 50% chance of infection.",
+        "emoji": "💉"
       },
       {
         "kind": "concept",
@@ -183,6 +228,17 @@
         }
       },
       {
+        "kind": "example",
+        "title": "Runs Scored by Batsman",
+        "storyContext": "Aditya tracks his favorite batsman's runs per match. Let X = runs in next match.",
+        "example": {
+          "problem": "Historical data: 20% of time 0 runs (duck), 30% time 20 runs, 30% time 50 runs, 20% time 100 runs. Find E(X) and Var(X).",
+          "solution": "E(X) = 0(0.2) + 20(0.3) + 50(0.3) + 100(0.2) = 0 + 6 + 15 + 20 = 41. Var(X) = (0−41)²(0.2) + (20−41)²(0.3) + (50−41)²(0.3) + (100−41)²(0.2) = 336.2 + 132.3 + 24.3 + 698.2 = 1191. σ ≈ 34.5."
+        },
+        "inSimpleWords": "Expected runs = 41, but the batter's output varies by ±35 runs typically.",
+        "emoji": "🏏"
+      },
+      {
         "kind": "concept",
         "title": "Binomial and Normal Distributions",
         "storyContext": "Dr. Sharma explains the most common probability distributions used in real-world data.",
@@ -212,6 +268,53 @@
         }
       },
       {
+        "kind": "story",
+        "title": "The Bell Curve in Sports",
+        "storyContext": "Aditya realizes that most batsmen score around a typical average (the mean), with fewer scoring very high or very low. This bell-shape is the normal distribution at work.",
+        "emoji": "📈"
+      },
+      {
+        "kind": "example",
+        "title": "Binomial: Six-Hitting Probability",
+        "storyContext": "A batsman hits sixes 10% of the time. In a 50-ball innings, what is the probability he hits exactly 3 sixes?",
+        "example": {
+          "problem": "X ~ B(50, 0.1). Find P(X = 3).",
+          "solution": "P(X = 3) = C(50, 3) × (0.1)^3 × (0.9)^47 = (50 × 49 × 48 / 6) × 0.001 × (0.9)^47 ≈ 19600 × 0.001 × 0.0096 ≈ 0.188 or about 18.8%."
+        },
+        "inSimpleWords": "Use binomial formula when counting successes in fixed number of independent trials.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "story",
+        "title": "Deepak's Question",
+        "storyContext": "Deepak asks, 'Dr. Sharma, why do odds matter if we don't know what will happen?' Dr. Sharma replies, 'Probability isn't about certainty. It's about making smart decisions with limited information. Investors, doctors, and engineers all use probability every day.'",
+        "emoji": "🤔"
+      },
+      {
+        "kind": "concept",
+        "title": "Odds vs Probability",
+        "points": [
+          {
+            "label": "Probability",
+            "text": "P = favorable / total. Ranges 0 to 1."
+          },
+          {
+            "label": "Odds",
+            "text": "Odds in favor = favorable : unfavorable. E.g., P = 1/3 gives odds 1:2."
+          },
+          {
+            "label": "Conversion",
+            "text": "If odds are a:b, then P = a/(a+b)."
+          }
+        ],
+        "example": {
+          "problem": "A bowler's wicket odds are 1:4. What is P(wicket)?",
+          "solution": "P = 1/(1+4) = 1/5 = 0.2 or 20%."
+        },
+        "inSimpleWords": "Odds compare favorable to unfavorable; probability is favorable vs total.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "example",
         "title": "Full Problem: Match Win Probability",
         "storyContext": "India plays Australia in ODI. Historical data: India wins 50% of matches in Australia, 60% at home. Today's match is in Australia. India has a strong batting lineup today (good form), which increases win probability to 55% (vs 50% without). A rain forecast has 30% chance, which reduces win probability by 10 percentage points if it rains. Calculate P(India wins) using total probability.",
@@ -229,6 +332,22 @@
       },
       {
         "kind": "challenge",
+        "title": "Challenge: Betting Strategy",
+        "storyContext": "Aditya wants to bet on India winning. He calculates P(India wins) = 0.52. Odds offered are 1.8x (he wins 0.8x his bet if India wins). Is this a good bet?",
+        "points": [
+          {
+            "text": "Expected value of the bet if he risks 100 rupees: 0.52 × 80 - 0.48 × 100."
+          }
+        ],
+        "example": {
+          "problem": "Calculate expected value.",
+          "solution": "EV = 0.52 × 80 + 0.48 × (−100) = 41.6 − 48 = −6.4 rupees. Negative EV means bad bet. Odds should be at least 2x for EV ≥ 0."
+        },
+        "inSimpleWords": "Good bets have positive expected value. Multiply probability by payoff and subtract the loss.",
+        "emoji": "💰"
+      },
+      {
+        "kind": "challenge",
         "title": "Test Yourself: Bayes and Sports",
         "storyContext": "A player has a disease detection test. The test is 95% accurate (P(positive | diseased) = 0.95). Disease prevalence in population is 1% (P(diseased) = 0.01). Player tests positive. What's the probability they actually have disease?",
         "points": [
@@ -240,7 +359,7 @@
           }
         ],
         "example": {
-          "problem": "Let D = diseased, T+ = positive test. Given: P(T+ | D) = 0.95, P(D) = 0.01. Assume test is also 95% accurate at ruling out disease: P(T− | not D) = 0.95, so P(T+ | not D) = 0.05. P(D) = 0.01, P(not D) = 0.99. P(T+) = P(T+ | D)·P(D) + P(T+ | not D)·P(not D) = 0.95·0.01 + 0.05·0.99 = 0.0095 + 0.0495 = 0.059. P(D | T+) = P(T+ | D)·P(D) / P(T+) = (0.95·0.01) / 0.059 = 0.0095 / 0.059 ≈ 0.161 or 16.1%.",
+          "problem": "Let D = diseased, T+ = positive test. Given: P(T+ | D) = 0.95, P(D) = 0.01. Assume test is also 95% accurate at ruling out disease: P(T− | not D) = 0.95, so P(T+ | not D) = 0.05. P(D) = 0.01, P(not D) = 0.99. P(T+) = P(T+ | D)·P(D) + P(T+ | not D)·P(not D) = 0.95·0.01 + 0.05·0.99 = 0.0095 + 0.0495 = 0.059. P(D | T+) = P(T+ | D)·P(D) / P(T+) = (0.95·0.01) / 0.059 ≈ 0.161 or 16.1%.",
           "solution": "Despite a positive test, probability of actually having disease is only ~16%, because disease is rare. This shows importance of considering prior probability!"
         },
         "inSimpleWords": "Even with a good test, a rare disease remains unlikely after a positive result. Bayes' theorem accounts for base rates.",
@@ -249,6 +368,66 @@
           "prompt": "medical test",
           "gq": true
         }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Coin Fairness Test",
+        "storyContext": "Aditya flips a coin 10 times and gets 8 heads. Is the coin fair or biased? Use binomial probability to assess.",
+        "points": [
+          {
+            "text": "If fair (p = 0.5), what is P(exactly 8 heads out of 10)?"
+          }
+        ],
+        "example": {
+          "problem": "P(X = 8) = C(10, 8) × (0.5)^8 × (0.5)^2.",
+          "solution": "P(X = 8) = 45 × (0.5)^10 = 45/1024 ≈ 0.044 or 4.4%. If coin is fair, this result is rare but not impossible. Need more data to conclude bias."
+        },
+        "inSimpleWords": "Low probability of an outcome doesn't prove bias; collect more evidence.",
+        "emoji": "🪙"
+      },
+      {
+        "kind": "story",
+        "title": "Real-World Impact",
+        "storyContext": "Dr. Sharma shows Aditya examples: insurance companies use probability to set premiums, vaccine trials use it to prove safety, machine learning uses it to predict diseases. 'Probability is literally everywhere,' she says.",
+        "emoji": "🌍"
+      },
+      {
+        "kind": "example",
+        "title": "Insurance Premium Calculation",
+        "storyContext": "An insurance company wants to price car policies. Historically, 2% of insured drivers file claims averaging 50,000 rupees per year.",
+        "example": {
+          "problem": "If they insure 1000 drivers and want 20% profit margin, what should the annual premium be?",
+          "solution": "Expected payout per driver = 0.02 × 50,000 = 1,000 Rs. With 20% profit: premium = 1,000 / 0.8 = 1,250 Rs per year."
+        },
+        "inSimpleWords": "Expected value drives real business decisions. Probability converts uncertainty into price.",
+        "emoji": "💰"
+      },
+      {
+        "kind": "example",
+        "title": "Lottery Odds",
+        "storyContext": "Aditya buys a lottery ticket. Probability of winning jackpot: 1 in 10 million.",
+        "example": {
+          "problem": "If he buys 100 tickets per year for 50 years (5,000 tickets total), what is approximate probability he wins at least once?",
+          "solution": "P(at least one win) ≈ 1 - (1 - 10^-7)^5000 ≈ 1 - e^(-5000×10^-7) ≈ 1 - e^(-0.0005) ≈ 0.0005 or 0.05%. Still extremely unlikely!"
+        },
+        "inSimpleWords": "Tiny probabilities stay tiny even over many trials. Lotteries have terrible odds.",
+        "emoji": "🎰"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Monty Hall Problem",
+        "storyContext": "A famous probability puzzle: three doors hide one car and two goats. You pick door 1. Host opens door 3 (showing a goat) and asks if you want to switch to door 2. Should you?",
+        "points": [
+          {
+            "text": "Initially P(car behind door 1) = 1/3."
+          }
+        ],
+        "example": {
+          "problem": "After host opens door 3, should you switch?",
+          "solution": "YES! P(car | switch) = 2/3, P(car | stay) = 1/3. Switching doubles your chance. This confuses most people because they think it's 50-50 after one door opens—but the host's action of opening a goat door gives you information."
+        },
+        "inSimpleWords": "Conditional probability can surprise you. Update your beliefs when you get new information.",
+        "emoji": "🚪"
       },
       {
         "kind": "recap",
@@ -312,6 +491,44 @@
     ],
     "slides": [
       {
+        "kind": "story",
+        "title": "Lightning and Grounding",
+        "storyContext": "A lightning bolt can carry 30,000 amps at 100 million volts. That's why tall buildings have lightning rods—they conduct lightning safely to ground instead of through the building.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "Grounding and Safety",
+        "points": [
+          {
+            "label": "Grounding",
+            "text": "Connecting a conductor to Earth (potential = 0 V by convention). Provides safe path for excess charge."
+          },
+          {
+            "label": "Lightning rod",
+            "text": "Metal rod connected to ground. Lightning follows low-resistance path (rod) instead of ionizing air through the building."
+          }
+        ],
+        "inSimpleWords": "Grounding safely drains charge to Earth. This is why your house plug has 3 prongs.",
+        "emoji": "🔌"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Field Near High-Voltage Wire",
+        "storyContext": "A high-voltage transmission line carries 100 kV and is 10 meters above ground.",
+        "points": [
+          {
+            "text": "Estimate the electric field at ground level (treat wire as point source)."
+          }
+        ],
+        "example": {
+          "problem": "E = k Q / r^2. Assume the line has charge Q distributed along it. For order-of-magnitude: E ≈ V / d.",
+          "solution": "E ≈ 100,000 V / 10 m = 10,000 V/m = 10 kV/m. This is enough to ionize air if you hold a conductor (sparking will occur)."
+        },
+        "inSimpleWords": "Fields near power lines can be surprisingly strong, which is why electrical safety matters.",
+        "emoji": "⚠️"
+      },
+      {
         "kind": "title",
         "title": "Electric Charges and Fields",
         "emoji": "⚡",
@@ -359,6 +576,23 @@
         "inSimpleWords": "Charge is the property that makes things attract or repel each other. It comes in two flavors—positive and negative—and cannot be made or destroyed."
       },
       {
+        "kind": "story",
+        "title": "Electrons Transfer During Combing",
+        "emoji": "🔄",
+        "storyContext": "When Anjali combs her hair, friction causes electrons from her hair to transfer to the plastic comb. The comb becomes negatively charged (excess electrons); her hair becomes positively charged (missing electrons). This imbalance creates the attraction force."
+      },
+      {
+        "kind": "example",
+        "title": "Charge Transfer Calculation",
+        "storyContext": "Anjali's comb acquires 1 × 10^10 excess electrons from her hair.",
+        "example": {
+          "problem": "What is the total charge on the comb? (e = 1.6 × 10^-19 C)",
+          "solution": "q = n × e = (1 × 10^10) × (1.6 × 10^-19) = 1.6 × 10^-9 C = 1.6 nC (nanocoulombs)."
+        },
+        "inSimpleWords": "Total charge = number of excess electrons × charge per electron.",
+        "emoji": "⚡"
+      },
+      {
         "kind": "concept",
         "title": "Coulomb's Law",
         "emoji": "📐",
@@ -388,6 +622,23 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Why the Paper Sticks to the Comb",
+        "emoji": "📄",
+        "storyContext": "The negatively charged comb induces a positive charge on the paper (polarization). Opposite charges attract. Paper bits are pulled toward the comb—and may stick if the attractive force is strong enough."
+      },
+      {
+        "kind": "example",
+        "title": "Force on Paper Scrap",
+        "storyContext": "A small paper scrap gains a net charge of 0.1 nC when near the comb. The comb's charge is 1.6 nC, distance 1 cm.",
+        "example": {
+          "problem": "Calculate the attractive force.",
+          "solution": "F = k q1 q2 / r^2 = (9 × 10^9) × (1.6 × 10^-9) × (0.1 × 10^-9) / (0.01)^2 = (9 × 10^9) × (1.6 × 10^-19) / (10^-4) = 1.44 × 10^-8 N ≈ 0.014 millinewtons. This tiny force is still enough to lift paper."
+        },
+        "inSimpleWords": "Even tiny charges separated by small distances can create meaningful forces.",
+        "emoji": "⚡"
+      },
+      {
         "kind": "concept",
         "title": "Electric Field",
         "emoji": "🧲",
@@ -413,6 +664,17 @@
         "inSimpleWords": "The electric field is the influence a charge spreads around itself. It tells you what force a test charge would feel at any point."
       },
       {
+        "kind": "example",
+        "title": "Field from Anjali's Comb",
+        "storyContext": "Calculate the electric field at distance 2 cm from Anjali's charged comb.",
+        "example": {
+          "problem": "E = k Q / r^2, where Q = 1.6 × 10^-9 C, r = 0.02 m.",
+          "solution": "E = (9 × 10^9) × (1.6 × 10^-9) / (0.02)^2 = (9 × 10^9) × (1.6 × 10^-9) / (4 × 10^-4) = 14.4 / (4 × 10^-4) = 3.6 × 10^4 N/C."
+        },
+        "inSimpleWords": "The electric field strength drops quickly with distance (inverse square law).",
+        "emoji": "📏"
+      },
+      {
         "kind": "concept",
         "title": "Field Lines and Gauss's Law",
         "emoji": "📍",
@@ -436,6 +698,38 @@
           "alt": "Field Lines and Gauss's Law — Electric Charges and Fields",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Visualizing Field Lines",
+        "emoji": "👀",
+        "storyContext": "Ravi helps Anjali visualize the electric field around the comb. 'Imagine invisible arrows radiating outward from the negatively charged comb, pointing inward (toward the negative charge). Paper bits align with these invisible lines, getting attracted inward.'"
+      },
+      {
+        "kind": "story",
+        "title": "The Lightning Connection",
+        "storyContext": "Ravi tells Anjali about lightning: huge charges (millions of coulombs) build up in clouds. When the potential difference reaches millions of volts, a conducting path (lightning) forms and discharge happens explosively.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "Multiple Charges and Superposition",
+        "points": [
+          {
+            "label": "Superposition principle",
+            "text": "Net force on a charge is vector sum of forces from all other charges."
+          },
+          {
+            "label": "Vector addition",
+            "text": "Forces must be added as vectors (magnitude and direction), not scalars."
+          }
+        ],
+        "example": {
+          "problem": "Two charges q1 = +2 μC and q2 = +2 μC are 0.1 m apart. A test charge q_t = +1 μC is placed at the midpoint. Find net force.",
+          "solution": "Each charge exerts F = (9×10^9 × 2×10^-6 × 1×10^-6) / (0.05)^2 = 7.2 N repulsive, pointing away. Net F = 7.2 - 7.2 = 0 (symmetric cancellation)."
+        },
+        "inSimpleWords": "When multiple charges push on one charge, add all forces as vectors.",
+        "emoji": "➕"
       },
       {
         "kind": "concept",
@@ -464,6 +758,11 @@
       },
       {
         "kind": "example",
+        "title": "The Charged Plastic Comb: Conductor or Insulator?",
+        "storyContext": "Anjali's plastic comb is an insulator. The negative charge stays where friction created it—on the surface. If the comb were metal, charge would redistribute instantly to the outer surface."
+      },
+      {
+        "kind": "example",
         "title": "Solved Problem: Three Charges in a Row",
         "emoji": "🔢",
         "example": {
@@ -476,6 +775,22 @@
           "alt": "Solved Problem: Three Charges in a Row — Electric Charges and Fields",
           "q": "balloons"
         }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Distance and Force",
+        "storyContext": "If Anjali moves the paper scrap 2 cm away from her comb (instead of 1 cm), how does the force change?",
+        "points": [
+          {
+            "text": "Use Coulomb's law inverse-square relationship: F ∝ 1/r²."
+          }
+        ],
+        "example": {
+          "problem": "If r doubles, how does F change?",
+          "solution": "F_new = k q1 q2 / (2r)^2 = k q1 q2 / (4r^2) = F_old / 4. Force drops to 1/4 of original!"
+        },
+        "inSimpleWords": "Doubling the distance reduces force to 1/4. This inverse-square law is fundamental to gravity and electricity.",
+        "emoji": "📏"
       },
       {
         "kind": "challenge",
@@ -495,6 +810,34 @@
           "alt": "Challenge: The Balloon Trick — Electric Charges and Fields",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Static Electricity Dangers",
+        "storyContext": "Ravi tells Anjali about ESD (electrostatic discharge). When you walk on a carpet and touch metal, sparks fly. For electronics, these sparks can destroy circuits. That's why technicians wear wrist straps.",
+        "emoji": "⚠️"
+      },
+      {
+        "kind": "example",
+        "title": "ESD Risk Assessment",
+        "storyContext": "A technician touches a microchip with 10,000 V static charge. The chip's breakdown voltage is 5,000 V.",
+        "example": {
+          "problem": "Is the chip safe?",
+          "solution": "No. The ESD voltage (10 kV) exceeds the breakdown voltage (5 kV), so the chip will be damaged or destroyed. Modern chips are vulnerable to ESD damage even at voltages humans cannot feel."
+        },
+        "inSimpleWords": "Static electricity, though invisible, has real destructive power.",
+        "emoji": "🔌"
+      },
+      {
+        "kind": "example",
+        "title": "Electroscope Experiment",
+        "storyContext": "An electroscope detects charge by observing if two thin metal leaves repel each other.",
+        "example": {
+          "problem": "If leaves repel, what can you conclude?",
+          "solution": "Both leaves must have the same type of charge (both positive or both negative). Mutual repulsion is proof of like charges."
+        },
+        "inSimpleWords": "Simple experiments reveal charge without complex math.",
+        "emoji": "🔬"
       },
       {
         "kind": "recap",
@@ -594,6 +937,23 @@
         "inSimpleWords": "Potential is the 'height' of the electric field. Higher potential means more energy per charge. Moving against the field (uphill) costs work; moving downhill releases energy."
       },
       {
+        "kind": "story",
+        "title": "Potential as Energy Currency",
+        "emoji": "💰",
+        "storyContext": "Ravi tells Anjali to think of potential like altitude. A charge at high potential (mountain top) has more potential energy than one at low potential (valley). Moving downhill releases energy."
+      },
+      {
+        "kind": "example",
+        "title": "Potential Near a Charge",
+        "storyContext": "A positive charge of 1 μC sits at a point. What is the potential at distance 10 cm?",
+        "example": {
+          "problem": "V = k Q / r = (9 × 10^9) × (1 × 10^-6) / 0.1.",
+          "solution": "V = 9 × 10^3 / 0.1 = 9 × 10^4 = 90,000 V = 90 kV."
+        },
+        "inSimpleWords": "Potential near a charge can be quite large. Moving a test charge from here to infinity would release energy.",
+        "emoji": "⚡"
+      },
+      {
         "kind": "concept",
         "title": "Equipotentials and Relationship to E",
         "emoji": "🗺️",
@@ -617,6 +977,23 @@
           "alt": "Equipotentials and Relationship to E — Electrostatic Potential and Capacitance",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Two Charged Plates: Inside a Capacitor",
+        "emoji": "━━",
+        "storyContext": "Ravi shows Anjali the inside of a broken capacitor: two metal plates separated by thin insulation. One plate is positive (high potential), one is negative (low potential). The uniform field between them is what stores energy."
+      },
+      {
+        "kind": "example",
+        "title": "Field Between Capacitor Plates",
+        "storyContext": "One plate at +100 V, the other at 0 V, separated by 1 mm. What is the electric field?",
+        "example": {
+          "problem": "E = ΔV / d = 100 / 0.001.",
+          "solution": "E = 100,000 V/m = 100 kV/m. This strong field is what pushes charges apart and stores energy."
+        },
+        "inSimpleWords": "The voltage divided by the gap gives the field strength between parallel plates.",
+        "emoji": "⚡"
       },
       {
         "kind": "concept",
@@ -648,6 +1025,23 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Charging a Capacitor",
+        "emoji": "⚡",
+        "storyContext": "When Ravi connects a battery to a capacitor, charge flows from the battery onto the plates. Negative charge accumulates on one plate, positive on the other, until the voltage matches the battery. Then flow stops—the capacitor is 'charged.'"
+      },
+      {
+        "kind": "example",
+        "title": "Charge Stored in Flash Capacitor",
+        "storyContext": "A camera flash capacitor has C = 100 μF and is charged to 300 V.",
+        "example": {
+          "problem": "Q = C × V = (100 × 10^-6) × 300.",
+          "solution": "Q = 0.03 C = 30 millicoulombs. 30 mC is a lot of charge released in microseconds = very bright flash!"
+        },
+        "inSimpleWords": "Charge stored = capacitance × voltage. Higher voltage or capacitance = more charge stored.",
+        "emoji": "💡"
+      },
+      {
         "kind": "concept",
         "title": "Energy Stored in a Capacitor",
         "emoji": "🔥",
@@ -671,6 +1065,23 @@
           "alt": "Energy Stored in a Capacitor — Electrostatic Potential and Capacitance",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Why Flash Is Dangerous",
+        "emoji": "⚠️",
+        "storyContext": "Ravi warns Anjali never to touch the terminals of a charged capacitor. '4.5 joules sounds small, but released through your body in microseconds is 4.5 megawatts of power—enough to cause a serious shock or burn.'"
+      },
+      {
+        "kind": "example",
+        "title": "Energy Comparison",
+        "storyContext": "How much energy is 4.5 J? Compare to everyday objects.",
+        "example": {
+          "problem": "4.5 J released in 10 microseconds = power = energy / time = 4.5 / 10×10^-6.",
+          "solution": "P = 4.5 × 10^5 = 450,000 watts = 450 kW. A typical microwave oven is 1 kW—this is 450 times more power!"
+        },
+        "inSimpleWords": "Capacitors release energy extremely fast. The power is much higher than steady energy flow.",
+        "emoji": "💥"
       },
       {
         "kind": "concept",
@@ -702,6 +1113,12 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Building Bigger Capacitance",
+        "emoji": "🔧",
+        "storyContext": "Ravi shows Anjali how engineers combine capacitors. To get high capacitance, they connect them in parallel (like joining tanks). To get high voltage rating, they use series."
+      },
+      {
         "kind": "concept",
         "title": "Dielectrics in Capacitors",
         "emoji": "🧊",
@@ -728,6 +1145,34 @@
       },
       {
         "kind": "example",
+        "title": "Dielectric Effect",
+        "storyContext": "A capacitor with air gap has C = 100 pF. When mica (κ = 6) fills the gap, what is the new capacitance?",
+        "example": {
+          "problem": "C_new = κ × C_air = 6 × 100 = 600 pF.",
+          "solution": "Mica increases capacitance by factor of 6. Same physical size, 6× more charge storage!"
+        },
+        "inSimpleWords": "Dielectric materials greatly increase capacitance. This is why real capacitors are filled with ceramics or films.",
+        "emoji": "📦"
+      },
+      {
+        "kind": "story",
+        "title": "Why Capacitors Are Everywhere",
+        "storyContext": "Anjali notices capacitors in her TV remote, phone charger, and even LED lights. Ravi explains: 'Capacitors smooth out power ripples, store energy for brief power surges, and filter signals. They're as essential as resistors in electronics.'",
+        "emoji": "🔧"
+      },
+      {
+        "kind": "example",
+        "title": "Combining Capacitances",
+        "storyContext": "An engineer needs 10 μF but has three 5 μF capacitors. How should they connect them?",
+        "example": {
+          "problem": "Try parallel and series combinations.",
+          "solution": "Parallel: all three → 5+5+5 = 15 μF (too much). Series: all three → 1/C = 1/5 + 1/5 + 1/5 = 3/5, so C = 5/3 ≈ 1.67 μF (too little). Use two in parallel (= 10 μF) and don't use the third."
+        },
+        "inSimpleWords": "Choose series/parallel based on whether you need more voltage rating or more capacitance.",
+        "emoji": "🔌"
+      },
+      {
+        "kind": "example",
         "title": "Solved Problem: Charging and Discharging",
         "emoji": "⏱️",
         "example": {
@@ -740,6 +1185,22 @@
           "alt": "Solved Problem: Charging and Discharging — Electrostatic Potential and Capacitance",
           "q": "circuit"
         }
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Flash Capacitor Power",
+        "storyContext": "A camera flash stores 5 J in a capacitor. It releases this energy in 0.5 milliseconds. What is the average power during the flash?",
+        "points": [
+          {
+            "text": "Power = Energy / Time."
+          }
+        ],
+        "example": {
+          "problem": "P = 5 J / (0.5 × 10^-3 s).",
+          "solution": "P = 5 / (5 × 10^-4) = 10,000 watts = 10 kW. The flash produces 10 kilowatts of power!"
+        },
+        "inSimpleWords": "Fast energy release creates huge power. That's why the flash is so bright.",
+        "emoji": "💥"
       },
       {
         "kind": "challenge",
@@ -759,6 +1220,23 @@
           "alt": "Challenge: Designing a Defibrillator Capacitor — Electrostatic Potential and Capacitance",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Supercapacitors and Future Tech",
+        "storyContext": "Ravi shows Anjali a supercapacitor (1 farad!). 'These store enormous energy compared to regular capacitors. Electric vehicles use them to recover braking energy. In 20 years, they might replace some battery uses.'",
+        "emoji": "🚗"
+      },
+      {
+        "kind": "example",
+        "title": "Supercapacitor Energy Storage",
+        "storyContext": "A supercapacitor with C = 1 F is charged to 3 V (safe voltage for electronics). How much energy does it store?",
+        "example": {
+          "problem": "U = (1/2) C V^2.",
+          "solution": "U = (1/2) × 1 × (3)^2 = 4.5 J. Same energy as the camera flash, but stored safely!"
+        },
+        "inSimpleWords": "Supercapacitors pack more energy into the same formula by using huge capacitance.",
+        "emoji": "⚡"
       },
       {
         "kind": "recap",

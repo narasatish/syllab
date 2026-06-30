@@ -102,6 +102,12 @@
         "emoji": "✏️"
       },
       {
+        "kind": "story",
+        "title": "Why Integration Matters",
+        "storyContext": "Nikhil realizes: with Ravi's help, he can now convert speed data into distance. 'My broken speedometer isn't broken anymore!' he shouts.",
+        "emoji": "💡"
+      },
+      {
         "kind": "concept",
         "title": "From Velocity to Distance",
         "storyContext": "Dr. Sharma connects physics and math: if v(t) = 20 − 2t, then distance s(t) = ∫ v(t) dt.",
@@ -167,6 +173,12 @@
         },
         "inSimpleWords": "Definite integrals measure accumulated quantities over an interval.",
         "emoji": "🏁"
+      },
+      {
+        "kind": "story",
+        "title": "New Techniques Ahead",
+        "storyContext": "Ravi shows Nikhil a more complex function on the board: v(t) = 30·e^{−0.1t}. 'For this, we need new techniques,' Ravi says mysteriously.",
+        "emoji": "🔮"
       },
       {
         "kind": "concept",
@@ -235,6 +247,12 @@
         "emoji": "⚖️"
       },
       {
+        "kind": "story",
+        "title": "A Powerful New Tool",
+        "storyContext": "Nikhil sees another chapter in Ravi's calculus book: 'Integration by Parts.' Ravi grins. 'This one's for products of functions.'",
+        "emoji": "✂️"
+      },
+      {
         "kind": "concept",
         "title": "Integration by Parts",
         "storyContext": "For products of functions, Ravi teaches a powerful technique: integration by parts, based on the product rule for derivatives.",
@@ -257,20 +275,14 @@
       },
       {
         "kind": "challenge",
-        "title": "Challenge: Complex Integration",
-        "storyContext": "Nikhil's actual speed is v(t) = 30·e^{−0.1t} m/s (exponential decay as he tires). Total distance after 10 seconds?",
+        "title": "Practice: Integration by Parts",
+        "storyContext": "Nikhil applies integration by parts to a product.",
         "example": {
-          "problem": "Find s = ∫₀¹⁰ 30·e^{−0.1t} dt.",
-          "solution": "∫ 30·e^{−0.1t} dt: Let u = −0.1t, du = −0.1 dt, so dt = −10 du. ∫ 30·e^u · (−10) du = −300 e^u + C = −300 e^{−0.1t} + C. Definite integral: [−300 e^{−0.1t}]₀¹⁰ = −300·e^{−1} − (−300·e⁰) = −300/e + 300 ≈ −110.36 + 300 ≈ 189.64 meters."
+          "problem": "Find ∫ x · cos(x) dx. Let u = x, dv = cos(x) dx. Then du = dx, v = sin(x). ∫ x·cos(x) dx = x·sin(x) − ∫ sin(x) dx = x·sin(x) + cos(x) + C.",
+          "solution": "∫ x·cos(x) dx = x·sin(x) + cos(x) + C."
         },
-        "inSimpleWords": "For exponential integrals, use substitution or recall ∫ e^{ax} dx = (1/a)·e^{ax} + C.",
-        "emoji": "⚡"
-      },
-      {
-        "kind": "story",
-        "title": "The Triumphant Calculation",
-        "storyContext": "Nikhil finishes his calculation and shows Ravi the result. His GPS data is now transformed into a precise distance—189.6 meters. Ravi nods: 'Now you understand integration: from rate to quantity, from speed to distance.'",
-        "emoji": "🎉"
+        "inSimpleWords": "Identify which part differentiates to simplify (u), and which you can easily integrate (dv).",
+        "emoji": "🧩"
       },
       {
         "kind": "concept",
@@ -288,6 +300,76 @@
         },
         "inSimpleWords": "Sines integrate to cosines (with sign), cosines to sines. Use substitution when the angle is scaled.",
         "emoji": "🌊"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Complex Integration",
+        "storyContext": "Nikhil's actual speed is v(t) = 30·e^{−0.1t} m/s (exponential decay as he tires). Total distance after 10 seconds?",
+        "example": {
+          "problem": "Find s = ∫₀¹⁰ 30·e^{−0.1t} dt.",
+          "solution": "∫ 30·e^{−0.1t} dt: Let u = −0.1t, du = −0.1 dt, so dt = −10 du. ∫ 30·e^u · (−10) du = −300 e^u + C = −300 e^{−0.1t} + C. Definite integral: [−300 e^{−0.1t}]₀¹⁰ = −300·e^{−1} − (−300·e⁰) = −300/e + 300 ≈ −110.36 + 300 ≈ 189.64 meters."
+        },
+        "inSimpleWords": "For exponential integrals, use substitution or recall ∫ e^{ax} dx = (1/a)·e^{ax} + C.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "Numerical Integration",
+        "storyContext": "Ravi explains: 'Not all integrals have closed-form solutions. Sometimes we approximate numerically.'",
+        "points": [
+          {
+            "label": "Trapezoidal rule",
+            "text": "Approximate ∫[a to b] f(x) dx ≈ (b-a)/2n · [f(x₀) + 2f(x₁) + 2f(x₂) + ... + f(xₙ)]"
+          },
+          {
+            "label": "Simpson's rule",
+            "text": "More accurate: use parabolas instead of trapezoids. ∫[a to b] f(x) dx ≈ (b-a)/(3n) · [f(x₀) + 4f(x₁) + 2f(x₂) + 4f(x₃) + ...]"
+          }
+        ],
+        "example": {
+          "problem": "Approximate ∫₀¹ e^x dx using trapezoidal rule with n=2. Δx = 0.5. Points: x₀=0, x₁=0.5, x₂=1. f(0)≈1, f(0.5)≈1.649, f(1)≈2.718. Approximation: 0.5/2 · [1 + 2(1.649) + 2.718] ≈ 0.25 · 7.016 ≈ 1.754. (Exact value ≈ 1.718.)",
+          "solution": "Trapezoidal approximation ≈ 1.754, with error ≈ 0.036."
+        },
+        "inSimpleWords": "Numerical methods approximate integrals when exact answers are hard to compute analytically.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "story",
+        "title": "The Triumphant Calculation",
+        "storyContext": "Nikhil finishes his calculation and shows Ravi the result. His GPS data is now transformed into a precise distance—189.6 meters. Ravi nods: 'Now you understand integration: from rate to quantity, from speed to distance.'",
+        "emoji": "🎉"
+      },
+      {
+        "kind": "concept",
+        "title": "Improper Integrals",
+        "storyContext": "Ravi mentions: 'What if the interval is infinite, or the function becomes very large? These are improper integrals.'",
+        "points": [
+          {
+            "label": "Infinite bounds",
+            "text": "∫[a to ∞] f(x) dx = lim[b→∞] ∫[a to b] f(x) dx"
+          },
+          {
+            "label": "Convergence",
+            "text": "An improper integral converges if the limit exists and is finite. Otherwise it diverges."
+          }
+        ],
+        "example": {
+          "problem": "Evaluate ∫[1 to ∞] 1/x² dx.",
+          "solution": "∫[1 to ∞] 1/x² dx = lim[b→∞] ∫[1 to b] x^(-2) dx = lim[b→∞] [-1/x][1 to b] = lim[b→∞] (-1/b + 1) = 1. The integral converges to 1."
+        },
+        "inSimpleWords": "Improper integrals extend the notion to infinite intervals. Check if they converge or diverge.",
+        "emoji": "∞"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Improper Integrals",
+        "storyContext": "Nikhil tests his understanding with an infinite interval problem.",
+        "example": {
+          "problem": "Evaluate ∫[0 to ∞] e^(-x) dx.",
+          "solution": "∫[0 to ∞] e^(-x) dx = lim[b→∞] [-e^(-x)][0 to b] = lim[b→∞] (-e^(-b) + 1) = 1. The integral converges to 1."
+        },
+        "inSimpleWords": "For exponential decay, improper integrals over infinite intervals often converge to finite values.",
+        "emoji": "✅"
       },
       {
         "kind": "recap",
@@ -408,6 +490,12 @@
         "emoji": "🔍"
       },
       {
+        "kind": "story",
+        "title": "Watching the Potter",
+        "storyContext": "Priya's mother asks her to estimate how much grain can fit in the large earthen pot in the store. Priya watches the potter spin clay on a wheel, creating a curved surface of revolution. 'That's calculus in action!' she realizes.",
+        "emoji": "🎡"
+      },
+      {
         "kind": "concept",
         "title": "Volume of Solids of Revolution",
         "storyContext": "Priya's mother asks her to estimate how much grain can fit in the large earthen pot in the store. The pot is shaped like a solid of revolution—the potter rotated a curve around a vertical axis to form it. Priya realizes: this is calculus!",
@@ -437,12 +525,6 @@
         }
       },
       {
-        "kind": "story",
-        "title": "Spinning Clay",
-        "storyContext": "Priya watches the potter at the village's craft fair, spinning clay on a wheel. Each vertical slice of the spinning curve creates a thin disk—and disks stack up to form the pot.",
-        "emoji": "🎡"
-      },
-      {
         "kind": "challenge",
         "title": "Practice: Disk Method",
         "storyContext": "Priya calculates volume for a simpler pot shape.",
@@ -452,6 +534,44 @@
         },
         "inSimpleWords": "Remember to square the radius before integrating. Disk volume = π r² h where h is the thickness.",
         "emoji": "⚙️"
+      },
+      {
+        "kind": "concept",
+        "title": "Washer Method for Hollow Solids",
+        "storyContext": "Some pots have a hollow interior—like a vessel. Priya learns to use the washer method.",
+        "points": [
+          {
+            "label": "When to use",
+            "text": "When a region between two curves is rotated, creating a solid with a hole."
+          },
+          {
+            "label": "Formula",
+            "text": "V = π ∫[a to b] ([R(x)]² − [r(x)]²) dx, where R is outer radius and r is inner radius."
+          }
+        ],
+        "example": {
+          "problem": "Rotate region between y = 2 and y = √x from x = 0 to x = 4 about x-axis. Outer radius R = 2, inner radius r = √x. V = π ∫₀⁴ (4 − x) dx = π [4x − x²/2]₀⁴ = π(16 − 8) = 8π.",
+          "solution": "Volume = 8π ≈ 25.13 cubic units."
+        },
+        "inSimpleWords": "For hollow shapes, subtract the inner radius squared from the outer radius squared before integrating.",
+        "emoji": "⭕"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Washer Method",
+        "storyContext": "Priya models a hollow cylindrical vessel.",
+        "example": {
+          "problem": "Rotate region between y = 1 and y = 0.5 from x = 0 to x = 3 about x-axis. V = π ∫₀³ (1 − 0.25) dx = π ∫₀³ 0.75 dx = 0.75π · 3 = 2.25π.",
+          "solution": "Volume = 2.25π ≈ 7.07 cubic units."
+        },
+        "inSimpleWords": "Washer = disk with hole. Subtract inner area from outer area at each cross-section.",
+        "emoji": "🔩"
+      },
+      {
+        "kind": "story",
+        "title": "A Question from the Surveyor",
+        "storyContext": "Ravi the surveyor visits Babuji's farm and asks Priya, 'Can you measure the length of that river curve that borders your field? I need it for a water-maintenance project.'",
+        "emoji": "📏"
       },
       {
         "kind": "concept",
@@ -559,6 +679,12 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Balance in All Things",
+        "storyContext": "Babuji wonders: where should he position a support beam under his granary door to balance it perfectly? Priya smiles. 'That's the centroid—another integral application!'",
+        "emoji": "⚖️"
+      },
+      {
         "kind": "concept",
         "title": "Centroid and Center of Mass",
         "storyContext": "Babuji wonders where to position a support beam under his granary door to balance it perfectly. Priya explains: this is the centroid of the region.",
@@ -580,6 +706,125 @@
         "emoji": "⚖️"
       },
       {
+        "kind": "challenge",
+        "title": "Practice: Finding Centroids",
+        "storyContext": "Priya calculates the centroid of a simpler region.",
+        "example": {
+          "problem": "Find centroid of region under y = x from x = 0 to x = 2. Area A = ∫₀² x dx = [x²/2]₀² = 2. x̄ = (1/2) ∫₀² x·x dx = (1/2) ∫₀² x² dx = (1/2)[x³/3]₀² = (1/2)·(8/3) = 4/3. ȳ = (1/2) ∫₀² (1/2)x² dx = (1/4) ∫₀² x² dx = (1/4)·(8/3) = 2/3. Centroid is at (4/3, 2/3).",
+          "solution": "Centroid at (4/3, 2/3). This is the 'center' of the triangular region."
+        },
+        "inSimpleWords": "Use weighted averages of x and y coordinates to find the balance point of a region.",
+        "emoji": "📍"
+      },
+      {
+        "kind": "concept",
+        "title": "Shell Method for Volume",
+        "storyContext": "An alternative to disk/washer methods: the shell method. Useful when rotating about y-axis.",
+        "points": [
+          {
+            "label": "Formula",
+            "text": "When rotating about y-axis: V = 2π ∫[a to b] x · f(x) dx. Picture cylindrical shells."
+          },
+          {
+            "label": "When to use",
+            "text": "Use when rotating about y-axis and x is the natural variable."
+          }
+        ],
+        "example": {
+          "problem": "Rotate y = x from x = 0 to x = 2 about y-axis. V = 2π ∫₀² x · x dx = 2π ∫₀² x² dx = 2π [x³/3]₀² = 2π · (8/3) = 16π/3.",
+          "solution": "Volume = 16π/3 ≈ 16.76 cubic units."
+        },
+        "inSimpleWords": "Shell method: rotate about y-axis, integrate x · height × circumference.",
+        "emoji": "🥫"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Shell Method",
+        "storyContext": "Priya applies the shell method to a pottery bowl.",
+        "example": {
+          "problem": "Rotate y = √x from x = 0 to x = 4 about y-axis. V = 2π ∫₀⁴ x · √x dx = 2π ∫₀⁴ x^(3/2) dx = 2π [2x^(5/2)/5]₀⁴ = 2π · (2·32/5) = 128π/5.",
+          "solution": "Volume = 128π/5 ≈ 80.42 cubic units."
+        },
+        "inSimpleWords": "With the shell method, you often integrate powers and roots more easily than with disk/washer.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "story",
+        "title": "Engineering Precision",
+        "storyContext": "Priya realizes: calculus gives her engineering precision without costly measurement mistakes. She's become an invaluable helper to her father.",
+        "emoji": "🏆"
+      },
+      {
+        "kind": "concept",
+        "title": "Work and Force: Another Application",
+        "storyContext": "Work = force × distance. But when force varies, integration is needed.",
+        "points": [
+          {
+            "label": "Variable force",
+            "text": "Work W = ∫[a to b] F(x) dx, where F(x) is force as a function of position."
+          },
+          {
+            "label": "Spring force",
+            "text": "For a spring: F(x) = kx. Work to stretch from 0 to d: W = ∫₀ᵈ kx dx = (1/2)kd²."
+          }
+        ],
+        "example": {
+          "problem": "Spring constant k = 100 N/m. Work to stretch 0.5 m: W = ∫₀^0.5 100x dx = 100[x²/2]₀^0.5 = 50 · 0.25 = 12.5 J.",
+          "solution": "Work = 12.5 joules."
+        },
+        "inSimpleWords": "When force changes with position, integrate force over distance to find work.",
+        "emoji": "💪"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Calculating Work",
+        "storyContext": "Priya calculates work for pumping water from a tank.",
+        "example": {
+          "problem": "Pump water from a tank 2 m tall. Weight of water at depth x: w(x) = 100(2-x) N. Work to pump out all water: W = ∫₀² 100(2-x) dx = 100[2x - x²/2]₀² = 100(4 - 2) = 200 J.",
+          "solution": "Work = 200 joules."
+        },
+        "inSimpleWords": "Work integrals combine force and distance. Set up carefully: identify what varies and over what range.",
+        "emoji": "⚒️"
+      },
+      {
+        "kind": "story",
+        "title": "Moments and Inertia",
+        "storyContext": "Priya's physics textbook mentions moment of inertia—another integral application. 'Everything connects,' she muses.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "concept",
+        "title": "Moment of Inertia",
+        "storyContext": "Rotational motion requires moment of inertia, which measures how mass is distributed around an axis.",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "I = ∫ r² dm, where r is distance from the axis and dm is a mass element."
+          },
+          {
+            "label": "For a 1D rod",
+            "text": "I = ∫[a to b] x² ρ(x) dx, where ρ(x) is linear mass density."
+          }
+        ],
+        "example": {
+          "problem": "Uniform rod of length L and mass M, rotating about one end. Linear density: ρ = M/L. I = ∫₀ᴸ x² (M/L) dx = (M/L) [x³/3]₀ᴸ = (M/L) · (L³/3) = ML²/3.",
+          "solution": "Moment of inertia I = ML²/3."
+        },
+        "inSimpleWords": "Moment of inertia is the rotational equivalent of mass. It determines how easily an object spins.",
+        "emoji": "🎡"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Moment of Inertia",
+        "storyContext": "Priya calculates inertia for a disk.",
+        "example": {
+          "problem": "Uniform disk of radius R and mass M, rotating about its center. I = ∫₀ᴿ r² · (2πrρ) dr, where ρ = M/(πR²) is surface density. I = 2πρ ∫₀ᴿ r³ dr = 2πρ [r⁴/4]₀ᴿ = (2π · M/(πR²)) · (R⁴/4) = MR²/2.",
+          "solution": "Moment of inertia I = MR²/2."
+        },
+        "inSimpleWords": "For symmetric shapes, moment of inertia depends on the shape and axis. Formulas often have nice simple forms.",
+        "emoji": "⭕"
+      },
+      {
         "kind": "recap",
         "title": "What We Learned",
         "points": [
@@ -599,13 +844,19 @@
             "text": "Centroid: the balance point of a region, found by averaging x and y over the area."
           },
           {
+            "text": "Shell method: alternative for rotation about y-axis using 2π ∫ x · f(x) dx."
+          },
+          {
+            "text": "Work integrals: apply when force varies with distance or position."
+          },
+          {
             "text": "Always sketch the region, identify bounds, and choose the right method."
           },
           {
-            "text": "Real applications: crop fields, storage vessels, bridge designs, water infrastructure, balance."
+            "text": "Real applications: crop fields, storage vessels, bridge designs, water infrastructure, balance, work."
           }
         ],
-        "inSimpleWords": "Integrals measure areas, volumes, lengths, surface areas, and balance points of real-world shapes.",
+        "inSimpleWords": "Integrals measure areas, volumes, lengths, surface areas, balance points, and work done—the foundation of engineering.",
         "emoji": "✅",
         "image": {
           "prompt": "village child",
@@ -708,6 +959,12 @@
         "emoji": "✓"
       },
       {
+        "kind": "story",
+        "title": "The Pattern Emerges",
+        "storyContext": "Arjun studies his sister's medication data. He notices: each day, the amount becomes about 80% of the previous day. 'That's exponential!' he realizes. 'And it matches a differential equation.'",
+        "emoji": "📉"
+      },
+      {
         "kind": "concept",
         "title": "Separable Differential Equations",
         "storyContext": "Lakshmi teaches: 'Some equations are easy to solve if we can separate variables.' Arjun sees this as the key to the medicine problem.",
@@ -737,12 +994,6 @@
         }
       },
       {
-        "kind": "story",
-        "title": "Exponential Patterns",
-        "storyContext": "Arjun sees a pattern in the medicine data. Every 24 hours, the amount stays roughly 1/11 of the previous day. 'That's exponential decay!' he shouts.",
-        "emoji": "~"
-      },
-      {
         "kind": "challenge",
         "title": "Practice: Solve Exponential Decay",
         "storyContext": "Arjun solves a similar DE with different numbers.",
@@ -752,6 +1003,12 @@
         },
         "inSimpleWords": "Separable DEs with dP/dt = kP always solve to P(t) = P₀ e^(kt). If k < 0, decay; if k > 0, growth.",
         "emoji": "📉"
+      },
+      {
+        "kind": "story",
+        "title": "Adding Input to Decay",
+        "storyContext": "Lakshmi presents a new scenario: 'What if the medicine continues to enter the body while it's leaving? Now you need a more powerful technique.'",
+        "emoji": "⚖️"
       },
       {
         "kind": "concept",
@@ -781,6 +1038,17 @@
           "prompt": "medicine",
           "gq": true
         }
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Linear DE",
+        "storyContext": "Arjun models a simple reservoir that's being filled and drained.",
+        "example": {
+          "problem": "Water tank: dV/dt + 0.2V = 5 (inflow 5 L/min, outflow 0.2V). Find V(t) with V(0) = 0. Integrating factor: e^(0.2t). Multiply: e^(0.2t) dV/dt + 0.2e^(0.2t)V = 5e^(0.2t). LHS = d/dt[e^(0.2t)V]. Integrate: e^(0.2t)V = 5∫e^(0.2t) dt = 25e^(0.2t) + C. At t=0: 0 = 25 + C, so C = -25. Thus V(t) = 25 - 25e^(-0.2t).",
+          "solution": "V(t) = 25(1 - e^(-0.2t)). Tank fills toward 25 L as t → ∞."
+        },
+        "inSimpleWords": "Linear first-order DEs with constant input reach a steady state as t increases.",
+        "emoji": "💧"
       },
       {
         "kind": "concept",
@@ -896,10 +1164,133 @@
         }
       },
       {
+        "kind": "concept",
+        "title": "Exponential and Logistic Growth Models",
+        "storyContext": "Lakshmi introduces population dynamics: pure exponential growth vs realistic logistic model.",
+        "points": [
+          {
+            "label": "Exponential growth",
+            "text": "dP/dt = rP gives P(t) = P₀ e^(rt). Population grows without bound."
+          },
+          {
+            "label": "Logistic growth",
+            "text": "dP/dt = rP(1 - P/K) with carrying capacity K. Population grows but levels off."
+          },
+          {
+            "label": "Logistic solution",
+            "text": "P(t) = K / (1 + ((K - P₀)/P₀)e^(-rt)). Population approaches K asymptotically."
+          }
+        ],
+        "example": {
+          "problem": "Bacterial culture: initial population P₀ = 100, growth rate r = 0.2 per hour. Pure exponential: P(t) = 100e^(0.2t). At t=10: P(10) = 100e^2 ≈ 739. With carrying capacity K = 10,000: P(t) = 10,000 / (1 + 99e^(-0.2t)). At t=10: P(10) ≈ 1,200 (much lower due to resource limits).",
+          "solution": "Logistic model is more realistic for long-term predictions. Population stabilizes near K = 10,000."
+        },
+        "inSimpleWords": "Logistic equations model real populations that face resource limits. Growth slows as population approaches carrying capacity.",
+        "emoji": "🧬"
+      },
+      {
         "kind": "story",
         "title": "Arjun's Realization",
-        "storyContext": "Arjun finishes solving the tank problem and looks up at his teacher. 'So differential equations are everywhere—medicine, cooling, draining water...' Lakshmi nods. 'Welcome to the language of the universe.'",
+        "storyContext": "Arjun finishes solving the tank problem and looks up at his teacher. 'So differential equations are everywhere—medicine, cooling, draining water, populations...' Lakshmi nods. 'Welcome to the language of the universe.'",
         "emoji": "🌟"
+      },
+      {
+        "kind": "concept",
+        "title": "Second-Order Linear Differential Equations",
+        "storyContext": "Some systems require second-order DEs. Springs, pendulums, and circuits often follow: d²y/dx² + p(dy/dx) + qy = r(x).",
+        "points": [
+          {
+            "label": "Spring-mass system",
+            "text": "m(d²x/dt²) + b(dx/dt) + kx = 0, where m=mass, b=damping, k=spring constant."
+          },
+          {
+            "label": "Characteristic equation",
+            "text": "Assume y = e^(rx). Substitute to get mr² + br + k = 0, which gives exponential or oscillatory solutions."
+          }
+        ],
+        "example": {
+          "problem": "Simple harmonic oscillator: d²x/dt² + 4x = 0. Characteristic eqn: r² + 4 = 0 → r = ±2i. General solution: x(t) = C₁cos(2t) + C₂sin(2t).",
+          "solution": "x(t) = C₁cos(2t) + C₂sin(2t). This oscillates indefinitely at frequency 2 rad/s."
+        },
+        "inSimpleWords": "Second-order DEs often model systems with mass, springs, or damping. Solutions can oscillate or decay exponentially.",
+        "emoji": "🌀"
+      },
+      {
+        "kind": "story",
+        "title": "Beyond the Pharmacist's Shop",
+        "storyContext": "Arjun's teacher mentions: 'Differential equations govern everything—from drug metabolism to planetary orbits.' Arjun's eyes widen.",
+        "emoji": "🚀"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Radioactive Decay",
+        "storyContext": "Arjun applies exponential decay to nuclear decay.",
+        "example": {
+          "problem": "Radium-226 half-life: 1600 years. Find decay constant k. At t=1600, M = M₀/2. M(t) = M₀e^(-kt). So e^(-1600k) = 1/2 → -1600k = ln(1/2) ≈ -0.693 → k ≈ 0.000433 yr⁻¹. After 3200 years (2 half-lives): M = M₀e^(-3200×0.000433) ≈ M₀/4.",
+          "solution": "After 3200 years, about 25% of the original remains."
+        },
+        "inSimpleWords": "Half-life is directly related to the decay constant. Each half-life reduces the amount by 50%.",
+        "emoji": "☢️"
+      },
+      {
+        "kind": "example",
+        "title": "Full Problem: Disease Spread (SIR Model)",
+        "storyContext": "An epidemic model with three populations: Susceptible (S), Infected (I), Recovered (R).",
+        "example": {
+          "problem": "SIR model: dS/dt = -βSI, dI/dt = βSI - γI, dR/dt = γI, where β = transmission rate, γ = recovery rate. For β=0.001, γ=0.1, S(0)=1000, I(0)=10, R(0)=0: At early times, I grows. After I peaks, it declines as recovered individuals are removed. Equilibrium: I → 0, R → (initial S₀ - final S). This models how epidemics burn out.",
+          "solution": "The epidemic peaks when dI/dt = 0, then declines. The final count of recovered depends on transmission rate β and recovery rate γ."
+        },
+        "inSimpleWords": "SIR models predict epidemic dynamics. Low transmission or high recovery rates minimize total infections.",
+        "emoji": "🏥"
+      },
+      {
+        "kind": "challenge",
+        "title": "Boundary Value Problems",
+        "storyContext": "Not all DEs have initial conditions. Sometimes we know values at two endpoints.",
+        "example": {
+          "problem": "Heat distribution in a rod: d²T/dx² = 0 with T(0)=100°C (hot end) and T(10)=0°C (cold end). General solution: T(x) = C₁x + C₂. Boundary conditions: T(0)=100 → C₂=100. T(10)=0 → 10C₁ + 100 = 0 → C₁ = -10. So T(x) = 100 - 10x.",
+          "solution": "T(x) = 100 - 10x. Temperature decreases linearly from hot to cold end."
+        },
+        "inSimpleWords": "Boundary value problems specify conditions at two points instead of initial conditions. Use them to solve for constants.",
+        "emoji": "🌡️"
+      },
+      {
+        "kind": "story",
+        "title": "Systems of Differential Equations",
+        "storyContext": "Lakshmi mentions coupled systems: 'When multiple quantities interact, you need multiple DEs working together.'",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "concept",
+        "title": "Systems of First-Order DEs",
+        "storyContext": "Predator-prey dynamics, multiple chemical reactions, coupled spring-mass systems—all require systems of DEs.",
+        "points": [
+          {
+            "label": "Lotka-Volterra (predator-prey)",
+            "text": "dx/dt = ax - bxy (prey), dy/dt = -cy + dxy (predators), where x = prey, y = predators."
+          },
+          {
+            "label": "Solution behavior",
+            "text": "Populations oscillate cyclically. Prey rises, predators follow, prey crashes, predators starve, repeat."
+          }
+        ],
+        "example": {
+          "problem": "Simple predator-prey: dx/dt = 2x - xy, dy/dt = -y + xy with x(0)=2, y(0)=1. Phase portrait shows closed cycles. Prey peak when predators are low; predators peak after prey peak.",
+          "solution": "System exhibits periodic cycles with lags between predator and prey populations."
+        },
+        "inSimpleWords": "Coupled DE systems model interactions between populations. Solutions often show oscillations or spirals.",
+        "emoji": "🦁🐰"
+      },
+      {
+        "kind": "challenge",
+        "title": "Practice: Simple Coupled System",
+        "storyContext": "Arjun models a simple two-tank mixing problem.",
+        "example": {
+          "problem": "Tank 1 contains salt at concentration c₁(t), tank 2 at c₂(t). Flow from 1 to 2: f L/min. dc₁/dt = -f c₁/V₁, dc₂/dt = f c₁/V₁ - f c₂/V₂. With equal volumes V₁=V₂=V and f=1: dc₁/dt = -c₁/V, dc₂/dt = (c₁ - c₂)/V.",
+          "solution": "Tank 1 concentration decays exponentially; tank 2 grows then decays as salt flows through."
+        },
+        "inSimpleWords": "Coupled systems track multiple interacting quantities. Set up one DE per quantity.",
+        "emoji": "🧂"
       },
       {
         "kind": "recap",
@@ -924,10 +1315,13 @@
             "text": "Newton's Law of Cooling, logistic growth, and circuit equations are all differential equations."
           },
           {
-            "text": "Real applications: medicine concentration, cooling, population, circuits, draining tanks."
+            "text": "Second-order DEs model springs, oscillations, and damped systems."
           },
           {
-            "text": "General solution has arbitrary constants; initial conditions give particular solutions."
+            "text": "Real applications: medicine concentration, cooling, population, circuits, draining tanks, epidemics, heat, oscillations."
+          },
+          {
+            "text": "General solution has arbitrary constants; initial or boundary conditions give particular solutions."
           }
         ],
         "inSimpleWords": "Differential equations predict how real systems change over time—essential for medicine, physics, engineering, biology.",

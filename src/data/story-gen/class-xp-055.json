@@ -45,6 +45,23 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Why Zara Needs Determinants",
+        "storyContext": "Raj shows Zara his old surveying methods: using distance formulas and slope calculations for each side, then Heron's formula. It takes 10 minutes per plot. He says: \"Determinants do it in 30 seconds. One formula, one calculation.\" Zara is intrigued.",
+        "points": [
+          {
+            "label": "The old way",
+            "text": "Calculate all side lengths, use Heron's formula, wait for the answer."
+          },
+          {
+            "label": "The determinant way",
+            "text": "Plug coordinates directly into a matrix formula, compute once, done."
+          }
+        ],
+        "inSimpleWords": "Determinants are a shortcut to find area from coordinates instantly.",
+        "emoji": "⏱️"
+      },
+      {
         "kind": "concept",
         "title": "What is a Determinant?",
         "storyContext": "Dr. Mehra explains: A determinant is a special number calculated from a square matrix. It encodes information about the matrix's invertibility and geometric scaling.",
@@ -76,6 +93,48 @@
       },
       {
         "kind": "concept",
+        "title": "Matrix Notation and Structure",
+        "storyContext": "Before Zara can compute determinants, she must understand how to write and read matrices.",
+        "points": [
+          {
+            "label": "Rows and columns",
+            "text": "An m×n matrix has m rows and n columns. A square matrix has m = n."
+          },
+          {
+            "label": "Element notation",
+            "text": "a_{ij} denotes the element in row i, column j. For A = [[1 2], [3 4]], a_{21} = 3."
+          },
+          {
+            "label": "2×2 example",
+            "text": "A = [[a b], [c d]] is 2 rows, 2 columns. Square."
+          }
+        ],
+        "inSimpleWords": "Matrices are grids of numbers. Rows go across, columns go down. Determinants only work on square matrices.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "example",
+        "title": "Computing a 2×2 Determinant Step-by-Step",
+        "storyContext": "Zara practices the formula with Raj's first survey matrix.",
+        "points": [
+          {
+            "label": "Formula",
+            "text": "For A = [[a b], [c d]], det(A) = ad − bc."
+          },
+          {
+            "label": "Steps",
+            "text": "Multiply diagonals (top-left × bottom-right), subtract the other diagonal (top-right × bottom-left)."
+          }
+        ],
+        "example": {
+          "problem": "Find det of [[3 2], [1 5]].",
+          "solution": "det = 3·5 − 2·1 = 15 − 2 = 13."
+        },
+        "inSimpleWords": "Main diagonal (down-right) minus anti-diagonal (down-left).",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "concept",
         "title": "3×3 Determinant (Expansion)",
         "storyContext": "For Zara's triangle area, she needs a 3×3 determinant. Dr. Mehra teaches expansion by minors.",
         "points": [
@@ -104,6 +163,38 @@
         }
       },
       {
+        "kind": "story",
+        "title": "The Minor and Cofactor Dance",
+        "storyContext": "Dr. Mehra acts out the expansion: \"Pick a row. Cover its position. What's left? That's the minor — a 2×2 determinant. Compute it. Now add or subtract using signs (+ − +, − + −, + − +) based on position.\"",
+        "points": [
+          {
+            "label": "First position (1,1)",
+            "text": "Positive sign (+). Remove row 1 and column 1. Calculate 2×2 det of what's left."
+          },
+          {
+            "label": "Second position (1,2)",
+            "text": "Negative sign (−). Remove row 1 and column 2. Calculate 2×2 det, multiply by −1."
+          },
+          {
+            "label": "Third position (1,3)",
+            "text": "Positive sign (+). Remove row 1 and column 3. Calculate 2×2 det."
+          }
+        ],
+        "inSimpleWords": "Alternate + and − as you move across the row. Each cofactor is a 2×2 determinant scaled by the sign.",
+        "emoji": "🎭"
+      },
+      {
+        "kind": "example",
+        "title": "3×3 Determinant Fully Worked",
+        "storyContext": "Zara computes the determinant of a practice matrix step-by-step.",
+        "example": {
+          "problem": "Find det([[2 0 1], [4 3 5], [1 2 1]]).",
+          "solution": "Using row 1 expansion: det = 2·(3·1 − 5·2) − 0·(4·1 − 5·1) + 1·(4·2 − 3·1) = 2·(3−10) − 0 + 1·(8−3) = 2·(−7) + 5 = −14 + 5 = −9."
+        },
+        "inSimpleWords": "Expand along any row (or column). Each term: element × cofactor. Sum them.",
+        "emoji": "✍️"
+      },
+      {
         "kind": "concept",
         "title": "Area of a Triangle from Coordinates",
         "storyContext": "Zara's triangle has vertices A(0, 0), B(4, 0), C(2, 3). Determinant gives area directly.",
@@ -128,6 +219,38 @@
           "alt": "Area of a Triangle from Coordinates — Determinants",
           "q": "triangle"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Zara's First Survey Success",
+        "storyContext": "Zara applies the formula to her father's plot: (0,0), (4,0), (2,3). She computes: det = 4·3 − 2·0 = 12. Area = 6 square units. Raj verifies with his old methods — match! Zara saves 9 minutes.",
+        "points": [
+          {
+            "label": "Setup",
+            "text": "Write coordinates as rows with a 1 in the third column."
+          },
+          {
+            "label": "Compute",
+            "text": "Expand the 3×3 determinant."
+          },
+          {
+            "label": "Final",
+            "text": "Divide by 2, take absolute value."
+          }
+        ],
+        "inSimpleWords": "The determinant method is a fast, reliable way to find triangle area from coordinates.",
+        "emoji": "✅"
+      },
+      {
+        "kind": "example",
+        "title": "Triangle Area with Negative Coordinates",
+        "storyContext": "Zara's next plot has vertices at (−1, −1), (2, 1), (0, 3). She applies the formula.",
+        "example": {
+          "problem": "Find area of triangle with vertices (−1, −1), (2, 1), (0, 3).",
+          "solution": "Area = (1/2)|det([[-1 -1 1], [2 1 1], [0 3 1]])| = (1/2)|−1·(1−3) − (−1)·(2−0) + 1·(6−0)| = (1/2)|−1·(−2) + 1·2 + 6| = (1/2)|2 + 2 + 6| = (1/2)·10 = 5 square units."
+        },
+        "inSimpleWords": "Works the same for negative coordinates. Determinant formula handles any real numbers.",
+        "emoji": "➖"
       },
       {
         "kind": "concept",
@@ -156,12 +279,39 @@
           }
         ],
         "inSimpleWords": "These properties help simplify calculation. Identical rows mean zero area (degenerate). Swapping rows flips the sign.",
-        "emoji": "⚙️",
-        "image": {
-          "url": "https://images.pexels.com/photos/37811260/pexels-photo-37811260.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Properties of Determinants — Determinants",
-          "q": "student"
-        }
+        "emoji": "⚙️"
+      },
+      {
+        "kind": "story",
+        "title": "When Two Points Coincide",
+        "storyContext": "Zara's father marks coordinates (1, 2), (3, 5), (3, 5) — he marks the same point twice by mistake. Zara computes the determinant and gets 0. She realizes: zero area means degenerate. She tells Raj, who fixes the data.",
+        "points": [
+          {
+            "label": "Two identical rows",
+            "text": "Determinant = 0 always."
+          },
+          {
+            "label": "Collinear points",
+            "text": "Three points on the same line also give det = 0."
+          },
+          {
+            "label": "Check for errors",
+            "text": "If det = 0 unexpectedly, verify the three points are truly distinct and not collinear."
+          }
+        ],
+        "inSimpleWords": "Zero determinant signals degenerate or collinear points — area is zero.",
+        "emoji": "⚠️"
+      },
+      {
+        "kind": "example",
+        "title": "Swapping Rows Changes the Sign",
+        "storyContext": "Zara swaps the order of two vertices in her matrix. She notices the determinant flips from +12 to −12. She computes area as (1/2)|−12| = 6, same as before.",
+        "example": {
+          "problem": "Compute det with rows in order: (0,0), (4,0), (2,3) and then reversed: (0,0), (2,3), (4,0). Notice the sign change.",
+          "solution": "First order: det([[0 0 1], [4 0 1], [2 3 1]]) = 12. Swapped: det([[0 0 1], [2 3 1], [4 0 1]]) = −12. The absolute value for area is the same: 6."
+        },
+        "inSimpleWords": "Swapping rows negates the determinant. But absolute value ensures area is always positive.",
+        "emoji": "🔄"
       },
       {
         "kind": "concept",
@@ -189,6 +339,17 @@
         "emoji": "🔀"
       },
       {
+        "kind": "story",
+        "title": "Solving for Coordinates Using Cramer's Rule",
+        "storyContext": "Zara's father has two line equations from boundary surveys: 3x − 2y = 7 and x + y = 5. Where do they intersect? Cramer's rule finds it instantly.",
+        "example": {
+          "problem": "Find intersection of 3x − 2y = 7 and x + y = 5.",
+          "solution": "A = [[3 −2], [1 1]], det(A) = 3·1 − (−2)·1 = 3 + 2 = 5. x = det([[7 −2], [5 1]]) / 5 = (7 + 10) / 5 = 17/5 = 3.4. y = det([[3 7], [1 5]]) / 5 = (15−7) / 5 = 8/5 = 1.6. Intersection at (3.4, 1.6)."
+        },
+        "inSimpleWords": "Replace columns with the right-hand side constants, compute determinants, divide by the main determinant.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "example",
         "title": "Collinearity Check",
         "storyContext": "Zara's father marks three points on a map. Are they collinear (on a single line)? Determinant tells instantly.",
@@ -210,6 +371,17 @@
         "emoji": "📏"
       },
       {
+        "kind": "story",
+        "title": "Real-World Application: Multi-Plot Verification",
+        "storyContext": "Zara's father needs to verify that three boundary posts are collinear (should be on the same boundary line). He gives Zara their coordinates: (0,1), (2,5), (4,9). She computes the determinant.",
+        "example": {
+          "problem": "Verify collinearity: (0,1), (2,5), (4,9).",
+          "solution": "det([[0 1 1], [2 5 1], [4 9 1]]) = 0·(5−9) − 1·(2−4) + 1·(2·9 − 5·4) = 0 + 2 + (18−20) = 2 − 2 = 0. Collinear! Points lie on y = 2x + 1."
+        },
+        "inSimpleWords": "If determinant is 0, points are collinear and the boundary is straight.",
+        "emoji": "✔️"
+      },
+      {
         "kind": "challenge",
         "title": "Challenge: Multi-plot Calculation",
         "storyContext": "Zara's father surveyed 2 adjacent triangular plots. Plot 1: (0,0), (5,0), (2,4). Plot 2: (5,0), (8,0), (6.5,4). Find both areas and total.",
@@ -219,6 +391,77 @@
         },
         "inSimpleWords": "Apply the determinant area formula to each triangle separately, then sum.",
         "emoji": "🗺️"
+      },
+      {
+        "kind": "concept",
+        "title": "Invertibility and Determinants",
+        "storyContext": "Dr. Mehra teaches: A square matrix is invertible (has an inverse) if and only if its determinant is non-zero.",
+        "points": [
+          {
+            "label": "Determinant ≠ 0",
+            "text": "Matrix is invertible. System Ax=b has unique solution."
+          },
+          {
+            "label": "Determinant = 0",
+            "text": "Matrix is singular (not invertible). System either has no solution or infinitely many solutions."
+          },
+          {
+            "label": "Why it matters",
+            "text": "Cramer's rule requires det(A) ≠ 0. If det(A) = 0, Cramer's rule fails."
+          }
+        ],
+        "inSimpleWords": "Non-zero determinant: unique solution exists. Zero determinant: no unique solution.",
+        "emoji": "🔑"
+      },
+      {
+        "kind": "example",
+        "title": "When Cramer's Rule Fails",
+        "storyContext": "Zara encounters a system where Cramer's rule cannot apply. The equations represent parallel lines (no intersection).",
+        "example": {
+          "problem": "Solve: 2x + 4y = 8 and x + 2y = 5 using Cramer's rule.",
+          "solution": "A = [[2 4], [1 2]], det(A) = 2·2 − 4·1 = 4 − 4 = 0. Since det(A) = 0, Cramer's rule doesn't apply. The system is inconsistent (parallel lines, no intersection)."
+        },
+        "inSimpleWords": "If determinant is zero, don't use Cramer's rule. Check if equations are dependent or contradictory.",
+        "emoji": "⚠️"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: System Solving and Verification",
+        "storyContext": "Zara solves for the intersection of two survey lines using Cramer's rule, then verifies collinearity of three boundary points.",
+        "example": {
+          "problem": "Solve 4x + y = 11 and 2x − y = 1. Then verify if (2,3), (3,4), (4,5) are collinear.",
+          "solution": "For system: A = [[4 1], [2 −1]], det(A) = −4 − 2 = −6. x = det([[11 1], [1 −1]]) / −6 = (−11−1) / −6 = −12 / −6 = 2. y = det([[4 11], [2 1]]) / −6 = (4−22) / −6 = −18 / −6 = 3. Solution: (2,3). For collinearity: det([[2 3 1], [3 4 1], [4 5 1]]) = 2·(4−5) − 3·(3−4) + 1·(3·5 − 4·4) = −2 + 3 + (15−16) = −2 + 3 − 1 = 0. Collinear."
+        },
+        "inSimpleWords": "Combine Cramer's rule for solving systems with collinearity checks using the same determinant machinery.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "story",
+        "title": "Determinants Beyond 3×3",
+        "storyContext": "Dr. Mehra mentions: Determinants work for 4×4, 5×5, any n×n matrix. The same principles (expansion by minors, cofactor) apply, though calculations grow complex. Zara's surveywork uses only 2×2 and 3×3, but she understands the concept scales.",
+        "points": [
+          {
+            "label": "4×4 determinant",
+            "text": "Expand along a row/column, creating four 3×3 minors. Sum with alternating signs."
+          },
+          {
+            "label": "General n×n",
+            "text": "Expand along any row/column. Each minor is (n−1)×(n−1). Recursive until 2×2."
+          }
+        ],
+        "inSimpleWords": "Determinant formula works for any square matrix, but computation becomes tedious for large matrices.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "example",
+        "title": "Applications Summary: All Determinant Uses",
+        "storyContext": "Zara reflects on all the ways she used determinants: area, collinearity, line intersection, error detection.",
+        "example": {
+          "problem": "Summarize: triangle area, collinearity check, line intersection (Cramer), singular matrix detection.",
+          "solution": "Area: (1/2)|det 3×3|. Collinearity: det = 0. Intersection: x = det_x/det, y = det_y/det. Singular: det(A) = 0 → no unique solution. Determinant encodes invertibility and geometric scaling."
+        },
+        "inSimpleWords": "One formula, many applications: geometry, algebra, and system solving.",
+        "emoji": "🎯"
       },
       {
         "kind": "recap",
@@ -239,6 +482,9 @@
           },
           {
             "text": "Cramer's rule: solve systems by replacing columns with constants, computing determinants, dividing."
+          },
+          {
+            "text": "Collinearity: three points are collinear if and only if the determinant of their augmented matrix is zero."
           }
         ],
         "inSimpleWords": "Determinants unlock geometry from coordinates. Instant areas, collinearity checks, system solutions.",
@@ -284,6 +530,23 @@
         "emoji": "⛰️"
       },
       {
+        "kind": "story",
+        "title": "What Makes a Path Smooth?",
+        "storyContext": "Dev asks Priya: \"Your path before the wall was smooth. After the wall, you jumped 2 meters. What's the difference mathematically?\" Priya realizes: continuity means no jumps. Differentiability means no corners or kinks.",
+        "points": [
+          {
+            "label": "Smooth = continuous",
+            "text": "No sudden breaks or jumps in elevation."
+          },
+          {
+            "label": "Super-smooth = differentiable",
+            "text": "No corners or kinks. You can draw a unique tangent line at every point."
+          }
+        ],
+        "inSimpleWords": "Continuity means connected. Differentiability means smooth with a well-defined slope everywhere.",
+        "emoji": "📐"
+      },
+      {
         "kind": "concept",
         "title": "What is Continuity?",
         "storyContext": "Mrs. Singh defines: A function f is continuous at x=c if the curve doesn't jump or break at that point.",
@@ -309,6 +572,17 @@
         "emoji": "✓"
       },
       {
+        "kind": "example",
+        "title": "Three Continuity Checks at a Point",
+        "storyContext": "Mrs. Singh walks through checking all three conditions for a function at a specific point.",
+        "example": {
+          "problem": "Is f(x) = x + 1 continuous at x=3?",
+          "solution": "1) f(3) = 3 + 1 = 4 (defined). 2) lim_{x→3} (x+1) = 4 (exists). 3) The limit equals f(3). Yes, continuous."
+        },
+        "inSimpleWords": "Check: function value at point, limit approaching the point, do they match?",
+        "emoji": "✅"
+      },
+      {
         "kind": "concept",
         "title": "Introduction to Derivatives",
         "storyContext": "Dev asks Priya: how fast were you running at the 2 km mark? The answer is the derivative — instantaneous rate of change.",
@@ -332,6 +606,38 @@
         },
         "inSimpleWords": "Derivative = rate of change, or slope of tangent line. Measures how fast the function is increasing/decreasing at that point.",
         "emoji": "📈"
+      },
+      {
+        "kind": "story",
+        "title": "From Average to Instantaneous Rate",
+        "storyContext": "Priya ran 10 km in 1 hour (average speed 10 km/h). But at the 45-minute mark, was she going 10 km/h? Dev explains: derivative gives the instantaneous speed, shrinking the time interval to zero.",
+        "points": [
+          {
+            "label": "Average rate",
+            "text": "Total distance / total time. Over an interval."
+          },
+          {
+            "label": "Instantaneous rate",
+            "text": "Limit of average rate as interval shrinks. At a single point."
+          },
+          {
+            "label": "Derivative formula",
+            "text": "f'(x) = lim_{h→0} (f(x+h) − f(x)) / h."
+          }
+        ],
+        "inSimpleWords": "As the time interval gets smaller and smaller, the average speed approaches the instantaneous speed.",
+        "emoji": "⏱️"
+      },
+      {
+        "kind": "example",
+        "title": "Computing a Derivative from Scratch",
+        "storyContext": "Priya practices computing f'(x) for a simple function using the limit definition.",
+        "example": {
+          "problem": "Find f'(2) for f(x) = 3x + 1 using the limit definition.",
+          "solution": "f'(2) = lim_{h→0} (f(2+h) − f(2)) / h = lim_{h→0} (3(2+h)+1 − (3·2+1)) / h = lim_{h→0} (6+3h+1 − 7) / h = lim_{h→0} 3h/h = lim_{h→0} 3 = 3."
+        },
+        "inSimpleWords": "Plug in (x+h), subtract the original, divide by h, then take the limit as h approaches zero.",
+        "emoji": "🧮"
       },
       {
         "kind": "concept",
@@ -361,6 +667,34 @@
         },
         "inSimpleWords": "Power rule: power goes down, multiply. Product rule: first times derivative of second, plus second times derivative of first. Chain rule: derivative of outer times derivative of inner.",
         "emoji": "⚡"
+      },
+      {
+        "kind": "story",
+        "title": "Why Derivative Rules Save Time",
+        "storyContext": "Dev shows Priya: using limits to differentiate f(x) = x⁵ would take 10 lines and algebra. Using the power rule: d/dx[x⁵] = 5x⁴. One second. She's convinced.",
+        "points": [
+          {
+            "label": "Limit definition",
+            "text": "Exact but slow. Works for understanding."
+          },
+          {
+            "label": "Rules (power, product, chain, quotient)",
+            "text": "Fast and practical. Use these for computation."
+          }
+        ],
+        "inSimpleWords": "Rules let us differentiate polynomials, products, and composed functions instantly without limits.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "example",
+        "title": "Power Rule in Action",
+        "storyContext": "Priya practices the power rule on polynomial terms.",
+        "example": {
+          "problem": "Find derivatives: d/dx[x³], d/dx[x^(-2)], d/dx[√x].",
+          "solution": "d/dx[x³] = 3x². d/dx[x^(-2)] = −2x^(-3) = −2/x³. d/dx[√x] = d/dx[x^(1/2)] = (1/2)x^(-1/2) = 1/(2√x)."
+        },
+        "inSimpleWords": "Bring the power down as a coefficient, subtract 1 from the power.",
+        "emoji": "🎯"
       },
       {
         "kind": "concept",
@@ -413,6 +747,70 @@
         "emoji": "⚠️"
       },
       {
+        "kind": "concept",
+        "title": "Derivatives of Common Functions",
+        "storyContext": "Dev creates a cheat sheet of derivatives Priya will use most often.",
+        "points": [
+          {
+            "label": "Polynomial",
+            "text": "d/dx[x^n] = n·x^{n-1}. d/dx[c] = 0."
+          },
+          {
+            "label": "Trigonometric",
+            "text": "d/dx[sin(x)] = cos(x). d/dx[cos(x)] = −sin(x). d/dx[tan(x)] = sec²(x)."
+          },
+          {
+            "label": "Exponential and logarithm",
+            "text": "d/dx[e^x] = e^x. d/dx[ln(x)] = 1/x. d/dx[a^x] = a^x·ln(a)."
+          }
+        ],
+        "inSimpleWords": "Memorize these basic derivatives. Use them with power, product, and chain rules for complex functions.",
+        "emoji": "📋"
+      },
+      {
+        "kind": "example",
+        "title": "Derivatives of Trigonometric Functions",
+        "storyContext": "Priya's cyclic running motion is described by sine and cosine. She learns their derivatives.",
+        "example": {
+          "problem": "Position: s(t) = 10·sin(t). Find velocity and acceleration.",
+          "solution": "v(t) = s'(t) = 10·cos(t). a(t) = v'(t) = −10·sin(t). The acceleration is proportional to negative position — simple harmonic motion."
+        },
+        "inSimpleWords": "Sine differentiates to cosine. Cosine differentiates to negative sine. They cycle forever.",
+        "emoji": "〰️"
+      },
+      {
+        "kind": "example",
+        "title": "Higher-Order Derivatives",
+        "storyContext": "Mrs. Singh introduces: the derivative of a derivative is called the second derivative, and so on.",
+        "example": {
+          "problem": "For f(x) = x⁴ − 2x³ + x, find f'(x), f''(x), and f'''(x).",
+          "solution": "f'(x) = 4x³ − 6x² + 1. f''(x) = 12x² − 12x. f'''(x) = 24x − 12. These describe rate of change, curvature, and how curvature changes."
+        },
+        "inSimpleWords": "First derivative: slope. Second derivative: curvature. Third derivative: change in curvature.",
+        "emoji": "📈📉"
+      },
+      {
+        "kind": "story",
+        "title": "Priya Spots the Sharp Turn",
+        "storyContext": "Priya runs up to the wall at (2, 0) then jumps down. The path function f(x) = |x−2| has a sharp corner at x=2. From the left, she's going downhill at −45°. From the right, she's going uphill at +45°. Left derivative ≠ right derivative.",
+        "points": [
+          {
+            "label": "Before the wall",
+            "text": "Slope = −1 (moving down-left to the wall)."
+          },
+          {
+            "label": "After the wall",
+            "text": "Slope = +1 (moving up-right from the wall)."
+          },
+          {
+            "label": "At the wall",
+            "text": "No unique tangent line — corner exists."
+          }
+        ],
+        "inSimpleWords": "Corners and kinks break differentiability because the slope changes abruptly.",
+        "emoji": "📍"
+      },
+      {
         "kind": "example",
         "title": "Instantaneous Velocity Problem",
         "storyContext": "Priya's position at time t (in hours) is s(t) = t² (distance in km). What is her instantaneous velocity at t=2?",
@@ -434,6 +832,17 @@
         "emoji": "⏱️"
       },
       {
+        "kind": "example",
+        "title": "Piecewise Function: Checking Continuity",
+        "storyContext": "Priya's elevation map is piecewise: flat at 10 m for the first 2 km, then rising linearly. Check continuity at the junction (x=2).",
+        "example": {
+          "problem": "f(x) = {10 if x < 2; 5 + 2x if x ≥ 2}. Continuous at x=2?",
+          "solution": "f(2) = 5 + 2(2) = 9. lim_{x→2⁻} 10 = 10. lim_{x→2⁺} (5+2x) = 9. Left limit ≠ right limit ≠ f(2), so discontinuous (jump of 1 meter)."
+        },
+        "inSimpleWords": "For piecewise functions, check if both pieces meet at the junction point.",
+        "emoji": "🔗"
+      },
+      {
         "kind": "challenge",
         "title": "Challenge: Piecewise Continuity and Differentiability",
         "storyContext": "Priya's path function: f(x) = {x² if x < 1; 2x − 1 if x ≥ 1}. Is it continuous and differentiable at x=1?",
@@ -442,11 +851,72 @@
           "solution": "Continuity: f(1) = 2(1)−1 = 1. lim_{x→1⁻} x² = 1. lim_{x→1⁺} (2x−1) = 1. All equal, so continuous. Differentiability: f'₋(1) = 2(1) = 2 (derivative of x²). f'₊(1) = 2 (derivative of 2x−1). Both equal, so differentiable."
         },
         "inSimpleWords": "Check continuity at the junction (all pieces meet). Check if left and right derivatives match. If yes to both, smooth transition.",
-        "emoji": "🔗",
-        "image": {
-          "prompt": "path",
-          "gq": true
-        }
+        "emoji": "🔗"
+      },
+      {
+        "kind": "concept",
+        "title": "Removable vs. Non-Removable Discontinuities",
+        "storyContext": "Mrs. Singh clarifies types of breaks: some can be \"fixed\" (holes), others cannot (jumps or infinite).",
+        "points": [
+          {
+            "label": "Removable discontinuity",
+            "text": "Limit exists, but f(c) undefined or doesn't match. Example: f(x) = (x²−1)/(x−1) at x=1. Limit is 2, but f(1) undefined."
+          },
+          {
+            "label": "Jump discontinuity",
+            "text": "Left and right limits differ. Example: floor function at integer points."
+          },
+          {
+            "label": "Infinite discontinuity",
+            "text": "Limit is infinite. Example: f(x) = 1/(x−2) at x=2. Vertical asymptote."
+          }
+        ],
+        "inSimpleWords": "Removable: hole. Non-removable: jump or asymptote. Derivatives don't exist at non-removable breaks.",
+        "emoji": "🔌"
+      },
+      {
+        "kind": "story",
+        "title": "The Hole vs. The Jump",
+        "storyContext": "Priya imagines two different breaks on her running path. The removable one: a small hole (she could jump over, the terrain 'wants' to be continuous). The jump: a cliff edge (truly broken, no way to make it continuous by filling a hole).",
+        "example": {
+          "problem": "Removable: f(x) = (x²−4)/(x−2) at x=2. Non-removable: f(x) = {x if x<2; x+1 if x≥2} at x=2.",
+          "solution": "Removable: (x²−4)/(x−2) = (x−2)(x+2)/(x−2) = x+2. Limit at x=2 is 4, but f(2) undefined. Jump: lim_{x→2⁻} x = 2, lim_{x→2⁺} (x+1) = 3. Left ≠ right, irreversible."
+        },
+        "inSimpleWords": "Removable can be 'fixed' by redefining one point. Jumps and asymptotes cannot.",
+        "emoji": "🏞️"
+      },
+      {
+        "kind": "example",
+        "title": "All Three Derivative Rules Applied",
+        "storyContext": "Priya practices using power, product, and chain rules on a complex expression.",
+        "example": {
+          "problem": "Find d/dx[√(3x² + 2)·e^x].",
+          "solution": "Let u = √(3x² + 2) and v = e^x. u' = (1/2)(3x²+2)^(-1/2)·6x = 3x/√(3x²+2). v' = e^x. By product rule: d/dx = u'v + uv' = [3x/√(3x²+2)]·e^x + √(3x²+2)·e^x = e^x[3x/√(3x²+2) + √(3x²+2)]."
+        },
+        "inSimpleWords": "Chain rule for complicated inner functions, product rule when multiplying, simplify the result.",
+        "emoji": "⚙️"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Complete Derivative Computation",
+        "storyContext": "Priya computes the derivative of a complex function using multiple rules, then finds the slope at a specific point.",
+        "example": {
+          "problem": "Find d/dx[(2x³ − 5) · cos(x)] at x=π. Then find the instantaneous rate of change at that point.",
+          "solution": "Using product rule: f'(x) = (6x²)·cos(x) + (2x³−5)·(−sin(x)) = 6x²cos(x) − (2x³−5)sin(x). At x=π: f'(π) = 6π²·cos(π) − (2π³−5)·sin(π) = 6π²·(−1) − (2π³−5)·0 = −6π²."
+        },
+        "inSimpleWords": "Combine rules (product, chain) to differentiate, then substitute the x-value for the specific rate.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Piecewise with Jump",
+        "storyContext": "Priya encounters a truly discontinuous path: a cliff with no smooth bridge. Check continuity and differentiability.",
+        "example": {
+          "problem": "f(x) = {2x if x<3; x+3 if x≥3}. Continuous and differentiable at x=3?",
+          "solution": "Continuity: f(3) = 3+3 = 6. lim_{x→3⁻} 2x = 6. lim_{x→3⁺} (x+3) = 6. All equal — continuous! Differentiability: f'₋(3) = 2. f'₊(3) = 1. Not equal — not differentiable (smooth meeting, but different slopes)."
+        },
+        "inSimpleWords": "A function can be continuous but not differentiable if the slopes don't match at the junction.",
+        "emoji": "🌉"
       },
       {
         "kind": "recap",
@@ -467,15 +937,13 @@
           },
           {
             "text": "Sharp corners have unequal left/right derivatives. Smooth points have matching left/right derivatives."
+          },
+          {
+            "text": "Position derivatives give velocity, velocity derivatives give acceleration."
           }
         ],
         "inSimpleWords": "Continuous functions don't break. Differentiable functions are smooth. Derivatives measure instantaneous rate of change.",
-        "emoji": "🎓",
-        "image": {
-          "url": "https://images.pexels.com/photos/3760259/pexels-photo-3760259.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What Priya Learned — Continuity and Differentiability",
-          "q": "runner"
-        }
+        "emoji": "🎓"
       }
     ]
   },
@@ -525,6 +993,27 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Why Optimization Matters",
+        "storyContext": "Ananya observes: With 10 kg ghee, profit = −2(100) + 100(10) − 500 = 300 rupees. With 20 kg, profit = −2(400) + 100(20) − 500 = 700 rupees. With 30 kg, profit = −2(900) + 100(30) − 500 = 500 rupees. There's a sweet spot! Vikram says: that's what derivatives find.",
+        "points": [
+          {
+            "label": "Too little input",
+            "text": "Underutilized resources, low profit."
+          },
+          {
+            "label": "Too much input",
+            "text": "Waste and inefficiency, profit drops."
+          },
+          {
+            "label": "The optimal point",
+            "text": "Maximum profit exists somewhere in between. Derivatives pinpoint it."
+          }
+        ],
+        "inSimpleWords": "Every business has an optimal operating point. Derivatives find it automatically.",
+        "emoji": "💰"
+      },
+      {
         "kind": "concept",
         "title": "Critical Points and Extrema",
         "storyContext": "Prof. Nair teaches: To find max/min, take the derivative, set it to zero, solve for x.",
@@ -552,6 +1041,17 @@
           "prompt": "teacher",
           "gq": true
         }
+      },
+      {
+        "kind": "example",
+        "title": "Finding Critical Points Step-by-Step",
+        "storyContext": "Ananya works through finding the optimal ghee amount herself, following Prof. Nair's steps.",
+        "example": {
+          "problem": "For P(x) = −2x² + 100x − 500, find the critical point and verify it's a maximum.",
+          "solution": "Step 1: P'(x) = −4x + 100. Step 2: Set to zero: −4x + 100 = 0 ⟹ x = 25. Step 3: Check second derivative: P''(x) = −4. Since P''(25) = −4 < 0, it's a maximum. Step 4: Max profit = P(25) = 750 rupees at x = 25 kg ghee."
+        },
+        "inSimpleWords": "Differentiate, set equal to zero, solve. Then check the second derivative to confirm max or min.",
+        "emoji": "🎯"
       },
       {
         "kind": "concept",
@@ -583,6 +1083,27 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Profit Landscape: Before and After the Peak",
+        "storyContext": "Ananya tests profit at various ghee levels. From 0 to 25 kg: profit climbs (P' > 0). From 25 kg onward: profit falls (P' < 0). The turning point is her sweet spot.",
+        "points": [
+          {
+            "label": "x = 0 to 25",
+            "text": "Increasing. Each extra kg of ghee boosts profit."
+          },
+          {
+            "label": "x = 25",
+            "text": "The peak. Profit reaches 750 rupees."
+          },
+          {
+            "label": "x = 25 onward",
+            "text": "Decreasing. Extra ghee means waste and lower profit."
+          }
+        ],
+        "inSimpleWords": "The derivative sign (+ or −) tells if the function is climbing or falling.",
+        "emoji": "📊"
+      },
+      {
         "kind": "concept",
         "title": "Concavity and Inflection Points",
         "storyContext": "Prof. Nair introduces curvature: Does the curve bend upward (concave up) or downward (concave down)?",
@@ -612,6 +1133,17 @@
         }
       },
       {
+        "kind": "example",
+        "title": "Concavity of Ananya's Profit Function",
+        "storyContext": "Ananya computes the second derivative of her profit function to understand its shape.",
+        "example": {
+          "problem": "For P(x) = −2x² + 100x − 500, find P''(x) and interpret concavity.",
+          "solution": "P'(x) = −4x + 100. P''(x) = −4. Since P''(x) = −4 < 0 everywhere, the function is concave down everywhere. Parabola opens downward — any critical point is a maximum."
+        },
+        "inSimpleWords": "Negative second derivative means the curve domes downward — any peak is a maximum.",
+        "emoji": "📉"
+      },
+      {
         "kind": "concept",
         "title": "Optimization in Real Life",
         "storyContext": "Vikram shares business scenarios where derivatives solve practical problems.",
@@ -637,6 +1169,80 @@
         }
       },
       {
+        "kind": "concept",
+        "title": "Monotonicity and First Derivative Test",
+        "storyContext": "Prof. Nair shows how to analyze when profit is increasing or decreasing without computing exact values.",
+        "points": [
+          {
+            "label": "f'(x) > 0 on (a,b)",
+            "text": "f is strictly increasing on that interval. Buy more resources, profit grows."
+          },
+          {
+            "label": "f'(x) < 0 on (a,b)",
+            "text": "f is strictly decreasing on that interval. Add more, profit shrinks."
+          },
+          {
+            "label": "Critical point analysis",
+            "text": "Sign change of f' from + to − indicates a local maximum. − to + indicates local minimum."
+          }
+        ],
+        "inSimpleWords": "Derivative sign tells if function is rising or falling. Sign change marks a peak or valley.",
+        "emoji": "📉"
+      },
+      {
+        "kind": "example",
+        "title": "Analyzing Monotonicity over an Interval",
+        "storyContext": "Ananya analyzes her profit function over different ranges of production.",
+        "example": {
+          "problem": "For P(x) = −x² + 20x − 50, find where P is increasing and decreasing. Identify critical point.",
+          "solution": "P'(x) = −2x + 20. P'(x) = 0 at x = 10. For x < 10: P'(x) > 0 (increasing). For x > 10: P'(x) < 0 (decreasing). Local max at x = 10."
+        },
+        "inSimpleWords": "Test the sign of the derivative in each region. Rising region: derivative positive. Falling region: derivative negative.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "story",
+        "title": "Applied Calculus in Business: Elasticity",
+        "storyContext": "Vikram introduces price elasticity of demand: how sensitive demand is to price changes. Derivatives measure this sensitivity.",
+        "points": [
+          {
+            "label": "Elasticity formula",
+            "text": "E = (dq/dp) · (p/q), where q is quantity and p is price."
+          },
+          {
+            "label": "Elastic (E > 1)",
+            "text": "Demand is very sensitive to price. Small price increase → big quantity drop."
+          },
+          {
+            "label": "Inelastic (E < 1)",
+            "text": "Demand is insensitive to price. Price change → small quantity change."
+          }
+        ],
+        "inSimpleWords": "Elasticity: how much quantity changes when price changes. Derivatives measure the sensitivity.",
+        "emoji": "💹"
+      },
+      {
+        "kind": "story",
+        "title": "Real Optimization Success",
+        "storyContext": "Ananya applies derivatives to three problems: (1) Maximize profit from ghee supply, (2) minimize packaging cost for a fixed volume of ladoos, (3) find the optimal selling price for maximum revenue.",
+        "points": [
+          {
+            "label": "Profit optimization",
+            "text": "She finds 25 kg ghee maximizes daily profit at 750 rupees."
+          },
+          {
+            "label": "Cost optimization",
+            "text": "She finds box dimensions that minimize material waste."
+          },
+          {
+            "label": "Revenue optimization",
+            "text": "She finds the price point that maximizes total revenue."
+          }
+        ],
+        "inSimpleWords": "Every optimization follows the same pattern: set up the function, differentiate, find critical points, verify max/min.",
+        "emoji": "✅"
+      },
+      {
         "kind": "example",
         "title": "Box Optimization Problem",
         "storyContext": "Ananya needs to ship ladoos in boxes. She has a rectangular sheet 20 cm × 30 cm. She'll cut squares of side x from corners, fold up, and tape. What x maximizes volume?",
@@ -651,12 +1257,7 @@
           "solution": "V(x) = x(600 − 40x − 60x + 4x²) = 600x − 100x² + 4x³. V'(x) = 600 − 200x + 12x². Set to 0: 12x² − 200x + 600 = 0 ⟹ 3x² − 50x + 150 = 0. Using quadratic formula: x = (50 ± √(2500−1800)) / 6 = (50 ± √700) / 6 ≈ (50 ± 26.46) / 6. So x ≈ 12.74 or 3.92. Since 0 < x < 10, x ≈ 3.92 cm gives max volume."
         },
         "inSimpleWords": "Write volume in terms of x, find where derivative = 0, check which solution is in valid range, calculate max volume.",
-        "emoji": "📦",
-        "image": {
-          "url": "https://images.pexels.com/photos/6169036/pexels-photo-6169036.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Box Optimization Problem — Application of Derivatives",
-          "q": "box"
-        }
+        "emoji": "📦"
       },
       {
         "kind": "example",
@@ -677,11 +1278,18 @@
           "solution": "v(t) = s'(t) = 3t² − 12t + 9. At t=2: v(2) = 12 − 24 + 9 = −3 m/s (moving backward). a(t) = v'(t) = 6t − 12. At t=2: a(2) = 12 − 12 = 0 m/s² (no acceleration at this instant)."
         },
         "inSimpleWords": "Derivative of position = velocity. Derivative of velocity = acceleration. Second derivative of position = acceleration.",
-        "emoji": "🚴",
-        "image": {
-          "prompt": "bike",
-          "gq": true
-        }
+        "emoji": "🚴"
+      },
+      {
+        "kind": "example",
+        "title": "Revenue and Profit Optimization",
+        "storyContext": "Ananya studies how to maximize her revenue by adjusting the selling price and quantity relationship.",
+        "example": {
+          "problem": "Revenue = price × quantity. If demand q = 100 − 2p (p = price), find dR/dp and interpret.",
+          "solution": "Revenue R(p) = p·q = p(100−2p) = 100p − 2p². dR/dp = 100 − 4p. Setting to zero: 100 − 4p = 0 ⟹ p = 25. Revenue is maximized at price = 25 rupees, yielding q = 100 − 50 = 50 units, R = 1250 rupees."
+        },
+        "inSimpleWords": "Express revenue in terms of price, differentiate, set to zero to find optimal price.",
+        "emoji": "💵"
       },
       {
         "kind": "challenge",
@@ -692,11 +1300,104 @@
           "solution": "Revenue = p(500−10p) = 500p − 10p². Cost = 20(500−10p) = 10000 − 200p. Profit = 500p − 10p² − 10000 + 200p = −10p² + 700p − 10000. dP/dp = −20p + 700 = 0 ⟹ p = 35 rupees. d²P/dp² = −20 < 0 (maximum). Max profit = −10(1225) + 700(35) − 10000 = −12250 + 24500 − 10000 = 2250 rupees."
         },
         "inSimpleWords": "Express profit as function of price/quantity, differentiate, set to zero, solve. Check second derivative for max/min.",
-        "emoji": "💰",
-        "image": {
-          "prompt": "ladoos",
-          "gq": true
-        }
+        "emoji": "💰"
+      },
+      {
+        "kind": "concept",
+        "title": "Local vs. Global Extrema",
+        "storyContext": "Prof. Nair explains: A function may have multiple peaks and valleys. Some are local (peaks/valleys in a region), others are global (highest/lowest everywhere).",
+        "points": [
+          {
+            "label": "Local maximum",
+            "text": "f(c) ≥ f(x) for all x near c, but not necessarily globally."
+          },
+          {
+            "label": "Global (absolute) maximum",
+            "text": "f(c) ≥ f(x) for ALL x in the domain."
+          },
+          {
+            "label": "Finding them",
+            "text": "Check critical points, test second derivative, also check boundaries if domain is restricted."
+          }
+        ],
+        "inSimpleWords": "Local max: peak on a hill. Global max: highest point in the entire landscape. Boundaries matter.",
+        "emoji": "🏔️"
+      },
+      {
+        "kind": "example",
+        "title": "Local Max vs. Global Max",
+        "storyContext": "Ananya's profit function has multiple peaks. She needs to find the global maximum to decide production.",
+        "example": {
+          "problem": "f(x) = x³ − 3x² + 2 on [−1, 3]. Find all critical points and determine global max/min.",
+          "solution": "f'(x) = 3x² − 6x = 3x(x−2). Critical points: x = 0, x = 2. f(−1) = −1−3+2 = −2. f(0) = 2 (local max). f(2) = 8−12+2 = −2 (local min). f(3) = 27−27+2 = 2. Global max = f(0) = 2. Global min = f(2) = −2 or f(−1) = −2 or f(3) = 2 — check all."
+        },
+        "inSimpleWords": "Evaluate critical points and boundaries. The highest value is global max; lowest is global min.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "concept",
+        "title": "Rolle's Theorem and Mean Value Theorem",
+        "storyContext": "Prof. Nair introduces theoretical cornerstones: if a smooth function has the same height at two points, there's a flat point in between.",
+        "points": [
+          {
+            "label": "Rolle's Theorem",
+            "text": "If f is continuous on [a,b], differentiable on (a,b), and f(a) = f(b), then ∃c ∈ (a,b) where f'(c) = 0."
+          },
+          {
+            "label": "Mean Value Theorem (MVT)",
+            "text": "If f is continuous on [a,b] and differentiable on (a,b), then ∃c where f'(c) = (f(b)−f(a))/(b−a)."
+          },
+          {
+            "label": "Interpretation",
+            "text": "Average rate of change equals instantaneous rate at some point."
+          }
+        ],
+        "inSimpleWords": "Rolle: if endpoints match, there's a flat spot inside. MVT: average slope equals some instantaneous slope.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "example",
+        "title": "Applying Rolle's Theorem",
+        "storyContext": "Ananya's position function: s(t) = t² − 4t + 5. At t=1, s(1)=2. At t=3, s(3)=2. There must be a moment when velocity is zero.",
+        "example": {
+          "problem": "Verify Rolle's Theorem for f(x) = x² − 4x + 5 on [1,3].",
+          "solution": "f(1) = 1−4+5 = 2. f(3) = 9−12+5 = 2. f is continuous and differentiable. f'(x) = 2x−4. Set f'(c) = 0: 2c−4 = 0 ⟹ c = 2. Indeed, 1 < 2 < 3, so Rolle's Theorem applies."
+        },
+        "inSimpleWords": "If a function starts and ends at the same height, it must have a flat point (zero derivative) somewhere in between.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Constrained Optimization",
+        "storyContext": "Ananya must minimize the cost of a cylindrical ladoo container with volume 1 liter (1000 cm³). If material costs 0.01 rupees per cm², what are optimal radius and height?",
+        "example": {
+          "problem": "Minimize surface area of cylinder with fixed volume V = 1000 cm³. (S = 2πr² + 2πrh, and V = πr²h).",
+          "solution": "From V = πr²h = 1000, get h = 1000/(πr²). Substitute into S: S(r) = 2πr² + 2πr·(1000/(πr²)) = 2πr² + 2000/r. dS/dr = 4πr − 2000/r² = 0 ⟹ 4πr³ = 2000 ⟹ r³ = 500/π ⟹ r ≈ 4.92 cm. Then h = 1000/(π·(4.92)²) ≈ 13.15 cm."
+        },
+        "inSimpleWords": "Use the constraint to eliminate one variable, then optimize the resulting single-variable function.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Related Rates Problem",
+        "storyContext": "Ananya observes: as she increases production speed, the cost per unit changes. If she increases production rate by 10 boxes/hour, how fast does her total hourly cost change?",
+        "example": {
+          "problem": "Cost C = 100 + 0.5q², where q is production rate (boxes/hour). If dq/dt = 2 boxes/hour², find dC/dt when q = 50.",
+          "solution": "dC/dq = q. At q = 50: dC/dq = 50. By chain rule: dC/dt = (dC/dq)·(dq/dt) = 50·2 = 100 rupees/hour². Cost is rising at 100 rupees per hour squared."
+        },
+        "inSimpleWords": "Chain rule for related rates: find how one quantity changes based on another using derivatives.",
+        "emoji": "⛓️"
+      },
+      {
+        "kind": "example",
+        "title": "Real-World Optimization: Ananya's Complete Case Study",
+        "storyContext": "Ananya combines all optimization tools: profit function, critical points, second derivative test, and boundary checks to find maximum profit over a realistic production range.",
+        "example": {
+          "problem": "Ananya's daily profit: P(x) = −0.5x² + 80x − 500 for 0 ≤ x ≤ 150. Find global maximum profit and optimal production.",
+          "solution": "P'(x) = −x + 80. Critical point: x = 80. P''(x) = −1 < 0 (maximum). Check boundaries: P(0) = −500, P(80) = −0.5(6400) + 6400 − 500 = 2700, P(150) = −0.5(22500) + 12000 − 500 = 250. Global max at x = 80 kg, profit = 2700 rupees."
+        },
+        "inSimpleWords": "For bounded domains, always check critical points AND boundaries. Choose the true global maximum.",
+        "emoji": "🏆"
       },
       {
         "kind": "recap",
@@ -717,14 +1418,13 @@
           },
           {
             "text": "Real applications: optimize dimensions (volume, area), price (profit, revenue), motion (velocity, acceleration)."
+          },
+          {
+            "text": "Constrained optimization: use the constraint to reduce variables, then apply standard optimization."
           }
         ],
         "inSimpleWords": "Derivatives find where functions peak and valley. Critical business tool for profit, cost, and efficiency.",
-        "emoji": "🎓",
-        "image": {
-          "prompt": "shopkeeper",
-          "gq": true
-        }
+        "emoji": "🎓"
       }
     ]
   }

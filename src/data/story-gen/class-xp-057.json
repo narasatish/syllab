@@ -81,6 +81,13 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Why Magnitude Matters",
+        "storyContext": "Kavya asks Pradeep, 'If I move 3 meters east and then 4 meters north, did I really travel 7 meters from the start?' Pradeep smiles. 'No, the shortest path is 5 meters. That's the magnitude of the displacement vector. You traveled 7 meters along the path, but your net displacement is 5 meters.'",
+        "inSimpleWords": "Distance (path length) and displacement (net vector) are different. Vectors capture the net effect, not the path.",
+        "emoji": "📏"
+      },
+      {
         "kind": "concept",
         "title": "Vector Addition and Subtraction",
         "storyContext": "Kavya makes a second move: 2 meters west, 1 meter south. Ramesh asks, 'What's your total displacement?' This requires adding vectors.",
@@ -108,6 +115,17 @@
           "prompt": "dancer",
           "gq": true
         }
+      },
+      {
+        "kind": "example",
+        "title": "Adding Three Vectors in Dance",
+        "storyContext": "Ramesh choreographs a triple-step: first 2 meters south, then 3 meters east, then 1 meter north. Find total displacement.",
+        "example": {
+          "problem": "Step 1: v₁ = (0, −2). Step 2: v₂ = (3, 0). Step 3: v₃ = (0, 1). Total: v = v₁ + v₂ + v₃ = (0+3+0, −2+0+1) = (3, −1). Magnitude: |v| = √(9+1) = √10 ≈ 3.16 m. Direction: θ = arctan(−1/3) ≈ −18.4° (south of east).",
+          "solution": "Kavya ends 3.16 meters away from start, roughly 18° south of east."
+        },
+        "inSimpleWords": "To add multiple vectors, add all x-components and all y-components separately.",
+        "emoji": "🎭"
       },
       {
         "kind": "concept",
@@ -143,6 +161,13 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Perpendicular Movements",
+        "storyContext": "Kavya moves 5 meters east (vector u = (5, 0)). Then Ramesh asks her to move perpendicular to that—directly north (vector v = (0, 4)). She calculates: u · v = 5(0) + 0(4) = 0. Pradeep nods: 'When dot product is zero, the vectors are perpendicular. No overlap in direction.'",
+        "inSimpleWords": "If dot product = 0, vectors are perpendicular (90° angle). Otherwise they have an angle between 0° and 180°.",
+        "emoji": "⏱️"
+      },
+      {
         "kind": "concept",
         "title": "Cross Product (Vector Product)",
         "storyContext": "Pradeep says, 'The cross product gives a vector perpendicular to both original vectors. In dance, this describes rotation or torque.' Ramesh uses it for spinning moves.",
@@ -172,6 +197,17 @@
         "emoji": "🔄"
       },
       {
+        "kind": "example",
+        "title": "Cross Product in 2D (Special Case)",
+        "storyContext": "When working in 2D (the stage floor), Pradeep shows Kavya how to use the 2D version: u × v = uₓvᵧ − uᵧvₓ (gives a scalar).",
+        "example": {
+          "problem": "Kavya's displacement u = (3, 4) (east and north). Her velocity v = (1, 2) m/s. 2D cross product: u × v = 3(2) − 4(1) = 6 − 4 = 2. This value indicates rotational tendency on the floor plane.",
+          "solution": "Positive result shows counter-clockwise rotation tendency. The magnitude 2 tells the strength."
+        },
+        "inSimpleWords": "In 2D, cross product becomes a scalar: uₓvᵧ − uᵧvₓ. It's useful for detecting rotation direction.",
+        "emoji": "↩️"
+      },
+      {
         "kind": "concept",
         "title": "Unit Vectors and Direction Cosines",
         "storyContext": "Pradeep teaches Kavya how to describe exact directions. 'A unit vector points in a direction with length 1. Use it as a compass.'",
@@ -197,6 +233,68 @@
         "emoji": "🧭"
       },
       {
+        "kind": "story",
+        "title": "Finding the Direction of Motion",
+        "storyContext": "Ramesh describes Kavya's movement as displacement v = (6, 8). She wonders, 'What's the direction in degrees?' Pradeep helps: magnitude |v| = 10, unit vector = (0.6, 0.8). This means 60% of the motion is east, 80% is north.",
+        "inSimpleWords": "Unit vectors break down a displacement into directional components that sum (via Pythagoras) to magnitude 1.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "concept",
+        "title": "Collinear and Coplanar Vectors",
+        "storyContext": "Pradeep explores relationships between vectors. 'Some vectors lie on the same line (collinear). Others fit in the same plane (coplanar). How do we detect this?'",
+        "points": [
+          {
+            "label": "Collinear vectors",
+            "text": "Vectors u and v are collinear if one is a scalar multiple of the other: v = k·u for some k ≠ 0."
+          },
+          {
+            "label": "Scalar multiple",
+            "text": "If u = (2, 3) and v = (6, 9), then v = 3u. They point in same direction (k > 0) or opposite (k < 0)."
+          },
+          {
+            "label": "Coplanar vectors",
+            "text": "Three vectors u, v, w are coplanar if they lie in the same plane. Equivalently, (u × v) · w = 0 (scalar triple product is zero)."
+          }
+        ],
+        "example": {
+          "problem": "Are u = (1, 2, 3), v = (2, 4, 6), w = (1, 0, 1) coplanar? Check v = 2u (yes, collinear with u). So u and v don't span a plane. Now check if w is in the plane spanned by u and v. Since v = 2u, any point on their 'plane' is c₁u + c₂v = c₁u + 2c₂u = (c₁+2c₂)u. Can w = (1, 0, 1) be written as k(1, 2, 3)? If k(1, 2, 3) = (1, 0, 1), then k=1, 2k=0 (contradiction). So w is NOT coplanar.",
+          "solution": "u and v are collinear (dependent), so they don't define a unique plane. w is linearly independent of them."
+        },
+        "inSimpleWords": "Collinear vectors lie on one line. Coplanar vectors lie in one plane. Use scalar multiples and cross products to test.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "example",
+        "title": "Projecting One Vector onto Another",
+        "storyContext": "Ramesh asks, 'If Kavya moves (3, 4) but we only count the eastward component, how far east did she go?' This is vector projection.",
+        "example": {
+          "problem": "Vector u = (3, 4). Project onto i-hat = (1, 0). Projection = (u · i-hat) i-hat = ((3, 4) · (1, 0)) (1, 0) = 3(1, 0) = (3, 0). Length of projection = 3. Alternatively, length of projection = u · u-hat = 5 · (1/√(1+0)) = 5 · 1 = 5... wait, that's wrong. Let me recalculate. u · î = 3. |î| = 1. So projection length = 3 (component along x-axis).",
+          "solution": "The eastward (x) component is 3 meters. Projection of u onto x-axis is (3, 0)."
+        },
+        "inSimpleWords": "Project vector u onto direction v-hat (unit vector): proj = (u · v-hat) v-hat. The length is u · v-hat / |v|.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "challenge",
+        "title": "Parallel and Perpendicular Vectors",
+        "storyContext": "Kavya's teacher asks: if one dancer moves vector u = (2, 1) and another moves v = (4, 2), are they moving parallel? If a third moves w = (−1, 2), is w perpendicular to u?",
+        "points": [
+          {
+            "text": "Check if u and v are parallel: v = 2u? Yes. So parallel."
+          },
+          {
+            "text": "Check if u and w are perpendicular: u · w = 2(−1) + 1(2) = 0? Yes. So perpendicular."
+          }
+        ],
+        "example": {
+          "problem": "u = (2, 1), v = (4, 2), w = (−1, 2). Is v parallel to u? v = 2u ✓ (parallel). Is w ⊥ u? u · w = 2(−1) + 1(2) = −2 + 2 = 0 ✓ (perpendicular). Is w parallel to v? w = k·v means (−1, 2) = k(4, 2), so −1 = 4k, k = −1/4. Then 2 = 2k = −1/2 (false). Not parallel.",
+          "solution": "u ∥ v (parallel). u ⊥ w (perpendicular). v ∦ w (not parallel)."
+        },
+        "inSimpleWords": "Parallel if one is scalar multiple of the other. Perpendicular if dot product is zero.",
+        "emoji": "🎭"
+      },
+      {
         "kind": "example",
         "title": "Full Problem: Group Dance Positioning",
         "storyContext": "Ramesh choreographs a formation of four dancers. Kavya at A starts at center (0, 0). Three others start at B = (3, 4), C = (−2, 5), D = (4, −1) in meters. What's the center of mass of the group?",
@@ -206,6 +304,38 @@
         },
         "inSimpleWords": "Vector algebra helps choreograph group formations by calculating positions and centers.",
         "emoji": "💃"
+      },
+      {
+        "kind": "story",
+        "title": "Magnitude as a Measure of Intensity",
+        "storyContext": "Pradeep explains: 'The magnitude of a force vector tells how strong the push is. A force of (3, 4) N has magnitude 5 N—that's the total push intensity.'",
+        "inSimpleWords": "Magnitude |v| = √(vₓ² + vᵧ² + v_z²) measures the 'strength' or 'intensity' of a vector quantity.",
+        "emoji": "💪"
+      },
+      {
+        "kind": "concept",
+        "title": "Linear Combinations of Vectors",
+        "storyContext": "Pradeep teaches Kavya about linear combinations: 'Any movement can be built by combining moves in the x and y directions.'",
+        "points": [
+          {
+            "label": "Linear combination",
+            "text": "v = a₁u₁ + a₂u₂ + ... + aₙuₙ, where a₁, a₂, ... are scalars."
+          },
+          {
+            "label": "Basis vectors",
+            "text": "In 2D, î = (1, 0) and ĵ = (0, 1) form a basis. Any 2D vector is v = vₓ î + vᵧ ĵ."
+          },
+          {
+            "label": "Linear dependence",
+            "text": "Vectors u₁, u₂, ..., uₙ are linearly dependent if one can be written as a combination of others."
+          }
+        ],
+        "example": {
+          "problem": "Kavya's move: d = (3, 4). Write as linear combination of î and ĵ: d = 3î + 4ĵ. Now express using two other vectors: u = (1, 1), v = (1, −1). Solve: 3î + 4ĵ = a(1, 1) + b(1, −1) = (a+b, a−b). So a+b=3 and a−b=4. Adding: 2a=7, a=3.5. Then b=−0.5. Check: 3.5(1, 1) + (−0.5)(1, −1) = (3.5−0.5, 3.5+0.5) = (3, 4) ✓.",
+          "solution": "d = 3.5u − 0.5v in the new basis. Linear combinations let us express vectors in different ways."
+        },
+        "inSimpleWords": "Linear combinations mix vectors with scalar weights. Basis vectors (like î, ĵ) span the entire space.",
+        "emoji": "🔀"
       },
       {
         "kind": "challenge",
@@ -230,11 +360,43 @@
         "emoji": "🎭"
       },
       {
+        "kind": "concept",
+        "title": "Vector Magnitude in 3D",
+        "storyContext": "Pradeep extends magnitude to 3D: 'For spatial movements with height, width, and depth, magnitude is |v| = √(vₓ² + vᵧ² + v_z²).'",
+        "points": [
+          {
+            "label": "3D magnitude formula",
+            "text": "|v| = √(vₓ² + vᵧ² + v_z²). This is Pythagoras extended to 3 dimensions."
+          },
+          {
+            "label": "Unit sphere",
+            "text": "All vectors with magnitude 1 form a unit sphere centered at origin."
+          }
+        ],
+        "example": {
+          "problem": "Lift vector: v = (0, 0, 1). Magnitude = √(0² + 0² + 1²) = 1. Spatial move: w = (3, 4, 5). Magnitude = √(9 + 16 + 25) = √50 ≈ 7.07.",
+          "solution": "3D magnitude generalizes 2D formula. Longer movements in multiple directions have larger magnitude."
+        },
+        "inSimpleWords": "3D magnitude = √(x² + y² + z²). It's the Euclidean distance from origin to the point (x, y, z).",
+        "emoji": "🌐"
+      },
+      {
+        "kind": "story",
+        "title": "Combining Concepts: Real Dance Choreography",
+        "storyContext": "Pradeep helps Ramesh choreograph a finale: Kavya starts at (0, 0), moves by vector v₁ = (5, 0) (5 m east). Then adds v₂ = (3, 4) (3 m east, 4 m north). Finally, she rotates her body (angular momentum from cross product). Calculate her final position and the angle of that final movement.",
+        "example": {
+          "problem": "Final position: (0, 0) + (5, 0) + (3, 4) = (8, 4). Total displacement v = (8, 4). Magnitude |v| = √64 + 16 = √80 = 4√5 ≈ 8.94 m. Direction: θ = arctan(4/8) = arctan(1/2) ≈ 26.6° north of east.",
+          "solution": "Kavya ends 8.94 meters away from start, 26.6° north of east. This is the net effect of all her moves combined."
+        },
+        "inSimpleWords": "Vector algebra lets you combine multiple moves into one final position, saving calculations.",
+        "emoji": "✨"
+      },
+      {
         "kind": "recap",
         "title": "What We Learned",
         "points": [
           {
-            "text": "Scalars are numbers; vectors have magnitude and direction."
+            "text": "Scalars are just numbers; vectors have magnitude and direction."
           },
           {
             "text": "Components: v = (vₓ, vᵧ, v_z) or v = vₓ î + vᵧ ĵ + v_z k̂."
@@ -250,6 +412,12 @@
           },
           {
             "text": "Unit vectors: divide by magnitude. Direction cosines: cos(α), cos(β), cos(γ) with sum of squares = 1."
+          },
+          {
+            "text": "Collinear vectors lie on one line; coplanar vectors lie in one plane."
+          },
+          {
+            "text": "Linear combinations build any vector from basis vectors."
           },
           {
             "text": "Applications: displacement, force, work, torque, positioning in 3D space."
@@ -327,6 +495,17 @@
         "emoji": "📍"
       },
       {
+        "kind": "story",
+        "title": "Measuring Diagonals",
+        "storyContext": "Akshay needs to know the diagonal from ground corner A(2, 2, 0) to roof corner C'(−2, −2, 4). This is a major bracing element.",
+        "example": {
+          "problem": "Distance from A(2, 2, 0) to C'(−2, −2, 4): d = √[(−2−2)² + (−2−2)² + (4−0)²] = √[16 + 16 + 16] = √48 = 4√3 ≈ 6.93 meters.",
+          "solution": "The diagonal is about 6.93 meters—a key measurement for structural stability."
+        },
+        "inSimpleWords": "Large diagonals across buildings help brace the structure and distribute weight.",
+        "emoji": "🔲"
+      },
+      {
         "kind": "concept",
         "title": "Direction Cosines and Ratios",
         "storyContext": "Rukhsana points to a diagonal beam and asks Akshay, 'At what angles does this beam make with the x, y, z axes?' This is where direction cosines come in.",
@@ -377,6 +556,17 @@
         "emoji": "📏"
       },
       {
+        "kind": "example",
+        "title": "Roof Beam Parametric Equation",
+        "storyContext": "Akshay needs the parametric equation of the roof beam from A'(2, 2, 4) to C'(−2, −2, 4).",
+        "example": {
+          "problem": "Point on line: A'(2, 2, 4). Direction: C' − A' = (−2−2, −2−2, 4−4) = (−4, −4, 0) or (−1, −1, 0). Parametric: x = 2 − t, y = 2 − t, z = 4 (for 0 ≤ t ≤ 4). At t=0: (2, 2, 4) = A'. At t=4: (−2, −2, 4) = C'.",
+          "solution": "Roof beam: x = 2−t, y = 2−t, z = 4. It stays at height 4 while moving diagonally across the pavilion."
+        },
+        "inSimpleWords": "When both start and end points are known, direction = end − start.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "concept",
         "title": "Equation of a Plane",
         "storyContext": "The roof of the pavilion is a flat plane. Rukhsana asks Akshay to describe its equation. This plane passes through four points at height z = 4.",
@@ -402,6 +592,17 @@
         "emoji": "🪟"
       },
       {
+        "kind": "story",
+        "title": "Vertical and Slanted Planes",
+        "storyContext": "Rukhsana shows Akshay the difference: roof at z = 4 is horizontal (normal pointing straight up). But a slanted wall might have normal (1, 0, 1)—tilted toward one side.",
+        "example": {
+          "problem": "Horizontal roof: z = 4 (normal (0, 0, 1)). Slanted wall passing through origin with normal (1, 0, 1): 1(x) + 0(y) + 1(z) = 0, or x + z = 0.",
+          "solution": "Horizontal and slanted planes have different normal vectors pointing in different directions."
+        },
+        "inSimpleWords": "The normal vector (a, b, c) defines the plane's orientation. Different normals mean different tilt angles.",
+        "emoji": "⬚"
+      },
+      {
         "kind": "concept",
         "title": "Angle Between Lines and Planes",
         "storyContext": "Rukhsana needs to know: (1) at what angle does a bracing diagonal meet a column? (2) at what angle does a slanted beam meet the roof plane?",
@@ -425,6 +626,38 @@
         },
         "inSimpleWords": "Angles between lines and planes are found using dot products of direction and normal vectors.",
         "emoji": "📐"
+      },
+      {
+        "kind": "example",
+        "title": "Angle Between Two Beams",
+        "storyContext": "Two bracing beams: one from A(2, 2, 0) toward D'(2, −2, 4), another from B(−2, 2, 0) toward A'(2, 2, 4). What angle do they make?",
+        "example": {
+          "problem": "Beam 1 direction: D' − A = (0, −4, 4) ∝ (0, −1, 1). Beam 2 direction: A' − B = (4, 0, 4) ∝ (1, 0, 1). Angle: cos θ = |(0)(1) + (−1)(0) + (1)(1)| / √(0+1+1) √(1+0+1) = |1| / √2 · √2 = 1/2. So θ = 60°.",
+          "solution": "The two beams meet at 60°—a good angle for structural rigidity."
+        },
+        "inSimpleWords": "Use direction vectors and dot product to find angles between any two lines or beams.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "concept",
+        "title": "Distance from Point to Plane",
+        "storyContext": "Akshay asks: 'If a support point is at (1, 1, 2) and the roof is at z = 4, how far away is it?' This is point-to-plane distance.",
+        "points": [
+          {
+            "label": "Formula",
+            "text": "Distance from P(x₀, y₀, z₀) to plane ax + by + cz + d = 0 is: dist = |ax₀ + by₀ + cz₀ + d| / √(a² + b² + c²)."
+          },
+          {
+            "label": "Special case",
+            "text": "If plane is z = k, distance from (x₀, y₀, z₀) is simply |z₀ − k|."
+          }
+        ],
+        "example": {
+          "problem": "Point (1, 1, 2) to roof plane z = 4. Distance = |2 − 4| = 2 meters. Alternatively, plane is 0x + 0y + 1z − 4 = 0. Distance = |0(1) + 0(1) + 1(2) − 4| / √(0 + 0 + 1) = |2 − 4| / 1 = 2.",
+          "solution": "Support point is 2 meters below the roof—room for a truss."
+        },
+        "inSimpleWords": "Point-to-plane distance measures how far a point is from a plane, perpendicular to the plane.",
+        "emoji": "↔️"
       },
       {
         "kind": "example",
@@ -465,6 +698,55 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Setting Up Coordinate Systems in Architecture",
+        "storyContext": "Vikram explains: 'Choose origin wisely—usually the center of the building or a corner. Then align x, y, z with the building's main directions (length, width, height).'",
+        "inSimpleWords": "Smart coordinate choice makes calculations simple. Place origin at a natural center or corner, not randomly.",
+        "emoji": "🧭"
+      },
+      {
+        "kind": "concept",
+        "title": "Distance Between Two Lines in 3D",
+        "storyContext": "Rukhsana asks: 'If two crossing beams don't touch, how close do they come?' This is the distance between skew lines.",
+        "points": [
+          {
+            "label": "Skew lines",
+            "text": "Two lines that don't intersect and aren't parallel. In 3D, non-parallel lines often don't meet."
+          },
+          {
+            "label": "Shortest distance",
+            "text": "Distance between lines through P₁, P₂ with directions d₁, d₂ is: dist = |(P₂ − P₁) · (d₁ × d₂)| / |d₁ × d₂|."
+          }
+        ],
+        "example": {
+          "problem": "Line 1: A(2, 2, 0) in direction (0, 0, 1). Line 2: C(−2, −2, 0) in direction (0, 0, 1). Both vertical! d₁ = (0, 0, 1), d₂ = (0, 0, 1). Cross product d₁ × d₂ = 0 (parallel). Distance between parallel lines = distance from A to line 2 = √[(−2−2)² + (−2−2)²] = √32 = 4√2 ≈ 5.66 m.",
+          "solution": "The two vertical columns are 5.66 meters apart—the diagonal of the pavilion base."
+        },
+        "inSimpleWords": "Skew lines don't meet. Use cross product to find the closest distance between them.",
+        "emoji": "📏"
+      },
+      {
+        "kind": "concept",
+        "title": "Planes and Intersections",
+        "storyContext": "Two walls (planes) meet along a line. Rukhsana wants to know where.",
+        "points": [
+          {
+            "label": "Plane intersection",
+            "text": "Two planes intersect (if not parallel) along a line. Solve system of two plane equations to find line."
+          },
+          {
+            "label": "Three planes",
+            "text": "Three planes can intersect at a point (if not parallel/dependent). Solve system of three plane equations."
+          }
+        ],
+        "example": {
+          "problem": "Roof plane: z = 4. South wall: y = 2. Intersection? Substitute y = 2 and z = 4 into the space. We get points (x, 2, 4) for any x. This is a line: the southern edge of the roof.",
+          "solution": "The line is (x, 2, 4)—parametric form: (t, 2, 4) for any t. It's a horizontal line along the roof's south edge."
+        },
+        "inSimpleWords": "Two planes intersect in a line (if not parallel). Find the line by solving both plane equations together.",
+        "emoji": "✕"
+      },
+      {
         "kind": "recap",
         "title": "What We Learned",
         "points": [
@@ -488,6 +770,9 @@
           },
           {
             "text": "Angle between line and plane uses dot product of line direction and plane normal."
+          },
+          {
+            "text": "Distance from point to plane: |ax₀ + by₀ + cz₀ + d| / √(a² + b² + c²)."
           },
           {
             "text": "Applications: building design, structural engineering, astronomy, navigation."
@@ -587,6 +872,17 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Formulating the Problem",
+        "storyContext": "Ms. Chopra walks Sophia through formulation: 'First, define decision variables (what you control). Then, state your objective (what you want to optimize). Finally, list all constraints (what limits you).'",
+        "example": {
+          "problem": "Variables: x = loaves of bread, y = cakes. Objective: Z = 250x + 400y (maximize profit in rupees). Constraints: flour (x + y ≤ 10), butter (0.25x + 0.5y ≤ 2), time (20x + 30y ≤ 180), non-negative (x, y ≥ 0).",
+          "solution": "A clear formulation is half the battle. Sophia now has a precise mathematical model."
+        },
+        "inSimpleWords": "Every optimization problem needs: (1) variables (decision choices), (2) objective (goal), (3) constraints (limits).",
+        "emoji": "📋"
+      },
+      {
         "kind": "concept",
         "title": "Graphical Method (2D Problems)",
         "storyContext": "Ms. Chopra draws the constraints on a graph. She shows Sophia how to find the feasible region—the polygon where all constraints are satisfied.",
@@ -619,6 +915,38 @@
           "alt": "Graphical Method (2D Problems) — Linear Programming",
           "q": "graph"
         }
+      },
+      {
+        "kind": "example",
+        "title": "Graphing Constraints Step-by-Step",
+        "storyContext": "Ms. Chopra carefully draws each constraint line to show Sophia the feasible region.",
+        "example": {
+          "problem": "Constraint 1: x + y = 10 (line from (10, 0) to (0, 10)). Shade below (x + y ≤ 10). Constraint 2: x + 2y = 8 (line from (8, 0) to (0, 4)). Shade below (x + 2y ≤ 8). Constraint 3: 2x + 3y = 18 (line from (9, 0) to (0, 6)). Shade below (2x + 3y ≤ 18). Non-negativity: x ≥ 0, y ≥ 0 (shade in first quadrant). The overlapping region is a quadrilateral.",
+          "solution": "Visual inspection of the graph shows which corner likely has maximum profit."
+        },
+        "inSimpleWords": "Graphing makes the problem visible. The feasible region is where all shaded areas overlap.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "concept",
+        "title": "Corner Points and Optimality",
+        "storyContext": "Ms. Chopra explains why corners matter: 'In linear programming, the optimal solution is always at a corner (vertex) of the feasible region. This is because linear objectives increase in a single direction.'",
+        "points": [
+          {
+            "label": "Fundamental theorem",
+            "text": "If an LPP has an optimal solution, it exists at a corner of the feasible region."
+          },
+          {
+            "label": "Why corners?",
+            "text": "The objective function Z = 250x + 400y is linear. Level curves (lines of constant Z) are parallel. The last level curve touching the feasible region touches at a corner."
+          }
+        ],
+        "example": {
+          "problem": "Profit lines for Sophia: Z = 0, Z = 1000, Z = 1500, Z = 1800, ... These are lines: 250x + 400y = Z. Higher Z means lines further from origin. As Z increases, the line slides up and right. It last touches the feasible region at corner C(4, 2), where Z = 1800.",
+          "solution": "By the fundamental theorem, the optimal corner is C(4, 2)."
+        },
+        "inSimpleWords": "Optimal solutions occur at corners because objective lines are parallel and slide across the region.",
+        "emoji": "🎯"
       },
       {
         "kind": "concept",
@@ -713,6 +1041,13 @@
         }
       },
       {
+        "kind": "story",
+        "title": "Identifying the Binding Constraint",
+        "storyContext": "At the optimal point (4 breads, 2 cakes), Sophia checks which resources are fully used. Butter: 1 + 1 = 2 kg (all used). Flour: 4 + 2 = 6 kg (only 6 of 10 used). Time: 80 + 60 = 140 min (only 140 of 180 used). Butter is the bottleneck!",
+        "inSimpleWords": "The binding constraint (fully used resource) limits profit most. Invest in increasing it first.",
+        "emoji": "🔐"
+      },
+      {
         "kind": "example",
         "title": "Full Solution: Sophia's Optimal Production",
         "storyContext": "Ms. Chopra walks Sophia through the complete graphical solution. She finds all corner points of the feasible region and calculates profit at each.",
@@ -749,6 +1084,34 @@
           "prompt": "pastries",
           "gq": true
         }
+      },
+      {
+        "kind": "story",
+        "title": "Real-World Impact",
+        "storyContext": "Sophia implements the solution: every day, bake 4 breads and 2 cakes. Within a month, profit is steady at ₹1800/day. Her revenue rises from ₹1200/day (old haphazard plan) to ₹1800/day. Linear programming saved her ₹18,000 in a month!",
+        "inSimpleWords": "Mathematical optimization directly translates to business success. Better decisions = more profit.",
+        "emoji": "📈"
+      },
+      {
+        "kind": "concept",
+        "title": "Minimization vs Maximization",
+        "storyContext": "Ms. Chopra contrasts: 'We maximized Sophia's profit. But a factory might minimize production cost. The method is identical—only the objective changes.'",
+        "points": [
+          {
+            "label": "Maximization",
+            "text": "Maximize Z = c₁x₁ + c₂x₂ + ... (e.g., profit). Optimal corner is where Z is largest."
+          },
+          {
+            "label": "Minimization",
+            "text": "Minimize Z = c₁x₁ + c₂x₂ + ... (e.g., cost). Optimal corner is where Z is smallest."
+          }
+        ],
+        "example": {
+          "problem": "Diet problem: minimize cost of meals. Constraints: nutrition requirements (protein ≥ 50g, carbs ≥ 200g, etc.). Variables: amount of each food. Corners of feasible region are checked; minimum cost corner is optimal.",
+          "solution": "Minimization uses the same graphical and simplex methods as maximization."
+        },
+        "inSimpleWords": "Maximization and minimization are structurally identical. Only the objective direction differs.",
+        "emoji": "↕️"
       },
       {
         "kind": "recap",

@@ -61,6 +61,52 @@
       },
       {
         "kind": "concept",
+        "title": "Cartesian Product Explained",
+        "storyContext": "Priya introduces the Cartesian product: if A = {A, P} and B = {R, Z}, then A × B contains all possible pairs (first from A, second from B).",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A × B = {(x, y) : x ∈ A, y ∈ B}. Every element of A paired with every element of B."
+          },
+          {
+            "label": "Size",
+            "text": "If |A| = m and |B| = n, then |A × B| = m × n."
+          },
+          {
+            "label": "Example",
+            "text": "{A, P} × {R, Z} = {(A,R), (A,Z), (P,R), (P,Z)}. Four ordered pairs total."
+          }
+        ],
+        "inSimpleWords": "Cartesian product is all possible pairings. A relation picks SOME of these pairs, not necessarily all.",
+        "emoji": "📦"
+      },
+      {
+        "kind": "example",
+        "title": "Finding Relations from Cartesian Product",
+        "storyContext": "Arun practices identifying relations. Given A = {1, 2} and B = {a, b}, list A × B and then identify specific relations.",
+        "points": [
+          {
+            "label": "Cartesian product",
+            "text": "A × B = {(1,a), (1,b), (2,a), (2,b)}"
+          },
+          {
+            "label": "Example relation 1",
+            "text": "R₁ = {(1,a), (2,b)} (a 2-pair relation)"
+          },
+          {
+            "label": "Example relation 2",
+            "text": "R₂ = {(1,a), (1,b), (2,a)} (a 3-pair relation)"
+          }
+        ],
+        "example": {
+          "problem": "List all possible relations from {1,2} to {a,b}. How many are there?",
+          "solution": "A × B has 4 elements. A relation is any subset of these 4 pairs. Number of subsets = 2⁴ = 16. They range from the empty relation ∅ to the complete relation {(1,a), (1,b), (2,a), (2,b)}."
+        },
+        "inSimpleWords": "A relation is a chosen subset of the Cartesian product. You can have 0, some, or all pairs.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "concept",
         "title": "Domain and Range",
         "storyContext": "Coach asks: Who are all the students doing the friending (the 'from' side)? Who are all the students being friended (the 'to' side)?",
         "points": [
@@ -102,6 +148,62 @@
         "emoji": "🔍"
       },
       {
+        "kind": "story",
+        "title": "Arun's Realization about Relations",
+        "storyContext": "Arun realizes friendships are symmetric sometimes (if A is friends with P, often P is friends with A) but not always required. Relations don't need any symmetry or consistency — they're just flexible pairings.",
+        "emoji": "💭"
+      },
+      {
+        "kind": "concept",
+        "title": "Properties of Relations",
+        "storyContext": "Coach Vikram teaches Arun about four key properties relations can have.",
+        "points": [
+          {
+            "label": "Reflexive",
+            "text": "Every element is related to itself: (x,x) ∈ R for all x. Example: 'equals' is reflexive because 5 = 5."
+          },
+          {
+            "label": "Symmetric",
+            "text": "If (x,y) ∈ R, then (y,x) ∈ R. Example: 'is the same age as' is symmetric."
+          },
+          {
+            "label": "Transitive",
+            "text": "If (x,y) ∈ R and (y,z) ∈ R, then (x,z) ∈ R. Example: 'is an ancestor of' is transitive."
+          },
+          {
+            "label": "Equivalence",
+            "text": "If a relation is reflexive, symmetric, AND transitive, it's an equivalence relation."
+          }
+        ],
+        "inSimpleWords": "Relations can have patterns: self-loops (reflexive), reversals (symmetric), and chains (transitive). Some have all three (equivalence).",
+        "emoji": "⚙️"
+      },
+      {
+        "kind": "example",
+        "title": "Identifying Relation Properties",
+        "storyContext": "Priya quizzes Arun on whether relations have these properties.",
+        "points": [
+          {
+            "label": "Friendship relation",
+            "text": "Usually not reflexive (people don't list themselves as friends). Often symmetric. May not be transitive (friends of friends ≠ friends)."
+          },
+          {
+            "label": "'Is divisible by'",
+            "text": "Reflexive (6 divides 6). Not symmetric (2 divides 6, but 6 doesn't divide 2). Transitive (if 6 divides 12 and 12 divides 24, then 6 divides 24)."
+          },
+          {
+            "label": "'Is equal to'",
+            "text": "Reflexive, symmetric, AND transitive. This is an equivalence relation."
+          }
+        ],
+        "example": {
+          "problem": "Is the relation 'is the same height as' reflexive, symmetric, and transitive?",
+          "solution": "Yes to all. Reflexive: you're the same height as yourself. Symmetric: if you're the same height as a friend, they're the same height as you. Transitive: if you and friend 1 are the same height, and friend 1 and friend 2 are the same height, then you and friend 2 are the same height. This is an equivalence relation."
+        },
+        "inSimpleWords": "Check if (x,x) is in R (reflexive), if reversals work (symmetric), and if chains work (transitive).",
+        "emoji": "✅"
+      },
+      {
         "kind": "concept",
         "title": "What is a Function?",
         "storyContext": "Arun realizes: in the classroom, EVERY student has EXACTLY ONE class teacher. This is different from friendship — some have no friends, some have many, but EVERY student has ONE teacher. Priya calls this a function.",
@@ -127,6 +229,31 @@
         "title": "The Class Teacher Example",
         "storyContext": "In the class roster, each student (A, P, R, Z) is assigned exactly one class teacher. Arun→Ms. Sharma, Priya→Mr. Singh, Rohan→Ms. Sharma, Zara→Mr. Singh. This is a function: every student has one teacher, though two students can share the same teacher.",
         "emoji": "👨‍🏫"
+      },
+      {
+        "kind": "example",
+        "title": "Testing Whether a Relation is a Function",
+        "storyContext": "Priya gives Arun several relations to check. For each, ask: does every input have exactly one output?",
+        "points": [
+          {
+            "label": "R₁ = {(1,2), (2,3), (3,4)}",
+            "text": "Yes, this is a function. Each input (1, 2, 3) has one output."
+          },
+          {
+            "label": "R₂ = {(1,2), (1,3), (2,4)}",
+            "text": "No. Input 1 maps to both 2 and 3. Not a function."
+          },
+          {
+            "label": "R₃ = {(1,5), (2,5), (3,5)}",
+            "text": "Yes, this is a function. All inputs map to the same output (5). That's allowed."
+          }
+        ],
+        "example": {
+          "problem": "Is {(2,1), (3,2), (4,3), (5,4)} a function?",
+          "solution": "Yes. Each input (2, 3, 4, 5) appears exactly once, mapping to a unique output (1, 2, 3, 4 respectively)."
+        },
+        "inSimpleWords": "Function check: does each input appear at most once? If yes, it's a function. If any input appears twice with different outputs, it's not.",
+        "emoji": "🔍"
       },
       {
         "kind": "concept",
@@ -228,6 +355,31 @@
         "title": "Composition in Practice",
         "storyContext": "At a science fair, Arun sees this flow: student ID (f)→ assigned lab, lab (g)→ equipment checklist. So (g∘f)(student ID) = equipment checklist. Composing functions tracks complex workflows.",
         "emoji": "🔗"
+      },
+      {
+        "kind": "example",
+        "title": "Computing Compositions Step-by-Step",
+        "storyContext": "Priya walks Arun through a composition problem where two functions are combined.",
+        "points": [
+          {
+            "label": "Let f(x) = 2x and g(x) = x + 5",
+            "text": "Find (f∘g)(3) and write the formula for (f∘g)(x)."
+          },
+          {
+            "label": "Step 1: Apply g first",
+            "text": "g(3) = 3 + 5 = 8"
+          },
+          {
+            "label": "Step 2: Apply f to the result",
+            "text": "f(8) = 2·8 = 16. So (f∘g)(3) = 16."
+          }
+        ],
+        "example": {
+          "problem": "Write the formula for (f∘g)(x) where f(x) = 2x and g(x) = x + 5.",
+          "solution": "(f∘g)(x) = f(g(x)) = f(x+5) = 2(x+5) = 2x + 10."
+        },
+        "inSimpleWords": "Substitute the inner function g(x) into f. Simplify to get the combined formula.",
+        "emoji": "📋"
       },
       {
         "kind": "challenge",
@@ -399,6 +551,27 @@
       },
       {
         "kind": "concept",
+        "title": "Why Inverse Trig Functions Need Restricted Domains",
+        "storyContext": "Arjun explains: sine, cosine, and tangent are not one-to-one over their full domains. To make inverses, we restrict them.",
+        "points": [
+          {
+            "label": "The problem",
+            "text": "sin(30°) = 0.5, but also sin(150°) = 0.5. Two angles give the same sine!"
+          },
+          {
+            "label": "The solution",
+            "text": "Restrict sine domain to [−π/2, π/2] so it's bijective. Then arcsin is well-defined."
+          },
+          {
+            "label": "Why it matters",
+            "text": "Without restrictions, there would be infinite answers to 'find the angle where sin(θ) = 0.5.'"
+          }
+        ],
+        "inSimpleWords": "Trig functions repeat their outputs. To invert them, we limit the domain so each ratio has exactly one angle.",
+        "emoji": "📉"
+      },
+      {
+        "kind": "concept",
         "title": "Domain and Range of Inverse Functions",
         "storyContext": "Nisha teaches Kavya: each inverse trig function has a specific range (where it outputs angles). This ensures it's a true function (one-to-one).",
         "points": [
@@ -448,6 +621,12 @@
         "emoji": "📌"
       },
       {
+        "kind": "story",
+        "title": "Kavya Builds Her Angle Toolkit",
+        "storyContext": "Kavya writes down a reference table: sin(0°) = 0, sin(30°) = 0.5, sin(45°) ≈ 0.707, sin(60°) ≈ 0.866, sin(90°) = 1. Now she can quickly reverse them using arcsin.",
+        "emoji": "📋"
+      },
+      {
         "kind": "concept",
         "title": "The Temple Tower Problem Solved",
         "storyContext": "Kavya applies arctan: tower height = 50 m, shadow = 50 m. So tan(θ) = 50/50 = 1. What angle has tan = 1?",
@@ -486,6 +665,31 @@
         },
         "inSimpleWords": "Identify the ratio (sin, cos, or tan) from the triangle, then apply the inverse to get the angle.",
         "emoji": "🔍"
+      },
+      {
+        "kind": "example",
+        "title": "Common Angles and Their Inverse Values",
+        "storyContext": "Kavya memorizes key inverse values to speed up her calculations.",
+        "points": [
+          {
+            "label": "arcsin(0) = 0, arcsin(1) = π/2, arcsin(−1) = −π/2",
+            "text": "Extreme values of sine."
+          },
+          {
+            "label": "arccos(0) = π/2, arccos(1) = 0, arccos(−1) = π",
+            "text": "Extreme values of cosine."
+          },
+          {
+            "label": "arctan(0) = 0, arctan(∞) → π/2, arctan(−∞) → −π/2",
+            "text": "Behavior of arctan at extremes."
+          }
+        ],
+        "example": {
+          "problem": "Evaluate arccos(1) and arcsin(−1).",
+          "solution": "arccos(1) = 0 (because cos(0) = 1). arcsin(−1) = −π/2 = −90° (because sin(−90°) = −1)."
+        },
+        "inSimpleWords": "Boundary and special values help you check answers and work faster.",
+        "emoji": "⭐"
       },
       {
         "kind": "concept",
@@ -562,6 +766,27 @@
       },
       {
         "kind": "example",
+        "title": "Using the Identity arcsin(x) + arccos(x) = π/2",
+        "storyContext": "Arjun shows Kavya how to use this identity to verify or simplify calculations.",
+        "points": [
+          {
+            "label": "If arcsin(0.6) ≈ 0.6435 radians",
+            "text": "Then arccos(0.6) = π/2 − 0.6435 ≈ 0.9273 radians (about 53.13°)."
+          },
+          {
+            "label": "Verification",
+            "text": "arcsin(0.6) + arccos(0.6) ≈ 0.6435 + 0.9273 = 1.5708 ≈ π/2. ✓"
+          }
+        ],
+        "example": {
+          "problem": "If arccos(0.8) = θ, find arcsin(0.8) in terms of θ or numerically.",
+          "solution": "Using the identity: arcsin(0.8) + arccos(0.8) = π/2. So arcsin(0.8) = π/2 − arccos(0.8) = π/2 − θ ≈ 1.5708 − 0.6435 ≈ 0.9273."
+        },
+        "inSimpleWords": "The identity links arcsin and arccos. If you know one, you can quickly find the other.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "example",
         "title": "Bridge Construction Problem",
         "storyContext": "Nisha's company plans a foot-bridge over a river. From point A on one bank, the angle of elevation to the top of a pole on the opposite bank is 30°. The horizontal distance is 20 m. Find the pole height.",
         "points": [
@@ -591,6 +816,31 @@
         "title": "Kavya at the Construction Site",
         "storyContext": "Nisha takes Kavya to a real bridge project. Surveyors use inverse trig constantly: measuring angles with theodolites, calculating heights and distances. Kavya's drone does the same thing, just from the air.",
         "emoji": "📡"
+      },
+      {
+        "kind": "example",
+        "title": "Two-Point Distance and Angle Calculation",
+        "storyContext": "Kavya needs to find the distance between two points using only angle and altitude measurements.",
+        "points": [
+          {
+            "label": "From drone at height h = 100 m",
+            "text": "Looking at point P with angle of depression 25°. Find horizontal distance to P."
+          },
+          {
+            "label": "Formula",
+            "text": "tan(angle of depression) = height / horizontal distance."
+          },
+          {
+            "label": "Calculation",
+            "text": "tan(25°) ≈ 0.466. So 0.466 = 100 / d. Thus d = 100 / 0.466 ≈ 214.6 m."
+          }
+        ],
+        "example": {
+          "problem": "Drone at 50 m height sees target at angle of depression 18°. How far away?",
+          "solution": "tan(18°) ≈ 0.325. So 0.325 = 50 / d. Thus d ≈ 50 / 0.325 ≈ 153.8 m."
+        },
+        "inSimpleWords": "From altitude and angle, find distance using tan(angle) = height / distance.",
+        "emoji": "📏"
       },
       {
         "kind": "challenge",
@@ -847,6 +1097,31 @@
       },
       {
         "kind": "concept",
+        "title": "Scalar Multiplication",
+        "storyContext": "Simran introduces scalar multiplication: multiply every element in a matrix by a constant.",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "If k is a scalar and A is a matrix, then kA means multiply each element a_{ij} by k."
+          },
+          {
+            "label": "Example",
+            "text": "2 · [[1, 2], [3, 4]] = [[2, 4], [6, 8]]. Every element is doubled."
+          },
+          {
+            "label": "Properties",
+            "text": "k(A + B) = kA + kB. Scalar multiplication distributes over addition."
+          }
+        ],
+        "example": {
+          "problem": "If A = [[10, 20], [30, 40]], find 3A.",
+          "solution": "3A = [[30, 60], [90, 120]]. Each element is multiplied by 3."
+        },
+        "inSimpleWords": "Scalar multiplication scales the entire matrix by a constant factor.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "concept",
         "title": "Matrix Multiplication",
         "storyContext": "Coach Deepak asks: if each run is worth 1 point, each wicket is worth 5 points penalty, and each boundary is worth 2 points, what's the total score for each match? Rohan multiplies matrices.",
         "points": [
@@ -981,6 +1256,31 @@
         "title": "Rohan Solves a Real Problem",
         "storyContext": "Match 1 + Match 2 runs = 300. Match 1 runs − Match 2 runs = 10. Rohan sets up matrices and solves: Match 1 = 155, Match 2 = 145. Coach nods: exactly right. Matrix math works in real life.",
         "emoji": "✓"
+      },
+      {
+        "kind": "example",
+        "title": "3×3 System of Equations (Higher Dimension)",
+        "storyContext": "Rohan faces a more complex problem: three unknowns, three equations. Matrices still work, though calculating the 3×3 inverse is harder.",
+        "points": [
+          {
+            "label": "System example",
+            "text": "2x + y − z = 8; x − y + 2z = 5; 3x + 2y + z = 11. Write as A·X = B."
+          },
+          {
+            "label": "A = [[2, 1, −1], [1, −1, 2], [3, 2, 1]]",
+            "text": "The coefficient matrix."
+          },
+          {
+            "label": "Solution method",
+            "text": "X = A^{−1}·B (compute 3×3 inverse using cofactor expansion or row reduction)."
+          }
+        ],
+        "example": {
+          "problem": "Solve the 3×3 system above using matrices (outline steps, not full calculation).",
+          "solution": "Set up A·X = B. Find det(A). If det(A) ≠ 0, compute A^{−1} using cofactor expansion. Then X = A^{−1}·[[8], [5], [11]]. (Full calculation is lengthy; typically done with calculators or software.)"
+        },
+        "inSimpleWords": "For 3×3 and larger systems, the matrix method still applies, though calculations get tedious without a computer.",
+        "emoji": "📚"
       },
       {
         "kind": "challenge",
