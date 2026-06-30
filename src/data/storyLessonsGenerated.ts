@@ -208386,7 +208386,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
     "slug": "class-9-financial-literacy-inflation-why-prices-rise-over-time",
     "classLevel": "9",
     "subject": "Financial Literacy",
-    "chapter": "Inflation - Why Prices Rise Over Time",
+    "chapter": "Inflation — Why Prices Rise Over Time",
     "title": "The Great Bazaar Mystery: Why Rs.100 Buys Less Today",
     "hook": "Ravi's grandmother remembers buying a full lunch for Rs.20. Today it costs Rs.200. What happened to money?",
     "characters": [
@@ -208789,7 +208789,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
     "slug": "class-9-financial-literacy-saving-vs-investing-making-money-work",
     "classLevel": "9",
     "subject": "Financial Literacy",
-    "chapter": "Saving vs Investing - Making Money Work",
+    "chapter": "Saving vs Investing — Making Money Work",
     "title": "Ravi and the Two Piggy Banks: The Power of Compound Growth",
     "hook": "Ravi and his sister Priya both have Rs.10,000. He saves it. She invests it. 20 years later, whose Rs.10,000 is worth more?",
     "characters": [
