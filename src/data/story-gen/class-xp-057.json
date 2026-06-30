@@ -128,6 +128,13 @@
         "emoji": "🎭"
       },
       {
+        "kind": "story",
+        "title": "Finding the Middle Ground",
+        "storyContext": "Pradeep asks Kavya to find the midpoint between two stage positions: A = (2, 3) and B = (8, 7). Kavya thinks, 'That's the average of the positions!' She calculates M = ((2+8)/2, (3+7)/2) = (5, 5).",
+        "inSimpleWords": "Midpoint of two vectors = average of their components. Useful for centering choreography.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "concept",
         "title": "Dot Product (Scalar Product)",
         "storyContext": "Pradeep introduces the dot product: 'This tells us how much two vectors align or point in the same direction.' Ramesh uses this to calculate work in a dance lift.",
@@ -208,6 +215,13 @@
         "emoji": "↩️"
       },
       {
+        "kind": "story",
+        "title": "Using Angles to Measure Alignment",
+        "storyContext": "Pradeep teaches Kavya to use angles: 'The dot product formula u·v = |u| |v| cos(θ) tells us the angle between two movements. If θ = 0°, they're perfectly aligned (moving same way). If θ = 90°, perpendicular. If θ = 180°, opposite.'",
+        "inSimpleWords": "Dot product and angle are connected. Use cos(θ) to find how much vectors align.",
+        "emoji": "📐"
+      },
+      {
         "kind": "concept",
         "title": "Unit Vectors and Direction Cosines",
         "storyContext": "Pradeep teaches Kavya how to describe exact directions. 'A unit vector points in a direction with length 1. Use it as a compass.'",
@@ -269,15 +283,47 @@
         "title": "Projecting One Vector onto Another",
         "storyContext": "Ramesh asks, 'If Kavya moves (3, 4) but we only count the eastward component, how far east did she go?' This is vector projection.",
         "example": {
-          "problem": "Vector u = (3, 4). Project onto i-hat = (1, 0). Projection = (u · i-hat) i-hat = ((3, 4) · (1, 0)) (1, 0) = 3(1, 0) = (3, 0). Length of projection = 3. Alternatively, length of projection = u · u-hat = 5 · (1/√(1+0)) = 5 · 1 = 5... wait, that's wrong. Let me recalculate. u · î = 3. |î| = 1. So projection length = 3 (component along x-axis).",
+          "problem": "Vector u = (3, 4). Project onto i-hat = (1, 0). Projection = (u · i-hat) i-hat = ((3, 4) · (1, 0)) (1, 0) = 3(1, 0) = (3, 0). Length of projection = 3.",
           "solution": "The eastward (x) component is 3 meters. Projection of u onto x-axis is (3, 0)."
         },
         "inSimpleWords": "Project vector u onto direction v-hat (unit vector): proj = (u · v-hat) v-hat. The length is u · v-hat / |v|.",
         "emoji": "📐"
       },
       {
+        "kind": "story",
+        "title": "Decomposing Movement into Parts",
+        "storyContext": "Pradeep shows Kavya how any movement can be broken into north-south and east-west parts. 'This decomposition is the foundation of vector mathematics. It simplifies complex movements.'",
+        "inSimpleWords": "Decompose vectors into components along coordinate axes. Makes calculations simpler and clearer.",
+        "emoji": "🔀"
+      },
+      {
+        "kind": "concept",
+        "title": "Linear Combinations of Vectors",
+        "storyContext": "Pradeep teaches Kavya about linear combinations: 'Any movement can be built by combining moves in the x and y directions.'",
+        "points": [
+          {
+            "label": "Linear combination",
+            "text": "v = a₁u₁ + a₂u₂ + ... + aₙuₙ, where a₁, a₂, ... are scalars."
+          },
+          {
+            "label": "Basis vectors",
+            "text": "In 2D, î = (1, 0) and ĵ = (0, 1) form a basis. Any 2D vector is v = vₓ î + vᵧ ĵ."
+          },
+          {
+            "label": "Linear dependence",
+            "text": "Vectors u₁, u₂, ..., uₙ are linearly dependent if one can be written as a combination of others."
+          }
+        ],
+        "example": {
+          "problem": "Kavya's move: d = (3, 4). Write as linear combination of î and ĵ: d = 3î + 4ĵ. Now express using two other vectors: u = (1, 1), v = (1, −1). Solve: 3î + 4ĵ = a(1, 1) + b(1, −1) = (a+b, a−b). So a+b=3 and a−b=4. Adding: 2a=7, a=3.5. Then b=−0.5. Check: 3.5(1, 1) + (−0.5)(1, −1) = (3.5−0.5, 3.5+0.5) = (3, 4) ✓.",
+          "solution": "d = 3.5u − 0.5v in the new basis. Linear combinations let us express vectors in different ways."
+        },
+        "inSimpleWords": "Linear combinations mix vectors with scalar weights. Basis vectors (like î, ĵ) span the entire space.",
+        "emoji": "🔀"
+      },
+      {
         "kind": "challenge",
-        "title": "Parallel and Perpendicular Vectors",
+        "title": "Test Yourself: Parallel and Perpendicular Vectors",
         "storyContext": "Kavya's teacher asks: if one dancer moves vector u = (2, 1) and another moves v = (4, 2), are they moving parallel? If a third moves w = (−1, 2), is w perpendicular to u?",
         "points": [
           {
@@ -313,29 +359,11 @@
         "emoji": "💪"
       },
       {
-        "kind": "concept",
-        "title": "Linear Combinations of Vectors",
-        "storyContext": "Pradeep teaches Kavya about linear combinations: 'Any movement can be built by combining moves in the x and y directions.'",
-        "points": [
-          {
-            "label": "Linear combination",
-            "text": "v = a₁u₁ + a₂u₂ + ... + aₙuₙ, where a₁, a₂, ... are scalars."
-          },
-          {
-            "label": "Basis vectors",
-            "text": "In 2D, î = (1, 0) and ĵ = (0, 1) form a basis. Any 2D vector is v = vₓ î + vᵧ ĵ."
-          },
-          {
-            "label": "Linear dependence",
-            "text": "Vectors u₁, u₂, ..., uₙ are linearly dependent if one can be written as a combination of others."
-          }
-        ],
-        "example": {
-          "problem": "Kavya's move: d = (3, 4). Write as linear combination of î and ĵ: d = 3î + 4ĵ. Now express using two other vectors: u = (1, 1), v = (1, −1). Solve: 3î + 4ĵ = a(1, 1) + b(1, −1) = (a+b, a−b). So a+b=3 and a−b=4. Adding: 2a=7, a=3.5. Then b=−0.5. Check: 3.5(1, 1) + (−0.5)(1, −1) = (3.5−0.5, 3.5+0.5) = (3, 4) ✓.",
-          "solution": "d = 3.5u − 0.5v in the new basis. Linear combinations let us express vectors in different ways."
-        },
-        "inSimpleWords": "Linear combinations mix vectors with scalar weights. Basis vectors (like î, ĵ) span the entire space.",
-        "emoji": "🔀"
+        "kind": "story",
+        "title": "Comparing Path and Displacement",
+        "storyContext": "Pradeep demonstrates why vectors matter: 'If Kavya walks 3 meters east, stops, then walks 4 meters north, she traveled 7 meters total. But her displacement—her actual change in position from start to end—is only 5 meters. Vectors capture the efficient path.'",
+        "inSimpleWords": "Distance is path length; displacement is vector from start to finish. Vectors are more efficient for tracking positions.",
+        "emoji": "🗺️"
       },
       {
         "kind": "challenge",
@@ -531,6 +559,13 @@
         "emoji": "🔺"
       },
       {
+        "kind": "story",
+        "title": "Thinking About Beam Directions",
+        "storyContext": "Rukhsana explains to Akshay: 'Every structural element has a direction. Columns go mostly vertical (high z component). Horizontal beams have low z. Know the direction, and you can calculate stresses accurately.'",
+        "inSimpleWords": "Direction determines how forces and stresses act on structural elements. Always specify direction in designs.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "concept",
         "title": "Equation of a Line in 3D",
         "storyContext": "Vikram shows Akshay how to write the equation of any line in space—essential for specifying beams and columns in the design.",
@@ -565,6 +600,17 @@
         },
         "inSimpleWords": "When both start and end points are known, direction = end − start.",
         "emoji": "🎯"
+      },
+      {
+        "kind": "story",
+        "title": "Finding Midpoints and Divisions",
+        "storyContext": "Akshay needs to place a support column at the midpoint of a diagonal. Rukhsana explains: 'Use the section formula. If a beam goes from (2, 2, 4) to (−2, −2, 4), the midpoint is the average of coordinates.'",
+        "example": {
+          "problem": "Beam from A'(2, 2, 4) to C'(−2, −2, 4). Midpoint: M = ((2−2)/2, (2−2)/2, (4+4)/2) = (0, 0, 4). This is ground center at roof height.",
+          "solution": "Support column should be placed at (0, 0, 4)—the geometric center of the roof beam."
+        },
+        "inSimpleWords": "Midpoint = average of endpoints. Use for centering supports and measuring beam halves.",
+        "emoji": "🔀"
       },
       {
         "kind": "concept",
@@ -726,6 +772,13 @@
         "emoji": "📏"
       },
       {
+        "kind": "story",
+        "title": "Where Walls Meet the Roof",
+        "storyContext": "Rukhsana points out that every edge where a wall meets the roof is an intersection of two planes. 'Understanding these intersections is key to architectural drawings,' she tells Akshay.",
+        "inSimpleWords": "Plane intersections define edges and boundaries in 3D buildings. Always solve plane systems to find these edges.",
+        "emoji": "🏢"
+      },
+      {
         "kind": "concept",
         "title": "Planes and Intersections",
         "storyContext": "Two walls (planes) meet along a line. Rukhsana wants to know where.",
@@ -745,6 +798,49 @@
         },
         "inSimpleWords": "Two planes intersect in a line (if not parallel). Find the line by solving both plane equations together.",
         "emoji": "✕"
+      },
+      {
+        "kind": "story",
+        "title": "Symmetry in Architecture",
+        "storyContext": "Akshay notices that the pavilion is symmetric: the plane y = x divides it into two mirror halves. 'Planes define symmetry,' Vikram explains. 'In design, symmetry is both beautiful and structurally sound.'",
+        "inSimpleWords": "Symmetry planes simplify calculations. If a structure mirrors across a plane, calculations only needed for one half.",
+        "emoji": "🔲"
+      },
+      {
+        "kind": "example",
+        "title": "Finding Where Three Planes Meet",
+        "storyContext": "Three structural walls define planes: east face (x = 2), north face (y = 2), and roof (z = 4). They meet at a single corner. Solve the system to find it.",
+        "example": {
+          "problem": "Planes: x = 2, y = 2, z = 4. All three simultaneously: x=2 AND y=2 AND z=4. Solution: unique point (2, 2, 4). This is corner A'.",
+          "solution": "Three planes intersect at a single point (2, 2, 4). In general, three planes generically intersect at a point (unless dependent or parallel)."
+        },
+        "inSimpleWords": "Solve system of 3 plane equations to find their common point. Use substitution or elimination.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "story",
+        "title": "Visualizing 3D from 2D Drawings",
+        "storyContext": "Vikram teaches Akshay: 'Architects use 2D projections (top view, front view, side view). But the reality is 3D. Coordinate geometry bridges them. Each 2D projection is a slice of 3D space.'",
+        "inSimpleWords": "3D coordinates let you convert between multiple 2D views (projections) of one building. Essential for engineering drawings.",
+        "emoji": "📋"
+      },
+      {
+        "kind": "example",
+        "title": "Verifying the Pavilion Design",
+        "storyContext": "Before construction, Rukhsana verifies all measurements are consistent. She checks: are the four ground corners equidistant from origin? Do all roof corners have the same height?",
+        "example": {
+          "problem": "Ground corners: A(2,2,0), B(-2,2,0), C(-2,-2,0), D(2,-2,0). Distance from origin: |A|=√(4+4)=√8=2√2. Same for B, C, D ✓. Roof corners: A'(2,2,4), B'(-2,2,4), C'(-2,-2,4), D'(2,-2,4). Heights: all z=4 ✓. Verification passed.",
+          "solution": "Symmetry verified. All corners equidistant and level. Pavilion is balanced."
+        },
+        "inSimpleWords": "Verify designs by checking distances and heights consistently. Catch errors before construction.",
+        "emoji": "✓"
+      },
+      {
+        "kind": "story",
+        "title": "Real-World Precision",
+        "storyContext": "Akshay realizes: 'One small mistake in a coordinate, and the whole building could be crooked. That's why mathematics is so important in construction. Millimeters matter.'",
+        "inSimpleWords": "Coordinate geometry ensures precision. Architecture demands mathematical rigor. Tiny errors scale to massive problems.",
+        "emoji": "🎯"
       },
       {
         "kind": "recap",
@@ -905,8 +1001,8 @@
           }
         ],
         "example": {
-          "problem": "Sophia's constraints: (1) x + y ≤ 10, (2) 0.25x + 0.5y ≤ 2, (3) 20x + 30y ≤ 180. Rewrite (2): x + 2y ≤ 8. Rewrite (3): 2x + 3y ≤ 18. Corner points of feasible region: O(0, 0), A(0, 4) [intersection of y-axis and x + 2y = 8], B(2, 3) [intersection of x + 2y = 8 and 2x + 3y = 18], C(6, 2) [intersection of x + y = 10 and 2x + 3y = 18], D(10, 0) [intersection of x + y = 10 and x-axis]. Check feasibility of each: O ✓, A ✓, B ✓, C ✓, D ✓. Evaluate Z = 250x + 400y at each: O: 0, A: 1600, B: 1700, C: 2300, D: 2500.",
-          "solution": "Maximum profit is ₹2500 at D(10, 0): make 10 breads, 0 cakes. Sophia checks: 10 breads use 10 kg flour ✓, 2.5 kg butter. Wait, this violates butter constraint! Let me recalculate. Actually, x + 2y ≤ 8 means 10 + 0 ≤ 8? No, 10 > 8. So D is infeasible. Recheck: feasible corners are O(0, 0), A(0, 4), B(2, 3), C(4, 2). Evaluate Z: O: 0, A: 1600, B: 1700, C: 1800. Maximum is ₹1800 at C(4, 2): make 4 breads and 2 cakes."
+          "problem": "Sophia's constraints: (1) x + y ≤ 10, (2) 0.25x + 0.5y ≤ 2 (rewrite: x + 2y ≤ 8), (3) 20x + 30y ≤ 180 (rewrite: 2x + 3y ≤ 18). Corner points: O(0, 0), A(0, 4), B(2, 3), C(4, 2). Evaluate Z = 250x + 400y: Z(O)=0, Z(A)=1600, Z(B)=1700, Z(C)=1800. Maximum is ₹1800 at C(4, 2).",
+          "solution": "Optimal: 4 breads, 2 cakes, profit ₹1800."
         },
         "inSimpleWords": "Draw constraints, find the feasible polygon, check corners, and pick the corner with highest (or lowest) objective value.",
         "emoji": "📈",
@@ -947,6 +1043,13 @@
         },
         "inSimpleWords": "Optimal solutions occur at corners because objective lines are parallel and slide across the region.",
         "emoji": "🎯"
+      },
+      {
+        "kind": "story",
+        "title": "Checking Multiple Corners",
+        "storyContext": "Ms. Chopra emphasizes: 'Never assume the first good-looking corner is optimal. Always calculate Z at every corner. The global optimum might be at a corner you overlooked.'",
+        "inSimpleWords": "Exhaustively check all corners of the feasible region. The optimum is guaranteed to be at one of them.",
+        "emoji": "🔍"
       },
       {
         "kind": "concept",
@@ -1075,7 +1178,7 @@
           }
         ],
         "example": {
-          "problem": "Constraints: 1x + 1y + 0.5z ≤ 10 (flour), 0.25x + 0.5y + 0.25z ≤ 2 (butter), 20x + 30y + 15z ≤ 180 (time), x,y,z ≥ 0. This is a 3-variable problem; graphical solution is hard (3D polytope). Use simplex method or software. Rough guess: maybe 5 breads, 0 cakes, 10 pastries? Check: flour = 5 + 0 + 5 = 10 ✓, butter = 1.25 + 0 + 2.5 = 3.75 > 2 ✗. Infeasible. Try 4 breads, 2 cakes, 0 pastries (our previous answer): profit = 1800. Try 0 breads, 0 cakes, 16 pastries? Flour = 8, butter = 4 > 2. Infeasible. Real optimum requires simplex/software.",
+          "problem": "Constraints: 1x + 1y + 0.5z ≤ 10 (flour), 0.25x + 0.5y + 0.25z ≤ 2 (butter), 20x + 30y + 15z ≤ 180 (time), x,y,z ≥ 0. This is a 3-variable problem; graphical solution is hard (3D polytope). Use simplex method or software.",
           "solution": "With 3 variables, graphical method isn't practical. Use simplex method or linear programming software (Excel Solver, Python PuLP, etc.)."
         },
         "inSimpleWords": "For 3+ variables, graphical method becomes impractical. Use algorithms (simplex) or software.",
@@ -1112,6 +1215,113 @@
         },
         "inSimpleWords": "Maximization and minimization are structurally identical. Only the objective direction differs.",
         "emoji": "↕️"
+      },
+      {
+        "kind": "story",
+        "title": "When Constraints Compete",
+        "storyContext": "Sophia realizes butter is the binding constraint—she's using all 2 kg. 'If I buy more butter, I could bake more cakes. But should I?' Ms. Chopra explains shadow prices: butter's marginal value is ₹300/kg. If butter costs ₹150/kg wholesale, buying extra is profitable.",
+        "inSimpleWords": "When two or more constraints are equally tight, they jointly limit profit. Break the tightest one first for fastest gains.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "concept",
+        "title": "Simplex Method (Brief Introduction)",
+        "storyContext": "Ms. Chopra sketches the simplex algorithm: 'For 3+ variables, graphical method doesn't work. Simplex starts at one corner, moves to a better corner, and repeats until no better corner exists.'",
+        "points": [
+          {
+            "label": "Iterative improvement",
+            "text": "Simplex moves from corner to corner, always toward improving objective."
+          },
+          {
+            "label": "Pivot operation",
+            "text": "At each step, swap a basic variable for a non-basic one; recalculate objective."
+          },
+          {
+            "label": "Termination",
+            "text": "Stop when no neighboring corner improves objective (optimality reached)."
+          }
+        ],
+        "example": {
+          "problem": "For 3-variable problem (breads, cakes, pastries), simplex would start at corner O(0,0,0), then move through sequence of corners (each calculated) until reaching optimal. Unlike graphical method, doesn't require visualizing feasible polytope.",
+          "solution": "Simplex is automated; computers use it for real problems. We understand graphical method for intuition; algorithms handle complexity."
+        },
+        "inSimpleWords": "Simplex method is automated corner-hopping for 3+ variables. Graphical method is intuition; simplex is brute-force precision.",
+        "emoji": "🔧"
+      },
+      {
+        "kind": "story",
+        "title": "Real Industrial Problems",
+        "storyContext": "Ms. Chopra shares: 'Air India uses LP to schedule flights and crew. Pharma companies use it to allocate production across facilities. Retailers use it for inventory and pricing. LP is everywhere.'",
+        "inSimpleWords": "Linear programming powers decisions in airlines, manufacturing, retail, logistics. Scale from bakery to billions.",
+        "emoji": "✈️"
+      },
+      {
+        "kind": "concept",
+        "title": "Duality in Linear Programming",
+        "storyContext": "Ms. Chopra introduces duality: 'For every LPP (primal), there's a related problem (dual). Solving one gives insights into the other. Shadow prices come from the dual.'",
+        "points": [
+          {
+            "label": "Primal problem",
+            "text": "Maximize profit. Variables = production quantities. Constraints = resources."
+          },
+          {
+            "label": "Dual problem",
+            "text": "Minimize resource cost. Variables = shadow prices (resource values). Constraints = product profitability."
+          },
+          {
+            "label": "Duality insight",
+            "text": "Optimal primal value = optimal dual value. Resources are priced implicitly by the dual."
+          }
+        ],
+        "example": {
+          "problem": "Sophia's primal: max 250x + 400y subject to flour, butter, time. Dual: min 10w₁ + 2w₂ + 180w₃ subject to w₁ + 0.25w₂ + 20w₃ ≥ 250 (bread), w₁ + 0.5w₂ + 30w₃ ≥ 400 (cake). w₁, w₂, w₃ are shadow prices of flour, butter, time. Optimal dual value = ₹1800 (same as primal).",
+          "solution": "Duality reveals that resources can be valued as shadow prices. If shadow price of butter is ₹300/kg and market price is ₹150/kg, buying is a bargain."
+        },
+        "inSimpleWords": "Dual problem values resources. Primal maximizes production; dual minimizes resource cost. Both have same optimal value.",
+        "emoji": "🔁"
+      },
+      {
+        "kind": "story",
+        "title": "Scaling to Reality",
+        "storyContext": "Ms. Chopra explains: 'This simple 2-variable problem is just a start. Real bakeries have dozens of products, seasonal demands, quality constraints, and logistics. But the principles remain: formulate, constrain, optimize.'",
+        "inSimpleWords": "Linear programming scales from toy problems to massive industrial decisions. The method is universal.",
+        "emoji": "🚀"
+      },
+      {
+        "kind": "example",
+        "title": "Testing Infeasibility and Unboundedness",
+        "storyContext": "Ms. Chopra poses hypotheticals: 'What if Sophia had contradictory demands? Or what if she had unlimited resources? Let's recognize these red flags.'",
+        "example": {
+          "problem": "Infeasible case: x + y ≤ 5, x ≥ 10. No solution (10 > 5). Unbounded case: max 2x + 3y subject to x ≥ 0, y ≥ 0 (no upper limit). Profit → ∞.",
+          "solution": "Always check: does feasible region exist? Is it bounded? Infeasible or unbounded problems need remodeling."
+        },
+        "inSimpleWords": "Catch bad model setups early. Test for infeasibility (contradictory constraints) and unboundedness (missing limits).",
+        "emoji": "🚨"
+      },
+      {
+        "kind": "story",
+        "title": "Post-Optimality Decisions",
+        "storyContext": "After finding the optimal solution (4 breads, 2 cakes), Sophia asks: 'What if a supplier raises flour prices? What if a competitor captures cake demand, so I get less profit per cake?' These are post-optimality questions.",
+        "inSimpleWords": "After optimizing, ask how robust the solution is. Will small changes to costs or demands break your strategy?",
+        "emoji": "🔮"
+      },
+      {
+        "kind": "example",
+        "title": "Verifying Feasibility at Optimal Point",
+        "storyContext": "Ms. Chopra double-checks Sophia's optimal solution (4, 2) satisfies all constraints.",
+        "example": {
+          "problem": "At (4, 2): flour = 4+2=6 ≤ 10 ✓, butter = 1+1=2 ≤ 2 ✓, time = 80+60=140 ≤ 180 ✓, x,y ≥ 0 ✓. Profit Z = 250(4)+400(2) = 1800 ✓.",
+          "solution": "Solution (4, 2) is feasible and gives profit ₹1800. Verified."
+        },
+        "inSimpleWords": "Always verify the proposed solution satisfies all constraints and achieves the objective.",
+        "emoji": "✓"
+      },
+      {
+        "kind": "story",
+        "title": "From Theory to Practice",
+        "storyContext": "Sophia implements the solution and within weeks sees profit increase. 'Math isn't just theory,' she tells Ms. Chopra. 'It's real money in my pocket.' Ms. Chopra smiles: 'That's the power of optimization.'",
+        "inSimpleWords": "Linear programming bridges mathematics and business reality. Correct decisions lead to measurable success.",
+        "emoji": "💰"
       },
       {
         "kind": "recap",
