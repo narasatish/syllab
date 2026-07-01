@@ -37,6 +37,12 @@
         "emoji": "🏏"
       },
       {
+        "kind": "story",
+        "title": "Pia's Data Collection",
+        "storyContext": "Pia has tracked 200 coin flips and documented 105 heads and 95 tails. Arjun asks, 'Shouldn't it be exactly 100 and 100?' Pia smiles: 'That's what we'd expect in theory. But real data is messier! Probability helps us understand that randomness.'",
+        "emoji": "📊"
+      },
+      {
         "kind": "concept",
         "title": "Basic Probability: What Are the Odds?",
         "storyContext": "Coach Kapoor sets up a simple experiment. He rolls a die and asks, 'What's the probability of getting a 5?'",
@@ -66,6 +72,17 @@
         "emoji": "🎯"
       },
       {
+        "kind": "example",
+        "title": "The Fair Die Roll",
+        "storyContext": "Arjun and Coach Kapoor roll a die 10 times and record the results. Every outcome (1 through 6) has the same chance.",
+        "example": {
+          "problem": "Coach rolls a fair die once. What are the probabilities for (a) rolling a 1, (b) rolling a number less than 3, (c) rolling a multiple of 3?",
+          "solution": "(a) P(1) = 1/6 ≈ 16.7%.\n(b) Numbers less than 3: 1, 2. P = 2/6 = 1/3 ≈ 33.3%.\n(c) Multiples of 3: 3, 6. P = 2/6 = 1/3 ≈ 33.3%."
+        },
+        "inSimpleWords": "On a fair die, each face has equal probability of showing up.",
+        "emoji": "🎲"
+      },
+      {
         "kind": "concept",
         "title": "Sample Space and Events",
         "storyContext": "Pia creates a list of all possible outcomes from a coin flip and a die roll. 'This complete list is called a sample space,' she explains.",
@@ -89,6 +106,12 @@
         },
         "inSimpleWords": "Sample space lists all possible outcomes. An event is a subset of the sample space.",
         "emoji": "📋"
+      },
+      {
+        "kind": "story",
+        "title": "The Coin-Flip Challenge",
+        "storyContext": "Arjun and Pia flip a coin 4 times in a row. Pia asks, 'What are ALL possible sequences we could get?' Arjun starts listing: H-H-H-H, H-H-H-T, H-H-T-H... Pia stops him: 'There are 2^4 = 16 total sequences in the sample space for 4 flips.'",
+        "emoji": "🪙"
       },
       {
         "kind": "concept",
@@ -116,6 +139,23 @@
         "emoji": "📊"
       },
       {
+        "kind": "example",
+        "title": "Comparing Theoretical and Empirical",
+        "storyContext": "Pia conducts a large experiment: she rolls a die 600 times and records how often each number appears.",
+        "example": {
+          "problem": "In 600 die rolls, Pia records: 1 appears 95 times, 2 appears 102 times, 3 appears 98 times, 4 appears 105 times, 5 appears 100 times, 6 appears 100 times. Calculate empirical probabilities and compare to theoretical.",
+          "solution": "Empirical P(1) = 95/600 ≈ 0.158, P(2) = 102/600 = 0.17, etc. Theoretical P(any number) = 1/6 ≈ 0.167. The empirical values cluster around 0.167, confirming the law of large numbers."
+        },
+        "inSimpleWords": "With enough trials, observed data approaches what theory predicts.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "story",
+        "title": "The Law of Large Numbers",
+        "storyContext": "Coach Kapoor teaches the class about a powerful principle: 'If you flip a coin 10 times, you might get 7 heads and 3 tails—far from 50-50. But flip it 10,000 times, and you'll get very close to exactly 5,000 heads. This is the law of large numbers—randomness smooths out with many trials.'",
+        "emoji": "📈"
+      },
+      {
         "kind": "concept",
         "title": "Compound Probability: Multiple Events",
         "storyContext": "Arjun asks, 'If I flip a coin and roll a die, what's the probability of getting heads AND rolling a 6?' Coach explains: 'You multiply the individual probabilities.'",
@@ -141,6 +181,12 @@
         "emoji": "✖️"
       },
       {
+        "kind": "story",
+        "title": "The School Raffle Introduction",
+        "storyContext": "The school announces a big raffle. There are 500 tickets total, with 10 prize winners. Arjun buys 5 tickets. His friend Pia buys 3 tickets. Arjun wonders: 'What's my chance of winning at least one prize?'",
+        "emoji": "🎟️"
+      },
+      {
         "kind": "example",
         "title": "Arjun's Raffle Problem",
         "storyContext": "The school holds a raffle. There are 500 tickets total, and Arjun buys 5 tickets. His friend Pia buys 3 tickets. There are 10 prize winners. What is the probability that Arjun wins at least one prize?",
@@ -149,7 +195,43 @@
           "solution": "It's easier to calculate P(no wins) and subtract from 1.\nP(one specific ticket doesn't win) = 490/500 = 0.98.\nP(all 5 tickets don't win) = (490/500)^5 ≈ 0.905.\nP(at least one win) = 1 − 0.905 = 0.095 ≈ 9.5%."
         },
         "inSimpleWords": "For 'at least one' problems, it's easier to calculate the complement (none) and subtract from 1.",
-        "emoji": "🎟️"
+        "emoji": "💰"
+      },
+      {
+        "kind": "concept",
+        "title": "Conditional Probability: Dependent Events",
+        "storyContext": "Coach Kapoor presents a new scenario: 'You draw a card from a deck. You don't put it back. Now you draw another. The probability of the second draw depends on the first—they're dependent events.'",
+        "points": [
+          {
+            "label": "Conditional probability",
+            "text": "P(B|A) = 'Probability of B given A'. The probability of event B happening after A has already happened."
+          },
+          {
+            "label": "With replacement",
+            "text": "If you put the first card back, events are independent. Probabilities don't change."
+          },
+          {
+            "label": "Without replacement",
+            "text": "If you don't put the first card back, events are dependent. Total outcomes and favorable outcomes both decrease."
+          }
+        ],
+        "example": {
+          "problem": "A deck has 52 cards (13 diamonds). You draw one card, don't replace it, then draw another. Find P(both diamonds).",
+          "solution": "P(first diamond) = 13/52 = 1/4.\nP(second diamond | first was diamond) = 12/51 (now only 12 diamonds in 51 cards).\nP(both diamonds) = (13/52) × (12/51) = (1/4) × (12/51) = 12/204 = 1/17 ≈ 5.9%."
+        },
+        "inSimpleWords": "When one event affects the next (like drawing without replacement), use conditional probability.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "example",
+        "title": "Arjun's Card Game",
+        "storyContext": "Arjun and Pia play a card game. Arjun draws 2 cards without replacement from a standard 52-card deck.",
+        "example": {
+          "problem": "Find P(first card is red and second card is black) and P(both cards are red).",
+          "solution": "P(red then black) = (26/52) × (26/51) = (1/2) × (26/51) = 26/102 ≈ 25.5%.\nP(both red) = (26/52) × (25/51) = (1/2) × (25/51) = 25/102 ≈ 24.5%."
+        },
+        "inSimpleWords": "Track how the sample space shrinks after each draw.",
+        "emoji": "♥️"
       },
       {
         "kind": "challenge",
@@ -160,6 +242,132 @@
           "solution": "(a) Total balls = 3 + 4 + 2 = 9. P(red) = 3/9 = 1/3 ≈ 33.3%.\n(b) P(blue or green) = (4 + 2)/9 = 6/9 = 2/3 ≈ 66.7%.\n(c) Without replacement: P(both red) = (3/9) × (2/8) = (1/3) × (1/4) = 1/12 ≈ 8.3%."
         },
         "emoji": "🔴"
+      },
+      {
+        "kind": "story",
+        "title": "Pia's Weather Insight",
+        "storyContext": "Pia asks Arjun, 'Did you know weather affects winning probabilities? I looked at 100 cricket matches. When it rains, home teams win only 35 out of 50 times (70%). In dry weather, they win 45 out of 50 times (90%).' This is conditional probability in action!",
+        "emoji": "🌧️"
+      },
+      {
+        "kind": "concept",
+        "title": "Using Probability to Make Decisions",
+        "storyContext": "Coach Kapoor gathers the team and says, 'Probability helps us make smart choices. If we know the odds, we can decide if it's worth the risk.'",
+        "points": [
+          {
+            "label": "Expected value",
+            "text": "E(X) = (outcome 1 × probability 1) + (outcome 2 × probability 2) + ... Tells you the average outcome over many trials."
+          },
+          {
+            "label": "Fair game",
+            "text": "A game is fair if expected value = 0 (or equals the stake in gambling)."
+          },
+          {
+            "label": "Risk assessment",
+            "text": "Higher probability = lower risk. Use probabilities to compare different options."
+          }
+        ],
+        "example": {
+          "problem": "A lottery ticket costs ₹100. You win ₹500 with probability 0.05, or ₹0 with probability 0.95. What's the expected value?",
+          "solution": "E(profit) = (500 × 0.05) + (0 × 0.95) − 100 (ticket cost) = 25 − 100 = −₹75. On average, you lose ₹75 per ticket. Not a fair bet!"
+        },
+        "inSimpleWords": "Expected value shows the average outcome. If it's negative, avoid the bet. If it's positive, the odds favor you.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "story",
+        "title": "Coach's Life Lesson",
+        "storyContext": "Coach Kapoor tells Arjun and Pia, 'Probability isn't about predicting the future with certainty. It's about understanding uncertainty and making informed choices. In cricket, in school, in life—you'll always face chance. Probability is how you navigate it.'",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "challenge",
+        "title": "Probability in Sports",
+        "storyContext": "In a cricket series, Team A wins 60% of matches against Team B. If they play 5 matches, what are the chances Team A wins at least 3 matches?",
+        "example": {
+          "problem": "Calculate P(Team A wins at least 3 out of 5 matches) with P(win per match) = 0.6.",
+          "solution": "This is binomial probability. P(at least 3) = P(exactly 3) + P(exactly 4) + P(exactly 5).\nUsing binomial formula: P(k) = C(n,k) × p^k × (1-p)^(n-k).\nP(3) ≈ 0.346; P(4) ≈ 0.259; P(5) ≈ 0.078.\nP(at least 3) ≈ 0.683 or about 68.3%."
+        },
+        "emoji": "🏆"
+      },
+      {
+        "kind": "story",
+        "title": "Real-World Predictions",
+        "storyContext": "Pia shows Arjun weather forecasts: '60% chance of rain tomorrow' or '80% chance of sunshine.' These are empirical probabilities based on historical weather patterns. Understanding probability helps you interpret news and forecasts correctly!",
+        "emoji": "📢"
+      },
+      {
+        "kind": "concept",
+        "title": "Mutually Exclusive Events",
+        "storyContext": "Coach Kapoor explains: some events cannot happen at the same time.",
+        "points": [
+          {
+            "label": "Mutually exclusive",
+            "text": "Two events that cannot both happen. Like rolling a die: you can't get both a 2 and a 5 on one roll."
+          },
+          {
+            "label": "Addition rule",
+            "text": "P(A or B) = P(A) + P(B) when events are mutually exclusive (no overlap)."
+          },
+          {
+            "label": "Non-mutually exclusive",
+            "text": "Events that can happen together. A card can be both red AND a 7."
+          }
+        ],
+        "example": {
+          "problem": "A die is rolled. Find P(rolling a 2 or a 4).",
+          "solution": "Rolling a 2 and rolling a 4 are mutually exclusive.\nP(2) = 1/6; P(4) = 1/6.\nP(2 or 4) = 1/6 + 1/6 = 2/6 = 1/3 ≈ 33.3%."
+        },
+        "inSimpleWords": "Mutually exclusive events have no overlap—they cannot both happen.",
+        "emoji": "🚫"
+      },
+      {
+        "kind": "story",
+        "title": "Probability in Daily Life",
+        "storyContext": "Pia shows Arjun examples everywhere: bus arrivals, game outcomes, even friendship choices involve probability. Understanding it helps you make better decisions every single day.",
+        "emoji": "🌐"
+      },
+      {
+        "kind": "example",
+        "title": "Real Decisions with Probability",
+        "storyContext": "Arjun faces a decision: should he study or play cricket before an exam? He thinks about probability.",
+        "example": {
+          "problem": "If Arjun studies, he has a 90% chance of getting an A. If he plays cricket, only 20% chance of an A. Studying takes 3 hours; cricket takes 2 hours. What's the expected value of each choice?",
+          "solution": "Expected value of studying = 90% × A grade (high value) = high expected value.\nExpected value of cricket = 20% × A grade = much lower expected value.\nProbability helps Arjun see that studying is the wiser choice."
+        },
+        "inSimpleWords": "Probability helps you weigh options and choose the path most likely to succeed.",
+        "emoji": "🎓"
+      },
+      {
+        "kind": "concept",
+        "title": "Inverse and Complementary Events",
+        "storyContext": "Coach Kapoor introduces a shortcut: 'The complement of an event is everything that's NOT that event.'",
+        "points": [
+          {
+            "label": "Complement",
+            "text": "The complement of event A (written A^c) is all outcomes where A does NOT happen."
+          },
+          {
+            "label": "Key rule",
+            "text": "P(A) + P(A^c) = 1, so P(A^c) = 1 - P(A)."
+          },
+          {
+            "label": "When to use it",
+            "text": "If an event has many favorable outcomes, it's easier to count unfavorable ones and subtract."
+          }
+        ],
+        "example": {
+          "problem": "A bag has 100 marbles: 95 red, 5 blue. Find P(drawing at least one blue marble if you draw 5 times with replacement).",
+          "solution": "P(at least one blue) = 1 - P(no blue) = 1 - (95/100)^5 = 1 - 0.7738 ≈ 0.226 or 22.6%."
+        },
+        "inSimpleWords": "Using the complement is often faster than counting favorable outcomes directly.",
+        "emoji": "↔️"
+      },
+      {
+        "kind": "story",
+        "title": "Arjun's Final Realization",
+        "storyContext": "As the chapter ends, Arjun reflects: 'Probability isn't just math problems. It's how I understand the world. When I hear statistics on TV, read about odds in sports, or make decisions about whether to try something risky—I'm using probability thinking. Coach and Pia have given me a superpower.'",
+        "emoji": "⭐"
       },
       {
         "kind": "recap",
@@ -178,10 +386,22 @@
             "text": "Theoretical probability is based on logic; empirical probability is based on observed data."
           },
           {
+            "text": "The Law of Large Numbers: empirical probability approaches theoretical probability with many trials."
+          },
+          {
             "text": "For independent events: P(A and B) = P(A) × P(B)."
           },
           {
+            "text": "For dependent events (without replacement), use conditional probability: P(B|A)."
+          },
+          {
             "text": "For 'at least one' problems, calculate the complement and subtract from 1."
+          },
+          {
+            "text": "Expected value helps you decide if a bet or game is fair."
+          },
+          {
+            "text": "Probability is everywhere—in sports, weather, games, and life decisions."
           }
         ],
         "inSimpleWords": "Probability is the language of uncertainty. It quantifies how likely events are, from coin flips to cricket matches to raffles.",
@@ -227,6 +447,12 @@
         "emoji": "🏗️"
       },
       {
+        "kind": "story",
+        "title": "Patterns in Nature",
+        "storyContext": "Nikhil and Maya go for a walk. Nikhil points to a sunflower: 'The seeds spiral in a Fibonacci pattern—1, 1, 2, 3, 5, 8, 13...' Maya counters with a tree: 'See how each branch splits? Branch 1 splits into 2, then each splits into 2 more—that's 1, 2, 4, 8, 16, a geometric sequence with ratio 2.' Nikhil realizes: 'Sequences are everywhere!'",
+        "emoji": "🌻"
+      },
+      {
         "kind": "concept",
         "title": "Sequences: What Are They?",
         "storyContext": "Dr. Agarwal defines a sequence as an ordered list of numbers following a pattern. 'Each number is called a term.'",
@@ -254,6 +480,17 @@
         },
         "inSimpleWords": "A sequence is an ordered list of numbers following a pattern. Each number is a term.",
         "emoji": "📍"
+      },
+      {
+        "kind": "example",
+        "title": "Recognizing Sequences by Pattern",
+        "storyContext": "Nikhil looks at the sequence 5, 8, 11, 14, 17, ... He immediately notices a pattern.",
+        "example": {
+          "problem": "Find the first term a, common difference d, and write a₁₀.",
+          "solution": "a = 5 (first term). Difference between consecutive terms: 8 - 5 = 3, so d = 3.\na₁₀ = 5 + (10 - 1) × 3 = 5 + 27 = 32."
+        },
+        "inSimpleWords": "Look at consecutive terms to spot the pattern quickly.",
+        "emoji": "🔍"
       },
       {
         "kind": "concept",
@@ -285,9 +522,26 @@
         "emoji": "➕"
       },
       {
+        "kind": "story",
+        "title": "Maya's Savings Plan",
+        "storyContext": "Maya decides to save money for a trip. Month 1: ₹1000. Month 2: ₹1200. Month 3: ₹1400. She increases by ₹200 every month. Nikhil asks, 'How much will you have saved by month 12?' Maya realizes she needs arithmetic sequence formulas to find out!",
+        "emoji": "💰"
+      },
+      {
+        "kind": "example",
+        "title": "Maya's Savings Solution",
+        "storyContext": "Maya calculates her total savings over a year using the arithmetic sequence formula.",
+        "example": {
+          "problem": "Maya saves ₹1000 in month 1 and increases by ₹200 each month. Find her saving in month 12 and total saved in 12 months.",
+          "solution": "a = 1000, d = 200.\na₁₂ = 1000 + (12 − 1) × 200 = 1000 + 2200 = ₹3200 (month 12 only).\nS₁₂ = (12/2)(1000 + 3200) = 6 × 4200 = ₹25,200 (total saved)."
+        },
+        "inSimpleWords": "Arithmetic formulas show how savings grow linearly over time.",
+        "emoji": "📈"
+      },
+      {
         "kind": "concept",
         "title": "Geometric Sequences: Multiplying by a Constant",
-        "storyContext": "Maya's savings sequence (₹1000, ₹2000, ₹4000, ...) is geometric. 'Each term doubles—we multiply by 2,' she explains.",
+        "storyContext": "Maya's bank offers a different investment: compound interest. She invests ₹1000, and it grows: ₹1000, ₹2000, ₹4000, ₹8000, ... 'Each term doubles—we multiply by 2,' she explains.",
         "points": [
           {
             "label": "Geometric sequence",
@@ -314,6 +568,17 @@
         "emoji": "✖️"
       },
       {
+        "kind": "example",
+        "title": "Exponential Growth: Virus Spread",
+        "storyContext": "Dr. Agarwal uses a real-world example. 'If a virus spreads such that each infected person infects 2 more people, the spread is: 1, 2, 4, 8, 16, ...'",
+        "example": {
+          "problem": "If 1 person is infected and each infects 2 more daily, how many are infected on day 7? What's the total infected by day 7 (including recoveries)?",
+          "solution": "a = 1, r = 2.\nInfected on day 7: a₇ = 1 × 2^(7-1) = 2^6 = 64.\nTotal infected by day 7: S₇ = 1 × (1 − 2^7) / (1 − 2) = (1 − 128) / (−1) = 127."
+        },
+        "inSimpleWords": "Geometric sequences grow (or shrink) exponentially—doubling, tripling, or halving each step.",
+        "emoji": "📈"
+      },
+      {
         "kind": "concept",
         "title": "Identifying Sequences: Arithmetic, Geometric, or Other",
         "storyContext": "Dr. Agarwal teaches the class to recognize sequence types quickly. 'First, check the differences. If they're constant, it's arithmetic. If the ratios are constant, it's geometric.'",
@@ -337,6 +602,12 @@
         },
         "inSimpleWords": "Check consecutive differences (arithmetic) or ratios (geometric) to identify the sequence type.",
         "emoji": "🔍"
+      },
+      {
+        "kind": "story",
+        "title": "Nikhil's Discovery: Sum Shortcuts",
+        "storyContext": "Nikhil realizes, 'For long sequences, calculating every term is tedious. But if I know the pattern, I can use a formula to find the sum directly!' Dr. Agarwal nods: 'That's the power of recognizing sequences—you can leap ahead.'",
+        "emoji": "⚡"
       },
       {
         "kind": "concept",
@@ -389,6 +660,135 @@
         "emoji": "💳"
       },
       {
+        "kind": "story",
+        "title": "Fibonacci: The Golden Sequence",
+        "storyContext": "Nikhil reads about the Fibonacci sequence: 1, 1, 2, 3, 5, 8, 13, 21, ... where each term is the sum of the previous two. 'It appears in seashells, flower petals, and galaxies!' he exclaims. Dr. Agarwal smiles: 'Nature loves patterns, and Fibonacci shows up everywhere.'",
+        "emoji": "🐚"
+      },
+      {
+        "kind": "concept",
+        "title": "Infinite Series and Convergence",
+        "storyContext": "Dr. Agarwal introduces a mind-bending idea. 'What if we add infinitely many terms? Does the sum keep growing forever, or does it settle on a value?'",
+        "points": [
+          {
+            "label": "Infinite series",
+            "text": "The sum of an infinite sequence: S∞ = a₁ + a₂ + a₃ + ..."
+          },
+          {
+            "label": "Convergent series",
+            "text": "If |r| < 1 in a geometric series, the sum converges to S∞ = a / (1 − r)."
+          },
+          {
+            "label": "Divergent series",
+            "text": "If |r| ≥ 1, the sum grows without bound (diverges)."
+          }
+        ],
+        "example": {
+          "problem": "Find the sum of the infinite geometric series: 1 + 1/2 + 1/4 + 1/8 + ...",
+          "solution": "a = 1, r = 1/2. Since |r| < 1, it converges.\nS∞ = 1 / (1 − 1/2) = 1 / (1/2) = 2."
+        },
+        "inSimpleWords": "Some infinite sums actually have finite values if they shrink fast enough.",
+        "emoji": "♾️"
+      },
+      {
+        "kind": "story",
+        "title": "Maya's Investment Wisdom",
+        "storyContext": "Maya shows Nikhil her investment calculations. 'See, with compound interest, your money grows exponentially. Start small, stay patient, and geometric growth does the heavy lifting!' Nikhil realizes: sequences are the key to financial success.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "concept",
+        "title": "Comparing Growth Rates: Arithmetic vs Geometric",
+        "storyContext": "Dr. Agarwal demonstrates: 'Let me show you why geometric growth is so much more powerful than arithmetic.'",
+        "points": [
+          {
+            "label": "Arithmetic grows linearly",
+            "text": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (adding 1 each time). By term 100: a₁₀₀ = 100."
+          },
+          {
+            "label": "Geometric grows exponentially",
+            "text": "1, 2, 4, 8, 16, 32, 64, 128, 256, 512 (multiplying by 2 each time). By term 100: a₁₀₀ = 2^99 (astronomically large!)."
+          },
+          {
+            "label": "Real-world impact",
+            "text": "This is why compound interest is so powerful—your money doesn't just add, it multiplies."
+          }
+        ],
+        "example": {
+          "problem": "Compare after 20 terms: arithmetic sequence (a=1, d=1) vs geometric (a=1, r=2).",
+          "solution": "Arithmetic a₂₀ = 1 + 19 = 20. Geometric a₂₀ = 2^19 = 524,288. Geometric is 26,214 times larger!"
+        },
+        "inSimpleWords": "Geometric growth starts slow but soon becomes incredibly fast—exponential versus linear.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "example",
+        "title": "The Doubling Time Problem",
+        "storyContext": "Maya investigates: 'How long until my investment doubles?'",
+        "example": {
+          "problem": "If you invest ₹1000 at 8% compound interest per year, after how many years will it double to ₹2000?",
+          "solution": "A = P(1.08)^n. Set A = 2000, P = 1000.\n2000 = 1000(1.08)^n\n2 = 1.08^n\nn = log(2) / log(1.08) ≈ 9 years."
+        },
+        "inSimpleWords": "The 'Rule of 72': divide 72 by the percentage rate to estimate doubling time. 72 ÷ 8 ≈ 9 years.",
+        "emoji": "⏰"
+      },
+      {
+        "kind": "challenge",
+        "title": "Mixed Challenge: Recognizing All Sequence Types",
+        "storyContext": "Dr. Agarwal gives a comprehensive challenge mixing arithmetic, geometric, and complex sequences.",
+        "example": {
+          "problem": "Identify and solve: (a) 10, 20, 30, 40, ... (b) 3, 6, 12, 24, ... (c) 5, 10, 15, 20, ..., 100. Find S₁₀, a₁₀, and sum respectively.",
+          "solution": "(a) Arithmetic: d=10, a₁₀ = 100, S₁₀ = (10/2)(10+100) = 550.\n(b) Geometric: r=2, a₁₀ = 3×2^9 = 1536, S₁₀ = 3(1-2^10)/(1-2) = 3069.\n(c) Arithmetic: d=5, a₂₀ = 100, sum = 1050."
+        },
+        "emoji": "🧩"
+      },
+      {
+        "kind": "story",
+        "title": "Population and Bacteria Growth",
+        "storyContext": "Dr. Agarwal discusses real-world examples: 'A city's population grows by 5% each year—that's geometric. A bacteria culture doubles every hour—also geometric. Understanding this helps us predict crises and plan resources.'",
+        "emoji": "🌍"
+      },
+      {
+        "kind": "concept",
+        "title": "Negative Common Ratios",
+        "storyContext": "Dr. Agarwal introduces sequences that alternate: 'What if r is negative?'",
+        "points": [
+          {
+            "label": "Alternating sequences",
+            "text": "If r < 0, terms alternate between positive and negative. E.g., 2, -4, 8, -16, 32, ... (r = -2)."
+          },
+          {
+            "label": "Formula still works",
+            "text": "aₙ = a × r^(n−1) applies even when r is negative."
+          },
+          {
+            "label": "Convergence with |r| < 1",
+            "text": "If |r| < 1 (magnitude less than 1), the series still converges. E.g., 1, -0.5, 0.25, -0.125, ... converges to 2/3."
+          }
+        ],
+        "example": {
+          "problem": "For the sequence 5, -10, 20, -40, ..., find a₆ and S₅.",
+          "solution": "a = 5, r = -2.\na₆ = 5 × (-2)^5 = 5 × (-32) = -160.\nS₅ = 5(1 - (-2)^5) / (1 - (-2)) = 5(1 - (-32)) / 3 = 5 × 33 / 3 = 55."
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Predicting Long-Term Growth",
+        "storyContext": "Nikhil and Maya analyze a 20-year investment plan.",
+        "example": {
+          "problem": "Maya invests ₹5000 at 15% annual compound interest. How much will she have after 20 years?",
+          "solution": "A = 5000(1.15)^20 = 5000 × 16.37 ≈ ₹81,850. Her money grows more than 16 times!"
+        },
+        "inSimpleWords": "Long-term geometric growth multiplies wealth exponentially—the power of patience and compound returns.",
+        "emoji": "💎"
+      },
+      {
+        "kind": "story",
+        "title": "Nikhil's Final Pattern Discovery",
+        "storyContext": "As the chapter ends, Nikhil reflects: 'I see sequences everywhere now—in nature, in money, in time itself. Understanding these patterns gives me a way to predict the future and make smarter decisions. Math isn't abstract—it's the language nature speaks.'",
+        "emoji": "🌈"
+      },
+      {
         "kind": "recap",
         "title": "What You've Learned About Sequences and Progressions",
         "points": [
@@ -409,6 +809,12 @@
           },
           {
             "text": "Sequences help predict future values and calculate totals without computing every term."
+          },
+          {
+            "text": "Infinite geometric series converge (have a finite sum) when |r| < 1."
+          },
+          {
+            "text": "Fibonacci and other complex sequences appear throughout nature and mathematics."
           }
         ],
         "inSimpleWords": "Sequences reveal patterns in nature and finance. Arithmetic and geometric sequences are the two most common types and solve real-world prediction problems.",
@@ -454,6 +860,12 @@
         "storyContext": "On the first day of Class 9, Priya walks into Mr. Sharma's science lab. The shelves are lined with beakers, bunsen burners, and microscopes. 'Welcome,' says Mr. Sharma with a smile. 'This year, you'll learn not just facts, but HOW scientists discover those facts. That's the real power of science.' Priya and Arjun exchange excited glances. This is not going to be memorization—it's going to be discovery."
       },
       {
+        "kind": "story",
+        "title": "Curiosity Meets Method",
+        "emoji": "💭",
+        "storyContext": "Priya notices something peculiar: the same beaker of water cools faster when placed on a metal tray than on a wooden table. She calls Arjun over and asks, 'Why?' Arjun shrugs. Mr. Sharma overhears and smiles, 'That's the beginning of science—asking why. Now let's design an experiment to find out!'"
+      },
+      {
         "kind": "concept",
         "title": "What is Science?",
         "emoji": "🌍",
@@ -475,6 +887,12 @@
         "image": {
           "prompt": "A lab bench with a microscope, beaker, and notebook with sketches of observations"
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Five-Step Path",
+        "emoji": "🛤️",
+        "storyContext": "Mr. Sharma gathers the class around a whiteboard. 'Scientists follow a path to discovery. It has five steps. Let me show you how real scientists think.'"
       },
       {
         "kind": "concept",
@@ -508,6 +926,16 @@
         }
       },
       {
+        "kind": "example",
+        "title": "The Beaker Temperature Discovery",
+        "emoji": "🧊",
+        "example": {
+          "problem": "Priya observes that her beaker cools faster on a metal tray than on wood. Walk through the scientific method to explain why.",
+          "solution": "Observation: Beaker cools faster on metal than on wood. Question: Does the surface material affect cooling rate? Hypothesis: If metal conducts heat better than wood, then a beaker on metal will cool faster. Experiment: Place identical beakers of hot water on metal and wood, measure temperature every 2 minutes. Conclusion: Metal conducts heat away faster, so the beaker loses heat quicker."
+        },
+        "inSimpleWords": "Even simple everyday observations can lead to scientific discoveries if you ask 'why' and test it."
+      },
+      {
         "kind": "concept",
         "title": "Variables in Experiments",
         "emoji": "📊",
@@ -534,6 +962,12 @@
           "problem": "Arjun wants to test if warmer water dissolves sugar faster. What are the variables?",
           "solution": "Independent variable: temperature of water. Dependent variable: time to dissolve sugar. Control variables: amount of sugar, type of sugar, container size, stirring speed. Control group: sugar dissolving in room-temperature water."
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Importance of Controls",
+        "emoji": "⚖️",
+        "storyContext": "Arjun makes a mistake in his first experiment: he uses a bigger beaker for hot water and a smaller beaker for cold water. Mr. Sharma stops him: 'If the beakers are different sizes, you won't know if size or temperature is causing the difference. You need a control!' Arjun learns that controls are not optional—they're essential."
       },
       {
         "kind": "concept",
@@ -564,6 +998,40 @@
       },
       {
         "kind": "example",
+        "title": "Reading a Thermometer Carefully",
+        "emoji": "🌡️",
+        "example": {
+          "problem": "Priya reads a thermometer. The liquid level is between 25°C and 26°C, closer to 25°C. What's her measurement?",
+          "solution": "Priya should estimate to the nearest tenth: 25.3°C or 25.4°C. Always read carefully and estimate to one decimal place beyond the major marks. Recording is 25.3°C."
+        },
+        "inSimpleWords": "Precision in measurement means reading instruments carefully and recording what you actually see, not what you expect."
+      },
+      {
+        "kind": "concept",
+        "title": "Reproducibility: The Gold Standard",
+        "emoji": "🔁",
+        "points": [
+          {
+            "label": "Reproducible",
+            "text": "If another scientist follows your exact steps, they get the same results. This is proof your method is sound."
+          },
+          {
+            "label": "Recording data",
+            "text": "Write down EVERYTHING: procedure, measurements, observations, even 'unexpected' results."
+          },
+          {
+            "label": "Repeated trials",
+            "text": "Do the experiment multiple times to ensure results aren't due to luck or error."
+          }
+        ],
+        "inSimpleWords": "A good experiment is one that anyone can repeat and get similar results.",
+        "example": {
+          "problem": "Priya runs her sugar-dissolving experiment once and gets 30 seconds for hot water. Should she stop?",
+          "solution": "No! She should repeat it at least 3 times with the same hot water temperature, then calculate the average time. If she gets 30s, 31s, and 29s, the average is 30s—much more reliable than a single trial."
+        }
+      },
+      {
+        "kind": "example",
         "title": "The Water Dissolving Sugar Experiment",
         "emoji": "🧪",
         "example": {
@@ -577,6 +1045,12 @@
         }
       },
       {
+        "kind": "story",
+        "title": "When Experiments Fail",
+        "emoji": "❌",
+        "storyContext": "Arjun's first attempt at the sugar experiment goes wrong: the water is different temperatures each time he measures, making the data messy. Instead of giving up, he and Priya talk to Mr. Sharma. They redesign: use a thermometer to keep water at exact temperatures. This 'failure' becomes a learning opportunity—real science involves troubleshooting!"
+      },
+      {
         "kind": "challenge",
         "title": "Design Your Own Experiment",
         "emoji": "💡",
@@ -585,6 +1059,143 @@
           "problem": "Does crystal size affect dissolution rate? Plan the experiment.",
           "solution": "Hypothesis: If sugar crystals are larger, then they will dissolve slower. Independent variable: crystal size (powdered, granulated, rock). Dependent variable: time to dissolve. Control: 100 mL room-temperature water, 10 g sugar (by mass), same beaker, same stirring speed. Expected: Rock sugar ~300 s; granulated ~90 s; powder ~20 s. Reason: Larger crystals have less surface area exposed."
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Lab Notebook: A Scientist's Best Friend",
+        "emoji": "📓",
+        "storyContext": "Mr. Sharma shows Priya his old lab notebooks. Every page is filled with observations, sketches, failed experiments, and notes. 'This is how scientists think,' he explains. 'Your lab notebook is not just for grades—it's your memory of discovery. Write everything, even what seems unimportant. You might notice a pattern later.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Ethics in Science",
+        "emoji": "⚖️",
+        "points": [
+          {
+            "label": "Honesty",
+            "text": "Report results truthfully, even if they contradict your hypothesis."
+          },
+          {
+            "label": "Safety",
+            "text": "Always follow lab safety rules. Goggles, gloves, and careful handling save lives."
+          },
+          {
+            "label": "Respect for living things",
+            "text": "Use minimal organisms in experiments; minimize harm."
+          },
+          {
+            "label": "Sharing findings",
+            "text": "Science advances when scientists share discoveries. Hide nothing, fear nothing."
+          }
+        ],
+        "inSimpleWords": "Science is built on trust. Scientists report the truth, play by safety rules, and share their work.",
+        "emoji": "🤝"
+      },
+      {
+        "kind": "story",
+        "title": "Real Scientists in Action",
+        "emoji": "🌟",
+        "storyContext": "Mr. Sharma shows the class videos of real scientists at work: marine biologists diving to study coral reefs, physicists working with particle accelerators, botanists growing new plant varieties. Priya realizes: science isn't just textbook facts—it's real people making real discoveries!"
+      },
+      {
+        "kind": "concept",
+        "title": "Qualitative vs Quantitative Data",
+        "emoji": "📈",
+        "storyContext": "Mr. Sharma teaches the difference: 'Some data you measure with numbers (quantitative). Some you describe with words (qualitative).'",
+        "points": [
+          {
+            "label": "Quantitative data",
+            "text": "Numerical measurements. Temperature (32°C), mass (500g), time (45 seconds), pH (7.2)."
+          },
+          {
+            "label": "Qualitative data",
+            "text": "Descriptive observations. 'The solution turned blue', 'the sample smells strong', 'texture is smooth'."
+          },
+          {
+            "label": "Both matter",
+            "text": "Good experiments combine quantitative precision with qualitative context."
+          }
+        ],
+        "example": {
+          "problem": "In the sugar dissolution experiment, what are the quantitative and qualitative observations?",
+          "solution": "Quantitative: temperature (°C), time (seconds), mass (g). Qualitative: 'sugar crystals disappear gradually', 'hot water creates steam', 'solution becomes clear'."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Unexpected Results",
+        "storyContext": "Priya conducts an experiment and gets a result that contradicts her hypothesis. Instead of being disappointed, Mr. Sharma celebrates: 'Science grows from surprises! Unexpected results often lead to the biggest discoveries.'",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "concept",
+        "title": "Interpreting Graphs and Data",
+        "emoji": "📊",
+        "storyContext": "Priya learns to create and read graphs to visualize experiment results.",
+        "points": [
+          {
+            "label": "Line graph",
+            "text": "Shows how one variable changes over another (e.g., temperature over time)."
+          },
+          {
+            "label": "Bar graph",
+            "text": "Compares quantities across categories (e.g., dissolution time for different temperatures)."
+          },
+          {
+            "label": "Axis labels",
+            "text": "Always label axes with units. X-axis = independent variable, Y-axis = dependent variable."
+          }
+        ],
+        "example": {
+          "problem": "Draw a line graph for cooling water: time (minutes) on X-axis, temperature (°C) on Y-axis.",
+          "solution": "Plot points: (0 min, 100°C), (2 min, 85°C), (4 min, 72°C), (6 min, 62°C). Connect with a line showing temperature decreasing over time."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Collaboration in Science",
+        "storyContext": "Priya and Arjun discover that working together makes experiments stronger. They catch each other's mistakes, brainstorm better designs, and celebrate discoveries together. Mr. Sharma reminds them: 'Real science is collaborative. Scientists share ideas and build on each other's work.'",
+        "emoji": "🤝"
+      },
+      {
+        "kind": "example",
+        "title": "Analysis and Conclusions",
+        "storyContext": "After running experiments multiple times, Priya must analyze the data carefully.",
+        "example": {
+          "problem": "Priya's sugar dissolution times (in seconds): hot water: 30, 32, 28; warm water: 85, 88, 90; cold water: 175, 180, 178. Calculate average times and draw conclusions.",
+          "solution": "Hot: (30+32+28)/3 = 30 s. Warm: (85+88+90)/3 ≈ 87.7 s. Cold: (175+180+178)/3 ≈ 177.7 s. Conclusion: Warmer water dissolves sugar faster. The relationship is clear and reproducible."
+        },
+        "inSimpleWords": "Average multiple trials to reduce the effect of random errors and reveal true trends."
+      },
+      {
+        "kind": "concept",
+        "title": "Sources of Experimental Error",
+        "emoji": "⚠️",
+        "storyContext": "Mr. Sharma teaches Priya to think critically about what could go wrong.",
+        "points": [
+          {
+            "label": "Systematic errors",
+            "text": "Errors that consistently bias results in one direction. E.g., a broken thermometer reading 2°C high always."
+          },
+          {
+            "label": "Random errors",
+            "text": "Unpredictable fluctuations. E.g., slight hand tremors affecting measurements, air currents affecting cooling."
+          },
+          {
+            "label": "Minimizing errors",
+            "text": "Use proper equipment, repeat trials, average results, maintain careful controls."
+          }
+        ],
+        "example": {
+          "problem": "Priya's stopwatch has a broken start button—it takes 0.5 seconds to activate. How does this affect her timing?",
+          "solution": "This is a systematic error. Every dissolution time will be 0.5 seconds too high. Solution: record all times as 0.5 s lower, or use a better stopwatch."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Priya's Transformation",
+        "emoji": "✨",
+        "storyContext": "By the end of the chapter, Priya has transformed. She no longer just memorizes facts—she thinks like a scientist. She questions everything, designs tests carefully, records data honestly, and understands that failure is part of discovery. She realizes the lab isn't a place for answers; it's a place for questions."
       },
       {
         "kind": "recap",
@@ -604,10 +1215,20 @@
             "text": "Careful measurement and repeated trials make results reliable."
           },
           {
-            "text": "Science is everywhere—in dissolving sugar, growing plants, mixing paints, cooking."
+            "text": "Reproducibility is key—other scientists must be able to repeat your work and get similar results."
+          },
+          {
+            "text": "Lab notebooks are essential for recording and remembering discoveries."
+          },
+          {
+            "text": "Ethics, safety, and honesty are non-negotiable in science."
+          },
+          {
+            "text": "Science is not just facts in textbooks—it's real people discovering the world."
           }
         ],
-        "inSimpleWords": "Science teaches us to ask questions, test ideas carefully, and trust only what evidence shows."
+        "inSimpleWords": "Science teaches us to ask questions, test ideas carefully, and trust only what evidence shows.",
+        "emoji": "🔬"
       }
     ]
   }
