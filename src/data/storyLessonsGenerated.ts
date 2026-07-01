@@ -4,6 +4,2783 @@ import type { StoryLesson } from './storyLessons';
 
 export const STORY_LESSONS_GENERATED: StoryLesson[] = [
   {
+    "slug": "class-3-science-light-and-shadow",
+    "classLevel": "3",
+    "subject": "Science",
+    "chapter": "Light and Shadow",
+    "chapterAliases": [
+      "How Shadows Form",
+      "Properties of Light",
+      "Reflection"
+    ],
+    "title": "Arun and Priya's Shadow Theater",
+    "hook": "Can you make shadows dance? Arun and Priya explore light and dark.",
+    "characters": [
+      {
+        "name": "Arun",
+        "emoji": "👦",
+        "role": "shadow puppet artist"
+      },
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "light scientist"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "story",
+        "title": "The Puppet Show",
+        "storyContext": "On a rainy evening, Arun and Priya set up a shadow puppet show. Priya holds a lamp. Arun makes hand shapes between the lamp and a white sheet. Giant shadows dance on the wall. 'How does this work?' asks Arun.",
+        "points": [
+          {
+            "label": "Scene",
+            "text": "Arun's house. White sheet hung on wall. Lamp behind Arun. Dark room."
+          }
+        ],
+        "inSimpleWords": "Light makes shadows when blocked by objects.",
+        "emoji": "🎭",
+        "image": {
+          "url": "https://images.pexels.com/photos/10846201/pexels-photo-10846201.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Puppet Show — Light and Shadow",
+          "q": "light"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What is Light?",
+        "storyContext": "Priya explains: 'Light travels in straight lines from a source (like the sun or a lamp). When light hits an object, it can pass through (transparent), bend through (transparent-ish), or bounce off (opaque/reflective).'",
+        "points": [
+          {
+            "label": "Transparent",
+            "text": "Light passes through—you see clearly (glass, water)"
+          },
+          {
+            "label": "Translucent",
+            "text": "Light bends through—blurry view (frosted glass)"
+          },
+          {
+            "label": "Opaque",
+            "text": "Light bounces off—you cannot see through (wood, paper)"
+          }
+        ],
+        "inSimpleWords": "Light travels straight and bounces off things.",
+        "emoji": "💡",
+        "image": {
+          "url": "https://images.pexels.com/photos/5767823/pexels-photo-5767823.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What is Light? — Light and Shadow",
+          "q": "light"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "How Shadows Form",
+        "storyContext": "Arun holds his hand up to the lamp. 'Light goes straight from the lamp, hits my hand (opaque), and cannot go through. Behind my hand, there is no light—a shadow!'",
+        "example": {
+          "problem": "Why is there a shadow behind an opaque object in a light beam?",
+          "solution": "Light travels in straight lines. When it hits an opaque object, it cannot pass through, creating a dark area (shadow) behind it."
+        },
+        "inSimpleWords": "Shadows form when objects block light rays.",
+        "emoji": "🚫",
+        "image": {
+          "url": "https://images.pexels.com/photos/12515986/pexels-photo-12515986.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "How Shadows Form — Light and Shadow",
+          "q": "light"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Shadow Sizes Change",
+        "storyContext": "Priya moves the lamp closer to Arun's hand. His shadow gets bigger. 'The closer the light source, the bigger the shadow because light spreads out from a point!'",
+        "points": [
+          {
+            "label": "Close light",
+            "text": "Bigger shadow"
+          },
+          {
+            "label": "Far light",
+            "text": "Smaller shadow"
+          },
+          {
+            "label": "Reason",
+            "text": "Light rays spread wider from close source"
+          }
+        ],
+        "inSimpleWords": "Light distance changes the size of shadows.",
+        "emoji": "🔍",
+        "image": {
+          "url": "https://images.pexels.com/photos/37192626/pexels-photo-37192626.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Shadow Sizes Change — Light and Shadow",
+          "q": "light"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Sun Shadows During the Day",
+        "storyContext": "Priya says, 'The sun creates your shadow outdoors. In the morning, your shadow is long. At noon, it is short. In the evening, it is long again. Why?' Arun figures out: 'Because the sun is angle changes!'",
+        "example": {
+          "problem": "Why is your shadow longest in early morning and late evening?",
+          "solution": "When the sun is low on the horizon, light rays hit at an angle, making shadows stretch. At noon, the sun is high, shadows are short."
+        },
+        "inSimpleWords": "Sun angle changes shadow size throughout the day.",
+        "emoji": "🌅",
+        "image": {
+          "url": "https://images.pexels.com/photos/34386517/pexels-photo-34386517.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Sun Shadows During the Day — Light and Shadow",
+          "q": "light"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Reflection: Light Bounces",
+        "storyContext": "Priya holds a mirror in Arun's light beam. 'Look! The light bounces off the mirror and reflects. Mirrors are very smooth and shiny, so light bounces perfectly.'",
+        "points": [
+          {
+            "label": "Reflection",
+            "text": "Light bounces off smooth, shiny surfaces (mirrors)"
+          },
+          {
+            "label": "Angle",
+            "text": "Light bounces at the same angle it hits (angle of incidence = angle of reflection)"
+          },
+          {
+            "label": "Diffuse",
+            "text": "Rough surfaces scatter light in all directions"
+          }
+        ],
+        "inSimpleWords": "Mirrors reflect light back instead of absorbing it.",
+        "emoji": "🪞",
+        "image": {
+          "url": "https://images.pexels.com/photos/29109680/pexels-photo-29109680.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Reflection: Light Bounces — Light and Shadow",
+          "q": "light"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Create Shadow Art",
+        "storyContext": "Arun and Priya stage a shadow puppet show: a dog, a butterfly, a bird. 'Make bigger shadows, smaller shadows, moving shadows!' says Priya. Arun practices different hand shapes and lamp distances.",
+        "points": [
+          {
+            "label": "Try this",
+            "text": "Make 5 different animal shadows using your hands and a light source."
+          }
+        ],
+        "inSimpleWords": "Shadow puppets show how light and objects interact.",
+        "emoji": "🎯",
+        "image": {
+          "url": "https://images.pexels.com/photos/5812839/pexels-photo-5812839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Create Shadow Art — Light and Shadow",
+          "q": "light"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Light and Shadow Mastery",
+        "storyContext": "By night's end, Arun and Priya have created a complete puppet story. They now know: light travels straight, shadows form when light is blocked, and mirrors reflect light. Magic is just science!",
+        "points": [
+          {
+            "label": "Remember",
+            "text": "Light travels in straight lines from a source"
+          },
+          {
+            "label": "Remember",
+            "text": "Shadows form behind opaque objects blocking light"
+          },
+          {
+            "label": "Remember",
+            "text": "Shadow size depends on light distance and angle"
+          },
+          {
+            "label": "Remember",
+            "text": "Mirrors reflect light; rough surfaces scatter it"
+          }
+        ],
+        "inSimpleWords": "Light, shadows, and reflection create amazing effects.",
+        "emoji": "⭐",
+        "image": {
+          "url": "https://images.pexels.com/photos/8358607/pexels-photo-8358607.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Light and Shadow Mastery — Light and Shadow",
+          "q": "light"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-5-financial-literacy-needs-vs-wants-smart-spending",
+    "classLevel": "5",
+    "subject": "Financial Literacy",
+    "chapter": "Needs vs Wants — Smart Spending",
+    "title": "Priya's Shopping Puzzle",
+    "hook": "Should you buy everything you want, or only what you need? Priya finds out!",
+    "characters": [
+      {
+        "name": "Priya",
+        "emoji": "👧",
+        "role": "a thoughtful student learning to spend wisely"
+      },
+      {
+        "name": "Mom",
+        "emoji": "👩",
+        "role": "Priya's mother who teaches smart spending"
+      },
+      {
+        "name": "Dev",
+        "emoji": "👦",
+        "role": "Priya's friend who wants everything"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Priya's Shopping Puzzle",
+        "storyContext": "Priya learns the difference between what she needs and what she just wants.",
+        "emoji": "🛍️",
+        "image": {
+          "url": "https://images.pexels.com/photos/10127242/pexels-photo-10127242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Priya's Shopping Puzzle — Needs vs Wants — Smart Spending",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Festival Fair",
+        "storyContext": "During the local Diwali fair, Priya's mom gives her ₹500. Priya's eyes grow wide—there are so many stalls! Toys, clothes, jewelry, sweets, games, books! Her friend Dev is already running toward the toy stall. But Priya's mom says, 'Wait. Before you spend, let's think about what you NEED versus what you WANT.' Priya is confused: doesn't she need everything that looks fun?",
+        "emoji": "🎡",
+        "image": {
+          "url": "https://images.pexels.com/photos/36650154/pexels-photo-36650154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Festival Fair — Needs vs Wants — Smart Spending",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What Are Needs?",
+        "storyContext": "Mom sits with Priya and explains: 'Needs are things your body and life require to be healthy and safe.'",
+        "points": [
+          {
+            "text": "Food (rice, bread, vegetables, milk) to stay strong."
+          },
+          {
+            "text": "Clothes to cover your body and stay warm."
+          },
+          {
+            "text": "A home to sleep and be safe."
+          },
+          {
+            "text": "School books and pencils to learn."
+          },
+          {
+            "text": "Medicine when you're sick."
+          }
+        ],
+        "example": {
+          "problem": "Priya needs new school shoes (hers are worn out). This costs ₹400. Is this a need or a want?",
+          "solution": "A NEED—school shoes protect her feet and are required for school."
+        },
+        "inSimpleWords": "Needs are things you must have to be healthy, safe, and to do your work or go to school.",
+        "emoji": "❤️",
+        "image": {
+          "url": "https://images.pexels.com/photos/256491/pexels-photo-256491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Are Needs? — Needs vs Wants — Smart Spending",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "What Are Wants?",
+        "storyContext": "Priya points at a beautiful toy robot on a stall. Mom says, 'That's a WANT. Wants are things you desire but don't truly need.'",
+        "points": [
+          {
+            "text": "Toys and games you enjoy but don't use every day."
+          },
+          {
+            "text": "Extra clothes because they look nice (beyond what you wear)."
+          },
+          {
+            "text": "Sweets and snacks (beyond basic food for health)."
+          },
+          {
+            "text": "Movies, fun outings, video games."
+          },
+          {
+            "text": "Jewelry, fancy items, new gadgets."
+          }
+        ],
+        "example": {
+          "problem": "Priya sees a ₹250 toy robot. She already has toys at home. Is this a need or a want?",
+          "solution": "A WANT—it's nice to have but she doesn't need it to be healthy or safe."
+        },
+        "inSimpleWords": "Wants are things that make you happy or entertained but you can live without them.",
+        "emoji": "🎮",
+        "image": {
+          "url": "https://images.pexels.com/photos/8500417/pexels-photo-8500417.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What Are Wants? — Needs vs Wants — Smart Spending",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Needs Come First—Smart Spending Rule #1",
+        "storyContext": "Mom hands Priya a simple rule: 'Every rupee you have should go to needs FIRST. Only spend on wants with leftover money.' Priya nods—this makes sense!",
+        "points": [
+          {
+            "text": "Priority 1: Buy what you need for health, safety, and learning."
+          },
+          {
+            "text": "Priority 2: If money is left after needs, then buy a want (if you really want it)."
+          },
+          {
+            "text": "Priority 3: Save any money that's left (for later surprises or emergencies)."
+          }
+        ],
+        "example": {
+          "problem": "Priya has ₹500. She needs new shoes (₹400) and school books (₹50). That's ₹450. She wants a toy (₹150). What should she do?",
+          "solution": "First buy needs: ₹400 + ₹50 = ₹450. Left: ₹50. The toy costs ₹150, so she CAN'T afford the want. Better to save the ₹50 or buy a smaller want."
+        },
+        "inSimpleWords": "Always buy what you need first, then if there's money left, you can spend on wants.",
+        "emoji": "📋",
+        "image": {
+          "url": "https://images.pexels.com/photos/4912789/pexels-photo-4912789.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Needs Come First—Smart Spending Rule #1 — Needs vs Wants — Smart Spending",
+          "q": "money"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Trap of Too Many Wants",
+        "storyContext": "Priya watches Dev at the fair. He buys a toy (₹120), then a game (₹180), then snacks (₹100). He spent ₹400 on things he wanted! By the end, he's out of money and can't buy the winter jacket he actually needs. Mom says gently, 'That's the trap of wants—they add up fast and eat your money.'",
+        "points": [
+          {
+            "text": "Wants are unlimited—there's always something new and shiny to buy."
+          },
+          {
+            "text": "If you spend on every want, you'll run out of money for real needs."
+          },
+          {
+            "text": "Smart spenders pick ONE want they love, not ten small wants."
+          }
+        ],
+        "inSimpleWords": "Wants are tempting and endless—if you buy many small wants, you'll waste money and not have enough for needs.",
+        "emoji": "⚠️",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/D%C3%BClmen%2C_Viktorkirmes_auf_dem_Overbergplatz_--_2014_--_3738_%282%29.jpg/960px-D%C3%BClmen%2C_Viktorkirmes_auf_dem_Overbergplatz_--_2014_--_3738_%282%29.jpg",
+          "alt": "The Trap of Too Many Wants — Needs vs Wants — Smart Spending",
+          "q": "fair"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Smart Spending at the Fair",
+        "storyContext": "Priya decides to be smart. She checks her list: 'I need school shoes (₹400) and new socks (₹50). That's ₹450. I have ₹500 left: ₹50. I could save it, or buy ONE small want like a book (₹40).'",
+        "points": [
+          {
+            "text": "Make a list of needs BEFORE you go shopping."
+          },
+          {
+            "text": "Buy needs first—don't get distracted by bright, shiny things."
+          },
+          {
+            "text": "From leftover money, pick ONE want you really love (not many small wants)."
+          },
+          {
+            "text": "Save the rest for later or emergencies."
+          }
+        ],
+        "inSimpleWords": "Make a list, buy needs first, pick one small want if there's money left, and save the rest.",
+        "emoji": "✅",
+        "image": {
+          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Smart Spending at the Fair — Needs vs Wants — Smart Spending",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Priya's Smart Shopping (Full Example)",
+        "storyContext": "Priya goes to the fair with ₹500. She needs: new shoes (₹400), socks (₹50), and wants to buy a book (₹40). How much money does she save?",
+        "example": {
+          "problem": "Needs: ₹400 + ₹50 = ₹450. One want: book ₹40. Total spent: ₹450 + ₹40 = ₹490. Saved: ₹500 − ₹490 = ?",
+          "solution": "₹10 saved for later."
+        },
+        "emoji": "🧮",
+        "image": {
+          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Priya's Smart Shopping (Full Example) — Needs vs Wants — Smart Spending",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: Smart Shopping",
+        "storyContext": "You have ₹300. You need a new school bag (₹200). You want a pencil box (₹50) and a notebook (₹30). Do you have enough? How much is left after buying needs AND one want? Can you buy everything?",
+        "example": {
+          "problem": "Needs: ₹200 (bag). Wants: ₹50 (pencil box) + ₹30 (notebook) = ₹80. Total: ₹200 + ₹80 = ₹280. You have ₹300. Left: ?",
+          "solution": "Yes, you can afford everything! Leftover: ₹300 − ₹280 = ₹20."
+        },
+        "emoji": "🎯",
+        "image": {
+          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Your Turn: Smart Shopping — Needs vs Wants — Smart Spending",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "storyContext": "Priya bought her needs, one small want, and saved money. She felt wise and happy!",
+        "points": [
+          {
+            "text": "Needs are food, clothes, shelter, school, and medicine—things you must have."
+          },
+          {
+            "text": "Wants are toys, games, snacks, and fun things you enjoy but can live without."
+          },
+          {
+            "text": "Smart rule: Buy needs FIRST, then one want if money is left, then SAVE."
+          },
+          {
+            "text": "Don't fall into the trap of many small wants—they add up and waste money."
+          }
+        ],
+        "inSimpleWords": "Be smart about money: needs first, one favorite want second, and save the rest.",
+        "emoji": "🎓",
+        "image": {
+          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What We Learned — Needs vs Wants — Smart Spending",
+          "q": "classroom"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-6-english-the-winner",
+    "classLevel": "6",
+    "subject": "English",
+    "chapter": "The Winner",
+    "title": "The Winner",
+    "hook": "A boy discovers that true victory isn't about beating others—it's about becoming better than you were yesterday.",
+    "characters": [
+      {
+        "name": "Arjun",
+        "emoji": "👦",
+        "role": "a competitive boy who learns what winning really means"
+      },
+      {
+        "name": "Coach Sharma",
+        "emoji": "🏃",
+        "role": "wise running coach who teaches through example"
+      },
+      {
+        "name": "Dev",
+        "emoji": "👦",
+        "role": "Arjun's rival who becomes his mirror"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "The Winner",
+        "storyContext": "In a village near a cricket ground, Arjun runs every morning—always trying to be faster than Dev, always chasing first place.",
+        "emoji": "🏃‍♂️",
+        "image": {
+          "url": "https://images.pexels.com/photos/17979564/pexels-photo-17979564.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Winner — The Winner",
+          "q": "running"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Race That Wasn't a Real Race",
+        "storyContext": "Every morning, Arjun and Dev race around the village boundary. Arjun beats Dev by a few seconds and feels proud all day. Dev feels defeated. One morning, Coach Sharma stops them and asks: 'Who won?' Arjun says, 'I did!' The coach says, 'But who became faster than yesterday? That's the real winner.'",
+        "emoji": "🏁",
+        "image": {
+          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Race That Wasn't a Real Race — The Winner",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Two Kinds of Winning",
+        "points": [
+          {
+            "label": "Beating someone else",
+            "text": "This winning depends on another person being slower than you. If they improve, you have to improve more to stay ahead. It's exhausting. And if you lose once, you feel like a complete failure."
+          },
+          {
+            "label": "Beating yourself",
+            "text": "This winning is personal. Did you run faster than last week? Did you study harder? Did you become kinder? This winning never stops because you're always competing with yesterday's version of you."
+          }
+        ],
+        "inSimpleWords": "Winning against another person depends on luck and their performance. But winning against yourself is always in your control.",
+        "emoji": "⚖️",
+        "image": {
+          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Two Kinds of Winning — The Winner",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Real Problem with Needing to Beat Others",
+        "points": [
+          {
+            "label": "What Coach teaches",
+            "text": "He asks Arjun: 'If I told you Dev stopped running, would you still run?' Arjun realizes he only runs because he's trying to beat Dev. Without an opponent, the joy disappears."
+          },
+          {
+            "label": "The trap",
+            "text": "When you need someone to lose so you can win, you can never be happy. Because there's always someone faster, smarter, richer, better at something. The finish line keeps moving."
+          }
+        ],
+        "inSimpleWords": "If you only feel good when you're beating someone else, you'll feel bad most of your life because someone is always better at something.",
+        "emoji": "😢",
+        "image": {
+          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Real Problem with Needing to Beat Others — The Winner",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Arjun's New Time Trial",
+        "points": [
+          {
+            "label": "The experiment",
+            "text": "Coach Sharma times Arjun running alone, with no Dev in sight. 'Run as fast as you can,' he says. Arjun runs and his time is the best ever. When he finishes, he's not thinking about Dev—he's thinking, 'I just did something I couldn't do last month!'"
+          },
+          {
+            "label": "The feeling",
+            "text": "This joy is different. It's deeper because it's about growth, not about beating someone. It's about Arjun becoming a better version of himself."
+          }
+        ],
+        "inSimpleWords": "The real victory is personal. It's the joy of knowing you tried your hardest and became better than before.",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Arjun's New Time Trial — The Winner",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Dev's Secret Journey",
+        "points": [
+          {
+            "label": "What Arjun doesn't know",
+            "text": "Dev is also running every morning, but for a different reason. He has asthma. Last year, doctors said he couldn't run. Now, he can finish a full morning run without stopping. For Dev, every morning is a victory over his own limits."
+          },
+          {
+            "label": "True competitors",
+            "text": "When Arjun learns this, he stops seeing Dev as an opponent. They're both fighting battles Arjun didn't know about. Dev is the real winner—winning against his own body's limits."
+          }
+        ],
+        "inSimpleWords": "The greatest victories are often invisible. You don't see the battle someone else is fighting inside themselves.",
+        "emoji": "💪",
+        "image": {
+          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Dev's Secret Journey — The Winner",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "The District Race",
+        "example": {
+          "problem": "Arjun and Dev enter the village's district running race. There are fifty boys from different villages running. Arjun expects to finish first. But a boy from a mountain village finishes first, and Dev finishes second. Arjun finishes fifth. He feels devastated—he lost! But Coach Sharma is smiling at him. Why?",
+          "solution": "Arjun looks at his time. It's the fastest he's ever run—faster than last month, faster than last week. He also ran faster today than yesterday. He improved. In a big race with unknown runners, his improvement is what matters, not the rank. Dev is happy too—his second place is a new personal best for him. The boy from the mountain village is happy—he's training for the state championship. Everyone improved their time. Everyone is a winner by the real measure. Arjun finally understands what Coach meant."
+        },
+        "emoji": "🏆",
+        "image": {
+          "url": "https://images.pexels.com/photos/12199101/pexels-photo-12199101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The District Race — The Winner",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Challenge: Define Your Own Winning",
+        "example": {
+          "problem": "Pick something you do that you want to get better at—running, studies, art, music, sports, anything. For the next week, don't focus on beating anyone else. Focus only on beating yesterday's version of you. Can you do ten more math problems than yesterday? Can you run 10 seconds faster? Can you write one more page? Track just this improvement.",
+          "solution": "At the end of the week, you'll notice something: the joy of improvement is reliable. You can always find something to improve. You can always beat yesterday. This is true winning—winning that depends only on you and your effort. When you beat yourself, no one can take that victory away. And when you meet someone who beat you in a race or test, you don't feel threatened—you think, 'Great, someone to learn from. Maybe I can improve more.'"
+        },
+        "emoji": "📈",
+        "image": {
+          "url": "https://images.pexels.com/photos/19579986/pexels-photo-19579986.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Your Challenge: Define Your Own Winning — The Winner",
+          "q": "student"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned About Real Winning",
+        "points": [
+          {
+            "text": "True victory isn't about beating others. It's about being better today than you were yesterday."
+          },
+          {
+            "text": "When you need someone to lose so you can win, you're never truly happy—there's always someone better at something."
+          },
+          {
+            "text": "The greatest victories are often invisible. You don't see the battles people fight within themselves."
+          },
+          {
+            "text": "Real winning brings joy that lasts, because it depends only on your effort, not on someone else's performance."
+          },
+          {
+            "text": "When you stop competing against others and start competing against yourself, you become unstoppable."
+          }
+        ],
+        "emoji": "💎",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864418/pexels-photo-31864418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What We Learned About Real Winning — The Winner",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Arjun and Dev Become Partners",
+        "points": [
+          {
+            "label": "A year later",
+            "text": "Arjun and Dev now run together every morning. They check each other's times and celebrate improvements. 'You beat your time by 5 seconds!' they say to each other. 'I beat my asthma for another day!' says Dev. They're still competing, but now they're competing against their own yesterday."
+          },
+          {
+            "label": "The cycle of growth",
+            "text": "When Arjun helps Dev improve, and Dev inspires Arjun not to give up, they're both growing. This is the real power of competition—not crushing others, but lifting each other."
+          }
+        ],
+        "inSimpleWords": "The greatest competitors aren't enemies—they're partners who push each other to be better every single day.",
+        "emoji": "🤝",
+        "image": {
+          "url": "https://images.pexels.com/photos/8363754/pexels-photo-8363754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Arjun and Dev Become Partners — The Winner",
+          "q": "classroom"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-8-mathematics-a-story-of-numbers",
+    "classLevel": "8",
+    "subject": "Mathematics",
+    "chapter": "A Story of Numbers",
+    "title": "Divya's Number Hunt: Rational and Irrational",
+    "hook": "Are all numbers fractions? Divya discovers the mystery of numbers that cannot be written as fractions.",
+    "characters": [
+      {
+        "name": "Divya",
+        "emoji": "👩",
+        "role": "student curious about math"
+      },
+      {
+        "name": "Anand",
+        "emoji": "👦",
+        "role": "Divya's friend who loves puzzles"
+      },
+      {
+        "name": "Ms. Sharma",
+        "emoji": "👩‍🏫",
+        "role": "math teacher explaining number types"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "A Story of Numbers",
+        "storyContext": "Divya and Anand visit Ms. Sharma's class for a special lesson on numbers. Ms. Sharma asks: \"Can every number be written as a fraction?\" The answer surprises them.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "story",
+        "title": "The Fraction Question",
+        "storyContext": "Ms. Sharma draws numbers on the board: 1/2, 3, -5, 7/4. Then she asks, \"Can you write 3 as a fraction?\" Anand says, \"Yes! 3 = 3/1.\" Ms. Sharma smiles and says, \"Good. But what about √2? Can you write that as a fraction?\" The class goes silent.",
+        "emoji": "❓",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Pizza_slices_on_a_plate.jpg/960px-Pizza_slices_on_a_plate.jpg",
+          "alt": "The Fraction Question — A Story of Numbers",
+          "q": "pizza slices on plate"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Rational Numbers: Fractions We Can Write",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A rational number is any number that can be written as p/q, where p and q are integers and q ≠ 0."
+          },
+          {
+            "label": "Examples",
+            "text": "1/2, 3/4, -5/2, 7 (which is 7/1), 0 (which is 0/1), 2.5 (which is 5/2), -3.75 (which is -15/4)."
+          }
+        ],
+        "example": {
+          "problem": "Is 2.5 a rational number?",
+          "solution": "Yes. 2.5 = 25/10 = 5/2. Since it can be written as a fraction of two integers, it is rational."
+        },
+        "inSimpleWords": "Rational numbers are any numbers you can write as a fraction: whole numbers, decimals that stop, and repeating decimals.",
+        "emoji": "📋",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Two_slices_of_pizza_at_Kampin_Pippuri.jpg/960px-Two_slices_of_pizza_at_Kampin_Pippuri.jpg",
+          "alt": "Rational Numbers: Fractions We Can Write — A Story of Numbers",
+          "q": "pizza slices on plate"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Repeating Decimals Are Rational",
+        "points": [
+          {
+            "label": "Repeating decimals",
+            "text": "Decimals like 0.333... (1/3) and 0.1666... (1/6) repeat forever but are still rational because they equal a fraction."
+          },
+          {
+            "label": "How to identify",
+            "text": "If a decimal repeats the same digit or pattern endlessly, it is rational. Example: 0.123123123... repeats \"123.\""
+          }
+        ],
+        "example": {
+          "problem": "Is 0.333... rational?",
+          "solution": "Yes. 0.333... = 1/3. It repeats but equals a fraction, so it is rational."
+        },
+        "inSimpleWords": "Any decimal that repeats, no matter how long the pattern, can be written as a fraction.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "concept",
+        "title": "Irrational Numbers: Beyond Fractions",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "An irrational number CANNOT be written as p/q. Its decimal never stops and never repeats."
+          },
+          {
+            "label": "Famous examples",
+            "text": "√2 ≈ 1.41421356..., π ≈ 3.14159265..., e ≈ 2.71828... These decimals go on forever with no repeating pattern."
+          }
+        ],
+        "example": {
+          "problem": "Is √2 rational or irrational?",
+          "solution": "Irrational. √2 ≈ 1.414213562... Its decimal never ends and never repeats. It cannot be written as a fraction p/q."
+        },
+        "inSimpleWords": "Irrational numbers are decimals that go on forever without repeating. You cannot write them as fractions.",
+        "emoji": "∞",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Pepperoni_pizza_slice_on_a_red_plate.jpg/960px-Pepperoni_pizza_slice_on_a_red_plate.jpg",
+          "alt": "Irrational Numbers: Beyond Fractions — A Story of Numbers",
+          "q": "pizza slices on plate"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Square Roots and Irrational Numbers",
+        "points": [
+          {
+            "label": "Perfect squares",
+            "text": "√1 = 1, √4 = 2, √9 = 3, √16 = 4, √25 = 5. These are all rational (integers)."
+          },
+          {
+            "label": "Non-perfect squares",
+            "text": "√2, √3, √5, √6, √7, √8, √10 are all irrational. Their decimals never end."
+          }
+        ],
+        "example": {
+          "problem": "Which is rational and which is irrational: √25 or √26?",
+          "solution": "√25 = 5 (rational). √26 ≈ 5.099... (irrational—decimal never ends)."
+        },
+        "inSimpleWords": "Square roots of perfect squares are rational. Square roots of non-perfect squares are irrational.",
+        "emoji": "√"
+      },
+      {
+        "kind": "concept",
+        "title": "Real Numbers: The Complete Number Line",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "The set of all rational and irrational numbers together is called the real numbers. Every point on the number line is a real number."
+          },
+          {
+            "label": "Order",
+            "text": "Real numbers include: negative integers, zero, positive integers, fractions, and irrationals. They can be ordered from smallest to largest."
+          }
+        ],
+        "example": {
+          "problem": "Order these from smallest to largest: -2, 1/2, √2, 3.",
+          "solution": "-2 < 1/2 < √2 (≈1.414) < 3."
+        },
+        "inSimpleWords": "The real number line contains all numbers—fractions, whole numbers, and never-ending decimals. Together, they form the complete real numbers.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "example",
+        "title": "Ms. Sharma's Challenge",
+        "storyContext": "Ms. Sharma asks Divya and Anand to classify 10 numbers. They work together to sort them into rational and irrational.",
+        "example": {
+          "problem": "Is π irrational?",
+          "solution": "Yes. π ≈ 3.141592653... Its decimal never ends and never repeats. π cannot be written as p/q."
+        },
+        "inSimpleWords": "π is irrational because its decimal never terminates or repeats.",
+        "emoji": "🥧"
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: Classify the Numbers",
+        "storyContext": "Divya and Anand give you a list: 7, 0.5, √9, √10, 22/7, π. Sort them into rational and irrational.",
+        "example": {
+          "problem": "Which are rational and which are irrational?",
+          "solution": "Rational: 7 (= 7/1), 0.5 (= 1/2), √9 (= 3), 22/7. Irrational: √10, π."
+        },
+        "inSimpleWords": "Remember: if it can be written as a fraction, it is rational. If it cannot, it is irrational.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "Rational numbers can be written as fractions p/q. Examples: 1/2, 3, 2.5, 0.333..."
+          },
+          {
+            "text": "Irrational numbers cannot be written as fractions. Their decimals never end and never repeat. Examples: √2, π, e."
+          },
+          {
+            "text": "Real numbers include all rational and irrational numbers."
+          },
+          {
+            "text": "Square roots of perfect squares are rational; square roots of non-perfect squares are irrational."
+          }
+        ],
+        "inSimpleWords": "Not all numbers are fractions. Some numbers, like √2 and π, are irrational and cannot be written as fractions.",
+        "emoji": "✅",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Two_slices_of_pizza_in_Loviisa.jpg/960px-Two_slices_of_pizza_in_Loviisa.jpg",
+          "alt": "What We Learned — A Story of Numbers",
+          "q": "pizza slices on plate"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-8-mathematics-we-distribute-yet-things-multiply",
+    "classLevel": "8",
+    "subject": "Mathematics",
+    "chapter": "We Distribute, Yet Things Multiply",
+    "title": "Vikram's Sweet Shop: Expanding Expressions",
+    "hook": "When Vikram distributes sweets to groups, the numbers multiply in unexpected ways. Learn the algebra of expansion.",
+    "characters": [
+      {
+        "name": "Vikram",
+        "emoji": "👨",
+        "role": "sweet shop owner"
+      },
+      {
+        "name": "Maya",
+        "emoji": "👧",
+        "role": "Vikram's daughter helping with orders"
+      },
+      {
+        "name": "Ravi",
+        "emoji": "👦",
+        "role": "school friend learning algebra from Vikram"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "We Distribute, Yet Things Multiply",
+        "storyContext": "Vikram's sweet shop receives bulk orders. He uses algebra to calculate: if each customer wants (a + b) sweets from c different vendors, how many total? His method: distribute, then multiply.",
+        "emoji": "🍭"
+      },
+      {
+        "kind": "story",
+        "title": "The Festival Order",
+        "storyContext": "A school festival orders sweets. Vikram knows: each of the 3 booths gets 2 types of sweets (gulab jamun and laddu). So each booth wants (2 + 3) sweets... wait, he realizes it's (g + l) where g = gulab jamun, l = laddu. When 5 shopkeepers each order the same mix (g + l), the total is 5(g + l). But how many sweets is that?",
+        "emoji": "🎊",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Holi_Festival_Celebrations.jpg/960px-Holi_Festival_Celebrations.jpg",
+          "alt": "The Festival Order — We Distribute, Yet Things Multiply",
+          "q": "indian festival celebration"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Distributive Property: Multiply First, Then Add",
+        "points": [
+          {
+            "label": "Rule",
+            "text": "a(b + c) = ab + ac. When you multiply a number outside brackets by the terms inside, multiply the outside number by EACH term inside."
+          },
+          {
+            "label": "Why?",
+            "text": "Imagine 3 bags, each with (2 apples + 4 oranges). Total apples = 3 × 2 = 6. Total oranges = 3 × 4 = 12. Total fruit = 6 + 12 = 18. So 3(2 + 4) = 6 + 12."
+          }
+        ],
+        "example": {
+          "problem": "Expand 5(g + l) where g = gulab jamun, l = laddu.",
+          "solution": "5(g + l) = 5g + 5l. If each sweet costs the same, Vikram counts: 5 gulab jamun and 5 laddu."
+        },
+        "inSimpleWords": "When you see a number outside brackets, multiply that number by EVERY term inside the brackets.",
+        "emoji": "⊕"
+      },
+      {
+        "kind": "concept",
+        "title": "Expanding with Subtraction",
+        "points": [
+          {
+            "label": "Rule",
+            "text": "a(b - c) = ab - ac. The distributive property works the same with subtraction."
+          },
+          {
+            "label": "Examples",
+            "text": "3(x - 2) = 3x - 6. If a shop sells (price - discount), and you buy 3, you pay 3price - 3discount."
+          }
+        ],
+        "example": {
+          "problem": "A customer buys 4 boxes. Each box has (x chocolates - 2 damaged). How many good chocolates total?",
+          "solution": "4(x - 2) = 4x - 8 good chocolates."
+        },
+        "inSimpleWords": "Subtraction in brackets: multiply the outside number by each term, and keep the minus sign.",
+        "emoji": "➖",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Swallow-tailed_bee-eater_%28Merops_hirundineus_chrysolaimus%29.jpg/960px-Swallow-tailed_bee-eater_%28Merops_hirundineus_chrysolaimus%29.jpg",
+          "alt": "Expanding with Subtraction — We Distribute, Yet Things Multiply",
+          "q": "apples on table"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Expanding Two Brackets: (a + b)(c + d)",
+        "points": [
+          {
+            "label": "Rule",
+            "text": "(a + b)(c + d) = ac + ad + bc + bd. Multiply EVERY term in the first bracket by EVERY term in the second."
+          },
+          {
+            "label": "Method (FOIL)",
+            "text": "First: a × c. Outer: a × d. Inner: b × c. Last: b × d. Then add all four."
+          }
+        ],
+        "example": {
+          "problem": "Vikram arranges sweets in (x + 3) rows and (y + 2) columns. How many sweets total?",
+          "solution": "(x + 3)(y + 2) = xy + 2x + 3y + 6."
+        },
+        "inSimpleWords": "When multiplying two brackets, each term in the first bracket multiplies every term in the second. You get four products; add them all.",
+        "emoji": "✕",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/A_methodology_for_software_cost_estimation_using_machine_learning_techniques_%28IA_methodologyforso00kell%29.pdf/page1-500px-A_methodology_for_software_cost_estimation_using_machine_learning_techniques_%28IA_methodologyforso00kell%29.pdf.jpg",
+          "alt": "Expanding Two Brackets: (a + b)(c + d) — We Distribute, Yet Things Multiply",
+          "q": "expanding colorful learning"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Perfect Square Expansion: (a + b)² and (a - b)²",
+        "points": [
+          {
+            "label": "(a + b)² = a² + 2ab + b²",
+            "text": "Example: (x + 3)² = x² + 6x + 9."
+          },
+          {
+            "label": "(a - b)² = a² - 2ab + b²",
+            "text": "Example: (x - 2)² = x² - 4x + 4."
+          }
+        ],
+        "example": {
+          "problem": "A square sweet box has side (a + 5). What is its area?",
+          "solution": "Area = (a + 5)² = a² + 10a + 25 square units."
+        },
+        "inSimpleWords": "For (a + b)²: square the first term, double the product, then square the second term. (a - b)² is the same but the middle term is negative.",
+        "emoji": "⬜"
+      },
+      {
+        "kind": "concept",
+        "title": "Difference of Squares: (a + b)(a - b) = a² - b²",
+        "points": [
+          {
+            "label": "Rule",
+            "text": "(a + b)(a - b) = a² - b². When the same terms add in one bracket and subtract in the other, the middle cancels."
+          },
+          {
+            "label": "Quick factoring",
+            "text": "If you see a² - b², it factors as (a + b)(a - b). Useful for checking work and simplifying."
+          }
+        ],
+        "example": {
+          "problem": "Expand (x + 4)(x - 4).",
+          "solution": "(x + 4)(x - 4) = x² - 16. Notice: no middle term! The +4x and -4x cancel."
+        },
+        "inSimpleWords": "When two brackets have the same terms but opposite signs (one + one -), multiply to get: (first term)² - (second term)².",
+        "emoji": "↔"
+      },
+      {
+        "kind": "example",
+        "title": "Vikram's Real Order",
+        "storyContext": "A restaurant orders sweets in (2x + 3) boxes of (x + 2) sweets each. Vikram must calculate the total.",
+        "example": {
+          "problem": "Find the total number of sweets in (2x + 3)(x + 2).",
+          "solution": "(2x + 3)(x + 2) = 2x² + 4x + 3x + 6 = 2x² + 7x + 6 sweets."
+        },
+        "inSimpleWords": "Expand by multiplying every term in the first bracket by every term in the second, then combine like terms.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: The Sweet Box Problem",
+        "storyContext": "Maya designs a box with dimensions (a + 5) by (a + 5) by (a + 3). What is the volume?",
+        "example": {
+          "problem": "Find the volume of a box with dimensions (a + 5) × (a + 5) × (a + 3).",
+          "solution": "First, (a + 5)² = a² + 10a + 25. Then multiply by (a + 3): (a² + 10a + 25)(a + 3) = a³ + 3a² + 10a² + 30a + 25a + 75 = a³ + 13a² + 55a + 75."
+        },
+        "inSimpleWords": "Expand step by step: first expand the square, then multiply the result by the third dimension.",
+        "emoji": "🎁",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Fireworks_Small_Magellanic_Cloud.jpg/960px-Fireworks_Small_Magellanic_Cloud.jpg",
+          "alt": "Your Turn: The Sweet Box Problem — We Distribute, Yet Things Multiply",
+          "q": "turn: colorful learning"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "Distributive property: a(b + c) = ab + ac."
+          },
+          {
+            "text": "Expanding two brackets: (a + b)(c + d) = ac + ad + bc + bd."
+          },
+          {
+            "text": "Perfect squares: (a + b)² = a² + 2ab + b² and (a - b)² = a² - 2ab + b²."
+          },
+          {
+            "text": "Difference of squares: (a + b)(a - b) = a² - b²."
+          }
+        ],
+        "inSimpleWords": "Expanding means removing brackets by multiplying and adding terms. Master these patterns to simplify algebra.",
+        "emoji": "✅"
+      }
+    ]
+  },
+  {
+    "slug": "class-8-english-magnifying-glass",
+    "classLevel": "8",
+    "subject": "English",
+    "chapter": "Magnifying Glass",
+    "title": "Magnifying Glass",
+    "hook": "What secrets does the world hide when we stop rushing and start really looking?",
+    "characters": [
+      {
+        "name": "Sana",
+        "emoji": "👩",
+        "role": "curious student learning to observe"
+      },
+      {
+        "name": "Science Teacher Mrs. Gupta",
+        "emoji": "👩‍🏫",
+        "role": "mentor revealing hidden worlds"
+      },
+      {
+        "name": "Sameer",
+        "emoji": "👦",
+        "role": "friend learning alongside"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Magnifying Glass",
+        "emoji": "🔍",
+        "image": {
+          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Magnifying Glass — Magnifying Glass",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Ordinary Leaf",
+        "storyContext": "Sana is a bright but distracted student in her Class 8 science class. She rushes through assignments, glances at textbooks without really reading, plays with her phone. Her science teacher, Mrs. Gupta, notices Sana's lack of genuine curiosity and hands her a magnifying glass. 'Look at a leaf carefully for 10 minutes,' she says. 'Not what you think you know about leaves. What you actually see.' Sana is puzzled but obeys. Under magnification, a simple green leaf becomes a cosmos: veins like rivers, tiny hairs catching light, colour gradations she'd never noticed, intricate patterns that seem mathematical. When Mrs. Gupta returns, Sana is quiet, almost reverent. 'How did I never see this?' she asks. Mrs. Gupta smiles: 'You never really looked before.'",
+        "inSimpleWords": "The world is full of wonders for those who pause and observe.",
+        "emoji": "🍃",
+        "image": {
+          "url": "https://images.pexels.com/photos/10127242/pexels-photo-10127242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Ordinary Leaf — Magnifying Glass",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Attention to Detail—The Writer's Superpower",
+        "storyContext": "Sana begins carrying the magnifying glass everywhere, not just in science class. She examines bark, insects, water droplets, clouds. She writes detailed descriptions in her English notebook: not 'a mosquito' but 'a mosquito with transparent wings that shimmer like oil on water and six spindly legs that land on skin like six questions.' Her English teacher reads her new assignment and says: 'You're a writer now, Sana. You see what others miss.'",
+        "points": [
+          {
+            "label": "Detail",
+            "text": "Specific, precise observations rather than generalizations."
+          },
+          {
+            "label": "Why it matters",
+            "text": "Details make writing believable, vivid, memorable."
+          },
+          {
+            "label": "Sana's discovery",
+            "text": "'A flower' is boring; 'petals like tissue paper, stamens dusted with pollen' is alive."
+          }
+        ],
+        "example": {
+          "problem": "Write two descriptions of the same thing (e.g., a cup of tea):\n\nVersion 1 (Generic): A hot cup of tea.\n\nVersion 2 (Detailed): ?",
+          "solution": "Version 2: A ceramic cup holds dark amber tea; curls of steam rise like spirits ascending; a single cardamom pod floats on the surface; the rim is warm against my lips; the first sip scalds my tongue but tastes of ginger, honey, and my grandmother's kitchen 2,000 kilometres away."
+        },
+        "inSimpleWords": "Specific details make readers see and feel what you're describing.",
+        "emoji": "✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/36650154/pexels-photo-36650154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Attention to Detail—The Writer's Superpower — Magnifying Glass",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Observation vs. Assumption—The Critical Difference",
+        "storyContext": "Sana learns to distinguish between what she observes and what she assumes. 'I assumed ants were just small and brown,' she tells Mrs. Gupta. 'But under magnification, I see they have two segments in their body, not one, and their antennae actually move—they're smelling, communicating. I was wrong.' Mrs. Gupta nods: 'This is science and writing both—question your assumptions. Look closer.'",
+        "points": [
+          {
+            "label": "Observation",
+            "text": "What you actually see and measure, without judgment."
+          },
+          {
+            "label": "Assumption",
+            "text": "What you think you know, often based on habit."
+          },
+          {
+            "label": "Risk",
+            "text": "Assumptions are invisible errors. We write them as truth."
+          },
+          {
+            "label": "Remedy",
+            "text": "Look, measure, describe only what's actually there."
+          }
+        ],
+        "example": {
+          "problem": "You assume: 'Spiders are scary and evil.' Now observe a spider closely. What do you actually see?",
+          "solution": "Observation: The spider has eight jointed legs, each with tiny claws. Its body consists of a head region and an abdomen. It has multiple eyes (8, in most species) arranged in patterns. Its movement is precise, purposeful, nearly elegant. It doesn't attack; it waits. It's not malicious—it's hunting to survive, like a cat hunting mice. Fear was an assumption; the spider is just an animal doing what its biology demands. This realization is both humbling and wondrous."
+        },
+        "inSimpleWords": "What you assume and what you observe are often not the same thing.",
+        "emoji": "🕷️",
+        "image": {
+          "url": "https://images.pexels.com/photos/256491/pexels-photo-256491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Observation vs. Assumption—The Critical Difference — Magnifying Glass",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Perspective—How Magnification Changes Everything",
+        "storyContext": "Sana realizes that magnifying glass isn't just a tool for seeing small things—it's a metaphor for perspective. The same reality looks completely different depending on your vantage point. A human hair looks like a thick rope under magnification. A raindrop contains universes of reflection. A grain of sand is a landscape of crystals. The magnifying glass teaches her that truth is perspective-dependent.",
+        "points": [
+          {
+            "label": "Perspective",
+            "text": "The angle or lens through which you view something."
+          },
+          {
+            "label": "In science",
+            "text": "Magnification changes what you see without changing reality."
+          },
+          {
+            "label": "In writing",
+            "text": "The narrator's perspective shapes what truth is told and how."
+          },
+          {
+            "label": "In life",
+            "text": "The same event can be tragedy or comedy, depending on who's telling it."
+          }
+        ],
+        "inSimpleWords": "The magnifying glass doesn't create truth; it reveals what was always there.",
+        "emoji": "👁️",
+        "image": {
+          "url": "https://images.pexels.com/photos/8500417/pexels-photo-8500417.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Perspective—How Magnification Changes Everything — Magnifying Glass",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Wonder and Awe—The Emotional Core",
+        "storyContext": "Mrs. Gupta tells Sana: 'Most people stop wondering after childhood. They think they know how the world works, so they stop looking. But wonder isn't childish—it's the highest form of intelligence. Every scientist, every artist, every great mind started with wonder.' Sana realizes she'd stopped wondering somewhere around age 10, when she started caring about grades instead of knowledge. The magnifying glass gives her permission to wonder again.",
+        "points": [
+          {
+            "label": "Wonder",
+            "text": "The feeling of profound amazement at something new or strange."
+          },
+          {
+            "label": "Why it matters",
+            "text": "Wonder drives discovery, creativity, and meaningful learning."
+          },
+          {
+            "label": "Adult wonder",
+            "text": "Is not childish—it's rare and precious and should be protected."
+          }
+        ],
+        "inSimpleWords": "Staying curious and amazed is how we stay alive, even as adults.",
+        "emoji": "😲",
+        "image": {
+          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Wonder and Awe—The Emotional Core — Magnifying Glass",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "The Class Project",
+        "storyContext": "For her final project, Sana creates a \"magnified world\" presentation: detailed drawings and descriptions of common things seen through magnification. A dew drop on a blade of grass becomes a jewel. The wing of a butterfly becomes stained glass. A strand of spider silk becomes a bridge between worlds. She writes accompanying poems: precise, image-rich, marveling. Sameer, her friend, watches her work obsessively and asks: 'Why are you so into this now?' Sana says: 'Because the world is incredible, and I was never looking.' Sameer borrows the magnifying glass. A week later, he shows Sana drawings of ant colonies under magnification. The two of them have started a club: \"Observers.\" They meet weekly to examine things together, to wonder out loud, to write about what they see.",
+        "inSimpleWords": "Curiosity is contagious. When one person starts really looking, others follow.",
+        "emoji": "🔬",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cassius_blue_%28Leptotes_cassius_theonus%29_underside.JPG/960px-Cassius_blue_%28Leptotes_cassius_theonus%29_underside.JPG",
+          "alt": "The Class Project — Magnifying Glass",
+          "q": "butterfly"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: Observe and Describe",
+        "storyContext": "Find an ordinary object (a leaf, a stone, a piece of fabric, a coin, a flower). Examine it carefully, noting its actual details—colours, textures, patterns, marks. Then write a 150-200 word description that makes someone who's never seen it understand exactly what it looks like, using vivid specific language.",
+        "example": {
+          "problem": "Describe a feather in 150-200 words, using careful observation.",
+          "solution": "The feather is seven centimetres long, golden-brown with a darker spine running its length. Under magnification, the spine reveals tiny barbs extending left and right, like a ladder's rungs. These barbs are woven together so tightly that water beads on the surface and slides off—engineering millions of years old. The tip tapers to a point fine as a needle. The quill, hollow and light as air, feels like papery bone. There are asymmetries: one edge is fuller, one thinner, designed so that air moving across the feather creates the lift needed for flight. Hold it to light and it glows amber. Turn it and the colour shifts. A single feather contains geometry, function, and beauty. This isn't just something that fell from a bird—it's a masterpiece of evolution, unnoticed unless you stop and really look."
+        },
+        "emoji": "❓",
+        "image": {
+          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Your Turn: Observe and Describe — Magnifying Glass",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned",
+        "points": [
+          {
+            "text": "Attention to detail transforms ordinary writing into vivid, memorable prose."
+          },
+          {
+            "text": "Observation reveals truth; assumptions obscure it."
+          },
+          {
+            "text": "Perspective matters—the same reality looks different from different angles."
+          },
+          {
+            "text": "Wonder and awe are signs of an alive, curious mind."
+          },
+          {
+            "text": "The magnifying glass is a metaphor for deep, intentional looking."
+          }
+        ],
+        "inSimpleWords": "The world is a miracle for those who pause, look closely, and learn to see.",
+        "emoji": "🌍✨",
+        "image": {
+          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "What We Learned — Magnifying Glass",
+          "q": "classroom"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-8-english-bibha-chowdhuri-the-beam-of-light-that-lit-the-path-for-women-in-indian-science",
+    "classLevel": "8",
+    "subject": "English",
+    "chapter": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+    "title": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+    "hook": "A girl from Kolkata who broke barriers and discovered cosmic rays—proving women belong in science.",
+    "characters": [
+      {
+        "name": "Bibha Chowdhuri",
+        "emoji": "🔬",
+        "role": "Pioneering female physicist and cosmic ray researcher"
+      },
+      {
+        "name": "Priya (student)",
+        "emoji": "👧",
+        "role": "Modern-day girl curious about women in science"
+      },
+      {
+        "name": "Grandfather (storyteller)",
+        "emoji": "👴",
+        "role": "Elder sharing stories of India's scientific past"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+        "storyContext": "Priya sits in her grandmother's study in Delhi. On the shelf, an old magazine shows a woman in a laboratory coat, smiling despite the hardships she faced. Her grandfather walks in with a cup of tea and says, 'Let me tell you about Bibha—a scientist who changed everything for girls like you.'",
+        "emoji": "✨",
+        "inSimpleWords": "The story of how one brave woman opened doors for all women in Indian science.",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Bulb_2.jpg/960px-Bulb_2.jpg",
+          "alt": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "light bulb glowing"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Who Was Bibha Chowdhuri?",
+        "storyContext": "Kolkata, 1920s. Bibha was born into a progressive family in Bengal. Her father believed girls deserved the same education as boys—rare and bold for that time. While most girls her age were being married off, Bibha was reading physics textbooks and dreaming of the stars above. Her curiosity wasn't just a hobby; it was a fire that burned bright.",
+        "points": [
+          {
+            "label": "Born",
+            "text": "1923 in Assam, raised in Kolkata, Bengal"
+          },
+          {
+            "label": "Family support",
+            "text": "Father encouraged her scientific interests despite society's expectations"
+          },
+          {
+            "label": "First dream",
+            "text": "To understand what the universe is made of"
+          }
+        ],
+        "emoji": "🌟",
+        "inSimpleWords": "Bibha grew up in a time when women weren't supposed to study science, but her family believed in her.",
+        "image": {
+          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Who Was Bibha Chowdhuri? — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Breaking Barriers: Studying Physics When No One Expected Her To",
+        "storyContext": "In college, Bibha chose physics—a field with barely any women. Her classmates were shocked. Her teachers, skeptical. But Bibha had one weapon: determination. She attended every lecture, solved every problem, and refused to apologize for being curious. Her classroom neighbors watched her take notes carefully; soon, they realized she understood more than half of them.",
+        "points": [
+          {
+            "label": "The challenge",
+            "text": "Women were discouraged from science; society said it was 'unfit' for girls"
+          },
+          {
+            "label": "Her choice",
+            "text": "She studied physics at Presidency College, Kolkata—standing out as the only or one of few women"
+          },
+          {
+            "label": "The result",
+            "text": "She excelled and earned respect through sheer skill and dedication"
+          }
+        ],
+        "emoji": "💪",
+        "inSimpleWords": "Even when everyone doubted her, Bibha kept studying and proved she belonged in science.",
+        "image": {
+          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Breaking Barriers: Studying Physics When No One Expected Her To — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "A New Quest: Cosmic Rays and the Mysteries of Space",
+        "storyContext": "After college, Bibha joined the Indian Association for the Cultivation of Science (IACS) in Kolkata. Here, she met other scientists who shared her passion. Her mentor saw in her a rare combination: curiosity, precision, and courage. They gave her a challenge: study cosmic rays—invisible particles that come from space and constantly hit Earth. No one in India had really studied them before.",
+        "points": [
+          {
+            "label": "Cosmic rays",
+            "text": "High-energy particles from outer space that strike Earth constantly"
+          },
+          {
+            "label": "The setup",
+            "text": "IACS provided a laboratory and equipment; Bibha designed experiments to detect and measure them"
+          },
+          {
+            "label": "The discovery",
+            "text": "She discovered that cosmic rays behave differently at different altitudes—a groundbreaking finding"
+          }
+        ],
+        "emoji": "🚀",
+        "inSimpleWords": "Bibha studied invisible particles from space and made discoveries that surprised the whole scientific world.",
+        "image": {
+          "url": "https://images.pexels.com/photos/12199101/pexels-photo-12199101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "A New Quest: Cosmic Rays and the Mysteries of Space — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Experiment: Measuring Cosmic Rays at Different Heights",
+        "storyContext": "Imagine Bibha and her team climbing the Himalayan mountains with heavy equipment. On one trip, they took their instruments high into the mountains to measure cosmic rays. At sea level, at mid-height, at the peak—the numbers changed. The cosmic rays were stronger at higher altitudes. This simple observation unlocked something big: it meant cosmic rays were being created high in the atmosphere, not in space.",
+        "example": {
+          "problem": "Cosmic rays are detected: 100 at sea level, 250 at 2,000 meters altitude, 400 at 4,000 meters. What does this pattern tell us?",
+          "solution": "The increase in cosmic rays with altitude shows they are being generated in Earth's upper atmosphere through interactions with high-energy particles from space. This was Bibha's key discovery—it proved cosmic rays didn't originate from a distant source but were created in our own atmosphere."
+        },
+        "emoji": "📊",
+        "inSimpleWords": "By measuring cosmic rays at different heights, Bibha proved a new theory about how the universe works.",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864418/pexels-photo-31864418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Experiment: Measuring Cosmic Rays at Different Heights — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Recognition and International Fame",
+        "storyContext": "By the 1940s, Bibha's work was being published in international scientific journals. Scientists in Europe and America were reading her research. She gave talks at conferences. Other women scientists began to see her and think: 'If she can do it, so can I.' But in India, few people knew her name. She worked quietly in her laboratory, publishing paper after paper, changing science one discovery at a time.",
+        "points": [
+          {
+            "label": "International recognition",
+            "text": "Her cosmic ray research was published in top journals worldwide"
+          },
+          {
+            "label": "Scientific impact",
+            "text": "Her findings contributed to the Nobel Prize-winning work of other physicists"
+          },
+          {
+            "label": "Home acknowledgment",
+            "text": "Slowly, Indians began to recognize her contributions to science"
+          }
+        ],
+        "emoji": "🏆",
+        "inSimpleWords": "The whole world started knowing Bibha's name because her science was so important and so well done.",
+        "image": {
+          "url": "https://images.pexels.com/photos/8363754/pexels-photo-8363754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Recognition and International Fame — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Challenges She Faced: Beyond the Lab",
+        "storyContext": "But recognition didn't erase the everyday battles. Bibha faced discrimination. She wasn't offered senior positions as readily as her male colleagues. Pay scales were unequal. She had to fight for lab space, for equipment, for respect. Yet she never complained publicly. Instead, she worked harder, published more, and became impossible to ignore. Her quiet excellence was her greatest weapon against injustice.",
+        "points": [
+          {
+            "label": "Pay discrimination",
+            "text": "Women scientists earned less than men for the same work"
+          },
+          {
+            "label": "Career barriers",
+            "text": "Fewer leadership positions available to women"
+          },
+          {
+            "label": "Her response",
+            "text": "She focused on excellence, proving women deserved equal opportunities through her achievements"
+          }
+        ],
+        "emoji": "⚖️",
+        "inSimpleWords": "Even successful Bibha had to fight unfair treatment, but she let her brilliant work speak louder than any complaint.",
+        "image": {
+          "url": "https://images.pexels.com/photos/256519/pexels-photo-256519.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Challenges She Faced: Beyond the Lab — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "From Doubt to Discovery: Bibha's Legacy Today",
+        "storyContext": "Fast forward to today. Priya is now in Class 9, inspired by Bibha's story. She joins a science fair with a project on particle physics. She gets first place. Afterward, she tells her grandfather: 'Because of Bibha, teachers believed I could do science. Because of her, the school gave equal lab space to girls. Because of her work, the world knows women scientists are essential.' Her grandfather smiles and says, 'That's how one person's courage creates ripples across generations.'",
+        "example": {
+          "problem": "How did one woman scientist change the future for all women in science?",
+          "solution": "By refusing to accept 'no,' by doing excellent work that couldn't be ignored, and by proving through her discoveries that gender doesn't determine scientific talent. Today, countless women scientists around the world stand on her shoulders—including your teachers, your mentors, and future scientists like you."
+        },
+        "emoji": "🌈",
+        "inSimpleWords": "Bibha's success opened a door that can never be closed—women now belong in every field of science.",
+        "image": {
+          "url": "https://images.pexels.com/photos/9158761/pexels-photo-9158761.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "From Doubt to Discovery: Bibha's Legacy Today — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: Think Like a Scientist",
+        "storyContext": "Priya's teacher asks the class: 'If Bibha were alive today and you could ask her one question about her journey, what would it be? And what would her answer teach you about becoming a scientist yourself?'",
+        "points": [
+          {
+            "label": "Challenge",
+            "text": "Write or discuss what you would ask Bibha Chowdhuri if you met her."
+          },
+          {
+            "label": "Reflect",
+            "text": "What quality of hers do you want to develop in yourself—courage, curiosity, persistence, or something else?"
+          }
+        ],
+        "example": {
+          "problem": "Sample question: 'Bibha, when everyone said women couldn't do physics, how did you keep believing in yourself?'",
+          "solution": "A possible answer (in Bibha's voice): 'I didn't listen to what people said I couldn't do. I listened to what my heart told me I loved—understanding the universe. When you love something truly, the doubts of others become very small. Also, I had family who believed in me. Find people who believe in your dreams, and hold tight to them.'"
+        },
+        "emoji": "💭",
+        "inSimpleWords": "Think about what inspires you in Bibha's story and how you can bring that same courage to your own life.",
+        "image": {
+          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Your Turn: Think Like a Scientist — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "What We Learned: Bibha's Beam of Light",
+        "points": [
+          {
+            "label": "Who she was",
+            "text": "Bibha Chowdhuri (1923–1991) was India's first female particle physicist and cosmic ray researcher"
+          },
+          {
+            "label": "What she achieved",
+            "text": "Discovered how cosmic rays behave at different altitudes; contributed to global particle physics"
+          },
+          {
+            "label": "How she did it",
+            "text": "With curiosity, courage, hard work, and family support—despite facing gender discrimination"
+          },
+          {
+            "label": "Her legacy",
+            "text": "She showed the world and India that women are excellent scientists; opened doors for generations of women in STEM"
+          },
+          {
+            "label": "Why it matters",
+            "text": "Her story teaches us that one person's determination to do what they love can change the world"
+          }
+        ],
+        "emoji": "✨",
+        "inSimpleWords": "Bibha Chowdhuri was a beam of light—not just in the lab discovering cosmic rays, but in showing every girl that science is her rightful home.",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Filament_bulb.jpg/960px-Filament_bulb.jpg",
+          "alt": "What We Learned: Bibha's Beam of Light — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+          "q": "light bulb glowing"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "class-9-science-cell-the-building-block-of-life",
+    "classLevel": "9",
+    "subject": "Science",
+    "chapter": "Cell: The Building Block of Life",
+    "title": "Meera's Invisible Worlds",
+    "hook": "A girl looks through a microscope and discovers the secret cities inside every living thing.",
+    "characters": [
+      {
+        "name": "Meera",
+        "emoji": "ðŸ‘§",
+        "role": "student with curiosity"
+      },
+      {
+        "name": "Dr. Patel",
+        "emoji": "ðŸ‘¨â€ðŸ”¬",
+        "role": "biology teacher"
+      },
+      {
+        "name": "Rohit",
+        "emoji": "ðŸ‘¨â€ðŸ’¼",
+        "role": "lab assistant"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Cell: The Building Block of Life",
+        "emoji": "ðŸ”¬",
+        "storyContext": "Meera's first look through a microscope changes everything."
+      },
+      {
+        "kind": "story",
+        "title": "The Microscope Reveals a World",
+        "emoji": "ðŸŒŸ",
+        "storyContext": "Meera has been staring at a grain of salt under the microscope for two minutes. It looks boringâ€”just chunks of white mineral. 'Now look at this,' says Dr. Patel, sliding a new slide onto the stage. 'Onion skin cells.' Meera puts her eye to the eyepiece. Suddenly, the world changes. She sees hundreds of tiny rectangular boxes, each with a darker dot inside, arranged like a perfect apartment building. 'That's a cell,' whispers Dr. Patel. 'Trillions of them make up your body, and every single one is alive.'"
+      },
+      {
+        "kind": "concept",
+        "title": "What Is a Cell?",
+        "emoji": "â¬œ",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A cell is the smallest unit of life that can live and reproduce on its own."
+          },
+          {
+            "label": "Cell Theory (Three Laws)",
+            "text": "1. All living things are made of cells. 2. Cells are the basic unit of life. 3. All cells come from pre-existing cells."
+          },
+          {
+            "label": "Cell size",
+            "text": "Most cells are so tiny you need a microscope to see them (10â€“100 micrometers). One micrometer = 1/1,000,000 meter."
+          },
+          {
+            "label": "Variety",
+            "text": "Cells vary in shape and size: spheres (bacteria), rectangles (plant cells), irregular (animal cells), long threads (nerve cells)."
+          }
+        ],
+        "inSimpleWords": "A cell is the tiniest living part of any plant or animal, and you can't see it without a microscope.",
+        "image": {
+          "prompt": "Microscope view of onion skin cells arranged in a grid pattern, each cell with a nucleus visible inside"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Prokaryotic vs. Eukaryotic Cells",
+        "emoji": "ðŸ§¬",
+        "points": [
+          {
+            "label": "Prokaryotic",
+            "text": "Cells WITHOUT a nucleus (bacteria and archaea). DNA floats freely in the cytoplasm. Smaller and simpler."
+          },
+          {
+            "label": "Eukaryotic",
+            "text": "Cells WITH a nucleus (animals, plants, fungi, protists). DNA is enclosed and organized. Larger and more complex."
+          },
+          {
+            "label": "Examples prokaryotic",
+            "text": "Bacteria in yogurt, cyanobacteria in ponds."
+          },
+          {
+            "label": "Examples eukaryotic",
+            "text": "Your skin cells, plant leaf cells, yeast cells."
+          }
+        ],
+        "inSimpleWords": "Bacteria are simple cells without a nucleus; your cells are complex and have a nucleus.",
+        "image": {
+          "prompt": "Side-by-side diagram: prokaryotic cell (round, no nucleus, just cytoplasm) vs eukaryotic cell (with large nucleus and organelles)"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Meera's Lab Partner Mystery",
+        "emoji": "ðŸ”Ž",
+        "storyContext": "Dr. Patel hands Meera two unmarked slides. 'One is a bacterium; one is a plant cell from a leaf. Both are alive. But one doesn't have a nucleus.' Meera looks closely. She realizes: the simpler, smaller round cell is the bacteriumâ€”prokaryotic, living but no nucleus. The rectangular one with the obvious dark dot inside is the plant cellâ€”eukaryotic, with a nucleus controlling everything. 'The nucleus is the manager,' Dr. Patel says. 'Without it, a cell still works, but it can't get complex.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Plant Cell Organelles",
+        "emoji": "ðŸŒ±",
+        "points": [
+          {
+            "label": "Nucleus",
+            "text": "Controls the cell. Contains DNA."
+          },
+          {
+            "label": "Chloroplast",
+            "text": "Makes food using sunlight (photosynthesis). Contains green pigment chlorophyll."
+          },
+          {
+            "label": "Cell wall",
+            "text": "Rigid outer layer that gives structure (plant only)."
+          },
+          {
+            "label": "Cell membrane",
+            "text": "Controls what enters and exits the cell."
+          },
+          {
+            "label": "Vacuole",
+            "text": "Large storage sac for water and nutrients (plant cells have one huge vacuole)."
+          },
+          {
+            "label": "Mitochondrion",
+            "text": "Breaks down glucose to release energy for the cell."
+          }
+        ],
+        "inSimpleWords": "Plant cells are like tiny factories with a nucleus boss, chloroplasts making food, and a big vacuole storing water.",
+        "image": {
+          "prompt": "Labeled diagram of plant cell: cell wall, membrane, nucleus, chloroplasts (green), large vacuole, mitochondria"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Animal Cell Organelles",
+        "emoji": "ðŸ¦",
+        "points": [
+          {
+            "label": "Nucleus",
+            "text": "Controls the cell. Contains DNA."
+          },
+          {
+            "label": "Cell membrane",
+            "text": "Flexible outer layer controlling entry and exit."
+          },
+          {
+            "label": "Mitochondrion",
+            "text": "Breaks down glucose to release energy (plural: mitochondria)."
+          },
+          {
+            "label": "Ribosome",
+            "text": "Tiny factory that makes proteins."
+          },
+          {
+            "label": "Golgi apparatus",
+            "text": "Packages and ships proteins around the cell."
+          },
+          {
+            "label": "Endoplasmic reticulum",
+            "text": "Network of tubes for making and transporting proteins (rough ER) or lipids (smooth ER)."
+          },
+          {
+            "label": "No chloroplasts, no cell wall, small vacuoles",
+            "text": "Animal cells can't make their own food; must eat it."
+          }
+        ],
+        "inSimpleWords": "Animal cells are flexible, have no chloroplasts, and must eat foodâ€”unlike plants that make their own.",
+        "image": {
+          "prompt": "Labeled diagram of animal cell: flexible membrane, nucleus, mitochondria, ribosomes, Golgi, ER, small vacuole"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Why Your Skin is Not Green",
+        "emoji": "ðŸƒ",
+        "storyContext": "Meera asks: 'Why can't my skin make food like a plant leaf does?' Rohit brings two slidesâ€”a spinach leaf and a skin cell. Dr. Patel points: 'See the green dots? Chloroplasts. Your skin cells have no chloroplasts because you're an animal. Animals solved the food problem differently: we eat plants and other animals, then our mitochondria break that food down for energy. Plants are lazyâ€”they just grab sunlight and water. We had to evolve muscles and brains to hunt.' Meera grins. 'So mitochondria is my plant?'"
+      },
+      {
+        "kind": "concept",
+        "title": "Energy in Cells: Photosynthesis vs. Respiration",
+        "emoji": "âš¡",
+        "points": [
+          {
+            "label": "Photosynthesis",
+            "text": "Happens in plant chloroplasts. Sunlight + water + CO2 â†’ glucose (food) + oxygen. Energy goes IN."
+          },
+          {
+            "label": "Cellular respiration",
+            "text": "Happens in all cell mitochondria. Glucose + oxygen â†’ CO2 + water + ATP (energy). Energy comes OUT."
+          },
+          {
+            "label": "Photosynthesis location",
+            "text": "ONLY in plant cells with chloroplasts (and some bacteria)."
+          },
+          {
+            "label": "Respiration location",
+            "text": "ALL cellsâ€”plants, animals, bacteria. Every cell needs energy."
+          }
+        ],
+        "inSimpleWords": "Plants make their own food with sunlight; animals eat food then burn it in mitochondria for energy."
+      },
+      {
+        "kind": "example",
+        "title": "Comparing a Plant and Animal Cell",
+        "emoji": "âš–ï¸",
+        "example": {
+          "problem": "A spinach leaf cell and a human cheek cell are viewed under a microscope. List what you see in each, and explain why they look different.",
+          "solution": "SPINACH CELL: large vacuole (70%), chloroplasts (green), cell wall (rigid box), nucleus off to side, mitochondria. CHEEK CELL: small vacuoles, no chloroplasts, no cell wall (just membrane, flexible), nucleus in center, many mitochondria. Differences: Plant cells are rigid factories that make food; animal cells are flexible and must eat. Plants can be green and sit still; animals must move and hunt."
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Cell Division: Mitosis",
+        "emoji": "ðŸ”„",
+        "points": [
+          {
+            "label": "Purpose",
+            "text": "Cell divides to produce two identical daughter cells for growth and repair."
+          },
+          {
+            "label": "DNA copy",
+            "text": "Before division, DNA replicates so each daughter cell gets a full copy."
+          },
+          {
+            "label": "Stages",
+            "text": "Prophase: chromosomes condense; Metaphase: chromosomes line up in middle; Anaphase: copies separate; Telophase: nuclei reform; Cytokinesis: cell splits."
+          },
+          {
+            "label": "Result",
+            "text": "One parent cell â†’ two identical daughter cells (diploid â†’ diploid)."
+          }
+        ],
+        "inSimpleWords": "Mitosis is how cells copy themselves to make your body grow and fix damaged tissue.",
+        "example": {
+          "problem": "A skin cell with 46 chromosomes undergoes mitosis. How many chromosomes are in each daughter cell?",
+          "solution": "Each daughter cell has 46 chromosomes (identical to parent). Mitosis preserves the chromosome number."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Cell's Magic Moment",
+        "emoji": "âœ¨",
+        "storyContext": "Meera watches a time-lapse video of a cell dividing. The nucleus glows brightly as chromosomesâ€”thread-like coils of DNAâ€”emerge. They line up in the middle like soldiers in formation. Then they split, and two nuclei form. The cell pinches in the middle, and suddenly there are two. 'Did the cell just split itself in half?' asks Meera. 'Exactly,' says Dr. Patel. 'And both halves are perfect copies, with the same DNA, the same job, the same future. This is how you grew from a single cell to 37 trillion.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Chromosomes and DNA",
+        "emoji": "ðŸ§¬",
+        "points": [
+          {
+            "label": "DNA",
+            "text": "Double helix molecule that contains genes (instructions for making proteins). In humans: ~3 billion base pairs."
+          },
+          {
+            "label": "Chromosome",
+            "text": "Coiled-up DNA + proteins. Humans have 46 chromosomes (23 pairs). Appears only during cell division."
+          },
+          {
+            "label": "Gene",
+            "text": "A segment of DNA that codes for one protein (e.g., hemoglobin gene, eye color gene)."
+          },
+          {
+            "label": "During cell division",
+            "text": "DNA coils into visible chromosomes so it can be split evenly. After division, it uncoils back into chromatin (invisible)."
+          }
+        ],
+        "inSimpleWords": "Chromosomes are coiled-up DNA bundles you see during cell division. Genes are recipes on the DNA for building proteins."
+      },
+      {
+        "kind": "example",
+        "title": "How Cells Make Copies of Themselves",
+        "emoji": "ðŸ“‹",
+        "example": {
+          "problem": "Before a cell divides by mitosis, its DNA must replicate. Explain why, and what would happen if DNA didn't copy first.",
+          "solution": "REASON: Each daughter cell needs a complete copy of DNA to function and know its job. If DNA didn't copy, each daughter cell would get only half the chromosomes â†’ incomplete instructions â†’ cell dysfunction or death. DNA REPLICATION happens in S phase (before mitosis starts). The double helix unzips, and each half is rebuilt into a complete double helix, creating two identical DNA copies."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Growth Without Division",
+        "emoji": "ðŸ“ˆ",
+        "storyContext": "Meera asks: 'If cells divide to make two from one, why isn't a baby huge after just a few divisions?' Dr. Patel explains: 'A human starts as one fertilized egg. After one mitosis: 2 cells. After two: 4. After three: 8. After 40 divisions, you have ~1 trillion cellsâ€”but they're still squeezed into a tiny embryo.' He draws on the board: 2^40 = 1,099,511,627,776 cells. 'Your cells didn't grow bigger; they just divided and divided and divided. That's why you're small as a baby and big as an adultâ€”more cells, not bigger cells.'"
+      },
+      {
+        "kind": "concept",
+        "title": "The Cell Cycle",
+        "emoji": "ðŸ”",
+        "points": [
+          {
+            "label": "Interphase",
+            "text": "Cell grows (G1), replicates DNA (S), prepares for division (G2). Takes ~22 hours."
+          },
+          {
+            "label": "M phase (Mitosis)",
+            "text": "Prophase, Metaphase, Anaphase, Telophase + Cytokinesis. Takes ~1 hour."
+          },
+          {
+            "label": "G0 phase",
+            "text": "Cells that stop dividing (like nerve cells in adults) go into G0â€”permanent pause."
+          },
+          {
+            "label": "Cell cycle control",
+            "text": "Checkpoints ensure DNA is copied correctly and damage is repaired before division. Failure = cancer."
+          }
+        ],
+        "inSimpleWords": "The cell cycle is the cell's schedule: grow, copy DNA, divide. Then repeat."
+      },
+      {
+        "kind": "challenge",
+        "title": "Cell Detective",
+        "emoji": "ðŸ”Ž",
+        "storyContext": "Dr. Patel gives Meera an unknown cell sample. She needs to identify: Is it prokaryotic or eukaryotic? Is it a plant or animal cell?",
+        "example": {
+          "problem": "You see a cell with a nucleus, a cell wall, and chloroplasts. What cell is it?",
+          "solution": "It is a PLANT CELL. Reasons: (1) Nucleus = eukaryotic. (2) Cell wall = plant only. (3) Chloroplasts = photosynthesis = plant. If it had no chloroplasts and no cell wall, it would be an animal cell."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Meera Becomes a Microscope Master",
+        "emoji": "ðŸ‘©â€ðŸ”¬",
+        "storyContext": "After weeks in Dr. Patel's lab, Meera can now spot cell types instantly. She points to a slide: 'That's a bacteriumâ€”no nucleus, tiny, simple.' Another: 'Plant cellâ€”green dots and a big clear bubble.' Another: 'Animal cellâ€”no wall, flexible, nucleus in middle.' Rohit claps. 'You learned more in a month than I did in a year.' Dr. Patel smiles. 'That's because Meera understood it matters. A cell isn't just a thing under glassâ€”it's the reason you're alive.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Meiosis: Making Sperm and Eggs",
+        "emoji": "ðŸ§¬",
+        "points": [
+          {
+            "label": "Purpose",
+            "text": "Produces sex cells (gametes) with half the chromosomes: sperm and egg cells."
+          },
+          {
+            "label": "Human example",
+            "text": "Normal cell: 46 chromosomes. After meiosis: sperm or egg has 23 chromosomes (haploid)."
+          },
+          {
+            "label": "Two divisions",
+            "text": "Meiosis I: homologous pairs separate (46 â†’ 23). Meiosis II: sister chromatids separate (23 â†’ 23 in each cell). Result: 4 cells, each with 23 chromosomes."
+          },
+          {
+            "label": "Variation",
+            "text": "Meiosis shuffles which chromosome comes from mom and which from dad. Every gamete is genetically unique."
+          }
+        ],
+        "inSimpleWords": "Meiosis cuts DNA in half to make sperm and eggs, so when they merge (fertilization), the baby has a full set again."
+      },
+      {
+        "kind": "example",
+        "title": "From Single Cell to New Life",
+        "emoji": "ðŸ‘¶",
+        "example": {
+          "problem": "A human egg cell (23 chromosomes) is fertilized by a sperm cell (23 chromosomes). What happens next, and how many chromosomes is in the resulting baby?",
+          "solution": "FERTILIZATION: Egg + sperm â†’ zygote with 46 chromosomes (23 from mom + 23 from dad). GROWTH: The zygote undergoes mitosis repeatedly. Each new cell copies all 46 chromosomes. After weeks, millions of cells form, all with 46 chromosomes. RESULT: A baby with 37 trillion cells, all identical copies, all with the same DNA from both parents."
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Chromosome Detective",
+        "emoji": "ðŸ§©",
+        "storyContext": "Meera is given a karyotype (a chart showing all chromosomes). She must count them and guess if the cell is a gamete or somatic cell.",
+        "example": {
+          "problem": "A cell has 23 chromosomes visible. Is this a skin cell, a muscle cell, or an egg cell?",
+          "solution": "It is an EGG CELL (or sperm cell). Reasons: Somatic cells (skin, muscle, nerve) have 46 chromosomes. Sex cells (egg, sperm) have 23. This has 23, so it must be a gamete."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Why You Have Two Noses Worth of DNA",
+        "emoji": "ðŸ‘ƒ",
+        "storyContext": "Meera realizes something wild. 'Half my DNA came from my mom, half from my dad. But they each had DNA from their parents too. So my great-grandparents' DNA is in me?' Dr. Patel nods. 'Go back far enough, and you share DNA with every human on Earth. Go back further, and you share DNA with apes, fish, bacteria. All life uses the same DNA code because all life came from the same common ancestor billions of years ago.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Mutations and Variation",
+        "emoji": "ðŸ§¬",
+        "points": [
+          {
+            "label": "Mutation",
+            "text": "A change in DNA sequence. Can be caused by copying errors, radiation, chemicals."
+          },
+          {
+            "label": "Types",
+            "text": "Point mutation (one base changes), Insertion (bases added), Deletion (bases removed), Duplication (bases copied)."
+          },
+          {
+            "label": "Effects",
+            "text": "Can be harmful (disease), beneficial (new trait), or neutral (silent). Most mutations are neutral or harmful."
+          },
+          {
+            "label": "Evolution",
+            "text": "Beneficial mutations survive; harmful ones are selected against. Over millions of years, species evolve."
+          }
+        ],
+        "inSimpleWords": "Mutations are typos in DNA. Most don't matter, some help, some hurt, and over time they create new species."
+      },
+      {
+        "title": "Cell Membrane and Transport",
+        "inSimpleWords": "The cell membrane is a bouncer—it lets the good stuff in and keeps the bad stuff out.",
+        "emoji": "🚪",
+        "points": [
+          {
+            "text": "Cell membrane lets some molecules in/out, blocks others.",
+            "label": "Selectively permeable"
+          },
+          {
+            "text": "Small molecules move from high to low concentration (no energy).",
+            "label": "Simple diffusion"
+          },
+          {
+            "text": "Water follows salt—moves toward concentrated solution.",
+            "label": "Osmosis"
+          },
+          {
+            "text": "Large molecules or moving against concentration = uses ATP energy.",
+            "label": "Active transport"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "storyContext": "After mastering cell basics, Meera learns that cells don't live in isolation. They exchange with their environment constantly. Glucose enters through the membrane, waste exits, ions flow in and out. Dr. Patel says, 'The membrane is like a smart door—it reads what needs entry and blocks what's dangerous. Without this control, cells would flood with water and burst, or lose salt and shrivel.'",
+        "title": "Meera's Advanced Discovery",
+        "emoji": "🧪",
+        "kind": "story"
+      },
+      {
+        "kind": "recap",
+        "title": "Meera's Big Discoveries",
+        "emoji": "âœ…",
+        "points": [
+          {
+            "text": "All living things are made of cellsâ€”the smallest unit of life."
+          },
+          {
+            "text": "Prokaryotic cells (bacteria) have no nucleus; eukaryotic cells (us, plants) have one."
+          },
+          {
+            "text": "Plant cells have cell walls, chloroplasts, and large vacuoles; animal cells don't."
+          },
+          {
+            "text": "Each organelle has a specific job: nucleus controls, mitochondria energize, chloroplasts feed, ribosomes build."
+          },
+          {
+            "text": "Cells divide by mitosis to grow and healâ€”trillions of copies of you are being made right now."
+          },
+          {
+            "text": "Sex cells are made by meiosis with half the chromosomes; they fuse at fertilization to make a new human."
+          },
+          {
+            "text": "Your DNA is a record of all life on Earth, copied and passed down through billions of years."
+          }
+        ],
+        "inSimpleWords": "Cells are tiny, living factories, and every single one of your 37 trillion cells is doing work right now to keep you alive."
+      }
+    ]
+  },
+  {
+    "slug": "class-9-science-tissues-in-action",
+    "classLevel": "9",
+    "subject": "Science",
+    "chapter": "Tissues in Action",
+    "title": "Aditya's Marathon Discovery",
+    "hook": "A runner discovers that his muscles, bones, and skin are all made of specialized teamwork at the cellular level.",
+    "characters": [
+      {
+        "name": "Aditya",
+        "emoji": "ðŸƒ",
+        "role": "school athlete"
+      },
+      {
+        "name": "Coach Neha",
+        "emoji": "ðŸ‘©â€ðŸ«",
+        "role": "PE teacher and biology guide"
+      },
+      {
+        "name": "Sneha",
+        "emoji": "ðŸ‘©â€âš•ï¸",
+        "role": "school nurse"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Tissues in Action",
+        "emoji": "ðŸ’ª",
+        "storyContext": "Aditya trains for a 10 km school marathon and learns how his body is organized."
+      },
+      {
+        "kind": "story",
+        "title": "The Athlete Asks a Question",
+        "emoji": "ðŸ…",
+        "storyContext": "Aditya finishes his 10 km training run, drenched in sweat, legs burning but heart racing with pride. Coach Neha hands him water. 'Your muscles are sore. Know why?' Aditya shakes his head. 'Muscle cells are grouped into teams called tissues. When you run, those muscle tissues work together, burning glucose to power your legs.' Sneha adds, 'And your bonesâ€”those are a different tissue, holding your frame up. Your skin, your blood, your nervesâ€”each is a tissue, and millions of cells cooperate to make it work.' Aditya's jaw drops. 'So my whole body is... teamwork?'"
+      },
+      {
+        "kind": "concept",
+        "title": "What Is a Tissue?",
+        "emoji": "ðŸ”—",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "A tissue is a group of similar cells that work together to perform a specific function."
+          },
+          {
+            "label": "Organization",
+            "text": "Cells â†’ Tissues â†’ Organs â†’ Organ Systems â†’ Organism."
+          },
+          {
+            "label": "Four main types",
+            "text": "Epithelial, Connective, Muscle, Nervous."
+          },
+          {
+            "label": "All animals",
+            "text": "All animals have these same four tissue types, just arranged differently."
+          }
+        ],
+        "inSimpleWords": "Tissues are teams of identical cells working together to do one job.",
+        "image": {
+          "prompt": "Hierarchy showing cell â†’ tissue â†’ organ: muscle cell â†’ muscle tissue â†’ bicep muscle â†’ arm system"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Epithelial Tissue",
+        "emoji": "ðŸ—ï¸",
+        "points": [
+          {
+            "label": "Job",
+            "text": "Covers and lines the body (skin, mouth, stomach, lungs). Creates barriers and surfaces."
+          },
+          {
+            "label": "Properties",
+            "text": "Tightly packed cells with no gaps. Regenerates quickly. Can absorb or secrete."
+          },
+          {
+            "label": "Types",
+            "text": "Simple squamous (thin, absorptionâ€”lungs); Simple cuboidal (secretionâ€”glands); Simple columnar (absorptionâ€”intestines); Stratified squamous (protectionâ€”skin)."
+          },
+          {
+            "label": "Skin example",
+            "text": "Outer layer protects; inner layer regenerates continuouslyâ€”you shed ~30,000 cells per minute."
+          }
+        ],
+        "inSimpleWords": "Epithelial tissue forms protective liningsâ€”your skin, the inside of your mouth, your stomach.",
+        "image": {
+          "prompt": "Cross-section of skin showing stratified epithelial cells in layers, outer dead cells shed, inner cells dividing"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Aditya's Skin Secret",
+        "emoji": "ðŸ©¹",
+        "storyContext": "During one training run, Aditya scrapes his knee. Sneha says, 'Don't worryâ€”you shed 30,000 skin cells every minute. Your epithelial tissue is working right now, making new cells to replace that scrape.' Aditya laughs. 'My skin is making new cells while I'm running? That's wild.' Coach Neha adds, 'Your whole body is like a city under constructionâ€”while you sleep, work, run, liveâ€”cells are constantly dying and being replaced. Your skin replaces itself every 2â€“4 weeks. Without epithelial tissue doing this, you'd be raw and infected.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Connective Tissue",
+        "emoji": "ðŸ¦´",
+        "points": [
+          {
+            "label": "Job",
+            "text": "Binds, supports, and insulates other tissues. Most abundant tissue type."
+          },
+          {
+            "label": "Types",
+            "text": "Bone (hard, support), Cartilage (flexible, cushion), Ligaments (joint binding), Tendons (muscle-to-bone), Blood (transport), Fat (insulation)."
+          },
+          {
+            "label": "Components",
+            "text": "Living cells (osteocytes in bone, chondrocytes in cartilage) embedded in a matrix (calcium minerals in bone, collagen fibers)."
+          },
+          {
+            "label": "Bone structure",
+            "text": "Compact bone (dense, strong); Spongy bone (porous, lighter, marrow inside makes blood)."
+          }
+        ],
+        "inSimpleWords": "Connective tissue is the glue and frame of your bodyâ€”bones hold you up, cartilage cushions your joints, ligaments tie it together.",
+        "image": {
+          "prompt": "Bone cross-section showing hard compact bone outside, spongy bone inside with marrow cavity, osteocyte cells in lacunae"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "How Aditya's Bones Support His Run",
+        "emoji": "ðŸƒ",
+        "storyContext": "Sneha shows Aditya a model of a bone. 'See this hard outer shell? Compact boneâ€”it's stronger than concrete. See these air pockets inside? Spongy boneâ€”lighter but still strong. And inside the sponge: marrow. Your bones don't just hold you up; they make blood.' Aditya points at the bone. 'What are those tiny holes?' 'Lacunaeâ€”homes for osteocytes, bone cells. They're alive, working 24/7 to maintain the bone, repair tiny cracks, keep calcium stored.' Coach Neha adds, 'Run hard enough, and your bones adaptâ€”they get even stronger.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Muscle Tissue",
+        "emoji": "ðŸ’ª",
+        "points": [
+          {
+            "label": "Job",
+            "text": "Contracts to produce movement and heat."
+          },
+          {
+            "label": "Types",
+            "text": "Skeletal (voluntary, move limbs, striated), Cardiac (involuntary, heart only, striated), Smooth (involuntary, organs like stomach, non-striated)."
+          },
+          {
+            "label": "Skeletal muscle",
+            "text": "Long fibers with striations (bands). You control it. When actin and myosin filaments slide, the muscle contracts."
+          },
+          {
+            "label": "Energy",
+            "text": "Mitochondria in muscle cells burn glucose and fat to produce ATP, which powers contraction."
+          }
+        ],
+        "inSimpleWords": "Muscle tissue is what contracts to move you, keep your heart beating, and digest your food.",
+        "example": {
+          "problem": "When Aditya runs, his leg muscles contract repeatedly. What cellular process powers this?",
+          "solution": "Muscle cells have abundant mitochondria. During exercise, glucose + oxygen â†’ ATP (in mitochondria). ATP energy powers myosin heads to pull actin filaments, shortening the muscle. Repeated contractions move the leg. Lactic acid builds up, causing soreness (DOMS)."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Burn of Muscle Soreness",
+        "emoji": "ðŸ”¥",
+        "storyContext": "After his hardest run yet, Aditya can barely walk. Every step hurts. Coach Neha explains: 'Delayed Onset Muscle Sorenessâ€”DOMS. Tiny tears in muscle fibers from intense exercise. Your muscle cells are repairing themselves right now, which makes them grow stronger. Tomorrow will hurt less.' Aditya asks, 'Why the tears?' 'Actin and myosin slide, contract, slide again. Heavy load + hard work = some fibers snap slightly. It's normal and necessary. Repair means growth.' Sneha adds, 'That soreness proves your muscles are adapting. It's a good thing.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Nervous Tissue",
+        "emoji": "ðŸ§ ",
+        "points": [
+          {
+            "label": "Job",
+            "text": "Sends and receives electrical signals to coordinate the body."
+          },
+          {
+            "label": "Components",
+            "text": "Neurons (signal cells) and Glial cells (support)."
+          },
+          {
+            "label": "Neuron structure",
+            "text": "Dendrite (receives), Cell body (integrates), Axon (sends signal), Axon terminal (releases neurotransmitters)."
+          },
+          {
+            "label": "Signal speed",
+            "text": "Electric pulses travel along axons at 0.5â€“120 m/s (fastest in myelinated axons)."
+          },
+          {
+            "label": "Function",
+            "text": "Sensory neurons receive signals (pain, temperature); Motor neurons send commands (move muscle); Interneurons connect them (brain)."
+          }
+        ],
+        "inSimpleWords": "Nervous tissue is your body's communication networkâ€”brain to muscles to sensors and back.",
+        "image": {
+          "prompt": "Neuron with labeled dendrites receiving signals, cell body with nucleus, long axon, and terminal branches releasing neurotransmitters"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Split-Second Decision to Run",
+        "emoji": "âš¡",
+        "storyContext": "Aditya sees the starting line and springs forwardâ€”all in 0.5 seconds. Coach Neha explains what just happened: 'Your eyes saw the signal (sensory neuron). Your brain decided to run (interneurons in the cortex). Your brain sent a command to your leg muscles (motor neuron). Your muscles contracted. All in half a second. And none of this was consciousâ€”your nerves were firing at 100+ meters per second, passing messages as electrical pulses and chemical neurotransmitters. Your nervous tissue is faster than thought.'"
+      },
+      {
+        "kind": "concept",
+        "title": "How the Four Tissues Work in Harmony",
+        "emoji": "ðŸŽ­",
+        "points": [
+          {
+            "label": "Nervous system",
+            "text": "Decides: brain sends command to move leg."
+          },
+          {
+            "label": "Muscle tissue",
+            "text": "Executes: leg muscle contracts, pulling bone."
+          },
+          {
+            "label": "Connective tissue",
+            "text": "Supports: tendons attach muscle to bone; ligaments stabilize knee; cartilage absorbs impact."
+          },
+          {
+            "label": "Epithelial tissue",
+            "text": "Protects: skin covers; sweat glands cool body."
+          }
+        ],
+        "inSimpleWords": "When you move, all four tissue types work as one orchestra."
+      },
+      {
+        "kind": "example",
+        "title": "Running: Tissues Working Together",
+        "emoji": "ðŸƒ",
+        "example": {
+          "problem": "When Aditya decides to run, explain how four tissue types work together in his leg.",
+          "solution": "1. NERVOUS: Brain sends electrical command via motor neuron to leg muscle. 2. MUSCLE: Skeletal muscle tissue contracts, shortening. Mitochondria burn glucose for ATP energy. 3. CONNECTIVE: Tendons attach muscle to bone; ligaments stabilize knee joint; cartilage cushions impact. 4. EPITHELIAL: Skin on leg protects; sweat glands secrete to cool. All tissues coordinate in milliseconds to create movement."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Aditya's Victory and Biology",
+        "emoji": "ðŸ†",
+        "storyContext": "Aditya finishes the 10 km marathon in first place. As he catches his breath, Sneha checks his heart rateâ€”still high, beating rapidly. Coach Neha smiles. 'Your heart is cardiac muscle tissue, and right now it's beating 180 times per minute. All involuntaryâ€”you never told it to beat faster, but it did, perfectly coordinated with your lungs, without your brain's conscious control. That's tissue at its finest.'"
+      },
+      {
+        "kind": "challenge",
+        "title": "Tissue Detective",
+        "emoji": "ðŸ”",
+        "storyContext": "Coach Neha shows Aditya a microscope slide. 'Name the tissue type and explain its function.'",
+        "example": {
+          "problem": "You see parallel fibers with stripes and large nuclei. Is this tissue in the heart or leg muscle?",
+          "solution": "This is CARDIAC MUSCLE (heart). Reason: It has striations (stripes) and is involuntary. Both skeletal and cardiac muscle are striated, but cardiac is unique to the heart and has intercalated discs connecting cells for coordinated beating. Leg muscle is skeletal muscle (also striated but under your control)."
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Healing from Injury",
+        "emoji": "ðŸ©¹",
+        "example": {
+          "problem": "Aditya sprains his ankle (ligament tear) during training. Explain how each tissue type is involved in healing.",
+          "solution": "CONNECTIVE: Ligament is damaged (torn collagen fibers). Inflammatory response brings blood cells and proteins. EPITHELIAL: Skin over swollen ankle stretches and protects. Sweat glands reduce as body focuses on repair. NERVOUS: Pain receptors (sensory neurons) send pain signals to brain so Aditya knows to rest. MUSCLE: Protective muscle spasm (reflex) prevents further movement. Over weeks, fibroblasts rebuild collagen in the ligament, and healing begins."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Blood: The Flowing Connective Tissue",
+        "emoji": "ðŸ©¸",
+        "storyContext": "Sneha holds up a test tube with blood. 'This is a connective tissue too. Red blood cells carry oxygen, white blood cells fight infection, platelets clot, and plasma carries nutrients. It's an organ system in liquid form, constantly flowing.' Aditya asks, 'How many blood cells do I have?' Sneha smiles. 'About 5 million red blood cells per microliter. Your body makes 2 million new ones every single second to replace old ones. That's why a cut stops bleedingâ€”platelets arrive and clot within seconds.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Tissue Repair and Regeneration",
+        "emoji": "ðŸ”§",
+        "points": [
+          {
+            "label": "Epithelial regeneration",
+            "text": "Fastestâ€”skin heals in weeks. Intestinal lining replaces every 3â€“5 days."
+          },
+          {
+            "label": "Muscle repair",
+            "text": "Slowâ€”muscle tears take months. Satellite cells activate and rebuild fibers."
+          },
+          {
+            "label": "Bone remodeling",
+            "text": "Takes 6â€“8 weeks. Osteoclasts break down, osteoblasts rebuild. Bone adapts to stress."
+          },
+          {
+            "label": "Nerve regeneration",
+            "text": "Very slow or impossible. Central nervous system (brain, spinal cord) rarely regenerates. Peripheral nerves can regrow ~1 mm/day."
+          }
+        ],
+        "inSimpleWords": "Different tissues heal at different speeds. Skin heals fast, bone slower, nerve damage slowest."
+      },
+      {
+        "kind": "challenge",
+        "title": "Tissue Design Challenge",
+        "emoji": "ðŸ§©",
+        "storyContext": "If you were to design a tissue for a new jobâ€”say, absorbing nutrients from foodâ€”what cells would you use? How would you arrange them?",
+        "example": {
+          "problem": "Design a tissue that absorbs water and nutrients from chewed food. What kind of epithelial cells would you use, and why?",
+          "solution": "SIMPLE COLUMNAR EPITHELIUM. Reason: (1) Single layer = faster absorption. (2) Tall cells with microvilli on top = huge surface area. (3) Cells are tightly joined with selective permeability = control what enters. (4) Cells have many mitochondria = energy for active transport. This is exactly what your small intestine uses."
+        }
+      },
+      {
+        "storyContext": "Sneha explains: 'Sweat glands are epithelial tissue tubes that extend deep into your skin. When you exercise, your nervous system signals them to secrete sweat (water + salt). The sweat rises to the surface and evaporates, cooling you. Thousands of sweat glands work in concert—that's tissue as a system.'",
+        "title": "The Sweat Gland Discovery",
+        "emoji": "💦",
+        "kind": "story"
+      },
+      {
+        "title": "Tissue Organization in Organs",
+        "inSimpleWords": "Organs layer tissues like a sandwich—each layer plays its part in one coordinated job.",
+        "emoji": "🫀",
+        "points": [
+          {
+            "text": "Heart: cardiac muscle, connective tissue frame, epithelial lining, nerves.",
+            "label": "Organs contain all 4 tissues"
+          },
+          {
+            "text": "Outer layer protects, middle contracts, inner absorbs/secretes.",
+            "label": "Each layer has a function"
+          },
+          {
+            "text": "Heart + blood vessels + blood = circulatory system.",
+            "label": "Organs form systems"
+          },
+          {
+            "text": "Nervous triggers muscular, which moves skeletal, which moves body.",
+            "label": "Systems work together"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "storyContext": "Coach Neha shows a beating heart model. 'Your heart has been beating since before you were born. It never stops, never tires. Why? Because cardiac muscle tissue is specially designed—it has its own electrical system. Individual heart cells stimulate their neighbors automatically, creating a wave of contraction that pumps blood. It's autonomous, like a city that runs itself.'",
+        "title": "The Heart Never Rests",
+        "emoji": "💓",
+        "kind": "story"
+      },
+      {
+        "title": "A Tissue Under Stress",
+        "emoji": "🏋️",
+        "example": {
+          "solution": "ACUTE: Cells increase ATP production in mitochondria. Nerves fire faster, sending commands more frequently. LONG-TERM: With training, cardiac muscle fibers grow thicker (hypertrophy). Mitochondria increase in number. Capillaries grow around muscle cells for better oxygen supply. The tissue adapts to chronic stress by becoming stronger.",
+          "problem": "During intense exercise, Aditya's heart pumps 180 times per minute. Explain how cardiac muscle tissue adapts to this demand."
+        },
+        "kind": "example"
+      },
+      {
+        "storyContext": "Sneha takes a bone sample. 'Inside spongy bone is marrow—a tissue factory. Red marrow makes red blood cells, white blood cells, and platelets. Yellow marrow stores fat. It's soft tissue inside hard bone.' Aditya asks, 'How many cells does marrow make?' 'About 2 million red blood cells per second. That's why wounds stop bleeding—your marrow is working overtime to replace lost blood.'",
+        "title": "The Bone Marrow Secret",
+        "emoji": "🩸",
+        "kind": "story"
+      },
+      {
+        "storyContext": "As Aditya finishes his final exam on tissues, Coach Neha congratulates him. 'You now understand the hidden biology that powers athletes. Every jump, every catch, every heartbeat—it's tissue teamwork. Maybe one day you'll be a sports physiologist, helping other athletes understand their own bodies.' Aditya smiles. 'I just want to know: if I keep training, can my tissues get even stronger?' Coach Neha nods. 'Absolutely. Tissues adapt to stress. Keep running, and your bones harden, your muscles grow, your nerves sharpen. Your body is always listening.'",
+        "title": "Aditya's Future Path",
+        "emoji": "🚀",
+        "kind": "story"
+      },
+      {
+        "kind": "recap",
+        "title": "Aditya's Tissue Lessons",
+        "emoji": "âœ…",
+        "points": [
+          {
+            "text": "Tissues are groups of similar cells performing one function. Four types: Epithelial, Connective, Muscle, Nervous."
+          },
+          {
+            "text": "Epithelial tissue lines and protects (skin, mouth, stomach)."
+          },
+          {
+            "text": "Connective tissue supports and binds (bone, cartilage, ligaments, blood)."
+          },
+          {
+            "text": "Muscle tissue contracts for movement (skeletal, cardiac, smooth)."
+          },
+          {
+            "text": "Nervous tissue sends signals to coordinate everything (brain, nerves, spinal cord)."
+          },
+          {
+            "text": "Every movement you make involves teamwork between all four tissues."
+          },
+          {
+            "text": "Tissues repair at different speedsâ€”skin fast, bone medium, nerves slow."
+          }
+        ],
+        "inSimpleWords": "Your body is a tissue orchestraâ€”each tissue type is a different instrument, and when they play together, you move, breathe, think, and live."
+      }
+    ]
+  },
+  {
+    "slug": "class-9-science-describing-motion-around-us",
+    "classLevel": "9",
+    "subject": "Science",
+    "chapter": "Describing Motion Around Us",
+    "title": "Vikram's Cricket Adventure",
+    "hook": "A cricket match becomes the stage for discovering distance, displacement, speed, velocity, and acceleration.",
+    "characters": [
+      {
+        "name": "Vikram",
+        "emoji": "ðŸ",
+        "role": "young cricketer"
+      },
+      {
+        "name": "Mr. Desai",
+        "emoji": "ðŸ‘¨â€ðŸ«",
+        "role": "physics teacher"
+      },
+      {
+        "name": "Priya",
+        "emoji": "ðŸ‘§",
+        "role": "scorekeeper"
+      }
+    ],
+    "slides": [
+      {
+        "kind": "title",
+        "title": "Describing Motion Around Us",
+        "emoji": "âš¡",
+        "storyContext": "Vikram plays cricket and discovers physics on the field."
+      },
+      {
+        "kind": "story",
+        "title": "The Cricket Pitch Mystery",
+        "emoji": "ðŸ",
+        "storyContext": "Vikram runs from the crease to mid-pitch to field a ball, then sprints back to the crease. Mr. Desai, watching from the stands, smiles. 'Vikram just demonstrated motion. But here's the question: Did he travel the same distance as his displacement?' Vikram looks confused. Priya, keeping score, asks, 'What's the difference?' Mr. Desai pulls out a diagram. 'Distance is how far you actually walkedâ€”left, then right. Displacement is the straight-line distance from start to finish. In Vikram's case, he walked far but ended up almost where he started.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Distance vs. Displacement",
+        "emoji": "ðŸ“",
+        "points": [
+          {
+            "label": "Distance",
+            "text": "The total length of the path traveled (scalarâ€”only magnitude, no direction). Always positive or zero. Example: Vikram runs 10 m left, then 10 m right = 20 m distance."
+          },
+          {
+            "label": "Displacement",
+            "text": "The shortest straight-line distance from start to finish, with direction (vector). Can be positive, negative, or zero. Example: Vikram ends where he started = 0 m displacement."
+          },
+          {
+            "label": "Scalar vs. Vector",
+            "text": "Distance is scalar (just a number). Displacement is vector (number + direction, like 5 m north)."
+          },
+          {
+            "label": "Formula",
+            "text": "Displacement = Final position âˆ’ Initial position. Distance = sum of all path segments."
+          }
+        ],
+        "inSimpleWords": "Distance is how much ground you cover; displacement is how far you really are from where you started.",
+        "image": {
+          "prompt": "Bird's-eye view of cricket field showing Vikram's curved running path (10 m arc) from crease back to crease, distance labeled 20 m, displacement labeled 0 m"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Scorekeeper's Confusion",
+        "emoji": "ðŸ¤”",
+        "storyContext": "Priya is keeping score and records: 'Vikram ran 20 meters.' Mr. Desai asks, 'How far is Vikram from where he started?' Priya checks: 'Uh, zero metersâ€”he's back at the crease.' Mr. Desai grins. 'So he ran 20 meters of distance, but 0 meters of displacement. Distance is the path; displacement is the straight-line result. In sports, coaches care about speed (meters per second). In navigation, they care about velocity (meters per second in a direction). Same numbers, different meanings.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Speed and Velocity",
+        "emoji": "ðŸš€",
+        "points": [
+          {
+            "label": "Speed",
+            "text": "How fast something is moving (scalar). Formula: Speed = Distance / Time. Units: m/s, km/h, or mph."
+          },
+          {
+            "label": "Velocity",
+            "text": "How fast and in which direction (vector). Formula: Velocity = Displacement / Time. Units: m/s north, km/h south, etc."
+          },
+          {
+            "label": "Average vs. Instantaneous",
+            "text": "Average speed = total distance / total time. Instantaneous speed = speed at one exact moment (speedometer reading)."
+          },
+          {
+            "label": "Example",
+            "text": "Vikram runs 100 m in 20 seconds. Average speed = 100 m / 20 s = 5 m/s. If he runs north, velocity = 5 m/s north."
+          }
+        ],
+        "inSimpleWords": "Speed is how fast you go; velocity is how fast and which way.",
+        "example": {
+          "problem": "Vikram bowls a cricket ball from the crease (0 m) to the batter (22 m) in 1 second. Calculate speed and velocity.",
+          "solution": "Speed = distance / time = 22 m / 1 s = 22 m/s. Velocity = displacement / time = 22 m toward batter / 1 s = 22 m/s (toward batter direction). Speed is just the number; velocity includes direction."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Vikram's Ball and the Speedgun",
+        "emoji": "ðŸ“¡",
+        "storyContext": "A sports commentator clocks Vikram's bowling speed with a radar gun: '140 km/h!' Vikram asks Mr. Desai, 'Is that speed or velocity?' Mr. Desai laughs. 'Great question. The gun measures how fast the ball is movingâ€”that's speed. But velocity would be '140 km/h down the pitch toward the batter.' In cricket, bowlers are judged on speed because the direction is always the same. But if a fielder runs in a zigzag, his speed (distance/time) is much higher than his velocity (displacement/time).'"
+      },
+      {
+        "kind": "concept",
+        "title": "Acceleration",
+        "emoji": "ðŸ“ˆ",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "The rate of change of velocity (how quickly speed or direction changes). Vector (has direction)."
+          },
+          {
+            "label": "Formula",
+            "text": "Acceleration = Change in velocity / Time = (Final velocity âˆ’ Initial velocity) / Time. a = (v_f âˆ’ v_i) / t. Units: m/sÂ²."
+          },
+          {
+            "label": "Positive acceleration",
+            "text": "Speed increases (speeding up)."
+          },
+          {
+            "label": "Negative acceleration (deceleration)",
+            "text": "Speed decreases (slowing down) or direction changes."
+          },
+          {
+            "label": "Zero acceleration",
+            "text": "Velocity doesn't changeâ€”constant speed in a straight line."
+          }
+        ],
+        "inSimpleWords": "Acceleration is how fast your speed or direction is changing.",
+        "example": {
+          "problem": "Vikram starts from rest (0 m/s) and reaches 10 m/s after running for 5 seconds. What is his acceleration?",
+          "solution": "a = (v_f âˆ’ v_i) / t = (10 m/s âˆ’ 0 m/s) / 5 s = 10 / 5 = 2 m/sÂ². His speed increases by 2 m/s every second."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Acceleration Moment",
+        "emoji": "ðŸ’¨",
+        "storyContext": "Vikram chases a ball. Mr. Desai captures the moment with a stopwatch: At t=0, Vikram is still (0 m/s). At t=1s, he's moving at 2 m/s. At t=2s, 4 m/s. At t=3s, 6 m/s. 'Notice the pattern?' asks Mr. Desai. 'He gains 2 m/s every second. That's acceleration: 2 m/sÂ².' Priya asks, 'What if he stops accelerating and keeps running at 6 m/s forever?' 'Then acceleration becomes zero,' says Mr. Desai. 'Constant velocity = no acceleration.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Types of Motion",
+        "emoji": "ðŸ”„",
+        "points": [
+          {
+            "label": "Uniform motion",
+            "text": "Constant velocity (no acceleration). Distance-time graph is a straight line. Example: Car on highway at steady 60 km/h."
+          },
+          {
+            "label": "Non-uniform motion",
+            "text": "Changing velocity (has acceleration). Distance-time graph is a curve. Example: Car speeding up or slowing down."
+          },
+          {
+            "label": "Circular motion",
+            "text": "Object moves in a circle at constant speed but changes direction constantly, so it has acceleration (centripetal). Example: Merry-go-round horse."
+          },
+          {
+            "label": "Relative motion",
+            "text": "Motion depends on reference frame. Train at 80 km/h looks still to passenger inside, but fast to person on ground."
+          }
+        ],
+        "inSimpleWords": "Motion can be straight and steady, curved and changing, or circular. The reference frame (who's watching) matters.",
+        "image": {
+          "prompt": "Three graphs: (1) Straight line for uniform motion. (2) Curve rising for accelerating motion. (3) Circle for circular motion with velocity vectors pointing tangent"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Merry-Go-Round Surprise",
+        "emoji": "ðŸŽ ",
+        "storyContext": "Mr. Desai brings a spinning cricket wheel to class. 'This wheel moves at a constant speed of 10 m/s at the rim. But does it have acceleration?' Students say 'no.' 'Wrong!' laughs Mr. Desai. 'The direction is constantly changing. Velocity has both speed and direction. If direction changes, velocity changes, so there IS accelerationâ€”centripetal acceleration, always pointing toward the center. This is why turning a car hard feels like being pushed to the side.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Graphs of Motion",
+        "emoji": "ðŸ“Š",
+        "points": [
+          {
+            "label": "Distance-time graph",
+            "text": "Straight line = uniform motion. Steeper slope = faster speed. Curve = accelerating or decelerating motion."
+          },
+          {
+            "label": "Velocity-time graph",
+            "text": "Flat line = zero acceleration (constant velocity). Sloped line = acceleration (speed changing). Area under curve = distance traveled."
+          },
+          {
+            "label": "Acceleration-time graph",
+            "text": "Flat line at 0 = no acceleration. Flat line at +2 = steady acceleration. Changing line = changing acceleration."
+          },
+          {
+            "label": "Real example",
+            "text": "A car accelerates from rest for 5s, then maintains constant speed for 10s. Distance-time: curve then line. Velocity-time: sloped line then flat."
+          }
+        ],
+        "inSimpleWords": "A graph shows motion visually: flat line means steady, curved line means changing, steep line means fast."
+      },
+      {
+        "kind": "example",
+        "title": "Vikram's Fielding Run",
+        "emoji": "ðŸƒ",
+        "example": {
+          "problem": "Vikram runs from the crease (0 m) to field a ball at 30 m away. He accelerates uniformly from rest (0 m/s) to 6 m/s in 4 seconds, then maintains 6 m/s for the final 6 m. Calculate: (a) acceleration in first phase, (b) total distance, (c) average speed for the entire run.",
+          "solution": "(a) a = (6 âˆ’ 0) / 4 = 1.5 m/sÂ². (b) Distance in first phase: s = v_i Ã— t + 0.5 Ã— a Ã— tÂ² = 0 + 0.5 Ã— 1.5 Ã— 16 = 12 m. Remaining distance = 30 âˆ’ 12 = 18 m. Total = 30 m. (c) Time for first phase = 4 s. Time for second phase = 18 m / 6 m/s = 3 s. Total time = 7 s. Average speed = 30 m / 7 s â‰ˆ 4.3 m/s."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Reaction Time Mystery",
+        "emoji": "âš¡",
+        "storyContext": "A batter is about to swing. Vikram (fielding) watches the ball leave the bowler's hand. The ball travels 22 m at 20 m/sâ€”that's 1.1 seconds to reach the batter. But Vikram's reaction time is 0.3 seconds. So by the time his brain registers the ball and tells his body to move, the ball is already 6 m down the pitch! Mr. Desai explains: 'Reaction time is why fielders watch the bowler, not the batter. They predict where the ball will be.'"
+      },
+      {
+        "kind": "challenge",
+        "title": "Motion Puzzle",
+        "emoji": "ðŸ§©",
+        "storyContext": "Mr. Desai challenges: 'A ball is hit straight up into the air and comes back down to the same spot. What is its displacement? Can its average velocity be zero?'",
+        "example": {
+          "problem": "A ball goes up 20 m and comes back down. Displacement? Average velocity? Average speed?",
+          "solution": "Displacement = 0 m (starts and ends at same point). Average velocity = 0 m / total time = 0 m/s. Average speed â‰  0 (the ball traveled a total of 40 m). This shows displacement and distance are different!"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Chasing a Batsman",
+        "emoji": "ðŸƒ",
+        "example": {
+          "problem": "A batsman runs from one end to the other (22 m) in 4 seconds. What is his average speed? If he starts from rest and accelerates uniformly, what is his acceleration?",
+          "solution": "AVERAGE SPEED: 22 m / 4 s = 5.5 m/s. ACCELERATION (uniform from rest): Using s = v_i Ã— t + 0.5 Ã— a Ã— tÂ², we get 22 = 0 + 0.5 Ã— a Ã— 16, so a = 22/8 = 2.75 m/sÂ². He accelerates at 2.75 m/sÂ² from rest to reach 5.5 m/s average over 4 seconds."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Gravity and Falling",
+        "emoji": "ðŸŒ",
+        "storyContext": "Vikram asks Mr. Desai: 'If I throw a ball up, what's its acceleration while it's in the air?' Mr. Desai smiles. 'Gravity pulls it downward at 9.8 m/sÂ² the entire timeâ€”going up, at peak, coming down. At the peak, velocity is zero but acceleration is still 9.8 m/sÂ² downward.' Vikram is stunned. 'So even when the ball stops, it's accelerating?' 'Yes! Velocity changes from +10 m/s to 0 to âˆ’10 m/s. That change = acceleration.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Free Fall and Gravity",
+        "emoji": "ðŸª‚",
+        "points": [
+          {
+            "label": "Acceleration due to gravity",
+            "text": "g = 9.8 m/sÂ² (on Earth, constant everywhere near surface)."
+          },
+          {
+            "label": "Equations of motion under gravity",
+            "text": "h = v_i Ã— t + 0.5 Ã— g Ã— tÂ². v_f = v_i + g Ã— t. v_fÂ² = v_iÂ² + 2 Ã— g Ã— h."
+          },
+          {
+            "label": "Upward motion",
+            "text": "Acceleration is downward (âˆ’9.8 m/sÂ²) even when object moves up. Speed decreases."
+          },
+          {
+            "label": "Downward motion",
+            "text": "Acceleration is downward (+9.8 m/sÂ²). Speed increases."
+          }
+        ],
+        "inSimpleWords": "Gravity pulls down at 9.8 m/sÂ² all the time. This accelerates falling objects and slows rising objects."
+      },
+      {
+        "kind": "challenge",
+        "title": "Reference Frame Challenge",
+        "emoji": "ðŸŽ¯",
+        "storyContext": "Two observers watch a cricket match. One sits in the stands (stationary). One sits on a train moving at 30 km/h parallel to the pitch. How does the ball's velocity differ for each observer?",
+        "example": {
+          "problem": "A ball is bowled at 100 km/h down the pitch. The pitch runs parallel to a train moving at 30 km/h. What is the ball's velocity relative to: (a) the ground, (b) an observer on the train?",
+          "solution": "(a) RELATIVE TO GROUND: 100 km/h down the pitch (forward). (b) RELATIVE TO TRAIN: The ball moves at 100 âˆ’ 30 = 70 km/h (if train moves same direction) or 100 + 30 = 130 km/h (if opposite direction). Motion is relative to the observer's reference frame."
+        }
+      },
+      {
+        "title": "Kinematic Equations",
+        "inSimpleWords": "These four equations solve any motion problem with constant acceleration.",
+        "emoji": "📐",
+        "points": [
+          {
+            "text": "Displacement with constant acceleration.",
+            "label": "s = v_i×t + 0.5×a×t²"
+          },
+          {
+            "text": "Final velocity after acceleration.",
+            "label": "v_f = v_i + a×t"
+          },
+          {
+            "text": "Velocity squared relates to distance (no time needed).",
+            "label": "v_f² = v_i² + 2×a×s"
+          },
+          {
+            "text": "v_avg = (v_i + v_f) / 2 when acceleration is uniform.",
+            "label": "Average velocity"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "storyContext": "Vikram asks: 'Why does a bouncing ball slow down with each bounce?' Mr. Desai explains: 'Two reasons: air resistance and energy loss on impact. Each bounce, the ball loses energy—it doesn't return to the same height. The velocity after bounce is less than before. Lower velocity → lower height → slower next bounce. Eventually, it stops.'",
+        "title": "The Ball Bounce Problem",
+        "emoji": "🎾",
+        "kind": "story"
+      },
+      {
+        "title": "A Batsman's Reaction",
+        "emoji": "⚾",
+        "example": {
+          "solution": "Distance = speed × time = 35 m/s × 0.25 s = 8.75 m. The pitch is 22 m, so the ball has 22 − 8.75 = 13.25 m left. At 35 m/s, that takes 0.38 s more. Total time to reach batter: 0.63 s. The batter's reaction time is 0.25 s, so they MUST predict before seeing—they can't react in time to a fast delivery.",
+          "problem": "A fast bowler delivers at 35 m/s (126 km/h). The batter's reaction time is 0.25 seconds. How far has the ball traveled in that time? Can the batter react in time?"
+        },
+        "kind": "example"
+      },
+      {
+        "storyContext": "Mr. Desai asks: 'If Vikram sprints at 8 m/s and brakes with a deceleration of 2 m/s², how far before he stops?' He writes: v_f² = v_i² + 2×a×s. With v_f = 0: 0 = 64 − 4s, so s = 16 m. 'Stopping takes 16 meters of distance. That's why cricket fields are so big.'",
+        "title": "Deceleration and Stopping Distance",
+        "emoji": "🛑",
+        "kind": "story"
+      },
+      {
+        "title": "Projectile Motion",
+        "inSimpleWords": "A thrown ball moves horizontally and falls vertically at the same time—solve each direction separately.",
+        "emoji": "🚀",
+        "points": [
+          {
+            "text": "No acceleration (ignoring air). Constant velocity horizontally.",
+            "label": "Horizontal motion"
+          },
+          {
+            "text": "Gravity accelerates downward at 9.8 m/s². Vertical velocity changes.",
+            "label": "Vertical motion"
+          },
+          {
+            "text": "Horizontal and vertical motions are independent. Solve separately.",
+            "label": "Independence"
+          },
+          {
+            "text": "Depends only on vertical motion. How long does it take to fall?",
+            "label": "Time of flight"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "title": "Bowling a Ball",
+        "emoji": "🏏",
+        "example": {
+          "solution": "For horizontal motion with constant velocity: time = distance / velocity = 22 m / 20 m/s = 1.1 seconds. The ball takes 1.1 seconds to reach the batter. (Note: we ignored vertical gravity during delivery; in reality, the bowler releases the ball waist-high, and it drops slightly.)",
+          "problem": "Vikram bowls a ball at 20 m/s horizontally (ignoring gravity during the delivery). The ball travels 22 m to the batter. How long does it take?"
+        },
+        "kind": "example"
+      },
+      {
+        "storyContext": "After months of studying motion, Vikram realizes: physics isn't abstract—it's everywhere. The angle he bowls determines how the ball curves. The speed and timing of his run determine if he catches the ball. The reaction time between seeing and swinging determines if he hits it. Mr. Desai smiles. 'That's right. Cricket is applied physics. Master the numbers, and you master the game.'",
+        "title": "Vikram's Physics Mastery",
+        "emoji": "🏆",
+        "kind": "story"
+      },
+      {
+        "kind": "recap",
+        "title": "Vikram's Physics Lessons",
+        "emoji": "âœ…",
+        "points": [
+          {
+            "text": "Distance = total path length (scalar). Displacement = straight-line start to end (vector)."
+          },
+          {
+            "text": "Speed = distance / time (scalar). Velocity = displacement / time (vector, includes direction)."
+          },
+          {
+            "text": "Acceleration = change in velocity / time. Positive = speeding up; negative = slowing down."
+          },
+          {
+            "text": "Uniform motion: constant velocity, straight line on graph. Non-uniform: velocity changes, curve on graph."
+          },
+          {
+            "text": "Circular motion has acceleration (centripetal) even at constant speed because direction changes."
+          },
+          {
+            "text": "Gravity provides constant acceleration (9.8 m/sÂ² down) to all objects near Earth."
+          },
+          {
+            "text": "Motion is relativeâ€”depends on your reference frame."
+          }
+        ],
+        "inSimpleWords": "Physics is the math of motion: where you go (distance/displacement), how fast (speed/velocity), and how your speed changes (acceleration)."
+      }
+    ]
+  },
+  {
     "slug": "class-1-mathematics-numbers-from-10-to-20",
     "classLevel": "1",
     "subject": "Mathematics",
@@ -81388,6 +84165,35 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🛠️"
       },
       {
+        "kind": "story",
+        "title": "Karan's First Big Win: Disciplined Hedging Pays Off",
+        "storyContext": "Fast forward 2 years. Karan is now exporting ₹10 Cr annually to 5 countries. He's been disciplined with forward hedging on 80% of his receivables, leaving 20% unhedged for upside. In Year 1, ₹ weakened (his unhedged 20% made him ₹2 Cr extra). In Year 2, ₹ strengthened (his hedged 80% protected him from loss; unhedged 20% cost him ₹1 Cr). Over 2 years: net gain ₹1 Cr, despite currency swings. His competitor, who tried to time the market (no hedging), lost money both years. Discipline beats guessing."
+      },
+      {
+        "kind": "concept",
+        "title": "Trade Documentation: Bills & Receipts",
+        "points": [
+          {
+            "label": "Bill of Exchange",
+            "text": "Written order to pay. Karan writes: 'Pay ₹1 Cr on Sept 30.' Buyer accepts it, promises to pay."
+          },
+          {
+            "label": "Letter of Credit (LC)",
+            "text": "Bank guarantee. Karan's US buyer's bank issues LC: 'We promise ₹1 Cr payment regardless of buyer default.' LC protects Karan."
+          },
+          {
+            "label": "Shipping docs",
+            "text": "Bill of Lading (B/L), invoice, packing list. Karan sends these to buyer's bank. Bank releases payment only when docs are complete."
+          },
+          {
+            "label": "Sight vs usance",
+            "text": "Sight draft: pay on receipt. Usance draft: pay 90 days later. Karan prefers usance (cash flow delay acceptable if LC backs it)."
+          }
+        ],
+        "inSimpleWords": "Trade docs are safety nets. LC = bank guarantee. Bills & receipts prove the shipment. Together, they ensure payment even if buyer vanishes.",
+        "emoji": "📄"
+      },
+      {
         "kind": "recap",
         "title": "Forex & Trade: The Takeaways",
         "points": [
@@ -81743,50 +84549,9 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🌍"
       },
       {
-        "kind": "recap",
-        "title": "Portfolio Building: Your Roadmap",
-        "points": [
-          {
-            "text": "RISK & RETURN are linked. High risk (stocks) = high average return (12%+). Low risk (bonds) = low return (6–7%). Choose your comfort."
-          },
-          {
-            "text": "DIVERSIFICATION is not 50 stocks in one basket. It's different sectors, asset classes, and geographies. Uncorrelated assets."
-          },
-          {
-            "text": "ASSET ALLOCATION (70/15/10/5 stocks/bonds/gold/cash) is your portfolio's DNA. Age, risk tolerance, time horizon matter. Start with allocation, then pick securities."
-          },
-          {
-            "text": "ETFs (Nifty 50, Sensex) are LAZY but WISE. Own the market, diversified instantly, low fees. Beats 80% of active stock-pickers."
-          },
-          {
-            "text": "REBALANCE annually. Drift back to target allocation. Forces discipline, captures gains, prevents overexposure."
-          },
-          {
-            "text": "TEMPO: invest regularly (SIP ₹10K/month beats lumpsum). Long horizon. Ignore news noise. 25-year ₹50 Lac → ₹3+ Cr if you stay invested."
-          }
-        ],
-        "emoji": "✅",
-        "image": {
-          "url": "https://images.pexels.com/photos/4905089/pexels-photo-4905089.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Portfolio Building: Your Roadmap — Building a Portfolio — Risk, Return & Diversification",
-          "q": "map"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Concentration Risk: Why Winners Don't Always Repeat",
-        "points": [
-          {
-            "label": "Winner bias",
-            "text": "Today's best stock often underperforms tomorrow. Markets rotate sectors yearly."
-          },
-          {
-            "label": "Position sizing",
-            "text": "No single position >10% of portfolio. Sophia's 70% stocks / 7 positions = 10% each max."
-          }
-        ],
-        "inSimpleWords": "Don't marry yesterday's winner. Diversify; let mathematical odds work.",
-        "emoji": "📉"
+        "kind": "story",
+        "title": "Vijay's All-In Bet: Lessons from a Mistake",
+        "storyContext": "5 years later. Vijay put all ₹50 Lac into Reliance & Infosys (his original plan). In Year 1, 15% gain (₹57.5 Lac). In Year 3, IT crash: down 40% to ₹34.5 Lac. Panic-sold. Watched from sidelines as stocks recovered to ₹65 Lac. His 'aggressive strategy' = buy high, sell low. Sophia's diversified 70/15/10/5: ₹50 Lac → ₹63 Lac in same 5 years. No drama, no losses, better outcome. Vijay finally calls Dr. Rajeev: 'I get it now.'"
       },
       {
         "kind": "concept",
@@ -81835,6 +84600,52 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Monitor quarterly, rebalance annually. Ignore daily swings. Let compounding work 25 years.",
         "emoji": "🕐"
+      },
+      {
+        "kind": "challenge",
+        "title": "Choosing Between 2 Similar Portfolios",
+        "storyContext": "Sophia gets two fund manager pitches. Both offer 70/15/10/5 allocation. Manager A: actively picks stocks, charges 1.2% fee. Manager B: all ETFs, charges 0.1% fee. Returns before fees: both 12%/year.",
+        "example": {
+          "problem": "Manager A: 12% return − 1.2% fee = 10.8% net. Manager B: 12% return − 0.1% fee = 11.9% net. Difference per year: 1.1%. Over 25 years on ₹50 Lac, how much wealth difference?",
+          "solution": "Manager A final: ₹50L × (1.108)^25 ≈ ₹6.2 Cr. Manager B final: ₹50L × (1.119)^25 ≈ ₹8.1 Cr. Difference: ₹1.9 Cr! Just from fee difference. Sophia chooses Manager B (ETF-based). She realizes: 1.1% annual fee difference = ₹38L+ wealth loss over 25 years. Fees matter MORE than stock-picking skill."
+        },
+        "inSimpleWords": "Fees compound like returns. 1% extra fee annually costs millions over 25 years. Choose cheap ETFs > expensive active managers.",
+        "emoji": "❓",
+        "image": {
+          "url": "https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Choosing Between 2 Similar Portfolios — Building a Portfolio — Risk, Return & Diversification",
+          "q": "compare"
+        }
+      },
+      {
+        "kind": "recap",
+        "title": "Portfolio Building: Your Roadmap",
+        "points": [
+          {
+            "text": "RISK & RETURN are linked. High risk (stocks) = high average return (12%+). Low risk (bonds) = low return (6–7%). Choose your comfort."
+          },
+          {
+            "text": "DIVERSIFICATION is not 50 stocks in one basket. It's different sectors, asset classes, and geographies. Uncorrelated assets."
+          },
+          {
+            "text": "ASSET ALLOCATION (70/15/10/5 stocks/bonds/gold/cash) is your portfolio's DNA. Age, risk tolerance, time horizon matter. Start with allocation, then pick securities."
+          },
+          {
+            "text": "ETFs (Nifty 50, Sensex) are LAZY but WISE. Own the market, diversified instantly, low fees. Beats 80% of active stock-pickers."
+          },
+          {
+            "text": "REBALANCE annually. Drift back to target allocation. Forces discipline, captures gains, prevents overexposure."
+          },
+          {
+            "text": "TEMPO: invest regularly (SIP ₹10K/month beats lumpsum). Long horizon. Ignore news noise. 25-year ₹50 Lac → ₹3+ Cr if you stay invested."
+          }
+        ],
+        "emoji": "✅",
+        "image": {
+          "url": "https://images.pexels.com/photos/4905089/pexels-photo-4905089.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Portfolio Building: Your Roadmap — Building a Portfolio — Risk, Return & Diversification",
+          "q": "map"
+        }
       }
     ]
   },
@@ -82116,36 +84927,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
-        "kind": "recap",
-        "title": "Money Habits for a Lifetime of Wealth",
-        "points": [
-          {
-            "text": "TAX is unavoidable, but OPTIMIZATION is optional. Use 80C (₹1.5L/year), 80D (health insurance), hold long-term (reduce capital gains tax). Saves ₹50K+/year = ₹12.5 Lac over 25 years."
-          },
-          {
-            "text": "INSURANCE is NOT investment; it's PROTECTION. Term life (₹2K/year for ₹50L cover), health (₹12K/year for ₹5–10L cover). Mandatory for anyone with dependents or loans."
-          },
-          {
-            "text": "BUDGET ruthlessly. 60% living expenses, 20% investments, 10% insurance/taxes/emergency, 10% wants. Adjust for your life stage, but the ratio works."
-          },
-          {
-            "text": "EMERGENCY fund = 3–6 months living expenses. BEFORE you invest. ₹1.8 Lac for Aryan. Prevents panic-selling in downturns."
-          },
-          {
-            "text": "AUTOMATE payments (SIP, insurance deduction, tax). Discipline + compounding = wealth. Manual discipline fails when life is busy."
-          },
-          {
-            "text": "REVIEW annually: tax situation (did you use all deductions?), insurance coverage (life changes, recheck), investment returns, spending. 1 hour/year = thousands saved."
-          }
-        ],
-        "emoji": "✅",
-        "image": {
-          "url": "https://images.pexels.com/photos/17200433/pexels-photo-17200433.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Money Habits for a Lifetime of Wealth — Taxes, Insurance & Smart Money Habits for Life",
-          "q": "piggy bank"
-        }
-      },
-      {
         "kind": "concept",
         "title": "Lifestyle Inflation: The Wealth Killer",
         "points": [
@@ -82208,6 +84989,36 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Priya's Proof: 20 Lac Salary to 2 Cr Wealth",
         "storyContext": "Priya started 20 Lac salary. Applied discipline: 80C maxed, health insurance, 5 Lac/year SIP, annual rebalance. Salary grew to 30 Lac (she DIDN'T inflate lifestyle). 25 years later: 2 Cr+ wealth. No startup luck, no inheritance. Just discipline + time + compounding. Aryan realizes: this could be me."
+      },
+      {
+        "kind": "recap",
+        "title": "Money Habits for a Lifetime of Wealth",
+        "points": [
+          {
+            "text": "TAX is unavoidable, but OPTIMIZATION is optional. Use 80C (₹1.5L/year), 80D (health insurance), hold long-term (reduce capital gains tax). Saves ₹50K+/year = ₹12.5 Lac over 25 years."
+          },
+          {
+            "text": "INSURANCE is NOT investment; it's PROTECTION. Term life (₹2K/year for ₹50L cover), health (₹12K/year for ₹5–10L cover). Mandatory for anyone with dependents or loans."
+          },
+          {
+            "text": "BUDGET ruthlessly. 60% living expenses, 20% investments, 10% insurance/taxes/emergency, 10% wants. Adjust for your life stage, but the ratio works."
+          },
+          {
+            "text": "EMERGENCY fund = 3–6 months living expenses. BEFORE you invest. ₹1.8 Lac for Aryan. Prevents panic-selling in downturns."
+          },
+          {
+            "text": "AUTOMATE payments (SIP, insurance deduction, tax). Discipline + compounding = wealth. Manual discipline fails when life is busy."
+          },
+          {
+            "text": "REVIEW annually: tax situation (did you use all deductions?), insurance coverage (life changes, recheck), investment returns, spending. 1 hour/year = thousands saved."
+          }
+        ],
+        "emoji": "✅",
+        "image": {
+          "url": "https://images.pexels.com/photos/17200433/pexels-photo-17200433.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Money Habits for a Lifetime of Wealth — Taxes, Insurance & Smart Money Habits for Life",
+          "q": "piggy bank"
+        }
       }
     ]
   },
@@ -92475,6 +95286,36 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "What is Rutherford Scattering?",
+        "storyContext": "Sneha asks: 'How did alpha particles deflect? The heavy nucleus repelled the light alpha particles through Coulomb force alone.'",
+        "points": [
+          {
+            "label": "Alpha Particles",
+            "text": "He-4 nuclei: 2 protons + 2 neutrons. Positive charge +2e, mass ~4 u. Fast enough (~5 MeV) to penetrate atom's electron cloud."
+          },
+          {
+            "label": "Gold Foil Setup",
+            "text": "Thin gold foil (1 μm), alpha beam strikes it head-on. Detector ring catches scattered alphas at various angles."
+          },
+          {
+            "label": "Scattering Angle",
+            "text": "θ depends on impact parameter b (distance of closest approach without nucleus). Close hits → large θ (backscatter). Distant passes → small θ."
+          }
+        ],
+        "emoji": "🎯"
+      },
+      {
+        "kind": "example",
+        "title": "Rutherford Scattering Formula",
+        "storyContext": "Aryan derives the cross-section for alpha scattering from Coulomb potential.",
+        "example": {
+          "problem": "Alpha particle (Z1=2) scatters from gold nucleus (Z2=79). Find the Rutherford cross-section at scattering angle θ=90°. (e²/(4πε₀) ≈ 1.44 MeV·fm, α energy E_α ≈ 5 MeV.)",
+          "solution": "Rutherford formula: dσ/dΩ = (Z1 × Z2 × e²/(4πε₀) / (4E_α))² × 1/sin⁴(θ/2). At θ=90°, sin(θ/2)=sin(45°)≈0.707. dσ/dΩ ∝ (2 × 79 × 1.44 / (4 × 5))² / (0.707)⁴ ≈ large value (more back-scattering than expected at high Z, confirming dense nucleus)."
+        },
+        "emoji": "📐"
+      },
+      {
+        "kind": "concept",
         "title": "Nuclear Structure: Protons, Neutrons, Mass Number",
         "storyContext": "Sneha studies a chart showing nuclei. 'Every nucleus is made of protons (positive charge) and neutrons (neutral). Protons define the element—carbon always has 6 protons. But the number of neutrons can vary, creating isotopes.'",
         "points": [
@@ -92578,6 +95419,44 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📊"
       },
       {
+        "kind": "concept",
+        "title": "The Binding Energy Curve & Stability",
+        "storyContext": "Prof. Desai draws a curve of B/A vs. mass number A. 'This curve is the key to understanding nuclear physics. Notice: light nuclei on the left have low B/A, heavy nuclei on the right also have lower B/A. Fe-56 sits at the peak. Nuclei move toward Fe by either fusing (light nuclei combine) or fissioning (heavy nuclei split). Both release energy.'",
+        "points": [
+          {
+            "label": "Peak at Fe-56",
+            "text": "B/A ≈ 8.8 MeV/nucleon is maximum. Fe-56 is the most tightly bound nucleus per nucleon."
+          },
+          {
+            "label": "Light Nuclei",
+            "text": "H, He, C, N, O: B/A ~ 7-8 MeV/nucleon. Still stable, but loose compared to iron."
+          },
+          {
+            "label": "Heavy Nuclei",
+            "text": "U, Th, Pu: B/A ~ 7.5-7.7 MeV/nucleon. Coulomb repulsion weakens binding for large Z."
+          },
+          {
+            "label": "Fusion Advantage",
+            "text": "Fuse H → He: B/A increases from 0 to 7.0, releasing energy. All fusion reactions gain energy."
+          },
+          {
+            "label": "Fission Advantage",
+            "text": "Split U → Ba + Kr: B/A increases from 7.5 to 8.3, releasing energy. All fission reactions gain energy."
+          }
+        ],
+        "emoji": "📈"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Why Not Fuse All Nuclei?",
+        "storyContext": "Sneha asks: 'If fusion toward Fe releases energy, why don't all nuclei fuse to iron?' Prof. Desai smiles. 'Because nuclei like Fe-56 are stable and very tightly bound. Getting nuclei to fuse requires overcoming the Coulomb barrier first—that requires extreme temperature and pressure. In stars, gravity supplies this. On Earth, we use reactors. But once you reach Fe, further fusion actually costs energy (Coulomb repulsion dominates). Iron is the endpoint.'",
+        "example": {
+          "problem": "Consider fusing Fe-56 with another Fe-56 to form Ni-112 (theoretical). Would this release or absorb energy? (B/A for Ni-112 ≈ 8.6 MeV/nucleon.)",
+          "solution": "Energy change: ΔE = B_final - B_initial = (8.6 × 112) - (8.8 × 56 × 2) = 963.2 - 985.6 = -22.4 MeV (negative). Fusion beyond Fe-56 absorbs energy and produces radioactive nuclei. Nature prefers Fe-56 as the stable endpoint."
+        },
+        "emoji": "🎯"
+      },
+      {
         "kind": "story",
         "title": "The Strong Nuclear Force Revealed",
         "storyContext": "Prof. Desai sketches a potential-energy curve. 'The strong nuclear force attracts nucleons only at ~1-2 fm. Beyond that, it drops to zero. At <0.5 fm, it repels (like a hard sphere). This explains everything: why nuclei have a fixed density (nucleons packed at optimal spacing), why binding energy per nucleon plateaus at Fe-56 (Coulomb repulsion starts dominating for heavier nuclei), and why very heavy nuclei are unstable.'",
@@ -92596,16 +95475,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "For Z > 20, Coulomb repulsion between protons becomes significant. Heavy nuclei need extra neutrons to stabilize (neutron-to-proton ratio N/Z increases with A)."
           }
         ]
-      },
-      {
-        "kind": "challenge",
-        "title": "Challenge: Predicting Stability from Binding Energy Curve",
-        "storyContext": "Prof. Desai challenges Sneha to explain why Fe-56 is the most stable nucleus.",
-        "example": {
-          "problem": "On the binding energy per nucleon curve, Fe-56 sits at the peak with B/A ≈ 8.8 MeV/nucleon. Lighter nuclei (C-12, B/A=7.4) and heavier nuclei (U-238, B/A≈7.6) have lower B/A. Explain why both fusion (light → heavy) and fission (heavy → light) release energy.",
-          "solution": "Both processes move nuclei toward Fe-56, increasing B/A. For fusion (e.g., H → He), ΔE = (B/A)_He × 4 - (B/A)_H × 1 ≈ (7.0 - 0) = released energy. For fission (e.g., U-235 → Ba+Kr), ΔE = (B/A)_products × nucleons - (B/A)_U × 235 ≈ (8.3 - 7.5) × 150 ≈ released energy. Iron-56 is the global energy minimum."
-        },
-        "emoji": "🎯"
       },
       {
         "kind": "concept",
@@ -92766,6 +95635,16 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ]
       },
       {
+        "kind": "example",
+        "title": "Neutron-to-Proton Ratio in Stable Nuclei",
+        "storyContext": "Sneha computes N/Z for different stable isotopes to confirm the pattern.",
+        "example": {
+          "problem": "Calculate N/Z for: (a) He-4, (b) O-16, (c) Fe-56, (d) U-238. Which are stable?",
+          "solution": "(a) He-4: Z=2, N=2, N/Z=1.0 (stable). (b) O-16: Z=8, N=8, N/Z=1.0 (stable). (c) Fe-56: Z=26, N=30, N/Z=1.15 (stable). (d) U-238: Z=92, N=146, N/Z=1.59 (stable but radioactive, long half-life). Light nuclei cluster at N/Z≈1; heavy nuclei require N/Z>1 for stability."
+        },
+        "emoji": "📊"
+      },
+      {
         "kind": "recap",
         "title": "Recap: Atoms and Nuclear Physics",
         "storyContext": "Sneha closes her nuclear lab notebook, having glimpsed the heart of matter. The nucleus, once thought indivisible, contains tremendous energy and follows laws as precise as those of planets and atoms. She tells Prof. Desai:",
@@ -92844,6 +95723,35 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Sun's Furnace — Nuclei",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "concept",
+        "title": "How Fusion Powers Stars",
+        "storyContext": "Dr. Malhotra explains the fundamental process. 'In the sun's core, two protons collide. Coulomb repulsion pushes them apart, but there's a small quantum-mechanical probability they tunnel through the barrier and form a deuteron. This is the bottleneck—it's rare, occurring only once every 10 billion years for a given proton. But there are 10^57 protons in the sun, so statistically, trillions fuse per second.'",
+        "points": [
+          {
+            "label": "Temperature of Sun's Core",
+            "text": "T ≈ 15 million K. Average kinetic energy kT ≈ 1 keV. Yet fusion requires overcoming ~1 MeV Coulomb barrier. How? Quantum tunneling."
+          },
+          {
+            "label": "Tunneling Probability",
+            "text": "P ∝ exp(-2πη), where η = Z1 × Z2 × e² / (4πε₀ × ℏ × v) (Coulomb parameter). For proton-proton, P ~ 10^-30 at solar conditions."
+          },
+          {
+            "label": "Reaction Rate",
+            "text": "Number of reactions per unit volume per unit time ∝ n² × σ × v_rel, where σ is cross-section, v_rel is relative velocity."
+          }
+        ],
+        "emoji": "🔬"
+      },
+      {
+        "kind": "example",
+        "title": "Estimating Proton Collision Rate in the Sun",
+        "storyContext": "Karan calculates how often two protons collide in the sun's core.",
+        "example": {
+          "problem": "Sun's core density ρ_core ≈ 150 g/cm³ ≈ 10^5 kg/m³. Number density of protons n ≈ (1.5 × 10^5 kg/m³) / (1.67 × 10^-27 kg/proton) ≈ 10^32 m^-3. Collision cross-section σ ~ 10^-30 barn ≈ 10^-36 cm² = 10^-44 m² (small!). Mean collision time per proton: τ = 1 / (n × σ × v_rel). With v_rel ~ 10^5 m/s, τ ~ 1 / (10^32 × 10^-44 × 10^5) ~ 10^8 s ≈ 3 years. So a single proton in the sun waits ~years for a collision, and longer for a fusion event (with tunneling probability ~10^-30)."
+        },
+        "emoji": "⏱️"
       },
       {
         "kind": "story",
@@ -92952,6 +95860,16 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ]
       },
       {
+        "kind": "example",
+        "title": "PP Chain vs. CNO Cycle Temperature Dependence",
+        "storyContext": "Karan compares the two reactions to understand why different stars favor different pathways.",
+        "example": {
+          "problem": "PP chain: reaction rate R_PP ∝ T^4. CNO cycle: R_CNO ∝ T^15. At T=15 MK (sun), which dominates? At T=30 MK (hotter star), which dominates?",
+          "solution": "At T=15 MK (sun's core): R_PP/R_CNO ∝ (T_sun/T_sun)^(4-15) = 1 (baseline). PP chain dominates because it starts at lower T threshold. At T=30 MK: R_PP/R_CNO ∝ (15/30)^(-11) = (0.5)^(-11) ≈ 2000. CNO cycle is ~2000 times faster! Hot stars (O, B type) rely on CNO; cool stars (sun, M type) rely on PP."
+        },
+        "emoji": "📊"
+      },
+      {
         "kind": "concept",
         "title": "Deuterium-Tritium Fusion on Earth",
         "storyContext": "Karan asks: 'If the sun uses hydrogen, why can't we just copy the sun's reaction?' Dr. Malhotra shakes his head. 'The PP chain is too slow for a reactor. Instead, we use deuterium (heavy hydrogen) and tritium (superheavy hydrogen). Their Coulomb barrier is lower, so they fuse at lower temperatures. This is the most promising reaction for fusion reactors: d + t → He-4 + n + 17.6 MeV.'",
@@ -93038,21 +95956,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ]
       },
       {
-        "kind": "example",
-        "title": "Worked Example: Sun's Luminosity",
-        "storyContext": "Dr. Malhotra poses a classic question: 'The sun's luminosity is 3.8 × 10^26 watts. From the PP chain, each reaction releases 26.7 MeV. How many reactions per second occur in the sun?'",
-        "example": {
-          "problem": "Sun's luminosity L = 3.8 × 10^26 W. Each PP-chain reaction releases 26.7 MeV. (a) Convert MeV to joules. (b) How many reactions per second?",
-          "solution": "(a) 26.7 MeV × 1.6 × 10^-13 J/MeV = 4.27 × 10^-12 J per reaction. (b) Reactions per second = L / energy per reaction = (3.8 × 10^26 W) / (4.27 × 10^-12 J) ≈ 8.9 × 10^37 reactions/s. At ~4 protons per reaction, ~3.6 × 10^38 protons fuse per second in the sun—equivalent to the sun converting ~600 million tons of hydrogen to helium every second."
-        },
-        "emoji": "💫",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Ponte_Vittorio_Emanuele_II_San_Pietro%2C_Rome%2C_Italy.jpg/960px-Ponte_Vittorio_Emanuele_II_San_Pietro%2C_Rome%2C_Italy.jpg",
-          "alt": "Worked Example: Sun's Luminosity — Nuclei",
-          "q": "light bulb"
-        }
-      },
-      {
         "kind": "concept",
         "title": "Triple Product & Fusion Gain",
         "storyContext": "Karan learns the key metric for fusion success. 'The triple product n × T × τ (particle density, temperature, confinement time) determines whether we achieve fusion gain Q > 1. Lawson showed n × τ must exceed ~10^20 m^-3·s for DT at 100 MK.'",
@@ -93071,6 +95974,21 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "ITER design: n × T × τ = 3 × 10^21. JT-60U tokamak (Japan): achieved 1.5 × 10^21. NIF (inertial): achieved ignition in 2022."
           }
         ]
+      },
+      {
+        "kind": "example",
+        "title": "Worked Example: Sun's Luminosity",
+        "storyContext": "Dr. Malhotra poses a classic question: 'The sun's luminosity is 3.8 × 10^26 watts. From the PP chain, each reaction releases 26.7 MeV. How many reactions per second occur in the sun?'",
+        "example": {
+          "problem": "Sun's luminosity L = 3.8 × 10^26 W. Each PP-chain reaction releases 26.7 MeV. (a) Convert MeV to joules. (b) How many reactions per second?",
+          "solution": "(a) 26.7 MeV × 1.6 × 10^-13 J/MeV = 4.27 × 10^-12 J per reaction. (b) Reactions per second = L / energy per reaction = (3.8 × 10^26 W) / (4.27 × 10^-12 J) ≈ 8.9 × 10^37 reactions/s. At ~4 protons per reaction, ~3.6 × 10^38 protons fuse per second in the sun—equivalent to the sun converting ~600 million tons of hydrogen to helium every second."
+        },
+        "emoji": "💫",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Ponte_Vittorio_Emanuele_II_San_Pietro%2C_Rome%2C_Italy.jpg/960px-Ponte_Vittorio_Emanuele_II_San_Pietro%2C_Rome%2C_Italy.jpg",
+          "alt": "Worked Example: Sun's Luminosity — Nuclei",
+          "q": "light bulb"
+        }
       },
       {
         "kind": "challenge",
@@ -93102,6 +96020,26 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "Energy of fusion reaction: 3.15 MJ. Energy accounting for all losses: ~50% gain over input. Path to commercial fusion widened."
           }
         ]
+      },
+      {
+        "kind": "concept",
+        "title": "Future Fusion Reactors: Challenges Ahead",
+        "storyContext": "Dr. Malhotra outlines the road to commercial fusion. 'NIF proved ignition is possible, but only once—with massive input. Commercial reactors need repeated ignition, high efficiency, and economic viability. ITER (International Thermonuclear Experimental Reactor) will be the largest tokamak ever built, demonstrating sustained Q > 10 by 2030s. Private companies (Commonwealth Fusion, TAE Technologies) pursue smaller, faster designs using superconducting magnets and AI control.'",
+        "points": [
+          {
+            "label": "ITER Goals",
+            "text": "Tokamak in France, Q > 10, self-sustaining D-T fusion. Budget: $20B+, operating 2025+."
+          },
+          {
+            "label": "Private Fusion",
+            "text": "Commonwealth: compact tokamak with high-field magnets (HTS). TAE: hybrid field-confined approach. Helion: pulsed fusion with direct energy conversion."
+          },
+          {
+            "label": "Materials Challenge",
+            "text": "14 MeV neutrons from D-T fusion damage reactor walls. Must develop new materials (tungsten alloys, ceramics) that withstand 1-10 displacements per atom per year."
+          }
+        ],
+        "emoji": "🔧"
       },
       {
         "kind": "recap",
@@ -93401,6 +96339,30 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "concept",
+        "title": "CMOS Logic: Complementary Transistor Pairs",
+        "storyContext": "Nikhil learns the architecture of modern digital chips. 'CMOS combines NMOS (pulls down) with PMOS (pulls up). They're always complementary—when one is on, the other is off. This ensures current flows only during switching, not during steady state. Modern chips are 99%+ CMOS.'",
+        "points": [
+          {
+            "label": "NMOS Pull-Down",
+            "text": "Connects output to ground when gate is high. Conducts for V_GS > V_T."
+          },
+          {
+            "label": "PMOS Pull-Up",
+            "text": "Connects output to V_dd when gate is low. Conducts for V_SG > |V_T|."
+          },
+          {
+            "label": "Complementary Action",
+            "text": "Input high → NMOS on, PMOS off → output low. Input low → NMOS off, PMOS on → output high."
+          },
+          {
+            "label": "Power Efficiency",
+            "text": "No DC current path between V_dd and ground in steady state. Power consumed only during transitions (C×V_dd²×f) and leakage (exponential in gate length)."
+          }
+        ],
+        "emoji": "🔌"
+      },
+      {
         "kind": "challenge",
         "title": "Challenge: Solar Cell as Photodiode",
         "storyContext": "Nikhil asks: 'How do solar panels work?' Mr. Gupta explains: 'A solar cell is a p-n junction exposed to sunlight. Photons knock electrons from the valence band to the conduction band, creating electron-hole pairs in the depletion region. The built-in electric field separates them: electrons to the n-side, holes to the p-side. This generates voltage and current without any external power.'",
@@ -93428,6 +96390,26 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ]
       },
       {
+        "kind": "concept",
+        "title": "Advanced Transistor Architectures",
+        "storyContext": "Sophia outlines how the industry is pushing beyond 5 nm node limits. 'Traditional planar MOSFETs lose control at small gate lengths. FinFETs wrap the gate around a fin, providing better control. Gate-all-around (GAA) transistors wrap the gate completely around the channel. Nanowires and nanosheet architectures maximize surface area while minimizing leakage.'",
+        "points": [
+          {
+            "label": "FinFET (Fin Field-Effect Transistor)",
+            "text": "3D fin-shaped silicon channel, gate wraps three sides. Better off-current control, reduced short-channel effects. Intel: 14 nm (2014), TSMC: 7 nm (2018)."
+          },
+          {
+            "label": "GAA (Gate-All-Around)",
+            "text": "Gate surrounds channel on all four sides. Even better control, applicable below 5 nm. Samsung: 3 nm (2021)."
+          },
+          {
+            "label": "Nanowires & Nanosheets",
+            "text": "Ultra-thin (5-20 nm) channels, gate wraps fully. Highest drive current per unit area. TSMC roadmap: 2-3 nm era."
+          }
+        ],
+        "emoji": "⚙️"
+      },
+      {
         "kind": "recap",
         "title": "Recap: Semiconductor Electronics",
         "storyContext": "Nikhil holds his phone again, now understanding the cascade of physics beneath the screen. He tells Mr. Gupta and Sophia:",
@@ -93445,7 +96427,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "MOSFET (Field Effect Transistor): gate voltage controls source-drain current with zero gate current. Ideal for low-power, high-density circuits."
           },
           {
-            "text": "Logic gates: MOSFETs arranged as pull-down/pull-up networks create NAND, NOR, inverters, building all digital logic."
+            "text": "CMOS logic: complementary NMOS/PMOS pairs provide efficient digital switching. Modern chips are 99% CMOS."
           },
           {
             "text": "Solar cells: p-n junctions exposed to light, converting photons to electricity via photoelectric effect in the depletion region."
@@ -141142,6 +144124,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Nisha's Documentary",
+        "storyContext": "When Ila turned 8, her schoolmate Nisha began documenting her journey with a camera her parents gave her. Nisha filmed Ila stitching in her grandmother's courtyard, her feet moving with grace and precision. Nisha filmed Savitri teaching, her weathered hands guiding Ila's toes. Nisha filmed Ila's joy when she completed her first major piece. The footage was raw and honest. It showed struggle, but never pity. It showed a girl, not a disability.",
+        "inSimpleWords": "True documentation shows struggle and triumph equally, without sugar-coating or drowning in sadness.",
+        "emoji": "📹"
+      },
+      {
         "kind": "concept",
         "title": "The Science of Sensory Adaptation",
         "storyContext": "Neuroscientists have studied Ila's extraordinary ability. When a person practices an activity intensively with a body part other than the one normally used, the brain literally rewires itself. Ila's sensory cortex expanded the area dedicated to her feet.",
@@ -141240,6 +144229,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Teaching the Next Generation — Ila Sachani: Embroidering Dreams with her Feet",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Obstacle That Taught Her",
+        "storyContext": "At age 13, Ila developed a foot infection from hours of stitching. Doctors warned: 'You must stop embroidering for six weeks, or risk permanent damage.' Ila's heart broke. She had orders to fulfill, students waiting to learn. For a week, she was silent, despondent. But then Savitri sat beside her. 'Your hands—or feet—will heal. But your mind must not break. Teach with words. Write down your techniques. Document what you know. Show others how to adapt. Your voice is another tool, beta.'",
+        "inSimpleWords": "When one door closes, creativity finds another. Your limitations teach you new talents.",
+        "emoji": "🏥"
       },
       {
         "kind": "concept",
@@ -141342,6 +144338,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "A Letter to Young Readers",
+        "storyContext": "Ila often writes to children who contact her through her website, many of them also facing disabilities or challenges. She tells them: 'I was born without arms. For a long time, I hated that. But one day, I realized: my disability made me sit down and learn something slow and careful. It made my feet clever. It made my mind patient. It taught me that my worst thing could become my best thing if I chose to learn from it instead of just suffer it. You are not broken. You are being rewired.'",
+        "inSimpleWords": "What seems like an ending can become a beginning if you choose to see it that way.",
+        "emoji": "💌"
+      },
+      {
         "kind": "concept",
         "title": "The Psychology of Resilience",
         "storyContext": "Psychologists studying Ila have identified the factors that enabled her resilience: a supportive family (grandmother's belief), early intervention (learning to adapt at age 4), cultural grounding (embroidery tradition), social support (friend Nisha, teacher Miss Desai), purpose (creating and teaching), and a growth mindset.",
@@ -141386,6 +144389,29 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Designing an Adaptive Craft Space — Ila Sachani: Embroidering Dreams with her Feet",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "challenge",
+        "title": "Design Your Own Adaptive Solution",
+        "storyContext": "Think of something you find difficult to do (maybe tying shoelaces, opening jars, writing by hand, or playing a sport). Design an adaptation or tool that would make it easier. Ila created a foot-embroidery frame. What can you create?",
+        "example": {
+          "problem": "Describe an invention or adaptation that could help someone overcome a specific challenge. Include: (1) what the challenge is, (2) who faces it, (3) your proposed solution, (4) materials needed, (5) how it would improve their life.",
+          "solution": "Challenge: A child with low vision cannot easily read school textbooks. Solution: A simple magnifying lens holder mounted on an adjustable stand. Materials: A 2x optical magnifying lens, a wooden or plastic stand with hinges (from a craft shop), Velcro strips to adjust height. Result: The child reads at their own pace without holding a heavy magnifier, and their hands stay free to take notes. This is universal design—it also helps older teachers and anyone with tired eyes."
+        },
+        "inSimpleWords": "Great solutions come from understanding what people need, not from judging their differences.",
+        "emoji": "🔨",
+        "image": {
+          "url": "https://images.pexels.com/photos/9040482/pexels-photo-9040482.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Design Your Own Adaptive Solution — Ila Sachani: Embroidering Dreams with her Feet",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The NGO Expands",
+        "storyContext": "By age 28, 'Feet Not Hands' has grown from Ila's small village circle to a network of chapters across Gujarat. Ila has trained 50 young people, each now training others. The NGO has received government recognition and corporate sponsorship. But Ila does not celebrate the money—she celebrates the faces of the young people who now believe they can create, lead, and earn. 'Every person I teach becomes a teacher,' Ila says. 'That is how change compounds.'",
+        "inSimpleWords": "When you teach someone, you start a chain reaction that you cannot measure but can never stop.",
+        "emoji": "🌳"
       },
       {
         "kind": "recap",
@@ -141568,6 +144594,18 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Descending Into Memory",
+        "storyContext": "Vikram, Kavya, and Colonel Sharma descend a wide staircase carved into the earth. The light dims. The noise of the city fades away. They enter a hushed, sacred space. Marble walls glow softly. And then Vikram sees them: thousands of names, carved into stone. Some names are fresh, recently added. Others are weathered, from decades past. The air feels heavier here. Vikram's breath comes slowly. He realizes he is standing in the presence of 44,000 memories.",
+        "inSimpleWords": "Below the world, there is a quiet place where every soldier's name is held forever.",
+        "emoji": "⬇️",
+        "image": {
+          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Descending Into Memory — National War Memorial",
+          "q": "classroom"
+        }
+      },
+      {
         "kind": "concept",
         "title": "The Hall of Sacrifice - Names Inscribed in Stone",
         "storyContext": "Vikram, Kavya, and Colonel Sharma descend into the Hall of Sacrifice. On the walls, engraved in white marble, are 26,000+ names. Kavya's hand trembles as she finds 'Captain Rajesh Kumar - Kargil, 1999.' She touches the stone and weeps silently.",
@@ -141608,6 +144646,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Touching the Name — National War Memorial",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Scars of War",
+        "storyContext": "Colonel Sharma shows Vikram a scar on his leg from the 1971 war—a shrapnel wound that still aches on rainy days. 'I survived,' he says. 'But thousands did not. And many who survived carry wounds you cannot see: nightmares, phantom pain, grief. A war does not end when the fighting stops. It continues in the bodies and minds of survivors.'",
+        "inSimpleWords": "War wounds are visible and invisible. Both deserve our honor and our support.",
+        "emoji": "⛑️"
       },
       {
         "kind": "concept",
@@ -141656,6 +144701,18 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "image": {
           "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Colonel Sharma's War Story — National War Memorial",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "The Kargil War - Rajesh's Battle",
+        "storyContext": "Colonel Sharma tells Vikram about May 1999. 'We received intelligence that Pakistani soldiers and militants had infiltrated the Kargil region—a remote, mountainous area in Ladakh. It was near the Line of Control, the border between India and Pakistan. The infiltrators had taken strategic peaks. From there, they could attack the Leh-Srinagar highway, the only supply route to our outposts in the north. Our army launched Operation Vijay to recapture these peaks. It was one of the fiercest battles fought at extreme altitude—13,000 feet above sea level, where the air is thin and the cold is lethal.'",
+        "inSimpleWords": "War is not fought in comfortable places. The hardest battles happen in the hardest terrain.",
+        "emoji": "⛰️",
+        "image": {
+          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Kargil War - Rajesh's Battle — National War Memorial",
           "q": "classroom"
         }
       },
@@ -141788,6 +144845,84 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Preserving Memory for Future Generations",
+        "storyContext": "Colonel Sharma volunteers at the memorial not just to honor soldiers, but to ensure their stories are not forgotten. He tells Vikram: 'History that is not told is history that repeats.' Vikram realizes there are stories all around him waiting to be recorded.",
+        "example": {
+          "problem": "Identify an elderly veteran or war widow in your community. Design a 'story preservation' project to document their life, experiences, and memories. Include: (1) what you will ask them, (2) how you will record it (video, audio, written), (3) where the story will be stored, (4) how others will access it.",
+          "solution": "Project: 'Veterans' Voices.' Vikram interviews his grandfather, a retired soldier who served in the Siachen operations. He asks: 'What was your first day like?' 'What was the scariest moment?' 'What do you want young people to know about sacrifice?' 'What do you miss most?' Vikram records the 45-minute interview on his phone with good audio quality. He transcribes key quotes. He creates a simple website or blog post with the story, a few photographs, and a QR code that links to the audio. He shares it with his school and local community center. The story is now preserved, searchable, and accessible forever—a gift to Vikram's own children, and to history."
+        },
+        "inSimpleWords": "Every veteran's story is a piece of history. By listening and recording, you become a guardian of memory.",
+        "emoji": "🎙️",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864418/pexels-photo-31864418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Preserving Memory for Future Generations — National War Memorial",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "The Cost of Freedom - A Global Perspective",
+        "storyContext": "Vikram learns that all nations have sacrificed soldiers to defend their freedom. Memorials exist not just in India, but worldwide. Each represents grief, valor, and a commitment to never forget.",
+        "points": [
+          {
+            "label": "India: National War Memorial",
+            "text": "Honors 44,000+ soldiers since 1947. Located in New Delhi."
+          },
+          {
+            "label": "India: Amar Jawan Jyoti",
+            "text": "Eternal flame lit in 1971 for all soldiers who died after independence."
+          },
+          {
+            "label": "India: National War Museum",
+            "text": "Adjacent to the memorial, exhibits showcase military history, weapons, and stories."
+          },
+          {
+            "label": "Global Memorials",
+            "text": "USA has the Vietnam Veterans Memorial, Australia has the Australian War Memorial, UK has the Cenotaph. Each nation honors its fallen."
+          }
+        ],
+        "inSimpleWords": "Freedom is universal, and so is the cost. Memorials remind us that soldiers everywhere deserve remembrance.",
+        "emoji": "🌍"
+      },
+      {
+        "kind": "concept",
+        "title": "Support Systems for Military Families",
+        "storyContext": "Colonel Sharma explains the support systems India provides to the families of fallen soldiers. 'The nation takes responsibility for those left behind, though no compensation can replace a loved one.'",
+        "points": [
+          {
+            "label": "War Widow Pension",
+            "text": "Monthly stipend for wives of soldiers who died on active duty. The amount varies by rank and year of service."
+          },
+          {
+            "label": "Education Support",
+            "text": "Children of fallen soldiers receive education scholarships and may attend Sainik Schools (military schools) at reduced or no cost."
+          },
+          {
+            "label": "Employment Preference",
+            "text": "Families of deceased soldiers get priority in hiring by government departments and public sector organizations."
+          },
+          {
+            "label": "Veteran Support Organizations",
+            "text": "NGOs like the Indian Legion and various ex-servicemen associations provide counseling, financial aid, and community support to military families."
+          }
+        ],
+        "inSimpleWords": "A nation honors soldiers not just with monuments, but by caring for those they left behind.",
+        "emoji": "🤝"
+      },
+      {
+        "kind": "story",
+        "title": "Vikram's Commitment",
+        "storyContext": "Years later, Vikram is a high school student. Every August 15, he leads his school's Independence Day assembly. He invites Colonel Sharma and other veterans to speak. He displays photographs of soldiers from the National War Memorial. He has become a keeper of memory, just like his grandmother Kavya. When asked why he does this, Vikram says: 'My uncle cannot speak for himself. But I can speak for him. My generation must know what he gave. That is how we honor soldiers—not with silence, but with remembrance and action.'",
+        "inSimpleWords": "To honor the dead is to live the values they died for.",
+        "emoji": "🎖️",
+        "image": {
+          "url": "https://images.pexels.com/photos/31864418/pexels-photo-31864418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Vikram's Commitment — National War Memorial",
+          "q": "classroom"
+        }
+      },
+      {
         "kind": "recap",
         "title": "What Vikram Learned at the National War Memorial",
         "points": [
@@ -141810,8 +144945,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "Honoring soldiers means more than ceremony. It means remembering their names, telling their stories, and striving to be worthy of their sacrifice."
           },
           {
-            "text": "A memorial transforms private grief into shared national responsibility. It says to the bereaved: 'Your loss is our loss. Your loved one is remembered by millions.'",
-            "label": ""
+            "text": "A memorial transforms private grief into shared national responsibility. It says to the bereaved: 'Your loss is our loss. Your loved one is remembered by millions.'"
           }
         ],
         "inSimpleWords": "The National War Memorial teaches us that patriotism has a human face and a real cost. We owe soldiers more than forgetting.",
@@ -141952,6 +145086,18 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "The Goal That Inspired Him",
+        "storyContext": "Arjun looks at a cricket bat in a sports shop window. It is beautiful—a high-quality bat with a red grip and the signature of a famous cricketer. The price tag reads: ₹2000. Arjun's heart sinks. 'I will never afford this,' he thinks. But then Meera appears. 'Never say never, bhaiya. Let me show you something.'",
+        "inSimpleWords": "A dream is just a goal waiting for a plan.",
+        "emoji": "🏏",
+        "image": {
+          "url": "https://images.pexels.com/photos/7947755/pexels-photo-7947755.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "The Goal That Inspired Him — Budgeting — Planning Your Pocket Money",
+          "q": "chart"
+        }
+      },
+      {
         "kind": "concept",
         "title": "Make Your First Budget",
         "storyContext": "Arjun writes his first budget on paper. He lists income (₹500), all expenses in two columns (needs and wants), and calculates savings. Dadi smiles: 'Now you are a money manager, just like me.'",
@@ -142024,6 +145170,18 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Friends and Peer Pressure",
+        "storyContext": "In the second month, Arjun's friend Ravi invites him to an amusement park. It costs ₹300—a fortune out of Arjun's monthly budget. All the other boys are going. Arjun feels left out and ashamed that he cannot afford it. At home, he tells Meera he wants to break his budget. Meera sits beside him. 'Ravi's parents gave him that money. They have more than ours. But that does not mean you are poorer or less worthy. You are building something he is not: discipline and control. Tell Ravi you cannot go. In 12 months, you will have a cricket bat. Ravi will have ... memories of an amusement park.'",
+        "inSimpleWords": "Friends may spend more than you. That does not mean their path is better. Your path leads somewhere too.",
+        "emoji": "👥",
+        "image": {
+          "url": "https://images.pexels.com/photos/19141651/pexels-photo-19141651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Friends and Peer Pressure — Budgeting — Planning Your Pocket Money",
+          "q": "snacks"
+        }
+      },
+      {
         "kind": "concept",
         "title": "Adjust Your Budget",
         "storyContext": "By month 3, Arjun realizes he is spending ₹150/month on snacks (not ₹100). So his savings fell to ₹80. Meera says: 'This is why we track. You now know the truth. Cut snacks to ₹100, or add more to wants.' Arjun chooses to skip expensive snacks on weekdays, eat at home, and treat himself weekends only.",
@@ -142074,6 +145232,32 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "image": {
           "url": "https://images.pexels.com/photos/8576784/pexels-photo-8576784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "The Unexpected Expense — Budgeting — Planning Your Pocket Money",
+          "q": "rupees"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Emergency Fund vs. Savings Goal",
+        "storyContext": "After the bike repair, Meera teaches Arjun an important distinction. 'When you budget, you need two savings pots. One is for your goal—the cricket bat. The other is an emergency fund for unexpected costs like the bike repair. If you do not have an emergency fund, one small accident ruins your entire plan.'",
+        "points": [
+          {
+            "label": "Emergency Fund",
+            "text": "5-10% of income kept aside for surprises (broken bike, urgent medical cost, lost textbook)."
+          },
+          {
+            "label": "Goal Savings",
+            "text": "Money earmarked for a specific purchase or dream (bat, shoes, bicycle)."
+          },
+          {
+            "label": "The Rule",
+            "text": "Build emergency fund first (even if small). Then save for goals. If emergency hits, use emergency fund, not goal savings."
+          }
+        ],
+        "inSimpleWords": "Expect the unexpected. Always keep some money for surprises, separate from your goal money.",
+        "emoji": "⚠️",
+        "image": {
+          "url": "https://images.pexels.com/photos/8576784/pexels-photo-8576784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Emergency Fund vs. Savings Goal — Budgeting — Planning Your Pocket Money",
           "q": "rupees"
         }
       },
@@ -142148,6 +145332,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Month Six - A New Goal",
+        "storyContext": "Six months into his budgeting journey, Arjun has saved ₹780. He realizes he is on track to reach ₹2000 by month 15. But something has shifted. He no longer budgets just for the bat. He now budgets to help his mother pay the electricity bill (he contributes ₹50 per month). He budgets to buy his sister a birthday gift. He budgets because it aligns with his values—family comes first, dreams come second, but both matter. The discipline that started as a way to buy a cricket bat has become a way to live consciously.",
+        "inSimpleWords": "Budgeting teaches you to live according to your values, not just your desires.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "concept",
         "title": "The Bigger Picture: Money and Life",
         "storyContext": "Arjun learns that budgeting is not about deprivation. It is about alignment. His goal (cricket bat) is worth the small sacrifice (skipping weekly ice cream). When your spending aligns with your values and goals, every rupee feels purposeful.",
@@ -142178,6 +145369,84 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Plan Your Own Money Goal",
+        "storyContext": "Now that you understand budgeting, design your own 12-month savings plan. What do you want to save for? How much will it cost? How much can you save monthly?",
+        "example": {
+          "problem": "Pick a goal (phone, bike, gaming console, art supplies, sports gear). Find its price. Calculate your monthly pocket money. Design a 12-month budget that includes: (1) your goal, (2) your income, (3) needs, (4) wants, (5) emergency fund, (6) months to goal.",
+          "solution": "Goal: A skateboard, ₹1500. Monthly income: ₹400. Needs: ₹150. Wants: ₹130. Emergency fund: ₹20. Available for goal savings: ₹400 − ₹150 − ₹130 − ₹20 = ₹100/month. Months to goal: ₹1500 ÷ ₹100 = 15 months. By month 15 (one year and three months), I will have my skateboard."
+        },
+        "inSimpleWords": "You have the power to create your own financial future. Start now by writing your plan down.",
+        "emoji": "📋",
+        "image": {
+          "url": "https://images.pexels.com/photos/8576784/pexels-photo-8576784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Plan Your Own Money Goal — Budgeting — Planning Your Pocket Money",
+          "q": "rupees"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Digital Tools for Budgeting",
+        "storyContext": "By month 10 of his budgeting journey, Arjun's paper notebook is getting full. His older cousin suggests he use a spreadsheet on a computer. Arjun creates a simple Excel file with columns for date, expense type, amount, and running balance. Suddenly, he can see trends: he always overspends on movies in the last week of the month, or he spends less in monsoon when he stays home more. The data reveals patterns he never noticed.",
+        "points": [
+          {
+            "label": "Spreadsheet Apps",
+            "text": "Google Sheets, Excel, or LibreOffice Calc. Easy to create formulas that auto-calculate totals and savings."
+          },
+          {
+            "label": "Mobile Apps",
+            "text": "Apps like YNAB (You Need a Budget), Expense Manager, or Money Lover automate tracking and send alerts when you exceed a category."
+          },
+          {
+            "label": "Bank Mobile Apps",
+            "text": "Many banks provide budgeting features within their mobile app, syncing with your actual expenses."
+          },
+          {
+            "label": "Advantage of Digital",
+            "text": "Instant calculations, visual charts showing where money goes, reminders, and backup if your device is lost."
+          }
+        ],
+        "inSimpleWords": "Technology makes budgeting easier. But the discipline to stick to it must come from you.",
+        "emoji": "📱"
+      },
+      {
+        "kind": "concept",
+        "title": "Common Budgeting Mistakes Kids Make",
+        "storyContext": "As Arjun looks back on his budgeting journey, Meera asks him: 'What do you think tripped up kids who never stuck to a budget?' Arjun realizes he almost made these mistakes himself.",
+        "points": [
+          {
+            "label": "Mistake 1: Unrealistic Targets",
+            "text": "Trying to save 50% of pocket money when wants are high. Start with 10-20%, then increase as you get stronger."
+          },
+          {
+            "label": "Mistake 2: No Flexibility",
+            "text": "Treating budget as a law. If you overspend one week, adjust next week—do not give up entirely."
+          },
+          {
+            "label": "Mistake 3: Hiding Spending",
+            "text": "Lying to yourself about what you spent defeats the entire purpose. Honesty with yourself is the foundation."
+          },
+          {
+            "label": "Mistake 4: Comparing to Others",
+            "text": "Your friend spends more because their circumstances are different. Focus on your own goals, not their spending."
+          }
+        ],
+        "inSimpleWords": "Budgeting is a skill. Mistakes are part of learning. What matters is that you keep going.",
+        "emoji": "⚠️"
+      },
+      {
+        "kind": "story",
+        "title": "Arjun's Summer Internship",
+        "storyContext": "Two years later, at age 14, Arjun gets a summer job helping his Dadi at the market. He earns ₹5000 for the month. Using the budgeting skills he learned, he divides it: ₹2500 for his family expenses (it is proper to contribute), ₹1000 for an emergency fund, ₹500 for wants (movies, snacks), and ₹1000 for his next goal. When his mother asks where the money went, Arjun shows her his budget spreadsheet. She is so impressed that she lets him help manage the household budget—a responsibility reserved for adults. 'You have the literacy now,' she says. 'That makes you ready.'",
+        "inSimpleWords": "Financial literacy opens doors and responsibilities that go far beyond pocket money.",
+        "emoji": "💼",
+        "image": {
+          "url": "https://images.pexels.com/photos/8251117/pexels-photo-8251117.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Arjun's Summer Internship — Budgeting — Planning Your Pocket Money",
+          "q": "notebook"
+        }
+      },
+      {
         "kind": "recap",
         "title": "Budgeting: Your Pocket Money Power",
         "storyContext": "Arjun's Dadi watches him update his savings tracker. He has already set a new goal: a bicycle in 18 months. 'Look at you,' she laughs. 'From lost rupees to a money manager to a planner. Meera taught you well, but you did the work.' Arjun smiles, knowing his next goal is getting closer every month.",
@@ -142198,10 +145467,10 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "Track real spending every month and adjust if needed. Budget is not a rule—it is a guide."
           },
           {
-            "text": "Budgeting builds discipline, confidence, and the ability to achieve your dreams."
+            "text": "Build an emergency fund separate from goal savings for unexpected costs."
           },
           {
-            "text": "Every person who has financial security learned to budget. It is a superpower you can build right now."
+            "text": "Budgeting builds discipline, confidence, and the ability to achieve your dreams."
           }
         ],
         "inSimpleWords": "A budget is your money map. Write income, list all spending, and see what to save.",
@@ -150516,6 +153785,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Boiling Water Bubbles",
+        "storyContext": "Priya watches her mother boil water for rice. Big bubbles rush up from the bottom. She asks, 'What are those bubbles?' Chacha says: 'Those are water molecules escaping as vapor all at once. That's boiling—water is in a hurry to leave!'",
+        "inSimpleWords": "Boiling is when liquid water suddenly turns to vapor in big bubbles.",
+        "emoji": "🫧"
+      },
+      {
         "kind": "challenge",
         "title": "Test: Identify the State Change",
         "storyContext": "Chacha shows Priya four scenarios and asks her to identify which state change is happening in each. This tests her understanding of all three states and transformations.",
@@ -150539,6 +153815,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Can you identify which state change happens in different situations?",
         "emoji": "❓"
+      },
+      {
+        "kind": "story",
+        "title": "Priya's Daily Observation",
+        "storyContext": "Priya starts noticing state changes everywhere. In the morning: dew on grass (condensation). At noon: puddles disappearing (evaporation). In the freezer: water turning to ice (freezing). She realizes water is constantly changing all around her.",
+        "inSimpleWords": "Water state changes happen everywhere, every day, in nature.",
+        "emoji": "🔄"
       },
       {
         "kind": "example",
@@ -150578,6 +153861,38 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "☁️"
       },
       {
+        "kind": "concept",
+        "title": "Freezing: Liquid to Solid",
+        "storyContext": "Priya puts a glass of water in the freezer. Chacha says, 'We're doing the opposite of melting. We're removing heat, and the liquid will turn to solid ice.'",
+        "points": [
+          {
+            "label": "What is freezing?",
+            "text": "Process where liquid turns to solid by removing heat"
+          },
+          {
+            "label": "Freezing point",
+            "text": "0°C is when liquid water becomes solid ice"
+          },
+          {
+            "label": "Particle behavior",
+            "text": "Particles slow down and pack tightly into fixed positions"
+          }
+        ],
+        "example": {
+          "problem": "If you cool water from 10°C to -10°C, what state changes happen?",
+          "solution": "At 10°C it stays liquid. As it cools toward 0°C, it's still liquid. At 0°C it starts to freeze. Below 0°C, it becomes solid ice."
+        },
+        "inSimpleWords": "Freezing is the opposite of melting—heat leaves, and liquid becomes solid.",
+        "emoji": "❄️"
+      },
+      {
+        "kind": "story",
+        "title": "Making Popsicles",
+        "storyContext": "Priya watches her mother pour fruit juice into popsicle molds and put them in the freezer. Chacha explains, 'This liquid juice is cooling below 0°C. Soon, the particles will pack so tightly, the juice becomes a solid popsicle!'",
+        "inSimpleWords": "Freezing is how we make ice cream and popsicles from liquid.",
+        "emoji": "🍦"
+      },
+      {
         "kind": "challenge",
         "title": "Priya's Challenge",
         "storyContext": "Chacha asks Priya a tricky question: 'In a sealed glass jar, I place a wet cloth and close it tight. Over days, the cloth dries. Where did the water go if it cannot escape the jar?'",
@@ -150593,6 +153908,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Water Never Disappears",
+        "storyContext": "Priya realizes an important truth. She tells Chacha: 'So water never really goes away. It just changes. The water in puddles, in ice, in steam—it's all the same water, just dressed differently!'",
+        "inSimpleWords": "Water is eternal—it transforms but never vanishes from Earth.",
+        "emoji": "♻️"
+      },
+      {
         "kind": "recap",
         "title": "What Priya Learned",
         "storyContext": "By the end of the day, Priya understands water's three forms and how they change. She realizes that the water cycle keeps our planet alive.",
@@ -150603,7 +153925,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           },
           {
             "label": "State Changes",
-            "text": "Melting (solid→liquid), evaporation (liquid→gas), condensation (gas→liquid), boiling (rapid evaporation)"
+            "text": "Melting (solid→liquid), evaporation (liquid→gas), condensation (gas→liquid), boiling (rapid evaporation), freezing (liquid→solid)"
           },
           {
             "label": "Daily Examples",
@@ -150612,6 +153934,10 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           {
             "label": "The Water Cycle",
             "text": "Evaporation → condensation → precipitation → collection, repeating endlessly"
+          },
+          {
+            "label": "Key Insight",
+            "text": "Water transforms but never disappears—it's recycled continuously"
           }
         ],
         "inSimpleWords": "Water is everywhere, always changing form, keeping life alive on Earth.",
@@ -150963,6 +154289,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "⚙️"
       },
       {
+        "kind": "story",
+        "title": "Every Method Has Its Place",
+        "storyContext": "Arun starts to see that each separation method works best for different mixtures. Amma tells him, 'Science is about choosing the right tool for the job. A sieve won't work for liquids, a magnet won't catch salt. Smart thinking is half the battle.'",
+        "inSimpleWords": "The best separation method depends on what you're trying to separate.",
+        "emoji": "🧠"
+      },
+      {
         "kind": "example",
         "title": "Arun's Big Separation Challenge",
         "storyContext": "Arun's friend brings him a jar with a complex mix: rice, sand, salt, small pebbles, and iron bits—all mixed! Amma asks Arun to plan the separation step by step.",
@@ -151014,6 +154347,95 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "💡"
       },
       {
+        "kind": "concept",
+        "title": "Distillation: Separating by Boiling",
+        "storyContext": "Amma shows Arun an old pot with a cloth draped over it. She explains: 'When I boil salt water, steam rises. If I catch that steam on cold cloth and let it drip, I get pure water. The salt stays behind. This is distillation.'",
+        "points": [
+          {
+            "label": "What is distillation?",
+            "text": "Separation by boiling liquid and condensing the vapor"
+          },
+          {
+            "label": "Best for",
+            "text": "Getting pure liquid from salt water, making perfumes, purifying water"
+          },
+          {
+            "label": "How it works",
+            "text": "Heat liquid to vapor, cool vapor back to liquid in a separate container"
+          }
+        ],
+        "example": {
+          "problem": "Salt water from the sea is not safe to drink. How can you make it drinkable?",
+          "solution": "Distillation! Boil salt water to get steam. The steam rises, leaving salt behind. Catch and cool the steam, and pure water drips into a new container."
+        },
+        "inSimpleWords": "Distillation boils liquid to get pure vapor, leaving dissolved solids behind.",
+        "emoji": "🍶"
+      },
+      {
+        "kind": "concept",
+        "title": "Crystallization: Growing Crystals from Solutions",
+        "storyContext": "Arun watches his mother leave a bowl of sugar water in the sun. After days, sugar crystals form on the bottom. Amma says: 'The water evaporates slowly, and sugar forms beautiful crystals. This is crystallization.'",
+        "points": [
+          {
+            "label": "What is it?",
+            "text": "Formation of solid crystals when liquid evaporates slowly"
+          },
+          {
+            "label": "Best for",
+            "text": "Getting pure salt or sugar crystals from solutions"
+          },
+          {
+            "label": "Time factor",
+            "text": "Slow evaporation makes bigger, purer crystals"
+          }
+        ],
+        "example": {
+          "problem": "If you evaporate salt water slowly versus quickly, what's the difference?",
+          "solution": "Slow evaporation: large, pure salt crystals form. Fast evaporation: small, mixed crystals. Patience makes purer crystals!"
+        },
+        "inSimpleWords": "Crystallization is when dissolved solids slowly form into beautiful crystals.",
+        "emoji": "💎"
+      },
+      {
+        "kind": "story",
+        "title": "Kitchen Science Is Real Science",
+        "storyContext": "Arun realizes his mother has been a scientist all along. Every day in the kitchen, she observes, thinks, and chooses methods to solve problems. He tells her, 'Amma, you're amazing!' She smiles, 'That's science, beta—it's everywhere, even in kitchens.'",
+        "inSimpleWords": "Everyday kitchen work uses real scientific methods.",
+        "emoji": "🔬"
+      },
+      {
+        "kind": "example",
+        "title": "Choosing the Right Method",
+        "storyContext": "Arun writes down all the methods on a piece of paper and makes a decision tree: 'If it's big pieces, handpick. If it's different sizes, sieve. If it's solid in liquid, filter. If it's dissolved, evaporate.' Amma nods, 'Exactly! You think like a scientist now.'",
+        "points": [
+          {
+            "label": "For visible large objects",
+            "text": "Handpicking is fastest"
+          },
+          {
+            "label": "For different particle sizes",
+            "text": "Sieving works best"
+          },
+          {
+            "label": "For solids suspended in liquid",
+            "text": "Filtration removes particles"
+          },
+          {
+            "label": "For dissolved solids",
+            "text": "Evaporation or distillation works"
+          }
+        ],
+        "inSimpleWords": "Choose your separation method by thinking about what type of mixture you have.",
+        "emoji": "🤓"
+      },
+      {
+        "kind": "story",
+        "title": "From Kitchen to World",
+        "storyContext": "Arun now understands that separation methods aren't just kitchen tricks—they're used everywhere! Water treatment plants filter water for towns. Salt companies evaporate salt from seawater. Factories use these same methods Amma uses at home.",
+        "inSimpleWords": "Separation science is everywhere—in kitchens, factories, and water treatment.",
+        "emoji": "🌍"
+      },
+      {
         "kind": "recap",
         "title": "Arun's Separation Superpowers",
         "storyContext": "By the end of the day, Arun has learned that science is hiding in every kitchen. Every mixture needs a different method, and picking the right one is like solving a puzzle.",
@@ -151041,6 +154463,10 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           {
             "label": "Magnetic Attraction",
             "text": "Use a magnet to pull out iron or steel"
+          },
+          {
+            "label": "Natural Separation",
+            "text": "Some mixtures like oil and water separate on their own"
           }
         ],
         "inSimpleWords": "Different mixtures need different separation methods—choose wisely based on what you're trying to separate.",
@@ -151309,6 +154735,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Zara's Lunch, Plant's Sunlight",
+        "storyContext": "Zara bites into an apple while thinking about plants. She realizes: 'I'm eating food to get energy. The plant ate sunlight to make the apple. We both need to eat to survive!'",
+        "inSimpleWords": "All living things eat something to get energy—some eat plants, some eat meat, some eat sunlight.",
+        "emoji": "⚡"
+      },
+      {
         "kind": "concept",
         "title": "Characteristic 5: Respiration",
         "storyContext": "Zara breathes deeply and notices air going in and out. Papa explains: 'You are taking oxygen from air and releasing carbon dioxide. This is respiration—all living things do it to get energy from food.'",
@@ -151384,6 +154817,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Ants Sense Danger",
+        "storyContext": "Zara watches an ant heading toward a leaf. When she touches the ground near it, the ant immediately turns and runs away. She asks, 'How did it know?' Papa smiles, 'The ant felt the vibration. It sensed danger and responded.'",
+        "inSimpleWords": "Animals quickly sense changes and react to stay safe.",
+        "emoji": "🏃"
+      },
+      {
         "kind": "concept",
         "title": "Characteristic 7: Excretion",
         "storyContext": "Zara asks: 'What happens to the waste food in our bodies?' Papa explains: 'We have to get rid of waste. Living things have ways to remove unwanted materials so they can stay healthy.'",
@@ -151416,6 +154856,27 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Characteristic 7: Excretion — Living Creatures: Exploring their Characteristics",
           "q": "living"
         }
+      },
+      {
+        "kind": "example",
+        "title": "Sweat and Breathing: Getting Rid of Waste",
+        "storyContext": "Zara runs around the garden and starts to sweat. She breathes faster. Papa explains, 'Your body made waste while running. Sweat removes some waste, and fast breathing removes carbon dioxide. Your body is cleaning itself!'",
+        "points": [
+          {
+            "label": "What is waste?",
+            "text": "Harmful materials made when your body uses food for energy"
+          },
+          {
+            "label": "How do we remove it?",
+            "text": "Sweating releases waste through skin; breathing removes carbon dioxide"
+          },
+          {
+            "label": "Why it's important",
+            "text": "Without removing waste, toxins would poison us"
+          }
+        ],
+        "inSimpleWords": "Sweat and breathing are ways our bodies get rid of waste products.",
+        "emoji": "💦"
       },
       {
         "kind": "example",
@@ -151465,6 +154926,92 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "By sunset, Zara walks through her garden with Papa. She points at plants, insects, birds, and soil. She says, 'Papa, everything here is alive—they all grow, breathe, eat, and make babies. Everything is connected, isn't it?' Papa smiles and hugs her, 'Yes. That's the amazing thing about life.'",
         "inSimpleWords": "Life is everywhere, and all living things share special characteristics.",
         "emoji": "🌍"
+      },
+      {
+        "kind": "concept",
+        "title": "The Cell: The Basic Unit of Life",
+        "storyContext": "Papa shows Zara a drawing of a cell. He says: 'All living things are made of tiny building blocks called cells. You are made of trillions of cells. A bacterium is just one cell. Cells are the smallest unit of life.'",
+        "points": [
+          {
+            "label": "What is a cell?",
+            "text": "Tiny unit of life; smallest living thing"
+          },
+          {
+            "label": "How many in you?",
+            "text": "Trillions of cells make up your body"
+          },
+          {
+            "label": "Plant cells vs animal cells",
+            "text": "Plant cells have walls; animal cells don't. But both are alive."
+          }
+        ],
+        "example": {
+          "problem": "Why is a bacterium alive but a grain of sand is not, even though both are tiny?",
+          "solution": "A bacterium is a living cell—it eats, grows, reproduces, and responds. A grain of sand is non-living crystal matter. The bacterium has life processes; the sand doesn't."
+        },
+        "inSimpleWords": "All living things are made of cells, the tiniest units of life.",
+        "emoji": "🔬"
+      },
+      {
+        "kind": "story",
+        "title": "Cells Are Everywhere",
+        "storyContext": "Zara looks at Papa under sunlight and asks: 'So my skin is made of cells?' He nods. 'And the grass?' 'Cells.' 'The butterfly?' 'Millions of cells.' Zara laughs, 'We're all made of invisible tiny things working together!'",
+        "inSimpleWords": "Every living thing—from you to grass to butterflies—is built from tiny cells.",
+        "emoji": "⚛️"
+      },
+      {
+        "kind": "concept",
+        "title": "The Chain of Life: Who Eats What",
+        "storyContext": "Papa draws a picture: 'Plants eat sunlight and make food. Grasshoppers eat plants. Birds eat grasshoppers. This is the food chain—each creature eats the one before it, and all energy comes from the sun.'",
+        "points": [
+          {
+            "label": "Producers",
+            "text": "Plants make food from sunlight"
+          },
+          {
+            "label": "Consumers",
+            "text": "Animals eat plants (herbivores) or other animals (carnivores)"
+          },
+          {
+            "label": "Energy flow",
+            "text": "Sun → plants → herbivores → carnivores"
+          },
+          {
+            "label": "Decomposers",
+            "text": "Bacteria break down dead things and return nutrients to soil"
+          }
+        ],
+        "example": {
+          "problem": "If all the plants in an area die, what happens to the herbivores and carnivores?",
+          "solution": "Herbivores starve because they have no food. Carnivores starve because herbivores disappear. Everything depends on plants, which depend on sun. The whole chain breaks."
+        },
+        "inSimpleWords": "In nature, energy flows: sun → plants → plant-eaters → meat-eaters.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "example",
+        "title": "Zara's Food Chain Discovery",
+        "storyContext": "Zara traces a food chain in her garden: 'Sun gives energy to flowers. Butterflies eat flowers. Birds eat butterflies. Hawks eat birds. And when everything dies, worms break it down. It's a circle!'",
+        "points": [
+          {
+            "label": "Start: Sun",
+            "text": "Energy source for all life"
+          },
+          {
+            "label": "Plants capture it",
+            "text": "Flowers, grass, trees make food"
+          },
+          {
+            "label": "Herbivores eat plants",
+            "text": "Butterflies, grasshoppers, deer"
+          },
+          {
+            "label": "Carnivores eat herbivores",
+            "text": "Birds, snakes, hawks"
+          }
+        ],
+        "inSimpleWords": "Every garden has a food chain connecting sunlight to plants to animals.",
+        "emoji": "🌻"
       },
       {
         "kind": "recap",
@@ -165487,6 +169034,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Example: Attention Changes Everything",
+        "storyContext": "Imagine walking past the same river twice. First time: you glance and move on. 'It's a river.' Second time: you sit for ten minutes. You notice the water's color shifts from grey to blue to gold as the light changes. You see a leaf spiral and float. You hear the different sounds—the smooth parts flow quietly, but the rocky parts churn and foam. Suddenly it's not just 'a river'—it's alive with complexity.",
+        "example": {
+          "problem": "Does paying more attention change the river itself?",
+          "solution": "No. The river is the same. But YOUR seeing changes. Attention is not about the object—it's about your mind opening to receive what's already there. That's why Grandmother can 'see' without eyes. She uses full attention."
+        },
+        "inSimpleWords": "The same object becomes rich or empty depending on how much attention you give it.",
+        "emoji": "🌊"
+      },
+      {
         "kind": "story",
         "title": "Grandmother Explains Her Blindness",
         "storyContext": "Meera asks timidly, 'But you are blind, Grandmother. How can you teach us about seeing?' The old woman smiles. 'I lost my sight at fourteen. For the first year, I was angry and grieved. Then slowly, I realized I had never really SEEN before, only glanced. Now, without eyes, I see more deeply—the warmth of sunlight on my face, the sound of my grandson's voice when he is happy versus sad, the texture of river water, the smell of incense at dawn.'",
@@ -165587,6 +169145,33 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "concept",
+        "title": "Valuing the Present Moment",
+        "points": [
+          {
+            "label": "The present is now",
+            "text": "This moment—right now—is the only moment we actually have. The past is memory, the future is imagination."
+          },
+          {
+            "label": "Meera's lesson",
+            "text": "She had been so focused on getting to the next sight that she missed the present sight. If we always wait for 'later' to appreciate something, later never comes."
+          }
+        ],
+        "inSimpleWords": "The moment you are living right now is the only one that's real.",
+        "emoji": "⏰"
+      },
+      {
+        "kind": "example",
+        "title": "Example: The Three Days as Practice",
+        "storyContext": "The three days aren't really about going blind. They're a tool to help you practice paying real attention. By imagining that sight was limited, Meera learns that sight is limited—she just usually ignores this fact. We have at most eighty-odd years of sight. Using this frame of scarcity makes ordinary moments precious.",
+        "example": {
+          "problem": "Is the 'three days' scenario realistic?",
+          "solution": "Not really—most people won't go blind tomorrow. But the exercise works anyway. It tricks the mind into valuing what it usually ignores. A ritual or game doesn't have to be realistic to teach truth."
+        },
+        "inSimpleWords": "The imaginary game teaches a real lesson about how to live now.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "story",
         "title": "Day Three: Beauty in Stillness",
         "storyContext": "For the third day, Rahul says softly, 'I would sit in one place—maybe under the old tree near our house—and look at everything there. The way leaves change color. How insects move through grass. The sky—blue, then pink, then grey, then dark. A single place, seen deeply, would be enough. I would not need to travel.'",
@@ -165646,6 +169231,22 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "concept",
+        "title": "Mindfulness: The Practice of Real Seeing",
+        "points": [
+          {
+            "label": "What is mindfulness?",
+            "text": "Being fully present with what you're doing, without judgment or distraction."
+          },
+          {
+            "label": "In the story",
+            "text": "Grandmother teaches mindfulness through the three-days exercise. Meera learns to focus completely on what's in front of her."
+          }
+        ],
+        "inSimpleWords": "Mindfulness is the practice of giving your full attention to the present moment.",
+        "emoji": "🧘"
+      },
+      {
         "kind": "story",
         "title": "Grandmother's Final Lesson",
         "storyContext": "Before they leave, Grandmother takes both children's hands. 'You have three days—I have given you three days in imagination. But you also have tomorrow, and the day after, and forty years ahead if you are lucky. The question is not what you would see if you had only three days. The question is: will you see now, while you have unlimited time? Will you look at your mother's hands while they are still warm? Will you notice the river until the day you cannot?'",
@@ -165667,6 +169268,22 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "This lesson from a century ago speaks to our modern distraction.",
         "emoji": "📱"
+      },
+      {
+        "kind": "concept",
+        "title": "Gratitude and Awareness",
+        "points": [
+          {
+            "label": "What is gratitude?",
+            "text": "Appreciation for what you have. It comes not from abundance, but from awareness."
+          },
+          {
+            "label": "How awareness leads to gratitude",
+            "text": "When Meera really SAW the Ganges for the first time, she felt grateful. Attention and gratitude are connected."
+          }
+        ],
+        "inSimpleWords": "When you truly see something, you naturally feel grateful for it.",
+        "emoji": "🙏"
       },
       {
         "kind": "story",
@@ -165847,6 +169464,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Example: Listening Without Words",
+        "storyContext": "When the injured parrot arrives, it cannot speak. It can only screech and bite. Dr. Dolittle doesn't try to force words—he watches. He notices that the parrot flinches when bright light hits its damaged wing. The bird stops attacking when the doctor moves slowly. The doctor understands: this is a language too. The parrot is telling him its pain through behavior, not words. This is what Dr. Dolittle means by 'listening'—reading the whole creature.",
+        "example": {
+          "problem": "Can you listen to someone who doesn't speak your language?",
+          "solution": "Yes. Observation, patience, and empathy are universal languages. A crying baby doesn't use words but a parent understands. Dr. Dolittle's skill isn't magic—it's learning to read what's being communicated through behavior and need."
+        },
+        "inSimpleWords": "True listening often happens without words.",
+        "emoji": "👂"
+      },
+      {
         "kind": "story",
         "title": "When Rama First Arrived",
         "storyContext": "Rama was brought by a boy who had caught him in the forest and kept him in a small cage. The parrot had a broken wing and was half-starved. When Dr. Dolittle first looked at him, Rama screamed and bit. 'Go away, human! You're all thieves and jailers!' But instead of leaving, the doctor sat nearby, silent, for many days. He left food without approaching. Slowly, Rama understood: this human was different.",
@@ -165877,6 +169505,22 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Point of View: Seeing Through Animal Eyes — Animals, Birds, and Dr. Dolittle",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "concept",
+        "title": "Trust and Fear in Animals",
+        "points": [
+          {
+            "label": "Fear is learned",
+            "text": "Rama wasn't born hating humans. His fear and anger come from being trapped, hurt, and mistreated."
+          },
+          {
+            "label": "Trust can heal fear",
+            "text": "But it takes time. Dr. Dolittle doesn't expect Rama to trust immediately—he proves through consistency that he's safe."
+          }
+        ],
+        "inSimpleWords": "Animals trust or fear based on their experiences with humans.",
+        "emoji": "🤐"
       },
       {
         "kind": "story",
@@ -165913,6 +169557,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Conflict: Animals vs. Human Carelessness — Animals, Birds, and Dr. Dolittle",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "example",
+        "title": "Example: A Turning Point",
+        "storyContext": "One day a farmer brings an ox that won't move. The farmer wants to sell it for meat because 'it's useless now.' But Dr. Dolittle examines it carefully. The ox has an infected foot—it's in pain. He treats the infection. Within a week, the ox is healthy and working again. The farmer is amazed. 'How did you know what was wrong when the ox can't even speak?' Dr. Dolittle replies, 'Pain speaks its own language. I just had to listen.'",
+        "example": {
+          "problem": "Does understanding animals require them to speak words?",
+          "solution": "No. Observation, patience, and empathy are enough. The ox 'spoke' through its refusal to work and its limp. The doctor read these signs. This is true in human medicine too—a patient who can't describe their pain still shows their suffering."
+        },
+        "inSimpleWords": "Pain and need communicate without words.",
+        "emoji": "🐄"
       },
       {
         "kind": "story",
@@ -165983,6 +169638,22 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "concept",
+        "title": "Responsibility to Other Creatures",
+        "points": [
+          {
+            "label": "Power brings responsibility",
+            "text": "Humans have more power than animals—we can cage, hurt, or help them. With power comes obligation."
+          },
+          {
+            "label": "Dr. Dolittle's belief",
+            "text": "Having the ability to help means it's our duty to do so. Not just because it's kind, but because it's right."
+          }
+        ],
+        "inSimpleWords": "If we have the power to help or harm, we must choose to help.",
+        "emoji": "🛡️"
+      },
+      {
         "kind": "story",
         "title": "A Difficult Question",
         "storyContext": "One day, a wealthy man comes to the clinic and asks the doctor to 'put down' an old horse that can no longer work. The man says it's suffering, but Dr. Dolittle knows the horse is healthy—just tired. He refuses. The man argues, 'It's useless now. Why waste food on it?' The doctor's reply is quiet but firm: 'Because that horse served you faithfully for twenty years. Now that it can no longer work, you owe it rest and dignity, not death. That is honor.'",
@@ -166011,6 +169682,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "As years pass, other young people come to learn from Dr. Dolittle. Arun becomes his apprentice. The doctor teaches not through lectures, but by example: 'Watch how the cat moves when it's afraid. Listen to the tone of the dog's bark. Feel the bird's heartbeat in your palm. When you can do this, you've begun to truly understand.' The clinic becomes a school where empathy is the curriculum.",
         "inSimpleWords": "The best way to teach kindness is to show it, day after day, with patience.",
         "emoji": "📚"
+      },
+      {
+        "kind": "challenge",
+        "title": "Read an Animal's Feelings",
+        "storyContext": "This week, choose a pet or animal you see regularly. Spend 10 minutes just observing it—not playing or talking, just watching. Write down what you notice about its behavior and what it might mean about the animal's feelings.",
+        "example": {
+          "problem": "Describe an animal's behavior in 3-4 sentences and guess what it's feeling.",
+          "solution": "Example: 'I watched our neighbor's dog in the yard. It kept putting its head against the fence, whimpering. Its tail wasn't wagging. The dog must feel lonely, wanting to be with its owner or other dogs. Its body language showed sadness, not play.' (Any observation showing empathy and interpretation is correct.)"
+        },
+        "inSimpleWords": "Learn to read what animals communicate through their behavior.",
+        "emoji": "🔍"
       },
       {
         "kind": "story",
@@ -166203,6 +169885,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Example: The Performance Requires Practice",
+        "storyContext": "Gopal's jokes don't happen spontaneously—they're planned. Each evening, as his wife rests, he practices in the courtyard. He rehearses his falls, times his punchlines, perfects his expressions. He knows that a tired joke will get no laugh. So he works hard to make laughter seem effortless. The village never sees this practice. They only see the result: instant, brilliant comedy. But laughter built on hidden exhaustion isn't the same as genuine joy.",
+        "example": {
+          "problem": "Is Gopal's performance dishonest if he plans his jokes?",
+          "solution": "No. Most performers work hard—actors memorize scripts, dancers practice steps. But there's a difference between practicing to do something well and pretending not to be exhausted while performing. Gopal is honest about his skill but dishonest (by necessity) about his condition."
+        },
+        "inSimpleWords": "Hard work can be invisible while the results seem effortless.",
+        "emoji": "🎪"
+      },
+      {
         "kind": "story",
         "title": "The Performance",
         "storyContext": "At every celebration, Gopal performs the same role. He carries a wooden sword, pretends to fight invisible enemies, falls dramatically. He invents jokes about the village elder's baldness, the merchant's stinginess, the priest's forgetfulness. Everyone laughs. Children beg, 'Gopal, do the tree-dance!' He does—jumping and flailing like a tree in a storm. For fifteen minutes, the village forgets its problems. Then Gopal limps home.",
@@ -166233,6 +169926,26 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Tone: The Author's Attitude — A Funny Man",
           "q": "face"
         }
+      },
+      {
+        "kind": "concept",
+        "title": "Public vs. Private Self",
+        "points": [
+          {
+            "label": "Public self",
+            "text": "The person others see—in this case, the jester, the entertainer."
+          },
+          {
+            "label": "Private self",
+            "text": "Who someone is when nobody's watching. Gopal's private self is exhausted, sad, struggling."
+          },
+          {
+            "label": "The gap",
+            "text": "For Gopal, the gap between these is enormous. He's become two people."
+          }
+        ],
+        "inSimpleWords": "Everyone has a public face and a private face.",
+        "emoji": "🎭"
       },
       {
         "kind": "story",
@@ -166301,6 +170014,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Characterization: Showing vs. Telling — A Funny Man",
           "q": "appearance"
         }
+      },
+      {
+        "kind": "example",
+        "title": "Example: When Performance Becomes Prison",
+        "storyContext": "Gopal can't stop performing, even when he's at his lowest. The village depends on his jokes. If he cancels one festival, he'd disappoint fifty families. If he quits entirely, the celebrations would feel empty. So he keeps going. His performance, which once gave him purpose, now imprisons him. He's bound by the village's expectations and his own need to help. The irony is complete: the man who brought freedom to others has lost his own.",
+        "example": {
+          "problem": "Could Gopal have stopped performing before getting so sick?",
+          "solution": "Technically yes, but not without great cost. He'd let down a community that depended on him. There's no easy exit when your talent has become your role. That's the tragedy—not that he chose to perform, but that he had no way out."
+        },
+        "inSimpleWords": "Sometimes the thing that saves others becomes the thing that destroys the saver.",
+        "emoji": "⛓️"
       },
       {
         "kind": "story",
@@ -166413,6 +170137,26 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "Awareness of others' struggles is the first step to real kindness.",
         "emoji": "👁️"
+      },
+      {
+        "kind": "concept",
+        "title": "The Cost of Emotional Labor",
+        "points": [
+          {
+            "label": "What is it?",
+            "text": "Work that requires managing your own emotions or creating emotions in others (acting, teaching, caregiving, comedy)."
+          },
+          {
+            "label": "Why it's hard",
+            "text": "Gopal must suppress his own pain and exhaustion to create joy. That suppression is itself exhausting."
+          },
+          {
+            "label": "The hidden cost",
+            "text": "People often undervalue emotional labor because they don't see the effort. They only see the result."
+          }
+        ],
+        "inSimpleWords": "Creating happiness for others is hard work, and it often comes at a personal cost.",
+        "emoji": "⚙️"
       },
       {
         "kind": "recap",
@@ -171298,6 +175042,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🧩"
       },
       {
+        "kind": "example",
+        "title": "Identifying Congruent Figures with Transformations",
+        "storyContext": "Isha draws a pentagon and applies multiple transformations: first rotating it 90°, then translating it 10 cm to the right. 'Is this shape still congruent to the original?' Akshay confirms: 'Yes! All transformations preserve congruence.'",
+        "example": {
+          "problem": "A shape undergoes rotation (90°), then translation (5 cm right). Is the final shape congruent to the original?",
+          "solution": "Yes. Each transformation individually preserves congruence, so multiple transformations also preserve congruence."
+        },
+        "inSimpleWords": "Chain transformations together — congruence is preserved through all of them.",
+        "emoji": "🔄"
+      },
+      {
         "kind": "concept",
         "title": "Identifying Congruent Figures",
         "points": [
@@ -171320,6 +175075,27 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "To check congruence: match sides, match angles, done!",
         "emoji": "✅"
+      },
+      {
+        "kind": "concept",
+        "title": "Corresponding Parts of Congruent Figures",
+        "points": [
+          {
+            "text": "When two figures are congruent, their corresponding sides are equal."
+          },
+          {
+            "text": "Corresponding angles are also equal."
+          },
+          {
+            "text": "Example: If Triangle ABC ≅ Triangle DEF, then AB = DE, BC = EF, CA = FD, and angles A = D, B = E, C = F."
+          }
+        ],
+        "example": {
+          "problem": "Triangle ABC ≅ Triangle XYZ. If AB = 5 cm, BC = 7 cm, and angle B = 60°, what are XY, YZ, and angle Y?",
+          "solution": "XY = 5 cm, YZ = 7 cm, angle Y = 60°. Corresponding parts are equal."
+        },
+        "inSimpleWords": "In congruent shapes, corresponding sides and angles match perfectly.",
+        "emoji": "↔️"
       },
       {
         "kind": "challenge",
@@ -171347,6 +175123,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "Multiple transformations stacked together still preserve congruence.",
         "emoji": "🎯"
+      },
+      {
+        "kind": "challenge",
+        "title": "Congruence Proof Challenge",
+        "storyContext": "Isha receives a complex challenge: Given quadrilateral PQRS with sides 4 cm, 5 cm, 6 cm, 7 cm and angles 80°, 100°, 90°, 90°. Given quadrilateral TUVW with matching sides and angles in the same order. Prove they are congruent.",
+        "example": {
+          "problem": "Two quadrilaterals have all matching sides and angles. Are they congruent?",
+          "solution": "Yes. All four sides match and all four angles match. The quadrilaterals are congruent."
+        },
+        "inSimpleWords": "For any polygon, equal sides and angles mean congruence.",
+        "emoji": "✅"
       },
       {
         "kind": "recap",
@@ -171452,6 +175239,27 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "title": "The Number Line Adventure",
         "storyContext": "Grandfather draws a number line. 'Ravi, this line shows all integers. Zero is in the middle. Positives go right, negatives go left. Positive 5 is 5 steps to the right. Negative 5 is 5 steps to the left.' Ravi visualizes marching along the line.",
         "inSimpleWords": "The number line is a visual way to understand positive and negative integers.",
+        "emoji": "📏"
+      },
+      {
+        "kind": "concept",
+        "title": "Absolute Value",
+        "points": [
+          {
+            "text": "Absolute value is the distance from zero on the number line, always positive."
+          },
+          {
+            "text": "Denoted by |x|. Example: |−5| = 5, |5| = 5."
+          },
+          {
+            "text": "It tells you 'how far' a number is from zero, regardless of direction."
+          }
+        ],
+        "example": {
+          "problem": "Find |−7| and |7|.",
+          "solution": "|−7| = 7 and |7| = 7. Both are 7 steps away from zero."
+        },
+        "inSimpleWords": "Absolute value ignores the sign and tells you distance from zero.",
         "emoji": "📏"
       },
       {
@@ -171617,6 +175425,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Division with Negatives",
+        "storyContext": "Ravi divides (−24) ÷ (−4). Two negatives dividing.",
+        "example": {
+          "problem": "(−24) ÷ (−4) = ?",
+          "solution": "Negative ÷ Negative = Positive. (−24) ÷ (−4) = 6."
+        },
+        "inSimpleWords": "Division follows multiplication rules — two negatives give positive.",
+        "emoji": "✖️"
+      },
+      {
         "kind": "story",
         "title": "Temperature Drops Over Days",
         "storyContext": "Ravi tracks a temperature drop. If the total drop over 3 days is −15°C, what is the average drop per day? Grandfather guides: '−15 ÷ 3 = −5. Each day dropped 5°C.'",
@@ -171643,6 +175462,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "Follow the order: Parentheses → Exponents → Multiply/Divide → Add/Subtract.",
         "emoji": "🔢"
+      },
+      {
+        "kind": "example",
+        "title": "Multi-Step Integer Operations",
+        "storyContext": "Ravi practices a complex calculation: (−5) × 2 + 8 ÷ (−4). He carefully follows order of operations.",
+        "example": {
+          "problem": "Calculate: (−5) × 2 + 8 ÷ (−4).",
+          "solution": "First: (−5) × 2 = −10 and 8 ÷ (−4) = −2. Then: −10 + (−2) = −12."
+        },
+        "inSimpleWords": "Multiply and divide first (left to right), then add and subtract.",
+        "emoji": "🧮"
       },
       {
         "kind": "story",
@@ -171691,6 +175521,103 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "When mixing operations, follow PEMDAS — multiplication and division before addition and subtraction.",
         "emoji": "⚡"
+      },
+      {
+        "kind": "challenge",
+        "title": "Complex Integer Puzzle",
+        "storyContext": "Ravi solves: −20 ÷ (−4) − 3 × 2 + (−6). Multiple operations at once.",
+        "example": {
+          "problem": "Calculate: −20 ÷ (−4) − 3 × 2 + (−6).",
+          "solution": "First: −20 ÷ (−4) = 5 and 3 × 2 = 6. Then: 5 − 6 + (−6) = 5 − 6 − 6 = −7."
+        },
+        "inSimpleWords": "Handle division and multiplication left to right, then subtraction and addition.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "example",
+        "title": "Real-World Banking Problem",
+        "storyContext": "Ravi thinks about money: 'If I start with −100 rupees (debt), earn 50 rupees, then earn another 80 rupees, what's my final balance?'",
+        "example": {
+          "problem": "Start: −100. Add 50. Add 80. Final balance?",
+          "solution": "(−100) + 50 + 80 = (−100) + 130 = 30 rupees (positive balance now)."
+        },
+        "inSimpleWords": "Real-world problems like debt and earning use integer addition and subtraction.",
+        "emoji": "💰"
+      },
+      {
+        "kind": "concept",
+        "title": "Properties of Integer Operations",
+        "points": [
+          {
+            "text": "Commutative Property: a + b = b + a and a × b = b × a (order doesn't matter for + and ×)."
+          },
+          {
+            "text": "Associative Property: (a + b) + c = a + (b + c) (grouping doesn't matter)."
+          },
+          {
+            "text": "Distributive Property: a × (b + c) = a × b + a × c."
+          }
+        ],
+        "example": {
+          "problem": "Show (−3) × (5 + 2) = (−3) × 5 + (−3) × 2.",
+          "solution": "Left: (−3) × 7 = −21. Right: −15 + (−6) = −21. Both equal."
+        },
+        "inSimpleWords": "Math properties help you simplify and reorganize integer calculations.",
+        "emoji": "⚙️"
+      },
+      {
+        "kind": "example",
+        "title": "Using Distributive Property",
+        "storyContext": "Ravi distributes: (−4) × (3 + 5) = (−4) × 3 + (−4) × 5 = −12 + (−20) = −32.",
+        "example": {
+          "problem": "Calculate 6 × (−2 + 3) using the distributive property.",
+          "solution": "6 × (−2 + 3) = 6 × (−2) + 6 × 3 = −12 + 18 = 6."
+        },
+        "inSimpleWords": "Distribute the outside number to each term inside the parentheses.",
+        "emoji": "📦"
+      },
+      {
+        "kind": "concept",
+        "title": "Comparing and Ordering Integers",
+        "points": [
+          {
+            "text": "Integers on a number line increase from left to right."
+          },
+          {
+            "text": "−5 < −2 < 0 < 3 < 7 (less than relationships)."
+          },
+          {
+            "text": "Use < (less than), > (greater than), = (equal) to compare."
+          }
+        ],
+        "example": {
+          "problem": "Order from smallest to largest: −5, 0, 3, −2, 7.",
+          "solution": "−5 < −2 < 0 < 3 < 7."
+        },
+        "inSimpleWords": "On the number line, left is smaller; right is larger.",
+        "emoji": "📏"
+      },
+      {
+        "kind": "example",
+        "title": "Comparing Integer Temperatures",
+        "storyContext": "Ravi compares winter temperatures: −8°C vs −3°C. Which is colder?",
+        "example": {
+          "problem": "Which is colder: −8°C or −3°C?",
+          "solution": "−8°C is colder because −8 < −3 (further left on the number line)."
+        },
+        "inSimpleWords": "More negative means colder — further left on the number line.",
+        "emoji": "❄️"
+      },
+      {
+        "kind": "challenge",
+        "title": "Multi-Step Real-World Challenge",
+        "storyContext": "Ravi's bank account started at −50 rupees. He earned 200 rupees, spent 75 rupees, then earned 120 rupees. What is his final balance?",
+        "example": {
+          "problem": "(−50) + 200 − 75 + 120 = ?",
+          "solution": "(−50) + 200 − 75 + 120 = 150 − 75 + 120 = 75 + 120 = 195 rupees."
+        },
+        "inSimpleWords": "Track income and expenses step by step to find the final balance.",
+        "emoji": "📊"
       },
       {
         "kind": "recap",
@@ -171794,6 +175721,30 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "Anita writes down: 'If Dad has 24 baskets of wheat, he could divide among 1, 2, 3, 4, 6, 8, 12, or 24 workers. All these are factors of 24. With 5 workers, there would be leftover baskets — 5 is not a factor of 24.'",
         "inSimpleWords": "A factor divides perfectly; a non-factor leaves remainder.",
         "emoji": "📝"
+      },
+      {
+        "kind": "concept",
+        "title": "Testing Divisibility",
+        "points": [
+          {
+            "text": "A number is divisible by 2 if it is even (ends in 0, 2, 4, 6, 8)."
+          },
+          {
+            "text": "A number is divisible by 3 if the sum of its digits is divisible by 3."
+          },
+          {
+            "text": "A number is divisible by 5 if it ends in 0 or 5."
+          },
+          {
+            "text": "These rules help quickly identify factors."
+          }
+        ],
+        "example": {
+          "problem": "Is 36 divisible by 3?",
+          "solution": "Sum of digits: 3 + 6 = 9. Since 9 is divisible by 3, yes, 36 is divisible by 3."
+        },
+        "inSimpleWords": "Divisibility rules let you quickly check if a number is a factor.",
+        "emoji": "✓"
       },
       {
         "kind": "concept",
@@ -171956,6 +175907,30 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "concept",
+        "title": "Finding GCF Using the Euclidean Algorithm",
+        "points": [
+          {
+            "text": "The Euclidean algorithm repeatedly divides the larger number by the smaller."
+          },
+          {
+            "text": "Replace the larger with the smaller, and the smaller with the remainder."
+          },
+          {
+            "text": "When remainder is 0, the other number is the GCF."
+          },
+          {
+            "text": "Example: GCF(36, 24) → 36 = 24 × 1 + 12 → 24 = 12 × 2 + 0 → GCF = 12."
+          }
+        ],
+        "example": {
+          "problem": "Find GCF(48, 18) using the Euclidean algorithm.",
+          "solution": "48 = 18 × 2 + 12. 18 = 12 × 1 + 6. 12 = 6 × 2 + 0. GCF = 6."
+        },
+        "inSimpleWords": "The Euclidean algorithm is a fast way to find GCF by repeated division.",
+        "emoji": "🔄"
+      },
+      {
         "kind": "challenge",
         "title": "Can You Solve This?",
         "storyContext": "Anita's school has 48 red pens and 60 blue pens. The teacher wants to pack them into identical gift boxes, with no pens left over and no mixing of colors. What is the maximum number of boxes the teacher can make? How many red and blue pens go in each box?",
@@ -171982,25 +175957,122 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🍎"
       },
       {
+        "kind": "challenge",
+        "title": "Real-World GCF Challenge",
+        "storyContext": "A community center has 72 sport balls and 90 cones. They want to create identical sports kits with no equipment left over. What is the maximum number of kits? How many balls and cones in each?",
+        "example": {
+          "problem": "Find GCF of 72 and 90, then determine kit count and contents.",
+          "solution": "72 = 2³ × 3². 90 = 2 × 3² × 5. GCF = 2 × 3² = 18. So 18 kits. Each has 72 ÷ 18 = 4 balls and 90 ÷ 18 = 5 cones."
+        },
+        "inSimpleWords": "GCF solves real fair-sharing problems in sports, classrooms, and community settings.",
+        "emoji": "⚽"
+      },
+      {
         "kind": "concept",
-        "title": "GCF Using the Division Method",
+        "title": "Least Common Multiple (LCM)",
         "points": [
           {
-            "text": "Another way to find GCF: use repeated division by prime factors."
+            "text": "The Least Common Multiple (LCM) is the smallest number divisible by two or more numbers."
           },
           {
-            "text": "Divide 24 and 36 repeatedly by 2: 24→12→6→3, 36→18→9. GCF is product of all common divisors: 2×2×3 = 12."
+            "text": "LCM of 6 and 8: Multiples of 6 are 6, 12, 18, 24, ... Multiples of 8 are 8, 16, 24, ... LCM = 24."
           },
           {
-            "text": "This method is faster than listing all factors."
+            "text": "LCM is useful for finding common denominators in fractions."
           }
         ],
         "example": {
-          "problem": "Find GCF of 24 and 36 using division.",
-          "solution": "24÷2=12, 36÷2=18. Then 12÷2=6, 18÷2=9. Then 6÷3=2, 9÷3=3. GCF = 2×2×3 = 12."
+          "problem": "Find LCM of 6 and 8.",
+          "solution": "Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. LCM = 24."
         },
-        "inSimpleWords": "Divide by common primes until no more common divisors remain, then multiply them.",
-        "emoji": "➗"
+        "inSimpleWords": "The LCM is the smallest number that both numbers divide into evenly.",
+        "emoji": "⭐"
+      },
+      {
+        "kind": "example",
+        "title": "LCM in Real Life",
+        "storyContext": "Gopal's buses arrive: one every 6 days, another every 8 days. When will they both arrive on the same day?",
+        "example": {
+          "problem": "Find LCM of 6 and 8 to determine when buses arrive together.",
+          "solution": "LCM of 6 and 8 is 24. The buses will arrive together every 24 days."
+        },
+        "inSimpleWords": "LCM helps solve scheduling and repeated-event problems.",
+        "emoji": "🚌"
+      },
+      {
+        "kind": "concept",
+        "title": "LCM Using Prime Factorization",
+        "points": [
+          {
+            "text": "To find LCM: list prime factors of each number and take the HIGHEST power of each prime."
+          },
+          {
+            "text": "Example: 12 = 2² × 3, 18 = 2 × 3². LCM = 2² × 3² = 4 × 9 = 36."
+          },
+          {
+            "text": "Compare to GCF: GCF uses lowest powers; LCM uses highest powers."
+          }
+        ],
+        "example": {
+          "problem": "Find LCM of 12 and 18 using prime factorization.",
+          "solution": "12 = 2² × 3. 18 = 2 × 3². LCM = 2² × 3² = 4 × 9 = 36."
+        },
+        "inSimpleWords": "For LCM, multiply the highest power of each prime factor.",
+        "emoji": "🔢"
+      },
+      {
+        "kind": "example",
+        "title": "GCF vs LCM Comparison",
+        "storyContext": "Anita notices: GCF and LCM are related opposites. GCF finds the biggest shared divisor; LCM finds the smallest shared multiple.",
+        "example": {
+          "problem": "For 24 and 36: find both GCF and LCM.",
+          "solution": "GCF = 12 (biggest divisor of both). LCM = 72 (smallest multiple of both). Note: 12 × 72 = 24 × 36 = 864."
+        },
+        "inSimpleWords": "GCF ÷ into; LCM × into — opposite operations.",
+        "emoji": "↔️"
+      },
+      {
+        "kind": "concept",
+        "title": "Coprime Numbers",
+        "points": [
+          {
+            "text": "Two numbers are coprime (or relatively prime) if their GCF is 1."
+          },
+          {
+            "text": "Example: 15 and 28 are coprime (GCF = 1)."
+          },
+          {
+            "text": "Coprime numbers share no common factors except 1."
+          }
+        ],
+        "example": {
+          "problem": "Are 15 and 28 coprime?",
+          "solution": "Factors of 15: 1, 3, 5, 15. Factors of 28: 1, 2, 4, 7, 14, 28. Only common factor is 1. Yes, coprime."
+        },
+        "inSimpleWords": "Coprime numbers have nothing in common except 1.",
+        "emoji": "🤝"
+      },
+      {
+        "kind": "example",
+        "title": "Real-World Fraction Simplification",
+        "storyContext": "Anita needs to simplify 28/42. She finds GCF(28, 42) = 14, so 28/42 = 2/3.",
+        "example": {
+          "problem": "Simplify 28/42.",
+          "solution": "GCF of 28 and 42 is 14. 28/42 = (28÷14)/(42÷14) = 2/3."
+        },
+        "inSimpleWords": "Use GCF to reduce fractions to simplest form.",
+        "emoji": "📉"
+      },
+      {
+        "kind": "challenge",
+        "title": "GCF and LCM Combined Challenge",
+        "storyContext": "Gopal has two tasks: Pack 30 red ribbons and 45 blue ribbons into boxes (GCF problem). Schedule two workers who work every 20 days and 30 days (LCM problem).",
+        "example": {
+          "problem": "Find GCF(30, 45) for boxes. Find LCM(20, 30) for scheduling.",
+          "solution": "GCF(30, 45) = 15 boxes. LCM(20, 30) = 60 days until both work together again."
+        },
+        "inSimpleWords": "Use GCF for dividing groups; use LCM for synchronizing schedules.",
+        "emoji": "📅"
       },
       {
         "kind": "recap",
@@ -172073,6 +176145,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Treasure Hunt — Another Peek Beyond the Point",
           "q": "grid"
         }
+      },
+      {
+        "kind": "concept",
+        "title": "What is a Coordinate?",
+        "points": [
+          {
+            "text": "A coordinate is a pair of numbers that pinpoints an exact location on a grid."
+          },
+          {
+            "text": "Think of it like an address: 'third floor, apartment 5B' tells you exactly where someone lives."
+          },
+          {
+            "text": "On a map, coordinates help rescue teams find lost hikers, or delivery people find your house."
+          }
+        ],
+        "inSimpleWords": "A coordinate is like a home address but for points on a grid—it tells you exactly where to find something.",
+        "emoji": "📍"
       },
       {
         "kind": "concept",
@@ -172205,6 +176294,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "Grandmother divides her house into four sections using the middle point as the origin. 'The treasures are scattered in all four sections, beta. Some are in the front-right, some in the back-left, some below the floorboards. Each section is a quadrant. Your task is to find one treasure in each quadrant!' Rajesh grabs his pencil and begins mapping.",
         "inSimpleWords": "A house divided by a center point creates four zones—just like the four quadrants on a coordinate plane.",
         "emoji": "🏠"
+      },
+      {
+        "kind": "example",
+        "title": "Naming Quadrants by Sign",
+        "storyContext": "Rajesh learns a trick to remember quadrants. Quadrant I is (+, +), Quadrant II is (−, +), Quadrant III is (−, −), and Quadrant IV is (+, −).",
+        "example": {
+          "problem": "List all four quadrants and their signs for x and y.",
+          "solution": "I: (+, +). II: (−, +). III: (−, −). IV: (+, −)."
+        },
+        "inSimpleWords": "Remember quadrants by their signs: top-right is both positive, top-left is x negative-y positive, and so on.",
+        "emoji": "🧠"
       },
       {
         "kind": "concept",
@@ -172401,6 +176501,41 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🤝"
       },
       {
+        "kind": "example",
+        "title": "A Practical Grid Search",
+        "storyContext": "Rajesh imagines a larger treasure hunt across his village. Treasures are at (0, 0), (6, 0), (6, 6), and (0, 6)—the four corners of a square field. What is the center of this field?",
+        "example": {
+          "problem": "Find the center (midpoint) of a square with corners at (0, 0) and (6, 6).",
+          "solution": "The center is the midpoint of the diagonal from (0, 0) to (6, 6): [(0+6)/2, (0+6)/2] = (3, 3)."
+        },
+        "inSimpleWords": "The midpoint formula works for any two points, helping you find meeting places or centers of regions.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "concept",
+        "title": "Symmetry on the Coordinate Plane",
+        "points": [
+          {
+            "text": "Two points are symmetric about the x-axis if they have the same x-coordinate but opposite y-coordinates."
+          },
+          {
+            "text": "Two points are symmetric about the y-axis if they have the same y-coordinate but opposite x-coordinates."
+          },
+          {
+            "text": "Example: (3, 4) and (3, −4) are symmetric about the x-axis."
+          }
+        ],
+        "inSimpleWords": "Symmetry on a coordinate plane means points that are mirror images across an axis.",
+        "emoji": "🪞"
+      },
+      {
+        "kind": "story",
+        "title": "Symmetry in Grandmother's Garden",
+        "storyContext": "Rajesh plots the positions of trees in Grandmother's garden on a coordinate plane. He notices that some trees are placed symmetrically—if one tree is at (2, 3), another is at (2, −3) on the opposite side of the x-axis! This symmetry makes the garden beautiful and balanced.",
+        "inSimpleWords": "Symmetric arrangements are pleasing to the eye and often appear in nature and design.",
+        "emoji": "🌳"
+      },
+      {
         "kind": "recap",
         "title": "What We Learned",
         "points": [
@@ -172508,6 +176643,27 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "Meera sits on the platform and watches a bus leave the station. Every hour, the bus travels exactly 50 km. 'So if I plot time on the bottom and distance on the side, I get a straight line!' Meera sketches on paper, plotting points for 0 hours, 1 hour, 2 hours, and 3 hours.",
         "inSimpleWords": "When you plot pairs of connected values (time and distance, or x and y), you create a graph that shows the relationship.",
         "emoji": "⏰"
+      },
+      {
+        "kind": "concept",
+        "title": "Tables and Patterns",
+        "points": [
+          {
+            "text": "Before graphing, you can organize x and y values in a table."
+          },
+          {
+            "text": "Look for patterns: does y increase by the same amount each time x increases?"
+          },
+          {
+            "text": "If yes, the relationship is linear."
+          }
+        ],
+        "example": {
+          "problem": "Make a table for the bus: time (hours) and distance (km) for times 0, 1, 2, 3, 4.",
+          "solution": "Time: 0, 1, 2, 3, 4. Distance: 0, 50, 100, 150, 200. The distance increases by 50 for each hour—linear!"
+        },
+        "inSimpleWords": "A table helps you spot patterns before you draw a graph.",
+        "emoji": "📋"
       },
       {
         "kind": "concept",
@@ -172767,6 +176923,48 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🚌"
       },
       {
+        "kind": "example",
+        "title": "Slope-Intercept Form Practice",
+        "storyContext": "Meera practices identifying slopes and y-intercepts from equations. For y = 3x + 7, she quickly says: 'Slope = 3, y-intercept = 7.' For y = −2x + 4, she says: 'Slope = −2, y-intercept = 4. This line goes down!'",
+        "example": {
+          "problem": "For y = −5x + 15, identify the slope and y-intercept.",
+          "solution": "Slope = −5, y-intercept = 15. The line has a negative slope (goes downward) and crosses the y-axis at (0, 15)."
+        },
+        "inSimpleWords": "In y = mx + b, m is always the slope and b is always the y-intercept.",
+        "emoji": "🔍"
+      },
+      {
+        "kind": "concept",
+        "title": "Writing Linear Equations from Two Points",
+        "points": [
+          {
+            "text": "If you know two points on a line, you can write its equation."
+          },
+          {
+            "text": "Step 1: Calculate slope m = (y₂ − y₁) / (x₂ − x₁)."
+          },
+          {
+            "text": "Step 2: Use one point and m to find b: y = mx + b."
+          },
+          {
+            "text": "Step 3: Write the equation y = mx + b."
+          }
+        ],
+        "example": {
+          "problem": "Write the equation of a line through points (1, 3) and (3, 7).",
+          "solution": "Slope m = (7 − 3)/(3 − 1) = 4/2 = 2. Using point (1, 3): 3 = 2(1) + b, so b = 1. Equation: y = 2x + 1."
+        },
+        "inSimpleWords": "With two points, you can always find the slope and y-intercept, then write the equation.",
+        "emoji": "✏️"
+      },
+      {
+        "kind": "story",
+        "title": "Real-World Graphing",
+        "storyContext": "Meera realizes that linear graphs are everywhere. The phone bill depends linearly on minutes used. Electricity costs depend on kilowatt-hours. Temperature trends follow linear patterns over time. Every real-world relationship that changes at a constant rate can be graphed as a line.",
+        "inSimpleWords": "Linear relationships appear throughout the real world—any steady change can be graphed as a straight line.",
+        "emoji": "🌐"
+      },
+      {
         "kind": "recap",
         "title": "What We Learned",
         "points": [
@@ -172873,6 +177071,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "The Straightedge and Compass: Tools of Precision",
+        "points": [
+          {
+            "text": "A straightedge has no markings—it only draws straight lines, not measurements."
+          },
+          {
+            "text": "A compass has two legs: one sharp point (for the center) and one with pencil (for drawing)."
+          },
+          {
+            "text": "Together, they can create any regular polygon if you know the techniques."
+          }
+        ],
+        "inSimpleWords": "These two simple tools are all you need to draw perfect shapes—no numbers, no measuring.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "concept",
         "title": "Constructing an Equilateral Triangle",
         "storyContext": "\"Our tiles will be equilateral triangles,\" says Guru Ramesh. \"That means all three sides are equal, and all angles are 60°. Watch how the compass does the work.\"",
         "points": [
@@ -172911,6 +177126,17 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "Anvi draws a line segment for the base. She sets the compass to the length of this base and draws arcs from both ends. Where they meet, she marks point C. Connecting all three points, she has a perfect equilateral triangle! 'Guru Ramesh, I made it!' He smiles. 'And it has no numbers, just geometry.'",
         "inSimpleWords": "An equilateral triangle has all sides equal and all angles 60 degrees—it is the most symmetric triangle.",
         "emoji": "✏️"
+      },
+      {
+        "kind": "example",
+        "title": "Constructing Another Triangle",
+        "storyContext": "Anvi practices by constructing a second equilateral triangle of a different size. She draws a longer base and repeats the compass technique. Soon she has two perfect triangles—one large, one small—and both are equilateral!",
+        "example": {
+          "problem": "Construct an equilateral triangle with a base of 3 cm using only compass and straightedge.",
+          "solution": "Draw base AB = 3 cm. Open compass to 3 cm, place at A, draw arc. Place at B (same radius), draw arc that intersects first arc at C. Join A-C and B-C. Triangle ABC is equilateral with all sides = 3 cm and all angles = 60°."
+        },
+        "inSimpleWords": "Once you learn the technique, you can construct perfect equilateral triangles of any size.",
+        "emoji": "🔄"
       },
       {
         "kind": "concept",
@@ -173012,6 +177238,26 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Interior Angles of Regular Polygons",
+        "points": [
+          {
+            "text": "An equilateral triangle has three 60° angles."
+          },
+          {
+            "text": "A square has four 90° angles."
+          },
+          {
+            "text": "A regular pentagon has five 108° angles."
+          },
+          {
+            "text": "A regular hexagon has six 120° angles."
+          }
+        ],
+        "inSimpleWords": "Each regular polygon has equal interior angles, and the sum depends on the number of sides.",
+        "emoji": "📐"
+      },
+      {
+        "kind": "concept",
         "title": "Regular Tilings",
         "storyContext": "\"There are only three perfect tilings,\" Guru Ramesh explains. \"And nature chose all three for a reason.\"",
         "points": [
@@ -173092,6 +177338,29 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🏛️"
       },
       {
+        "kind": "concept",
+        "title": "Why Only Three Regular Tilings?",
+        "points": [
+          {
+            "text": "A tiling works only if interior angles at each point sum to 360°."
+          },
+          {
+            "text": "Equilateral triangles: 6 × 60° = 360°. ✓"
+          },
+          {
+            "text": "Squares: 4 × 90° = 360°. ✓"
+          },
+          {
+            "text": "Hexagons: 3 × 120° = 360°. ✓"
+          },
+          {
+            "text": "Pentagons: 108° × 3 = 324°; 108° × 4 = 432°. Neither works!"
+          }
+        ],
+        "inSimpleWords": "Only three regular polygons can tile because their angles happen to divide 360° evenly.",
+        "emoji": "🔢"
+      },
+      {
         "kind": "challenge",
         "title": "Your Challenge: Design a Tile Pattern",
         "storyContext": "Now it's your turn. You have only a straightedge and compass.",
@@ -173104,6 +177373,30 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "prompt": "drawing tools",
           "gq": true
         }
+      },
+      {
+        "kind": "story",
+        "title": "Timeless Beauty",
+        "storyContext": "Years later, travelers visit the village and marvel at the perfectly tiled stage. 'How did they make this without modern tools?' they ask. Anvi, now a young architect, smiles. 'With a straightedge, a compass, and the wisdom of geometry. The same techniques have been used for thousands of years.'",
+        "inSimpleWords": "Geometric constructions are timeless—the same methods used in ancient times still create perfect shapes today.",
+        "emoji": "⏳"
+      },
+      {
+        "kind": "concept",
+        "title": "Nature's Tilings: Hidden Patterns",
+        "points": [
+          {
+            "text": "Honeycombs use hexagonal tilings—the most efficient way to store honey and protect the colony."
+          },
+          {
+            "text": "Turtle shells and pinecones show triangular and spiral tilings found in nature."
+          },
+          {
+            "text": "Dragonfly wings and butterfly patterns often reflect geometric tessellations."
+          }
+        ],
+        "inSimpleWords": "Nature discovered tiling millions of years before humans—bees, tortoises, and insects all use perfect geometric patterns.",
+        "emoji": "🐝"
       },
       {
         "kind": "recap",
@@ -177237,6 +181530,24 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Dew point is the temperature where air becomes wet enough to form water. When it cools below dew point, dew or frost forms."
       },
       {
+        "kind": "story",
+        "title": "Understanding Relative vs. Absolute Humidity",
+        "storyContext": "Ms. Sharma explains: 'Humidity on weather reports shows relative humidity, not actual water content. A 70% relative humidity on a hot day is different from 70% on a cold day.'",
+        "emoji": "📊",
+        "points": [
+          {
+            "text": "Relative humidity: percentage of water vapor the air ACTUALLY holds vs. what it COULD hold at that temperature"
+          },
+          {
+            "text": "Hot air can hold more water; cold air can hold less"
+          },
+          {
+            "text": "Same relative humidity feels different at different temperatures—70% at 35°C feels much more humid than 70% at 15°C"
+          }
+        ],
+        "inSimpleWords": "Relative humidity compares actual water in air to how much it could hold. Warmer air holds more water vapor."
+      },
+      {
         "kind": "example",
         "title": "Real Weather Scenario: The Summer Thunderstorm",
         "storyContext": "A hot May afternoon in Delhi: 42°C, 35% humidity, pressure falling. By evening, dark clouds gather, wind picks up, and sudden rain pours for 30 minutes.",
@@ -177362,6 +181673,24 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Weather is what happens today; climate is what normally happens across seasons and years. Weather changes fast; climate changes slowly."
       },
       {
+        "kind": "story",
+        "title": "Weather Myths vs. Facts",
+        "storyContext": "Rohan says: 'Red sky at night means clear weather tomorrow.' Arjun checks: 'But sometimes it rains anyway. Is this a real rule?'",
+        "emoji": "🌅",
+        "points": [
+          {
+            "text": "'Red sky at night' happens when high pressure brings dust particles—not a reliable predictor"
+          },
+          {
+            "text": "Popular weather sayings have a grain of truth but are too simple for accurate forecasting"
+          },
+          {
+            "text": "Modern forecasts use instruments, computer models, and satellite data—much more accurate"
+          }
+        ],
+        "inSimpleWords": "Old weather sayings were people's best guesses before instruments. Modern science is much more accurate."
+      },
+      {
         "kind": "challenge",
         "title": "Solve the Weather Mystery",
         "storyContext": "Arjun's diary shows an unusual day: 28°C, 65% humidity, 1010 mb pressure, but it rained all afternoon. 'How is that possible?' he asks. 'The pressure is high, so it should be sunny!'",
@@ -177429,6 +181758,33 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "solution": "No. A cyclone is far more dangerous. Cyclones have rotating winds exceeding 150 km/h, heavy rainfall (500+ mm in 2–3 days), and storm surge (ocean water pushed onto land). Cyclones form over warm oceans and last 3–7 days. Preparation includes evacuation, shelter, and securing property. Heavy storms last hours; cyclones last days."
         },
         "inSimpleWords": "Extreme weather events like cyclones and droughts are powerful and dangerous. Preparation and warning systems save lives."
+      },
+      {
+        "kind": "concept",
+        "title": "How Weather Affects Daily Life",
+        "points": [
+          {
+            "label": "Farming",
+            "text": "Rain determines crop success; temperature affects growth; wind can damage plants"
+          },
+          {
+            "label": "Sports",
+            "text": "Cricket stops in thunderstorms; wind affects ball trajectory; humidity affects player performance"
+          },
+          {
+            "label": "Health",
+            "text": "Extreme heat causes heat stroke; cold brings respiratory illness; humidity triggers allergies"
+          },
+          {
+            "label": "Transportation",
+            "text": "Rain reduces visibility; storms delay flights; ice makes roads dangerous"
+          }
+        ],
+        "example": {
+          "problem": "Why do cricket matches stop during lightning?",
+          "solution": "Lightning is deadly—it can strike players or spectators. Weather monitoring stations track lightning, and when a storm approaches within 10 km, play is suspended until 30 minutes after the last lightning strike."
+        },
+        "inSimpleWords": "Weather affects everything we do: when we plant crops, play sports, stay healthy, and travel safely."
       },
       {
         "kind": "recap",
@@ -177959,6 +182315,51 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "Ocean and monsoon are linked. Monsoon rains and winds shape where fish live and when they breed."
       },
       {
+        "kind": "concept",
+        "title": "El Niño and La Niña Effects on India",
+        "points": [
+          {
+            "label": "El Niño",
+            "text": "Warm ocean current in the Pacific; reduces monsoon rainfall over India by 20–30%; causes droughts"
+          },
+          {
+            "label": "La Niña",
+            "text": "Cool ocean current in the Pacific; enhances monsoon rainfall; causes floods"
+          },
+          {
+            "label": "Cycle",
+            "text": "El Niño and La Niña occur irregularly (every 2–7 years); prediction helps India prepare"
+          },
+          {
+            "label": "Farmer Planning",
+            "text": "Knowing if El Niño is coming helps farmers prepare for drought; La Niña signals need for flood preparedness"
+          }
+        ],
+        "example": {
+          "problem": "Why do farmers in 2023 face drought if it is normally monsoon season?",
+          "solution": "El Niño was active in 2023, weakening the monsoon. Rainfall was 30% below normal. Farmers who knew this from IMD forecasts could switch to drought-resistant crops or save money for irrigation. Those who did not were caught unprepared."
+        },
+        "inSimpleWords": "Ocean patterns in the Pacific affect India's monsoon. El Niño brings drought; La Niña brings floods. Scientists can predict both."
+      },
+      {
+        "kind": "story",
+        "title": "Water Conservation in Dry Regions",
+        "storyContext": "Priya visits Rajasthan and sees water harvesting tanks built centuries ago. 'People understood monsoon uncertainty,' the local elder explains. 'We collect and store water in good years for bad years.'",
+        "emoji": "💧",
+        "points": [
+          {
+            "text": "Tanks and wells collect monsoon water during rainy years"
+          },
+          {
+            "text": "Stored water supports irrigation and household use in dry years"
+          },
+          {
+            "text": "Ancient water systems prove that climate adaptation has long roots in Indian culture"
+          }
+        ],
+        "inSimpleWords": "Water storage is survival in dry regions. Monsoon rains are captured and saved for seasons of scarcity."
+      },
+      {
         "kind": "recap",
         "title": "Key Takeaways: India's Climate and People",
         "points": [
@@ -177975,7 +182376,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "Monsoon variability (strong or weak years) determines whether farmers prosper or suffer"
           },
           {
-            "text": "Festivals, agriculture, festivals, water management, and migration patterns all follow climate cycles"
+            "text": "Festivals, agriculture, water management, and migration patterns all follow climate cycles"
           },
           {
             "text": "Climate change is making monsoon less predictable, requiring new adaptation strategies"
@@ -178471,6 +182872,51 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "story",
+        "title": "Building Public Infrastructure",
+        "storyContext": "Aryan's grandfather tells him: 'After independence, Nehru dreamed of building dams and steel plants. These were called the 'temples of modern India.''",
+        "emoji": "🏗️",
+        "points": [
+          {
+            "text": "Dams (Bhakra Nangal, Damodar Valley Project) provided irrigation, electricity, flood control"
+          },
+          {
+            "text": "Steel plants (Bhilai, Rourkela) made India self-sufficient and created industrial towns"
+          },
+          {
+            "text": "Railways and roads connected the nation, enabling trade and migration"
+          }
+        ],
+        "inSimpleWords": "Large infrastructure projects—dams, steel plants, railways—transformed India from a colonial economy into an industrial nation."
+      },
+      {
+        "kind": "concept",
+        "title": "Language and National Identity",
+        "points": [
+          {
+            "label": "22 Official Languages",
+            "text": "India recognizes 22 official languages in Schedule 8 of the Constitution—more than any other country"
+          },
+          {
+            "label": "Hindi vs. Regional Languages",
+            "text": "Hindi is spoken by 40% of Indians but rejected in south. India decided on 'three-language formula': Hindi, English, and regional language in schools"
+          },
+          {
+            "label": "English Adoption",
+            "text": "Despite 'Hindi imposition' debates, English became link language because it unites non-Hindi speakers across states"
+          },
+          {
+            "label": "Linguistic Movements",
+            "text": "States like Tamil Nadu rejected Hindi enforcement; linguistic pride shaped state reorganization"
+          }
+        ],
+        "example": {
+          "problem": "Why does a Tamil student learn Tamil, English, and Hindi in school?",
+          "solution": "Tamil connects them to their state and culture. English connects them to the world and fellow Indians from other states. Hindi links them to the national narrative and most of India. This three-language model balances local pride, national unity, and global opportunity."
+        },
+        "inSimpleWords": "Language is identity. India's many languages are protected; schools teach local language, English, and Hindi to balance all."
+      },
+      {
+        "kind": "story",
         "title": "Grandmother's Final Words",
         "storyContext": "Grandmother tells Aryan: 'When I was born, India was still under British rule. Now you live in the world's largest democracy. That is freedom. Never take it for granted.'",
         "emoji": "💖",
@@ -178606,8 +183052,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Kautilya's Strategy Unveiled",
         "storyContext": "Deva asks: 'But how did a young warrior defeat the powerful Nanda dynasty?' Ashok replies: 'Kautilya taught Chandragupta a secret. He told him, \"Use friends against enemies, make enemies fight each other, then defeat the weakened one.\" This is the Arthashastra way.'",
-        "emoji": "🎯",
-        "inSimpleWords": "Kautilya taught Chandragupta to use diplomacy and strategy, not just military force, to build his empire."
+        "emoji": "🎯"
       },
       {
         "kind": "concept",
@@ -178641,8 +183086,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Pataliputra: The Jewel of India",
         "storyContext": "Priya asks: 'How great was Pataliputra, Chandragupta's capital?' Ashok says: 'Imagine Mumbai today, but 2,300 years ago. Walls, gates, palaces, gardens, libraries, treasuries. Visitors from Greece called it the most magnificent city they'd ever seen.'",
-        "emoji": "🏯",
-        "inSimpleWords": "Pataliputra was the most famous city in the ancient world—bigger, richer, and more organized than any European city."
+        "emoji": "🏯"
       },
       {
         "kind": "concept",
@@ -178737,8 +183181,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "The Battle of Kalinga and Ashoka's Change",
         "storyContext": "Ashok narrates to the teens: 'Picture this: A hundred thousand soldiers clash on the Kalinga plains. Blood, screams, thousands die. When Ashoka saw the carnage, he wept. \"I won a kingdom but lost my soul,\" he said. That night, he decided to never wage war again.'",
-        "emoji": "😢",
-        "inSimpleWords": "The Battle of Kalinga horrified Ashoka and made him choose compassion over conquest, changing history forever."
+        "emoji": "😢"
       },
       {
         "kind": "concept",
@@ -178772,8 +183215,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Ashoka's Edicts Come Alive",
         "storyContext": "Deva visits Sarnath where one of Ashoka's edicts is carved. He reads it aloud in 2,300-year-old words: 'Wherever I go, I think only of the welfare of all people.' Priya says: 'Imagine a ruler actually saying this—and meaning it.'",
-        "emoji": "✍️",
-        "inSimpleWords": "Ashoka's edicts, carved in stone, reveal a king who genuinely cared about everyone's welfare—revolutionary for ancient times."
+        "emoji": "✍️"
       },
       {
         "kind": "concept",
@@ -178811,8 +183253,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Buddhist Missionaries Across the World",
         "storyContext": "Priya asks: 'How did people in China and Japan learn about Buddhism?' Ashok smiles: 'Ashoka sent missionaries with the Buddha's teachings. Merchants on trade routes shared the dharma. Within centuries, billions of people knew Buddha, because of this one king's choice to spread peace instead of war.'",
-        "emoji": "🌏",
-        "inSimpleWords": "Ashoka sent missionaries throughout Asia, spreading Buddhism to millions, creating a peaceful legacy across continents."
+        "emoji": "🌏"
       },
       {
         "kind": "concept",
@@ -178879,8 +183320,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "The Spice Routes and Distant Lands",
         "storyContext": "Deva imagines: 'Merchant ships sailed to Greece and Rome with Indian pepper, silk, and pearls. Greeks sent back wine and olive oil. Ashoka's ambassadors traveled those same roads, carrying Buddha's message to distant kingdoms. One king in Greece read Ashoka's edicts and was amazed.'",
-        "emoji": "⛵",
-        "inSimpleWords": "Trade routes were the superhighways of ancient times, connecting India to Europe, Asia, and Africa through exchange."
+        "emoji": "⛵"
       },
       {
         "kind": "concept",
@@ -178918,8 +183358,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Greedy Heirs and a Splintering Kingdom",
         "storyContext": "Ashok explains: 'Ashoka's sons did not share his vision. They wanted wealth, not welfare. Some officials became corrupt. Kingdoms on the border saw weakness and revolted. Within a generation, the great empire shattered. This teaches us that even great empires must be tended constantly, or they crumble.'",
-        "emoji": "⚰️",
-        "inSimpleWords": "Without good leaders who care about their people, even the greatest empires fall apart within a generation."
+        "emoji": "⚰️"
       },
       {
         "kind": "challenge",
@@ -178954,8 +183393,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "A Philosophical Puzzle",
         "storyContext": "Priya debates with Deva: 'Was Ashoka wiser for choosing non-violence, or was Chandragupta smarter for choosing conquest?' Ashok smiles: 'This is the eternal question. Chandragupta made India one; Ashoka made India moral. Need both to be great.'",
-        "emoji": "🤔",
-        "inSimpleWords": "Building a nation requires both strength and compassion, both order and morality—Chandragupta and Ashoka both got it half right."
+        "emoji": "🤔"
       },
       {
         "kind": "concept",
@@ -178984,6 +183422,46 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "Ashoka's idea that rulers must serve their people influenced modern democracy and human rights, 2,300 years later.",
         "emoji": "⚖️"
+      },
+      {
+        "kind": "story",
+        "title": "Government as a Servant",
+        "storyContext": "Deva reflects: 'Ashoka said the king serves his people. Today we say government is for the people, by the people. It's the same idea, just evolved. Ashoka was 2,000 years ahead of his time.'",
+        "emoji": "🏛️"
+      },
+      {
+        "kind": "concept",
+        "title": "Mauryan Empire Successes and Weaknesses",
+        "points": [
+          {
+            "label": "Successes",
+            "text": "United a vast territory; created efficient administration; built infrastructure; spread Buddhism; created stability after centuries of conflict"
+          },
+          {
+            "label": "Weaknesses",
+            "text": "Relied on harsh laws and spies; threatened people's freedoms; expensive welfare state drained treasury; did not establish succession plan"
+          },
+          {
+            "label": "Economic Impact",
+            "text": "Flourished due to trade and agriculture but vulnerable to external invasions and internal rebellion"
+          },
+          {
+            "label": "Lessons Learned",
+            "text": "Future empires learned that military alone doesn't hold an empire; culture, prosperity, and fairness do"
+          }
+        ],
+        "example": {
+          "problem": "Priya wonders: 'If Ashoka's welfare was so good, why did the empire fall?' Ashok replies:",
+          "solution": "Ashoka's welfare spending—hospitals, hostels, roads, animal care—was extraordinary but expensive. After his death, successors didn't prioritize it. Also, Ashoka's non-violence meant he wasn't aggressive defending borders. The empire began shrinking from external pressure and losing revenue. By 185 BCE, central authority was so weak that a general overthrew the last Mauryan king. Ashoka's moral vision was beautiful but financially unsustainable without his personal commitment."
+        },
+        "inSimpleWords": "The Mauryan Empire showed that welfare and compassion are wonderful but need strong economics and leadership to survive.",
+        "emoji": "📚"
+      },
+      {
+        "kind": "story",
+        "title": "Two Paths Forward",
+        "storyContext": "Ashok concludes the journey: 'Chandragupta showed you can build an empire through strength and strategy. Ashoka showed you can transform it through compassion and dharma. History proved neither alone works forever. Both are needed: the warrior's discipline and the sage's wisdom.'",
+        "emoji": "🛤️"
       },
       {
         "kind": "recap",
@@ -179096,8 +183574,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Local Kings Flex Their Power",
         "storyContext": "Anjali imagines: 'Imagine each regional king thought: \"Ashoka's empire is gone. Now I can build MY capital, MY temple, MY art.\" Every kingdom wanted to be as famous as Pataliputra was. This competition created an age of building, art, and culture.'",
-        "emoji": "🏰",
-        "inSimpleWords": "Without one big empire controlling everything, local kings competed to make their kingdoms the most beautiful and impressive."
+        "emoji": "🏰"
       },
       {
         "kind": "concept",
@@ -179135,8 +183612,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Spice Merchants and Roman Gold",
         "storyContext": "Dr. Sharma tells them: 'Imagine you're a Satavahana merchant. You carry Indian pepper to Rome, where it's worth 300 times its price in India! You return with Roman gold, silk from China, gems from everywhere. The Satavahana kings grew so rich they could build the finest temples the world had seen.'",
-        "emoji": "🌶️",
-        "inSimpleWords": "Satavahana traders made India wealthy by selling spices to Rome, which valued Indian goods more than gold."
+        "emoji": "🌶️"
       },
       {
         "kind": "concept",
@@ -179174,8 +183650,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "The Greek King Who Became Buddhist",
         "storyContext": "Dr. Sharma shares: 'King Menander was Greek, ruling from far away. But he fell in love with Buddhism. He gave up wine and Greek customs, studied with Buddhist monks, and even became vegetarian. He's remembered as both a great warrior AND a great Buddhist king—proof that cultures can blend.'",
-        "emoji": "⚔️",
-        "inSimpleWords": "Even Greek rulers who invaded India were so impressed by Buddhism and Indian culture that they converted and became Buddhist."
+        "emoji": "⚔️"
       },
       {
         "kind": "concept",
@@ -179213,8 +183688,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "The Sanchi Stupa: Built Over Centuries",
         "storyContext": "Anjali pictures it: 'A stupa started small under Ashoka. Then Shunga kings added gateways, railings, sculptures—layer by layer over 100 years. Different rulers, different religions, but all contributed to one masterpiece. That's the spirit of this age.'",
-        "emoji": "🌉",
-        "inSimpleWords": "The Sanchi Stupa was built and rebuilt over centuries by different kings, showing how empires worked together on art and architecture."
+        "emoji": "🌉"
       },
       {
         "kind": "example",
@@ -179253,8 +183727,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Merchants Commissioning Art",
         "storyContext": "Dr. Sharma explains: 'Wealthy merchant guilds paid for stupas and temples. A merchant who got rich from trade would donate to a stupa, carving his name so people remembered his generosity for 2,000 years. This is why cities had multiple stupas—many patrons, many dreams.'",
-        "emoji": "🛍️",
-        "inSimpleWords": "Wealthy merchants and traders paid for temples and stupas, so they're remembered even today as patrons of art."
+        "emoji": "🛍️"
       },
       {
         "kind": "concept",
@@ -179317,8 +183790,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "The Mountain Passes Problem",
         "storyContext": "Vikram reasons: 'The Shunga in the north faced constant invasions through the mountain passes—Greeks, Kushanas. The Satavahana had mountains too, but their sea ports gave them escape routes and trade.' Dr. Sharma nods: 'Geography isn't destiny—but it gives some rulers advantages others don't have.'",
-        "emoji": "⛰️",
-        "inSimpleWords": "Geography shapes empires—coastlines give trade, mountains give defense, but good leadership can overcome any geography."
+        "emoji": "⛰️"
       },
       {
         "kind": "concept",
@@ -179347,6 +183819,142 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "When India split into kingdoms, each region developed its own language, art, and customs—which still exist today.",
         "emoji": "🗣️"
+      },
+      {
+        "kind": "story",
+        "title": "A Thousand Voices",
+        "storyContext": "Anjali realizes: 'When everyone answered to Chandragupta and Ashoka, they had to follow the same rules. When empires fragmented, each region kept its own voice. That's why India today has 22 official languages and hundreds of customs—a gift from this fragmented age.'",
+        "emoji": "🎵"
+      },
+      {
+        "kind": "concept",
+        "title": "Economic Systems and Class Structure",
+        "points": [
+          {
+            "label": "Merchant Guilds",
+            "text": "Organized groups of traders controlled markets; had political power and patronized arts"
+          },
+          {
+            "label": "Agriculture",
+            "text": "Farmers formed the backbone; kingdoms invested in irrigation and farming infrastructure"
+          },
+          {
+            "label": "Labor and Caste",
+            "text": "Society organized by varna (class): Brahmins (teachers), Kshatriyas (warriors), Vaishyas (merchants), Shudras (laborers)"
+          },
+          {
+            "label": "City Life",
+            "text": "Urban centers grew; craft guilds (silversmiths, weavers, potters) became powerful in cities"
+          }
+        ],
+        "example": {
+          "problem": "Vikram notes that merchant guilds had such power. Did they challenge the kings?",
+          "solution": "Sometimes. Merchant guilds were wealthy and influential but generally worked with kings. Guilds paid taxes; kings protected trade routes. They had a symbiotic relationship. However, when kings were weak, merchant guilds could influence succession and policy. This shows that in this fragmented age, power was distributed—not just with the king but shared among merchants, monks, and administrators."
+        },
+        "inSimpleWords": "Wealthy merchants and traders influenced kingdoms as much as kings did, showing power was shared in this era.",
+        "emoji": "💼"
+      },
+      {
+        "kind": "concept",
+        "title": "Comparison: Satavahana vs Shunga",
+        "points": [
+          {
+            "label": "Satavahana Strengths",
+            "text": "Trade wealth, access to Mediterranean, developed Prakrit culture, long duration (200 BCE–200 CE)"
+          },
+          {
+            "label": "Shunga Strengths",
+            "text": "Hindu revival, magnificent art (Sanchi Stupa), controlled Gangetic heartland, cultural continuity with Mauryan legacy"
+          },
+          {
+            "label": "Satavahana Challenges",
+            "text": "Constant threats from north and northwest, limited by geography from expanding further"
+          },
+          {
+            "label": "Shunga Challenges",
+            "text": "Constant invasions through mountain passes, smaller territory meant fewer resources than Mauryan predecessor"
+          }
+        ],
+        "example": {
+          "problem": "Vikram asks: 'Which empire was more successful—Satavahana or Shunga?'",
+          "solution": "Success depends on criteria. If measured by duration and wealth, Satavahana wins (400 years, trade-rich). If measured by art and cultural continuity, Shunga wins (Sanchi Stupa is world-class). Both succeeded in their own ways. Satavahana was an international trader; Shunga was a cultural guardian. In a fragmented age, different empires succeeded in different domains."
+        },
+        "inSimpleWords": "Different empires in this age succeeded in different ways: Satavahana through trade, Shunga through art and culture.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "story",
+        "title": "A World of Specialists",
+        "storyContext": "Anjali realizes: 'In a unified empire like the Mauryan, one ruler had to be good at everything. In this fragmented age, each king could specialize: one focused on trade, another on temples, another on medicine. Specialization led to excellence in each area.'",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "story",
+        "title": "Empires as Stepping Stones",
+        "storyContext": "Dr. Sharma explains: 'Some students think empires are either big or fragmented—good or bad. But actually, this age of small kingdoms was just as important. It prepared India for the next empire—the Gupta—which would be even greater than the Mauryan.'",
+        "emoji": "🪜"
+      },
+      {
+        "kind": "concept",
+        "title": "Foundation for the Gupta Empire",
+        "points": [
+          {
+            "label": "Economic Base",
+            "text": "Regional kingdoms built infrastructure, irrigation, and trade networks that the Gupta would inherit and expand"
+          },
+          {
+            "label": "Cultural Diversity",
+            "text": "Different kingdoms developed unique artistic and literary traditions; Gupta synthesized these into a pan-Indian culture"
+          },
+          {
+            "label": "Administrative Models",
+            "text": "Smaller kingdoms experimented with different governance systems; Gupta learned which ones worked"
+          },
+          {
+            "label": "Weakened Rivals",
+            "text": "By 320 CE, no strong kingdom threatened Magadha region; Chandragupta I could start rebuilding from a stable base"
+          }
+        ],
+        "example": {
+          "problem": "Vikram wonders: 'If this age was so productive, why did it need to end for the Gupta to rise?'",
+          "solution": "Great question. The regional kingdoms succeeded in specific domains: Satavahana in trade, Shunga in art, Indo-Greeks in cultural synthesis. But no single kingdom achieved everything. A unified empire could combine all these strengths. The Gupta inherited the trade networks, artistic traditions, and administrative know-how from this fragmented age and unified them under one roof. Fragmentation was a phase, not a failure."
+        },
+        "inSimpleWords": "The Age of Reorganisation created the building blocks—trade, art, administration—that the Gupta Empire would unify.",
+        "emoji": "🧩"
+      },
+      {
+        "kind": "story",
+        "title": "Learning from Diversity",
+        "storyContext": "Anjali reflects: 'It's like a classroom. Everyone works in groups, learning different skills. Then they come together for a big project. This age was India learning in separate groups. The Gupta was when everyone came together.'",
+        "emoji": "👥"
+      },
+      {
+        "kind": "challenge",
+        "title": "Debate: Unified Empire vs. Regional Kingdoms",
+        "storyContext": "Dr. Sharma poses a challenge: 'If you could live in either the Mauryan unified empire or this age of regional kingdoms, which would you choose? What are the tradeoffs?'",
+        "points": [
+          {
+            "text": "Unified Empire: One law, safe trade routes, large military, centralized culture—but less freedom, more surveillance, homogenization"
+          },
+          {
+            "text": "Regional Kingdoms: Local autonomy, diverse cultures, less bureaucracy—but trade less safe, wealth inequality, no large-scale projects"
+          },
+          {
+            "text": "Question: Is empire better than fragmentation? What does 'better' mean?"
+          }
+        ],
+        "example": {
+          "problem": "Vikram argues: 'The Mauryan was better because there was unity.' Anjali replies: 'But regional kingdoms were better because there was freedom.' Who is right?",
+          "solution": "Neither and both. A unified empire provides security and stability but limits freedom. Regional kingdoms provide autonomy but risk conflict. Throughout history, societies oscillate between unity and fragmentation, seeking the balance. Modern democracies try to split the difference: strong central government (unity) with protections for states and minorities (freedom). Neither extreme is optimal."
+        },
+        "inSimpleWords": "Empires and kingdoms each have strengths; the best systems balance central stability with local freedom.",
+        "emoji": "⚗️"
+      },
+      {
+        "kind": "story",
+        "title": "What Comes Next",
+        "storyContext": "Dr. Sharma closes the chapter: 'By 320 CE, a new empire was rising in Magadha. Young Chandragupta I would unite India again—not through conquest like the Mauryan, but through diplomacy and culture. This age of reorganisation prepared the ground for India's greatest age: the Gupta Golden Age.'",
+        "emoji": "🌅"
       },
       {
         "kind": "recap",
@@ -179459,8 +184067,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "A Small Kingdom Becomes an Empire",
         "storyContext": "Guru Dev narrates: 'Chandragupta I inherited a tiny kingdom. But he was brilliant. He married a Lichhavi princess to gain allies. He allied with wealthy merchants. Step by step, he expanded. His son did the same. Within three generations—boom—they ruled most of India without the violence of earlier conquests.'",
-        "emoji": "📈",
-        "inSimpleWords": "The Guptas built their empire slowly through smart marriages, alliances, and administration—not just military conquest."
+        "emoji": "📈"
       },
       {
         "kind": "concept",
@@ -179498,8 +184105,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "The Genius of Zero",
         "storyContext": "Guru Dev pulls out an ancient manuscript: 'Look—zero. Just a dot. But this dot changed the world. Before this, no one had a number for nothing. Without zero, you couldn't tell 1, 10, or 100 apart. Indians realized you need a number for empty space. That realization spawned all modern mathematics.'",
-        "emoji": "💡",
-        "inSimpleWords": "The invention of zero was one of the most important ideas in history—and it came from a Gupta mathematician 1,500 years ago."
+        "emoji": "💡"
       },
       {
         "kind": "concept",
@@ -179528,6 +184134,12 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "Gupta mathematicians understood negative numbers, decimals, and algebra—concepts that took Europe another 1,000 years to grasp.",
         "emoji": "📐"
+      },
+      {
+        "kind": "story",
+        "title": "The Debt Paradox",
+        "storyContext": "Rani grasps it: 'If you owe me money (negative), and you owe someone else money (negative), and those debts cancel out... you have positive value!' Guru Dev smiles: 'You just understood why negative times negative equals positive. Brahmagupta figured this out 1,400 years ago.'",
+        "emoji": "🧮"
       },
       {
         "kind": "concept",
@@ -179565,8 +184177,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Predicting the Impossible",
         "storyContext": "Guru Dev dramatizes: 'Aryabhata announced: \"On this exact day and time, the moon will pass through the sun's shadow—an eclipse.\" People laughed. But when the eclipse happened exactly as predicted, at the exact minute, everyone believed. Math plus observation—that's the scientific method Aryabhata invented.'",
-        "emoji": "🌙",
-        "inSimpleWords": "By understanding math and observing the stars, Aryabhata could predict eclipses centuries in advance—proving his theories right."
+        "emoji": "🌙"
       },
       {
         "kind": "concept",
@@ -179633,8 +184244,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "A Play That Moved Kings",
         "storyContext": "Guru Dev recites lines from Shakuntalam: 'The beauty is in the words. When Shakuntala is separated from her king, the sadness is so real, audiences cry. When they reunite, everyone cheers. Kalidasa understood human hearts—that's why people 1,600 years later still watch his play.'",
-        "emoji": "💔",
-        "inSimpleWords": "Kalidasa's plays were so emotionally powerful that people still cry watching them, 1,600 years later."
+        "emoji": "💔"
       },
       {
         "kind": "example",
@@ -179673,8 +184283,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Beauty in Stone",
         "storyContext": "Rani looks at a Gupta-era dancing figure carved in sandstone. The figure seems to move, twirl, even smile. Guru Dev says: 'Gupta sculptors captured not just the body but the spirit, the joy of dancing. That's why these figures, carved 1,600 years ago, still make us smile.'",
-        "emoji": "💃",
-        "inSimpleWords": "Gupta sculptors captured emotion and movement in stone, creating figures that still inspire wonder today."
+        "emoji": "💃"
       },
       {
         "kind": "concept",
@@ -179708,8 +184317,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Students from Distant Lands",
         "storyContext": "Guru Dev paints a picture: 'Imagine a Chinese student, a Korean monk, a Tibetan scholar, all living together at Nalanda. They study logic, math, medicine in Sanskrit and Prakrit. They debate philosophy for years. Then they return home, teaching what they learned. This is how knowledge spread across Asia.'",
-        "emoji": "🌏",
-        "inSimpleWords": "Nalanda attracted scholars from all over Asia, creating a global intellectual community 1,600 years before the internet."
+        "emoji": "🌏"
       },
       {
         "kind": "challenge",
@@ -179744,8 +184352,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "A Tale of Two Empires",
         "storyContext": "Guru Dev concludes: 'Ashoka ruled with the heart; Gupta ruled with the mind. Ashoka asked: How should I treat people? Gupta asked: How should I help people learn? One conquered for compassion; one created for knowledge. Both shaped what India became.'",
-        "emoji": "🌟",
-        "inSimpleWords": "Ashoka's compassion and Gupta's creativity together created India's spiritual and intellectual inheritance."
+        "emoji": "🌟"
       },
       {
         "kind": "concept",
@@ -179774,6 +184381,99 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "The Gupta Empire lasted 220 years because it made regular people prosperous and gave them a stake in its success.",
         "emoji": "📊"
+      },
+      {
+        "kind": "story",
+        "title": "Prosperity as Glue",
+        "storyContext": "Rani grasps it: 'Chandragupta Maurya held empires together through fear—spies and harsh laws. The Gupta held it together through wealth and happiness. People didn't want to rebel when they were prosperous. Fear is fragile; prosperity is strong.'",
+        "emoji": "💰"
+      },
+      {
+        "kind": "concept",
+        "title": "Gupta Decline and the End of the Era (500–550 CE)",
+        "points": [
+          {
+            "label": "External Threats",
+            "text": "Huns (Hunas) invaded from Central Asia around 500 CE, threatening the Gupta borders"
+          },
+          {
+            "label": "Weak Successors",
+            "text": "After Chandragupta II's death (415 CE), successors were less capable; internal disputes weakened central authority"
+          },
+          {
+            "label": "Gradual Decline",
+            "text": "Unlike the Mauryan sudden collapse, Gupta declined gradually; regional governors asserted independence"
+          },
+          {
+            "label": "Regional Fragmentation",
+            "text": "By 550 CE, north India split into smaller kingdoms again; the Gupta era ended, but its legacy remained"
+          }
+        ],
+        "example": {
+          "problem": "Rohan asks: 'Why did the Gupta Empire end? It was so successful and stable.'",
+          "solution": "Two factors: external and internal. The Huns were a formidable military threat that depleted resources. But more importantly, after Chandragupta II's death, the empire lacked a leader of his caliber. Successors were decent but not brilliant. Regional governors, seeing weakness, declared independence. The Gupta didn't collapse suddenly like Maurya; they faded gradually. But their cultural and scientific contributions lasted."
+        },
+        "inSimpleWords": "The Gupta Empire ended due to Hun invasions and weak leaders, but its scientific, artistic, and mathematical legacy never disappeared.",
+        "emoji": "🌅"
+      },
+      {
+        "kind": "story",
+        "title": "The Last Days of the Golden Age",
+        "storyContext": "Guru Dev reflects: 'Around 550 CE, the Gupta era officially ended. But by then, the damage was done—or was it glory? Scholars, artists, and scientists had already spread across Asia. Nalanda University stood for 800 more years. The legacy of zero, Kalidasa's plays, and Aryabhata's astronomy lived forever.'",
+        "emoji": "🌙"
+      },
+      {
+        "kind": "concept",
+        "title": "Gupta Legacy in World History",
+        "points": [
+          {
+            "label": "Mathematics and Science",
+            "text": "Zero and decimal system became foundation of modern mathematics; algebra and trigonometry shaped astronomy worldwide"
+          },
+          {
+            "label": "Literature and Arts",
+            "text": "Sanskrit literature and temple architecture influenced all of Asia; Kalidasa's plays still performed globally"
+          },
+          {
+            "label": "Medicine",
+            "text": "Surgical techniques and herbal medicines studied by Arab physicians and later European doctors"
+          },
+          {
+            "label": "Philosophy and Education",
+            "text": "University model of Nalanda inspired Islamic universities and later European universities"
+          }
+        ],
+        "example": {
+          "problem": "Rani asks: 'The Gupta Empire ended 1,500 years ago. Why do we still study it?'",
+          "solution": "Because its ideas never ended. Every time you write a number or use mathematics, you're using Gupta inventions. Every time a doctor performs surgery, centuries of Gupta medicine inform the technique. Every time a student attends a university lecture, the model comes from Nalanda. The Gupta Empire fell, but its mind never did. It's one of history's rare civilizations where the end of the empire meant the beginning of its greatest influence."
+        },
+        "inSimpleWords": "The Gupta Empire ended, but its discoveries in math, science, art, and medicine shaped world civilization forever.",
+        "emoji": "🔬"
+      },
+      {
+        "kind": "challenge",
+        "title": "Design Your Own Empire",
+        "storyContext": "Final challenge: 'You are the founder of a new empire. You must unite several regions. Drawing from Chandragupta Maurya (strong administration), Ashoka (welfare and compassion), and the Gupta (cultural investment), what policies would you adopt?'",
+        "points": [
+          {
+            "text": "Military: How strong should it be? Defensive or aggressive?"
+          },
+          {
+            "text": "Economy: Should you invest in welfare, infrastructure, culture, or military?"
+          },
+          {
+            "text": "Religion: Should you promote one faith or allow all?"
+          },
+          {
+            "text": "Culture: Should you create a unified culture or allow regional diversity?"
+          }
+        ],
+        "example": {
+          "problem": "Rani and Rohan design different empires. Rani emphasizes welfare like Ashoka; Rohan emphasizes infrastructure and science like Gupta. Who would succeed?",
+          "solution": "Neither alone. Rani's welfare state without strong infrastructure would go bankrupt. Rohan's science without welfare would create inequality and rebellion. The best empire (historically) combined both: Gupta's infrastructure + Ashoka's compassion. Modern successful nations do this: strong economy (Gupta model) + social safety net (Ashoka model). This is why India studies these historical models—to find the balance."
+        },
+        "inSimpleWords": "Great empires balance three things: strong administration, citizen welfare, and cultural investment. All three are essential.",
+        "emoji": "🏗️"
       },
       {
         "kind": "recap",
@@ -187328,6 +192028,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "The Breakthrough Moment",
+        "storyContext": "After two weeks of Mr. Sharma's lessons, Ravi went home and wrote about his morning. He described the rooster's cry, the sugarcane fields, Dadi making chai. He filled the page with what he actually knew. When he showed it to Mr. Sharma, the teacher read it slowly, then looked up with surprise. 'Ravi,' he said, 'where did you learn to write like this?' Ravi hadn't realized: he hadn't learned anything new. He had only written about his own life, with real details. And suddenly, that was beautiful.",
+        "inSimpleWords": "Ravi discovered that writing his own story with real details was more powerful than copying textbook examples.",
+        "emoji": "✨"
+      },
+      {
         "kind": "example",
         "title": "Ravi's Transformation",
         "storyContext": "Ravi's first English essay was abstract and weak: 'My village is nice. People are good and work hard. Life is meaningful.' Mr. Sharma didn't mark it wrong. Instead, he asked: 'Tell me one morning in your village. What did you see? Hear? Feel?'",
@@ -187362,7 +192069,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       {
         "kind": "story",
         "title": "Dadi's Village Wisdom",
-        "storyContext": "Ravi went home excited that evening. He asked his Dadi: 'Why is Grandma, you're so good at telling stories that everyone listens?' Dadi smiled. 'Beta, when I tell a story about the day the monsoon came, I don't say \"the weather was bad.\" I say: \"The sky turned black. The wind knocked over the water pots. Rain came down like bullets. We huddled inside, listening to the tiles rattle.\" When you paint the picture, people see it too. That is how stories live in hearts.'",
+        "storyContext": "Ravi went home excited that evening. He asked his Dadi: 'Grandma, why is it you're so good at telling stories that everyone listens?' Dadi smiled. 'Beta, when I tell a story about the day the monsoon came, I don't say \"the weather was bad.\" I say: \"The sky turned black. The wind knocked over the water pots. Rain came down like bullets. We huddled inside, listening to the tiles rattle.\" When you paint the picture, people see it too. That is how stories live in hearts.'",
         "inSimpleWords": "Dadi explained that the best stories use real details, not vague words. She showed Ravi that concrete language is the secret to storytelling.",
         "emoji": "👵",
         "points": [
@@ -187488,6 +192195,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📝"
       },
       {
+        "kind": "concept",
+        "title": "The Power of Specific Details",
+        "storyContext": "Mr. Sharma gave his class one final lesson on concrete writing: 'Every specific detail is a gift to the reader. Every vague word is a theft from them.'",
+        "points": [
+          {
+            "label": "What specificity does",
+            "text": "It makes writing memorable. Readers remember 'the chipped enamel cup' far longer than 'the cup.'"
+          },
+          {
+            "label": "Specificity builds trust",
+            "text": "When a writer gives exact details, readers trust them. They believe the writer was truly there and truly observed."
+          },
+          {
+            "label": "Specificity creates emotion",
+            "text": "Not 'I was sad,' but 'I stared at the empty plate where Dadi usually placed my breakfast.' The specific detail makes sadness real."
+          },
+          {
+            "label": "Rule of concrete writing",
+            "text": "Instead of the general (noun), name the specific (adjective + noun). Instead of 'animal,' say 'skinny cow.' Instead of 'food,' say 'warm dal with ghee.'"
+          }
+        ],
+        "inSimpleWords": "Specificity is the heart of good writing. The more specific you are, the more alive your words become.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "example",
         "title": "Ravi's Competition Entry",
         "storyContext": "Here is the opening of Ravi's competition essay, showing how far he'd come.",
@@ -187542,29 +192274,39 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🌟"
       },
       {
+        "kind": "story",
+        "title": "What Others Learned from Ravi",
+        "storyContext": "After Ravi won the competition, other struggling students came to Mr. Sharma. They said: If Ravi can do it, why cannot we? Mr. Sharma smiled. The secret had always been there: write about what you know, not what textbooks tell you to know. Soon, the whole class was writing concrete, vivid stories.",
+        "inSimpleWords": "Ravi success inspired others to discover their own powerful writing.",
+        "emoji": "📖"
+      },
+      {
         "kind": "concept",
-        "title": "The Power of Specificity",
-        "storyContext": "Mr. Sharma gave his class one final lesson on concrete writing: 'Every specific detail is a gift to the reader. Every vague word is a theft from them.'",
+        "title": "Concrete Language Makes All Writing Better",
+        "storyContext": "Mr. Sharma explained to the class: concrete writing is not just for English class. It is for every subject—history, science, even math word problems.",
         "points": [
           {
-            "label": "What specificity does",
-            "text": "It makes writing memorable. Readers remember 'the chipped enamel cup' far longer than 'the cup.'"
+            "label": "History essays",
+            "text": "Do not just say The Mughal Empire was powerful. Instead: The Mughal Emperor sat on a throne studded with rubies and emeralds, servants fanning him with peacock feathers as petitioners bowed before him."
           },
           {
-            "label": "Specificity builds trust",
-            "text": "When a writer gives exact details, readers trust them. They believe the writer was truly there and truly observed."
+            "label": "Science reports",
+            "text": "Not The experiment worked. Instead: When we added the acid, the solution fizzed and turned purple. Smoke rose from the beaker. The temperature dropped to 5 degrees C."
           },
           {
-            "label": "Specificity creates emotion",
-            "text": "Not 'I was sad,' but 'I stared at the empty plate where Dadi usually placed my breakfast.' The specific detail makes sadness real."
-          },
-          {
-            "label": "Rule of concrete writing",
-            "text": "Instead of the general (noun), name the specific (adjective + noun). Instead of 'animal,' say 'skinny cow.' Instead of 'food,' say 'warm dal with ghee.'"
+            "label": "Personal statements",
+            "text": "Not I am a good student. Instead: I stayed up until midnight finishing my project, my fingers stained with paint, my eyes tired but my heart full."
           }
         ],
-        "inSimpleWords": "Specificity is the heart of good writing. The more specific you are, the more alive your words become.",
-        "emoji": "🎯"
+        "inSimpleWords": "Concrete writing helps every type of writing become more alive and memorable.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "story",
+        "title": "Dadi Gets Recognized",
+        "storyContext": "One evening, the school magazine published an article about Ravi winning the competition. When Dadi read it, she saw her own wisdom reflected in her grandson words. The article quoted Mr. Sharma: Good storytelling runs in families. Ravi grandmother is the finest storyteller in the village. Dadi, who had never been to school, was finally recognized. She smiled and told Ravi: Beta, now everyone knows that an uneducated grandmother knows something that books do not teach.",
+        "inSimpleWords": "Ravi success also honored the wisdom of his grandmother, the real source of his gift for concrete, vivid storytelling.",
+        "emoji": "🌟"
       },
       {
         "kind": "recap",
@@ -187683,6 +192425,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Pride Before the Fall",
+        "storyContext": "Vikram dismissed Nath without another word. 'You are a shepherd! What could you know of war?' But deep down, something in Nath's parable unsettled him. Vikram had always charged first and won. But was that strategy, or just luck? He pushed the doubt away. Within weeks, the thought had vanished, and Vikram prepared for his great campaign.",
+        "inSimpleWords": "Vikram ignored the shepherd's warning and began preparing for a war he was confident he would win.",
+        "emoji": "🚫"
+      },
+      {
         "kind": "concept",
         "title": "Where Does Wisdom Live?",
         "storyContext": "Vikram dismissed Nath's words. 'You are a shepherd! What could you know of war?' But three months later, Vikram's army marched toward the kingdom of Malwa, confident of victory. Then, one night, a messenger arrived with news: an enemy army was already waiting in the mountain passes—a trap Vikram hadn't anticipated.",
@@ -187782,7 +192531,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "You're planning to start a small business selling snacks from your kitchen to earn money. You're excited and confident in your idea. Your grandmother, who once ran a small sweet shop, offers advice: 'Start small. Don't spend too much on ingredients yet. Watch the market first. See what people actually want to buy, not what you think they should want.'",
         "example": {
           "problem": "Do you listen to your grandmother's 'old-fashioned' advice and start small, or do you ignore her and do it your way, buying expensive ingredients and renting a bigger space?",
-          "solution": "Wisdom here is Listening to your grandmother. Her advice comes from experience—she's seen what works and what fails. If you start small and watch what sells, you'll avoid wasting money on ingredients no one buys. After a month, you'll know exactly what to expand. Your grandmother's wisdom saves you money and guides you to real success. The lesson: wisdom often wears a weathered face and speaks quietly. Don't dismiss it."
+          "solution": "Wisdom here is listening to your grandmother. Her advice comes from experience—she's seen what works and what fails. If you start small and watch what sells, you'll avoid wasting money on ingredients no one buys. After a month, you'll know exactly what to expand. Your grandmother's wisdom saves you money and guides you to real success. The lesson: wisdom often wears a weathered face and speaks quietly. Don't dismiss it."
         },
         "inSimpleWords": "When someone older or from a different world offers advice, pause and listen—they may have wisdom that protects you from mistakes.",
         "emoji": "🛂",
@@ -187806,7 +192555,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "points": [
           {
             "label": "From nature",
-            "text": "The Farmer knows the soil. The shepherd knows animals. The fisherman reads the sea. Nature teaches those patient enough to watch."
+            "text": "The farmer knows the soil. The shepherd knows animals. The fisherman reads the sea. Nature teaches those patient enough to watch."
           },
           {
             "label": "From experience",
@@ -187909,6 +192658,98 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "The wisdom you need is probably already around you in people you know. You just have to ask and listen.",
         "emoji": "👂"
+      },
+      {
+        "kind": "story",
+        "title": "The Legacy of Listening",
+        "storyContext": "After Vikram became wise, he changed how his kingdom was governed. He created councils where farmers, merchants, healers, and priests sat alongside generals. He listened to all voices. Under his wise rule, the kingdom flourished. Enemies became allies. Crops thrived. People felt heard and valued. And it all began when a young, proud king finally stopped to listen to an old shepherd.",
+        "inSimpleWords": "Vikram's humility and willingness to listen transformed his entire kingdom into a place of peace and prosperity.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "story",
+        "title": "Vikram Teaches His Children",
+        "storyContext": "Years after Vikram became wise, his own son was born. Vikram raised him differently. He brought him to the village to learn from farmers, shepherds, and merchants. The boy asked: Father, why do we listen to ordinary people? Vikram answered: Because they have seen what we have not.",
+        "inSimpleWords": "Vikram passed his hard-won wisdom to the next generation.",
+        "emoji": "👨‍👦"
+      },
+      {
+        "kind": "concept",
+        "title": "Recognizing When You Need Wisdom",
+        "storyContext": "Mr. Sharma taught his students: Wisdom becomes urgent at crossroads.",
+        "points": [
+          {
+            "label": "In relationships",
+            "text": "When your friend hurts you, ask: Is this friendship worth saving?"
+          },
+          {
+            "label": "In learning",
+            "text": "When a subject is hard, wisdom asks: Who has walked this path before?"
+          },
+          {
+            "label": "In decisions",
+            "text": "Wisdom asks for input from those with experience."
+          }
+        ],
+        "inSimpleWords": "Wisdom is most needed when you feel most certain.",
+        "emoji": "🚦"
+      },
+      {
+        "kind": "example",
+        "title": "Knowledge Without Wisdom",
+        "storyContext": "A scholar decided to dam a river without asking fishermen.",
+        "example": {
+          "problem": "The scholar was certain his engineering was perfect. But he ignored the fishermen who understood the river for 50 years.",
+          "solution": "The dam failed in monsoon season. It flooded villages. Knowledge without wisdom leads to failure. Wisdom combined with knowledge leads to success."
+        },
+        "inSimpleWords": "Knowledge without wisdom leads to failure.",
+        "emoji": "⚠️"
+      },
+      {
+        "kind": "concept",
+        "title": "Wisdom Is Not Perfection",
+        "storyContext": "Vikram asked Nath: Did you ever make mistakes? Nath laughed: Hundreds! But I learned from each.",
+        "points": [
+          {
+            "label": "Wisdom learns from failure",
+            "text": "Every mistake becomes a teacher."
+          },
+          {
+            "label": "Arrogance cannot fail",
+            "text": "An arrogant person cannot learn because they do not admit failure."
+          },
+          {
+            "label": "The path of wisdom",
+            "text": "Wisdom is the practice of admitting what you do not know."
+          }
+        ],
+        "inSimpleWords": "Wise people learn better from their mistakes.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "challenge",
+        "title": "When Wisdom Conflicts with Speed",
+        "storyContext": "Your friend is in crisis. You have 30 seconds to decide.",
+        "example": {
+          "problem": "Lend money, call adult, or ask more questions?",
+          "solution": "Even in crisis, a pause to understand is wisdom. Do not make blind decisions even under pressure."
+        },
+        "inSimpleWords": "Even in urgent moments, a pause to understand is wisdom.",
+        "emoji": "⏱️"
+      },
+      {
+        "kind": "story",
+        "title": "Vikram Legacy",
+        "storyContext": "After Vikram died, his kingdom lasted for generations. Later rulers continued his practice of listening to all people. The kingdom became known as a place where wisdom thrived.",
+        "inSimpleWords": "Vikram legacy lived on because wisdom, once chosen, becomes a habit.",
+        "emoji": "🏛️"
+      },
+      {
+        "kind": "story",
+        "title": "A Student Finds Wisdom",
+        "storyContext": "A student named Arjun came to Mr. Sharma and said: I understood Vikram story. I have been so sure about everything. I never asked anyone for help. Now I am starting to ask. It is strange—the more I listen, the more I realize I need to know.",
+        "inSimpleWords": "Arjun discovered that humility and listening are the beginning of wisdom.",
+        "emoji": "🎓"
       },
       {
         "kind": "recap",
@@ -188027,6 +192868,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Preparing for Battle",
+        "storyContext": "Somnath didn't panic. He spent the afternoon inspecting the defensive positions, checking supplies, and shoring up weak points. He moved from soldier to soldier, looking each one in the eye. Not a word of doubt escaped his lips. His calm steadied them. By evening, his men were ready—scared, but ready.",
+        "inSimpleWords": "Somnath prepared his men with calm confidence, giving them courage through his own steadiness.",
+        "emoji": "🔧"
+      },
+      {
         "kind": "concept",
         "title": "The Last Orders",
         "storyContext": "Somnath Sharma knew he was outnumbered. He dug trenches and fortified the position with every gun and ammunition he had. He positioned his men carefully—some at the front, some at the sides, some in reserve. He then wrote a final letter to his mother.",
@@ -188077,6 +192925,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Battle Begins — A Tale of Valour: Major Somnath Sharma and the Battle of Badgam",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "example",
+        "title": "In the Heart of Battle",
+        "storyContext": "Hour 3 of the battle: Ammunition running low. A nearby soldier took a bullet through the shoulder. Somnath knelt beside him and whispered: 'You fought well. The medic will take you now. Tell him I said you're to receive full honors.' The wounded soldier, hearing these words from his commander in the middle of chaos, found strength from a place he didn't know he had.",
+        "inSimpleWords": "Even in the chaos of battle, Somnath's care for his wounded soldiers showed his humanity and leadership.",
+        "emoji": "💙"
       },
       {
         "kind": "concept",
@@ -188246,6 +193101,98 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "We remember heroes not to glorify death, but to inspire courage and remind ourselves what humans are capable of at their best.",
         "emoji": "🕯️"
+      },
+      {
+        "kind": "story",
+        "title": "The Ashoka Chakra",
+        "storyContext": "After independence, India established the Ashoka Chakra—the highest military decoration for bravery. It was not for generals or celebrated commanders. It was for those who chose duty at the ultimate cost. Somnath Sharma was the first to receive it. His name became a symbol not of glory, but of something deeper: the quiet, steady courage of a young man who stood when others would flee.",
+        "inSimpleWords": "Somnath Sharma became the first recipient of India's highest military honor—not for victory, but for choosing duty and sacrifice.",
+        "emoji": "🏅"
+      },
+      {
+        "kind": "story",
+        "title": "Somnath Inspires the Army",
+        "storyContext": "After Somnath Sharma death, his name became a rallying call. Soldiers whispered his final words: Hold the fort! Over decades, thousands drew courage from his example.",
+        "inSimpleWords": "Somnath legacy inspired countless soldiers to understand duty.",
+        "emoji": "🎖️"
+      },
+      {
+        "kind": "concept",
+        "title": "Duty Versus Sacrifice",
+        "storyContext": "Mr. Sharma asked: Is duty always a sacrifice? Is sacrifice always duty?",
+        "points": [
+          {
+            "label": "Duty",
+            "text": "A responsibility you have chosen. A teacher has duty to students."
+          },
+          {
+            "label": "Sacrifice",
+            "text": "Giving up something important for duty. Somnath sacrificed his life."
+          },
+          {
+            "label": "Together",
+            "text": "Duty without sacrifice is lip service. Sacrifice without duty is martyrdom."
+          }
+        ],
+        "inSimpleWords": "Duty is what you commit to. Sacrifice is what it costs.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "example",
+        "title": "Quiet Acts of Valour",
+        "storyContext": "Not all valour ends in death. A social worker chooses low pay over comfort.",
+        "example": {
+          "problem": "A man stays with ill parents instead of pursuing dreams. A student stands against cheating.",
+          "solution": "These are acts of valour too. They require the same courage as Somnath—choosing duty over comfort. Valour is shown in quiet choices."
+        },
+        "inSimpleWords": "True valour is shown in quiet choices to do right despite cost.",
+        "emoji": "💫"
+      },
+      {
+        "kind": "concept",
+        "title": "Teaching Without Glorifying Death",
+        "storyContext": "We remember Somnath Sharma, but we do not wish him to die.",
+        "points": [
+          {
+            "label": "The trap",
+            "text": "Romanticizing death is dangerous. Somnath chose duty, not death."
+          },
+          {
+            "label": "Creating peace",
+            "text": "We should create a world where duty does not require death."
+          },
+          {
+            "label": "Honor without glorifying",
+            "text": "Learn from him. Work toward a world where fewer sacrifices are needed."
+          }
+        ],
+        "inSimpleWords": "Honor Somnath by creating a world where his sacrifice becomes unnecessary.",
+        "emoji": "🕊️"
+      },
+      {
+        "kind": "example",
+        "title": "Valour in Peacetime",
+        "storyContext": "Years after war, soldiers struggled to reintegrate.",
+        "example": {
+          "problem": "Many veterans struggled with trauma and isolation. Some lost their way.",
+          "solution": "The real challenge: showing the same courage to oneself. To seek help. To find new purpose. To honor comrades by living well. This too is valour."
+        },
+        "inSimpleWords": "Valour continues in the courage to heal and find peace.",
+        "emoji": "🌿"
+      },
+      {
+        "kind": "story",
+        "title": "The Memorial Today",
+        "storyContext": "Today, there is a memorial to Somnath Sharma in Srinagar. Every year, soldiers visit and renew their oath. Students visit and ask: How can I be that brave?",
+        "inSimpleWords": "Somnath death became a lesson in what nation-building means.",
+        "emoji": "🕯️"
+      },
+      {
+        "kind": "story",
+        "title": "Somnath Spirit Lives",
+        "storyContext": "Decades later, at a training academy for officers, young soldiers hear Somnath Sharma story. One cadet asks: Sir, would you do what he did? The senior officer pauses and says: I hope I never have to answer that. But I know now what duty means because of him.",
+        "inSimpleWords": "Somnath Sharma example shapes how soldiers understand their duty.",
+        "emoji": "⭐"
       },
       {
         "kind": "recap",
@@ -188503,6 +193450,238 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "What We Learned — Somebody's Mother",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Why Did Mary Dow Brine Write This Poem?",
+        "storyContext": "Mary Dow Brine, the poet, was inspired by real events. She witnessed many acts of kindness in her community. She also saw many acts of cruelty—people ignoring those in need. She wrote this poem to remind people: kindness is a choice. You see someone struggling, and you decide in that moment what kind of person you want to be. The poem became famous not because it's beautifully complex, but because it's profoundly true.",
+        "inSimpleWords": "The poet saw kindness in her community and wanted to celebrate it. She wrote the poem to inspire others to be kind too.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "concept",
+        "title": "Moral Themes: Duty vs. Sentiment",
+        "storyContext": "The poem teaches two things at once: duty (you should help) and sentiment (you feel moved to help). A dutiful person helps because it's the right thing to do. A sentimental person helps because they feel compassion. The poem shows both happening together. The young woman doesn't calculate whether she 'should' help. She simply acts. This is the highest form of morality—when duty and feeling align.",
+        "points": [
+          {
+            "label": "Duty",
+            "text": "As members of society, we have a duty to care for the vulnerable. This is not optional; it's foundational to being human."
+          },
+          {
+            "label": "Sentiment",
+            "text": "Beyond duty, we feel compassion. We see suffering and it moves us. This emotional connection is what makes kindness real, not robotic."
+          },
+          {
+            "label": "Dharma",
+            "text": "In Indian philosophy, 'dharma' means duty. Helping your neighbor, respecting elders—these are not favors; they are your dharma."
+          }
+        ],
+        "inSimpleWords": "The poem shows that the best kindness comes from both duty (it's the right thing) and feeling (my heart moves me).",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "example",
+        "title": "Kindness in Different Seasons",
+        "storyContext": "The poem is set in winter on a snowy street. But kindness is needed in every season. Think of summer: an old person struggling in the heat needs help to find shade and water. In monsoon: puddles and slippery paths are dangerous for the elderly. In spring: they might need help with planting or harvesting.",
+        "example": {
+          "problem": "How does the act of kindness change with seasons and circumstances?",
+          "solution": "The core is the same—noticing need and responding. But the form changes. Winter: help crossing ice. Summer: offer water and shade. Monsoon: steady arm on slippery ground. The poem captures one moment, but 'Somebody's Mother' needs help all year round. Our kindness must adapt to their need, not just our convenience."
+        },
+        "inSimpleWords": "Kindness isn't just one act. It's a constant awareness: 'Is someone's mother struggling? How can I help today?'",
+        "emoji": "🍂"
+      },
+      {
+        "kind": "story",
+        "title": "The Old Woman's Day",
+        "storyContext": "What was the old woman's life like? We know she's crossing a snowy street. But earlier that morning, maybe she woke alone. Maybe she's visiting her son or daughter. Maybe she's going to the market as she has for sixty years. The poem doesn't tell us, but we can imagine. The young woman's kindness might have made the difference between a painful, frightening day and a day she could manage with dignity.",
+        "inSimpleWords": "We don't know the old woman's full story, but we know the girl's kindness mattered deeply to her.",
+        "emoji": "👵"
+      },
+      {
+        "kind": "concept",
+        "title": "Absence of Judgment",
+        "storyContext": "The young woman doesn't judge the old woman. She doesn't think, 'Why is she out in such dangerous weather?' or 'She should have a younger person with her.' She simply sees need and responds. This non-judgmental kindness is rare and powerful.",
+        "points": [
+          {
+            "label": "No assumptions",
+            "text": "We often judge people in need, imagining they deserve their situation or brought it on themselves. The poem teaches us to suspend judgment and simply help."
+          },
+          {
+            "label": "Dignity in help",
+            "text": "Kindness that comes with judgment is humiliating. True kindness is given freely, without conditions or moral statements."
+          },
+          {
+            "label": "Real-world practice",
+            "text": "When someone asks for help, don't ask 'How did you get here?' or 'Did you bring this on yourself?' Just help. Judge later, if at all."
+          }
+        ],
+        "inSimpleWords": "Real kindness doesn't judge. It sees someone in need and helps—no questions asked, no blame assigned.",
+        "emoji": "🤐"
+      },
+      {
+        "kind": "challenge",
+        "title": "The Harder Choice",
+        "storyContext": "Now imagine a harder scenario: You see an old person struggling, but you're angry about something. You're sad. You're worried about your own problems. You're tired. The poem's young woman was 'hurried'—she was busy too. But she stopped.",
+        "example": {
+          "problem": "When you're struggling yourself, can you still help someone else? Is it selfish to help when you're in pain?",
+          "solution": "The poem suggests no. The young woman's concerns don't disappear. She's still hurried. But she stops anyway. This is the real test of kindness—not when it's easy, but when it costs you something. When you help despite your own struggles, you learn something profound about yourself. You learn that you're capable of compassion even in hardship. That's the lesson the poem quietly teaches."
+        },
+        "inSimpleWords": "Real kindness sometimes means helping even when you're struggling. It's hard—but it's the truest form of compassion.",
+        "emoji": "💪"
+      },
+      {
+        "kind": "concept",
+        "title": "The Structure of Consequence",
+        "storyContext": "The poem doesn't tell us if the young woman arrived late to her destination. It doesn't say she was praised for her kindness. It doesn't say her life changed. It simply ends. This teaching is crucial: good deeds don't always come with visible rewards or recognition in our lives. But that doesn't make them less important.",
+        "points": [
+          {
+            "label": "No guarantee of reward",
+            "text": "You might help and never know if it mattered. You might help and be overlooked. This is the truth of kindness."
+          },
+          {
+            "label": "Intrinsic value",
+            "text": "The goodness of the act is intrinsic. It doesn't require external validation. The act itself is the reward."
+          },
+          {
+            "label": "Faith in the good",
+            "text": "The poem asks us to trust in the ultimate goodness of kindness, even if we never see the results."
+          }
+        ],
+        "inSimpleWords": "You might help someone and never know if it mattered. But that's okay. The kindness is real whether or not the world notices.",
+        "emoji": "🙏"
+      },
+      {
+        "kind": "story",
+        "title": "The Poem's Legacy",
+        "storyContext": "This poem was published in the 1880s. It's now 2026—nearly 150 years later—and children are still reading it. Why? Because the lesson is timeless. Every generation faces the choice: help or ignore? The poem reminds us that kindness is ancient, necessary, and beautiful. It connects us to countless other people who have made the same choice throughout history.",
+        "inSimpleWords": "For 150 years, this poem has taught people to be kind. That's how powerful a simple story can be.",
+        "emoji": "⏳"
+      },
+      {
+        "kind": "example",
+        "title": "Kindness as Muscle Memory",
+        "storyContext": "Psychologists note that kindness, like any habit, becomes stronger with practice. The more you help, the quicker you respond to need. The young woman in the poem stops without hesitation. Why? Likely because she's practiced kindness before.",
+        "example": {
+          "problem": "How do we build the habit of kindness? How do we become the person who stops?",
+          "solution": "Start small. Help at home: carry your grandmother's water pot. Help in school: pick up a classmate's dropped book. Help in your community: sweep the shop front. Each small act strengthens the muscle. One day, when an old woman stumbles on an icy street, you don't think. You stop. The habit has become who you are. This is the poem's real teaching: become a kind person, not just someone who does kind things occasionally."
+        },
+        "inSimpleWords": "Practice kindness in small ways every day. Soon, helping becomes automatic. You become someone's guardian angel.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "concept",
+        "title": "Intersectionality: Age, Gender, Power",
+        "storyContext": "The poem features a young woman (strong, mobile) helping an old woman (frail, vulnerable). This plays on natural differences in power and ability. But the poem also suggests something deeper: the young woman's own future. She will grow old too. She's helping the person she will someday be. This is profound wisdom about interdependence.",
+        "points": [
+          {
+            "label": "We all grow old",
+            "text": "Youth seems endless when you're young. But everyone ages. The kind act is an investment in your own future self."
+          },
+          {
+            "label": "Interdependence",
+            "text": "We are not independent atoms. We are all dependent on others at different times. Kindness is the currency of our mutual survival."
+          },
+          {
+            "label": "Cycles of care",
+            "text": "Children need care. Adults give care. Elders need care again. And maybe their children—now adults—give care to them. This cycle repeats. The poem is about recognizing your place in the cycle."
+          }
+        ],
+        "inSimpleWords": "The poem shows that we all depend on kindness at different times. Today you help others. Tomorrow, someone will help you.",
+        "emoji": "♻️"
+      },
+      {
+        "kind": "challenge",
+        "title": "Cultural Kindness: How Different Societies Teach This",
+        "storyContext": "Different cultures have different ways of encoding kindness. In Japan, respect for elders is core to society. In India, the concept of 'seva' (selfless service) is taught in schools. In Nordic countries, 'friluftsliv' (love of nature and outdoor life) often extends to communal care.",
+        "example": {
+          "problem": "What does your culture teach about helping elders and strangers? How is kindness valued in your community?",
+          "solution": "Reflect on stories, proverbs, and values from your own culture. Maybe you've heard: 'Respect your elders,' or 'A guest is God.' These are your culture's version of 'Somebody's Mother.' Recognizing these deep values helps you understand why kindness matters. It's not just individual morality; it's cultural identity. By helping an old woman cross the street, you're participating in a tradition that goes back generations in your own community."
+        },
+        "inSimpleWords": "Every culture teaches kindness to elders, but in different ways. Discover the kindness traditions in your own culture.",
+        "emoji": "🌏"
+      },
+      {
+        "kind": "story",
+        "title": "The Silent Witness",
+        "storyContext": "The poem ends with the young woman hurrying away. Did anyone see her kindness? The poem doesn't say. But it suggests that many small, unwitnessed acts of kindness happen every day in every city. They're invisible to history, invisible to social media, invisible to anyone seeking credit. Yet they hold the world together.",
+        "inSimpleWords": "Most kindness goes unnoticed. But these quiet, invisible acts are what make communities work.",
+        "emoji": "👁️"
+      },
+      {
+        "kind": "concept",
+        "title": "Vulnerability and Courage",
+        "storyContext": "For the old woman to accept help, she must admit her vulnerability. She can't cross alone. For the young woman to help, she must risk being late, being judged, being inconvenienced. Both require courage. Kindness is not easy when it requires admitting need or risking loss.",
+        "points": [
+          {
+            "label": "Asking for help is brave",
+            "text": "The old woman could have tried to cross alone and fallen. Accepting help takes courage and humility."
+          },
+          {
+            "label": "Giving up convenience is brave",
+            "text": "The young woman could have passed by. Stopping to help, risking lateness, takes a different kind of courage."
+          },
+          {
+            "label": "Both are vulnerable",
+            "text": "In the moment of kindness, both people are vulnerable. That's where trust is born. That's where humanity is created."
+          }
+        ],
+        "inSimpleWords": "Kindness requires both the giver and receiver to be vulnerable and brave. That's what makes it real.",
+        "emoji": "🦁"
+      },
+      {
+        "kind": "example",
+        "title": "Kindness in the Age of Hurry",
+        "storyContext": "We live in a fast world. Everyone is rushing. But the poem was written in 1880 when the world was also fast—trains, factories, cities. The young woman was 'hurried' then too. Nothing has changed about the human condition: we're always busy. Yet kindness requires stopping. It requires choosing 'somebody's mother' over our schedule.",
+        "example": {
+          "problem": "In modern life, how do we find time to help when we're always rushing?",
+          "solution": "The poem suggests that the question itself is wrong. You don't 'find time.' You make time. You stop. The young woman didn't wait until she was free—she was never going to be free. She stopped anyway. Her day was disrupted, and that's okay. In fact, that disruption is the whole point. Kindness disrupts our plans in the best way. It reminds us what matters."
+        },
+        "inSimpleWords": "We're all busy. But kindness means stopping anyway. Interrupting your day to help someone—that's the real lesson.",
+        "emoji": "⏱️"
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: Write Your Own Kindness Story",
+        "storyContext": "Now it's your turn to observe and record. Look around your life for a quiet act of kindness you've seen or experienced. Maybe a neighbor brought vegetables to a lonely elderly person. Maybe a friend gave their lunch to someone who had none. Maybe your grandparent helped carry something heavy.",
+        "example": {
+          "problem": "Can you describe an act of kindness you've observed? Who helped? Who was helped? Why did they help? What changed?",
+          "solution": "Write it down or tell it aloud. This is how we honor kindness—by witnessing it, remembering it, passing it on. Your story becomes part of the tradition. Just as Mary Dow Brine recorded one kindness 150 years ago, your story might inspire someone today or tomorrow. You become a witness, just as the poet was. You become a guardian of the kindness in your community."
+        },
+        "inSimpleWords": "Notice kindness in your own life. Record it. Share it. Become a storyteller of goodness, like Mary Dow Brine was.",
+        "emoji": "✍️"
+      },
+      {
+        "kind": "story",
+        "title": "Your Own Somebody's Mother",
+        "storyContext": "Now imagine: years pass. You've grown older. You're in a hurry one day, and you see someone struggling. Maybe it's an old person, or maybe it's a young mother with a crying baby, or a homeless person shivering in winter. In that moment, you remember the poem. You remember the young woman who stopped. And you make a choice: you stop too. Suddenly, YOU are the one in the poem. You've become the kind person. The poem's lesson has become your action.",
+        "inSimpleWords": "One day, you'll be the person in the poem—the one who stops to help. The poem prepares your heart for that moment.",
+        "emoji": "🌅"
+      },
+      {
+        "kind": "recap",
+        "title": "The Full Circle of Learning",
+        "points": [
+          {
+            "text": "The poem teaches empathy: 'Somebody's Mother' reminds us that every stranger has a family, a life, a story worth respecting."
+          },
+          {
+            "text": "Kindness is done without reward or recognition. It's intrinsic, real, and powerful."
+          },
+          {
+            "text": "The poem's simple language and rhythm make it memorable and timeless. Form and content align perfectly."
+          },
+          {
+            "text": "Kindness requires both the giver and receiver to be vulnerable and brave. Interdependence is the human condition."
+          },
+          {
+            "text": "We practice kindness to become kind people. Habit transforms character."
+          },
+          {
+            "text": "Small, unwitnessed acts of kindness hold communities together and echo through generations."
+          }
+        ],
+        "inSimpleWords": "Somebody's Mother' is a love letter to kindness. It asks us: will you stop for 'somebody's mother'? Will you be the person who sees and helps? The answer defines who we are.",
+        "emoji": "💖"
       }
     ]
   },
@@ -188717,6 +193896,251 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "What We Learned — Verghese Kurien - I Too Had a Dream",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Kurien's Sacrifice: Leaving Bombay",
+        "storyContext": "Many people knew about the farmers' plight. But Kurien was different. He actually left his job. He moved to Anand, a small town. He gave up city life, comfort, predictable career advancement. His family wondered if he was making a mistake. But Kurien had a conviction: seeing injustice and doing nothing makes you complicit. He chose action over comfort.",
+        "inSimpleWords": "Kurien gave up everything—job, city, comfort—to help poor farmers. That's how serious his dream was.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "concept",
+        "title": "Systems vs. Charity",
+        "storyContext": "Kurien didn't just give money to poor farmers. He didn't start a charity. He designed a SYSTEM that made them self-sufficient. This is the difference between charity (temporary relief) and justice (permanent change). Charity gives a fish. Systems teach fishing. Kurien's genius was understanding this distinction.",
+        "points": [
+          {
+            "label": "Charity vs. justice",
+            "text": "Charity helps one person once. Justice transforms how the whole system works so people aren't desperate in the first place."
+          },
+          {
+            "label": "Systems design",
+            "text": "A good system doesn't need heroes to keep it working. It's built so that ordinary people, acting in self-interest, create fair outcomes."
+          },
+          {
+            "label": "Sustainability",
+            "text": "Kurien's cooperative is still running strong 80 years later because it's a system, not dependent on one person's goodwill."
+          }
+        ],
+        "inSimpleWords": "Kurien didn't give handouts. He designed a system where farmers could feed themselves with dignity forever.",
+        "emoji": "⚙️"
+      },
+      {
+        "kind": "example",
+        "title": "The Power of Scale: One Farmer to Millions",
+        "storyContext": "When Kurien started, there were a few hundred farmers in one district. Today, millions of farmers across India are part of cooperative dairies. The model didn't change. The scale did. What started as solving one local problem became a national revolution.",
+        "example": {
+          "problem": "How does a local idea become a national movement?",
+          "solution": "Kurien showed the government that his model worked. He documented results: farmers' income rose 300%. Milk production tripled. Children's nutrition improved. The government funded the expansion. Within 20 years, cooperatives spread to every state. Kurien didn't personally start every dairy. He created a model so effective that others wanted to copy it. That's how systemic change happens—through replicable design, not individual heroism."
+        },
+        "inSimpleWords": "Kurien's cooperative model was so good that it spread across all of India. One idea, proven locally, changed a nation.",
+        "emoji": "📈"
+      },
+      {
+        "kind": "story",
+        "title": "The Hardest Fight: Political Resistance",
+        "storyContext": "Not everyone wanted the cooperative to succeed. Middlemen lost profits. Some politicians were bribed by middlemen. Kurien faced opposition from powerful people. He received death threats. But he persisted. He built alliances with farmer leaders like Tribhuvandas Patel. He convinced the government to support him. He didn't win every battle, but he won the war through persistence and moral clarity.",
+        "inSimpleWords": "Powerful people tried to stop Kurien because they were making money from exploitation. But he didn't give up.",
+        "emoji": "⚔️"
+      },
+      {
+        "kind": "concept",
+        "title": "Innovation in a Traditional Sector",
+        "storyContext": "Dairy farming is ancient. Milk has been produced in India for thousands of years. But Kurien brought modern technology: pasteurization, refrigeration, packaging, branding, marketing. He combined tradition (farmers raising cows) with innovation (modern processing and distribution). This blend was revolutionary.",
+        "points": [
+          {
+            "label": "Respecting tradition",
+            "text": "Kurien didn't dismiss traditional farming. He built on it, made it viable in the modern world."
+          },
+          {
+            "label": "Modern solutions",
+            "text": "He imported modern dairy technology from Europe and adapted it to India. He didn't reinvent; he smartly borrowed and adapted."
+          },
+          {
+            "label": "Cultural fit",
+            "text": "Amul's branding used Indian imagery (the girl with a tilak). It felt Indian while being modern. This cultural rootedness made it powerful."
+          }
+        ],
+        "inSimpleWords": "Kurien took ancient tradition (dairy farming) and combined it with modern technology (factories, refrigeration, branding). The result was magic.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "challenge",
+        "title": "The Global Context: India vs. the World",
+        "storyContext": "In the 1950s, India was considered an agricultural nation, not an industrial power. Other countries produced milk using modern factories and paid workers. India had small farmers with cows. Yet Kurien made India the world's largest milk producer by harnessing what it already had: millions of farmers and abundant cattle.",
+        "example": {
+          "problem": "How can a 'backward' agricultural nation compete with industrial powers?",
+          "solution": "Kurien showed a different path. He didn't try to build massive industrial dairies. He organized small farmers into cooperatives. He used their numbers as strength. The result: India now produces more milk than the USA, despite being a poorer nation. Kurien proved that modernity doesn't mean abandoning your people or resources. It means organizing them brilliantly."
+        },
+        "inSimpleWords": "Kurien showed India how to beat rich countries—not by copying them, but by using what India had: farmers, cows, and smart organization.",
+        "emoji": "🌐"
+      },
+      {
+        "kind": "story",
+        "title": "Amul Girl: Branding a Movement",
+        "storyContext": "Amul's mascot—the playful girl in braids with a tilak—became as famous as the product. She was drawn to be mischievous, confident, Indian. Amul used humor and wit in advertising (famous lines like 'Amul Macho' butter with a bodybuilder). This branding was genius. It made milk modern and Indian at once. A grandmother could trust it; a child would ask for it.",
+        "inSimpleWords": "Amul's cute girl mascot and smart, funny ads made milk a brand people loved, not just a product they needed.",
+        "emoji": "👧"
+      },
+      {
+        "kind": "concept",
+        "title": "Quality Control as Social Contract",
+        "storyContext": "Amul's trust was built on one simple promise: what you see is what you get. Every bottle of Amul milk is the same quality, everywhere in India. No adulteration, no watering down. Farmers know if they dilute milk, the cooperative will test it and reject it. Consumers know if they buy Amul, it's pure. This social contract—clear rules, fair enforcement—is the foundation of the system.",
+        "points": [
+          {
+            "label": "Trust requires consistency",
+            "text": "You can't have quality sometimes and adulterate sometimes. It's all or nothing. Amul chose all."
+          },
+          {
+            "label": "Testing and accountability",
+            "text": "Every batch of milk is tested. Farmers who cheat are penalized. Consumers can complain. The system is transparent."
+          },
+          {
+            "label": "In modern context",
+            "text": "Amul's quality assurance is a model. Today's companies that last are those that prioritize quality over short-term profit."
+          }
+        ],
+        "inSimpleWords": "Amul succeeded because of a simple rule: honest milk, every time. Farmers and consumers both trusted that rule.",
+        "emoji": "✅"
+      },
+      {
+        "kind": "example",
+        "title": "Kurien's Personal Cost",
+        "storyContext": "Kurien worked 16-hour days for decades. He lived modestly despite his impact. He didn't become rich. He watched his children grow up while he was away building dairies. He lost personal relationships because his marriage couldn't survive his obsession with work.",
+        "example": {
+          "problem": "What is the personal cost of greatness? Should we celebrate leaders who sacrifice their families?",
+          "solution": "This is a hard question. Kurien's work changed millions of lives. But his own family paid a price. The lesson isn't that sacrifice is noble—it's that meaningful change requires commitment, and commitment has costs. Modern leaders must ask: can I do great work without destroying my personal life? Can I change systems without burning out? Kurien's life is inspirational AND cautionary. Admire his impact; learn from his mistakes."
+        },
+        "inSimpleWords": "Kurien changed a nation but lost his personal life in the process. His story teaches both inspiration and caution.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "concept",
+        "title": "From Individual to Institution",
+        "storyContext": "Kurien's genius was understanding that he couldn't personally run Amul forever. He built an institution that could outlast him. He trained managers, established protocols, created a culture. When he retired at 85, Amul continued smoothly. This is the mark of true leadership: making yourself redundant through building systems.",
+        "points": [
+          {
+            "label": "Building institutions",
+            "text": "Great leaders create organizations that survive them. Amul survived Kurien's death because it was an institution, not a personality cult."
+          },
+          {
+            "label": "Succession planning",
+            "text": "Kurien identified and trained the next generation. He let go. This is rare and admirable in leaders."
+          },
+          {
+            "label": "Legacy",
+            "text": "Kurien's true legacy isn't Amul. It's the model of cooperative enterprise that has been copied worldwide."
+          }
+        ],
+        "inSimpleWords": "Kurien's greatest achievement was building an institution so strong it didn't need him anymore. That's real leadership.",
+        "emoji": "🏛️"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenges Facing Modern Cooperatives",
+        "storyContext": "Today, Amul faces new challenges: e-commerce competitors, shifting dietary preferences, climate change threatening cattle production, and corporate consolidation in the dairy industry.",
+        "example": {
+          "problem": "How can a 75-year-old cooperative model compete with modern e-commerce and globalized food production?",
+          "solution": "Amul is adapting. It's using digital platforms to reach consumers. It's diversifying into new products (flavored milk, protein shakes). It's investing in cow welfare and sustainable practices. It's maintaining its core principle: farmer ownership and fair prices. The challenge is to stay true to mission while innovating. Kurien's lesson remains: systems must adapt or die. But they must adapt while keeping their soul."
+        },
+        "inSimpleWords": "Amul must modernize to survive. But it must not abandon Kurien's core principle: farmers come first.",
+        "emoji": "🔮"
+      },
+      {
+        "kind": "story",
+        "title": "Kurien's Vision: Not Just Milk, But Empowerment",
+        "storyContext": "Kurien often said: 'I didn't come to produce milk. I came to change the lives of poor farmers.' Milk was the vehicle. The destination was dignity. Farmers who once begged for fair prices now owned their dairies. Women farmers now have a stable income and status in their families. Children go to school because there's money. That's Kurien's real revolution.",
+        "inSimpleWords": "Kurien's dream wasn't just about milk. It was about making poor farmers rich, respected, and independent.",
+        "emoji": "👑"
+      },
+      {
+        "kind": "concept",
+        "title": "Lesson for Future Changemakers",
+        "storyContext": "Kurien's story offers a blueprint for anyone wanting to change the world. First, see injustice clearly. Second, understand the root cause (middlemen, not lazy farmers). Third, design a system that addresses the cause, not just the symptom. Fourth, build alliances. Fifth, persist through opposition. Sixth, create an institution that outlasts you.",
+        "points": [
+          {
+            "label": "Clear vision",
+            "text": "Know exactly what you want to change and why. Don't be vague."
+          },
+          {
+            "label": "Systems thinking",
+            "text": "Address root causes with structural solutions, not handouts."
+          },
+          {
+            "label": "Persistence",
+            "text": "Expect resistance. Plan for decades, not months. Kurien worked for 60 years."
+          },
+          {
+            "label": "Institutional legacy",
+            "text": "Make yourself unnecessary. Build something that survives you."
+          }
+        ],
+        "inSimpleWords": "Kurien's blueprint for change: see injustice, design a system, build alliances, persist, and create an institution.",
+        "emoji": "📋"
+      },
+      {
+        "kind": "story",
+        "title": "Amul Today: Kurien's Legacy Lives On",
+        "storyContext": "Kurien passed away in 2012, but Amul continues. Farmers across India still wake at dawn to milk their cows, knowing they'll get fair prices. Children still drink Amul milk in school programs. The brand is still synonymous with trust. Every time someone buys Amul, they're participating in Kurien's dream. His vision didn't end with his death—it's woven into the fabric of Indian society.",
+        "inSimpleWords": "Kurien is gone, but his dream lives on through Amul and millions of farmers. His impact is permanent.",
+        "emoji": "⏳"
+      },
+      {
+        "kind": "concept",
+        "title": "What Would You Change? Learning to Think Like Kurien",
+        "storyContext": "The lesson isn't: become another Kurien. It's: see what Kurien saw. Notice when systems are broken. Ask: who's being exploited? What structural change could help? How can I empower people instead of just helping them? These questions can apply to education, healthcare, agriculture, business—any system.",
+        "points": [
+          {
+            "label": "See injustice",
+            "text": "First, you must see the problem clearly. Not just 'people are poor,' but 'middlemen are stealing their profits.'"
+          },
+          {
+            "label": "Design systems",
+            "text": "Think structurally. Don't ask, 'How do I help person X?' Ask, 'How do I redesign the system so no one like X is exploited?'"
+          },
+          {
+            "label": "Persistence",
+            "text": "Real change takes decades. You must commit to the long game. Kurien didn't expect results in a year; he planned for 60 years."
+          }
+        ],
+        "inSimpleWords": "Learn from Kurien to spot broken systems in your own community. Ask: how could this be redesigned to be fair?",
+        "emoji": "🔧"
+      },
+      {
+        "kind": "story",
+        "title": "Your Cooperative: What Would You Build?",
+        "storyContext": "Imagine you have a problem in your community that you want to solve using Kurien's cooperative model. Maybe students in rural areas can't afford textbooks. Maybe local artisans can't sell their crafts. Maybe small traders are undercut by big corporations. Pick any problem. Now ask: could a cooperative solve it? How would you structure it? Who would own it? How would you make it sustainable?",
+        "inSimpleWords": "Kurien's legacy is teaching you to imagine cooperative solutions to real problems in your life and community.",
+        "emoji": "💭"
+      },
+      {
+        "kind": "recap",
+        "title": "The White Revolution: Full Circle",
+        "points": [
+          {
+            "text": "Verghese Kurien was an engineer who chose purpose over comfort and walked away from a safe job."
+          },
+          {
+            "text": "He saw dairy farmers exploited by middlemen and designed a cooperative model to eliminate exploitation."
+          },
+          {
+            "text": "The model spread across India, transforming it into the world's largest milk producer—the 'White Revolution.'"
+          },
+          {
+            "text": "Amul became a trusted brand and symbol of quality, fairness, and Indian pride."
+          },
+          {
+            "text": "Kurien's genius was systems design: he didn't give charity; he redesigned the entire system so farmers could prosper."
+          },
+          {
+            "text": "Millions of farmers now earn dignified income. Millions of children have access to milk and nutrition."
+          },
+          {
+            "text": "Kurien's legacy is both inspirational and cautionary: he changed a nation but at great personal cost. Real change requires sacrifice."
+          }
+        ],
+        "inSimpleWords": "Kurien's story proves that one person with a clear vision, armed with systems thinking and persistence, can transform a nation. His dream fed India and changed millions of lives.",
+        "emoji": "🌟"
       }
     ]
   },
@@ -188931,6 +194355,244 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "What We Learned — The Case of the Fifth Word",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Why Do Detectives Love Riddles?",
+        "storyContext": "A detective's job is to notice what others miss. Riddles train this skill. A riddle says: 'Look at these words. There's a secret. Find it.' Detectives practice riddles to sharpen their minds. They learn that first impressions lie. They learn that the obvious answer is often wrong. They learn to question everything. Riddles are detective training.",
+        "inSimpleWords": "Riddles are like gym workouts for detective brains. They teach you to notice hidden truths.",
+        "emoji": "🧩"
+      },
+      {
+        "kind": "concept",
+        "title": "The Layers of Language",
+        "storyContext": "Every piece of language has layers. The surface meaning (what the words literally say). The emotional meaning (how the words make you feel). The contextual meaning (what the words mean given the situation). The subtext (what's implied but not said). A skilled reader reads all layers at once. The detective reads all layers to solve the case.",
+        "points": [
+          {
+            "label": "Surface meaning",
+            "text": "'I'm fine' = I'm okay. This is the literal meaning."
+          },
+          {
+            "label": "Emotional meaning",
+            "text": "The flat tone suggests 'I'm not really fine.' Emotion colors words."
+          },
+          {
+            "label": "Subtext",
+            "text": "Maybe they're avoiding eye contact. Maybe they said it quickly. These silent signals matter."
+          }
+        ],
+        "inSimpleWords": "Words are like icebergs. What you see (the surface) is only part of the meaning. The hidden part (below the surface) tells the real story.",
+        "emoji": "🏔️"
+      },
+      {
+        "kind": "example",
+        "title": "A Story Within a Story: Nested Mysteries",
+        "storyContext": "Imagine a detective reads a love letter. On the surface: 'I miss you desperately.' But every fifth word is capitalized: 'I MISS you desperately SEND.' The detective realizes: the letter is a code! The hidden message is 'MISS SEND'—the lover is desperate to be sent for. A story hidden within a story. This is what 'fifth word' really teaches: secrets hide in plain sight.",
+        "example": {
+          "problem": "How do you find a secret message hidden in ordinary words?",
+          "solution": "By reading actively, not passively. By counting. By noticing patterns. By asking: why is THIS word capitalized? Why did they CHOOSE this particular phrasing? Detectives don't just accept surface meaning. They dig. The fifth word principle teaches: go beneath the surface. Ask questions. Count carefully. Patterns reveal themselves to the patient observer."
+        },
+        "inSimpleWords": "Secrets hide in plain sight if you read carefully enough. Every word might be a clue.",
+        "emoji": "📬"
+      },
+      {
+        "kind": "story",
+        "title": "The Confession: Why Words Betray Guilt",
+        "storyContext": "A criminal confesses: 'I didn't steal the car. Someone else must have stolen it.' But notice: the first sentence uses past tense, present perfect. The second uses simple past. The detective asks: 'How do you know it was stolen if you just found out?' The criminal slips. The words reveal inconsistency. Words betray guilt because guilt is hard to hide linguistically. You have to maintain a false story, and language is too complex. Liars trip up on tenses, pronouns, details.",
+        "inSimpleWords": "Liars have trouble keeping their false story consistent. Their words betray them. That's why listening carefully matters.",
+        "emoji": "🚨"
+      },
+      {
+        "kind": "concept",
+        "title": "Linguistic Patterns and Personality",
+        "storyContext": "Different people use language differently. A confident person says 'I know.' A tentative person says 'I think maybe possibly.' A kind person includes people in their language: 'We can do this.' A selfish person centers themselves: 'I deserve this.' Over time, patterns emerge. A detective can identify personality type, honesty level, education, emotional state—all from language patterns.",
+        "points": [
+          {
+            "label": "Confidence markers",
+            "text": "'Definitely,' 'absolutely,' 'I know'—these show confidence. 'Maybe,' 'sort of,' 'I guess'—these show uncertainty."
+          },
+          {
+            "label": "Pronouns matter",
+            "text": "'I' is selfish/confident. 'We' is inclusive. 'You' can be accusatory or friendly depending on context. Pronouns reveal relationships."
+          },
+          {
+            "label": "Vocabulary level",
+            "text": "A person's word choices reveal education, class, and formality level. These can't be faked easily."
+          }
+        ],
+        "inSimpleWords": "The way people talk reveals who they are. Confident people talk confidently. Kind people include others. Liars fumble.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "challenge",
+        "title": "Analyze a Famous Quote",
+        "storyContext": "Here's a quote attributed to a historical figure: 'The only thing we have to fear is fear itself.' Let's analyze it like a detective.",
+        "example": {
+          "problem": "What does this sentence reveal about the speaker? What's the main emotion? What's the subtext?",
+          "solution": "First word: 'The'—definitive, certain. 'Only thing'—absoluteness, no compromise. 'We'—inclusive, addressing a nation together. 'Fear is fear'—tautology, a kind of circular reasoning that emphasizes inevitability. The fifth word is 'fear.' And the sentence is about fear. This is self-referential like the riddle. The speaker is using language to confront fear head-on. By saying 'only fear is fear,' they're saying fear itself is the only enemy. Courage is the antidote. The language structure mirrors the philosophy: simple, direct, no ambiguity."
+        },
+        "inSimpleWords": "Great quotes are built with precise language. Every word is chosen for power. Analyze them like a detective, and you'll see the art.",
+        "emoji": "💬"
+      },
+      {
+        "kind": "story",
+        "title": "The Silent Clue: What Isn't Said",
+        "storyContext": "A detective interviews a suspect and notices what ISN'T mentioned. Someone stole from a store. The suspect denies knowledge. But they never ask: 'Who stole it?' or 'Why would anyone steal?' They're curiously incurious. This silence is a clue. Sometimes the fifth word is actually the missing word. What should be there but isn't?",
+        "inSimpleWords": "Detectives listen for silences too. What's NOT said can be as revealing as what IS said.",
+        "emoji": "🤫"
+      },
+      {
+        "kind": "concept",
+        "title": "Rhetoric: The Art of Persuasion Through Words",
+        "storyContext": "The detective reads not just to understand facts, but to understand HOW people manipulate language to persuade. A politician might say: 'The majority agrees.' But they don't say how many or which majority. A salesperson says: 'Limited time offer!' But maybe it's always limited. Rhetoric is the art of choosing words to persuade. Detectives (and careful readers) learn to see through rhetoric.",
+        "points": [
+          {
+            "label": "Vague language",
+            "text": "'Most people,' 'everyone knows,' 'obviously'—these sound definite but are actually vague. Beware vague absolutes."
+          },
+          {
+            "label": "Loaded words",
+            "text": "'Terrorist' vs. 'freedom fighter'—same person, different words. Word choice loads emotion."
+          },
+          {
+            "label": "Omission",
+            "text": "'All profits go to charity' sounds good, but omits: how much is 'all'? What happens to the rest? Missing information is manipulation."
+          }
+        ],
+        "inSimpleWords": "People use words to persuade and manipulate. Learn to spot these tricks. Ask: what word did they CHOOSE? What words did they AVOID?",
+        "emoji": "🎩"
+      },
+      {
+        "kind": "example",
+        "title": "Analyzing Your Own Language",
+        "storyContext": "Now apply detective skills to yourself. When you speak or write, what words do you naturally choose? Do you use 'I' a lot (self-focused) or 'we' (inclusive)? Do you use absolutes ('always,' 'never') or tentatives ('sometimes,' 'maybe')? Do you ask questions or make statements?",
+        "example": {
+          "problem": "What does your language reveal about your personality and beliefs?",
+          "solution": "Record yourself or read your texts. Analyze like a detective analyzes suspects. If you always say 'I should,' 'I must,' 'I have to'—you might be stressed or self-critical. If you say 'Maybe we could try...,' you might be collaborative but uncertain. There's no 'right' way to speak. But noticing your patterns helps you understand yourself. And if you want to change (become more assertive, kinder, more confident), you can consciously change your language, and your personality will follow."
+        },
+        "inSimpleWords": "Your language reveals you. Listen to yourself like a detective. What patterns do you see?",
+        "emoji": "🪞"
+      },
+      {
+        "kind": "story",
+        "title": "The Case Closes: What We've Learned",
+        "storyContext": "Our detective solved the case by paying attention to the fifth word. But the real case was larger: learning to read deeply, to listen actively, to notice what others miss. The detective's skill isn't magical. It's cultivated through practice. You've been practicing throughout this lesson: counting words, analyzing language, noticing patterns. You've been training to become a detective of language.",
+        "inSimpleWords": "By studying the fifth word, you've learned to read and listen like a detective. This skill will serve you in reading, writing, and life.",
+        "emoji": "🏆"
+      },
+      {
+        "kind": "concept",
+        "title": "The Neuroscience of Language Attention",
+        "storyContext": "When you deliberately pay attention to words—counting them, analyzing them, questioning them—you activate different parts of your brain than passive reading. Passive reading is automatic. Careful reading is active. Your brain lights up differently. Over time, this trains your brain to notice details, spot patterns, and solve problems. The fifth word principle is a brain-training exercise.",
+        "points": [
+          {
+            "label": "Active reading strengthens memory",
+            "text": "When you count and analyze, you remember better. Passive reading fades fast."
+          },
+          {
+            "label": "Pattern recognition improves",
+            "text": "By deliberately looking for patterns (the fifth word, hidden meanings), you train pattern recognition globally."
+          },
+          {
+            "label": "Critical thinking develops",
+            "text": "Questioning language leads to questioning everything else. This is how critical thinkers think."
+          }
+        ],
+        "inSimpleWords": "Paying close attention to words isn't just fun. It strengthens your brain and teaches you to think deeply.",
+        "emoji": "🧠"
+      },
+      {
+        "kind": "challenge",
+        "title": "Create Your Own Fifth-Word Riddle",
+        "storyContext": "Now it's your turn to be the riddle writer, not just the solver. Create a sentence where the fifth word holds a secret or creates a clever twist.",
+        "example": {
+          "problem": "Write a riddle or clue where the fifth word is key to the answer.",
+          "solution": "Example: 'I am thinking about going to the store.' The fifth word is 'to.' The sentence is about 'going to.' See? Simple. Or deeper: 'She said she did not actually steal the watch.' The fifth word is 'did.' But 'did' is in the negative context. Is she saying she stole it? By creating riddles, you learn how crafted language works. You become a writer who plays with words intentionally. You join Mary Dow Brine and Shakespeare—people who understood that language is both music and meaning."
+        },
+        "inSimpleWords": "Write your own fifth-word riddle. Become a language artist, not just a reader.",
+        "emoji": "✍️"
+      },
+      {
+        "kind": "concept",
+        "title": "From Riddles to Real Life: Applied Observation",
+        "storyContext": "Riddles are playgrounds for training real skills. A riddle isn't just wordplay. It's teaching you to notice things in real conversations, real writing, real interactions. When someone says they're 'fine' but uses a flat tone, you catch it (like the detective caught the shifted grammar). When an ad says 'limitless,' you count the limits. When a friend says 'I would never,' you notice they didn't say 'I didn't.' Real-life detective work uses riddle skills daily.",
+        "points": [
+          {
+            "label": "In conversations",
+            "text": "Notice when people change their story, use vague language, or emphasize certain words. These are clues to their real feelings."
+          },
+          {
+            "label": "In reading",
+            "text": "When you read online news or social media, apply detective skills: who benefits from this framing? What's not being said? What's the hidden agenda?"
+          },
+          {
+            "label": "In writing",
+            "text": "When you write, notice your own word choices. Are you being honest or evasive? Does your language match your intent?"
+          }
+        ],
+        "inSimpleWords": "Riddle-solving teaches you to spot tricks in real life—from conversations to media to your own words.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "story",
+        "title": "The Reader Becomes the Detective",
+        "storyContext": "You've now learned to read like a detective. You notice fifth words. You spot patterns. You question assumptions. You listen for what's NOT said. The next time you read a book, an article, or even a text from a friend, you'll automatically activate these skills. You've trained your brain to be suspicious, careful, observant. This is a superpower. Not everyone has it. But now you do.",
+        "inSimpleWords": "You've learned detective skills. Now you can read and listen at a deeper level than most people.",
+        "emoji": "👁️"
+      },
+      {
+        "kind": "story",
+        "title": "Practice: Watch for the Fifth Word This Week",
+        "storyContext": "Over the next week, be alert. Listen to conversations with this new ear. Notice word patterns. Catch someone slipping up. Notice when someone avoids a direct answer. See when language reveals emotion beneath words. Keep a mental note—or write it down—of one or two moments when you spotted a 'fifth word' clue in real life. By actively practicing, you'll integrate this skill permanently.",
+        "inSimpleWords": "This week, hunt for fifth-word clues in real conversations. Train your detective brain daily.",
+        "emoji": "📌"
+      },
+      {
+        "kind": "concept",
+        "title": "The Fifth Word in Your Own Writing",
+        "storyContext": "Detectives read others' language. But the deepest learning comes from examining your own. When you write an email, an essay, or a message, pause. Read it aloud. Are your fifth words strong? Do they carry meaning? Are you being clear or vague? Are you hiding behind words or owning your message? Writing consciously—choosing each word carefully—makes you both a better writer and a better thinker.",
+        "points": [
+          {
+            "label": "Be intentional",
+            "text": "Every word is a choice. Don't let words happen to you. Choose them deliberately."
+          },
+          {
+            "label": "Test clarity",
+            "text": "If someone else reads your words, would they understand exactly what you mean? Or is there ambiguity you could remove?"
+          },
+          {
+            "label": "Reveal authenticity",
+            "text": "Your words reveal your voice. A unique writer isn't one who uses fancy language. It's one who is honest and clear."
+          }
+        ],
+        "inSimpleWords": "By watching your own words, you become a conscious writer and thinker. Choose words like a detective—with care and precision.",
+        "emoji": "✍️"
+      },
+      {
+        "kind": "recap",
+        "title": "Case Closed: The Fifth Word's Final Lesson",
+        "points": [
+          {
+            "text": "The fifth word teaches precision: words matter, counts matter, details matter."
+          },
+          {
+            "text": "Language is never innocent. Every word is chosen. Every choice reveals something."
+          },
+          {
+            "text": "Detectives read language like forensic experts read evidence. They notice shifts in grammar, tense, pronoun, and vocabulary."
+          },
+          {
+            "text": "What isn't said is as important as what is said. Silence has meaning."
+          },
+          {
+            "text": "Active reading (analyzing, questioning, counting) strengthens your brain and deepens your understanding."
+          },
+          {
+            "text": "By learning to read like a detective, you learn to read like a critical thinker—essential for navigating a world full of rhetoric, lies, and half-truths."
+          }
+        ],
+        "inSimpleWords": "The Case of the Fifth Word is ultimately about this: pay attention. Be precise. Listen actively. Read deeply. Think critically. These skills will make you not just a better reader, but a wiser, more aware person.",
+        "emoji": "🔍"
       }
     ]
   },
@@ -189106,7 +194768,251 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "url": "https://images.pexels.com/photos/9158761/pexels-photo-9158761.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Your Turn: Identify the Elements — The Magic Brush of Dreams",
           "q": "classroom"
-        }
+        },
+        "inSimpleWords": "Each moment builds understanding and character."
+      },
+      {
+        "kind": "story",
+        "title": "The Turning Point",
+        "storyContext": "Six months into his training at art college, Ravi hits a wall. His paintings feel stiff, uninspired. Classmates from wealthy families mock him for 'not having the background.' He visits the old railway platform at night, sitting where he first drew in the dirt. Meera finds him there and sits in silence. Then she says: 'The best artists paint their scars, not their surroundings. Your street life isn't your weakness—it's your superpower. Paint that.' The next morning, Ravi begins a series of paintings: 'Colours of the Platform.' Raw, honest, angry, beautiful.",
+        "inSimpleWords": "The hero's low point is when true transformation begins.",
+        "emoji": "🌙",
+        "points": [
+          {
+            "label": "Plot turning point",
+            "text": "The moment when the character's journey shifts direction."
+          }
+        ]
+      },
+      {
+        "kind": "concept",
+        "title": "Perspective—Seeing Through the Character's Eyes",
+        "storyContext": "The story is told from an outside narrator's view, but we enter Ravi's mind through his art and words. His perspective—a street boy's unique angle on the world—is what makes his work valuable. He sees beauty in rust, dignity in struggle, colour in concrete.",
+        "points": [
+          {
+            "label": "Perspective",
+            "text": "The unique way a character views and experiences the world."
+          },
+          {
+            "label": "How it shapes art",
+            "text": "Ravi's street perspective creates art no gallery artist could paint."
+          }
+        ],
+        "inSimpleWords": "What a character has lived through shapes how they see and create.",
+        "emoji": "👁️"
+      },
+      {
+        "kind": "example",
+        "title": "A Painting Explained",
+        "storyContext": "In 'Colours of the Platform,' Ravi paints the 4 AM garbage pile—refuse of the night before. But in his hands, it's a landscape: broken bottles refract dawn light into a thousand fractured suns; crumpled newspapers become mountains of forgotten stories; a bent coin glints like a star. The painting's title: 'Treasure Nobody Sees.' A wealthy collector buys it for 50,000 rupees. In the exhibition catalog, Ravi writes: 'I spent two years sleeping beside this pile. I learned that every discarded thing has colour. Every overlooked corner has a story. I paint what the world throws away.'",
+        "example": {
+          "problem": "Why is Ravi's street perspective valuable to his art in ways a privileged art student's might not be?",
+          "solution": "Ravi paints from lived experience, not imagination. He doesn't paint the poor as charity or pity—he paints their dignity, resilience, and hidden beauty. Galleries are full of sanitized, sentimental portrayals of poverty. Ravi offers something rarer: truth."
+        },
+        "inSimpleWords": "Authenticity and lived truth are more powerful than technical skill alone.",
+        "emoji": "🎨"
+      },
+      {
+        "kind": "concept",
+        "title": "Character Development—How Ravi Changes",
+        "storyContext": "At the start, Ravi is afraid, ashamed, silent. By the middle, he's hopeful, cautious, learning. By the end, he's confident, proud, speaking through his work. But he doesn't lose his humility or his connection to the platform. He brings Meera and Babuji to the opening of 'Colours of the Platform' and introduces them to his street friends. Growth isn't forgetting where you came from—it's honoring it.",
+        "points": [
+          {
+            "label": "Development",
+            "text": "How a character changes, learns, and matures through the story."
+          },
+          {
+            "label": "Signs of growth",
+            "text": "Ravi stops hiding; he stands proud at his own opening."
+          }
+        ],
+        "inSimpleWords": "A strong character arc shows real, believable change.",
+        "emoji": "📈"
+      },
+      {
+        "kind": "story",
+        "title": "The Gallery Opening",
+        "storyContext": "The night of Ravi's first solo exhibition, the gallery is packed. Critics, collectors, other artists—and also: street vendors from the platform, the shop owner who once gave Ravi free water, his friend Rohan who now works as a mechanic but dreams of art. Babuji opens the event by saying: 'I came here to witness talent. I'm leaving having witnessed integrity.' Ravi's paintings sell out. But what moves him most is seeing his street family in that gallery, their reflections in the glass frames, belonging.",
+        "inSimpleWords": "Success means bringing others up with you.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "concept",
+        "title": "Literary Devices—Symbolism in the Story",
+        "storyContext": "The brush isn't just a tool; it's a symbol of possibility. The mural on the underpass isn't just art; it's a symbol of claiming public space. The gallery isn't just a building; it's a symbol of respect and legitimacy. Symbols carry the weight of the theme.",
+        "points": [
+          {
+            "label": "Symbol",
+            "text": "An object, image, or action that represents a bigger idea."
+          },
+          {
+            "label": "The brush",
+            "text": "Represents the power of humble tools and second chances."
+          },
+          {
+            "label": "The platform",
+            "text": "Represents both struggle and community, pain and possibility."
+          }
+        ],
+        "inSimpleWords": "Symbols make stories deeper and more memorable.",
+        "emoji": "🔮"
+      },
+      {
+        "kind": "example",
+        "title": "Symbolism at Work",
+        "storyContext": "At the end of the story, Ravi places the original broken brush—the one he found in the garbage—in a glass case at the gallery entrance with a placard: 'Everything I am began here.' It's no longer a tool; it's a relic, a symbol of humility and origin. Visitors touch the glass case, moved by the simplicity. A young street child visits the opening with a social worker. She sees the broken brush and gasps: 'That's just like the stick I use to draw in the dirt.' Ravi kneels beside her and says: 'Your stick is already magic. You just need to believe in it.'",
+        "example": {
+          "problem": "How does the broken brush function as a symbol throughout the story?",
+          "solution": "It starts as trash (representing worthlessness), becomes a tool (representing potential), and ends as a relic (representing dignity). The symbol grows as Ravi grows. By the end, the broken brush is more valuable than a pristine one would be—it holds the whole journey inside it."
+        },
+        "inSimpleWords": "The best symbols evolve alongside the character.",
+        "emoji": "🏛️"
+      },
+      {
+        "kind": "concept",
+        "title": "Narrative Structure—Beginning, Middle, End",
+        "storyContext": "The story follows a classic arc: Beginning—Ravi finds the brush, meets Meera (setup and hook). Middle—He learns, struggles, doubts, grows (rising action and crisis). End—He creates his best work, exhibits, honors his roots (resolution and reflection). Every section serves the theme.",
+        "points": [
+          {
+            "label": "Exposition",
+            "text": "Ravi on the platform, finding the brush—we learn who he is."
+          },
+          {
+            "label": "Rising action",
+            "text": "Meera's mentorship, the mural, meeting Babuji, art college struggles."
+          },
+          {
+            "label": "Climax",
+            "text": "The moment Ravi chooses his truth over commercial art."
+          },
+          {
+            "label": "Resolution",
+            "text": "His work is exhibited, validated, and he honors his community."
+          }
+        ],
+        "inSimpleWords": "Story structure guides readers through emotional and plot arcs.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "challenge",
+        "title": "Map Ravi's Journey",
+        "storyContext": "On a piece of paper, draw a line chart of Ravi's emotional journey from start to finish. Mark the high points (finding the brush, meeting Babuji, the mural, the exhibition) and the low points (hunger, self-doubt, the mock classmates, the crisis at college). What do you notice? Does he ever return to his lowest point, or does he move steadily upward?",
+        "example": {
+          "problem": "What does Ravi's emotional arc reveal about his character?",
+          "solution": "His low point isn't at the start (when he's a street orphan) but in the middle (when he's doubting himself at art college). This shows that external success doesn't guarantee internal peace. The real struggle is internal—believing in yourself despite circumstances. The arc shows maturity: struggles remain, but Ravi learns to transform them into art."
+        },
+        "emoji": "📈",
+        "inSimpleWords": "Each moment builds understanding and character."
+      },
+      {
+        "kind": "concept",
+        "title": "Dialogue—How Characters Speak",
+        "storyContext": "Meera speaks like an educated mentor: 'The best artists paint their scars.' Ravi speaks simply: 'I just draw what I see.' The shop owner speaks like a kindly elder: 'Beta, chai for you?' Dialogue reveals character. Each voice is distinct, authentic, rooted in who they are.",
+        "points": [
+          {
+            "label": "Dialogue",
+            "text": "Speech that reveals character and moves plot forward."
+          },
+          {
+            "label": "Purpose",
+            "text": "Shows personality, relationships, and internal conflicts without stating them."
+          }
+        ],
+        "inSimpleWords": "What people say and how they say it tells us who they are.",
+        "emoji": "💬"
+      },
+      {
+        "kind": "story",
+        "title": "Ten Years Later",
+        "storyContext": "Ravi is now 22, a recognized artist. His work tours international galleries. But his proudest moment comes when he establishes the 'Platform School of Art'—a free program for street children on Mumbai's railway platforms. Meera runs the program; Babuji funds it; Ravi teaches. The first class has 15 children, including a girl named Priya who reminds him of his younger self—hungry, afraid, but burning to create. He gives each student a brush—new, not broken—and tells them: 'This brush is magic, but the magic is in your hands, not the bristles.'",
+        "inSimpleWords": "The measure of success is how many others you lift with you.",
+        "emoji": "🎓"
+      },
+      {
+        "kind": "story",
+        "title": "Criticism and Resilience",
+        "storyContext": "Not everyone believes in Ravi. A wealthy collector visits the gallery and dismisses Ravi's work as 'street graffiti, not art.' The words sting. Ravi almost quits. But Meera reminds him: 'Every artist faced rejection. Picasso was called a charlatan. Van Gogh sold one painting his whole life. Critics don't decide your worth—your commitment does.' Ravi keeps painting. That same collector, seeing Ravi's work five years later, apologizes. More importantly, Ravi no longer needs his approval.",
+        "inSimpleWords": "Rejection teaches resilience if you let it.",
+        "emoji": "💔"
+      },
+      {
+        "kind": "concept",
+        "title": "Foreshadowing—Hints of What's to Come",
+        "storyContext": "Early in the story, Meera says to Ravi: 'The most powerful art comes from what hurts most.' This line seems gentle advice, but it foreshadows Ravi's entire journey—he'll transform his street suffering into his greatest work. Foreshadowing builds suspense and deepens meaning when readers recognize it.",
+        "points": [
+          {
+            "label": "Foreshadowing",
+            "text": "Hints and clues about future events."
+          },
+          {
+            "label": "Purpose",
+            "text": "Creates anticipation; rewards attentive readers; deepens themes."
+          }
+        ],
+        "inSimpleWords": "Good stories plant seeds early; flowers bloom later.",
+        "emoji": "🌱"
+      },
+      {
+        "kind": "example",
+        "title": "Meera's Prophetic Words",
+        "storyContext": "When Meera tells Ravi 'Art is a conversation between your pain and your brush,' she's not just offering advice. She's telling him what his future art will be. Years later, when Ravi paints 'Colours of the Platform,' his most acclaimed work, it's exactly this conversation—his pain with the streets becomes the most beautiful art. Readers who remember Meera's words nod with recognition.",
+        "example": {
+          "problem": "How does Meera's early advice foreshadow Ravi's breakthrough?",
+          "solution": "She predicts his path without knowing it: pain transformed through art creates truth. When Ravi hits rock bottom at art college, this memory guides him. When critics praise his platform paintings for their 'raw honesty,' Meera's words prove prophetic."
+        },
+        "inSimpleWords": "Characters often know truths they don't yet understand.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "concept",
+        "title": "Climax—The Turning Point",
+        "storyContext": "The climax isn't when Ravi gets accepted to art college—it's when he chooses truth over commercial art. This is the moment of highest tension: Will he take the safe path or risk everything for his dream? The climax reveals what a character truly values. For Ravi, it's art itself, not security.",
+        "points": [
+          {
+            "label": "Climax",
+            "text": "The peak moment of tension and decision in a story."
+          },
+          {
+            "label": "Different from plot point",
+            "text": "Climax is emotional; it's where character is tested completely."
+          }
+        ],
+        "inSimpleWords": "Every story builds toward one moment that reveals everything.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "Resolution & Reflection—What Happens After",
+        "storyContext": "After Ravi's choice, the story doesn't immediately jump to his exhibition. There's a quieter section where Ravi paints obsessively, heals, and finds peace. This is the resolution—not a dramatic ending, but a return to equilibrium where the character (and reader) can breathe and reflect.",
+        "points": [
+          {
+            "label": "Resolution",
+            "text": "The period after climax where consequences unfold."
+          },
+          {
+            "label": "Reflection",
+            "text": "Time for characters and readers to process and learn."
+          }
+        ],
+        "inSimpleWords": "Good stories end with time to absorb what happened.",
+        "emoji": "🕊️"
+      },
+      {
+        "kind": "concept",
+        "title": "Tone and Voice—The Story's Feeling",
+        "storyContext": "The Cherry Tree story has a hopeful, redemptive tone. Despite Ravi's hardships, we feel that good things are possible. The voice is intimate, intimate—we're invited into Ravi's heart, his fears, his dreams. If the story were told in a clinical, detached voice, it would lose this power.",
+        "points": [
+          {
+            "label": "Tone",
+            "text": "The emotional atmosphere of the story—hopeful, tragic, ironic, etc."
+          },
+          {
+            "label": "Voice",
+            "text": "The narrator's personality and perspective, which colors everything."
+          }
+        ],
+        "inSimpleWords": "Tone and voice make stories feel true and moving.",
+        "emoji": "🎵"
       },
       {
         "kind": "recap",
@@ -189126,15 +195032,22 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           },
           {
             "text": "Character: Revealed through choices under pressure."
+          },
+          {
+            "text": "Perspective and authenticity make art and stories powerful."
+          },
+          {
+            "text": "Symbols deepen meaning; they grow as characters grow."
+          },
+          {
+            "text": "Story structure—beginning, middle, end—carries emotional truth."
+          },
+          {
+            "text": "Dialogue, tone, and voice bring characters and stories alive."
           }
         ],
         "inSimpleWords": "Stories teach us about humans and dreams through carefully crafted journeys.",
-        "emoji": "📖",
-        "image": {
-          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What We Learned — The Magic Brush of Dreams",
-          "q": "classroom"
-        }
+        "emoji": "📖"
       }
     ]
   },
@@ -189318,7 +195231,256 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/A_glowing_bulb_in_the_dark%2C_Jaipur%2C_Rajasthan%2C_India_%282017%29.jpg/960px-A_glowing_bulb_in_the_dark%2C_Jaipur%2C_Rajasthan%2C_India_%282017%29.jpg",
           "alt": "Your Turn: Describe a Wonder — Spectacular Wonders",
           "q": "light bulb glowing"
-        }
+        },
+        "inSimpleWords": "Each moment builds understanding and character."
+      },
+      {
+        "kind": "story",
+        "title": "The Restoration Story",
+        "storyContext": "Aisha's investigation uncovers the work of the stonemason, Ramesh, whose family has maintained the Taj Mahal for generations. In 2000, he was part of a team that restored the marble inlays—a painstaking process that took 15 years. For every cracked stone, artisans had to hand-chisel a new replacement, match the mineral composition, and polish it smooth. Aisha spends a day with Ramesh, watching him work. He shows her how a single chip can catch the eye once you know it's there. He says: 'This building isn't finished. It's a living thing. We heal it the way doctors heal patients—one careful touch at a time.'",
+        "inSimpleWords": "Wonders don't just stand; they're maintained by human care.",
+        "emoji": "🔧"
+      },
+      {
+        "kind": "concept",
+        "title": "Persuasive Writing—Convincing Your Reader",
+        "storyContext": "Aisha's article doesn't just describe the Taj Mahal; it argues that it matters. She uses facts (22 years, 20,000 workers, 28 stone types), emotional appeal (Shah Jahan's grief), and expert voices (Dev, Ramesh) to convince readers that this wonder deserves respect and protection.",
+        "points": [
+          {
+            "label": "Persuasive writing",
+            "text": "Using evidence and emotion to convince readers of your viewpoint."
+          },
+          {
+            "label": "Ethos",
+            "text": "Building credibility through research and expert voices."
+          },
+          {
+            "label": "Pathos",
+            "text": "Appealing to emotion through personal stories and imagery."
+          },
+          {
+            "label": "Logos",
+            "text": "Using logic and facts to support claims."
+          }
+        ],
+        "inSimpleWords": "The best writing combines facts, emotion, and expert voices.",
+        "emoji": "✍️"
+      },
+      {
+        "kind": "example",
+        "title": "A Paragraph of Persuasion",
+        "storyContext": "Here's how Aisha weaves ethos, pathos, and logos: 'I watched Ramesh, a master stonemason with 40 years of experience, spend 3 hours matching a single chip of marble. His hands moved with a surgeon's precision. The Taj Mahal, I realized, isn't a monument to the past—it's a commitment to the future. Every generation of craftsmen chooses to preserve it. In doing so, they choose to preserve Shah Jahan's love, India's heritage, and the possibility of wonder itself. We must protect what we preserve, and preserve what we love.'",
+        "example": {
+          "problem": "How does this paragraph use all three appeals?",
+          "solution": "Ethos: Ramesh's 40 years of expertise. Pathos: The emotion of Shah Jahan's love, the intimacy of watching hands work. Logos: The fact that generations choose to maintain it, implying a rational decision to preserve heritage. Together, they make an airtight argument."
+        },
+        "inSimpleWords": "Combining logic, emotion, and expertise creates powerful arguments.",
+        "emoji": "🧠"
+      },
+      {
+        "kind": "concept",
+        "title": "Comparative Writing—What Makes One Wonder Stand Out?",
+        "storyContext": "In her research, Aisha compares the Taj Mahal to other wonders: the Great Wall of China (built for defense over centuries), the Colosseum (built for entertainment, now ruins), the Angkor Wat (built for worship, reclaimed by jungle). Each reflects different priorities. The Taj Mahal, built from love and maintained by devotion, stands in perfect condition—a physical manifestation of how intention shapes legacy.",
+        "points": [
+          {
+            "label": "Comparison",
+            "text": "Showing similarities and differences between subjects."
+          },
+          {
+            "label": "Contrast",
+            "text": "Highlighting what makes one wonder distinct from another."
+          },
+          {
+            "label": "Why it matters",
+            "text": "Comparison reveals what each wonder teaches us about human values."
+          }
+        ],
+        "inSimpleWords": "Comparing wonders shows us different ways humans dream and build.",
+        "emoji": "🔀"
+      },
+      {
+        "kind": "story",
+        "title": "The Unexpected Connection",
+        "storyContext": "While interviewing Ramesh, Aisha learns that his grandson is a sculpture student, dreaming of becoming an architect. She introduces him to Dev, who becomes his mentor. The grandson visits the Taj during a monsoon and sketches the way water flows across the dome—a problem architects have solved for 400 years. He realizes he's part of a chain: ancient architects solved water flow, Ramesh's family maintained it, and now a new generation will improve it. Aisha sees that wonders aren't finished—they're passed forward, improved by each generation.",
+        "inSimpleWords": "Wonders connect the past to the future through human continuity.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "concept",
+        "title": "Analytical Writing—Understanding Structure",
+        "storyContext": "To truly understand why the Taj Mahal is wonderful, Aisha learns to analyze its parts. She breaks it into: the dome (engineering marvel), the inlay work (artistic mastery), the symmetry (mathematical perfection), the gardens (philosophical balance of nature and geometry), and the 4 minarets (visual harmony). By examining each part, she understands the whole.",
+        "points": [
+          {
+            "label": "Analysis",
+            "text": "Breaking a complex subject into parts to understand it deeply."
+          },
+          {
+            "label": "Why it works",
+            "text": "The dome supports the weight; the symmetry creates visual peace; the gardens symbolize paradise."
+          }
+        ],
+        "inSimpleWords": "Understanding parts reveals the genius of the whole.",
+        "emoji": "🔬"
+      },
+      {
+        "kind": "example",
+        "title": "Analyzing the Dome",
+        "storyContext": "Aisha sits with Dev and analyzes the main dome. It weighs 12,000 tonnes. A single crack could collapse it. But in 400 years, it hasn't. Why? The marble is carefully selected for strength; the dome is double-shelled (an outer dome and an inner dome), which distributes weight; the minarets, positioned at angles, channel water away; the foundation goes 6 metres deep and rests on tightly packed sand and brick. When Aisha writes about this, she doesn't just list facts. She explains: 'The dome is a sculpture of invisible forces made visible.'",
+        "example": {
+          "problem": "What makes the dome a marvel of engineering?",
+          "solution": "It's not one feature but many working together: weight distribution, double-shell design, precise material selection, advanced drainage, and deep foundations. Each solves a problem the builders anticipated 400 years in advance. That foresight is the real wonder."
+        },
+        "inSimpleWords": "The greatest wonders are built on invisible solutions.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: Analyze a Wonder",
+        "storyContext": "Choose an Indian wonder you know well (Taj Mahal, Varanasi Ghats, Jaipur City Palace, or even a modern wonder like the Bangalore Metro). Write 300 words analyzing three key structural or cultural elements. For each element, explain: (1) what it is, (2) how it was built or created, (3) why it matters to the whole.",
+        "example": {
+          "problem": "How would you analyze the Varanasi Ghats?",
+          "solution": "Element 1: The steps (architecture + functionality)—thousands of stone steps descend to the river, allowing pilgrims to reach water at any tide level. Brilliance: solving a hydraulic problem through human-scaled design. Element 2: The temples (spiritual + cultural)—each ghat has temples reflecting 400 years of worship. Brilliance: spirituality embedded into physical space. Element 3: The ritual (psychology + community)—millions bathe annually, repeating identical movements. Brilliance: creating collective meaning through unified action."
+        },
+        "emoji": "❓",
+        "inSimpleWords": "Each moment builds understanding and character."
+      },
+      {
+        "kind": "concept",
+        "title": "Exposition—Giving Background Information",
+        "storyContext": "Good writing reveals history without stopping the story. When Aisha's grandfather tells her about the wonders, he doesn't list facts—he shares stories. When Aisha visits archives, she discovers dates and names organically. The reader learns history as Aisha does, integrated into the narrative.",
+        "points": [
+          {
+            "label": "Exposition",
+            "text": "Providing necessary background information naturally."
+          },
+          {
+            "label": "Good vs. bad",
+            "text": "Bad: 'The Taj was built in 1632.' Good: 'Shah Jahan watched his wife breathe her last. Years later, he commanded marble workers: Build something that will outlast empires.'"
+          }
+        ],
+        "inSimpleWords": "Background information works best when woven into stories.",
+        "emoji": "🧵"
+      },
+      {
+        "kind": "story",
+        "title": "The Afternoon Sun",
+        "storyContext": "Months into her research, Aisha sits at the Taj Mahal during golden hour. The light turns the marble peachy-gold. She writes in her journal: 'I used to think wonders were about how big they are or how many people worked on them. Now I know: wonders are about how much love was poured into every detail. Every stone chose to be here. Every artisan chose perfection over ease.' A tourist sits beside her—an elderly man who visited the Taj 40 years ago and came back to see it again. He says: 'It's more beautiful every time.' That's the real wonder.",
+        "inSimpleWords": "Wonders reward those who return to them again.",
+        "emoji": "🌅"
+      },
+      {
+        "kind": "concept",
+        "title": "Imagery—Creating Visual Worlds",
+        "storyContext": "Aisha's writing is full of imagery: 'marble glows like molten honey,' 'inlay stones catch fire,' 'minarets lean like dancers pausing mid-turn.' These images make readers see the Taj through her eyes. Good imagery doesn't just describe—it translates sight into emotion.",
+        "points": [
+          {
+            "label": "Imagery",
+            "text": "Vivid descriptions that appeal to the senses."
+          },
+          {
+            "label": "Colors",
+            "text": "Gold, rose, ivory—each color carries a feeling."
+          },
+          {
+            "label": "Movement",
+            "text": "Stones that 'catch fire,' minarets that 'lean'—static objects come alive."
+          }
+        ],
+        "inSimpleWords": "Images are the bridge between seeing and feeling.",
+        "emoji": "🎨"
+      },
+      {
+        "kind": "concept",
+        "title": "Rising Action—Building Tension",
+        "storyContext": "Aisha's investigation builds layer by layer: first she interviews historians (facts), then she meets Dev (engineering), then she visits archives (more depth), then she spends time with Ramesh (human stories). With each layer, readers' investment grows. This rising action carries us toward understanding.",
+        "points": [
+          {
+            "label": "Rising action",
+            "text": "Events that build toward the climax."
+          },
+          {
+            "label": "Pacing",
+            "text": "Good pacing makes readers eager for the next revelation."
+          }
+        ],
+        "inSimpleWords": "Stories earn their power through patient buildup.",
+        "emoji": "📈"
+      },
+      {
+        "kind": "concept",
+        "title": "Dialogue as Characterization",
+        "storyContext": "Aisha speaks like an inquisitive student: 'But how did they...?' Dev speaks like an engineer: 'The load distribution is critical.' Ramesh speaks like a craftsman: 'Every stone is a prayer.' We learn who characters are not through descriptions, but through their words.",
+        "points": [
+          {
+            "label": "Dialogue",
+            "text": "Speech reveals character instantly."
+          },
+          {
+            "label": "Authenticity",
+            "text": "Each voice should be distinct, rooted in who they are."
+          }
+        ],
+        "inSimpleWords": "How people talk tells us who they are.",
+        "emoji": "💬"
+      },
+      {
+        "kind": "example",
+        "title": "A Stonemason's Voice",
+        "storyContext": "When Ramesh says 'Every stone is a prayer,' he's not being poetic for Aisha's benefit. That's genuinely how he thinks. His words reveal his spiritual depth, his respect for the craft, his connection to centuries of workers. In contrast, Dev might say the same idea differently: 'Each stone is integral to the structural integrity.' Same truth, different voice.",
+        "example": {
+          "problem": "How does Ramesh's unique voice strengthen the story?",
+          "solution": "Readers trust him because his words ring authentic. He's not trying to impress Aisha; he's simply speaking his truth. That authenticity makes his wisdom more powerful than any expert might offer."
+        },
+        "inSimpleWords": "Authentic voices carry authenticity of thought.",
+        "emoji": "🎙️"
+      },
+      {
+        "kind": "story",
+        "title": "The Documentary",
+        "storyContext": "Aisha's school asks her to present her findings as a documentary. She records Ramesh at work, Dev explaining the physics, Aisha herself at sunrise describing the Taj. She includes archival photographs, maps showing how materials were transported, interviews with historians. But the heart of the documentary is this: a child seeing the Taj for the first time and crying. Aisha asks why. The child says: 'It's so big and so beautiful. I didn't think people could make something so beautiful.' That's what makes wonders matter—they remind us of human greatness.",
+        "inSimpleWords": "Wonders inspire us to believe we can create something meaningful.",
+        "emoji": "🎬"
+      },
+      {
+        "kind": "concept",
+        "title": "Tone—The Story's Emotional Color",
+        "storyContext": "This story has a reverent, admiring tone. Aisha approaches the Taj with awe, not cynicism. The narrator speaks with respect for both engineering and love. If the tone were sarcastic or dismissive, the same facts would feel hollow. Tone is the writer's emotional fingerprint.",
+        "points": [
+          {
+            "label": "Tone",
+            "text": "The writer's attitude toward the subject and readers."
+          },
+          {
+            "label": "Impact",
+            "text": "Tone determines whether readers admire or resent the subject."
+          }
+        ],
+        "inSimpleWords": "How you tell a story matters as much as what you tell.",
+        "emoji": "🎵"
+      },
+      {
+        "kind": "story",
+        "title": "Aisha's Published Work",
+        "storyContext": "Aisha's article is published in a national magazine. It wins an award. But more importantly, it inspires others: Dev's grandson gets scholarship offers; Ramesh receives recognition for his family's work; and thousands of Indian students write about their own local wonders. Aisha realizes that good writing doesn't just inform—it activates others to create and contribute.",
+        "inSimpleWords": "Stories inspire action and community.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "concept",
+        "title": "Legacy—What Stories Leave Behind",
+        "storyContext": "Aisha's article about the Taj doesn't just preserve knowledge—it creates a new generation of wonder-seekers and protectors. Her writing becomes part of the Taj's story, just as the Taj became part of hers. Stories are how humans pass understanding across time.",
+        "points": [
+          {
+            "label": "Legacy",
+            "text": "What endures from a story long after it's told."
+          },
+          {
+            "label": "Responsibility",
+            "text": "Writers shape how future generations see the world."
+          }
+        ],
+        "inSimpleWords": "Stories are how we leave the world better than we found it.",
+        "emoji": "🌍"
       },
       {
         "kind": "recap",
@@ -189338,15 +195500,22 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           },
           {
             "text": "Stories of wonders inspire us to think bigger."
+          },
+          {
+            "text": "Persuasive writing blends facts, emotion, and expertise."
+          },
+          {
+            "text": "Comparing wonders reveals different human values and priorities."
+          },
+          {
+            "text": "Analyzing parts deepens understanding of the whole."
+          },
+          {
+            "text": "Great wonders connect past to future through human continuity."
           }
         ],
         "inSimpleWords": "Understanding wonders teaches us about human creativity, sacrifice, and ambition.",
-        "emoji": "🌟",
-        "image": {
-          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What We Learned — Spectacular Wonders",
-          "q": "classroom"
-        }
+        "emoji": "🌟"
       }
     ]
   },
@@ -189530,7 +195699,242 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "url": "https://images.pexels.com/photos/10127242/pexels-photo-10127242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Your Turn: A Moral Dilemma — The Cherry Tree",
           "q": "classroom"
-        }
+        },
+        "inSimpleWords": "Each moment builds understanding and character."
+      },
+      {
+        "kind": "story",
+        "title": "The Reunion",
+        "storyContext": "Years pass. Amol grows into a teenager and eventually a young man. He still visits Sharma Uncle's orchard during school holidays. One monsoon, a storm damages the cherry tree—the very one he broke years ago. The tree survives, but barely. Amol spends weeks helping Sharma Uncle care for it. The tree recovers, and the next spring, it blooms more abundantly than ever before. Sharma Uncle tells Amol: 'Look at it. The scar we healed together made it stronger. That branch you broke? It became the tree's strongest limb. Honesty and healing work that way too.'",
+        "inSimpleWords": "Healed wounds make us stronger, not weaker.",
+        "emoji": "🌸"
+      },
+      {
+        "kind": "concept",
+        "title": "Integrity—When No One Is Watching",
+        "storyContext": "Years later, Amol finds a wallet in the village market. It contains 50,000 rupees and the identification of a wealthy trader from the city. His friend suggests keeping it—nobody knows. But Amol doesn't hesitate. He traces the trader and returns it. The trader asks: 'Why would you return a fortune?' Amol thinks of Dadi, Sharma Uncle, and the broken cherry tree. He says: 'Because I know who I am. That matters more than the money.'",
+        "points": [
+          {
+            "label": "Integrity",
+            "text": "Acting with honesty and strong moral principles, especially when unseen."
+          },
+          {
+            "label": "The test",
+            "text": "Integrity isn't what you do when someone watches—it's who you are when alone."
+          },
+          {
+            "label": "The reward",
+            "text": "Peace, self-respect, and the respect of those who matter."
+          }
+        ],
+        "inSimpleWords": "True character is built in moments nobody witnesses.",
+        "emoji": "🔐"
+      },
+      {
+        "kind": "example",
+        "title": "A Chain of Honesty",
+        "storyContext": "The trader Amol helps is so moved by his honesty that he becomes his mentor, helping him get into a prestigious school. Years later, Amol becomes a teacher. His first lesson to students: the story of the cherry tree. He tells them about Dadi, Sharma Uncle, about fear and courage. One of his students breaks a school window playing cricket. She confesses immediately, inspired by Amol's story. The principal commends her integrity instead of punishing her harshly. The girl grows up to become a judge who believes in rehabilitation over punishment. It all started with a boy and a broken branch.",
+        "example": {
+          "problem": "How does one act of honesty ripple outward?",
+          "solution": "Honesty isn't solitary—it's contagious. When Amol chose truth, he inspired Dadi's faith, earned Sharma Uncle's respect, taught Rohan a lesson, caught a trader's attention, and decades later, shaped a student's character. That student is now shaping the justice system. One choice created a chain reaction across generations."
+        },
+        "inSimpleWords": "Honesty spreads; it inspires others to be honest too.",
+        "emoji": "⛓️"
+      },
+      {
+        "kind": "concept",
+        "title": "Narrative Perspective—Telling the Story",
+        "storyContext": "The Cherry Tree can be told from multiple views: Amol's (fear, then relief), Dadi's (wisdom and patience), Sharma Uncle's (disappointment turned to pride), or even the tree's (a witness to human choices). The story gains depth when we understand different perspectives.",
+        "points": [
+          {
+            "label": "First-person",
+            "text": "Amol's internal struggle: 'My heart pounded. Could I confess?'"
+          },
+          {
+            "label": "Third-person",
+            "text": "A narrator observes all: 'Amol didn't know Dadi had already told Sharma Uncle.'"
+          },
+          {
+            "label": "Multiple perspectives",
+            "text": "Seeing how different characters judge the same act differently."
+          }
+        ],
+        "inSimpleWords": "Perspective shapes how readers understand a story's truth.",
+        "emoji": "👁️"
+      },
+      {
+        "kind": "story",
+        "title": "The Letter",
+        "storyContext": "When Amol is 30, Dadi passes away peacefully. At her funeral, Amol discovers a letter she wrote 18 years ago, kept sealed by Sharma Uncle. It reads: 'Dear Amol, I've watched you grow into a man of integrity. I'm proud. But I want you to know: the day you broke the cherry tree, I saw it happen from the kitchen window. I could have told you to confess or punished you. Instead, I let you find your own way. I gave you the gift of choice. That's how character is truly built—not through punishment or praise, but through freedom to choose and freedom to face consequences. I love you. Dadi.' Amol weeps, understanding at last that Dadi's wisdom ran deeper than he knew.",
+        "inSimpleWords": "The greatest gift is not direction, but the freedom to choose your own path.",
+        "emoji": "💌"
+      },
+      {
+        "kind": "concept",
+        "title": "Themes and Life Lessons",
+        "storyContext": "The Cherry Tree teaches many truths: (1) Honesty is harder but more rewarding than lies. (2) Fear exaggerates consequences; reality is often kinder. (3) Character is built through small, daily choices. (4) Integrity isn't about perfection—it's about accountability. (5) Stories of honesty inspire honesty in others. (6) Wounds healed become sources of strength.",
+        "points": [
+          {
+            "label": "The central theme",
+            "text": "Character is built through honest choices, especially when no one watches."
+          },
+          {
+            "label": "Secondary themes",
+            "text": "The role of mentors (Dadi, Sharma Uncle), the power of confession, and the ripple effect of integrity."
+          }
+        ],
+        "inSimpleWords": "Stories teach us truths about ourselves and how to live.",
+        "emoji": "📚"
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: Write a Story",
+        "storyContext": "Write a short story (500 words) about a moment when someone chose honesty despite fear. Include: (1) a clear moral dilemma, (2) the character's internal conflict, (3) the choice made, (4) unexpected consequences (positive or otherwise), (5) a reflection on why honesty mattered. Use the Cherry Tree structure: setup, crisis, decision, outcome, meaning.",
+        "example": {
+          "problem": "How would you structure a honesty story using lessons from the Cherry Tree?",
+          "solution": "Setup: A student copies homework. Crisis: The teacher suspects and asks if work is original. Decision: The student confesses despite fear of failure/punishment. Outcome: The teacher praises integrity, offers help, the student retakes the test (still earns a C, but it's earned). Meaning: The C feels better than a fake A. The teacher becomes an ally, not an enemy. Character is forged."
+        },
+        "emoji": "✍️",
+        "inSimpleWords": "Each moment builds understanding and character."
+      },
+      {
+        "kind": "concept",
+        "title": "Symbolism—Objects That Carry Meaning",
+        "storyContext": "The cherry tree itself is a symbol: it broke, was healed, and became stronger. The branch Amol broke and later helped repair symbolizes his journey—from guilt to redemption, from fear to courage. Dadi's letter, revealed after her death, symbolizes wisdom that transcends time. Symbols deepen stories by carrying layers of meaning.",
+        "points": [
+          {
+            "label": "Symbol",
+            "text": "An object, image, or action representing a deeper meaning."
+          },
+          {
+            "label": "The tree",
+            "text": "Represents resilience, healing, and the power of second chances."
+          }
+        ],
+        "inSimpleWords": "Symbols connect concrete objects to abstract truths.",
+        "emoji": "🌿"
+      },
+      {
+        "kind": "story",
+        "title": "Rohan's Return",
+        "storyContext": "Years after Amol refused to steal the mango, Rohan shows up at the orchard. He's changed—weathered, humbled, carrying shame. He says: 'I've thought about that day a thousand times. You said no when I offered you easy theft. You didn't judge me, just refused. That refusal taught me more than punishment ever could. I spent years trying to figure out who I wanted to be. I chose to be like you.' Amol embraces him. Rohan becomes a worker in the orchard, learning the trade, finding honest ground.",
+        "inSimpleWords": "People grow when others show them integrity without judgment.",
+        "emoji": "🌱"
+      },
+      {
+        "kind": "concept",
+        "title": "Flashback—Revealing the Past",
+        "storyContext": "When Dadi reveals in her letter that she saw Amol break the branch, readers experience a flashback. Suddenly, a scene we thought happened in private becomes observed. This revelation changes how we understand Dadi's character—her silence wasn't ignorance but wisdom. Flashbacks and revelations can transform a story's meaning.",
+        "points": [
+          {
+            "label": "Flashback",
+            "text": "A scene from the past revealed at a later time."
+          },
+          {
+            "label": "Purpose",
+            "text": "Deepens character; reveals hidden motives; explains present actions."
+          }
+        ],
+        "inSimpleWords": "What readers didn't know can change everything when revealed.",
+        "emoji": "🔙"
+      },
+      {
+        "kind": "concept",
+        "title": "Irony—When Reality Contradicts Expectation",
+        "storyContext": "Amol expected punishment; he received respect. He feared losing the orchard; he gained a home there. He thought honesty would isolate him; it connected him to Sharma Uncle and Dadi more deeply. These ironies deepen the theme: the cost of honesty is often far less than we imagine.",
+        "points": [
+          {
+            "label": "Irony",
+            "text": "When the opposite of what's expected happens."
+          },
+          {
+            "label": "Purpose",
+            "text": "Surprises readers; deepens themes; reveals life's complexity."
+          }
+        ],
+        "inSimpleWords": "Life often surprises us in good ways when we're honest.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "concept",
+        "title": "Setting & Atmosphere—The Orchard as a Character",
+        "storyContext": "The orchard isn't just a location—it's a living character. It changes with seasons (monsoon damage, spring recovery). It mirrors Amol's journey (broken branch becomes strongest limb). It provides both beauty and witness to human choices. A strong setting becomes a character itself.",
+        "points": [
+          {
+            "label": "Setting as character",
+            "text": "Places that evolve and react to the story."
+          },
+          {
+            "label": "Seasonal cycles",
+            "text": "Natural rhythms echo emotional journeys."
+          }
+        ],
+        "inSimpleWords": "Where a story happens matters as much as who's in it.",
+        "emoji": "🌿"
+      },
+      {
+        "kind": "example",
+        "title": "The Orchard's Seasons",
+        "storyContext": "Spring when Amol breaks the branch (life and fragility); summer when he learns to work the land (growth); monsoon when the tree storms (testing); and the next spring, blooming (healing). Each season mirrors Amol's emotional state. Readers track his growth through the orchard's cycles.",
+        "example": {
+          "problem": "How does the orchard's seasonal arc mirror Amol's character arc?",
+          "solution": "Broken spring → learning summer → storm monsoon → abundant spring. Amol goes from shame to skill to testing to strength. The orchard's parallel journey makes readers feel Amol's transformation physically, not just emotionally."
+        },
+        "inSimpleWords": "Settings are more powerful when they echo the character's journey.",
+        "emoji": "🍂"
+      },
+      {
+        "kind": "story",
+        "title": "The Photograph",
+        "storyContext": "Decades later, a photograph surfaces: Amol at age 12, standing beside the broken cherry tree with Sharma Uncle, both smiling. Amol's face shows peace, not shame. The photo becomes part of his family's story—proof that honesty leads to connection, not punishment. He prints it and gives it to every student who confesses wrongdoing in his classroom.",
+        "inSympleWords": "Honesty creates moments worth remembering.",
+        "emoji": "📷",
+        "inSimpleWords": "Characters grow through experiences and choices."
+      },
+      {
+        "kind": "concept",
+        "title": "Conflict & Resolution—The Full Arc",
+        "storyContext": "Conflict isn't just a problem—it's an opportunity for growth. In the Cherry Tree, Amol's conflict (confession vs. hiding) doesn't get 'solved' perfectly. Instead, it gets transformed into wisdom. This is what real resolution looks like: not a neat ending, but a character changed forever.",
+        "points": [
+          {
+            "label": "Conflict",
+            "text": "The core tension that drives the story."
+          },
+          {
+            "label": "Resolution",
+            "text": "Not ending the conflict, but transforming it into understanding."
+          }
+        ],
+        "inSimpleWords": "The best resolutions teach, not just end.",
+        "emoji": "🔀"
+      },
+      {
+        "kind": "example",
+        "title": "Conflict That Stays",
+        "storyContext": "The core conflict of the Cherry Tree—honesty vs. fear—doesn't disappear after Amol confesses. It recurs throughout his life (returning the wallet, refusing the mango, standing for justice). Each time, Amol grows stronger, but the conflict remains. That's realism: we don't outgrow our struggles, we learn to navigate them better.",
+        "example": {
+          "problem": "Is the Cherry Tree conflict 'resolved'?",
+          "solution": "Yes and no. The immediate crisis (breaking the branch) is resolved. But the deeper conflict (honesty vs. ease) continues throughout Amol's life. That's not a weakness—it's authenticity. Real character growth happens through recurring tests, not single victories."
+        },
+        "inSimpleWords": "Character is proven through how you handle repeated challenges.",
+        "emoji": "💪"
+      },
+      {
+        "kind": "concept",
+        "title": "Wisdom vs. Knowledge",
+        "storyContext": "Dadi knew Amol broke the branch (knowledge), but she didn't immediately tell him. She gave him space to discover honesty for himself (wisdom). The story teaches us that real wisdom isn't about having answers—it's about asking the right questions and trusting others to find truth.",
+        "points": [
+          {
+            "label": "Knowledge",
+            "text": "Facts and information you possess."
+          },
+          {
+            "label": "Wisdom",
+            "text": "Knowing when and how to share knowledge for growth."
+          }
+        ],
+        "inSimpleWords": "The wisest teachers often remain silent.",
+        "emoji": "🦉"
       },
       {
         "kind": "recap",
@@ -189550,15 +195954,19 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           },
           {
             "text": "Honesty, though hard, earns respect and self-respect."
+          },
+          {
+            "text": "Integrity is contagious—it inspires honesty in others."
+          },
+          {
+            "text": "Mentors guide us through wisdom, not punishment."
+          },
+          {
+            "text": "Symbols and stories teach us that character matters most."
           }
         ],
         "inSimpleWords": "The cherry tree teaches us that integrity is a living thing—it grows stronger with every honest act.",
-        "emoji": "🍒",
-        "image": {
-          "url": "https://images.pexels.com/photos/36650154/pexels-photo-36650154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What We Learned — The Cherry Tree",
-          "q": "classroom"
-        }
+        "emoji": "🍒"
       }
     ]
   },
@@ -189610,6 +196018,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "What is Poetry?",
+        "storyContext": "Elder Savitri sits with Priya on the veranda after sunset. 'You think poetry is fancy words from books,' she says. 'But listen to Akhil's voice. He is not a poet by training—he is a poet by living. Every word he sings is born from six months of hands in mud, eyes on sky, heart hoping. That is poetry: truth mixed with beauty.'",
+        "inSimpleWords": "Poetry is the language of deep truth, spoken with rhythm and care.",
+        "emoji": "📝",
+        "points": [
+          {
+            "label": "Poetry",
+            "text": "Language that uses rhythm, imagery, and emotion to convey truth beyond the literal meaning of words."
+          },
+          {
+            "label": "Not fancy",
+            "text": "Poetry lives in the voices of farmers, fishers, and mothers—anyone who speaks from lived experience."
+          }
+        ]
+      },
+      {
         "kind": "concept",
         "title": "Imagery—Seeing Through a Poet's Eyes",
         "storyContext": "Elder Savitri teaches Priya to notice: how the morning sun paints the rice paddies gold, how the wind sounds different through wheat versus sugarcane, how soil feels different before and after rain, how birds behave differently at dawn and dusk. Each observation is a line in the harvest song.",
@@ -189638,6 +196063,48 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Imagery—Seeing Through a Poet's Eyes — Harvest Hymn",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Five Senses in Poetry",
+        "storyContext": "As Priya walks the fields with Elder Savitri, she's taught to activate each sense deliberately. Savitri picks up a handful of soil. 'Touch it—how does it feel before rain? Hard, cracked, dead. Now wait.' Three days later, after monsoon, Priya touches the soil again. 'Soft, alive, breathing.' That difference—captured in a single touch—is the heart of sensory poetry.",
+        "inSimpleWords": "Great poets are observers who notice what others miss.",
+        "emoji": "👁️👂👃👅✋",
+        "points": [
+          {
+            "label": "Sight",
+            "text": "Colors, shapes, light, and shadow—'the sun paints gold on green water.'"
+          },
+          {
+            "label": "Sound",
+            "text": "Rhythm, crackle, whisper, crash—'the monsoon roars like an animal.'"
+          },
+          {
+            "label": "Smell",
+            "text": "Earth, growth, rot, rot-renewal—'wet earth smells like life waking.'"
+          },
+          {
+            "label": "Touch",
+            "text": "Texture, temperature, wetness, hardness—'soil soft after rain, hard before.'"
+          },
+          {
+            "label": "Taste",
+            "text": "Bitter, sweet, dust, salt—'the air tastes of salt sweat and copper earth.'"
+          }
+        ]
+      },
+      {
+        "kind": "example",
+        "title": "Using All Five Senses in One Image",
+        "storyContext": "Priya tries to describe a single moment of planting rice. She writes: 'My hands sink into mud (touch). The earth smells thick and alive (smell). Around me, other planters chant a rhythm—plant, bend, breathe, plant (sound). The sun on my back is heat and weight (touch-warmth). My tongue tastes salt from sweat (taste). My eyes follow the line of green shoots already planted (sight).' In one moment, all senses converge. That is sensory poetry.",
+        "inSimpleWords": "The richest poetry engages multiple senses at once.",
+        "emoji": "🌄",
+        "points": [
+          {
+            "label": "Multisensory imagery",
+            "text": "Great poets layer multiple senses in a single moment to make scenes vivid and immersive."
+          }
+        ]
       },
       {
         "kind": "concept",
@@ -189670,6 +196137,60 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Why Rhythm Matters in Work Songs",
+        "storyContext": "Akhil shows Priya how the rhythm of a work song syncs with the rhythm of labour. When planting rice in a flooded paddy, fingers must find a pace—fast enough to finish before the sun kills you, slow enough to be precise. The song sets that pace. 'Bend-and-sow, bend-and-sow' matches the body's natural motion. Without the song, workers tire quickly. With it, the work becomes dance, becomes meditative, becomes possible.",
+        "inSimpleWords": "Rhythm in poetry mirrors the rhythm of life itself.",
+        "emoji": "💃",
+        "points": [
+          {
+            "label": "Work songs",
+            "text": "Rhythmic songs that helped laborers work together, maintain pace, and endure hardship."
+          },
+          {
+            "label": "Examples",
+            "text": "Sea shanties, harvest songs, lullabies—all use rhythm to align body with purpose."
+          }
+        ]
+      },
+      {
+        "kind": "example",
+        "title": "Building Rhythm: Syllable Stress",
+        "storyContext": "Priya learns that rhythm comes from stressed and unstressed syllables. Akhil's line: 'BEND and SOW, bend and SOW' has a clear da-da-DUM pattern. When she tries to write her own, she discovers this pattern guides readers to read at the right pace. 'I am walking through the field' (regular, boring) vs. 'I AM walk-ING through THE field' (suddenly musical).",
+        "inSimpleWords": "Stress—the emphasis on certain syllables—creates rhythm.",
+        "emoji": "🎼",
+        "points": [
+          {
+            "label": "Iamb",
+            "text": "Unstressed-STRESSED (da-DUM): 'the FIELD,' 'be-FORE'"
+          },
+          {
+            "label": "Trochee",
+            "text": "STRESSED-unstressed (DUM-da): 'HARvest,' 'FARmer'"
+          },
+          {
+            "label": "Meter",
+            "text": "The consistent pattern of stressed/unstressed syllables across a line or stanza."
+          }
+        ]
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Write a 2-Line Work Song",
+        "storyContext": "Choose a daily task (kneading dough, sweeping floors, climbing stairs, walking to school). Write 2 lines that capture the rhythm of that task. Your lines should make a reader naturally read at the pace of the task.",
+        "example": {
+          "problem": "How would you write a work song about kneading dough?",
+          "solution": "PUSH and FOLD, push and FOLD, / HANDS grow WARM, the DOUGH grows GOLD."
+        },
+        "emoji": "✍️",
+        "points": [
+          {
+            "label": "Goal",
+            "text": "Make the rhythm match the physical motion of the work."
+          }
+        ]
+      },
+      {
         "kind": "concept",
         "title": "Symbolism—What the Harvest Represents",
         "storyContext": "In the harvest hymn, the crop isn't just food—it's a symbol of labour, hope, survival, and the cycle of life. Death and rebirth. Sacrifice and reward. The farmer plants knowing he might lose everything to drought or flood. Yet he plants anyway, because life demands it.",
@@ -189694,6 +196215,48 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Symbolism—What the Harvest Represents — Harvest Hymn",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Reading Symbols in Nature",
+        "storyContext": "Priya asks Elder Savitri: 'Why does the seed matter so much in harvest songs?' Savitri replies: 'A seed is hope made physical. You plant it, you cannot see it working. You must trust. For weeks, nothing visible changes. Then suddenly, green. The seed is a symbol of faith itself—what we plant when we cannot see the harvest yet.'",
+        "inSimpleWords": "Symbols connect the concrete (what we see) to the abstract (what we feel).",
+        "emoji": "🌱",
+        "points": [
+          {
+            "label": "Seed",
+            "text": "Symbol of hope, potential, faith, the unseen future."
+          },
+          {
+            "label": "Rain",
+            "text": "Symbol of blessing, mercy, the divine gift beyond human control."
+          },
+          {
+            "label": "Soil",
+            "text": "Symbol of home, roots, continuity, belonging."
+          },
+          {
+            "label": "Harvest",
+            "text": "Symbol of completion, reward, fulfillment, the ripening of dreams."
+          }
+        ]
+      },
+      {
+        "kind": "example",
+        "title": "Symbols in a Single Stanza",
+        "storyContext": "Akhil sings: 'I plant a seed in faith / I wait for rain in prayer / I harvest gold in gratitude.' Each line uses symbols: seed (faith), rain (prayer answered), gold (transformed work). The poem doesn't explain these connections—readers feel them.",
+        "inSimpleWords": "The strongest symbols are felt, not explained.",
+        "emoji": "💛",
+        "points": [
+          {
+            "label": "Gold",
+            "text": "Traditionally symbolizes value, transformation, divinity, wealth."
+          },
+          {
+            "label": "Why 'gold'?",
+            "text": "Ripened grain literally shines golden, so the symbol is grounded in reality."
+          }
+        ]
       },
       {
         "kind": "concept",
@@ -189722,6 +196285,43 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Reading the Signs of Nature",
+        "storyContext": "Akhil teaches Priya to read what nature reveals. 'When the frogs croak deeper at night, rain is coming within three days. When the crows gather at the well at odd hours, drought is far off. When the soil breaks in large clods under your heel, it's ready for planting.' These aren't superstitions—they're poetry and science intertwined. Humans have always paid attention to birds, clouds, animals because survival depends on it.",
+        "inSimpleWords": "Nature is a text that farmers have learned to read across generations.",
+        "emoji": "📖🌿",
+        "points": [
+          {
+            "label": "Phenology",
+            "text": "The study of seasonal events in nature—migrations, flowering, animal behavior—used by farmers for millennia."
+          },
+          {
+            "label": "Oral knowledge",
+            "text": "Passed down as stories and songs, not books."
+          },
+          {
+            "label": "Poetry + science",
+            "text": "Farmers were the first scientists, observing patterns and encoding them in verse."
+          }
+        ]
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Identify Symbols in Poems",
+        "storyContext": "Read these lines and identify what each symbol represents: 'A river runs through the village, never stopping.' (What does the river symbolize? Continuity? Time? Life?) 'The old tree stands alone on the hill.' (What does the tree symbolize? Resilience? Loneliness? Wisdom?) There's no single right answer—but your answer should connect the concrete image to something larger.",
+        "example": {
+          "problem": "What does 'a river' symbolize?",
+          "solution": "The river could represent: (1) Time flowing and never stopping—past, present, future; (2) Life as a continuous journey; (3) Something unchanging despite the world changing around it; (4) A path of connection between communities. The best answer draws a line between the concrete image (the river) and the abstract idea (time, continuity, connection)."
+        },
+        "emoji": "🔍",
+        "points": [
+          {
+            "label": "Symbol interpretation",
+            "text": "Is personal and contextual, but always grounded in the text and the reader's experience."
+          }
+        ]
+      },
+      {
         "kind": "example",
         "title": "Priya's Harvest Song",
         "storyContext": "By harvest time, Priya has learned Akhil's song and added verses of her own. On the day the fields are reaped, she stands at the edge and recites:\n\n'Six months we sang to soil and sky, / Trading sweat for grain / Against drought, flood, and hunger's call, / We bent, we sowed, we prayed. / Now in your hands the harvest lies— / Gold and green, weight and worth. / Eat and remember: nothing comes without the earth / And those who stoop to serve her birth.'\n\nFarmer Akhil listens and nods. Elder Savitri says, 'Now you understand the hymn.'",
@@ -189732,6 +196332,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Priya's Harvest Song — Harvest Hymn",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Metaphor of the Hymn",
+        "storyContext": "Priya realizes that calling it a 'harvest hymn' is itself a metaphor. A hymn is typically a religious song, so calling the farmer's work-song a hymn elevates it—makes it sacred. The farmer singing to crops is not just laboring; he's in communion with something larger than himself. The harvest hymn is a prayer, a song, a work-plan, and a meditation all at once.",
+        "inSimpleWords": "Metaphor shows deep connections between things that seem unlike.",
+        "emoji": "🙏",
+        "points": [
+          {
+            "label": "Metaphor",
+            "text": "A direct comparison: 'The harvest hymn IS a prayer' or 'The field IS a text.'"
+          },
+          {
+            "label": "Why hymn?",
+            "text": "A hymn is sacred music, sung together, passed down. Calling the work-song a hymn elevates farming as a spiritual act."
+          }
+        ]
       },
       {
         "kind": "challenge",
@@ -189749,23 +196366,93 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Why Priya's Song Matters",
+        "storyContext": "Priya's song is important not because it's perfect poetry, but because she now understands the harvest hymn from the inside. She's lived it—hands in mud, sun on back, hope mixed with doubt. She's learned that poetry isn't something poets make; it's something that emerges when we pay deep attention to our lives and speak truthfully about them. By harvest's end, Priya is no longer a visitor to the farm. She's part of the conversation between humans and earth.",
+        "inSimpleWords": "Poetry emerges from honest attention to the world around us.",
+        "emoji": "💚",
+        "points": [
+          {
+            "label": "Authentic voice",
+            "text": "The best poems come from genuine experience, not imitation of 'poetic' language."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "Priya Discovers the Cycle",
+        "storyContext": "Over months, Priya realizes the harvest hymn is not one song—it is a collection marking seasons. The sowing hymn. The monsoon hymn. The ripening hymn. The cutting hymn. Each marks a phase of labor, each has its own rhythm. Farmers encode agricultural calendar into verse, making knowledge memorable.",
+        "inSimpleWords": "Poetry can encode knowledge, making wisdom memorable and transmissible.",
+        "emoji": "📚"
+      },
+      {
+        "kind": "story",
+        "title": "The Power of Repetition",
+        "storyContext": "Priya notices Elder Savitri repeats phrases. Roots grow deep, roots grow deep. Bend and sow, bend and sow. Repetition is not a flaw—it is a feature. It makes songs rhythmic, memorable, hypnotic. It matches repetitive labor. By repeating, the song carries workers through long hours.",
+        "inSimpleWords": "Repetition in poetry is a tool for both beauty and endurance.",
+        "emoji": "🔁"
+      },
+      {
+        "kind": "story",
+        "title": "Oral Poetry vs Written Poetry",
+        "storyContext": "Akhil has never read poetry. But he knows hundreds of verses. They live in his mouth, muscle memory, breath. Oral poetry uses rhythm and rhyme as mnemonic devices—tools for memory. Written poetry can be complex; oral poetry is communal.",
+        "inSimpleWords": "Oral and written poetry serve different purposes and communities.",
+        "emoji": "🗣️",
+        "points": [
+          {
+            "label": "Oral tradition",
+            "text": "Designed for speaking and remembering."
+          },
+          {
+            "label": "Written tradition",
+            "text": "Can be complex, accessed through reading."
+          }
+        ]
+      },
+      {
+        "kind": "example",
+        "title": "From Student to Poet",
+        "storyContext": "By the end, Priya writes: I came to observe. Instead, the earth observed me. Poetry is not ornament. It is anchor. It ties us to place, labor, each other. It preserves what matters. Akhil nods. Savitri says, You understand now.",
+        "inSimpleWords": "Poetry teaches us that we matter, that our words matter, that attention is sacred.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Harvest Hymn Creation",
+        "storyContext": "Create your own 8-10 line harvest hymn for a crop. Use 3+ senses, rhythm or rhyme.",
+        "example": {
+          "problem": "Write a potato-harvest hymn",
+          "solution": "Dig down deep, feel earth give way, / Brown skin shining in September sun, / Dirt beneath my nails, smell of soil and clay, / One by one I pull them, one by one. / Cool and heavy, round and true, / Every one a promise, every one brand new. / We will eat and share and store, / Till spring we plant once more."
+        },
+        "emoji": "🌾"
+      },
+      {
         "kind": "recap",
         "title": "What We Learned",
         "points": [
           {
-            "text": "Imagery creates vivid sensory pictures through words."
+            "text": "Poetry is not fancy language—it's truth told with rhythm and care."
           },
           {
-            "text": "Rhythm and sound make language musical and memorable."
+            "text": "Imagery creates vivid sensory pictures through words and engages all five senses."
           },
           {
-            "text": "Symbols carry deeper meanings beyond their literal form."
+            "text": "Rhythm and sound make language musical and memorable—work songs use rhythm to sync with labor."
+          },
+          {
+            "text": "Symbols carry deeper meanings beyond their literal form—seed, rain, soil, harvest all carry symbolic weight."
           },
           {
             "text": "Humans have always sung to understand their work and the world."
           },
           {
             "text": "Poetry connects us to ancient wisdom and present gratitude."
+          },
+          {
+            "text": "Farmers are poets—they observe nature, sing of cycles, and live in conversation with the earth."
+          },
+          {
+            "text": "Great poetry emerges from paying deep, honest attention to the world and speaking truthfully about it."
           }
         ],
         "inSimpleWords": "The harvest hymn is a conversation between humans and earth, sung for thousands of years.",
@@ -189826,6 +196513,27 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "What is Resilience?",
+        "storyContext": "Meena looks up the word in an old dictionary at school. 'Resilience: the ability to return to original state after stress.' But watching her village, she realizes resilience isn't returning to the past—it's finding new roots. The question isn't 'Will we go back to what was?' but 'What can we become in this hardship?' Bapu says: 'Resilience isn't a trait you're born with. It's what you learn by staying put when leaving is easier.'",
+        "inSimpleWords": "Resilience is the strength to endure, adapt, and grow through hardship.",
+        "emoji": "💪",
+        "points": [
+          {
+            "label": "Resilience",
+            "text": "The capacity to face adversity, survive hardship, and recover or transform through it."
+          },
+          {
+            "label": "Not denial",
+            "text": "Resilience is not ignoring the drought. It's acknowledging it and choosing to stay."
+          },
+          {
+            "label": "Collective",
+            "text": "In the story, resilience is strengthened by community, shared stories, and mutual support."
+          }
+        ]
+      },
+      {
         "kind": "concept",
         "title": "Tone—Despair, Hope, and Resilience",
         "storyContext": "As weeks become months, the tone of the story shifts. At first: despair—dark, heavy, suffocating. Meena's mother weeps. The village looks like a ghost town. But as Bapu begins gathering the remaining families to share stories and sing, the tone shifts to one of stubborn hope. Meena learns that tone isn't just the mood—it's the writer's attitude toward the subject.",
@@ -189854,6 +196562,40 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Tone—Despair, Hope, and Resilience — Waiting for the Rain",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "How Tone Changes the Story",
+        "storyContext": "Meena writes a journal entry on day 500 of the drought: 'The well is empty again. Mother cried. Why do we stay?' That's despair. But Bapu tells her to rewrite: 'The well waits, as patient as stone, as full of history as it is empty of water. We stay because leaving means the well dies forgotten. We stay because memory matters.' Same situation, different tone—suddenly the story becomes about purpose, not just survival.",
+        "inSimpleWords": "The same event can be tragic or transcendent depending on how we frame it.",
+        "emoji": "🎭",
+        "points": [
+          {
+            "label": "Despair",
+            "text": "Tone of hopelessness, burden, darkness—often uses words like 'useless,' 'dead,' 'endless.'"
+          },
+          {
+            "label": "Hope",
+            "text": "Tone of possibility, warmth, patience—uses words like 'waiting,' 'faithful,' 'enduring.'"
+          },
+          {
+            "label": "Resilience",
+            "text": "Tone of strength, transformation, active choosing—'We stay not because we must, but because we choose to.'"
+          }
+        ]
+      },
+      {
+        "kind": "example",
+        "title": "Rewriting the Same Moment with Different Tone",
+        "storyContext": "Original (despair): 'Another day without rain. The sky is cruel.' / Rewritten (hope): 'Another day without rain—yet. We watch the clouds and wait.' / Rewritten (resilience): 'Another day without rain. We water our small garden with what we saved. We endure.' Each version reflects a different emotional truth about the character's relationship to the drought.",
+        "inSimpleWords": "Tone is the writer's emotional posture toward the events.",
+        "emoji": "✍️",
+        "points": [
+          {
+            "label": "Word choice matters",
+            "text": "'Eternal drought' (despair) vs. 'The monsoon is late this year' (hope) vs. 'We face this year's scarcity' (resilience)."
+          }
+        ]
       },
       {
         "kind": "concept",
@@ -189886,6 +196628,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Why Stories Matter in Hard Times",
+        "storyContext": "Meena learns that Bapu's stories aren't just entertainment—they're psychological survival tools. Each story says: 'This happened before. We are still here.' Stories are proof that humans survive. They're evidence that the present hardship, while real, is not permanent. As Bapu gathers neighbors on the porch, telling stories into the night, the story moves from being Meena's internal struggle to a communal act of remembrance and hope.",
+        "inSimpleWords": "Stories are how we transmit resilience across generations.",
+        "emoji": "🔥",
+        "points": [
+          {
+            "label": "Oral tradition",
+            "text": "Passing knowledge and survival wisdom through spoken stories, not books."
+          },
+          {
+            "label": "Psychological function",
+            "text": "Stories normalize hardship and prove that humans recover from it."
+          }
+        ]
+      },
+      {
         "kind": "concept",
         "title": "Dialogue—Character Through Speech",
         "storyContext": "Young Kumar, the new teacher, argues with Bapu: 'We should relocate, save ourselves.' Bapu replies: 'And leave the land to the dust? The land remembers us. When rain comes—and it will—it will find us here.' In those few lines, their characters emerge: Kumar is pragmatic, forward-looking; Bapu is rooted, spiritual, tied to place. Dialogue reveals who people are without the narrator explaining.",
@@ -189910,6 +196669,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Dialogue—Character Through Speech — Waiting for the Rain",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "What Characters Reveal Through Disagreement",
+        "storyContext": "The argument between Kumar and Bapu is the emotional core of the story. Kumar wants to adapt by leaving—a modern, pragmatic choice. Bapu wants to adapt by staying—a traditional, rooted choice. Neither is wrong. But their disagreement reveals what each person values: Kumar values security and survival. Bapu values continuity and meaning. Meena, listening to both, learns that resilience isn't choosing one over the other—it's holding both truths at once.",
+        "inSimpleWords": "Good characters disagree in ways that reveal their deepest values.",
+        "emoji": "⚖️",
+        "points": [
+          {
+            "label": "Conflict through dialogue",
+            "text": "Characters in conflict reveal themselves most clearly."
+          },
+          {
+            "label": "No easy answer",
+            "text": "Leaving is wise. Staying is wise. The story holds both possibilities."
+          }
+        ]
       },
       {
         "kind": "concept",
@@ -189938,6 +196714,27 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Making the Abstract Concrete",
+        "storyContext": "'Waiting' is abstract. A reader can't touch waiting or see it. But 'Meena's lips cracked from thirst' is concrete. 'The well's stone rim gathered dust like snow' is concrete. By attaching waiting to sensory details, the writer makes the reader *feel* the passage of time. Bapu teaches Meena to do the same in her journal: instead of 'I waited,' write 'My fingers traced the well's rim, counting days by the algae's spread.'",
+        "inSimpleWords": "Transform abstract ideas into sensory, tangible images.",
+        "emoji": "🔍",
+        "points": [
+          {
+            "label": "Abstract: Waiting",
+            "text": "Concrete: The sun rises and sets. Shadows stretch across the well."
+          },
+          {
+            "label": "Abstract: Thirst",
+            "text": "Concrete: Lips crack and bleed. Tongue swells. Throat feels sandpapered."
+          },
+          {
+            "label": "Abstract: Hope",
+            "text": "Concrete: Looking east at dawn. Waiting for a cloud. Feeling the wind shift."
+          }
+        ]
+      },
+      {
         "kind": "example",
         "title": "The Cloud",
         "storyContext": "On the 1,095th day of drought, Meena wakes to a smell she'd almost forgotten: rain on distant earth. A cloud has appeared on the horizon—not rare, but different. This one moves toward the village. Bapu gathers everyone. They stand in the field. For the first time in three years, water falls on Devpur's earth. It's not much—20 millimetres. But it's enough. Seeds that had lain dormant in the soil surge to life within weeks. Meena's mother laughs for the first time Meena can remember. Kumar admits he was wrong to lose faith. The village doesn't return to abundance overnight—recovery takes years. But the breaking of drought breaks the spell of despair.",
@@ -189948,6 +196745,27 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Cloud — Waiting for the Rain",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "After the Rain: What Comes Next?",
+        "storyContext": "The rain arrives, but the story doesn't end there. Meena realizes that resilience isn't just surviving hardship—it's rebuilding after. Families who left slowly return. The wells refill but don't overflow. Recovery takes time. Kumar stays in the village and becomes a bridge between traditional farming and modern technique. Meena's father returns from the city, but the family doesn't buy back the old land—they start a small dairy with borrowed land from neighbors. The village is different now, smaller, but bound more tightly together. Hardship has rewired them.",
+        "inSimpleWords": "Resilience continues long after the crisis ends—in rebuilding, reimagining, and reconnecting.",
+        "emoji": "🌱",
+        "points": [
+          {
+            "label": "Crisis resolution",
+            "text": "Rain arrives, but recovery is slow and requires sustained effort."
+          },
+          {
+            "label": "Character arcs",
+            "text": "Kumar learns faith. Meena's father learns what he really values. Bapu sees his wisdom validated."
+          },
+          {
+            "label": "Community transformation",
+            "text": "The village is not the same—smaller, but stronger, bound by shared suffering."
+          }
+        ]
       },
       {
         "kind": "challenge",
@@ -189965,23 +196783,144 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Challenge: Analyze Tone in a Passage",
+        "storyContext": "Read these two passages. Identify the tone of each and explain how word choice creates it: Passage A: 'The drought stretched on, merciless and endless. The earth died beneath our feet. Hope was a cruel joke we told ourselves.' / Passage B: 'The drought stretched on. The earth rested, waiting. We rested too, and in that waiting, something changed in us.' Same drought, different tones. What words create the difference?",
+        "example": {
+          "problem": "What makes Passage A sound hopeless and Passage B sound patient?",
+          "solution": "Passage A uses: 'merciless,' 'endless,' 'died,' 'cruel joke'—all suggesting finality and violence. Passage B uses: 'rested,' 'waiting,' 'changed'—suggesting patience and transformation. The tone isn't determined by facts (both describe drought), but by the *emotional words* around those facts."
+        },
+        "emoji": "🔍",
+        "points": [
+          {
+            "label": "Connotation",
+            "text": "The emotional meaning of a word matters as much as its literal meaning. 'Waiting' sounds patient; 'lingering' sounds frustrating."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "The Village Gathers",
+        "storyContext": "As drought deepens, Bapu calls a gathering. Those remaining sit under the banyan tree. Each person shares one memory of abundance. An old woman recalls her well overflowing. A man remembers fields so full neighbors came to help harvest. These memories are not denial—they are proof that abundance is possible, that the earth has given before.",
+        "inSimpleWords": "Remembering past abundance gives hope for future recovery.",
+        "emoji": "🌳",
+        "points": [
+          {
+            "label": "Community memory",
+            "text": "Shared stories strengthen collective belief in what can be."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "The Test of Faith",
+        "storyContext": "On day 1000, Kumar breaks. The earth is dead, he tells Bapu. Bapu takes his hand, presses it into dust. This dust will become soil. This soil will drink rain. We just have to stay alive until it does. Kumar does not cry, but his shoulders lighten. He stays.",
+        "inSimpleWords": "Faith is not certainty—it is willingness to hope anyway.",
+        "emoji": "🙏",
+        "points": [
+          {
+            "label": "Faith vs certainty",
+            "text": "Faith means hoping despite not knowing the outcome."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "The Night Before",
+        "storyContext": "The night before rain arrives, Meena cannot sleep. She feels it—the air is different. The wind has changed. She climbs to the roof where Bapu already sits. You feel it, he says. Meena nods. They sit in silence. A bird calls—a sound she has not heard in three years.",
+        "inSimpleWords": "The body knows before the mind believes.",
+        "emoji": "🌙",
+        "points": [
+          {
+            "label": "Intuition",
+            "text": "After years of attention, people sense change coming."
+          }
+        ]
+      },
+      {
+        "kind": "concept",
+        "title": "Hope—The Quiet Strength",
+        "storyContext": "Bapu teaches Meena that hope is not loud. It is quiet. It is what keeps you checking the sky, day after day. Hope does not deny suffering—it exists alongside it. Hope is Meena watering her garden. Hope is Kumar staying one more day.",
+        "inSimpleWords": "Hope is commitment despite uncertainty.",
+        "emoji": "💚",
+        "points": [
+          {
+            "label": "Active hope",
+            "text": "Hope means continuing to care, prepare, and believe despite uncertainty."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "What Resilience Looks Like",
+        "storyContext": "On the day rain arrives, resilience is not triumph. It is Meena's mother laughing. It is Kumar staying. It is Bapu's quiet certainty. It is the village—smaller but standing together. Resilience is 1095 days of showing up. The rain does not create resilience. It reveals what was always there.",
+        "inSimpleWords": "Resilience is built through small choices to keep going.",
+        "emoji": "💪",
+        "points": [
+          {
+            "label": "Resilience revealed",
+            "text": "Crises reveal the strength that was always there."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "Community as Survival",
+        "storyContext": "Bapu evening gatherings become essential. Sharing stories, eating rationed food together, singing—these acts bind community. Meena learns resilience is not individual. It is collective. We survive through each other.",
+        "inSimpleWords": "Community is the medicine for surviving hardship.",
+        "emoji": "🤝"
+      },
+      {
+        "kind": "story",
+        "title": "What Leaving Means",
+        "storyContext": "Meena father left, but so did many others. Leaving is survival, yes. But it is also loss. The story honors both truths: sometimes leaving is wise. Sometimes, staying and enduring is its own kind of wisdom.",
+        "inSimpleWords": "Hardship forces impossible choices. Both leaving and staying have costs and gifts.",
+        "emoji": "🚶"
+      },
+      {
+        "kind": "story",
+        "title": "After the Rain",
+        "storyContext": "Families slowly return. Meena father comes back. But he is changed. He does not reclaim his old farm. Instead, he works with Kumar and Bapu to develop drought-resistant crops. The village is not returning to what it was. It becomes something new.",
+        "inSimpleWords": "Crisis does not erase change—it transforms us irrevocably.",
+        "emoji": "🔄"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Memory as Strength",
+        "storyContext": "Choose one difficult past experience. Write how remembering you survived it gives strength now. 4-6 sentences.",
+        "example": {
+          "problem": "How does past hardship give strength?",
+          "solution": "My grandmother survived partition, losing home and family. When hard times come now, I remember she rebuilt from nothing. If she could do that, I can face this. Her story lives in me. It teaches that humans are durable and rebirth is possible."
+        },
+        "emoji": "💪"
+      },
+      {
         "kind": "recap",
         "title": "What We Learned",
         "points": [
           {
-            "text": "Tone shows the narrator's attitude and emotional journey."
+            "text": "Resilience is the capacity to face hardship, adapt, and transform through it—not return to the past."
           },
           {
-            "text": "Flashbacks provide wisdom and context from the past."
-          },
-          {
-            "text": "Dialogue reveals character and subtext."
-          },
-          {
-            "text": "Imagery makes abstract emotions concrete and sensory."
+            "text": "Tone shows the narrator's attitude and emotional journey toward events."
           },
           {
             "text": "Resilience is learned through stories, community, and patient waiting."
+          },
+          {
+            "text": "Flashbacks provide wisdom and context from the past—proof that humans survive."
+          },
+          {
+            "text": "Dialogue reveals character and subtext—what characters reveal about themselves through disagreement."
+          },
+          {
+            "text": "Imagery makes abstract emotions concrete and sensory—waiting feels like cracked lips and dust."
+          },
+          {
+            "text": "Word choice creates tone—the same event can be tragic or transcendent based on how we describe it."
+          },
+          {
+            "text": "Crisis doesn't end with resolution; it requires rebuilding, reimagining, and reconnecting."
           }
         ],
         "inSimpleWords": "Stories of endurance teach us that the human spirit survives what seems unbearable.",
@@ -190042,6 +196981,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "What is Loneliness?",
+        "storyContext": "Rohan's journal entry: 'I've been at this school for 3 months and no one has asked my name. I sit alone at lunch. In PE, I'm always picked last. Home is quieter than at my old school. Then I found Chirp, and something shifted. Chirp needed me. For the first time, being needed felt better than being liked.' Rohan learns that connection isn't always about friendship—it's about responsibility, care, and being present for another creature.",
+        "inSimpleWords": "Connection often comes through caring for someone else, not through fitting in.",
+        "emoji": "💙",
+        "points": [
+          {
+            "label": "Loneliness",
+            "text": "A feeling of disconnection and not belonging, even when surrounded by people."
+          },
+          {
+            "label": "Purpose as antidote",
+            "text": "Having something to care for can transform loneliness into meaning."
+          }
+        ]
+      },
+      {
         "kind": "concept",
         "title": "Characterization Through Action",
         "storyContext": "Rohan never explicitly says 'I'm lonely' or 'I'm kind.' Instead, the writer shows it: Rohan wakes at dawn to prepare fresh water for Chirp, even when sleepy. He researches bird nutrition and feeds Chirp a mix of seeds and insects. He talks to Chirp about his school day. His actions reveal a boy who is gentle, responsible, lonely, and capable of deep attention—something he's never learned to give to people.",
@@ -190070,6 +197026,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Characterization Through Action — Feathered Friend",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Growing Through Care",
+        "storyContext": "Week by week, Rohan's care transforms him. He's no longer just the lonely new kid—he's the 'bird boy,' the one who wakes early, keeps detailed notes, reads everything about sparrows, can talk for hours about wing rehabilitation. His mother notices he's less withdrawn. He starts speaking up in class about migration patterns. He joins the school's gardening club. He's still quiet, but his quietness is now observation, not isolation. Caring for Chirp is slowly rewiring his nervous system from despair to engagement.",
+        "inSimpleWords": "Responsibility transforms us—it pulls us out of ourselves and into the world.",
+        "emoji": "🌱",
+        "points": [
+          {
+            "label": "Transformation",
+            "text": "Gradual change through consistent action, not sudden revelation."
+          },
+          {
+            "label": "Caregiving and identity",
+            "text": "What we care for shapes who we become."
+          }
+        ]
       },
       {
         "kind": "concept",
@@ -190102,6 +197075,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Learning the Difference Between Possession and Love",
+        "storyContext": "Rohan's mother has a conversation with him halfway through Chirp's recovery. 'I see you love this bird,' she says. 'And I know you're afraid of losing it. But honey, love isn't holding something so tight it can't breathe. Love is setting it free.' At first, Rohan resists this idea. But his mother continues: 'Remember when I was scared to let you join the gardening club? I wanted to keep you close, at home. But you needed to grow. Chirp needs to grow too.' This conversation plants the seed of Rohan's eventual release.",
+        "inSimpleWords": "Love is paradoxical—it holds lightly rather than gripping tightly.",
+        "emoji": "🤝",
+        "points": [
+          {
+            "label": "Attachment",
+            "text": "The desire to keep something close, often rooted in our own needs rather than the other's."
+          },
+          {
+            "label": "Mature love",
+            "text": "Putting another's thriving ahead of our own comfort."
+          }
+        ]
+      },
+      {
         "kind": "concept",
         "title": "Metaphor—The Bird as Mirror",
         "storyContext": "Chirp's broken wing isn't just a physical injury—it mirrors Rohan's emotional brokenness. Both are hurt, isolated, learning to heal. As Chirp's wing mends, so does something in Rohan's heart. He begins to participate more in class, to speak in group projects, to smile. His mother says: 'You healed Chirp, but Chirp healed you more.'",
@@ -190126,6 +197116,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Metaphor—The Bird as Mirror — Feathered Friend",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Reading the Metaphor",
+        "storyContext": "Rohan doesn't initially understand that he and Chirp are mirrors. But as the story progresses, it becomes clear: Chirp's wing is broken on arrival—Rohan's heart is broken by loneliness on arrival. Chirp needs food, water, safety—Rohan needs purpose, connection, meaning. As Chirp recovers, Rohan recovers. The metaphor isn't stated, but it's felt. By the end, when Chirp flies free and Rohan feels both loss and peace, the reader understands: Rohan has healed himself through caring for Chirp.",
+        "inSimpleWords": "The best metaphors are felt before they're understood.",
+        "emoji": "✨",
+        "points": [
+          {
+            "label": "Implied metaphor",
+            "text": "Not explicitly stated ('Chirp IS Rohan's broken heart'), but understood through parallel events."
+          },
+          {
+            "label": "Mutual healing",
+            "text": "Neither party heals the other alone—healing is reciprocal."
+          }
+        ]
       },
       {
         "kind": "concept",
@@ -190154,6 +197161,23 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Moments of Doubt",
+        "storyContext": "Rohan has moments of doubt. 'What if I'm doing it wrong? What if the wing doesn't heal?' One night, he wakes convinced Chirp isn't moving—that the bird has died. Panic. He rushes to the balcony. Chirp is asleep, breathing softly. Rohan learns that responsibility is also anxiety, doubt, fear of failure. But he keeps showing up anyway. That's what maturity is—not confidence, but commitment despite doubt.",
+        "inSimpleWords": "Responsibility means caring even when you're scared you'll get it wrong.",
+        "emoji": "😰",
+        "points": [
+          {
+            "label": "Responsibility ≠ certainty",
+            "text": "You can care deeply for something and still fear failure."
+          },
+          {
+            "label": "Mature action",
+            "text": "Acting despite doubt, not because you're confident, but because something matters."
+          }
+        ]
+      },
+      {
         "kind": "example",
         "title": "The Day Chirp Flies",
         "storyContext": "Three weeks into Chirp's recovery, the wing is healed. On a warm morning, Rohan carries the cage to the building's terrace and opens the door. Chirp hops to the edge, cocks its head at Rohan one last time, and launches into the sky. It circles once, twice, disappears. Rohan watches until he's certain Chirp isn't coming back. When he turns toward home, he finds his mother waiting. 'Thank you,' she says, 'for teaching me what you learned—sometimes love is letting go.' That afternoon, Rohan joins the school's bird-watching club, a group of other kids who love observing nature. He makes his first friends. He doesn't stop caring for birds—he cares for them as a naturalist now, not as a lonely boy seeking purpose. Chirp changed him.",
@@ -190164,6 +197188,19 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Day Chirp Flies — Feathered Friend",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "What Remains After Goodbye",
+        "storyContext": "After Chirp flies away, Rohan's life doesn't return to what it was before. The cage sits empty on the balcony for days—then Rohan plants wildflowers in it. He keeps his bird journal, now expanding it to include other species he observes. He finds a community of bird-watchers. But more importantly, he's learned something about himself: he's capable of deep care, of discipline, of patience, of sacrifice. These aren't things he'll ever lose. Chirp's absence is real, but so is the person Rohan has become.",
+        "inSimpleWords": "We carry our meaningful relationships forward in who we've become.",
+        "emoji": "💝",
+        "points": [
+          {
+            "label": "Enduring impact",
+            "text": "Loss doesn't erase what was. The relationship continues to shape the person."
+          }
+        ]
       },
       {
         "kind": "challenge",
@@ -190181,6 +197218,122 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Challenge: Identify Metaphors in Fiction",
+        "storyContext": "Metaphors are hidden in stories. Here's a passage: 'He was an island, untouched and unreachable. Then she arrived, like a bridge.' What does the metaphor suggest? An island isn't really a person, but it suggests isolation. A bridge isn't really a person, but it suggests connection. Write your own metaphor that suggests emotional or psychological truth without explaining it.",
+        "example": {
+          "problem": "How would you show that a character is becoming brave through metaphor?",
+          "solution": "'At first, she was a door locked from inside. Slowly, over months, she learned to turn the key. By the end, she could throw the door open and stand in the sunlight.' The door, lock, and key are metaphors for fear and courage. You're not saying 'She became brave'—you're showing it through metaphor."
+        },
+        "emoji": "🔍",
+        "points": [
+          {
+            "label": "Metaphor in narrative",
+            "text": "Often subtle, running through the whole story, revealing the author's view of the character."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "The First Week",
+        "storyContext": "Rohan's first week with Chirp is clumsy. The bird is terrified. But Rohan learns to be gentle, to move slowly, to speak softly. He discovers Chirp will eat better if Rohan sits quietly nearby. This act—being fully present for another creature—transforms Rohan.",
+        "inSimpleWords": "Learning to care means learning the art of gentle presence.",
+        "emoji": "🕊️",
+        "points": [
+          {
+            "label": "Gentleness",
+            "text": "Care requires slowing down and matching the pace of the other."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "The Moment of Healing",
+        "storyContext": "Three weeks in, Chirp tests the broken wing. The bird flutters gently. Rohan realizes he wants Chirp to fly more than he wants Chirp to stay. That shift—willingness to let go—is the real healing. Rohan has healed something in himself.",
+        "inSimpleWords": "True healing happens when we want the other's freedom more than our own comfort.",
+        "emoji": "✨",
+        "points": [
+          {
+            "label": "Shift in perspective",
+            "text": "Rohan moves from I need Chirp to Chirp needs to be free."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "The School Bird-Watching Club",
+        "storyContext": "After Chirp flies, Rohan joins a bird-watching club at school. For the first time since moving, he belongs. They are all quiet observers, all people who care deeply about small creatures. Rohan realizes his time with Chirp taught him to care deeply. That skill opens doors to others who also care.",
+        "inSimpleWords": "What we learn through one relationship prepares us for other relationships.",
+        "emoji": "🦅",
+        "points": [
+          {
+            "label": "Connection through values",
+            "text": "Caring teaches us to recognize and connect with others who also care."
+          }
+        ]
+      },
+      {
+        "kind": "concept",
+        "title": "Letting Go—A Form of Love",
+        "storyContext": "Rohan's mother explains: Letting go does not mean you did not love. It means you loved so much that you wanted the best for them. This is mature love—not possession, but genuine wanting the other's thriving. It is the hardest kind of love, and the most important.",
+        "inSimpleWords": "Love measured by freedom given, not freedom taken.",
+        "emoji": "💜",
+        "points": [
+          {
+            "label": "Mature love",
+            "text": "True love wants the other's good above our own comfort."
+          },
+          {
+            "label": "Freedom as love",
+            "text": "We show love by opening the cage, not by building walls."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "Months Later",
+        "storyContext": "Six months after Chirp flies, Rohan studies sparrow migration. He helps younger kids set up feeders. He corresponds with a naturalist in Kashmir. He is no longer lonely. He has found a community of people who see what he sees—that small creatures matter, that observation is love, that caring teaches us who we can become. Chirp changed everything.",
+        "inSimpleWords": "One relationship can ripple outward and reshape our entire life.",
+        "emoji": "🌍",
+        "points": [
+          {
+            "label": "Legacy of care",
+            "text": "What we learn through caring extends to how we care for the world."
+          }
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "Separation Anxiety",
+        "storyContext": "As release day approaches, Rohan feels anxiety. What if Chirp does not fly well? What if Rohan was not good enough? His mother reminds him: Chirp is ready. So are you. Both learned what you needed. That is why it is time. Understanding does not erase the ache.",
+        "inSimpleWords": "Knowing something is right does not make it painless.",
+        "emoji": "😢"
+      },
+      {
+        "kind": "story",
+        "title": "The Last Morning",
+        "storyContext": "The morning Rohan releases Chirp, he wakes early. He prepares its last meal—extra seeds. He sits and remembers: first terrified day, wing healing, Chirp understanding. He thanks the bird. Thank you for needing me. Thank you for teaching me that I can love more than I need it.",
+        "inSimpleWords": "The best goodbyes are grateful and conscious.",
+        "emoji": "🙏"
+      },
+      {
+        "kind": "story",
+        "title": "New Beginnings",
+        "storyContext": "Months after Chirp release, Rohan is different. Still quiet, but purposeful. He leads nature walks. He maintains wild bird sanctuary. He has friends—real friends, connected by shared passion. He thinks of Chirp often, not with sadness, but gratitude. The bird gave him companionship and a path to belonging.",
+        "inSimpleWords": "Heartbreak can become a doorway to a larger, more connected life.",
+        "emoji": "🌅"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Hidden Metaphors in Care",
+        "storyContext": "Write a scene (5-7 sentences) about caring for something where injury/struggle represents emotional truth without stating it.",
+        "example": {
+          "problem": "Write about a broken watch as metaphor for lost time",
+          "solution": "She found the watch in her father desk, stopped at 3:47. She held it for months. Then she took it to a jeweler. As it ticked again, something in herself restarted too. Not healing, but possibility of motion. Time could be wound up again."
+        },
+        "emoji": "✍️"
+      },
+      {
         "kind": "recap",
         "title": "What We Learned",
         "points": [
@@ -190188,7 +197341,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "Character is shown through action, not told through description."
           },
           {
-            "text": "Conflicts can be external (plot) and internal (emotional)."
+            "text": "Conflicts can be external (plot) and internal (emotional)—the internal conflict is often the heart of the story."
           },
           {
             "text": "Metaphors allow animals and objects to represent human truths."
@@ -190197,7 +197350,16 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "Responsibility and care help us grow and connect with others."
           },
           {
-            "text": "Love sometimes means letting go, and that's okay."
+            "text": "Love sometimes means letting go, and that's okay—freedom is a gift."
+          },
+          {
+            "text": "We grow by having something depend on us—purpose heals loneliness."
+          },
+          {
+            "text": "Goodbye is real, but it doesn't erase the person we've become through the relationship."
+          },
+          {
+            "text": "Caring for others teaches us discipline, patience, resilience, and love."
           }
         ],
         "inSimpleWords": "A feathered friend teaches us about ourselves and what it means to matter.",
@@ -190205,784 +197367,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "image": {
           "url": "https://images.pexels.com/photos/9158761/pexels-photo-9158761.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "What We Learned — Feathered Friend",
-          "q": "classroom"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "class-8-english-magnifying-glass",
-    "classLevel": "8",
-    "subject": "English",
-    "chapter": "Magnifying Glass",
-    "title": "Magnifying Glass",
-    "hook": "What secrets does the world hide when we stop rushing and start really looking?",
-    "characters": [
-      {
-        "name": "Sana",
-        "emoji": "👩",
-        "role": "curious student learning to observe"
-      },
-      {
-        "name": "Science Teacher Mrs. Gupta",
-        "emoji": "👩‍🏫",
-        "role": "mentor revealing hidden worlds"
-      },
-      {
-        "name": "Sameer",
-        "emoji": "👦",
-        "role": "friend learning alongside"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "Magnifying Glass",
-        "emoji": "🔍",
-        "image": {
-          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Magnifying Glass — Magnifying Glass",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Ordinary Leaf",
-        "storyContext": "Sana is a bright but distracted student in her Class 8 science class. She rushes through assignments, glances at textbooks without really reading, plays with her phone. Her science teacher, Mrs. Gupta, notices Sana's lack of genuine curiosity and hands her a magnifying glass. 'Look at a leaf carefully for 10 minutes,' she says. 'Not what you think you know about leaves. What you actually see.' Sana is puzzled but obeys. Under magnification, a simple green leaf becomes a cosmos: veins like rivers, tiny hairs catching light, colour gradations she'd never noticed, intricate patterns that seem mathematical. When Mrs. Gupta returns, Sana is quiet, almost reverent. 'How did I never see this?' she asks. Mrs. Gupta smiles: 'You never really looked before.'",
-        "inSimpleWords": "The world is full of wonders for those who pause and observe.",
-        "emoji": "🍃",
-        "image": {
-          "url": "https://images.pexels.com/photos/10127242/pexels-photo-10127242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Ordinary Leaf — Magnifying Glass",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Attention to Detail—The Writer's Superpower",
-        "storyContext": "Sana begins carrying the magnifying glass everywhere, not just in science class. She examines bark, insects, water droplets, clouds. She writes detailed descriptions in her English notebook: not 'a mosquito' but 'a mosquito with transparent wings that shimmer like oil on water and six spindly legs that land on skin like six questions.' Her English teacher reads her new assignment and says: 'You're a writer now, Sana. You see what others miss.'",
-        "points": [
-          {
-            "label": "Detail",
-            "text": "Specific, precise observations rather than generalizations."
-          },
-          {
-            "label": "Why it matters",
-            "text": "Details make writing believable, vivid, memorable."
-          },
-          {
-            "label": "Sana's discovery",
-            "text": "'A flower' is boring; 'petals like tissue paper, stamens dusted with pollen' is alive."
-          }
-        ],
-        "example": {
-          "problem": "Write two descriptions of the same thing (e.g., a cup of tea):\n\nVersion 1 (Generic): A hot cup of tea.\n\nVersion 2 (Detailed): ?",
-          "solution": "Version 2: A ceramic cup holds dark amber tea; curls of steam rise like spirits ascending; a single cardamom pod floats on the surface; the rim is warm against my lips; the first sip scalds my tongue but tastes of ginger, honey, and my grandmother's kitchen 2,000 kilometres away."
-        },
-        "inSimpleWords": "Specific details make readers see and feel what you're describing.",
-        "emoji": "✨",
-        "image": {
-          "url": "https://images.pexels.com/photos/36650154/pexels-photo-36650154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Attention to Detail—The Writer's Superpower — Magnifying Glass",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Observation vs. Assumption—The Critical Difference",
-        "storyContext": "Sana learns to distinguish between what she observes and what she assumes. 'I assumed ants were just small and brown,' she tells Mrs. Gupta. 'But under magnification, I see they have two segments in their body, not one, and their antennae actually move—they're smelling, communicating. I was wrong.' Mrs. Gupta nods: 'This is science and writing both—question your assumptions. Look closer.'",
-        "points": [
-          {
-            "label": "Observation",
-            "text": "What you actually see and measure, without judgment."
-          },
-          {
-            "label": "Assumption",
-            "text": "What you think you know, often based on habit."
-          },
-          {
-            "label": "Risk",
-            "text": "Assumptions are invisible errors. We write them as truth."
-          },
-          {
-            "label": "Remedy",
-            "text": "Look, measure, describe only what's actually there."
-          }
-        ],
-        "example": {
-          "problem": "You assume: 'Spiders are scary and evil.' Now observe a spider closely. What do you actually see?",
-          "solution": "Observation: The spider has eight jointed legs, each with tiny claws. Its body consists of a head region and an abdomen. It has multiple eyes (8, in most species) arranged in patterns. Its movement is precise, purposeful, nearly elegant. It doesn't attack; it waits. It's not malicious—it's hunting to survive, like a cat hunting mice. Fear was an assumption; the spider is just an animal doing what its biology demands. This realization is both humbling and wondrous."
-        },
-        "inSimpleWords": "What you assume and what you observe are often not the same thing.",
-        "emoji": "🕷️",
-        "image": {
-          "url": "https://images.pexels.com/photos/256491/pexels-photo-256491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Observation vs. Assumption—The Critical Difference — Magnifying Glass",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Perspective—How Magnification Changes Everything",
-        "storyContext": "Sana realizes that magnifying glass isn't just a tool for seeing small things—it's a metaphor for perspective. The same reality looks completely different depending on your vantage point. A human hair looks like a thick rope under magnification. A raindrop contains universes of reflection. A grain of sand is a landscape of crystals. The magnifying glass teaches her that truth is perspective-dependent.",
-        "points": [
-          {
-            "label": "Perspective",
-            "text": "The angle or lens through which you view something."
-          },
-          {
-            "label": "In science",
-            "text": "Magnification changes what you see without changing reality."
-          },
-          {
-            "label": "In writing",
-            "text": "The narrator's perspective shapes what truth is told and how."
-          },
-          {
-            "label": "In life",
-            "text": "The same event can be tragedy or comedy, depending on who's telling it."
-          }
-        ],
-        "inSimpleWords": "The magnifying glass doesn't create truth; it reveals what was always there.",
-        "emoji": "👁️",
-        "image": {
-          "url": "https://images.pexels.com/photos/8500417/pexels-photo-8500417.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Perspective—How Magnification Changes Everything — Magnifying Glass",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Wonder and Awe—The Emotional Core",
-        "storyContext": "Mrs. Gupta tells Sana: 'Most people stop wondering after childhood. They think they know how the world works, so they stop looking. But wonder isn't childish—it's the highest form of intelligence. Every scientist, every artist, every great mind started with wonder.' Sana realizes she'd stopped wondering somewhere around age 10, when she started caring about grades instead of knowledge. The magnifying glass gives her permission to wonder again.",
-        "points": [
-          {
-            "label": "Wonder",
-            "text": "The feeling of profound amazement at something new or strange."
-          },
-          {
-            "label": "Why it matters",
-            "text": "Wonder drives discovery, creativity, and meaningful learning."
-          },
-          {
-            "label": "Adult wonder",
-            "text": "Is not childish—it's rare and precious and should be protected."
-          }
-        ],
-        "inSimpleWords": "Staying curious and amazed is how we stay alive, even as adults.",
-        "emoji": "😲",
-        "image": {
-          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Wonder and Awe—The Emotional Core — Magnifying Glass",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "The Class Project",
-        "storyContext": "For her final project, Sana creates a \"magnified world\" presentation: detailed drawings and descriptions of common things seen through magnification. A dew drop on a blade of grass becomes a jewel. The wing of a butterfly becomes stained glass. A strand of spider silk becomes a bridge between worlds. She writes accompanying poems: precise, image-rich, marveling. Sameer, her friend, watches her work obsessively and asks: 'Why are you so into this now?' Sana says: 'Because the world is incredible, and I was never looking.' Sameer borrows the magnifying glass. A week later, he shows Sana drawings of ant colonies under magnification. The two of them have started a club: \"Observers.\" They meet weekly to examine things together, to wonder out loud, to write about what they see.",
-        "inSimpleWords": "Curiosity is contagious. When one person starts really looking, others follow.",
-        "emoji": "🔬",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cassius_blue_%28Leptotes_cassius_theonus%29_underside.JPG/960px-Cassius_blue_%28Leptotes_cassius_theonus%29_underside.JPG",
-          "alt": "The Class Project — Magnifying Glass",
-          "q": "butterfly"
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Turn: Observe and Describe",
-        "storyContext": "Find an ordinary object (a leaf, a stone, a piece of fabric, a coin, a flower). Examine it carefully, noting its actual details—colours, textures, patterns, marks. Then write a 150-200 word description that makes someone who's never seen it understand exactly what it looks like, using vivid specific language.",
-        "example": {
-          "problem": "Describe a feather in 150-200 words, using careful observation.",
-          "solution": "The feather is seven centimetres long, golden-brown with a darker spine running its length. Under magnification, the spine reveals tiny barbs extending left and right, like a ladder's rungs. These barbs are woven together so tightly that water beads on the surface and slides off—engineering millions of years old. The tip tapers to a point fine as a needle. The quill, hollow and light as air, feels like papery bone. There are asymmetries: one edge is fuller, one thinner, designed so that air moving across the feather creates the lift needed for flight. Hold it to light and it glows amber. Turn it and the colour shifts. A single feather contains geometry, function, and beauty. This isn't just something that fell from a bird—it's a masterpiece of evolution, unnoticed unless you stop and really look."
-        },
-        "emoji": "❓",
-        "image": {
-          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Turn: Observe and Describe — Magnifying Glass",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "recap",
-        "title": "What We Learned",
-        "points": [
-          {
-            "text": "Attention to detail transforms ordinary writing into vivid, memorable prose."
-          },
-          {
-            "text": "Observation reveals truth; assumptions obscure it."
-          },
-          {
-            "text": "Perspective matters—the same reality looks different from different angles."
-          },
-          {
-            "text": "Wonder and awe are signs of an alive, curious mind."
-          },
-          {
-            "text": "The magnifying glass is a metaphor for deep, intentional looking."
-          }
-        ],
-        "inSimpleWords": "The world is a miracle for those who pause, look closely, and learn to see.",
-        "emoji": "🌍✨",
-        "image": {
-          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What We Learned — Magnifying Glass",
-          "q": "classroom"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "class-8-english-bibha-chowdhuri-the-beam-of-light-that-lit-the-path-for-women-in-indian-science",
-    "classLevel": "8",
-    "subject": "English",
-    "chapter": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-    "title": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-    "hook": "A girl from Kolkata who broke barriers and discovered cosmic rays—proving women belong in science.",
-    "characters": [
-      {
-        "name": "Bibha Chowdhuri",
-        "emoji": "🔬",
-        "role": "Pioneering female physicist and cosmic ray researcher"
-      },
-      {
-        "name": "Priya (student)",
-        "emoji": "👧",
-        "role": "Modern-day girl curious about women in science"
-      },
-      {
-        "name": "Grandfather (storyteller)",
-        "emoji": "👴",
-        "role": "Elder sharing stories of India's scientific past"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-        "storyContext": "Priya sits in her grandmother's study in Delhi. On the shelf, an old magazine shows a woman in a laboratory coat, smiling despite the hardships she faced. Her grandfather walks in with a cup of tea and says, 'Let me tell you about Bibha—a scientist who changed everything for girls like you.'",
-        "emoji": "✨",
-        "inSimpleWords": "The story of how one brave woman opened doors for all women in Indian science.",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Bulb_2.jpg/960px-Bulb_2.jpg",
-          "alt": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "light bulb glowing"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Who Was Bibha Chowdhuri?",
-        "storyContext": "Kolkata, 1920s. Bibha was born into a progressive family in Bengal. Her father believed girls deserved the same education as boys—rare and bold for that time. While most girls her age were being married off, Bibha was reading physics textbooks and dreaming of the stars above. Her curiosity wasn't just a hobby; it was a fire that burned bright.",
-        "points": [
-          {
-            "label": "Born",
-            "text": "1923 in Assam, raised in Kolkata, Bengal"
-          },
-          {
-            "label": "Family support",
-            "text": "Father encouraged her scientific interests despite society's expectations"
-          },
-          {
-            "label": "First dream",
-            "text": "To understand what the universe is made of"
-          }
-        ],
-        "emoji": "🌟",
-        "inSimpleWords": "Bibha grew up in a time when women weren't supposed to study science, but her family believed in her.",
-        "image": {
-          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Who Was Bibha Chowdhuri? — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Breaking Barriers: Studying Physics When No One Expected Her To",
-        "storyContext": "In college, Bibha chose physics—a field with barely any women. Her classmates were shocked. Her teachers, skeptical. But Bibha had one weapon: determination. She attended every lecture, solved every problem, and refused to apologize for being curious. Her classroom neighbors watched her take notes carefully; soon, they realized she understood more than half of them.",
-        "points": [
-          {
-            "label": "The challenge",
-            "text": "Women were discouraged from science; society said it was 'unfit' for girls"
-          },
-          {
-            "label": "Her choice",
-            "text": "She studied physics at Presidency College, Kolkata—standing out as the only or one of few women"
-          },
-          {
-            "label": "The result",
-            "text": "She excelled and earned respect through sheer skill and dedication"
-          }
-        ],
-        "emoji": "💪",
-        "inSimpleWords": "Even when everyone doubted her, Bibha kept studying and proved she belonged in science.",
-        "image": {
-          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Breaking Barriers: Studying Physics When No One Expected Her To — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "A New Quest: Cosmic Rays and the Mysteries of Space",
-        "storyContext": "After college, Bibha joined the Indian Association for the Cultivation of Science (IACS) in Kolkata. Here, she met other scientists who shared her passion. Her mentor saw in her a rare combination: curiosity, precision, and courage. They gave her a challenge: study cosmic rays—invisible particles that come from space and constantly hit Earth. No one in India had really studied them before.",
-        "points": [
-          {
-            "label": "Cosmic rays",
-            "text": "High-energy particles from outer space that strike Earth constantly"
-          },
-          {
-            "label": "The setup",
-            "text": "IACS provided a laboratory and equipment; Bibha designed experiments to detect and measure them"
-          },
-          {
-            "label": "The discovery",
-            "text": "She discovered that cosmic rays behave differently at different altitudes—a groundbreaking finding"
-          }
-        ],
-        "emoji": "🚀",
-        "inSimpleWords": "Bibha studied invisible particles from space and made discoveries that surprised the whole scientific world.",
-        "image": {
-          "url": "https://images.pexels.com/photos/12199101/pexels-photo-12199101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "A New Quest: Cosmic Rays and the Mysteries of Space — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "The Experiment: Measuring Cosmic Rays at Different Heights",
-        "storyContext": "Imagine Bibha and her team climbing the Himalayan mountains with heavy equipment. On one trip, they took their instruments high into the mountains to measure cosmic rays. At sea level, at mid-height, at the peak—the numbers changed. The cosmic rays were stronger at higher altitudes. This simple observation unlocked something big: it meant cosmic rays were being created high in the atmosphere, not in space.",
-        "example": {
-          "problem": "Cosmic rays are detected: 100 at sea level, 250 at 2,000 meters altitude, 400 at 4,000 meters. What does this pattern tell us?",
-          "solution": "The increase in cosmic rays with altitude shows they are being generated in Earth's upper atmosphere through interactions with high-energy particles from space. This was Bibha's key discovery—it proved cosmic rays didn't originate from a distant source but were created in our own atmosphere."
-        },
-        "emoji": "📊",
-        "inSimpleWords": "By measuring cosmic rays at different heights, Bibha proved a new theory about how the universe works.",
-        "image": {
-          "url": "https://images.pexels.com/photos/31864418/pexels-photo-31864418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Experiment: Measuring Cosmic Rays at Different Heights — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Recognition and International Fame",
-        "storyContext": "By the 1940s, Bibha's work was being published in international scientific journals. Scientists in Europe and America were reading her research. She gave talks at conferences. Other women scientists began to see her and think: 'If she can do it, so can I.' But in India, few people knew her name. She worked quietly in her laboratory, publishing paper after paper, changing science one discovery at a time.",
-        "points": [
-          {
-            "label": "International recognition",
-            "text": "Her cosmic ray research was published in top journals worldwide"
-          },
-          {
-            "label": "Scientific impact",
-            "text": "Her findings contributed to the Nobel Prize-winning work of other physicists"
-          },
-          {
-            "label": "Home acknowledgment",
-            "text": "Slowly, Indians began to recognize her contributions to science"
-          }
-        ],
-        "emoji": "🏆",
-        "inSimpleWords": "The whole world started knowing Bibha's name because her science was so important and so well done.",
-        "image": {
-          "url": "https://images.pexels.com/photos/8363754/pexels-photo-8363754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Recognition and International Fame — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Challenges She Faced: Beyond the Lab",
-        "storyContext": "But recognition didn't erase the everyday battles. Bibha faced discrimination. She wasn't offered senior positions as readily as her male colleagues. Pay scales were unequal. She had to fight for lab space, for equipment, for respect. Yet she never complained publicly. Instead, she worked harder, published more, and became impossible to ignore. Her quiet excellence was her greatest weapon against injustice.",
-        "points": [
-          {
-            "label": "Pay discrimination",
-            "text": "Women scientists earned less than men for the same work"
-          },
-          {
-            "label": "Career barriers",
-            "text": "Fewer leadership positions available to women"
-          },
-          {
-            "label": "Her response",
-            "text": "She focused on excellence, proving women deserved equal opportunities through her achievements"
-          }
-        ],
-        "emoji": "⚖️",
-        "inSimpleWords": "Even successful Bibha had to fight unfair treatment, but she let her brilliant work speak louder than any complaint.",
-        "image": {
-          "url": "https://images.pexels.com/photos/256519/pexels-photo-256519.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Challenges She Faced: Beyond the Lab — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "From Doubt to Discovery: Bibha's Legacy Today",
-        "storyContext": "Fast forward to today. Priya is now in Class 9, inspired by Bibha's story. She joins a science fair with a project on particle physics. She gets first place. Afterward, she tells her grandfather: 'Because of Bibha, teachers believed I could do science. Because of her, the school gave equal lab space to girls. Because of her work, the world knows women scientists are essential.' Her grandfather smiles and says, 'That's how one person's courage creates ripples across generations.'",
-        "example": {
-          "problem": "How did one woman scientist change the future for all women in science?",
-          "solution": "By refusing to accept 'no,' by doing excellent work that couldn't be ignored, and by proving through her discoveries that gender doesn't determine scientific talent. Today, countless women scientists around the world stand on her shoulders—including your teachers, your mentors, and future scientists like you."
-        },
-        "emoji": "🌈",
-        "inSimpleWords": "Bibha's success opened a door that can never be closed—women now belong in every field of science.",
-        "image": {
-          "url": "https://images.pexels.com/photos/9158761/pexels-photo-9158761.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "From Doubt to Discovery: Bibha's Legacy Today — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Turn: Think Like a Scientist",
-        "storyContext": "Priya's teacher asks the class: 'If Bibha were alive today and you could ask her one question about her journey, what would it be? And what would her answer teach you about becoming a scientist yourself?'",
-        "points": [
-          {
-            "label": "Challenge",
-            "text": "Write or discuss what you would ask Bibha Chowdhuri if you met her."
-          },
-          {
-            "label": "Reflect",
-            "text": "What quality of hers do you want to develop in yourself—courage, curiosity, persistence, or something else?"
-          }
-        ],
-        "example": {
-          "problem": "Sample question: 'Bibha, when everyone said women couldn't do physics, how did you keep believing in yourself?'",
-          "solution": "A possible answer (in Bibha's voice): 'I didn't listen to what people said I couldn't do. I listened to what my heart told me I loved—understanding the universe. When you love something truly, the doubts of others become very small. Also, I had family who believed in me. Find people who believe in your dreams, and hold tight to them.'"
-        },
-        "emoji": "💭",
-        "inSimpleWords": "Think about what inspires you in Bibha's story and how you can bring that same courage to your own life.",
-        "image": {
-          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Turn: Think Like a Scientist — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "recap",
-        "title": "What We Learned: Bibha's Beam of Light",
-        "points": [
-          {
-            "label": "Who she was",
-            "text": "Bibha Chowdhuri (1923–1991) was India's first female particle physicist and cosmic ray researcher"
-          },
-          {
-            "label": "What she achieved",
-            "text": "Discovered how cosmic rays behave at different altitudes; contributed to global particle physics"
-          },
-          {
-            "label": "How she did it",
-            "text": "With curiosity, courage, hard work, and family support—despite facing gender discrimination"
-          },
-          {
-            "label": "Her legacy",
-            "text": "She showed the world and India that women are excellent scientists; opened doors for generations of women in STEM"
-          },
-          {
-            "label": "Why it matters",
-            "text": "Her story teaches us that one person's determination to do what they love can change the world"
-          }
-        ],
-        "emoji": "✨",
-        "inSimpleWords": "Bibha Chowdhuri was a beam of light—not just in the lab discovering cosmic rays, but in showing every girl that science is her rightful home.",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Filament_bulb.jpg/960px-Filament_bulb.jpg",
-          "alt": "What We Learned: Bibha's Beam of Light — Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
-          "q": "light bulb glowing"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "class-8-financial-literacy-income-expense-profit-running-a-small-shop",
-    "classLevel": "8",
-    "subject": "Financial Literacy",
-    "chapter": "Income, Expense & Profit — Running a Small Shop",
-    "title": "Raj's Corner Shop Adventure",
-    "hook": "Can Raj turn his small shop dream into a growing business by managing money wisely?",
-    "characters": [
-      {
-        "name": "Raj",
-        "emoji": "👨‍💼",
-        "role": "Aspiring shopkeeper trying to understand profit"
-      },
-      {
-        "name": "Priya",
-        "emoji": "👩‍💼",
-        "role": "Raj's friend who runs a successful cart business"
-      },
-      {
-        "name": "Uncle Mohan",
-        "emoji": "👴",
-        "role": "Local market expert who teaches about expenses"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "Income, Expense & Profit — Running a Small Shop",
-        "storyContext": "Raj has saved ₹5,000 and dreams of opening a small shop near his school. But he doesn't know if his dream will make money or lose it.",
-        "emoji": "🏪",
-        "image": {
-          "url": "https://images.pexels.com/photos/10127242/pexels-photo-10127242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Income, Expense & Profit — Running a Small Shop — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Big Question",
-        "storyContext": "One Saturday morning, Raj stands in the market with his savings in hand. He sees Priya's juice cart selling 40 cups a day. 'How do I know if I'll make profit?' he asks. Priya smiles: 'Come meet Uncle Mohan. He'll teach you the secret.' They walk to Uncle Mohan's spice shop, where ledgers and neat notes line the shelves.",
-        "inSimpleWords": "Understanding money in and money out is the first step to running a business.",
-        "emoji": "🤔",
-        "image": {
-          "url": "https://images.pexels.com/photos/36650154/pexels-photo-36650154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Big Question — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "What Is Income?",
-        "storyContext": "Uncle Mohan pulls out his ledger. 'Every rupee that comes into your shop is income. When Priya sells a juice for ₹20, that ₹20 is her income. When I sell 100 grams of turmeric for ₹80, that ₹80 is my income.'",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "Income is the total money received from selling goods or services."
-          },
-          {
-            "label": "Source",
-            "text": "In a shop, income comes from customers buying products."
-          },
-          {
-            "label": "Record",
-            "text": "Write down every sale. On day 1, if you sell 50 notebooks at ₹10 each, income = ₹500."
-          }
-        ],
-        "example": {
-          "problem": "Raj's notebook corner sold 30 notebooks at ₹15 each and 20 pens at ₹8 each on Monday. What is his income?",
-          "solution": "Income from notebooks = 30 × ₹15 = ₹450. Income from pens = 20 × ₹8 = ₹160. Total income = ₹450 + ₹160 = ₹610."
-        },
-        "inSimpleWords": "Income is all the money that comes into your shop from selling things.",
-        "emoji": "💰",
-        "image": {
-          "url": "https://images.pexels.com/photos/256491/pexels-photo-256491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What Is Income? — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "What Is Expense?",
-        "storyContext": "Uncle Mohan flips to another page. 'Now look here. I didn't just buy turmeric and sell it. I bought it for ₹5,000, paid ₹500 rent for my shop, paid ₹200 for transport, paid myself ₹300 for the day's work. All these are expenses.' Raj nods slowly.",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "Expense is money spent to run the business—buying stock, paying rent, paying workers."
-          },
-          {
-            "label": "Types",
-            "text": "Cost of goods (what you buy to sell), Rent (shop space), Utilities (water, electricity), Wages (worker pay), Transport."
-          },
-          {
-            "label": "Record",
-            "text": "Write down EVERY expense. No detail is too small."
-          }
-        ],
-        "example": {
-          "problem": "Raj opens a samosa corner. He buys ingredients for ₹1,200, pays rent ₹800, pays a helper ₹300. What is his total expense for the week?",
-          "solution": "Total expense = ₹1,200 + ₹800 + ₹300 = ₹2,300."
-        },
-        "inSimpleWords": "Expense is every rupee you have to spend to keep your shop running.",
-        "emoji": "💸",
-        "image": {
-          "url": "https://images.pexels.com/photos/8500417/pexels-photo-8500417.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What Is Expense? — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "The Profit Formula",
-        "storyContext": "Uncle Mohan writes on a clean page: **Profit = Income − Expense**. 'This is the heart of business, Raj. If your income is bigger than your expense, you have profit. The profit is yours to keep or grow the shop.'",
-        "points": [
-          {
-            "label": "Formula",
-            "text": "Profit = Income − Expense"
-          },
-          {
-            "label": "Positive Profit",
-            "text": "If income > expense, you make profit. This is success."
-          },
-          {
-            "label": "Loss",
-            "text": "If expense > income, you have a loss. You spend more than you earn."
-          }
-        ],
-        "example": {
-          "problem": "On Tuesday, Raj's shop had income ₹1,500 and expenses ₹900. Did he make profit or loss?",
-          "solution": "Profit = Income − Expense = ₹1,500 − ₹900 = ₹600 profit."
-        },
-        "inSimpleWords": "Profit is what you have left after paying all your costs. Loss is when costs are bigger than sales.",
-        "emoji": "📊",
-        "image": {
-          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Profit Formula — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "Priya's Weekly Report",
-        "storyContext": "Priya shows Raj her juice-cart ledger for the week. 'Watch me calculate my profit like a real business owner.'",
-        "points": [
-          {
-            "label": "Income",
-            "text": "Monday: 50 cups × ₹20 = ₹1,000"
-          },
-          {
-            "label": "",
-            "text": "Tuesday–Friday: 45 cups/day × ₹20 × 4 days = ₹3,600"
-          },
-          {
-            "label": "",
-            "text": "Saturday: 60 cups × ₹20 = ₹1,200"
-          },
-          {
-            "label": "",
-            "text": "Total weekly income = ₹1,000 + ₹3,600 + ₹1,200 = ₹5,800"
-          },
-          {
-            "label": "Expense",
-            "text": "Juice concentrate: ₹1,500. Cups & straws: ₹300. Cart rental: ₹500. Display setup: ₹200. Total weekly expense = ₹2,500"
-          },
-          {
-            "label": "Profit",
-            "text": "Profit = ₹5,800 − ₹2,500 = ₹3,300"
-          }
-        ],
-        "inSimpleWords": "By tracking every rupee in and out, Priya can see exactly how much her business earned this week.",
-        "emoji": "✅",
-        "image": {
-          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Priya's Weekly Report — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Smart Expense Tracking",
-        "storyContext": "Uncle Mohan warns: 'Many shopkeepers fail because they don't track expenses properly. They forget to write down small costs, and suddenly there's no profit.' He shows Raj a checklist.",
-        "points": [
-          {
-            "label": "Essential Expenses",
-            "text": "Cost of stock, Rent, Utilities (electricity, water), Worker wages, Transport costs"
-          },
-          {
-            "label": "Overhead Costs",
-            "text": "Packaging, Cleaning supplies, Insurance, License fees"
-          },
-          {
-            "label": "Best Practice",
-            "text": "Use a notebook or app. Write expenses DAILY. Total them weekly. Compare with income to see profit trends."
-          }
-        ],
-        "example": {
-          "problem": "Raj forgets to record ₹50/day for transport costs over 6 days. His claimed profit is ₹1,200. What is his actual profit?",
-          "solution": "Actual profit = ₹1,200 − (₹50 × 6) = ₹1,200 − ₹300 = ₹900. Untracked expenses reduced profit by ₹300!"
-        },
-        "inSimpleWords": "Write down every expense—no matter how small—or your profit calculations will be wrong.",
-        "emoji": "📋",
-        "image": {
-          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Smart Expense Tracking — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Profit Percentage & Growth",
-        "storyContext": "Raj asks, 'Uncle Mohan, how do I know if ₹3,300 profit is good?' Uncle smiles. 'Calculate profit as a percentage of your expenses. It tells you how well your money is growing.'",
-        "points": [
-          {
-            "label": "Formula",
-            "text": "Profit % = (Profit ÷ Expense) × 100"
-          },
-          {
-            "label": "Example",
-            "text": "If expense is ₹2,500 and profit is ₹1,000, profit % = (1000 ÷ 2500) × 100 = 40%"
-          },
-          {
-            "label": "Benchmark",
-            "text": "A 20–30% profit is healthy for small retail. Above 50% is excellent."
-          }
-        ],
-        "example": {
-          "problem": "Raj's shop: expense ₹5,000, profit ₹1,500. What is his profit percentage?",
-          "solution": "Profit % = (₹1,500 ÷ ₹5,000) × 100 = 30%. This is a healthy margin for a small shop."
-        },
-        "inSimpleWords": "Profit percentage tells you how much money you're earning for every rupee you spend.",
-        "emoji": "📈",
-        "image": {
-          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Profit Percentage & Growth — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Turn: The Market Challenge",
-        "storyContext": "Uncle Mohan challenges Raj: 'A tea stall owner buys tea leaves for ₹3,000, sugar for ₹800, cups for ₹400, and pays rent of ₹1,500 for the week. She sells 500 cups of tea at ₹10 each. Is this a profitable business? By how much?'",
-        "points": [
-          {
-            "label": "Find",
-            "text": "Total income, Total expense, Profit or loss, Profit percentage"
-          }
-        ],
-        "example": {
-          "problem": "Tea stall: buys tea leaves ₹3,000, sugar ₹800, cups ₹400, rent ₹1,500. Sells 500 cups at ₹10 each. Calculate profit and profit %.",
-          "solution": "Income = 500 × ₹10 = ₹5,000. Expense = ₹3,000 + ₹800 + ₹400 + ₹1,500 = ₹5,700. Profit/Loss = ₹5,000 − ₹5,700 = −₹700 (LOSS). This business is losing ₹700 a week. She needs to sell more or reduce costs."
-        },
-        "inSimpleWords": "Before opening a shop, always calculate if income will be more than expense. Otherwise, you'll lose money.",
-        "emoji": "🎯",
-        "image": {
-          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Turn: The Market Challenge — Income, Expense & Profit — Running a Small Shop",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "recap",
-        "title": "Raj's Lessons",
-        "storyContext": "Raj closes his notebook and thanks Uncle Mohan. Priya adds: 'Now you're ready to open your shop and watch your dream grow.'",
-        "points": [
-          {
-            "label": "Income",
-            "text": "All money received from selling goods. Track every sale."
-          },
-          {
-            "label": "Expense",
-            "text": "All money spent to run the business. Record daily."
-          },
-          {
-            "label": "Profit",
-            "text": "Income − Expense. If positive, you're growing. If negative, you're losing."
-          },
-          {
-            "label": "Profit %",
-            "text": "(Profit ÷ Expense) × 100. Tells you if your business is healthy."
-          },
-          {
-            "label": "Key Habit",
-            "text": "Write everything down. A notebook beats memory every time."
-          }
-        ],
-        "inSimpleWords": "To run a successful shop, know your income, track your expenses, and calculate your profit. That's the full formula.",
-        "emoji": "🎓",
-        "image": {
-          "url": "https://images.pexels.com/photos/12199101/pexels-photo-12199101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Raj's Lessons — Income, Expense & Profit — Running a Small Shop",
           "q": "classroom"
         }
       }
@@ -191038,6 +197422,26 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "What is Interest? Money Earns More Money",
+        "storyContext": "Mr. Sharma explains: 'When you deposit money in a bank, we use it to lend to people and businesses. We pay YOU a portion of what we earn—that's interest. Think of it as rent we pay for borrowing your money.'",
+        "points": [
+          {
+            "label": "Interest",
+            "text": "Money the bank pays you for letting them use your money."
+          },
+          {
+            "label": "Interest rate",
+            "text": "Expressed as a percentage per year (% per annum). Example: 8% per annum means ₹8 for every ₹100 saved."
+          },
+          {
+            "label": "Aisha's example",
+            "text": "₹10,000 at 8% per annum = ₹800 interest in year 1."
+          }
+        ],
+        "inSimpleWords": "Interest is free money the bank gives you for savings. The higher the rate, the more you earn."
+      },
+      {
+        "kind": "concept",
         "title": "Simple Interest vs. Compound Interest",
         "storyContext": "Mr. Sharma draws two paths. 'Simple interest is like this: I give you ₹100 and 10% interest every year. Year 1: you get ₹10. Year 2: you get ₹10 again. Always ₹10. Boring, right? But compound interest is different. Year 1: you get ₹10 on ₹100. Year 2: you get interest on ₹110. Year 3: on ₹121. It keeps growing!'",
         "points": [
@@ -191065,6 +197469,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Simple Interest vs. Compound Interest — Compound Interest & The Power of Time",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Year 1: The First Interest Arrives",
+        "storyContext": "Aisha deposits ₹10,000 on January 1st. Mr. Sharma says: 'We offer 8% per annum on fixed deposits. By December 31st, you'll get interest.' Aisha asks, 'How much?' Mr. Sharma: '8% of ₹10,000 = ₹800. So you'll have ₹10,800.' Aisha's eyes widen. 'I earned ₹800 without doing anything!' Her Grandma: 'Yes, beta. Now imagine if you left that ₹10,800 to grow for another year...'",
+        "inSimpleWords": "Aisha's first year: ₹10,000 earns 8% interest = ₹800 gained. New balance: ₹10,800.",
+        "emoji": "🎉"
       },
       {
         "kind": "concept",
@@ -191105,6 +197516,16 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Year by Year: Watching the Magic Work",
+        "storyContext": "Aisha creates a spreadsheet with Grandma. 'Let's see what happens year by year, beta.' They calculate each year using compound interest.",
+        "example": {
+          "problem": "Aisha's ₹10,000 at 8% per annum. Calculate the balance for years 1–5.",
+          "solution": "Year 0: ₹10,000. Year 1: 10,000 × 1.08 = ₹10,800. Year 2: 10,800 × 1.08 = ₹11,664. Year 3: 11,664 × 1.08 = ₹12,597.12. Year 4: 12,597.12 × 1.08 = ₹13,604.89. Year 5: 13,604.89 × 1.08 = ₹14,693.28. Notice: each year's interest is bigger than the last (₹800, then ₹864, then ₹933, etc.)."
+        },
+        "emoji": "📊"
+      },
+      {
         "kind": "concept",
         "title": "Time is Your Superpower",
         "storyContext": "Grandma holds Aisha's hand. 'The secret is time. If you invest ₹10,000 today at age 13 and leave it untouched until you're 30, even at 7% interest, you'll have over ₹70,000. That's not your hard work—that's the power of time doing the work for you.'",
@@ -191133,6 +197554,84 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Time is Your Superpower — Compound Interest & The Power of Time",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Aisha Meets Her Friend Who Waits",
+        "storyContext": "Aisha tells her friend Rohan: 'I'm investing ₹10,000 now at 8%.' Rohan says: 'That's great, but I can't start. I'll invest ₹20,000 when I'm 25 (in 12 years).' Aisha: 'Let's see who wins!' Grandma smiles mysteriously. 'You both will—but Aisha has a secret advantage.'",
+        "inSimpleWords": "Aisha starts early with ₹10,000. Rohan waits 12 years but invests ₹20,000. Who ends up with more at age 43?",
+        "emoji": "🤔"
+      },
+      {
+        "kind": "concept",
+        "title": "The 72 Rule: Quick Mental Math",
+        "storyContext": "Mr. Sharma teaches a shortcut: 'Divide 72 by your interest rate to estimate doubling time.' Aisha: '72 ÷ 8 = 9. So my money doubles every 9 years?' Mr. Sharma: 'Roughly, yes! It's an approximation but very useful for quick estimates.'",
+        "points": [
+          {
+            "label": "Rule of 72",
+            "text": "Doubling time ≈ 72 ÷ interest rate (%). At 8%, money doubles in ~9 years."
+          },
+          {
+            "label": "Verification",
+            "text": "₹10,000 at 8% for 9 years: 10,000 × (1.08)^9 = ₹21,589. Actually ₹21,589, close to double."
+          },
+          {
+            "label": "Why useful?",
+            "text": "Quickly estimate wealth growth without a calculator. At 5%, doubles every 14.4 years. At 10%, every 7.2 years."
+          }
+        ],
+        "inSimpleWords": "The Rule of 72 is a quick mental trick: divide 72 by the interest rate to find roughly how long until your money doubles."
+      },
+      {
+        "kind": "story",
+        "title": "Aisha's Milestone: From ₹10K to ₹20K",
+        "storyContext": "At age 22 (9 years later), Aisha checks her statement: ₹21,589. She's hit the 2× milestone! Grandma: 'This is your second doubling point. From here, the next doubling will be just as fast.' Aisha realizes: 'My money will keep doubling every 9 years. By 43, I'll have 4 doublings... that's ₹10,000 × 16... ₹160,000!'",
+        "inSimpleWords": "At year 9, Aisha's ₹10,000 doubles to ₹21,589. The magic is that each doubling takes roughly the same time.",
+        "emoji": "🎊"
+      },
+      {
+        "kind": "story",
+        "title": "The Trap: Lifestyle Inflation",
+        "storyContext": "Year 10: Aisha gets a job and her income rises. She's tempted to spend more. Grandma warns: 'Many rich people end up poor because they inflate their spending as income grows. Keep investing a percentage of your new income. Let wealth snowball.' Aisha: 'You mean I should invest ₹1,000 MORE every year?' Grandma: 'Exactly. Your growth will accelerate.'",
+        "inSimpleWords": "As Aisha earns more, she resists the urge to inflate spending. She invests extra money too, speeding up compound growth.",
+        "emoji": "💰"
+      },
+      {
+        "kind": "concept",
+        "title": "Additional Investments Amplify Growth",
+        "storyContext": "If Aisha adds ₹1,000 every year (year 1–30) in addition to her initial ₹10,000, her final balance is MUCH higher.",
+        "points": [
+          {
+            "label": "Initial investment only",
+            "text": "₹10,000 for 30 years at 8% = ₹1,00,626."
+          },
+          {
+            "label": "With annual ₹1,000 additions",
+            "text": "₹10,000 + (₹1,000 × 30 years) at 8% compound = ₹1,50,000+ (rough estimate)."
+          },
+          {
+            "label": "The power",
+            "text": "Regular additions + compound interest on those additions = exponential acceleration."
+          }
+        ],
+        "inSimpleWords": "When you add extra money to your investment regularly, compound interest works on those additions too. Growth accelerates dramatically."
+      },
+      {
+        "kind": "challenge",
+        "title": "Aisha's Aggressive Saving Plan",
+        "storyContext": "At age 30, Aisha decides: 'I'll invest ₹5,000 every year (from salary) for the next 13 years until age 43.' How much extra will this add to her wealth compared to no additional saving?",
+        "example": {
+          "problem": "Aisha's original ₹10,000 (now 17 years invested, ₹37,386). She adds ₹5,000 every year for 13 years at 8% compound. By year 30, how much total?",
+          "solution": "Original ₹10,000 after 30 years = ₹1,00,626. Additional savings (₹5,000 × 13 years) with compound: roughly ₹80,000. Total ≈ ₹1,80,000. The extra ₹65,000 invested added ₹80,000 of wealth. Compound interest on those additions = ₹15,000 free money."
+        },
+        "emoji": "🚀"
+      },
+      {
+        "kind": "story",
+        "title": "Aisha at 43: The Outcome",
+        "storyContext": "Aisha's final check at age 43: Original ₹10,000 invested at 8% for 30 years = ₹1,00,626. Additional ₹5,000/year for 13 years (from age 30–43) compounded = ₹80,000. Total: ₹1,80,626. She's exceeded her ₹1 lakh goal by 80%! Grandma hugs her. 'Beta, you started young, compounded smartly, and added to your investments. You're living proof that compound interest works.'",
+        "inSimpleWords": "Aisha's final wealth at 43: ₹1,80,626. She invested ₹10,000 initially + ₹65,000 extra = ₹75,000 total out of pocket. The extra ₹1,05,626 is pure compound interest magic.",
+        "emoji": "👑"
       },
       {
         "kind": "concept",
@@ -191167,6 +197666,16 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Interest Rates & Where to Invest — Compound Interest & The Power of Time",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "challenge",
+        "title": "The Rate Matters: 8% vs. 10% Over 30 Years",
+        "storyContext": "Aisha wonders: 'If I find an 8% fixed deposit vs. a 10% scheme, does 2% extra really matter over 30 years?' Let's do the maths.",
+        "example": {
+          "problem": "₹10,000 invested for 30 years: at 8% per annum vs. 10% per annum. What's the difference?",
+          "solution": "At 8%: A = 10,000(1.08)^30 = 10,000 × 10.0627 = ₹1,00,627. At 10%: A = 10,000(1.10)^30 = 10,000 × 17.4494 = ₹1,74,494. Difference: ₹73,867! Just 2% extra rate multiplies your money by 1.74× instead of 1.01×. Rate matters MUCH MORE over long periods."
+        },
+        "emoji": "💎"
       },
       {
         "kind": "example",
@@ -191211,6 +197720,43 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Aisha Meets Rohan at Age 43",
+        "storyContext": "Thirty years later, Aisha and Rohan meet. Aisha invested ₹10,000 at 13, earning 8% per annum for 30 years. Rohan invested ₹20,000 at age 25, also at 8%, but only for 18 years. Let's see who won the race.",
+        "inSimpleWords": "Aisha: ₹10,000 for 30 years at 8% = ₹1,00,626. Rohan: ₹20,000 for 18 years at 8% = ₹100,626 × (1.08)^−12... Let's calculate.",
+        "emoji": "🏆"
+      },
+      {
+        "kind": "example",
+        "title": "The Grand Finale: Aisha vs. Rohan at 43",
+        "storyContext": "Using the compound interest formula, let's see the final amounts.",
+        "example": {
+          "problem": "Aisha: ₹10,000 at age 13, 8% for 30 years (now 43). Rohan: ₹20,000 at age 25, 8% for 18 years (now 43). Who has more?",
+          "solution": "Aisha: A = 10,000(1.08)^30 = ₹1,00,626. Rohan: A = 20,000(1.08)^18 = 20,000 × 3.9960 = ₹79,920. Aisha wins by ₹20,706! Aisha invested half as much but started 12 years earlier—compound interest gave her 26% MORE money. Time beats principal amount."
+        },
+        "emoji": "✨"
+      },
+      {
+        "kind": "concept",
+        "title": "Doubling Time: The Rule of 72",
+        "storyContext": "Mr. Sharma teaches Aisha a shortcut: 'If you want to know roughly how long it takes for your money to double, divide 72 by the interest rate.' Aisha: '72 ÷ 8 = 9 years. My money doubles every 9 years?' Mr. Sharma: 'Almost exactly. It's a quick mental math trick.'",
+        "points": [
+          {
+            "label": "Rule of 72",
+            "text": "Doubling time ≈ 72 ÷ interest rate (%). At 8%, money doubles in ~9 years."
+          },
+          {
+            "label": "Why useful?",
+            "text": "Quickly estimate: at 5%, money doubles every 14.4 years. At 10%, every 7.2 years."
+          },
+          {
+            "label": "Aisha's money",
+            "text": "₹10,000 doubles to ₹20,000 in 9 years. Again to ₹40,000 by year 18. Again to ₹80,000 by year 27."
+          }
+        ],
+        "inSimpleWords": "Money roughly doubles every 72÷(interest rate) years. This is a quick way to guess how much you'll have without a calculator."
+      },
+      {
         "kind": "challenge",
         "title": "The Race: Start Early or Invest More Later?",
         "storyContext": "Aisha asks: 'Grandma, what if I start with ₹1,000 at age 13, but my friend Ravi waits and invests ₹5,000 at age 20? Who wins?' Grandma smiles. 'Calculate and see.'",
@@ -191239,6 +197785,60 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Race: Start Early or Invest More Later? — Compound Interest & The Power of Time",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Aisha's First Withdrawal: A Lesson Learned",
+        "storyContext": "Year 5: Aisha's bike breaks. She's tempted to withdraw from her ₹14,693 to buy a new one. Grandma stops her. 'If you withdraw now, you lose 25 more years of compound growth. That bike would cost you ₹63,000 in future wealth!' Aisha steps back. She borrows from Grandma instead and repays her. The lesson: early withdrawal is expensive.",
+        "inSimpleWords": "Don't withdraw early! The money you take out today loses decades of compound growth. The true cost is much higher than the amount withdrawn.",
+        "emoji": "🚫"
+      },
+      {
+        "kind": "concept",
+        "title": "The Cost of Early Withdrawal",
+        "storyContext": "Mr. Sharma explains the real price of early withdrawals. 'Every year you remove money, you lose compound growth on it forever.'",
+        "points": [
+          {
+            "label": "If Aisha withdrew ₹5,000 at year 5",
+            "text": "She loses: 5,000 × (1.08)^25 = 5,000 × 6.8484 = ₹34,242 of future wealth!"
+          },
+          {
+            "label": "The trap",
+            "text": "People think a ₹5,000 withdrawal costs ₹5,000. False. It costs ₹5,000 + all the interest that ₹5,000 would have earned."
+          },
+          {
+            "label": "Golden rule",
+            "text": "Once invested, let it grow untouched for 10+ years minimum. The longer, the better."
+          }
+        ],
+        "inSimpleWords": "Early withdrawal isn't just about the money you take out—it's about all the compound interest you lose on that money. A ₹1,000 withdrawal today costs you ₹8,000+ tomorrow."
+      },
+      {
+        "kind": "story",
+        "title": "Aisha's Legacy: Teaching Her Own Child",
+        "storyContext": "At 50, Aisha has ₹3 lakh in wealth. Her 12-year-old daughter asks: 'Mummy, can I start saving too?' Aisha smiles. 'Of course. I'll open an account for you. Start small, but start now. By your age 43, you'll be amazed at what compound interest will do.'",
+        "inSimpleWords": "Aisha becomes a teacher of compound interest, passing wisdom to the next generation.",
+        "emoji": "👨‍👩‍👧"
+      },
+      {
+        "kind": "concept",
+        "title": "Generational Wealth: Compound Interest Across Decades",
+        "storyContext": "When parents teach children about compound interest early, wealth can compound across generations. Aisha's daughter starts at 12 instead of 13—that one extra year compounds for decades.",
+        "points": [
+          {
+            "label": "Aisha at 13, daughter at 12",
+            "text": "Daughter has 1 extra year of compounding compared to Aisha's start."
+          },
+          {
+            "label": "By daughter's age 43 (31 years)",
+            "text": "₹10,000 at 8% = ₹1,23,429 vs Aisha's ₹1,00,626. Extra ₹22,803 from just 1 extra year."
+          },
+          {
+            "label": "Generational advantage",
+            "text": "Parents who teach compound interest early give their children exponential wealth advantages."
+          }
+        ],
+        "inSimpleWords": "Starting even 1 year earlier adds tens of thousands in wealth by age 43. Teaching children early creates generational wealth."
       },
       {
         "kind": "recap",
@@ -191323,6 +197923,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Day 1: The Alarm Clock Test",
+        "storyContext": "4:30 AM. Aarav wakes before school starts. He sets up a small tea corner with a borrowed stove. His first customer—Mrs. Patel from 3C—buys tea for ₹20. Aarav beams. By 7:30 AM, he's sold 25 cups before rushing to school. 'Look, Dadi! I made ₹500!' Dadi asks: 'And how much did you spend on supplies?'",
+        "inSimpleWords": "Aarav's first morning: sold 25 cups at ₹20 each = ₹500 in income.",
+        "emoji": "📈"
+      },
+      {
         "kind": "concept",
         "title": "What is Income? Money That Flows In",
         "storyContext": "Aarav makes his first cup of tea. A neighbor buys it for ₹20. Aarav writes: Income = ₹20. By evening, he's sold 25 cups. Total income for day 1: ₹500. Dadi smiles: 'That ₹500 is your income — money customers pay YOU.'",
@@ -191343,6 +197950,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "What is Income? Money That Flows In — Income, Expense & Profit — Running a Small Shop",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Reality Check: Buying Supplies",
+        "storyContext": "The next morning, Aarav is excited until Dadi asks: 'Beta, where did the tea come from? The milk? The sugar?' Aarav realizes he'd borrowed everything from Dadi. 'I need to buy supplies,' he says sheepishly. They visit Ravi's wholesale shop. Aarav notices the prices: tea leaves ₹150, sugar ₹80, milk ₹200, cups ₹50. He gulps. 'That's... ₹480. More than half my income!'",
+        "inSimpleWords": "Aarav discovers: making tea costs money! He must buy ingredients to keep selling.",
+        "emoji": "💸"
       },
       {
         "kind": "concept",
@@ -191391,6 +198005,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Profit Formula — Income, Expense & Profit — Running a Small Shop",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Day 2: A Rainy Day Disaster",
+        "storyContext": "It rains heavily. Aarav has less than 20 customers all morning. He panics. 'I'll only make ₹200 income but I already bought ₹480 in supplies!' Dadi explains: 'This is the real world, beta. Not every day is profitable. Some days you lose money.'",
+        "inSimpleWords": "Rain reduces customers. Fewer sales = lower income. But expenses stay fixed. Aarav faces his first loss.",
+        "emoji": "🌧️"
       },
       {
         "kind": "concept",
@@ -191445,6 +198066,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Week 1 Recap: Understanding the Pattern",
+        "storyContext": "Aarav tracks his numbers over a week and sees the pattern. Good days: 25+ cups, profit ₹20. Rainy days: 10 cups, loss ₹280. Average days: 20 cups, profit ₹0 (break-even). Dadi: 'Now you see why businesses track daily numbers. You must sell enough to cover fixed costs before you even make profit.'",
+        "inSimpleWords": "Aarav's first week: some days profit, some days loss. The key question: on average, does income exceed all expenses?",
+        "emoji": "📋"
+      },
+      {
         "kind": "example",
         "title": "Full Day Calculation: The Break-Even Day",
         "storyContext": "Aarav runs the numbers for a full week. One day, he sells 30 cups and both income and expense balance perfectly. Let's see his exact calculation: 30 cups × ₹20 = ₹600 income. Expenses: tea ₹180, sugar ₹100, milk ₹250, cups ₹60, rent (daily share ₹500/30 days ≈ ₹17). Total: ₹180 + ₹100 + ₹250 + ₹60 + ₹17 = ₹607. Net: ₹600 − ₹607 = −₹7 (small loss). But Aarav sees: 'When I sell 31 cups, I'd break even or make profit!'",
@@ -191460,6 +198088,33 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Aarav's Cost-Cutting Idea",
+        "storyContext": "Aarav notices Ravi's wholesale prices are high. He asks: 'Is there a cheaper tea supplier?' Ravi replies: 'There's one 2 km away, but bulk orders only. If you buy 5 kg instead of 1 kg at a time, it costs ₹120 per kg instead of ₹150.' Aarav realizes: 'If I can reduce my per-cup cost, my profit margin grows!'",
+        "inSimpleWords": "Smart businesses find ways to cut expenses. Lower cost = higher profit on the same income.",
+        "emoji": "💡"
+      },
+      {
+        "kind": "concept",
+        "title": "Cost per Unit & Profit Margin",
+        "storyContext": "Aarav calculates: If tea costs ₹150 for 1 kg (enough for 50 cups), that's ₹3 per cup. But at ₹120/kg (buying in bulk), it's ₹2.40 per cup. That ₹0.60 difference per cup adds up. On 30 cups, he saves ₹18. Over a month, that's ₹540 extra profit!",
+        "points": [
+          {
+            "label": "Cost per unit",
+            "text": "Total ingredient cost ÷ units produced. Lower is better."
+          },
+          {
+            "label": "Profit margin",
+            "text": "Selling price − cost per unit. Aarav: ₹20 − ₹3 = ₹17 margin (old). With bulk: ₹20 − ₹2.40 = ₹17.60."
+          },
+          {
+            "label": "The advantage",
+            "text": "Bulk buying lets Aarav keep the ₹20 price but earn MORE profit per cup."
+          }
+        ],
+        "inSimpleWords": "Smart shopping: buy in bulk to lower your per-unit cost, which instantly raises your profit margin without raising prices."
+      },
+      {
         "kind": "challenge",
         "title": "Can Aarav Make ₹1,000 Profit This Month?",
         "storyContext": "Dadi asks Aarav: 'If you want to make a profit of ₹1,000 by the end of the month, what should you do? Here's the plan: sell 20 cups daily (his average), at ₹20 per cup, with daily expenses of ₹45 (tea, sugar, milk, cups). Monthly rent is ₹500. Can he hit ₹1,000 profit in a month (30 days)?'",
@@ -191473,6 +198128,131 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Can Aarav Make ₹1,000 Profit This Month? — Income, Expense & Profit — Running a Small Shop",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Month 2: Aarav's Expansion Plan",
+        "storyContext": "With ₹10,000+ in profit from month 1, Aarav wants to grow. He asks Dadi: 'Can I add snacks? Biscuits, samosas?' Dadi: 'Good idea. But calculate: what's the cost, what's the selling price, how many can you sell daily? Do the maths first.'",
+        "inSimpleWords": "Aarav plans to diversify products. But he must calculate profit margin for each new item before investing.",
+        "emoji": "📊"
+      },
+      {
+        "kind": "example",
+        "title": "Adding Biscuits to the Menu",
+        "storyContext": "Aarav researches: biscuit packs cost ₹3 each (wholesale), he'll sell them for ₹10 each. If he sells 15 biscuit packs daily, along with 20 teas, his income increases significantly.",
+        "example": {
+          "problem": "Aarav adds biscuits: cost ₹3 each, sells for ₹10. Projects 15 biscuits/day. Plus 20 teas at ₹20 each. Same monthly expenses (₹1,850). What's the new profit for 30 days?",
+          "solution": "Tea income: 20 × ₹20 × 30 = ₹12,000. Biscuit income: 15 × ₹10 × 30 = ₹4,500. Total income = ₹16,500. Additional biscuit expense: 15 × ₹3 × 30 = ₹1,350. Total expenses = ₹1,850 + ₹1,350 = ₹3,200. Profit = ₹16,500 − ₹3,200 = ₹13,300. Adding biscuits increases profit by ₹3,150 monthly!"
+        },
+        "emoji": "🍪"
+      },
+      {
+        "kind": "story",
+        "title": "The Danger of Overexpanding",
+        "storyContext": "Month 3: Aarav is excited and adds samosas (cost ₹8, sells ₹20). But quality drops—rushed prep, angry customers, returns. His samosa costs rise to ₹10 due to complaints and remakes. Sales drop from 10/day to 3/day. Dadi: 'Beta, you expanded too fast. Sometimes less profit spread thin is worse than solid profit on fewer items.'",
+        "inSimpleWords": "Expansion can backfire. Overextending yourself reduces quality, hurts reputation, and erases profit. Focus on doing fewer things well.",
+        "emoji": "⚠️"
+      },
+      {
+        "kind": "concept",
+        "title": "Break-Even Analysis: When to Expand?",
+        "storyContext": "Dadi teaches: 'Before adding a product, calculate the break-even point: how many units must you sell daily just to cover its costs? If you can't reliably hit that, don't add it.'",
+        "points": [
+          {
+            "label": "Samosa example",
+            "text": "Cost ₹8, sells ₹20 = ₹12 profit/unit. Fixed cost for samosa prep = ₹100/month. Break-even = 100 ÷ 12 ≈ 9 samosas/month ≈ 1/3 daily. Low bar."
+          },
+          {
+            "label": "The trap",
+            "text": "Aarav thought he'd sell 10/day (easy). Market was realistic (3/day). He didn't hit break-even, so samosas bled profit."
+          },
+          {
+            "label": "Lesson",
+            "text": "Always calculate break-even before launching. If you can't hit it consistently, skip it."
+          }
+        ],
+        "inSimpleWords": "Break-even = how many units you must sell to just cover costs. If you can't reliably hit that number, don't sell that product."
+      },
+      {
+        "kind": "story",
+        "title": "Aarav's Pivot: Focus & Quality",
+        "storyContext": "Aarav stops samosas and doubles down on tea + biscuits (his winning combo). He improves tea quality (better leaves, fresh milk, faster service). Within a month, customers double. Dadi: 'You learned: focus beats diversification when you're small. Be the best at what you do.'",
+        "inSimpleWords": "Aarav refocuses: excellent tea + snacks beat mediocre tea + samosas + bread + juice. Quality > quantity.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "concept",
+        "title": "Pricing Strategy: Cost-Plus vs. Value-Based",
+        "storyContext": "Month 6: A rich client suggests: 'Aarav, your tea is premium. Charge ₹30 instead of ₹20.' Aarav hesitates. Dadi: 'There are two ways to price. Cost-plus: add a fixed margin to your cost. Value-based: charge what customers think it's worth. You might be underpriced.'",
+        "points": [
+          {
+            "label": "Cost-Plus",
+            "text": "Your cost ₹5/cup, want 100% margin? Charge ₹10. Simple but leaves money on table."
+          },
+          {
+            "label": "Value-Based",
+            "text": "If customers think your tea is worth ₹30 (quality, taste, speed), charge ₹30. Profit margin jumps to ₹25/cup."
+          },
+          {
+            "label": "Aarav's test",
+            "text": "Charge ₹30 for premium tea, ₹20 for regular. Premium sells 5/day, regular 15/day. Monthly profit jumps to ₹16,000+."
+          }
+        ],
+        "inSimpleWords": "Don't just add costs + profit margin. Charge what customers believe the product is worth. Premium quality commands premium pricing."
+      },
+      {
+        "kind": "challenge",
+        "title": "Should Aarav Hire Help?",
+        "storyContext": "Aarav's business is booming—30+ customers during morning rush alone. He can't handle it alone. A friend offers to work for ₹300/day (5 days/week). Should Aarav hire?",
+        "example": {
+          "problem": "Current: Aarav works 30 days/month, sells 25 cups/day at ₹25 avg, cost ₹5/cup, monthly rent ₹500. New helper: ₹300/day × 5 days × 4 weeks = ₹6,000/month. With helper, Aarav estimates he can sell 40 cups/day (no rush stress). Is hiring profitable?",
+          "solution": "Current profit: (25 × ₹25 × 30) − (25 × ₹5 × 30) − ₹500 = ₹18,750 − ₹3,750 − ₹500 = ₹14,500. With helper: (40 × ₹25 × 30) − (40 × ₹5 × 30) − ₹500 − ₹6,000 = ₹30,000 − ₹6,000 − ₹500 − ₹6,000 = ₹17,500. Profit increases by ₹3,000. YES, hire."
+        },
+        "emoji": "👥"
+      },
+      {
+        "kind": "story",
+        "title": "Month 12: Aarav's First Year Review",
+        "storyContext": "Aarav tallies his first year profit: ₹14,500 × 12 months = ₹1,74,000 (before hiring). He's paid his school fees, bought his parents a small gift, and saved ₹50,000 for year 2. Dadi: 'You're 14, running a ₹15,000/month business. Most adults can't do this. What did you learn?'",
+        "inSimpleWords": "Aarav's year 1: ₹1,74,000 profit. He learned income, expenses, profit, cost control, pricing, and expansion strategy.",
+        "emoji": "🏆"
+      },
+      {
+        "kind": "concept",
+        "title": "Reinvestment vs. Withdrawal: Growth Strategy",
+        "storyContext": "Dadi asks: 'You have ₹50,000 saved. Will you spend it on a bike, or reinvest in the business?' Aarav thinks: 'If I reinvest, I can expand to a bigger location, hire staff, maybe sell to nearby schools.' Dadi: 'See? Profit → reinvestment → faster profit growth. That's how millionaires are built.'",
+        "points": [
+          {
+            "label": "Withdrawal strategy",
+            "text": "Take all profit as salary/spending. Business stays small. Aarav earns ₹1,74,000/year forever."
+          },
+          {
+            "label": "Reinvestment strategy",
+            "text": "Invest profit back: bigger shop, hiring, inventory. Business grows 30–50%/year. Eventually ₹5,00,000+/year."
+          },
+          {
+            "label": "The math",
+            "text": "Year 1: ₹1,74,000 profit. Reinvest ₹50,000 → bigger shop. Year 2: ₹2,50,000 profit. Reinvest ₹75,000. Year 3: ₹4,00,000 profit."
+          }
+        ],
+        "inSimpleWords": "Reinvesting profit into business growth is how small shops become enterprises. Withdraw now, or invest now and become wealthy later."
+      },
+      {
+        "kind": "story",
+        "title": "Year 2: Aarav's Expansion Decision",
+        "storyContext": "Aarav has ₹50,000 saved. He's tempted to spend: a new bike, a phone, a trip. But Dadi asks: 'What if you invested ₹40,000 in a second shop location? You could hire a friend to manage it.' Aarav realizes: if he opens location 2, his total profit could double to ₹3,50,000/year within 3 years.",
+        "inSimpleWords": "Aarav chooses growth: reinvest ₹40,000 into a second location instead of spending on personal items.",
+        "emoji": "🚀"
+      },
+      {
+        "kind": "example",
+        "title": "The Reinvestment Payoff: Aarav's Year 2–5 Growth",
+        "storyContext": "Aarav reinvests ₹40,000 in a second shop (20 km away, lower rent). By year 2, both shops run: Shop 1 earns ₹15,000/month, Shop 2 earns ₹12,000/month after costs and hiring.",
+        "example": {
+          "problem": "Aarav: Year 1 profit ₹1,74,000 (14,500/month). Reinvests ₹40,000 into Shop 2. Shop 2 takes 6 months to break even, then earns ₹12,000/month. By year 2, what's total monthly profit?",
+          "solution": "Shop 1: ₹14,500/month (stable). Shop 2: ₹12,000/month (6 months running). Average year 2: (14,500 × 12) + (12,000 × 6) = ₹1,74,000 + ₹72,000 = ₹2,46,000. Profit increased by ₹72,000 thanks to reinvestment! By year 3, both shops stable = ₹27,000/month × 12 = ₹3,24,000 annual profit—85% growth from year 1."
+        },
+        "emoji": "📈"
       },
       {
         "kind": "recap",
@@ -191554,6 +198334,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Meera's Success Story",
+        "storyContext": "Over tea, Meera tells her story. 'I was like you, Priya. At 10, I saved ₹500. For years, I forgot about it—no withdrawals, just letting it grow. At 20, I had ₹1,200. Today at 25, it's ₹1,500+. I barely added anything after the first ₹500, yet it keeps multiplying. That's the magic of time.' Priya: 'So if I save ₹2,000 now at 13, how much will I have at 25?' Meera: 'Let's ask Uncle Raj.'",
+        "inSimpleWords": "Meera's journey: ₹500 saved at age 10 → ₹1,500+ by age 25, without adding much. Time and compound interest did the heavy work.",
+        "emoji": "💪"
+      },
+      {
         "kind": "concept",
         "title": "What is Interest? Rent for Your Money",
         "storyContext": "Uncle Raj explains: 'When you give money to a bank, the bank uses it to lend to others and earns money. The bank pays YOU a share of that money—that's interest. It's like rent you earn by letting the bank use your money.' Priya nods. Uncle Raj shows her: 'If you deposit ₹1,000 in the bank for 1 year at 5% interest per year, the bank pays you ₹50. You get back ₹1,050.'",
@@ -191632,6 +198419,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Priya's \"Aha!\" Moment",
+        "storyContext": "Priya draws her own table. 'So if I put ₹2,000 in at 6% compound interest, year 1 I get ₹120 interest... Year 2 I get interest on ₹2,120, so that's ₹127.20... Year 3 that's ₹134.84...' Uncle Raj: 'Exactly! The interest grows a little bigger each year. Over 12 years, that compounds to something surprising.' Priya grabs a calculator, eyes shining.",
+        "inSimpleWords": "Priya calculates her own compound interest growth and sees the magic firsthand.",
+        "emoji": "✨"
+      },
+      {
         "kind": "concept",
         "title": "Simple vs. Compound: The Big Difference",
         "storyContext": "Uncle Raj draws two lines on a graph. 'Look: after 10 years, simple interest on ₹1,000 at 5% gives you ₹1,500 (₹500 interest). But compound interest gives you ₹1,629 (₹629 interest). Compound is ₹129 more! And after 20 years? Simple: ₹2,000. Compound: ₹2,653. That's ₹653 more!' Priya realizes: 'Compound interest makes a bigger difference the longer you wait!' Uncle Raj nods: 'Exactly. Time is your best friend.'",
@@ -191699,6 +198493,33 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "The Monthly Saving Strategy",
+        "storyContext": "Uncle Raj: 'Priya, one lump sum isn't enough to hit ₹15,000. But if you add ₹500 every month AND let compound interest work, you'll get there much faster.' Priya: 'How much faster?' Uncle Raj: 'Let's calculate.'",
+        "inSimpleWords": "One deposit grows slowly. Regular small deposits plus compound interest = exponential growth.",
+        "emoji": "💳"
+      },
+      {
+        "kind": "concept",
+        "title": "Regular Deposits Compound Too",
+        "storyContext": "Uncle Raj explains: 'When you deposit ₹500 monthly, each deposit starts earning compound interest immediately. Month 1's ₹500 grows the longest, month 12's deposit grows the shortest. Together, they add up fast.'",
+        "points": [
+          {
+            "label": "Year 1 strategy",
+            "text": "Deposit ₹500 monthly = ₹6,000 total deposits. Compound interest adds ₹150–₹200 extra."
+          },
+          {
+            "label": "Year 2",
+            "text": "Previous balance (₹6,150+) grows by 6%, PLUS new ₹6,000 in deposits = rapid acceleration."
+          },
+          {
+            "label": "The magic",
+            "text": "By year 2-3, your interest earnings are bigger than your monthly deposits. Money grows faster."
+          }
+        ],
+        "inSimpleWords": "Monthly saving + compound interest is powerful. By year 2–3, you're earning more in interest per month than you're actually saving."
+      },
+      {
         "kind": "challenge",
         "title": "The Power of Starting Early: Priya vs. Meera",
         "storyContext": "Meera tells Priya: 'I started saving ₹500 per year at age 10. You're 13 now. See the difference?' Let's compare if they each deposited ₹500 one time: Meera (10 years, 5% interest): ₹500 × (1.05)^10 = ₹500 × 1.6289 = ₹814.45. Priya (starting now, 5% interest, same ₹500): ₹500 × (1.05)^7 = ₹500 × 1.4071 = ₹703.55. Meera has ₹111 more, just because she started 3 years earlier! Meera smiles: 'Time is money. Start early, and your money works for you longer.'",
@@ -191712,6 +198533,166 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Power of Starting Early: Priya vs. Meera — Compound Interest & The Power of Time",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Priya's New Plan",
+        "storyContext": "Armed with compound interest knowledge, Priya opens her own bank account. She deposits ₹2,000 upfront and commits to ₹500 monthly. Uncle Raj: 'In 5 years, you'll have your phone money. In 10 years, you'll have ₹50,000+. By 25, you'll be like your sister—₹1.5 lakh+.' Priya: 'All from ₹2,000 and patience?' Uncle Raj: 'Exactly. Time and consistency are your superpowers.'",
+        "inSimpleWords": "Priya's new life begins: consistent saving + compound interest = wealth building without stress.",
+        "emoji": "🌟"
+      },
+      {
+        "kind": "story",
+        "title": "Priya's First Review at Year 1",
+        "storyContext": "Exactly one year later, Priya gets her bank statement. Starting balance: ₹2,000 + (₹500 × 12) = ₹8,000 in deposits. Compound interest earned: ₹240 (about 3% on the average balance). Total: ₹8,240. Priya: 'My money did something without me working! It multiplied by ₹240 just by sitting there!' Uncle Raj: 'Exactly. Year 2, that ₹240 earns interest too.'",
+        "inSimpleWords": "After 1 year of saving ₹500/month + compound interest, Priya has ₹8,240 from ₹8,000 deposits + ₹240 free interest.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "concept",
+        "title": "Frequency of Compounding Matters",
+        "storyContext": "Uncle Raj: 'Most bank accounts compound yearly, but some compound quarterly or monthly. The more frequent, the faster your money grows.' Priya: 'So monthly compounding is better than yearly?' Uncle Raj: 'Yes, but the difference is small for modest rates. Over 10 years, it might mean ₹500 extra. But every rupee counts!'",
+        "points": [
+          {
+            "label": "Annual compounding",
+            "text": "Interest calculated once per year. Most fixed deposits work this way."
+          },
+          {
+            "label": "Quarterly compounding",
+            "text": "Interest calculated 4 times per year. Slightly faster growth."
+          },
+          {
+            "label": "Monthly compounding",
+            "text": "Interest calculated 12 times per year. Best for long-term savings."
+          },
+          {
+            "label": "Rule",
+            "text": "More frequent compounding = faster growth. Small difference, but compound effects matter."
+          }
+        ],
+        "inSimpleWords": "More frequent compounding = your money grows faster. Monthly beats yearly, quarterly beats annual. The difference adds up over decades."
+      },
+      {
+        "kind": "story",
+        "title": "The Phone Purchase Dilemma",
+        "storyContext": "Year 2: Priya has ₹16,500 (original deposits + compound interest). A new phone costs only ₹12,000. Priya is tempted. But Uncle Raj asks: 'If you withdraw, how much future growth do you lose?' Priya calculates: '₹4,500 at 6% for 8 more years = ₹7,152. I'd lose ₹7,152 of future wealth just to save ₹12,000 today.'",
+        "inSimpleWords": "Priya learns: withdrawing early is expensive. The opportunity cost (future compound growth) often exceeds immediate savings.",
+        "emoji": "⚠️"
+      },
+      {
+        "kind": "concept",
+        "title": "Opportunity Cost & Compound Interest",
+        "storyContext": "Uncle Raj teaches: 'Every rupee you withdraw today loses ALL its future compound growth. That's the opportunity cost. Sometimes waiting is cheaper than buying today.'",
+        "points": [
+          {
+            "label": "Opportunity cost",
+            "text": "The future wealth lost when you withdraw money early."
+          },
+          {
+            "label": "Priya's example",
+            "text": "Withdraw ₹4,500 today to save money, but lose ₹7,152 of future growth. True cost: ₹3,152 in lost wealth."
+          },
+          {
+            "label": "The lesson",
+            "text": "Don't measure cost by what you save today—measure by what you lose tomorrow."
+          }
+        ],
+        "inSimpleWords": "Early withdrawal isn't just about the money you take—it's about all the compound growth that money loses. Often not worth it."
+      },
+      {
+        "kind": "challenge",
+        "title": "Two Paths: Phone Today vs. Wealth Tomorrow",
+        "storyContext": "Priya decides to ask: 'What if I don't buy the phone now, and wait 3 more years?' Using the formula, she calculates her balance at year 5.",
+        "example": {
+          "problem": "Priya has ₹16,500 at year 2. She continues ₹500/month deposits for 3 more years at 6% compound interest. By year 5, how much will she have? Compare: buying phone today (₹12,000) vs. waiting.",
+          "solution": "Year 5 balance using the future value of annuity + initial amount: roughly ₹35,000. If she buys the phone at year 2 (₹12,000), she loses ₹12,000 × (1.06)^3 = ₹14,300 of future wealth. Not worth it. By waiting, she'll have ₹35,000 and can buy the phone AND a laptop AND travel."
+        },
+        "emoji": "📈"
+      },
+      {
+        "kind": "story",
+        "title": "Priya at 25: The Payoff",
+        "storyContext": "Twelve years later, Priya is 25 years old. She's been saving ₹500/month since age 13, earning 6% compound interest. Let's see her final balance.",
+        "inSimpleWords": "Twelve years of consistency + compound interest = life-changing wealth.",
+        "emoji": "🏆"
+      },
+      {
+        "kind": "example",
+        "title": "Priya's Wealth at 25: The Grand Total",
+        "storyContext": "Priya sits with Uncle Raj to review her 12-year journey. Initial deposit: ₹2,000. Monthly deposits: ₹500 × 12 × 12 = ₹72,000 total. Plus starting amount: ₹74,000 in actual deposits. Compound interest earned: significant.",
+        "example": {
+          "problem": "Priya: ₹2,000 initial, ₹500/month for 12 years at 6% annual compound interest (annual compounding). Final balance?",
+          "solution": "Using future value of annuity formula: Initial: 2000(1.06)^12 ≈ ₹4,024. Annuity (₹500/month = ₹6,000/year): FV ≈ ₹110,000. Total ≈ ₹1,14,000. Priya turned ₹74,000 of actual saving into ₹1,14,000! The extra ₹40,000 is FREE money from compound interest."
+        },
+        "emoji": "✨"
+      },
+      {
+        "kind": "story",
+        "title": "Priya's Phone Finally Arrives",
+        "storyContext": "At age 25, Priya buys her dream phone for ₹15,000. But here's the difference: she buys it with comfort, not stress. She still has ₹99,000 left. Uncle Raj: 'See? By waiting and compounding, the phone didn't hurt your wealth. It's just a small purchase now.' Priya: 'I'm so glad I waited and didn't withdraw early.'",
+        "inSimpleWords": "Priya's patience paid off. She can now afford the phone without sacrificing her savings or future wealth.",
+        "emoji": "📱"
+      },
+      {
+        "kind": "concept",
+        "title": "Comparing Withdrawals: The Cost of Early Extraction",
+        "storyContext": "Uncle Raj shows Priya a what-if: 'If you had withdrawn ₹4,500 at year 2 (to buy a phone), what would you have lost?'",
+        "points": [
+          {
+            "label": "What Priya did",
+            "text": "Kept ₹4,500 invested for 10 more years at 6%. It grew to ₹8,048."
+          },
+          {
+            "label": "Cost of withdrawal",
+            "text": "Lost wealth: ₹8,048 − ₹4,500 = ₹3,548 in forgone compound growth."
+          },
+          {
+            "label": "The lesson",
+            "text": "Early withdrawal doesn't just cost the money withdrawn—it costs all the future growth too. The true cost is often 1.5−2× the amount withdrawn."
+          }
+        ],
+        "inSimpleWords": "Withdrawing ₹4,500 at year 2 would have cost her ₹8,048 in future wealth. True cost = ₹8,048, not ₹4,500."
+      },
+      {
+        "kind": "story",
+        "title": "Priya's Next Goal: ₹10 Lakh by 35",
+        "storyContext": "Now rich by teen standards, Priya sets a new goal: ₹10 lakh by age 35 (in 10 years). She plans to increase her monthly saving to ₹2,000 and invest in higher-yield options (mix of fixed deposits and mutual funds). Uncle Raj: 'At 8% average growth, you might hit ₹15 lakh. Let's see.'",
+        "inSimpleWords": "Priya's journey doesn't stop. She now uses compound interest as a wealth-building tool deliberately.",
+        "emoji": "🎯"
+      },
+      {
+        "kind": "concept",
+        "title": "Scaling Up: From Saver to Investor",
+        "storyContext": "Priya learns the next tier: she's no longer just saving—she's investing. Different instruments have different risks and returns.",
+        "points": [
+          {
+            "label": "Savings Account",
+            "text": "4–5% returns, zero risk. Good for emergency fund only."
+          },
+          {
+            "label": "Fixed Deposits",
+            "text": "6–8% returns, very safe. Core holding for long-term wealth."
+          },
+          {
+            "label": "Mutual Funds",
+            "text": "8–12% average returns, moderate risk. For 10+ year horizons."
+          },
+          {
+            "label": "Bonds",
+            "text": "5–7% returns, low risk, liquid. Diversify across options."
+          }
+        ],
+        "inSimpleWords": "As wealth grows, diversify across savings accounts, fixed deposits, mutual funds, and bonds. Different tools for different goals."
+      },
+      {
+        "kind": "challenge",
+        "title": "Priya's ₹10 Lakh Goal: Can She Hit It?",
+        "storyContext": "At age 25, Priya has ₹1,14,000. She commits ₹2,000/month for 10 years (until age 35) at 8% compound interest. Will she reach ₹10 lakh?",
+        "example": {
+          "problem": "Priya: ₹1,14,000 at age 25. Add ₹2,000/month for 10 years at 8% annual compound interest. By age 35, how much?",
+          "solution": "Starting: 1,14,000 × (1.08)^10 ≈ ₹2,46,000. Annuity (₹2,000/month = ₹24,000/year × 10 years): FV ≈ ₹3,60,000. Total ≈ ₹6,06,000. Falls short of ₹10 lakh. Need higher returns (9–10%) or higher monthly saving (₹3,000) to hit ₹10 lakh."
+        },
+        "emoji": "📊"
       },
       {
         "kind": "recap",
@@ -220761,6 +227742,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🎨"
       },
       {
+        "kind": "story",
+        "title": "Bridging Generations Through Music",
+        "storyContext": "Years pass. Aadhya becomes a musician and teacher. She teaches young students both classical piano and the basics of raag theory. She brings them to performances by sitar maestros. She shows them that two traditions are not obstacles—they are doorways. One student, a girl named Priya, learns piano from Aadhya and sitar from an elderly musician in the neighborhood. Priya becomes another bridge. The bridge Aadhya built continues forward.",
+        "emoji": "🌉",
+        "inSimpleWords": "When you honor both traditions, you inspire the next generation to do the same."
+      },
+      {
         "kind": "concept",
         "title": "Technology and Tradition: Recording and Preservation",
         "storyContext": "Before recording technology, musical traditions survived only through oral transmission. A maestro had to teach disciples in person. The internet and recorded music changed this. Now Aadhya can learn from Yo-Yo Ma by watching YouTube. Grandfather's raags are preserved in audio archives. Technology serves tradition.",
@@ -220840,6 +227828,66 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Deep fusion requires sacrifice, but the sacrifice creates beauty that specialists never touch.",
         "emoji": "💎"
+      },
+      {
+        "kind": "story",
+        "title": "The Studio Where Sitar Meets Piano",
+        "storyContext": "Aadhya opens a small studio where she teaches both instruments and encourages fusion. Young students from different backgrounds come to learn. A Muslim girl learning Hindustani music. A Christian boy learning Western harmony. An upper-caste teacher learning from a lower-caste percussionist. The music studio becomes a sanctuary where the old rules don't apply. Only the music matters.",
+        "emoji": "🎼",
+        "inSimpleWords": "Great art transcends the boundaries that divide people."
+      },
+      {
+        "kind": "concept",
+        "title": "Performance and Authenticity",
+        "storyContext": "When Aadhya performs her fusion, she is not trying to please critics. She is not trying to prove that East and West can work. She is simply playing truth. The authenticity is what moves people.",
+        "points": [
+          {
+            "label": "Performance as offering",
+            "text": "A musical performance is not entertainment. It is an offering. You place your deepest truth on the stage and invite others to witness it."
+          },
+          {
+            "label": "The audience wants truth, not perfection",
+            "text": "People do not cry at perfect performances. They cry at honest ones. The moments when a musician is vulnerable are the moments that transcend technique."
+          },
+          {
+            "label": "Fusion as authentic expression",
+            "text": "For Aadhya, fusion is not a compromise. It is an authentic expression of who she is—a person rooted in tradition but shaped by modernity."
+          }
+        ],
+        "inSimpleWords": "The most powerful music comes when you stop trying to impress and start trying to connect.",
+        "emoji": "💫"
+      },
+      {
+        "kind": "challenge",
+        "title": "When Traditions Clash Within You",
+        "storyContext": "The chapter's deepest challenge is not about music. It is about identity. When you contain multitudes—when you are partly tradition and partly innovation, partly your parents' child and partly your own person—how do you become whole? How do you stop feeling torn and start feeling integrated?",
+        "example": {
+          "problem": "You are a woman from a conservative family who wants to study engineering. Your family sees this as rejecting femininity and 'becoming like boys.' You feel caught between love for your family and love for your dreams. How do you find integration?",
+          "solution": "Like Aadhya: First, understand that engineering does not make you less feminine. Feminine is not a career choice. It is an essence that no path can diminish. Second, show your family that engineers solve real problems. An engineer can build hospitals (serving), design technology for the elderly (honoring), create solutions for agricultural crises (respecting land and tradition). The integration is not about abandoning who you are. It is about expressing who you are through a new medium. You are not betraying tradition. You are extending its reach."
+        },
+        "inSimpleWords": "You are not torn between two worlds. You are building a bridge that honors both.",
+        "emoji": "🌉"
+      },
+      {
+        "kind": "concept",
+        "title": "The Role of Time in Mastery",
+        "storyContext": "Aadhya did not wake up knowing how to fuse sitar and piano. It took years. She had to learn sitar from her grandfather, piano from her teacher, Western music theory in school, and Indian classical music theory through study. Then she had to sit with both, let them speak to each other in her mind, and eventually find the place where they naturally merged.",
+        "points": [
+          {
+            "label": "Mastery requires patience",
+            "text": "There is no shortcut to learning both traditions deeply. Aadhya could not have created fusion on day one. She needed years of discipline."
+          },
+          {
+            "label": "Integration follows immersion",
+            "text": "Only after living within two worlds can you synthesize them. Rushed fusion is shallow. Deep fusion takes time."
+          },
+          {
+            "label": "Your timeline is your own",
+            "text": "Aadhya's journey is not your timeline. But the principle holds: Give yourself time. Let mastery happen. Then let fusion emerge naturally."
+          }
+        ],
+        "inSimpleWords": "Fusion cannot be forced. It emerges when you have loved both deeply enough.",
+        "emoji": "⏳"
       },
       {
         "kind": "recap",
@@ -220942,6 +227990,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Music says: I understand you. I have been where you are. You will survive this.",
         "emoji": "💔"
+      },
+      {
+        "kind": "story",
+        "title": "The Click That Changed Everything",
+        "storyContext": "Vikram is scrolling mindlessly through YouTube at 2 a.m., unable to sleep. His cursor hovers over 'Yo-Yo Ma - Bach Cello Suite No. 1.' Something pulls him to click. The first notes arrive, and Vikram feels seen. The cello sounds like loneliness being held and transformed into beauty. He plays it again. Then again. By dawn, he has listened 12 times. For the first time in weeks, he feels less alone.",
+        "emoji": "⏯️",
+        "inSimpleWords": "Sometimes one small click opens a door you didn't know existed."
       },
       {
         "kind": "concept",
@@ -221178,6 +228233,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📱"
       },
       {
+        "kind": "story",
+        "title": "The Orchestra Grows into a Movement",
+        "storyContext": "By year two, Vikram's school orchestra is the most popular club on campus. The orchestra performs at school assemblies, local community centers, and even hospitals. Patients in the orthopedic ward ask for concerts. Elderly residents in nursing homes weep during performances. Vikram realizes: The healing he found through music is not unique to him. It is a universal hunger. Everyone needs someone to play music for them when they are alone.",
+        "emoji": "🎶",
+        "inSimpleWords": "When you heal through art, you become a healer for others."
+      },
+      {
         "kind": "challenge",
         "title": "When Loneliness Feels Permanent",
         "storyContext": "The chapter does not say loneliness always ends quickly. For some, it lingers. Vikram found his way through music in a year. But what if music is not your gift? What if a year passes and you still feel alone? The chapter offers this answer: Keep showing up. To class. To clubs. To open mics. To anywhere people gather around something they love. Connection is probabilistic. Every time you show up authentically, you increase the odds that someone will see you.",
@@ -221208,6 +228270,62 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "The deepest art comes from the deepest wounds, when wounds are transformed into wisdom.",
         "emoji": "🌱"
+      },
+      {
+        "kind": "story",
+        "title": "The Next Lonely Student",
+        "storyContext": "During one of the orchestra's performances at a hospital, a girl in the audience approaches Vikram afterward. She is shy, holding her phone, and she says: 'I was where you were. I listened to Yo-Yo Ma too. Hearing the cello today reminded me that I am not the only one.' Vikram recognizes himself in her. He gives her Maestro Sharma's contact information and tells her: 'Go knock on his door. Tell him Vikram sent you.'",
+        "emoji": "🌟",
+        "inSimpleWords": "Your healing becomes a lamp that lights someone else's path."
+      },
+      {
+        "kind": "concept",
+        "title": "Teaching as Continuation",
+        "storyContext": "Months later, Maestro Sharma tells Vikram: 'You should start teaching cello. Not because you are perfect. But because you remember what loneliness feels like. That memory will make you a better teacher than someone who has never suffered.' Vikram resists at first—he is only 16—but Maestro is insistent. 'Teaching is how you honor what you have received.'",
+        "points": [
+          {
+            "label": "Teaching is gratitude",
+            "text": "Maestro Sharma taught Vikram without expecting payment. Vikram can teach others. This is how grace multiplies through a community."
+          },
+          {
+            "label": "Imperfection as qualification",
+            "text": "Vikram is not the world's greatest cellist. But he has walked the path from loneliness to belonging. This lived experience makes him qualified to guide others."
+          },
+          {
+            "label": "Breaking the isolation spiral",
+            "text": "Loneliness is isolating. But teaching—sharing knowledge and experience—is connecting. Vikram moves from receiver to giver, from isolated to needed."
+          }
+        ],
+        "inSimpleWords": "The best teachers are those who remember what it felt like to be lost.",
+        "emoji": "👨‍🏫"
+      },
+      {
+        "kind": "story",
+        "title": "The Mentorship Chain",
+        "storyContext": "Years pass. Vikram is now a full-time music teacher at his school. He has four students learning cello. One of them, a girl named Ananya, is lonely like Vikram was. But now there is a mentorship chain: Maestro Sharma taught Vikram, Vikram is teaching Ananya, and one day Ananya will teach someone else. The chain extends into the future, connecting people across time who would otherwise never meet.",
+        "emoji": "🔗",
+        "inSimpleWords": "A single act of kindness can echo through generations."
+      },
+      {
+        "kind": "concept",
+        "title": "Loneliness and Privilege",
+        "storyContext": "The chapter does not ignore a hard truth: Some loneliness is easier to escape than others. Vikram had resources—his parents could afford an apartment, he could take cello lessons, his school had an orchestra program. Not everyone has these privileges. Yet the principle holds: Everyone can find *something* that connects them. For some, it is music. For others, it might be a community center, a library book club, a temple gathering, a sports league.",
+        "points": [
+          {
+            "label": "Access shapes opportunity",
+            "text": "Privilege determines what tools are available for healing. Vikram was lucky. Others must find creative paths with fewer resources."
+          },
+          {
+            "label": "The universal need",
+            "text": "But the need for connection is universal. Rich or poor, urban or rural, everyone experiences loneliness. Everyone needs their 'cello.'"
+          },
+          {
+            "label": "Expanding access",
+            "text": "A just society creates more cello lessons, more art programs, more spaces where lonely people can gather and belong. This is essential infrastructure, not luxury."
+          }
+        ],
+        "inSimpleWords": "Connection is a right, not a privilege. Systems should reflect this.",
+        "emoji": "🌍"
       },
       {
         "kind": "recap",
@@ -221367,7 +228485,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       {
         "kind": "concept",
         "title": "The Invisible Cost",
-        "storyContext": "Raman walks 15 kilometers a day in heat, rain, and cold. His salary is modest. He works six days a week. He has no days off for the first 30 years of his career. His shoes wear out. His health suffers. His family rarely sees him. But he shows up. Every day. Every letter delivered.",
+        "storyContext": "Raman walked 15 kilometers a day in heat, rain, and cold. His salary is modest. He works six days a week. He has no days off for the first 30 years of his career. His shoes wear out. His health suffers. His family rarely sees him. But he shows up. Every day. Every letter delivered.",
         "points": [
           {
             "label": "Sacrifice without complaint",
@@ -221384,6 +228502,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Some heroes don't have uniforms. They have worn-out shoes and unshakeable duty.",
         "emoji": "👟"
+      },
+      {
+        "kind": "story",
+        "title": "The Letter From the Suicide Prevention Center",
+        "storyContext": "Thirty years into his career, Raman receives an unusual letter. It is from a suicide prevention organization in Mumbai. The letter reads: 'Dear Uncle, I do not know you, but my mother told me about you. You delivered a letter from my father to her when she wanted to end her life. That letter changed her mind. It gave her hope. Without it, I would not exist. Thank you for carrying my father's words.' Raman reads this in the village post office, alone, and weeps for an hour.",
+        "emoji": "💚",
+        "inSimpleWords": "Sometimes a postman's job saves a life without him ever knowing."
       },
       {
         "kind": "concept",
@@ -221529,6 +228654,108 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Sacred work is done for no one but yourself—the self that will have to live with your choices.",
         "emoji": "✨"
+      },
+      {
+        "kind": "story",
+        "title": "The Next Generation",
+        "storyContext": "Years after his retirement, Raman's granddaughter becomes a postal worker. She walks a similar route, though now some deliveries are packages from online shops, and some days she delivers government notices. But she remembers her grandfather's stories. She treats each letter with the same respect. She knows that in the envelope, someone's words might save someone else's life. She is a carrier of words, just like him. The torch is passed.",
+        "emoji": "🔥",
+        "inSimpleWords": "Legacy lives when the next generation honors what their elders held sacred."
+      },
+      {
+        "kind": "concept",
+        "title": "The Transformation of Communication",
+        "storyContext": "Raman's job is becoming obsolete. Email, SMS, instant messaging—they have replaced letters. But the chapter asks: Is connection really faster and better, or just different? A message delivered in a millisecond is not necessarily more meaningful than a letter that took three days and survived rain.",
+        "points": [
+          {
+            "label": "Speed vs. intention",
+            "text": "Fast communication allows us to send more messages but often with less thought. A letter required intention: you had to write, fold, stamp, mail. This process created meaning."
+          },
+          {
+            "label": "Ephemeral vs. enduring",
+            "text": "Emails disappear. Texts are forgotten. Letters are kept. Raman's letters lasted decades. They became heirlooms. Digital words are more fragile."
+          },
+          {
+            "label": "The absence of the witness",
+            "text": "The postman was a human witness to connection. Email has no witness. This absence, though more efficient, diminishes the sense of being seen and valued by the world."
+          }
+        ],
+        "inSimpleWords": "Fast communication is not always better. Sometimes a slow, witnessed connection is what the soul needs.",
+        "emoji": "💭"
+      },
+      {
+        "kind": "story",
+        "title": "The Letter Raman Received From His Son",
+        "storyContext": "Late in his career, Raman receives a letter from his own son, who moved to the city decades ago. The letter is handwritten. His son writes: 'Father, I have been sending you emails for years. But I wanted you to receive this on paper, carried by a postman's hands, so you would know that I am thinking of you the way you taught me to think: carefully, slowly, with intention.' Raman frames this letter and hangs it in his home.",
+        "emoji": "📬",
+        "inSimpleWords": "Sometimes a handwritten letter says: I took time for you. I considered my words. You matter."
+      },
+      {
+        "kind": "concept",
+        "title": "The Dignity of Ordinary Work",
+        "storyContext": "Raman's story is about a profound truth: Ordinary work, done with dignity and faithfulness, is extraordinary. He is not a hero by society's standards. He is not famous. He did not invent anything or win awards. But his 35 years of showing up, day after day, changed the world. This is the quiet revolution the chapter celebrates.",
+        "points": [
+          {
+            "label": "Extraordinary ordinariness",
+            "text": "The most important lives are often the most ordinary. A postman. A teacher. A nurse. They do the same thing every day, and by doing it well, they change everything."
+          },
+          {
+            "label": "Presence as legacy",
+            "text": "Raman's legacy is not in grand gestures. It is in presence. He showed up. He was reliable. He was there. That consistency is his immortality."
+          },
+          {
+            "label": "The spiritual dimension",
+            "text": "In many traditions, the highest calling is quiet service. Raman's postal route becomes a spiritual path. Every step is a meditation on duty and love."
+          }
+        ],
+        "inSimpleWords": "The most sacred lives are often the simplest. Show up. Be faithful. That is enough.",
+        "emoji": "✨"
+      },
+      {
+        "kind": "challenge",
+        "title": "What Are You Carrying?",
+        "storyContext": "The chapter's final question is directed at you: In your life, what words are you carrying? What messages are you delivering? What connections are you maintaining? Not everyone is a postman. But everyone carries something—a story, a memory, an encouragement, a truth—from one person to another.",
+        "example": {
+          "problem": "You are a middle-class teenager in a city. You do not work. You do not deliver mail. How are you a 'carrier of words' like Raman?",
+          "solution": "In small ways, every day. You listen to your friend's heartbreak and carry it with respect. You study hard and carry your parents' dream of education. You volunteer at a community center and carry hope to younger children. You remember your grandmother's stories and carry her memory forward. You write a letter to a friend who moved away and carry your friendship across distance. These are not grand. But they are the filaments that hold society together. Each one matters. Each one is sacred work. The question is not 'Am I important enough?' The question is: 'Am I faithful to what I carry?'"
+        },
+        "inSimpleWords": "You are already a carrier. The only question is: Will you carry with love?",
+        "emoji": "💌"
+      },
+      {
+        "kind": "story",
+        "title": "The Final Route",
+        "storyContext": "On Raman's last day before retirement, he walks his route one final time. The villagers know—word has spread. They come out of their homes to thank him. An old woman offers him tea. A young boy runs along beside him. A widow weeps and holds his hand. He delivers his final letter to the schoolteacher (another acceptance from a literary magazine). That evening, the village gathers. They do not celebrate that he is leaving. They celebrate that he came, every day, for 35 years.",
+        "emoji": "🌅",
+        "inSimpleWords": "A life of faithfulness does not end quietly. It ends in recognition and gratitude."
+      },
+      {
+        "kind": "concept",
+        "title": "Building Systems of Care",
+        "storyContext": "Raman's story raises a question: Why should a just society depend on the voluntary sacrifice of individuals? Why should teachers, nurses, postmen, and farmers give so much for so little? The answer is: It should not. A healthy society creates systems that honor and support essential workers.",
+        "points": [
+          {
+            "label": "Individual virtue is not enough",
+            "text": "We praise Raman's faithfulness. But we should also demand that societies pay postmen enough to send their children to university. Individual sacrifice should not be the foundation of civilization."
+          },
+          {
+            "label": "Structural justice",
+            "text": "Real justice is not gratitude. It is fair wages, safe working conditions, respect, and recognition built into the system itself."
+          },
+          {
+            "label": "Your responsibility",
+            "text": "As you read Raman's story and admire his courage, ask yourself: What systems can I create or support that honor the carriers of words in *my* world?"
+          }
+        ],
+        "inSimpleWords": "Gratitude without justice is incomplete. Aim for both.",
+        "emoji": "⚖️"
+      },
+      {
+        "kind": "story",
+        "title": "The New Postman",
+        "storyContext": "After Raman retires, a young woman named Meera takes over part of his route. She uses a motorcycle instead of walking, covers more ground, and delivers packages alongside letters. She is efficient and modern. But she also learns from Raman. She knows the stories behind the addresses. She delivers a letter to the widow with extra gentleness. She checks on the old man who used to receive medicine bottles. Meera is a different kind of postman for a different era. But she carries forward Raman's spirit: faithfulness, care, and the understanding that words matter.",
+        "emoji": "🏍️",
+        "inSimpleWords": "Legacy is not copying the past. It is honoring its spirit while adapting to the future."
       },
       {
         "kind": "recap",
@@ -223048,6 +230275,37 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "The Rupee's Shrinking Power",
+        "storyContext": "Ravi asks: \"But Nani, my Rs.100 note is still Rs.100. What do you mean it buys less?\" Nani pulls out an old photo. \"Look - in 1990, I could buy a whole meal, tea, and dessert for Rs.30. Today, the same meal costs Rs.150. The Rs.30 note is still Rs.30, but what it CAN BUY has shrunk. That's the invisible force of inflation eating your money's power.\" Ravi starts to understand..",
+        "emoji": "💔"
+      },
+      {
+        "kind": "concept",
+        "title": "Purchasing Power vs. Nominal Value",
+        "storyContext": "Mr. Patel explains while Ravi watches him stock shelves: \"Nominal value is the number on the note - Rs.100 is Rs.100. But purchasing power is what it ACTUALLY buys. In 2000, Rs.100 bought me 10 notebooks. Today, Rs.100 buys me only 2 notebooks. Same note, way less buying power. Inflation steals this silently.\"",
+        "points": [
+          {
+            "label": "Nominal value",
+            "text": "The number written on money: Rs.100 is always Rs.100 regardless of time or inflation."
+          },
+          {
+            "label": "Purchasing power",
+            "text": "What that money can actually buy. Inflation reduces purchasing power - same Rs.100 buys fewer goods over time."
+          },
+          {
+            "label": "Real vs. nominal",
+            "text": "Nominal: the face value. Real: adjusted for inflation. Real is what matters for your wealth."
+          }
+        ],
+        "example": {
+          "problem": "In 2015, Rs.1,000 could buy 50 notebooks at Rs.20 each. In 2026, notebooks cost Rs.50 each. What is the purchasing power change?",
+          "solution": "2015: Rs.1,000 buys 50 notebooks. 2026: same Rs.1,000 buys only 20 notebooks. Purchasing power fell from 50 units to 20 units - a 60% loss in real terms."
+        },
+        "inSimpleWords": "The number on your money stays same; what it buys shrinks. That shrinkage is inflation's real damage.",
+        "emoji": "📉"
+      },
+      {
         "kind": "example",
         "title": "Inflation Calculation: Quick Practice",
         "storyContext": "Ravi asks, \"How do we measure inflation?\" Nani shows him: \"Take a simple item - a pen. In 2024, it cost Rs.10. In 2026, it costs Rs.11. Inflation = (11-10)/10 = 0.1 = 10% per year. Easy, right?\"",
@@ -223067,6 +230325,12 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "inSimpleWords": "To find inflation: subtract old price from new price, divide by old price, multiply by 100.",
         "emoji": "🧮"
+      },
+      {
+        "kind": "story",
+        "title": "Ravi's Snack Diary Discovery",
+        "storyContext": "Ravi decides to track his favorite snack - a chocolate bar. He digs through his diary: 6 months ago, Rs.20. 3 months ago, Rs.22. Today, Rs.25. \"Nani, this chocolate got 25% more expensive in just 6 months!\" Nani nods: \"Notice how EVERY item goes up? That's inflation - not a one-time jump, but a continuous creep that compounds over years.\"",
+        "emoji": "🍫"
       },
       {
         "kind": "concept",
@@ -223100,6 +230364,12 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "story",
+        "title": "The Onion Crisis That Taught Ravi",
+        "storyContext": "Ravi's mom mentions the 2019 onion crisis: \"Onions went from Rs.10/kg to Rs.80/kg overnight!\" Ravi learns: \"But that was temporary - a supply shock. Once harvests came back, prices fell again.\" Nani clarifies: \"That was deflation in action - temporary. But GENERAL inflation, like what we see year after year averaging 5-6%, is persistent. That's the real thief of your money over decades.\"",
+        "emoji": "🧅"
+      },
+      {
+        "kind": "story",
         "title": "The Bazaar Price Comparison",
         "storyContext": "Ravi becomes detective and compares prices with Nani from her old shopping lists. She finds a receipt from 1990: onions Rs.3/kg, milk Rs.12/liter, bread Rs.2 a loaf. Today: onions Rs.25/kg, milk Rs.60/liter, bread Rs.20 a loaf. \"See how much everything jumped?\" Nani points. \"This happened slowly over 35 years. Each year, a little bit of inflation. Add them all up, and wow!\" Ravi realizes inflation is cumulative.",
         "emoji": "🔍",
@@ -223108,6 +230378,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "The Bazaar Price Comparison — Inflation - Why Prices Rise Over Time",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "concept",
+        "title": "Compound Effect of Inflation Over Time",
+        "storyContext": "Ravi calculates: if something costs Rs.100 and inflation is 5% per year, in 10 years it costs Rs.100 x (1.05)^10 = Rs.162.89. In 20 years, Rs.265.33! \"So even small yearly inflation adds up MASSIVELY?\" Nani nods: \"That's why we call inflation the silent killer of savings. It sneaks up on you.\"",
+        "points": [
+          {
+            "label": "Compound inflation",
+            "text": "Each year's inflation builds on the previous. 5% in year 1 + 5% in year 2 ≠ 10% total. It's (1.05)^2 - 1 = 10.25%."
+          },
+          {
+            "label": "Long-term impact",
+            "text": "5% inflation looks small yearly but compounds to 63% loss of purchasing power in 10 years."
+          },
+          {
+            "label": "Exponential, not linear",
+            "text": "That's why starting early to invest matters - compound growth (good) vs. compound inflation (bad)."
+          }
+        ],
+        "example": {
+          "problem": "A shirt costs Rs.500 today. Inflation is 4% per year. (a) What will it cost in 5 years? (b) In 10 years? (c) In 20 years?",
+          "solution": "(a) 500 x (1.04)^5 = Rs.609. (b) 500 x (1.04)^10 = Rs.740. (c) 500 x (1.04)^20 = Rs.1,095. Same shirt, over 4x the price in 20 years!"
+        },
+        "inSimpleWords": "Inflation compounds year after year. Small yearly rises become HUGE price jumps over decades.",
+        "emoji": "📊"
       },
       {
         "kind": "concept",
@@ -223138,6 +230433,12 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Measuring Inflation: CPI (Consumer Price Index) — Inflation - Why Prices Rise Over Time",
           "q": "inflation"
         }
+      },
+      {
+        "kind": "story",
+        "title": "Ravi Reads the News: RBI Raises Rates",
+        "storyContext": "Ravi sees a news headline: \"RBI Raises Interest Rates by 0.5% to Control Inflation.\" He asks Nani: \"What does that mean?\" Nani explains: \"The Reserve Bank controls how easy it is for people to borrow. When inflation gets too high, they make borrowing more expensive - high interest rates. This makes people spend less because loans cost more. Less spending means less demand, so prices cool down.\"",
+        "emoji": "📰"
       },
       {
         "kind": "example",
@@ -223200,22 +230501,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "title": "Nani's Retirement Worry",
         "storyContext": "Nani confesses to Ravi: \"I'm 60 now. I saved Rs.20 lakhs for my retirement, expecting to live comfortably. But if inflation is 6% per year, in 10 years I'll be 70 and my Rs.20 lakhs will have the buying power of only Rs.11.2 lakhs in today's money. My money shrinks while I age!\" Ravi is alarmed. \"What can you do?\" Nani smiles: \"I'm investing some of it - FDs, mutual funds - to grow faster than inflation.\"",
         "emoji": "😟"
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Turn: Track Your Own Inflation",
-        "storyContext": "Ravi's homework: track what YOUR family spends on food each week. Write down prices now. Ask your parents what they spent a year ago. Calculate: what's the inflation for your family's food basket? Ravi finds: milk Rs.60/liter now, Rs.50 a year ago. Bread Rs.40 now, Rs.35 a year ago. Eggs Rs.8 now, Rs.6 a year ago.\"",
-        "example": {
-          "problem": "Your family's weekly food basket this year: milk Rs.60, bread Rs.40, eggs Rs.8, rice Rs.300. Last year: milk Rs.50, bread Rs.35, eggs Rs.6, rice Rs.270. What's your family's food inflation?",
-          "solution": "This year: Rs.408. Last year: Rs.361. Inflation = (408-361)/361 x 100 = 13%. Your family's food got 13% more expensive!"
-        },
-        "inSimpleWords": "Keep a price diary of things your family buys. Compare to last year. That's YOUR personal inflation rate.",
-        "emoji": "📔",
-        "image": {
-          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Turn: Track Your Own Inflation — Inflation - Why Prices Rise Over Time",
-          "q": "classroom"
-        }
       },
       {
         "kind": "concept",
@@ -223323,6 +230608,22 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "title": "The Central Bank's Inflation Fight",
         "storyContext": "Ravi asks Nani, \"Who controls inflation?\" Nani explains: \"The Reserve Bank of India (RBI) is like the economy's doctor. When inflation gets too high, the RBI raises interest rates - banks pay more for deposits, borrowing becomes expensive, people spend less, prices cool down. When inflation is too low or negative (deflation), they lower rates to encourage spending and borrowing. It's like turning a thermostat up or down.\"",
         "emoji": "🏦"
+      },
+      {
+        "kind": "challenge",
+        "title": "Your Turn: Track Your Own Inflation",
+        "storyContext": "Ravi's homework: track what YOUR family spends on food each week. Write down prices now. Ask your parents what they spent a year ago. Calculate: what's the inflation for your family's food basket? Ravi finds: milk Rs.60/liter now, Rs.50 a year ago. Bread Rs.40 now, Rs.35 a year ago. Eggs Rs.8 now, Rs.6 a year ago.\"",
+        "example": {
+          "problem": "Your family's weekly food basket this year: milk Rs.60, bread Rs.40, eggs Rs.8, rice Rs.300. Last year: milk Rs.50, bread Rs.35, eggs Rs.6, rice Rs.270. What's your family's food inflation?",
+          "solution": "This year: Rs.408. Last year: Rs.361. Inflation = (408-361)/361 x 100 = 13%. Your family's food got 13% more expensive!"
+        },
+        "inSimpleWords": "Keep a price diary of things your family buys. Compare to last year. That's YOUR personal inflation rate.",
+        "emoji": "📔",
+        "image": {
+          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Your Turn: Track Your Own Inflation — Inflation - Why Prices Rise Over Time",
+          "q": "classroom"
+        }
       },
       {
         "kind": "example",
@@ -223538,6 +230839,42 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Simple Interest vs. Compound Interest",
+        "storyContext": "Uncle Dev draws a chart: \"Simple interest: you earn Rs.400/year forever on Rs.10,000. That's it. Compound interest: Year 1 you earn Rs.400 (on 10k). Year 2 you earn Rs.416 (on 10.4k). Year 3, Rs.433 (on 10.816k). The interest ITSELF earns interest. That's the magic.\"",
+        "points": [
+          {
+            "label": "Simple interest",
+            "text": "Interest earned only on principal. Rs.10,000 at 4% = Rs.400 every year, always Rs.400."
+          },
+          {
+            "label": "Compound interest",
+            "text": "Interest earned on principal AND previous interest. Rs.10,000 at 4% = Rs.400 year 1, Rs.416 year 2, Rs.433 year 3..."
+          },
+          {
+            "label": "The difference explodes over time",
+            "text": "20 years at 4%: simple = Rs.10,000 + (400 x 20) = Rs.18,000. Compound = Rs.10,000 x (1.04)^20 = Rs.21,911. Compound wins by Rs.3,911!"
+          }
+        ],
+        "example": {
+          "problem": "Rs.5,000 at 5% for 10 years: (a) simple interest total, (b) compound interest total.",
+          "solution": "(a) Simple = 5,000 + (250 x 10) = Rs.7,500. (b) Compound = 5,000 x (1.05)^10 = Rs.8,144. Compound is Rs.644 more!"
+        },
+        "inSimpleWords": "Simple interest = steady extra money each year. Compound interest = growing extra money each year. Compound wins big time.",
+        "emoji": "🎢"
+      },
+      {
+        "kind": "story",
+        "title": "Year 5 Checkpoint",
+        "storyContext": "Ravi and Priya check in after 5 years. Ravi has Rs.10,000 nominal (worth Rs.7,835 real due to 5% inflation). Priya has Rs.12,167 nominal (at 4% compound interest). \"Hmm, Ravi's real value is Rs.10,000 / (1.05)^5 = Rs.7,835. Priya's real value is Rs.12,167 / (1.05)^5 = Rs.9,531. Priya's ahead, even accounting for inflation!\" Uncle Dev notes this early advantage.",
+        "emoji": "⏰",
+        "image": {
+          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Year 5 Checkpoint — Saving vs Investing - Making Money Work",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
         "title": "Compound Interest: The Eighth Wonder of the World",
         "storyContext": "Uncle Dev pulls out a chart: \"Albert Einstein called compound interest the eighth wonder of the world. Look: Priya's Rs.10,000 at 7% per year.\" He shows: Year 1: Rs.10,700. Year 5: Rs.14,026. Year 10: Rs.19,672. Year 20: Rs.38,697. \"That Rs.10,000 nearly FOUR-TUPLES in 20 years!\" Ravi's eyes widen. His Rs.10,000 in the locker is still Rs.10,000, but worth only Rs.3,769 in real value. Priya's is Rs.38,697 nominal and Rs.14,769 real!",
         "points": [
@@ -223559,12 +230896,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "solution": "(a) 5,000 x (1.08)^10 = Rs.10,794. (b) 5,000 x (1.08)^20 = Rs.23,304. (c) 5,000 x (1.08)^30 = Rs.50,063. Time: 30 years is 4.6x more than 10 years!"
         },
         "inSimpleWords": "Compound interest is like a snowball rolling down a mountain - it gets bigger and bigger as it rolls, faster and faster.",
-        "emoji": "❄️",
-        "image": {
-          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Compound Interest: The Eighth Wonder of the World — Saving vs Investing - Making Money Work",
-          "q": "classroom"
-        }
+        "emoji": "❄️"
       },
       {
         "kind": "example",
@@ -223588,15 +230920,35 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🔄"
       },
       {
+        "kind": "concept",
+        "title": "Time Horizon and Investment Choice",
+        "storyContext": "Mrs. Sharma teaches: \"Your age and goals matter. If you're 15 with a 30-year horizon to retirement, you can handle 80% stocks, 20% bonds - you'll recover from crashes. If you're 60 and retiring soon, maybe 30% stocks, 70% bonds - safety matters more than growth. Match your investment risk to your TIME.\"",
+        "points": [
+          {
+            "label": "Young (15-30)",
+            "text": "Aggressive: 80% growth assets (stocks), 20% safe (bonds/FD). Time smooths crashes."
+          },
+          {
+            "label": "Middle age (30-50)",
+            "text": "Balanced: 60% growth, 40% safe. Balance risk and returns."
+          },
+          {
+            "label": "Near retirement (50-65)",
+            "text": "Conservative: 30% growth, 70% safe. Protect your accumulated wealth."
+          }
+        ],
+        "example": {
+          "problem": "You're 20, saving for retirement at 60 (40-year horizon). Aggressive: 80% at 10% (stocks), 20% at 4% (bonds). Conservative: 40% at 10%, 60% at 4%. Calculate 40-year outcomes.",
+          "solution": "Aggressive: 80k x 1.10^40 + 20k x 1.04^40 = 36,259k + 96k = Rs.36,355k. Conservative: 40k x 1.10^40 + 60k x 1.04^40 = 18,129k + 288k = Rs.18,417k. Aggressive grows nearly 2x more."
+        },
+        "inSimpleWords": "Young investors can take more risk (stocks). Older investors need safety (bonds). Time horizon is KEY to asset allocation.",
+        "emoji": "📈"
+      },
+      {
         "kind": "story",
-        "title": "The 5-Year Checkpoint",
-        "storyContext": "Ravi and Priya check in after 5 years. Ravi has Rs.10,000 nominal (worth Rs.7,835 real due to 5% inflation). Priya has Rs.12,167 nominal (at 4% interest). \"Wait, her real value is Rs.12,167 / (1.05)^5 = Rs.9,531 real. Still less than Ravi's Rs.10,000?\" Uncle Dev explains: \"Yes, because 4% interest barely beats 5% inflation. But watch what happens with a higher return...\"",
-        "emoji": "⏰",
-        "image": {
-          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The 5-Year Checkpoint — Saving vs Investing - Making Money Work",
-          "q": "classroom"
-        }
+        "title": "The Power of Starting Young",
+        "storyContext": "Uncle Dev tells them: \"Imagine three investors. Avik starts at 15, invests Rs.5,000/year for 10 years, then stops (Rs.50,000 total invested at 8%/year). Bhavna starts at 25, invests Rs.5,000/year for 30 years (Rs.1.5 lakhs total). By age 65: Avik has Rs.11.24 lakhs, Bhavna has Rs.3.37 lakhs. Same amount per year, but Avik invested LESS and has MORE because he started early. Time is magic.\"",
+        "emoji": "⏳"
       },
       {
         "kind": "concept",
@@ -223627,6 +230979,12 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Risk vs. Return: The Investor's Trade-off — Saving vs Investing - Making Money Work",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "story",
+        "title": "The Emergency Fund First Rule",
+        "storyContext": "Uncle Dev emphasizes: \"Before investing a single rupee in growth, keep 3-6 months of money in a bank account. This is your safety net for job loss, medical emergencies, or unexpected costs. Only AFTER your emergency fund is solid, invest the rest aggressively. This two-tier strategy lets you sleep at night.\"",
+        "emoji": "🛡️"
       },
       {
         "kind": "concept",
@@ -223663,12 +231021,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
-        "kind": "story",
-        "title": "Uncle Dev's Investment Philosophy",
-        "storyContext": "Uncle Dev tells Ravi and Priya: \"I've been investing for 30 years. Early on, I was scared - stock prices went up 20%, then down 15%. But I didn't panic-sell. I kept buying more when prices dropped - got better value. Over 30 years, my Rs.50,000 initial investment became Rs.15 lakhs. Time and patience beat timing the market.\"",
-        "emoji": "🧘"
-      },
-      {
         "kind": "challenge",
         "title": "Interest Rate Comparison",
         "storyContext": "Ravi asks: \"If rates matter so much, what's the difference between 5%, 7%, and 10% over 20 years?\" Uncle Dev calculates for Rs.10,000 starting amount. At 5%: Rs.26,533. At 7%: Rs.38,697. At 10%: Rs.67,275. Ravi's jaw drops: \"3% difference becomes Rs.40,742 more?\" Yes - that's why higher returns matter so much over long periods.",
@@ -223677,12 +231029,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "solution": "(a) 10,000 x (1.05)^20 = Rs.26,533. (b) 10,000 x (1.07)^20 = Rs.38,697. (c) 10,000 x (1.10)^20 = Rs.67,275. From 5% to 10%, you earn 2.5x MORE on the same starting money!"
         },
         "inSimpleWords": "Even small differences in interest rates compound into huge differences over decades. Choose higher-return investments wisely.",
-        "emoji": "📊",
-        "image": {
-          "url": "https://images.pexels.com/photos/9158761/pexels-photo-9158761.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Interest Rate Comparison — Saving vs Investing - Making Money Work",
-          "q": "classroom"
-        }
+        "emoji": "📊"
+      },
+      {
+        "kind": "story",
+        "title": "Uncle Dev's Investment Philosophy",
+        "storyContext": "Uncle Dev tells Ravi and Priya: \"I've been investing for 30 years. Early on, I was scared - stock prices went up 20%, then down 15%. But I didn't panic-sell. I kept buying more when prices dropped - got better value. Over 30 years, my Rs.50,000 initial investment became Rs.15 lakhs. Time and patience beat timing the market.\"",
+        "emoji": "🧘"
       },
       {
         "kind": "concept",
@@ -223713,12 +231066,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Saving AND Investing: A Balanced Approach — Saving vs Investing - Making Money Work",
           "q": "classroom"
         }
-      },
-      {
-        "kind": "story",
-        "title": "The Power of Starting Young",
-        "storyContext": "Uncle Dev tells them: \"Imagine three investors. Avik starts at 15, invests Rs.5,000/year for 10 years, then stops (Rs.50,000 total invested at 8%/year). Bhavna starts at 25, invests Rs.5,000/year for 30 years (Rs.1.5 lakhs total). By age 65: Avik has Rs.11.24 lakhs, Bhavna has Rs.3.37 lakhs. Same amount per year, but Avik invested LESS and has MORE because he started early. Time is magic.\"",
-        "emoji": "⏳"
       },
       {
         "kind": "challenge",
@@ -223760,12 +231107,74 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "problem": "You have Rs.50,000. You decide: Rs.20,000 in FD (5% return), Rs.30,000 in mutual fund (10% return), 20 years. How much do you have? What if you had put all in the mutual fund?",
           "solution": "Strategy mix: FD: 20,000 x (1.05)^20 = Rs.53,066. MF: 30,000 x (1.10)^20 = Rs.2,01,824. Total = Rs.2,54,890. All in MF: 50,000 x (1.10)^20 = Rs.3,36,375. The riskier all-MF strategy earns 32% more, but you had safety with FD. Your choice reflects your comfort with risk."
         },
-        "emoji": "🧮",
-        "image": {
-          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Challenge: Design Your 20-Year Portfolio — Saving vs Investing - Making Money Work",
-          "q": "classroom"
-        }
+        "emoji": "🧮"
+      },
+      {
+        "kind": "concept",
+        "title": "Real vs Nominal Returns",
+        "storyContext": "Ravi asks Priya: 'You earned 7% but inflation is 5%. Did you really get 7% richer?' Priya calculates: 'No! Real return = (1.07)/(1.05) - 1 = 1.9%. Inflation ate most of my gains. That's why we must invest at rates ABOVE inflation to actually get richer.' Uncle Dev nods: 'This is why bank interest (4%) barely beats inflation (5%). You're working hard but not actually gaining much wealth.'",
+        "points": [
+          {
+            "label": "Nominal return",
+            "text": "The percentage your money grew: 7% per year."
+          },
+          {
+            "label": "Real return",
+            "text": "Growth after inflation: only 1.9% per year if inflation is 5%."
+          },
+          {
+            "label": "The gap",
+            "text": "If you don't beat inflation with returns, you're not actually getting richer - you're losing purchasing power."
+          }
+        ],
+        "example": {
+          "problem": "You invest Rs.10,000 at 6% for 10 years. Inflation averages 5%. Nominal final value?Real value?",
+          "solution": "Nominal: 10k x 1.06^10 = Rs.17,908. Real: 17,908 / 1.05^10 = Rs.10,967. You nominally gained 79%, but really gained only 10%! Inflation stole 69% of your gains."
+        },
+        "inSimpleWords": "After inflation, your real gains are much smaller. Always invest above inflation to truly build wealth.",
+        "emoji": "📉"
+      },
+      {
+        "kind": "story",
+        "title": "Priya's 20-Year Reality Check",
+        "storyContext": "Priya looks at her 20-year projection. 'Nominal I'll have 4x. But real value after inflation? Only 1.5x.' She realizes: 'Investing beats saving, but real wealth building takes long time AND beating inflation. That's why starting YOUNG matters so much. Every year counts.'",
+        "emoji": "🔮"
+      },
+      {
+        "kind": "challenge",
+        "title": "Inflation-Adjusted Goal Setting",
+        "storyContext": "Uncle Dev challenges them: 'College will cost Rs.25 lakhs in TODAY's money when you're 22. If inflation is 5%, how much will it ACTUALLY cost in 10 years? How much do you need to save/invest NOW to cover it?'",
+        "example": {
+          "problem": "College: Rs.25 lakh today. Inflation 5% per year. In 10 years, nominal cost? If you invest at 8%, how much do you need NOW?",
+          "solution": "Nominal future cost = 25 lakh x 1.05^10 = Rs.40.72 lakh. To have Rs.40.72 lakh in 10 years at 8% return: need NOW = 40.72 lakh / 1.08^10 = Rs.18.82 lakh. Start investing Rs.18.82 lakh today OR Rs.1,900/month for 10 years at 8%."
+        },
+        "inSimpleWords": "Plan for inflation when setting long-term goals. Future costs are MUCH higher than today. Calculate backwards from future needs.",
+        "emoji": "🎓"
+      },
+      {
+        "kind": "concept",
+        "title": "Automatic Investing: SIPs (Systematic Investment Plans)",
+        "storyContext": "Priya sets up a Systematic Investment Plan (SIP): every month, Rs.5,000 automatically deducted from her bank and invested in a mutual fund. 'I don't think about it. It just happens. And when prices are low (market down), I buy more units. When prices are high, I buy fewer units. Average cost is lower than if I tried to time it!' This takes emotion out of investing.",
+        "points": [
+          {
+            "label": "What is SIP",
+            "text": "Automatic monthly investment in mutual funds. Money deducted and invested every month."
+          },
+          {
+            "label": "Averaging effect",
+            "text": "Buy more units when price is low, fewer when high. Average cost per unit reduces over time."
+          },
+          {
+            "label": "Discipline",
+            "text": "No emotions, no timing, no decisions needed. Just let it run for years."
+          }
+        ],
+        "example": {
+          "problem": "Rs.5,000/month SIP for 20 years in a mutual fund averaging 10% annual return. How much do you have?",
+          "solution": "FV of SIP annuity = Rs.5,000 x [((1.10^20 - 1) / 0.10) / 1.10] = ~Rs.22.87 lakh total. You invested only Rs.12 lakh but have Rs.23 lakh. The 10.87 lakh gain came from compound growth!"
+        },
+        "inSimpleWords": "SIPs automate investing. Set it and forget it. Regular small amounts compound into big wealth over years. Best for busy people.",
+        "emoji": "📅"
       },
       {
         "kind": "recap",
@@ -223928,6 +231337,56 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Market Sentiment and Herd Behavior",
+        "storyContext": "Priya learns from watching markets: \"Sometimes prices move on pure emotion. Everyone wants to buy Tesla, so prices zoom up even if earnings are flat. This is herd behavior - people copy others without thinking. Then bad news triggers panic selling. The stock crashes not because the company is worse, but because sentiment flipped.\"",
+        "points": [
+          {
+            "label": "Bull market",
+            "text": "Everyone is optimistic, buying stocks, prices go up. Positive sentiment dominates."
+          },
+          {
+            "label": "Bear market",
+            "text": "Everyone is pessimistic, selling stocks, prices fall. Negative sentiment dominates."
+          },
+          {
+            "label": "Contrary investing",
+            "text": "Buy when sentiment is fearful (prices low), sell when sentiment is euphoric (prices high). Buy the dip!"
+          }
+        ],
+        "example": {
+          "problem": "Stock X is solid (earnings +10%). But everyone pessimistic, X falls 20% in a week. Rational?",
+          "solution": "No! Company improved but price fell. This is herd panic. Brave investors buy at 20% discount. When sentiment reverses, they profit."
+        },
+        "inSimpleWords": "Herd behavior causes irrational price swings. Fear crashes prices, greed pumps them. Use emotion to your advantage.",
+        "emoji": "🐑"
+      },
+      {
+        "kind": "concept",
+        "title": "Supply and Demand in Stock Markets",
+        "storyContext": "Mrs. Sharma draws on the board: \"Imagine TechCorp stock. Only 100 shares exist. If 50 people want to buy but only 5 people want to sell, what happens? The 50 buyers compete - they bid higher prices. The price climbs! Reverse it: 5 people want to buy, 50 want to sell. Price falls as sellers panic-drop prices.\" Priya sees it now: stocks are just auctions.\"",
+        "points": [
+          {
+            "label": "More buyers than sellers",
+            "text": "Prices rise. Buyers bid higher to compete for limited shares."
+          },
+          {
+            "label": "More sellers than buyers",
+            "text": "Prices fall. Sellers lower prices to entice buyers."
+          },
+          {
+            "label": "Perfect balance",
+            "text": "Prices stabilize. The equilibrium price is where demand = supply."
+          }
+        ],
+        "example": {
+          "problem": "Stock X has 1,000 shares. At Rs.100/share: 200 people want to buy, 50 want to sell. What happens to price?",
+          "solution": "4x more buyers than sellers. Buyers compete by bidding higher (Rs.105, Rs.110, etc.). Price rises until it reaches a point where demand = supply (maybe Rs.120 - some buyers drop out, some sellers enter)."
+        },
+        "inSimpleWords": "Stock prices are auctions. More buyers = price up. More sellers = price down. Simple market forces.",
+        "emoji": "🏪"
+      },
+      {
+        "kind": "concept",
         "title": "The Stock Market and Exchanges (NSE, BSE)",
         "storyContext": "Priya tells Rahul: \"India has two main stock exchanges: NSE (National Stock Exchange) in Mumbai and BSE (Bombay Stock Exchange), also Mumbai. They're like giant bazaars where people buy and sell shares ALL DAY. Whenever you buy a share, you're buying from someone who sold it. The exchange matches buyers and sellers, sets the price.\" Rahul: \"So I don't buy from the company itself?\" \"Right! You buy from other investors in the market.\"",
         "points": [
@@ -223964,12 +231423,13 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Opening a Demat Account",
         "storyContext": "Rahul wants to start investing but is confused. \"How do I buy shares?\" he asks. Priya walks him through: \"First, open a bank account if you don't have one. Second, open a demat account with a broker - I use Zerodha, it's online and free. Third, link your bank to your demat account. Fourth, download their app, search for a company, click BUY, enter how many shares - done! Your shares appear in your account.\" Rahul: \"That's it?\" \"Basically yes. Then you watch prices, maybe sell someday, or hold forever.\"",
-        "emoji": "📱",
-        "image": {
-          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Opening a Demat Account — What is the Stock Market? Owning a Piece of a Company",
-          "q": "classroom"
-        }
+        "emoji": "📱"
+      },
+      {
+        "kind": "story",
+        "title": "Reading Earnings Reports",
+        "storyContext": "Priya decides to read Reliance's quarterly earnings report before buying. She checks: revenue, profit, cash flow, debt, and margins. If revenue is up 15% but profit only up 5%, that means costs are rising faster than sales. Red flag. She learns smart investing means understanding HOW companies make money.",
+        "emoji": "📊"
       },
       {
         "kind": "concept",
@@ -224038,6 +231498,12 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "The Dividend Timeline",
+        "storyContext": "Rahul asks: \"How often do companies pay dividends?\" Priya explains: \"Usually quarterly (every 3 months) or annually (once a year). The company announces a 'dividend declaration date,' then you have to own shares by the 'record date' to get it. Then they send the money to your bank by the 'payment date.' It's like waiting for a paycheck - you own the company, so you get a cut of profits!\"",
+        "emoji": "📅"
+      },
+      {
         "kind": "concept",
         "title": "Capital Gains: Making Money from Price Appreciation",
         "storyContext": "Priya bought Reliance at Rs.2,600/share six months ago. Today it's Rs.2,800. She sells 2 shares and pockets Rs.4,000 (2 x Rs.2,800) vs. her original Rs.5,200 (2 x Rs.2,600). She lost Rs.200? No! She had NO shares before, so she GAINED Rs.4,000. But had she waited to sell at Rs.2,600, she'd get Rs.5,200. The Rs.400 gain (Rs.2,800 - Rs.2,600) x 2 shares = Rs.400 CAPITAL GAIN. Mrs. Sharma explains: \"Capital gain is profit from selling at a higher price than you bought.\"",
@@ -224066,6 +231532,47 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Capital Gains: Making Money from Price Appreciation — What is the Stock Market? Owning a Piece of a Company",
           "q": "classroom"
         }
+      },
+      {
+        "kind": "challenge",
+        "title": "Stock Analysis Practice",
+        "storyContext": "Mrs. Sharma gives the class a task: \"Pick a real Indian company (Reliance, HDFC, Infosys, TCS, ICICI). Find its current stock price online. Find its dividend per share. Calculate the dividend yield. Then ask: at this price and dividend, is it attractive to invest in for 5 years?\"",
+        "example": {
+          "problem": "Reliance stock: Rs.2,600/share today. Annual dividend: Rs.200/share. (a) Calculate dividend yield. (b) If you expect price to grow 8%/year, what's your total annual return?",
+          "solution": "(a) Dividend yield = (200 / 2,600) x 100 = 7.69%. (b) Total return = 7.69% (dividend) + 8% (capital appreciation) = 15.69%/year average. Very attractive for a 5-year horizon!"
+        },
+        "inSimpleWords": "Research real stocks: dividend yield + expected price growth = your total return. Higher total return = better investment (but higher risk too).",
+        "emoji": "🔬",
+        "image": {
+          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Stock Analysis Practice — What is the Stock Market? Owning a Piece of a Company",
+          "q": "classroom"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Market Cycles and Valuation",
+        "storyContext": "Mrs. Sharma teaches: \"Stock prices cycle. When a company is hot, prices get inflated (expensive). When sentiment sours, prices crash (cheap). A good investor buys when prices are low relative to earnings (P/E ratio low), sells when they're high (P/E ratio high).\"",
+        "points": [
+          {
+            "label": "P/E ratio",
+            "text": "Share price divided by annual earnings per share. Low P/E = cheap, High P/E = expensive."
+          },
+          {
+            "label": "Buy low, sell high",
+            "text": "Buy when P/E is low (market pessimism), sell when P/E is high (market hype). Timing is hard, but buying value is easier."
+          },
+          {
+            "label": "Value investing",
+            "text": "Buy great companies when unpopular. Hold as market recognizes value. Profits come from patience, not trading speed."
+          }
+        ],
+        "example": {
+          "problem": "Stock A: Rs.100/share, earns Rs.10 (P/E=10). Stock B: Rs.200/share, earns Rs.10 (P/E=20). Same earnings. Which is better value?",
+          "solution": "Stock A is cheaper (lower P/E). You pay Rs.10 per Re.1 of earnings vs Rs.20 for Stock B. Same earnings, A is better value."
+        },
+        "inSimpleWords": "P/E ratio tells you if stock is cheap or expensive. Low P/E = good value. High P/E = might be overpriced. Hunt low P/E.",
+        "emoji": "📉"
       },
       {
         "kind": "concept",
@@ -224104,22 +231611,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🎯"
       },
       {
-        "kind": "challenge",
-        "title": "Stock Analysis Practice",
-        "storyContext": "Mrs. Sharma gives the class a task: \"Pick a real Indian company (Reliance, HDFC, Infosys, TCS, ICICI). Find its current stock price online. Find its dividend per share. Calculate the dividend yield. Then ask: at this price and dividend, is it attractive to invest in for 5 years?\"",
-        "example": {
-          "problem": "Reliance stock: Rs.2,600/share today. Annual dividend: Rs.200/share. (a) Calculate dividend yield. (b) If you expect price to grow 8%/year, what's your total annual return?",
-          "solution": "(a) Dividend yield = (200 / 2,600) x 100 = 7.69%. (b) Total return = 7.69% (dividend) + 8% (capital appreciation) = 15.69%/year average. Very attractive for a 5-year horizon!"
-        },
-        "inSimpleWords": "Research real stocks: dividend yield + expected price growth = your total return. Higher total return = better investment (but higher risk too).",
-        "emoji": "🔬",
-        "image": {
-          "url": "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Stock Analysis Practice — What is the Stock Market? Owning a Piece of a Company",
-          "q": "classroom"
-        }
-      },
-      {
         "kind": "example",
         "title": "Full Example: Priya's Stock Portfolio Journey",
         "storyContext": "Over 5 years, Priya's investment story: She invests Rs.1,00,000 total. She buys 50 shares of Reliance at Rs.2,000 (Rs.1,00,000), holds for 5 years. Reliance grows well, price rises to Rs.3,200/share. Total value: Rs.1,60,000. She also received Rs.20,000 in dividends (Rs.200/year x 5 years x 50 shares). Her total return: Rs.1,60,000 + Rs.20,000 = Rs.1,80,000 from Rs.1,00,000 invested. Net profit: Rs.80,000 (80% gain)!",
@@ -224142,6 +231633,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🎖️"
       },
       {
+        "kind": "concept",
+        "title": "Mutual Funds: Investing Without Picking Stocks",
+        "storyContext": "Priya learns about mutual funds from her father: 'If picking individual stocks is hard, mutual funds do it for you. A professional fund manager buys 50-100 stocks in a mutual fund. You buy units in the fund, not individual shares. Your risk spreads across many companies, so one bad stock doesn't kill you.'",
+        "points": [
+          {
+            "label": "What is a mutual fund",
+            "text": "A basket of stocks managed by professionals. You buy units; manager does the picking."
+          },
+          {
+            "label": "Types",
+            "text": "Growth funds (aggressive, mostly stocks), Balanced funds (mix), Debt funds (conservative, mostly bonds)."
+          },
+          {
+            "label": "Advantages",
+            "text": "Instant diversification, expert management, lower fees, easy to buy via SIPs (automatic monthly investment)."
+          }
+        ],
+        "example": {
+          "problem": "You invest Rs.500/month in a balanced mutual fund for 15 years. Average return 8%. How much do you have?",
+          "solution": "Using future value of annuity (Rs.500/month, 8%/year): ~Rs.1,52,000 total. Your Rs.90k invested grows to 1.7x. Better than keeping money in a bank!"
+        },
+        "inSimpleWords": "Mutual funds let professionals pick stocks for you. Less stress, good returns, automatic diversification.",
+        "emoji": "🎯"
+      },
+      {
         "kind": "challenge",
         "title": "Your Challenge: Build Your First Portfolio",
         "storyContext": "Mrs. Sharma gives the class homework: \"Imagine you have Rs.50,000 to invest for 5 years. Pick 3 Indian companies (Reliance, HDFC, Infosys, TCS, ICICI, etc.). Research their business. Decide how many shares to buy at current prices. Predict: if they grow 10-15% per year, what will your portfolio be worth in 5 years?\"",
@@ -224149,12 +231665,18 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "problem": "You pick 3 stocks: (a) HDFC Bank, Rs.1,500/share, you buy 15 shares (Rs.22,500), expect 12% annual growth. (b) Reliance, Rs.2,500/share, you buy 6 shares (Rs.15,000), expect 10% growth. (c) TCS, Rs.3,200/share, you buy 3 shares (Rs.9,600), expect 14% growth. What is each position worth in 5 years?",
           "solution": "(a) HDFC: 15 x (1,500 x 1.12^5) = 15 x 2,647 = Rs.39,705. (b) Reliance: 6 x (2,500 x 1.10^5) = 6 x 4,026 = Rs.24,156. (c) TCS: 3 x (3,200 x 1.14^5) = 3 x 5,992 = Rs.17,976. Total = Rs.81,837 from Rs.50,000 - a 63.7% gain in 5 years!"
         },
-        "emoji": "🏆",
-        "image": {
-          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Challenge: Build Your First Portfolio — What is the Stock Market? Owning a Piece of a Company",
-          "q": "classroom"
-        }
+        "emoji": "🏆"
+      },
+      {
+        "kind": "challenge",
+        "title": "Compare: Stock vs Mutual Fund vs Bank Account",
+        "storyContext": "Rahul asks Priya: 'Which should I invest in?' Priya says, 'It depends on your knowledge and time. Bank account (4%, safe, boring): good for emergency funds. Mutual fund (8-10%, moderate, hands-off): good for busy people who want growth. Stocks (10-15%, risky, needs research): good if you love analyzing companies.' Rahul nods: 'Different tools for different goals!'",
+        "example": {
+          "problem": "You have Rs.1,00,000 for 10 years. (a) Bank account at 4%, (b) MF at 8%, (c) Stocks at 10% (your picks, researched). What do you have?",
+          "solution": "(a) Bank: 100k x 1.04^10 = Rs.1,48,024. (b) MF: 100k x 1.08^10 = Rs.2,15,892. (c) Stocks: 100k x 1.10^10 = Rs.2,59,374. Stocks win by Rs.44k over MF, but require 10 years of research!"
+        },
+        "inSimpleWords": "Bank accounts are safe but slow. Mutual funds are hands-off and fast. Stocks are fastest but need homework. Pick your comfort level.",
+        "emoji": "⚖️"
       },
       {
         "kind": "recap",
@@ -224183,12 +231705,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           }
         ],
         "inSimpleWords": "Stocks are ownership pieces of companies. Buy good companies cheap, hold for years, collect dividends, and watch wealth grow. Start young!",
-        "emoji": "✅",
-        "image": {
-          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Stocks and Stock Market: The Essentials — What is the Stock Market? Owning a Piece of a Company",
-          "q": "classroom"
-        }
+        "emoji": "✅"
       }
     ]
   },
@@ -227943,1238 +235460,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
     ]
   },
   {
-    "slug": "class-9-science-cell-the-building-block-of-life",
-    "classLevel": "9",
-    "subject": "Science",
-    "chapter": "Cell: The Building Block of Life",
-    "title": "Meera's Invisible Worlds",
-    "hook": "A girl looks through a microscope and discovers the secret cities inside every living thing.",
-    "characters": [
-      {
-        "name": "Meera",
-        "emoji": "ðŸ‘§",
-        "role": "student with curiosity"
-      },
-      {
-        "name": "Dr. Patel",
-        "emoji": "ðŸ‘¨â€ðŸ”¬",
-        "role": "biology teacher"
-      },
-      {
-        "name": "Rohit",
-        "emoji": "ðŸ‘¨â€ðŸ’¼",
-        "role": "lab assistant"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "Cell: The Building Block of Life",
-        "emoji": "ðŸ”¬",
-        "storyContext": "Meera's first look through a microscope changes everything."
-      },
-      {
-        "kind": "story",
-        "title": "The Microscope Reveals a World",
-        "emoji": "ðŸŒŸ",
-        "storyContext": "Meera has been staring at a grain of salt under the microscope for two minutes. It looks boringâ€”just chunks of white mineral. 'Now look at this,' says Dr. Patel, sliding a new slide onto the stage. 'Onion skin cells.' Meera puts her eye to the eyepiece. Suddenly, the world changes. She sees hundreds of tiny rectangular boxes, each with a darker dot inside, arranged like a perfect apartment building. 'That's a cell,' whispers Dr. Patel. 'Trillions of them make up your body, and every single one is alive.'"
-      },
-      {
-        "kind": "concept",
-        "title": "What Is a Cell?",
-        "emoji": "â¬œ",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "A cell is the smallest unit of life that can live and reproduce on its own."
-          },
-          {
-            "label": "Cell Theory (Three Laws)",
-            "text": "1. All living things are made of cells. 2. Cells are the basic unit of life. 3. All cells come from pre-existing cells."
-          },
-          {
-            "label": "Cell size",
-            "text": "Most cells are so tiny you need a microscope to see them (10â€“100 micrometers). One micrometer = 1/1,000,000 meter."
-          },
-          {
-            "label": "Variety",
-            "text": "Cells vary in shape and size: spheres (bacteria), rectangles (plant cells), irregular (animal cells), long threads (nerve cells)."
-          }
-        ],
-        "inSimpleWords": "A cell is the tiniest living part of any plant or animal, and you can't see it without a microscope.",
-        "image": {
-          "prompt": "Microscope view of onion skin cells arranged in a grid pattern, each cell with a nucleus visible inside"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Prokaryotic vs. Eukaryotic Cells",
-        "emoji": "ðŸ§¬",
-        "points": [
-          {
-            "label": "Prokaryotic",
-            "text": "Cells WITHOUT a nucleus (bacteria and archaea). DNA floats freely in the cytoplasm. Smaller and simpler."
-          },
-          {
-            "label": "Eukaryotic",
-            "text": "Cells WITH a nucleus (animals, plants, fungi, protists). DNA is enclosed and organized. Larger and more complex."
-          },
-          {
-            "label": "Examples prokaryotic",
-            "text": "Bacteria in yogurt, cyanobacteria in ponds."
-          },
-          {
-            "label": "Examples eukaryotic",
-            "text": "Your skin cells, plant leaf cells, yeast cells."
-          }
-        ],
-        "inSimpleWords": "Bacteria are simple cells without a nucleus; your cells are complex and have a nucleus.",
-        "image": {
-          "prompt": "Side-by-side diagram: prokaryotic cell (round, no nucleus, just cytoplasm) vs eukaryotic cell (with large nucleus and organelles)"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Meera's Lab Partner Mystery",
-        "emoji": "ðŸ”Ž",
-        "storyContext": "Dr. Patel hands Meera two unmarked slides. 'One is a bacterium; one is a plant cell from a leaf. Both are alive. But one doesn't have a nucleus.' Meera looks closely. She realizes: the simpler, smaller round cell is the bacteriumâ€”prokaryotic, living but no nucleus. The rectangular one with the obvious dark dot inside is the plant cellâ€”eukaryotic, with a nucleus controlling everything. 'The nucleus is the manager,' Dr. Patel says. 'Without it, a cell still works, but it can't get complex.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Plant Cell Organelles",
-        "emoji": "ðŸŒ±",
-        "points": [
-          {
-            "label": "Nucleus",
-            "text": "Controls the cell. Contains DNA."
-          },
-          {
-            "label": "Chloroplast",
-            "text": "Makes food using sunlight (photosynthesis). Contains green pigment chlorophyll."
-          },
-          {
-            "label": "Cell wall",
-            "text": "Rigid outer layer that gives structure (plant only)."
-          },
-          {
-            "label": "Cell membrane",
-            "text": "Controls what enters and exits the cell."
-          },
-          {
-            "label": "Vacuole",
-            "text": "Large storage sac for water and nutrients (plant cells have one huge vacuole)."
-          },
-          {
-            "label": "Mitochondrion",
-            "text": "Breaks down glucose to release energy for the cell."
-          }
-        ],
-        "inSimpleWords": "Plant cells are like tiny factories with a nucleus boss, chloroplasts making food, and a big vacuole storing water.",
-        "image": {
-          "prompt": "Labeled diagram of plant cell: cell wall, membrane, nucleus, chloroplasts (green), large vacuole, mitochondria"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Animal Cell Organelles",
-        "emoji": "ðŸ¦",
-        "points": [
-          {
-            "label": "Nucleus",
-            "text": "Controls the cell. Contains DNA."
-          },
-          {
-            "label": "Cell membrane",
-            "text": "Flexible outer layer controlling entry and exit."
-          },
-          {
-            "label": "Mitochondrion",
-            "text": "Breaks down glucose to release energy (plural: mitochondria)."
-          },
-          {
-            "label": "Ribosome",
-            "text": "Tiny factory that makes proteins."
-          },
-          {
-            "label": "Golgi apparatus",
-            "text": "Packages and ships proteins around the cell."
-          },
-          {
-            "label": "Endoplasmic reticulum",
-            "text": "Network of tubes for making and transporting proteins (rough ER) or lipids (smooth ER)."
-          },
-          {
-            "label": "No chloroplasts, no cell wall, small vacuoles",
-            "text": "Animal cells can't make their own food; must eat it."
-          }
-        ],
-        "inSimpleWords": "Animal cells are flexible, have no chloroplasts, and must eat foodâ€”unlike plants that make their own.",
-        "image": {
-          "prompt": "Labeled diagram of animal cell: flexible membrane, nucleus, mitochondria, ribosomes, Golgi, ER, small vacuole"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Why Your Skin is Not Green",
-        "emoji": "ðŸƒ",
-        "storyContext": "Meera asks: 'Why can't my skin make food like a plant leaf does?' Rohit brings two slidesâ€”a spinach leaf and a skin cell. Dr. Patel points: 'See the green dots? Chloroplasts. Your skin cells have no chloroplasts because you're an animal. Animals solved the food problem differently: we eat plants and other animals, then our mitochondria break that food down for energy. Plants are lazyâ€”they just grab sunlight and water. We had to evolve muscles and brains to hunt.' Meera grins. 'So mitochondria is my plant?'"
-      },
-      {
-        "kind": "concept",
-        "title": "Energy in Cells: Photosynthesis vs. Respiration",
-        "emoji": "âš¡",
-        "points": [
-          {
-            "label": "Photosynthesis",
-            "text": "Happens in plant chloroplasts. Sunlight + water + CO2 â†’ glucose (food) + oxygen. Energy goes IN."
-          },
-          {
-            "label": "Cellular respiration",
-            "text": "Happens in all cell mitochondria. Glucose + oxygen â†’ CO2 + water + ATP (energy). Energy comes OUT."
-          },
-          {
-            "label": "Photosynthesis location",
-            "text": "ONLY in plant cells with chloroplasts (and some bacteria)."
-          },
-          {
-            "label": "Respiration location",
-            "text": "ALL cellsâ€”plants, animals, bacteria. Every cell needs energy."
-          }
-        ],
-        "inSimpleWords": "Plants make their own food with sunlight; animals eat food then burn it in mitochondria for energy."
-      },
-      {
-        "kind": "example",
-        "title": "Comparing a Plant and Animal Cell",
-        "emoji": "âš–ï¸",
-        "example": {
-          "problem": "A spinach leaf cell and a human cheek cell are viewed under a microscope. List what you see in each, and explain why they look different.",
-          "solution": "SPINACH CELL: large vacuole (70%), chloroplasts (green), cell wall (rigid box), nucleus off to side, mitochondria. CHEEK CELL: small vacuoles, no chloroplasts, no cell wall (just membrane, flexible), nucleus in center, many mitochondria. Differences: Plant cells are rigid factories that make food; animal cells are flexible and must eat. Plants can be green and sit still; animals must move and hunt."
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Cell Division: Mitosis",
-        "emoji": "ðŸ”„",
-        "points": [
-          {
-            "label": "Purpose",
-            "text": "Cell divides to produce two identical daughter cells for growth and repair."
-          },
-          {
-            "label": "DNA copy",
-            "text": "Before division, DNA replicates so each daughter cell gets a full copy."
-          },
-          {
-            "label": "Stages",
-            "text": "Prophase: chromosomes condense; Metaphase: chromosomes line up in middle; Anaphase: copies separate; Telophase: nuclei reform; Cytokinesis: cell splits."
-          },
-          {
-            "label": "Result",
-            "text": "One parent cell â†’ two identical daughter cells (diploid â†’ diploid)."
-          }
-        ],
-        "inSimpleWords": "Mitosis is how cells copy themselves to make your body grow and fix damaged tissue.",
-        "example": {
-          "problem": "A skin cell with 46 chromosomes undergoes mitosis. How many chromosomes are in each daughter cell?",
-          "solution": "Each daughter cell has 46 chromosomes (identical to parent). Mitosis preserves the chromosome number."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Cell's Magic Moment",
-        "emoji": "âœ¨",
-        "storyContext": "Meera watches a time-lapse video of a cell dividing. The nucleus glows brightly as chromosomesâ€”thread-like coils of DNAâ€”emerge. They line up in the middle like soldiers in formation. Then they split, and two nuclei form. The cell pinches in the middle, and suddenly there are two. 'Did the cell just split itself in half?' asks Meera. 'Exactly,' says Dr. Patel. 'And both halves are perfect copies, with the same DNA, the same job, the same future. This is how you grew from a single cell to 37 trillion.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Chromosomes and DNA",
-        "emoji": "ðŸ§¬",
-        "points": [
-          {
-            "label": "DNA",
-            "text": "Double helix molecule that contains genes (instructions for making proteins). In humans: ~3 billion base pairs."
-          },
-          {
-            "label": "Chromosome",
-            "text": "Coiled-up DNA + proteins. Humans have 46 chromosomes (23 pairs). Appears only during cell division."
-          },
-          {
-            "label": "Gene",
-            "text": "A segment of DNA that codes for one protein (e.g., hemoglobin gene, eye color gene)."
-          },
-          {
-            "label": "During cell division",
-            "text": "DNA coils into visible chromosomes so it can be split evenly. After division, it uncoils back into chromatin (invisible)."
-          }
-        ],
-        "inSimpleWords": "Chromosomes are coiled-up DNA bundles you see during cell division. Genes are recipes on the DNA for building proteins."
-      },
-      {
-        "kind": "example",
-        "title": "How Cells Make Copies of Themselves",
-        "emoji": "ðŸ“‹",
-        "example": {
-          "problem": "Before a cell divides by mitosis, its DNA must replicate. Explain why, and what would happen if DNA didn't copy first.",
-          "solution": "REASON: Each daughter cell needs a complete copy of DNA to function and know its job. If DNA didn't copy, each daughter cell would get only half the chromosomes â†’ incomplete instructions â†’ cell dysfunction or death. DNA REPLICATION happens in S phase (before mitosis starts). The double helix unzips, and each half is rebuilt into a complete double helix, creating two identical DNA copies."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Growth Without Division",
-        "emoji": "ðŸ“ˆ",
-        "storyContext": "Meera asks: 'If cells divide to make two from one, why isn't a baby huge after just a few divisions?' Dr. Patel explains: 'A human starts as one fertilized egg. After one mitosis: 2 cells. After two: 4. After three: 8. After 40 divisions, you have ~1 trillion cellsâ€”but they're still squeezed into a tiny embryo.' He draws on the board: 2^40 = 1,099,511,627,776 cells. 'Your cells didn't grow bigger; they just divided and divided and divided. That's why you're small as a baby and big as an adultâ€”more cells, not bigger cells.'"
-      },
-      {
-        "kind": "concept",
-        "title": "The Cell Cycle",
-        "emoji": "ðŸ”",
-        "points": [
-          {
-            "label": "Interphase",
-            "text": "Cell grows (G1), replicates DNA (S), prepares for division (G2). Takes ~22 hours."
-          },
-          {
-            "label": "M phase (Mitosis)",
-            "text": "Prophase, Metaphase, Anaphase, Telophase + Cytokinesis. Takes ~1 hour."
-          },
-          {
-            "label": "G0 phase",
-            "text": "Cells that stop dividing (like nerve cells in adults) go into G0â€”permanent pause."
-          },
-          {
-            "label": "Cell cycle control",
-            "text": "Checkpoints ensure DNA is copied correctly and damage is repaired before division. Failure = cancer."
-          }
-        ],
-        "inSimpleWords": "The cell cycle is the cell's schedule: grow, copy DNA, divide. Then repeat."
-      },
-      {
-        "kind": "challenge",
-        "title": "Cell Detective",
-        "emoji": "ðŸ”Ž",
-        "storyContext": "Dr. Patel gives Meera an unknown cell sample. She needs to identify: Is it prokaryotic or eukaryotic? Is it a plant or animal cell?",
-        "example": {
-          "problem": "You see a cell with a nucleus, a cell wall, and chloroplasts. What cell is it?",
-          "solution": "It is a PLANT CELL. Reasons: (1) Nucleus = eukaryotic. (2) Cell wall = plant only. (3) Chloroplasts = photosynthesis = plant. If it had no chloroplasts and no cell wall, it would be an animal cell."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Meera Becomes a Microscope Master",
-        "emoji": "ðŸ‘©â€ðŸ”¬",
-        "storyContext": "After weeks in Dr. Patel's lab, Meera can now spot cell types instantly. She points to a slide: 'That's a bacteriumâ€”no nucleus, tiny, simple.' Another: 'Plant cellâ€”green dots and a big clear bubble.' Another: 'Animal cellâ€”no wall, flexible, nucleus in middle.' Rohit claps. 'You learned more in a month than I did in a year.' Dr. Patel smiles. 'That's because Meera understood it matters. A cell isn't just a thing under glassâ€”it's the reason you're alive.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Meiosis: Making Sperm and Eggs",
-        "emoji": "ðŸ§¬",
-        "points": [
-          {
-            "label": "Purpose",
-            "text": "Produces sex cells (gametes) with half the chromosomes: sperm and egg cells."
-          },
-          {
-            "label": "Human example",
-            "text": "Normal cell: 46 chromosomes. After meiosis: sperm or egg has 23 chromosomes (haploid)."
-          },
-          {
-            "label": "Two divisions",
-            "text": "Meiosis I: homologous pairs separate (46 â†’ 23). Meiosis II: sister chromatids separate (23 â†’ 23 in each cell). Result: 4 cells, each with 23 chromosomes."
-          },
-          {
-            "label": "Variation",
-            "text": "Meiosis shuffles which chromosome comes from mom and which from dad. Every gamete is genetically unique."
-          }
-        ],
-        "inSimpleWords": "Meiosis cuts DNA in half to make sperm and eggs, so when they merge (fertilization), the baby has a full set again."
-      },
-      {
-        "kind": "example",
-        "title": "From Single Cell to New Life",
-        "emoji": "ðŸ‘¶",
-        "example": {
-          "problem": "A human egg cell (23 chromosomes) is fertilized by a sperm cell (23 chromosomes). What happens next, and how many chromosomes is in the resulting baby?",
-          "solution": "FERTILIZATION: Egg + sperm â†’ zygote with 46 chromosomes (23 from mom + 23 from dad). GROWTH: The zygote undergoes mitosis repeatedly. Each new cell copies all 46 chromosomes. After weeks, millions of cells form, all with 46 chromosomes. RESULT: A baby with 37 trillion cells, all identical copies, all with the same DNA from both parents."
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Chromosome Detective",
-        "emoji": "ðŸ§©",
-        "storyContext": "Meera is given a karyotype (a chart showing all chromosomes). She must count them and guess if the cell is a gamete or somatic cell.",
-        "example": {
-          "problem": "A cell has 23 chromosomes visible. Is this a skin cell, a muscle cell, or an egg cell?",
-          "solution": "It is an EGG CELL (or sperm cell). Reasons: Somatic cells (skin, muscle, nerve) have 46 chromosomes. Sex cells (egg, sperm) have 23. This has 23, so it must be a gamete."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Why You Have Two Noses Worth of DNA",
-        "emoji": "ðŸ‘ƒ",
-        "storyContext": "Meera realizes something wild. 'Half my DNA came from my mom, half from my dad. But they each had DNA from their parents too. So my great-grandparents' DNA is in me?' Dr. Patel nods. 'Go back far enough, and you share DNA with every human on Earth. Go back further, and you share DNA with apes, fish, bacteria. All life uses the same DNA code because all life came from the same common ancestor billions of years ago.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Mutations and Variation",
-        "emoji": "ðŸ§¬",
-        "points": [
-          {
-            "label": "Mutation",
-            "text": "A change in DNA sequence. Can be caused by copying errors, radiation, chemicals."
-          },
-          {
-            "label": "Types",
-            "text": "Point mutation (one base changes), Insertion (bases added), Deletion (bases removed), Duplication (bases copied)."
-          },
-          {
-            "label": "Effects",
-            "text": "Can be harmful (disease), beneficial (new trait), or neutral (silent). Most mutations are neutral or harmful."
-          },
-          {
-            "label": "Evolution",
-            "text": "Beneficial mutations survive; harmful ones are selected against. Over millions of years, species evolve."
-          }
-        ],
-        "inSimpleWords": "Mutations are typos in DNA. Most don't matter, some help, some hurt, and over time they create new species."
-      },
-      {
-        "title": "Cell Membrane and Transport",
-        "inSimpleWords": "The cell membrane is a bouncer—it lets the good stuff in and keeps the bad stuff out.",
-        "emoji": "🚪",
-        "points": [
-          {
-            "text": "Cell membrane lets some molecules in/out, blocks others.",
-            "label": "Selectively permeable"
-          },
-          {
-            "text": "Small molecules move from high to low concentration (no energy).",
-            "label": "Simple diffusion"
-          },
-          {
-            "text": "Water follows salt—moves toward concentrated solution.",
-            "label": "Osmosis"
-          },
-          {
-            "text": "Large molecules or moving against concentration = uses ATP energy.",
-            "label": "Active transport"
-          }
-        ],
-        "kind": "concept"
-      },
-      {
-        "storyContext": "After mastering cell basics, Meera learns that cells don't live in isolation. They exchange with their environment constantly. Glucose enters through the membrane, waste exits, ions flow in and out. Dr. Patel says, 'The membrane is like a smart door—it reads what needs entry and blocks what's dangerous. Without this control, cells would flood with water and burst, or lose salt and shrivel.'",
-        "title": "Meera's Advanced Discovery",
-        "emoji": "🧪",
-        "kind": "story"
-      },
-      {
-        "kind": "recap",
-        "title": "Meera's Big Discoveries",
-        "emoji": "âœ…",
-        "points": [
-          {
-            "text": "All living things are made of cellsâ€”the smallest unit of life."
-          },
-          {
-            "text": "Prokaryotic cells (bacteria) have no nucleus; eukaryotic cells (us, plants) have one."
-          },
-          {
-            "text": "Plant cells have cell walls, chloroplasts, and large vacuoles; animal cells don't."
-          },
-          {
-            "text": "Each organelle has a specific job: nucleus controls, mitochondria energize, chloroplasts feed, ribosomes build."
-          },
-          {
-            "text": "Cells divide by mitosis to grow and healâ€”trillions of copies of you are being made right now."
-          },
-          {
-            "text": "Sex cells are made by meiosis with half the chromosomes; they fuse at fertilization to make a new human."
-          },
-          {
-            "text": "Your DNA is a record of all life on Earth, copied and passed down through billions of years."
-          }
-        ],
-        "inSimpleWords": "Cells are tiny, living factories, and every single one of your 37 trillion cells is doing work right now to keep you alive."
-      }
-    ]
-  },
-  {
-    "slug": "class-9-science-tissues-in-action",
-    "classLevel": "9",
-    "subject": "Science",
-    "chapter": "Tissues in Action",
-    "title": "Aditya's Marathon Discovery",
-    "hook": "A runner discovers that his muscles, bones, and skin are all made of specialized teamwork at the cellular level.",
-    "characters": [
-      {
-        "name": "Aditya",
-        "emoji": "ðŸƒ",
-        "role": "school athlete"
-      },
-      {
-        "name": "Coach Neha",
-        "emoji": "ðŸ‘©â€ðŸ«",
-        "role": "PE teacher and biology guide"
-      },
-      {
-        "name": "Sneha",
-        "emoji": "ðŸ‘©â€âš•ï¸",
-        "role": "school nurse"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "Tissues in Action",
-        "emoji": "ðŸ’ª",
-        "storyContext": "Aditya trains for a 10 km school marathon and learns how his body is organized."
-      },
-      {
-        "kind": "story",
-        "title": "The Athlete Asks a Question",
-        "emoji": "ðŸ…",
-        "storyContext": "Aditya finishes his 10 km training run, drenched in sweat, legs burning but heart racing with pride. Coach Neha hands him water. 'Your muscles are sore. Know why?' Aditya shakes his head. 'Muscle cells are grouped into teams called tissues. When you run, those muscle tissues work together, burning glucose to power your legs.' Sneha adds, 'And your bonesâ€”those are a different tissue, holding your frame up. Your skin, your blood, your nervesâ€”each is a tissue, and millions of cells cooperate to make it work.' Aditya's jaw drops. 'So my whole body is... teamwork?'"
-      },
-      {
-        "kind": "concept",
-        "title": "What Is a Tissue?",
-        "emoji": "ðŸ”—",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "A tissue is a group of similar cells that work together to perform a specific function."
-          },
-          {
-            "label": "Organization",
-            "text": "Cells â†’ Tissues â†’ Organs â†’ Organ Systems â†’ Organism."
-          },
-          {
-            "label": "Four main types",
-            "text": "Epithelial, Connective, Muscle, Nervous."
-          },
-          {
-            "label": "All animals",
-            "text": "All animals have these same four tissue types, just arranged differently."
-          }
-        ],
-        "inSimpleWords": "Tissues are teams of identical cells working together to do one job.",
-        "image": {
-          "prompt": "Hierarchy showing cell â†’ tissue â†’ organ: muscle cell â†’ muscle tissue â†’ bicep muscle â†’ arm system"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Epithelial Tissue",
-        "emoji": "ðŸ—ï¸",
-        "points": [
-          {
-            "label": "Job",
-            "text": "Covers and lines the body (skin, mouth, stomach, lungs). Creates barriers and surfaces."
-          },
-          {
-            "label": "Properties",
-            "text": "Tightly packed cells with no gaps. Regenerates quickly. Can absorb or secrete."
-          },
-          {
-            "label": "Types",
-            "text": "Simple squamous (thin, absorptionâ€”lungs); Simple cuboidal (secretionâ€”glands); Simple columnar (absorptionâ€”intestines); Stratified squamous (protectionâ€”skin)."
-          },
-          {
-            "label": "Skin example",
-            "text": "Outer layer protects; inner layer regenerates continuouslyâ€”you shed ~30,000 cells per minute."
-          }
-        ],
-        "inSimpleWords": "Epithelial tissue forms protective liningsâ€”your skin, the inside of your mouth, your stomach.",
-        "image": {
-          "prompt": "Cross-section of skin showing stratified epithelial cells in layers, outer dead cells shed, inner cells dividing"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Aditya's Skin Secret",
-        "emoji": "ðŸ©¹",
-        "storyContext": "During one training run, Aditya scrapes his knee. Sneha says, 'Don't worryâ€”you shed 30,000 skin cells every minute. Your epithelial tissue is working right now, making new cells to replace that scrape.' Aditya laughs. 'My skin is making new cells while I'm running? That's wild.' Coach Neha adds, 'Your whole body is like a city under constructionâ€”while you sleep, work, run, liveâ€”cells are constantly dying and being replaced. Your skin replaces itself every 2â€“4 weeks. Without epithelial tissue doing this, you'd be raw and infected.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Connective Tissue",
-        "emoji": "ðŸ¦´",
-        "points": [
-          {
-            "label": "Job",
-            "text": "Binds, supports, and insulates other tissues. Most abundant tissue type."
-          },
-          {
-            "label": "Types",
-            "text": "Bone (hard, support), Cartilage (flexible, cushion), Ligaments (joint binding), Tendons (muscle-to-bone), Blood (transport), Fat (insulation)."
-          },
-          {
-            "label": "Components",
-            "text": "Living cells (osteocytes in bone, chondrocytes in cartilage) embedded in a matrix (calcium minerals in bone, collagen fibers)."
-          },
-          {
-            "label": "Bone structure",
-            "text": "Compact bone (dense, strong); Spongy bone (porous, lighter, marrow inside makes blood)."
-          }
-        ],
-        "inSimpleWords": "Connective tissue is the glue and frame of your bodyâ€”bones hold you up, cartilage cushions your joints, ligaments tie it together.",
-        "image": {
-          "prompt": "Bone cross-section showing hard compact bone outside, spongy bone inside with marrow cavity, osteocyte cells in lacunae"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "How Aditya's Bones Support His Run",
-        "emoji": "ðŸƒ",
-        "storyContext": "Sneha shows Aditya a model of a bone. 'See this hard outer shell? Compact boneâ€”it's stronger than concrete. See these air pockets inside? Spongy boneâ€”lighter but still strong. And inside the sponge: marrow. Your bones don't just hold you up; they make blood.' Aditya points at the bone. 'What are those tiny holes?' 'Lacunaeâ€”homes for osteocytes, bone cells. They're alive, working 24/7 to maintain the bone, repair tiny cracks, keep calcium stored.' Coach Neha adds, 'Run hard enough, and your bones adaptâ€”they get even stronger.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Muscle Tissue",
-        "emoji": "ðŸ’ª",
-        "points": [
-          {
-            "label": "Job",
-            "text": "Contracts to produce movement and heat."
-          },
-          {
-            "label": "Types",
-            "text": "Skeletal (voluntary, move limbs, striated), Cardiac (involuntary, heart only, striated), Smooth (involuntary, organs like stomach, non-striated)."
-          },
-          {
-            "label": "Skeletal muscle",
-            "text": "Long fibers with striations (bands). You control it. When actin and myosin filaments slide, the muscle contracts."
-          },
-          {
-            "label": "Energy",
-            "text": "Mitochondria in muscle cells burn glucose and fat to produce ATP, which powers contraction."
-          }
-        ],
-        "inSimpleWords": "Muscle tissue is what contracts to move you, keep your heart beating, and digest your food.",
-        "example": {
-          "problem": "When Aditya runs, his leg muscles contract repeatedly. What cellular process powers this?",
-          "solution": "Muscle cells have abundant mitochondria. During exercise, glucose + oxygen â†’ ATP (in mitochondria). ATP energy powers myosin heads to pull actin filaments, shortening the muscle. Repeated contractions move the leg. Lactic acid builds up, causing soreness (DOMS)."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Burn of Muscle Soreness",
-        "emoji": "ðŸ”¥",
-        "storyContext": "After his hardest run yet, Aditya can barely walk. Every step hurts. Coach Neha explains: 'Delayed Onset Muscle Sorenessâ€”DOMS. Tiny tears in muscle fibers from intense exercise. Your muscle cells are repairing themselves right now, which makes them grow stronger. Tomorrow will hurt less.' Aditya asks, 'Why the tears?' 'Actin and myosin slide, contract, slide again. Heavy load + hard work = some fibers snap slightly. It's normal and necessary. Repair means growth.' Sneha adds, 'That soreness proves your muscles are adapting. It's a good thing.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Nervous Tissue",
-        "emoji": "ðŸ§ ",
-        "points": [
-          {
-            "label": "Job",
-            "text": "Sends and receives electrical signals to coordinate the body."
-          },
-          {
-            "label": "Components",
-            "text": "Neurons (signal cells) and Glial cells (support)."
-          },
-          {
-            "label": "Neuron structure",
-            "text": "Dendrite (receives), Cell body (integrates), Axon (sends signal), Axon terminal (releases neurotransmitters)."
-          },
-          {
-            "label": "Signal speed",
-            "text": "Electric pulses travel along axons at 0.5â€“120 m/s (fastest in myelinated axons)."
-          },
-          {
-            "label": "Function",
-            "text": "Sensory neurons receive signals (pain, temperature); Motor neurons send commands (move muscle); Interneurons connect them (brain)."
-          }
-        ],
-        "inSimpleWords": "Nervous tissue is your body's communication networkâ€”brain to muscles to sensors and back.",
-        "image": {
-          "prompt": "Neuron with labeled dendrites receiving signals, cell body with nucleus, long axon, and terminal branches releasing neurotransmitters"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Split-Second Decision to Run",
-        "emoji": "âš¡",
-        "storyContext": "Aditya sees the starting line and springs forwardâ€”all in 0.5 seconds. Coach Neha explains what just happened: 'Your eyes saw the signal (sensory neuron). Your brain decided to run (interneurons in the cortex). Your brain sent a command to your leg muscles (motor neuron). Your muscles contracted. All in half a second. And none of this was consciousâ€”your nerves were firing at 100+ meters per second, passing messages as electrical pulses and chemical neurotransmitters. Your nervous tissue is faster than thought.'"
-      },
-      {
-        "kind": "concept",
-        "title": "How the Four Tissues Work in Harmony",
-        "emoji": "ðŸŽ­",
-        "points": [
-          {
-            "label": "Nervous system",
-            "text": "Decides: brain sends command to move leg."
-          },
-          {
-            "label": "Muscle tissue",
-            "text": "Executes: leg muscle contracts, pulling bone."
-          },
-          {
-            "label": "Connective tissue",
-            "text": "Supports: tendons attach muscle to bone; ligaments stabilize knee; cartilage absorbs impact."
-          },
-          {
-            "label": "Epithelial tissue",
-            "text": "Protects: skin covers; sweat glands cool body."
-          }
-        ],
-        "inSimpleWords": "When you move, all four tissue types work as one orchestra."
-      },
-      {
-        "kind": "example",
-        "title": "Running: Tissues Working Together",
-        "emoji": "ðŸƒ",
-        "example": {
-          "problem": "When Aditya decides to run, explain how four tissue types work together in his leg.",
-          "solution": "1. NERVOUS: Brain sends electrical command via motor neuron to leg muscle. 2. MUSCLE: Skeletal muscle tissue contracts, shortening. Mitochondria burn glucose for ATP energy. 3. CONNECTIVE: Tendons attach muscle to bone; ligaments stabilize knee joint; cartilage cushions impact. 4. EPITHELIAL: Skin on leg protects; sweat glands secrete to cool. All tissues coordinate in milliseconds to create movement."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Aditya's Victory and Biology",
-        "emoji": "ðŸ†",
-        "storyContext": "Aditya finishes the 10 km marathon in first place. As he catches his breath, Sneha checks his heart rateâ€”still high, beating rapidly. Coach Neha smiles. 'Your heart is cardiac muscle tissue, and right now it's beating 180 times per minute. All involuntaryâ€”you never told it to beat faster, but it did, perfectly coordinated with your lungs, without your brain's conscious control. That's tissue at its finest.'"
-      },
-      {
-        "kind": "challenge",
-        "title": "Tissue Detective",
-        "emoji": "ðŸ”",
-        "storyContext": "Coach Neha shows Aditya a microscope slide. 'Name the tissue type and explain its function.'",
-        "example": {
-          "problem": "You see parallel fibers with stripes and large nuclei. Is this tissue in the heart or leg muscle?",
-          "solution": "This is CARDIAC MUSCLE (heart). Reason: It has striations (stripes) and is involuntary. Both skeletal and cardiac muscle are striated, but cardiac is unique to the heart and has intercalated discs connecting cells for coordinated beating. Leg muscle is skeletal muscle (also striated but under your control)."
-        }
-      },
-      {
-        "kind": "example",
-        "title": "Healing from Injury",
-        "emoji": "ðŸ©¹",
-        "example": {
-          "problem": "Aditya sprains his ankle (ligament tear) during training. Explain how each tissue type is involved in healing.",
-          "solution": "CONNECTIVE: Ligament is damaged (torn collagen fibers). Inflammatory response brings blood cells and proteins. EPITHELIAL: Skin over swollen ankle stretches and protects. Sweat glands reduce as body focuses on repair. NERVOUS: Pain receptors (sensory neurons) send pain signals to brain so Aditya knows to rest. MUSCLE: Protective muscle spasm (reflex) prevents further movement. Over weeks, fibroblasts rebuild collagen in the ligament, and healing begins."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Blood: The Flowing Connective Tissue",
-        "emoji": "ðŸ©¸",
-        "storyContext": "Sneha holds up a test tube with blood. 'This is a connective tissue too. Red blood cells carry oxygen, white blood cells fight infection, platelets clot, and plasma carries nutrients. It's an organ system in liquid form, constantly flowing.' Aditya asks, 'How many blood cells do I have?' Sneha smiles. 'About 5 million red blood cells per microliter. Your body makes 2 million new ones every single second to replace old ones. That's why a cut stops bleedingâ€”platelets arrive and clot within seconds.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Tissue Repair and Regeneration",
-        "emoji": "ðŸ”§",
-        "points": [
-          {
-            "label": "Epithelial regeneration",
-            "text": "Fastestâ€”skin heals in weeks. Intestinal lining replaces every 3â€“5 days."
-          },
-          {
-            "label": "Muscle repair",
-            "text": "Slowâ€”muscle tears take months. Satellite cells activate and rebuild fibers."
-          },
-          {
-            "label": "Bone remodeling",
-            "text": "Takes 6â€“8 weeks. Osteoclasts break down, osteoblasts rebuild. Bone adapts to stress."
-          },
-          {
-            "label": "Nerve regeneration",
-            "text": "Very slow or impossible. Central nervous system (brain, spinal cord) rarely regenerates. Peripheral nerves can regrow ~1 mm/day."
-          }
-        ],
-        "inSimpleWords": "Different tissues heal at different speeds. Skin heals fast, bone slower, nerve damage slowest."
-      },
-      {
-        "kind": "challenge",
-        "title": "Tissue Design Challenge",
-        "emoji": "ðŸ§©",
-        "storyContext": "If you were to design a tissue for a new jobâ€”say, absorbing nutrients from foodâ€”what cells would you use? How would you arrange them?",
-        "example": {
-          "problem": "Design a tissue that absorbs water and nutrients from chewed food. What kind of epithelial cells would you use, and why?",
-          "solution": "SIMPLE COLUMNAR EPITHELIUM. Reason: (1) Single layer = faster absorption. (2) Tall cells with microvilli on top = huge surface area. (3) Cells are tightly joined with selective permeability = control what enters. (4) Cells have many mitochondria = energy for active transport. This is exactly what your small intestine uses."
-        }
-      },
-      {
-        "storyContext": "Sneha explains: 'Sweat glands are epithelial tissue tubes that extend deep into your skin. When you exercise, your nervous system signals them to secrete sweat (water + salt). The sweat rises to the surface and evaporates, cooling you. Thousands of sweat glands work in concert—that's tissue as a system.'",
-        "title": "The Sweat Gland Discovery",
-        "emoji": "💦",
-        "kind": "story"
-      },
-      {
-        "title": "Tissue Organization in Organs",
-        "inSimpleWords": "Organs layer tissues like a sandwich—each layer plays its part in one coordinated job.",
-        "emoji": "🫀",
-        "points": [
-          {
-            "text": "Heart: cardiac muscle, connective tissue frame, epithelial lining, nerves.",
-            "label": "Organs contain all 4 tissues"
-          },
-          {
-            "text": "Outer layer protects, middle contracts, inner absorbs/secretes.",
-            "label": "Each layer has a function"
-          },
-          {
-            "text": "Heart + blood vessels + blood = circulatory system.",
-            "label": "Organs form systems"
-          },
-          {
-            "text": "Nervous triggers muscular, which moves skeletal, which moves body.",
-            "label": "Systems work together"
-          }
-        ],
-        "kind": "concept"
-      },
-      {
-        "storyContext": "Coach Neha shows a beating heart model. 'Your heart has been beating since before you were born. It never stops, never tires. Why? Because cardiac muscle tissue is specially designed—it has its own electrical system. Individual heart cells stimulate their neighbors automatically, creating a wave of contraction that pumps blood. It's autonomous, like a city that runs itself.'",
-        "title": "The Heart Never Rests",
-        "emoji": "💓",
-        "kind": "story"
-      },
-      {
-        "title": "A Tissue Under Stress",
-        "emoji": "🏋️",
-        "example": {
-          "solution": "ACUTE: Cells increase ATP production in mitochondria. Nerves fire faster, sending commands more frequently. LONG-TERM: With training, cardiac muscle fibers grow thicker (hypertrophy). Mitochondria increase in number. Capillaries grow around muscle cells for better oxygen supply. The tissue adapts to chronic stress by becoming stronger.",
-          "problem": "During intense exercise, Aditya's heart pumps 180 times per minute. Explain how cardiac muscle tissue adapts to this demand."
-        },
-        "kind": "example"
-      },
-      {
-        "storyContext": "Sneha takes a bone sample. 'Inside spongy bone is marrow—a tissue factory. Red marrow makes red blood cells, white blood cells, and platelets. Yellow marrow stores fat. It's soft tissue inside hard bone.' Aditya asks, 'How many cells does marrow make?' 'About 2 million red blood cells per second. That's why wounds stop bleeding—your marrow is working overtime to replace lost blood.'",
-        "title": "The Bone Marrow Secret",
-        "emoji": "🩸",
-        "kind": "story"
-      },
-      {
-        "storyContext": "As Aditya finishes his final exam on tissues, Coach Neha congratulates him. 'You now understand the hidden biology that powers athletes. Every jump, every catch, every heartbeat—it's tissue teamwork. Maybe one day you'll be a sports physiologist, helping other athletes understand their own bodies.' Aditya smiles. 'I just want to know: if I keep training, can my tissues get even stronger?' Coach Neha nods. 'Absolutely. Tissues adapt to stress. Keep running, and your bones harden, your muscles grow, your nerves sharpen. Your body is always listening.'",
-        "title": "Aditya's Future Path",
-        "emoji": "🚀",
-        "kind": "story"
-      },
-      {
-        "kind": "recap",
-        "title": "Aditya's Tissue Lessons",
-        "emoji": "âœ…",
-        "points": [
-          {
-            "text": "Tissues are groups of similar cells performing one function. Four types: Epithelial, Connective, Muscle, Nervous."
-          },
-          {
-            "text": "Epithelial tissue lines and protects (skin, mouth, stomach)."
-          },
-          {
-            "text": "Connective tissue supports and binds (bone, cartilage, ligaments, blood)."
-          },
-          {
-            "text": "Muscle tissue contracts for movement (skeletal, cardiac, smooth)."
-          },
-          {
-            "text": "Nervous tissue sends signals to coordinate everything (brain, nerves, spinal cord)."
-          },
-          {
-            "text": "Every movement you make involves teamwork between all four tissues."
-          },
-          {
-            "text": "Tissues repair at different speedsâ€”skin fast, bone medium, nerves slow."
-          }
-        ],
-        "inSimpleWords": "Your body is a tissue orchestraâ€”each tissue type is a different instrument, and when they play together, you move, breathe, think, and live."
-      }
-    ]
-  },
-  {
-    "slug": "class-9-science-describing-motion-around-us",
-    "classLevel": "9",
-    "subject": "Science",
-    "chapter": "Describing Motion Around Us",
-    "title": "Vikram's Cricket Adventure",
-    "hook": "A cricket match becomes the stage for discovering distance, displacement, speed, velocity, and acceleration.",
-    "characters": [
-      {
-        "name": "Vikram",
-        "emoji": "ðŸ",
-        "role": "young cricketer"
-      },
-      {
-        "name": "Mr. Desai",
-        "emoji": "ðŸ‘¨â€ðŸ«",
-        "role": "physics teacher"
-      },
-      {
-        "name": "Priya",
-        "emoji": "ðŸ‘§",
-        "role": "scorekeeper"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "Describing Motion Around Us",
-        "emoji": "âš¡",
-        "storyContext": "Vikram plays cricket and discovers physics on the field."
-      },
-      {
-        "kind": "story",
-        "title": "The Cricket Pitch Mystery",
-        "emoji": "ðŸ",
-        "storyContext": "Vikram runs from the crease to mid-pitch to field a ball, then sprints back to the crease. Mr. Desai, watching from the stands, smiles. 'Vikram just demonstrated motion. But here's the question: Did he travel the same distance as his displacement?' Vikram looks confused. Priya, keeping score, asks, 'What's the difference?' Mr. Desai pulls out a diagram. 'Distance is how far you actually walkedâ€”left, then right. Displacement is the straight-line distance from start to finish. In Vikram's case, he walked far but ended up almost where he started.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Distance vs. Displacement",
-        "emoji": "ðŸ“",
-        "points": [
-          {
-            "label": "Distance",
-            "text": "The total length of the path traveled (scalarâ€”only magnitude, no direction). Always positive or zero. Example: Vikram runs 10 m left, then 10 m right = 20 m distance."
-          },
-          {
-            "label": "Displacement",
-            "text": "The shortest straight-line distance from start to finish, with direction (vector). Can be positive, negative, or zero. Example: Vikram ends where he started = 0 m displacement."
-          },
-          {
-            "label": "Scalar vs. Vector",
-            "text": "Distance is scalar (just a number). Displacement is vector (number + direction, like 5 m north)."
-          },
-          {
-            "label": "Formula",
-            "text": "Displacement = Final position âˆ’ Initial position. Distance = sum of all path segments."
-          }
-        ],
-        "inSimpleWords": "Distance is how much ground you cover; displacement is how far you really are from where you started.",
-        "image": {
-          "prompt": "Bird's-eye view of cricket field showing Vikram's curved running path (10 m arc) from crease back to crease, distance labeled 20 m, displacement labeled 0 m"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Scorekeeper's Confusion",
-        "emoji": "ðŸ¤”",
-        "storyContext": "Priya is keeping score and records: 'Vikram ran 20 meters.' Mr. Desai asks, 'How far is Vikram from where he started?' Priya checks: 'Uh, zero metersâ€”he's back at the crease.' Mr. Desai grins. 'So he ran 20 meters of distance, but 0 meters of displacement. Distance is the path; displacement is the straight-line result. In sports, coaches care about speed (meters per second). In navigation, they care about velocity (meters per second in a direction). Same numbers, different meanings.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Speed and Velocity",
-        "emoji": "ðŸš€",
-        "points": [
-          {
-            "label": "Speed",
-            "text": "How fast something is moving (scalar). Formula: Speed = Distance / Time. Units: m/s, km/h, or mph."
-          },
-          {
-            "label": "Velocity",
-            "text": "How fast and in which direction (vector). Formula: Velocity = Displacement / Time. Units: m/s north, km/h south, etc."
-          },
-          {
-            "label": "Average vs. Instantaneous",
-            "text": "Average speed = total distance / total time. Instantaneous speed = speed at one exact moment (speedometer reading)."
-          },
-          {
-            "label": "Example",
-            "text": "Vikram runs 100 m in 20 seconds. Average speed = 100 m / 20 s = 5 m/s. If he runs north, velocity = 5 m/s north."
-          }
-        ],
-        "inSimpleWords": "Speed is how fast you go; velocity is how fast and which way.",
-        "example": {
-          "problem": "Vikram bowls a cricket ball from the crease (0 m) to the batter (22 m) in 1 second. Calculate speed and velocity.",
-          "solution": "Speed = distance / time = 22 m / 1 s = 22 m/s. Velocity = displacement / time = 22 m toward batter / 1 s = 22 m/s (toward batter direction). Speed is just the number; velocity includes direction."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Vikram's Ball and the Speedgun",
-        "emoji": "ðŸ“¡",
-        "storyContext": "A sports commentator clocks Vikram's bowling speed with a radar gun: '140 km/h!' Vikram asks Mr. Desai, 'Is that speed or velocity?' Mr. Desai laughs. 'Great question. The gun measures how fast the ball is movingâ€”that's speed. But velocity would be '140 km/h down the pitch toward the batter.' In cricket, bowlers are judged on speed because the direction is always the same. But if a fielder runs in a zigzag, his speed (distance/time) is much higher than his velocity (displacement/time).'"
-      },
-      {
-        "kind": "concept",
-        "title": "Acceleration",
-        "emoji": "ðŸ“ˆ",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "The rate of change of velocity (how quickly speed or direction changes). Vector (has direction)."
-          },
-          {
-            "label": "Formula",
-            "text": "Acceleration = Change in velocity / Time = (Final velocity âˆ’ Initial velocity) / Time. a = (v_f âˆ’ v_i) / t. Units: m/sÂ²."
-          },
-          {
-            "label": "Positive acceleration",
-            "text": "Speed increases (speeding up)."
-          },
-          {
-            "label": "Negative acceleration (deceleration)",
-            "text": "Speed decreases (slowing down) or direction changes."
-          },
-          {
-            "label": "Zero acceleration",
-            "text": "Velocity doesn't changeâ€”constant speed in a straight line."
-          }
-        ],
-        "inSimpleWords": "Acceleration is how fast your speed or direction is changing.",
-        "example": {
-          "problem": "Vikram starts from rest (0 m/s) and reaches 10 m/s after running for 5 seconds. What is his acceleration?",
-          "solution": "a = (v_f âˆ’ v_i) / t = (10 m/s âˆ’ 0 m/s) / 5 s = 10 / 5 = 2 m/sÂ². His speed increases by 2 m/s every second."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Acceleration Moment",
-        "emoji": "ðŸ’¨",
-        "storyContext": "Vikram chases a ball. Mr. Desai captures the moment with a stopwatch: At t=0, Vikram is still (0 m/s). At t=1s, he's moving at 2 m/s. At t=2s, 4 m/s. At t=3s, 6 m/s. 'Notice the pattern?' asks Mr. Desai. 'He gains 2 m/s every second. That's acceleration: 2 m/sÂ².' Priya asks, 'What if he stops accelerating and keeps running at 6 m/s forever?' 'Then acceleration becomes zero,' says Mr. Desai. 'Constant velocity = no acceleration.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Types of Motion",
-        "emoji": "ðŸ”„",
-        "points": [
-          {
-            "label": "Uniform motion",
-            "text": "Constant velocity (no acceleration). Distance-time graph is a straight line. Example: Car on highway at steady 60 km/h."
-          },
-          {
-            "label": "Non-uniform motion",
-            "text": "Changing velocity (has acceleration). Distance-time graph is a curve. Example: Car speeding up or slowing down."
-          },
-          {
-            "label": "Circular motion",
-            "text": "Object moves in a circle at constant speed but changes direction constantly, so it has acceleration (centripetal). Example: Merry-go-round horse."
-          },
-          {
-            "label": "Relative motion",
-            "text": "Motion depends on reference frame. Train at 80 km/h looks still to passenger inside, but fast to person on ground."
-          }
-        ],
-        "inSimpleWords": "Motion can be straight and steady, curved and changing, or circular. The reference frame (who's watching) matters.",
-        "image": {
-          "prompt": "Three graphs: (1) Straight line for uniform motion. (2) Curve rising for accelerating motion. (3) Circle for circular motion with velocity vectors pointing tangent"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Merry-Go-Round Surprise",
-        "emoji": "ðŸŽ ",
-        "storyContext": "Mr. Desai brings a spinning cricket wheel to class. 'This wheel moves at a constant speed of 10 m/s at the rim. But does it have acceleration?' Students say 'no.' 'Wrong!' laughs Mr. Desai. 'The direction is constantly changing. Velocity has both speed and direction. If direction changes, velocity changes, so there IS accelerationâ€”centripetal acceleration, always pointing toward the center. This is why turning a car hard feels like being pushed to the side.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Graphs of Motion",
-        "emoji": "ðŸ“Š",
-        "points": [
-          {
-            "label": "Distance-time graph",
-            "text": "Straight line = uniform motion. Steeper slope = faster speed. Curve = accelerating or decelerating motion."
-          },
-          {
-            "label": "Velocity-time graph",
-            "text": "Flat line = zero acceleration (constant velocity). Sloped line = acceleration (speed changing). Area under curve = distance traveled."
-          },
-          {
-            "label": "Acceleration-time graph",
-            "text": "Flat line at 0 = no acceleration. Flat line at +2 = steady acceleration. Changing line = changing acceleration."
-          },
-          {
-            "label": "Real example",
-            "text": "A car accelerates from rest for 5s, then maintains constant speed for 10s. Distance-time: curve then line. Velocity-time: sloped line then flat."
-          }
-        ],
-        "inSimpleWords": "A graph shows motion visually: flat line means steady, curved line means changing, steep line means fast."
-      },
-      {
-        "kind": "example",
-        "title": "Vikram's Fielding Run",
-        "emoji": "ðŸƒ",
-        "example": {
-          "problem": "Vikram runs from the crease (0 m) to field a ball at 30 m away. He accelerates uniformly from rest (0 m/s) to 6 m/s in 4 seconds, then maintains 6 m/s for the final 6 m. Calculate: (a) acceleration in first phase, (b) total distance, (c) average speed for the entire run.",
-          "solution": "(a) a = (6 âˆ’ 0) / 4 = 1.5 m/sÂ². (b) Distance in first phase: s = v_i Ã— t + 0.5 Ã— a Ã— tÂ² = 0 + 0.5 Ã— 1.5 Ã— 16 = 12 m. Remaining distance = 30 âˆ’ 12 = 18 m. Total = 30 m. (c) Time for first phase = 4 s. Time for second phase = 18 m / 6 m/s = 3 s. Total time = 7 s. Average speed = 30 m / 7 s â‰ˆ 4.3 m/s."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Reaction Time Mystery",
-        "emoji": "âš¡",
-        "storyContext": "A batter is about to swing. Vikram (fielding) watches the ball leave the bowler's hand. The ball travels 22 m at 20 m/sâ€”that's 1.1 seconds to reach the batter. But Vikram's reaction time is 0.3 seconds. So by the time his brain registers the ball and tells his body to move, the ball is already 6 m down the pitch! Mr. Desai explains: 'Reaction time is why fielders watch the bowler, not the batter. They predict where the ball will be.'"
-      },
-      {
-        "kind": "challenge",
-        "title": "Motion Puzzle",
-        "emoji": "ðŸ§©",
-        "storyContext": "Mr. Desai challenges: 'A ball is hit straight up into the air and comes back down to the same spot. What is its displacement? Can its average velocity be zero?'",
-        "example": {
-          "problem": "A ball goes up 20 m and comes back down. Displacement? Average velocity? Average speed?",
-          "solution": "Displacement = 0 m (starts and ends at same point). Average velocity = 0 m / total time = 0 m/s. Average speed â‰  0 (the ball traveled a total of 40 m). This shows displacement and distance are different!"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "Chasing a Batsman",
-        "emoji": "ðŸƒ",
-        "example": {
-          "problem": "A batsman runs from one end to the other (22 m) in 4 seconds. What is his average speed? If he starts from rest and accelerates uniformly, what is his acceleration?",
-          "solution": "AVERAGE SPEED: 22 m / 4 s = 5.5 m/s. ACCELERATION (uniform from rest): Using s = v_i Ã— t + 0.5 Ã— a Ã— tÂ², we get 22 = 0 + 0.5 Ã— a Ã— 16, so a = 22/8 = 2.75 m/sÂ². He accelerates at 2.75 m/sÂ² from rest to reach 5.5 m/s average over 4 seconds."
-        }
-      },
-      {
-        "kind": "story",
-        "title": "Gravity and Falling",
-        "emoji": "ðŸŒ",
-        "storyContext": "Vikram asks Mr. Desai: 'If I throw a ball up, what's its acceleration while it's in the air?' Mr. Desai smiles. 'Gravity pulls it downward at 9.8 m/sÂ² the entire timeâ€”going up, at peak, coming down. At the peak, velocity is zero but acceleration is still 9.8 m/sÂ² downward.' Vikram is stunned. 'So even when the ball stops, it's accelerating?' 'Yes! Velocity changes from +10 m/s to 0 to âˆ’10 m/s. That change = acceleration.'"
-      },
-      {
-        "kind": "concept",
-        "title": "Free Fall and Gravity",
-        "emoji": "ðŸª‚",
-        "points": [
-          {
-            "label": "Acceleration due to gravity",
-            "text": "g = 9.8 m/sÂ² (on Earth, constant everywhere near surface)."
-          },
-          {
-            "label": "Equations of motion under gravity",
-            "text": "h = v_i Ã— t + 0.5 Ã— g Ã— tÂ². v_f = v_i + g Ã— t. v_fÂ² = v_iÂ² + 2 Ã— g Ã— h."
-          },
-          {
-            "label": "Upward motion",
-            "text": "Acceleration is downward (âˆ’9.8 m/sÂ²) even when object moves up. Speed decreases."
-          },
-          {
-            "label": "Downward motion",
-            "text": "Acceleration is downward (+9.8 m/sÂ²). Speed increases."
-          }
-        ],
-        "inSimpleWords": "Gravity pulls down at 9.8 m/sÂ² all the time. This accelerates falling objects and slows rising objects."
-      },
-      {
-        "kind": "challenge",
-        "title": "Reference Frame Challenge",
-        "emoji": "ðŸŽ¯",
-        "storyContext": "Two observers watch a cricket match. One sits in the stands (stationary). One sits on a train moving at 30 km/h parallel to the pitch. How does the ball's velocity differ for each observer?",
-        "example": {
-          "problem": "A ball is bowled at 100 km/h down the pitch. The pitch runs parallel to a train moving at 30 km/h. What is the ball's velocity relative to: (a) the ground, (b) an observer on the train?",
-          "solution": "(a) RELATIVE TO GROUND: 100 km/h down the pitch (forward). (b) RELATIVE TO TRAIN: The ball moves at 100 âˆ’ 30 = 70 km/h (if train moves same direction) or 100 + 30 = 130 km/h (if opposite direction). Motion is relative to the observer's reference frame."
-        }
-      },
-      {
-        "title": "Kinematic Equations",
-        "inSimpleWords": "These four equations solve any motion problem with constant acceleration.",
-        "emoji": "📐",
-        "points": [
-          {
-            "text": "Displacement with constant acceleration.",
-            "label": "s = v_i×t + 0.5×a×t²"
-          },
-          {
-            "text": "Final velocity after acceleration.",
-            "label": "v_f = v_i + a×t"
-          },
-          {
-            "text": "Velocity squared relates to distance (no time needed).",
-            "label": "v_f² = v_i² + 2×a×s"
-          },
-          {
-            "text": "v_avg = (v_i + v_f) / 2 when acceleration is uniform.",
-            "label": "Average velocity"
-          }
-        ],
-        "kind": "concept"
-      },
-      {
-        "storyContext": "Vikram asks: 'Why does a bouncing ball slow down with each bounce?' Mr. Desai explains: 'Two reasons: air resistance and energy loss on impact. Each bounce, the ball loses energy—it doesn't return to the same height. The velocity after bounce is less than before. Lower velocity → lower height → slower next bounce. Eventually, it stops.'",
-        "title": "The Ball Bounce Problem",
-        "emoji": "🎾",
-        "kind": "story"
-      },
-      {
-        "title": "A Batsman's Reaction",
-        "emoji": "⚾",
-        "example": {
-          "solution": "Distance = speed × time = 35 m/s × 0.25 s = 8.75 m. The pitch is 22 m, so the ball has 22 − 8.75 = 13.25 m left. At 35 m/s, that takes 0.38 s more. Total time to reach batter: 0.63 s. The batter's reaction time is 0.25 s, so they MUST predict before seeing—they can't react in time to a fast delivery.",
-          "problem": "A fast bowler delivers at 35 m/s (126 km/h). The batter's reaction time is 0.25 seconds. How far has the ball traveled in that time? Can the batter react in time?"
-        },
-        "kind": "example"
-      },
-      {
-        "storyContext": "Mr. Desai asks: 'If Vikram sprints at 8 m/s and brakes with a deceleration of 2 m/s², how far before he stops?' He writes: v_f² = v_i² + 2×a×s. With v_f = 0: 0 = 64 − 4s, so s = 16 m. 'Stopping takes 16 meters of distance. That's why cricket fields are so big.'",
-        "title": "Deceleration and Stopping Distance",
-        "emoji": "🛑",
-        "kind": "story"
-      },
-      {
-        "title": "Projectile Motion",
-        "inSimpleWords": "A thrown ball moves horizontally and falls vertically at the same time—solve each direction separately.",
-        "emoji": "🚀",
-        "points": [
-          {
-            "text": "No acceleration (ignoring air). Constant velocity horizontally.",
-            "label": "Horizontal motion"
-          },
-          {
-            "text": "Gravity accelerates downward at 9.8 m/s². Vertical velocity changes.",
-            "label": "Vertical motion"
-          },
-          {
-            "text": "Horizontal and vertical motions are independent. Solve separately.",
-            "label": "Independence"
-          },
-          {
-            "text": "Depends only on vertical motion. How long does it take to fall?",
-            "label": "Time of flight"
-          }
-        ],
-        "kind": "concept"
-      },
-      {
-        "title": "Bowling a Ball",
-        "emoji": "🏏",
-        "example": {
-          "solution": "For horizontal motion with constant velocity: time = distance / velocity = 22 m / 20 m/s = 1.1 seconds. The ball takes 1.1 seconds to reach the batter. (Note: we ignored vertical gravity during delivery; in reality, the bowler releases the ball waist-high, and it drops slightly.)",
-          "problem": "Vikram bowls a ball at 20 m/s horizontally (ignoring gravity during the delivery). The ball travels 22 m to the batter. How long does it take?"
-        },
-        "kind": "example"
-      },
-      {
-        "storyContext": "After months of studying motion, Vikram realizes: physics isn't abstract—it's everywhere. The angle he bowls determines how the ball curves. The speed and timing of his run determine if he catches the ball. The reaction time between seeing and swinging determines if he hits it. Mr. Desai smiles. 'That's right. Cricket is applied physics. Master the numbers, and you master the game.'",
-        "title": "Vikram's Physics Mastery",
-        "emoji": "🏆",
-        "kind": "story"
-      },
-      {
-        "kind": "recap",
-        "title": "Vikram's Physics Lessons",
-        "emoji": "âœ…",
-        "points": [
-          {
-            "text": "Distance = total path length (scalar). Displacement = straight-line start to end (vector)."
-          },
-          {
-            "text": "Speed = distance / time (scalar). Velocity = displacement / time (vector, includes direction)."
-          },
-          {
-            "text": "Acceleration = change in velocity / time. Positive = speeding up; negative = slowing down."
-          },
-          {
-            "text": "Uniform motion: constant velocity, straight line on graph. Non-uniform: velocity changes, curve on graph."
-          },
-          {
-            "text": "Circular motion has acceleration (centripetal) even at constant speed because direction changes."
-          },
-          {
-            "text": "Gravity provides constant acceleration (9.8 m/sÂ² down) to all objects near Earth."
-          },
-          {
-            "text": "Motion is relativeâ€”depends on your reference frame."
-          }
-        ],
-        "inSimpleWords": "Physics is the math of motion: where you go (distance/displacement), how fast (speed/velocity), and how your speed changes (acceleration)."
-      }
-    ]
-  },
-  {
     "slug": "class-9-science-exploring-mixtures-and-their-separation",
     "classLevel": "9",
     "subject": "Science",
@@ -230497,6 +236782,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Subatomic Particle Sizes",
+        "emoji": "📏",
+        "example": {
+          "problem": "If the nucleus were the size of a marble (2 cm diameter), how big would the electron cloud be?",
+          "solution": "Nucleus diameter ~ 10⁻¹⁵ m. Electron cloud ~ 10⁻¹⁰ m. Ratio = 10⁻¹⁰ / 10⁻¹⁵ = 100,000. If nucleus is 2 cm, electron cloud is 2 cm × 100,000 = 2,000 meters! An atom is 99.9999% empty space."
+        }
+      },
+      {
         "kind": "story",
         "title": "The Electron Dance",
         "emoji": "💃",
@@ -230528,6 +236822,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "example": {
           "problem": "An atom has atomic number 8 and mass number 16. What is it? How many protons, neutrons, electrons?",
           "solution": "Atomic number 8 = oxygen (O). Mass number 16 = 16 total nucleons. Protons = 8. Neutrons = 16 − 8 = 8. Electrons = 8 (neutral). This is Oxygen-16 (¹⁶O), the most common isotope."
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Identify the Nucleus",
+        "emoji": "🔍",
+        "example": {
+          "problem": "An atom has 6 protons and 8 neutrons. Name the element and mass number. Is it stable?",
+          "solution": "6 protons = Carbon (C). Mass number = 6 + 8 = 14. This is Carbon-14 (¹⁴C). Carbon-14 is radioactive (unstable)—used for dating ancient objects because it decays slowly (half-life 5,730 years)."
         }
       },
       {
@@ -230573,6 +236876,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Electron Configuration Quest",
+        "emoji": "⚡",
+        "example": {
+          "problem": "Draw electron configurations for: (1) Oxygen (8 electrons), (2) Neon (10 electrons), (3) Argon (18 electrons). Which is most reactive?",
+          "solution": "(1) O: shells 2, 6 (6 valence e⁻). Not full → reactive (needs 2 more). (2) Ne: shells 2, 8 (8 valence e⁻). FULL → unreactive (noble gas). (3) Ar: shells 2, 8, 8 (8 valence e⁻). FULL → unreactive (noble gas). Oxygen is reactive; Ne and Ar are not."
+        }
+      },
+      {
         "kind": "story",
         "title": "The Chemistry Drive",
         "emoji": "🎯",
@@ -230607,6 +236919,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Charge Calculation",
+        "emoji": "⚡",
+        "example": {
+          "problem": "An oxygen atom (8 protons) gains 2 electrons. What is its charge? Write the ion symbol.",
+          "solution": "Neutral O: 8 protons, 8 electrons → charge = 0. After gaining 2 electrons: 8 protons, 10 electrons → charge = −2. Write: O²⁻. This is the oxide ion, common in compounds like MgO and Al₂O₃."
+        }
+      },
+      {
         "kind": "challenge",
         "title": "Valence Electron Challenge",
         "emoji": "🎪",
@@ -230621,6 +236942,33 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "title": "Allotropes and Arrangements",
         "emoji": "💎",
         "storyContext": "Kabir zooms into a piece of pure carbon. 'Two different forms?' he wonders. Lab Robot nods. 'Yes. Same atom (carbon = 6 protons), but they arrange differently. In diamond, each carbon bonds to 4 others in a 3D grid—super hard. In graphite, they form layers that slide—soft and slippery. Same carbon, different structures. We call these allotropes.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Covalent Bonding",
+        "emoji": "🤝",
+        "points": [
+          {
+            "label": "Covalent bond",
+            "text": "Two atoms share electrons (not transfer). Forms when both atoms need electrons to fill shells."
+          },
+          {
+            "label": "Single bond",
+            "text": "Share 1 pair of electrons. Example: H-H in hydrogen molecule."
+          },
+          {
+            "label": "Double bond",
+            "text": "Share 2 pairs of electrons. Stronger and shorter. Example: O=O in oxygen molecule."
+          },
+          {
+            "label": "Polar vs. nonpolar",
+            "text": "Polar: atoms have different electronegativity (electrons pulled closer to one). Nonpolar: equal pull (electrons shared equally). Water (H₂O) is polar."
+          }
+        ],
+        "inSimpleWords": "Covalent bonds share electrons. Atoms stick together because shared electrons hold them close.",
+        "image": {
+          "prompt": "Hydrogen molecule (H-H): two hydrogen atoms with shared electron pair in middle, single covalent bond shown"
+        }
       },
       {
         "kind": "example",
@@ -230673,6 +237021,49 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "example": {
           "problem": "A sample has 1,000 grams of Carbon-14 (half-life = 5,730 years). How much remains after 11,460 years?",
           "solution": "11,460 years = 2 half-lives (11,460 / 5,730 = 2). After 1st half-life: 500 g. After 2nd half-life: 250 g. Only 250 grams of C-14 remains."
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Radioactive Decay",
+        "emoji": "☢️",
+        "example": {
+          "problem": "A fossil sample has 1/8 the Carbon-14 of a living organism. How old is it? (C-14 half-life = 5,730 years)",
+          "solution": "1/8 = after 3 half-lives (1 → 1/2 → 1/4 → 1/8). Age = 3 × 5,730 = 17,190 years. The fossil is approximately 17,000 years old."
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Bonding in Real Compounds",
+        "emoji": "💊",
+        "storyContext": "Ms. Desai shows Kabir common substances. \"See this table salt in the container? Each grain is trillions of sodium and chloride ions bonded together ionically. And this water? Each molecule is two hydrogen atoms sharing electrons with oxygen—covalent. Compounds surround us.\""
+      },
+      {
+        "kind": "concept",
+        "title": "Properties of Ionic vs. Covalent Compounds",
+        "emoji": "🔬",
+        "points": [
+          {
+            "label": "Ionic compounds (NaCl, CaCO₃)",
+            "text": "High melting point (ions need lots of energy to break apart). Brittle (layers can shift and break ionic bonds). Conduct electricity when melted or dissolved (mobile ions)."
+          },
+          {
+            "label": "Covalent compounds (H₂O, CO₂)",
+            "text": "Lower melting points (shared electrons weaker than ionic attraction). More flexible. Don't conduct electricity (no mobile ions)."
+          }
+        ],
+        "inSimpleWords": "Ionic compounds are hard and brittle; covalent compounds are often softer and more flexible.",
+        "image": {
+          "prompt": "Salt crystal (cubic ionic lattice) vs water molecule (bent, covalent): contrasting structures and properties"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Properties Predict Bonding",
+        "emoji": "🧫",
+        "example": {
+          "problem": "A substance melts at 801°C, conducts electricity when molten, and is brittle. Is it likely ionic or covalent?",
+          "solution": "High melting point + conducts when molten + brittle = IONIC. The high melting point means strong electrostatic forces (ionic bonds). Conductivity when molten shows mobile ions. Brittleness is typical of ionic crystals. This matches compounds like NaCl."
         }
       },
       {
@@ -230780,6 +237171,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Reading the Table",
+        "emoji": "📖",
+        "example": {
+          "problem": "Using the periodic table, find Iron (Fe). What is its atomic number? Which period and group? How many valence electrons?",
+          "solution": "Iron (Fe) is atomic number 26. It's in Period 4, Group 8 (transition metal). Transition metals often have 8 valence electrons in d-orbitals (or 2 in s-orbital depending on ionization). Fe typically forms Fe²⁺ or Fe³⁺ ions. It's a metal, magnetic, and essential for blood."
+        }
+      },
+      {
         "kind": "story",
         "title": "Patterns and Trends",
         "emoji": "📈",
@@ -230822,6 +237222,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Periodic Trend Challenge",
+        "emoji": "🎯",
+        "example": {
+          "problem": "Rank by ionization energy (lowest to highest): Magnesium (Mg), Phosphorus (P), Sulfur (S), Chlorine (Cl). Explain your order.",
+          "solution": "Ionization energy increases left-to-right across a period and UP a group. All four are in Period 3. Order (left to right): Mg < P < S < Cl. Chlorine has highest (7 valence e⁻, farthest right, pulls hard). Magnesium has lowest (2 valence e⁻, wants to lose them easily). Across a period, atoms get tighter (smaller), harder to remove electrons."
+        }
+      },
+      {
         "kind": "story",
         "title": "Special Groups",
         "emoji": "🎭",
@@ -230858,6 +237267,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Water_droplets_splash_in_the_air.jpg/960px-Water_droplets_splash_in_the_air.jpg",
           "alt": "Chemical Bonding Basics — Atomic Foundations of Matter",
           "q": "water splash"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Bond Type Prediction",
+        "emoji": "🤔",
+        "example": {
+          "problem": "Predict the bond type (ionic/covalent/metallic) for: (1) MgO, (2) F₂, (3) Al foil. Explain why.",
+          "solution": "(1) MgO: Mg is Group 2 metal (EN 1.31), O is Group 16 nonmetal (EN 3.44). Δ EN = 2.13 > 1.7 → IONIC. Mg²⁺O²⁻ forms crystal lattice. (2) F₂: F is Group 17 nonmetal (EN 3.98). Same atom → COVALENT (nonpolar). F-F bond, very strong diatomic molecule. (3) Al foil: Al is metal → METALLIC. Delocalized electrons allow hammering/bending without breaking (malleable)."
         }
       },
       {
@@ -230903,10 +237321,55 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Molar Mass Calculation",
+        "emoji": "⚗️",
+        "example": {
+          "problem": "Calculate molar mass of: (1) CaCO₃ (calcium carbonate), (2) H₂SO₄ (sulfuric acid). Atomic masses: Ca=40, C=12, O=16, H=1, S=32.",
+          "solution": "(1) CaCO₃: 40 + 12 + 3(16) = 40 + 12 + 48 = 100 g/mol. (2) H₂SO₄: 2(1) + 32 + 4(16) = 2 + 32 + 64 = 98 g/mol. Molar mass tells how much one mole of substance weighs—key for stoichiometry."
+        }
+      },
+      {
         "kind": "story",
         "title": "Reactivity Showdown",
         "emoji": "🔥",
         "storyContext": "Dr. Menon brings out three mystery elements in sealed jars. 'Left: sodium from Group 1. Middle: chlorine gas from Group 17. Right: neon gas from Group 18. Sodium reacts violently with water. Chlorine is toxic. Neon? Does nothing.' Isha sees the pattern. 'Group 1 and 17 need each other!' Dr. Menon smiles. 'Exactly. Opposite ends are most reactive. They're always trying to complete their shells.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Predicting Compound Formation",
+        "emoji": "🔮",
+        "points": [
+          {
+            "label": "Valence electron matching",
+            "text": "Group 1 (1 valence e⁻) bonds with Group 17 (7 valence e⁻). Example: NaCl (Na loses 1, Cl gains 1)."
+          },
+          {
+            "label": "Charge balance",
+            "text": "Total positive charges must equal total negative charges in compound. MgCl₂ (Mg²⁺ needs 2 Cl⁻)."
+          },
+          {
+            "label": "Binary ionic compounds",
+            "text": "Two elements, one metal + one nonmetal. Formula determined by charges. Al₂O₃ (Al³⁺ + O²⁻)."
+          },
+          {
+            "label": "Bonding clue",
+            "text": "Large electronegativity difference → ionic. Small difference (both nonmetals) → covalent."
+          }
+        ],
+        "inSimpleWords": "Predict compound formulas by balancing positive and negative charges from valence electrons.",
+        "image": {
+          "prompt": "Na⁺ and Cl⁻ ions forming NaCl crystal: cubic lattice with Na and Cl alternating, electrostatic attraction shown with dotted lines"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Predict the Formula",
+        "emoji": "🧮",
+        "example": {
+          "problem": "Write formulas for compounds formed by: (1) Magnesium + Oxygen, (2) Aluminum + Chlorine, (3) Sodium + Sulfur.",
+          "solution": "(1) Mg (Group 2, +2) + O (Group 16, −2) → MgO. (2) Al (Group 13, +3) + Cl (Group 17, −1) → AlCl₃ (need 3 Cl to balance one Al). (3) Na (Group 1, +1) + S (Group 16, −2) → Na₂S (need 2 Na to balance one S)."
+        }
       },
       {
         "kind": "challenge",
@@ -230915,14 +237378,61 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "Dr. Menon asks: 'You have three pairs: (1) Hydrogen + Fluorine, (2) Carbon + Carbon, (3) Sodium + Oxygen. Predict the bond type and write the formula.'",
         "example": {
           "problem": "Predict bonds and formulas for three element pairs.",
-          "solution": "(1) H + F: Both nonmetals, high EN difference (H = 2.20, F = 3.98, Δ = 1.78 > 1.7) → IONIC... wait, no! Both nonmetals → COVALENT (polar, EN diff 1.78 but they're not metal+nonmetal). HF. (2) C + C: Same element → COVALENT. Can be single, double, triple: C₂, C₂H₆, diamond lattice. (3) Na + O: Metal + nonmetal, EN diff huge → IONIC. Na loses 1 e⁻ (Group 1), O gains 2 (Group 16) → Na₂O."
+          "solution": "(1) H + F: Both nonmetals, high EN difference (H = 2.20, F = 3.98, Δ = 1.78 > 1.7) → POLAR COVALENT (HF, not ionic because both nonmetals). (2) C + C: Same element → COVALENT (can be single, double, or triple). (3) Na + O: Metal + nonmetal, EN diff huge → IONIC. Na loses 1 e⁻ (Group 1), O gains 2 (Group 16) → Na₂O."
         }
       },
       {
         "kind": "story",
-        "title": "The Full Circle",
-        "emoji": "🔄",
-        "storyContext": "As Isha studies the table, she realizes something. 'The periodic table isn't random. It's a cheat sheet. Everything is connected. Atoms bond to reach noble gas status. Position predicts behavior. Left side loses electrons. Right side gains. The table is chemistry's instruction manual.'"
+        "title": "Building Real Compounds",
+        "emoji": "🏗️",
+        "storyContext": "Dr. Menon pulls out a model kit. 'Using the periodic table, we can predict and build any compound. Sodium (Group 1) always pairs with 1 nonmetal. Calcium (Group 2) with 2. Aluminum (Group 13) with 3. The table is your blueprint.'"
+      },
+      {
+        "kind": "challenge",
+        "title": "Compound Building Challenge",
+        "emoji": "🧩",
+        "example": {
+          "problem": "Using periodic trends, write formulas for: (1) Potassium + Bromine, (2) Barium + Fluorine, (3) Phosphorus + Chlorine.",
+          "solution": "(1) K (Group 1, +1) + Br (Group 17, −1) → KBr. (2) Ba (Group 2, +2) + F (Group 17, −1) → BaF₂. (3) P (Group 15, −3) + Cl (Group 17, −1) → PCl₃ (covalent, both nonmetals). Trends predict bonding!"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Elements in Your Body",
+        "emoji": "🧬",
+        "storyContext": "Dr. Menon points at Isha. 'Your body is chemistry! Calcium in bones (Group 2), iron in blood (transition metal), phosphorus in DNA, oxygen and hydrogen in every molecule. The periodic table explains you.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Importance of Chemical Compounds",
+        "emoji": "🌍",
+        "points": [
+          {
+            "label": "Life and biology",
+            "text": "Proteins, DNA, ATP, glucose—all compounds of C, H, N, O, P, S. Life is built on chemistry."
+          },
+          {
+            "label": "Industry and technology",
+            "text": "Semiconductors (Si, Ge), batteries (Li, Co), fertilizers (N compounds). Modern world depends on compounds."
+          },
+          {
+            "label": "Health and medicine",
+            "text": "Medicines are carefully designed compounds. Atoms bonded in precise ways to treat disease."
+          }
+        ],
+        "inSimpleWords": "Compounds are everywhere: food, medicine, materials. Chemistry shapes reality.",
+        "image": {
+          "prompt": "DNA double helix, smartphone chip, pill bottle: three images showing chemistry in life, tech, and medicine"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Common Compounds Decoded",
+        "emoji": "📋",
+        "example": {
+          "problem": "Identify and explain: (1) KI (potassium iodide, used in salt), (2) CuSO₄ (copper sulfate, fungicide), (3) NH₄Cl (ammonium chloride, used in batteries).",
+          "solution": "(1) KI: K (Group 1, +1) + I (Group 17, −1) → IONIC. 1:1 ratio. Iodine essential for thyroid. (2) CuSO₄: Cu²⁺ + SO₄²⁻ (sulfate polyatomic ion) → IONIC compound. Blue color due to Cu²⁺. (3) NH₄Cl: NH₄⁺ (ammonium) + Cl⁻ → IONIC. NH₄⁺ is polyatomic (N + 4H bonded covalently, net charge +1). Chemistry for everyday use!"
+        }
       },
       {
         "kind": "recap",
@@ -231023,6 +237533,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "example",
+        "title": "Speed of Sound in Different Media",
+        "emoji": "⚡",
+        "example": {
+          "problem": "Sound travels at 340 m/s in air. How long does it take to travel 1 km? How long in water (1500 m/s)?",
+          "solution": "Air: time = distance / speed = 1000 m / 340 m/s ≈ 2.94 seconds. Water: time = 1000 / 1500 ≈ 0.67 seconds. Sound travels ~4.4× faster in water than air because water molecules are closer together (denser medium)."
+        }
+      },
+      {
         "kind": "story",
         "title": "Fast and Slow",
         "emoji": "⚡",
@@ -231054,6 +237573,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "example": {
           "problem": "A sound wave has frequency 440 Hz (musical note A). Sound speed in air = 340 m/s. What is wavelength?",
           "solution": "λ = v / f = 340 m/s / 440 Hz = 0.77 m = 77 cm. This middle-A note has a wavelength of 77 centimeters."
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Frequency and Wavelength",
+        "emoji": "🎼",
+        "example": {
+          "problem": "Two sounds: note C (262 Hz) and note G (392 Hz). Find wavelengths in air (340 m/s). Which has shorter wavelength?",
+          "solution": "C: λ = 340 / 262 ≈ 1.30 m. G: λ = 340 / 392 ≈ 0.87 m. Higher frequency G has shorter wavelength. Ratio: 1.30 / 0.87 ≈ 1.5, which is the musical ratio of a perfect fifth (G is 1.5× frequency of C)."
         }
       },
       {
@@ -231099,6 +237627,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Decibel Scale Puzzle",
+        "emoji": "🔊",
+        "example": {
+          "problem": "Normal conversation is 60 dB. Heavy traffic is 80 dB. How many times more intense is traffic than conversation?",
+          "solution": "Decibel scale is logarithmic: dB = 10 log₁₀(I / I₀). Each 10 dB = 10× intensity. 80 − 60 = 20 dB = 2 steps of 10 dB = 10 × 10 = 100× more intense. Heavy traffic is 100 times louder than normal conversation!"
+        }
+      },
+      {
         "kind": "story",
         "title": "Beyond Human Ears",
         "emoji": "🐕",
@@ -231138,6 +237675,15 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Doppler Shift Challenge",
+        "emoji": "🚑",
+        "example": {
+          "problem": "A siren moves away at 25 m/s with frequency 1000 Hz (sound speed 340 m/s). What frequency does the observer hear? Compare to frequency when stationary.",
+          "solution": "Moving away: f' = 1000 × 340 / (340 + 25) = 1000 × 340/365 ≈ 931 Hz. Decrease = 69 Hz lower. Stationary frequency = 1000 Hz. The moving siren sounds 69 Hz lower (lower pitch). This is the Doppler effect—motion changes apparent frequency without changing actual source frequency."
+        }
+      },
+      {
         "kind": "story",
         "title": "The Bouncing Game",
         "emoji": "🔊",
@@ -231163,10 +237709,97 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "challenge",
+        "title": "Sonar Distance Calculation",
+        "emoji": "🚢",
+        "example": {
+          "problem": "A submarine emits sonar and receives echo after 4 seconds. Ultrasound speed in water = 1500 m/s. How far is the object?",
+          "solution": "Total distance traveled = speed × time = 1500 × 4 = 6000 m. This is there AND back, so object distance = 6000 / 2 = 3000 m = 3 km. Sonar can find submarines, map seafloor, detect whales."
+        }
+      },
+      {
         "kind": "story",
         "title": "Ultrasound at the Hospital",
         "emoji": "🏥",
         "storyContext": "Arjun learns that doctors use ultrasound to see inside bodies without cutting. 'Frequency > 20 kHz travels through skin and soft tissue without pain. It bounces off organs and bones. A computer measures the echoes and paints a picture. Perfect for checking baby development or finding tumors.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Wave Interference",
+        "emoji": "〰️",
+        "points": [
+          {
+            "label": "Constructive interference",
+            "text": "Two waves combine in phase (peaks meet peaks). Amplitude adds. Result: LOUDER sound."
+          },
+          {
+            "label": "Destructive interference",
+            "text": "Two waves combine out of phase (peak meets trough). Amplitudes cancel. Result: QUIETER or SILENT sound."
+          },
+          {
+            "label": "Interference pattern",
+            "text": "When two speakers play same frequency, some spots are louder, some are quieter (standing waves)."
+          },
+          {
+            "label": "Noise-canceling",
+            "text": "Opposite-phase sound creates destructive interference, silencing unwanted noise."
+          }
+        ],
+        "inSimpleWords": "Waves can add (louder) or cancel (quieter). This is how noise-canceling works.",
+        "image": {
+          "prompt": "Constructive interference (two waves aligned, amplitude doubles) and destructive interference (opposite phases, cancel to silence) side by side"
+        }
+      },
+      {
+        "kind": "story",
+        "title": "Sound in Real Life",
+        "emoji": "📢",
+        "storyContext": "Arjun and Echo explore a concert. 'Notice how the music travels to us—waves in the air,' the Expert says. 'When musicians play, they create vibrations. We hear it because sound travels through air. Concert halls use shaped walls to focus sound so everyone hears well.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Resonance and Natural Frequency",
+        "emoji": "🎵",
+        "points": [
+          {
+            "label": "Natural frequency",
+            "text": "Every object vibrates at a specific frequency when struck (wine glass, bridge, drum head)."
+          },
+          {
+            "label": "Resonance",
+            "text": "If external sound matches natural frequency, vibrations amplify dramatically."
+          },
+          {
+            "label": "Resonance disaster",
+            "text": "Millennium Bridge (London) bounced dangerously when pedestrians walked in sync (resonance). Now damped."
+          },
+          {
+            "label": "Musical use",
+            "text": "Guitar body resonates at strings' frequency, amplifying sound (body is acoustic cavity)."
+          }
+        ],
+        "inSimpleWords": "Objects vibrate most when sound matches their natural frequency. This is resonance.",
+        "image": {
+          "prompt": "Wine glass shattering from speaker sound; Millennium Bridge swaying; guitar resonance cavity labeled"
+        }
+      },
+      {
+        "kind": "example",
+        "title": "Resonance in Action",
+        "emoji": "🔔",
+        "example": {
+          "problem": "A wine glass has natural frequency 512 Hz. A speaker plays 512 Hz sound at increasing volume. Predict what happens.",
+          "solution": "As volume increases, the glass experiences resonance (external frequency = natural frequency). Vibrations amplify. Glass vibrates violently. At high enough amplitude, the glass shatters! This is resonance disaster. Same principle: never march in step across a bridge (could resonate and collapse)."
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Sound Design Challenge",
+        "emoji": "🎧",
+        "example": {
+          "problem": "Concert hall designers want bass to sound rich (low frequencies around 60 Hz amplified) but not muddy. How would resonance help or hurt?",
+          "solution": "Bass amplification uses RESONANCE—design the hall with natural frequency around 60 Hz (via shape, size, materials). When bass is played, walls resonate, amplifying 60 Hz. But TOO much resonance creates muddiness (all frequencies resonate equally). Solution: use absorption panels to dampen excess resonance. Balance: resonance for richness, damping for clarity. Acoustic engineering = physics + art!"
+        }
       },
       {
         "kind": "recap",
@@ -232662,6 +239295,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "A bad harvest + hoarding by nobles + high prices = starving people. Hunger was the match that lit the revolution."
       },
       {
+        "kind": "story",
+        "title": "Enlightenment Ideas: The Intellectual Spark",
+        "storyContext": "Priya explains: 'Before the revolution, French thinkers were writing dangerous ideas. They said kings weren't chosen by God. They said people had rights.'",
+        "points": [
+          {
+            "label": "Voltaire's Critique",
+            "text": "Voltaire mocked the Church and absolute power. He said freedom of thought was sacred. His books were banned but read in secret. Young people got ideas."
+          },
+          {
+            "label": "Rousseau's 'Social Contract'",
+            "text": "Jean-Jacques Rousseau said: governments exist because people agree to them (social contract). If a government oppresses people, they can overthrow it. This was radical."
+          },
+          {
+            "label": "Montesquieu's Separation of Powers",
+            "text": "Montesquieu argued that power should be split (executive, legislative, judicial) so no one person could grab all authority. Democracy itself."
+          },
+          {
+            "label": "The Impact",
+            "text": "These ideas spread through salons (salons = discussion groups in Paris). Educated commoners read and debated. When hunger hit, they were ready with new ideals."
+          }
+        ],
+        "emoji": "📖",
+        "inSimpleWords": "Enlightenment thinkers said people have rights and could change unjust governments. These ideas inspired the revolution."
+      },
+      {
         "kind": "concept",
         "title": "The Estates-General and the Third Estate's Revolt (1789)",
         "storyContext": "Priya explains: In May 1789, King Louis XVI called an assembly of all three estates to solve the crisis—the Estates-General. The nobles and clergy wanted to vote by estate (meaning the first two could always outvote the third), but the Third Estate refused. Ravi imagines the tension: 'What did they do?'",
@@ -232808,6 +239466,81 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The Declaration said: all people are equal, governments exist to protect rights (not expand power), laws come from the people's will, and freedom of thought is sacred."
       },
       {
+        "kind": "story",
+        "title": "The Royal Family Held Hostage",
+        "storyContext": "Priya narrates: 'By October 1789, tension was still high. The royal family was still at Versailles, surrounded by guards and luxury. But the people felt betrayed—reforms were slow, bread still expensive.'",
+        "points": [
+          {
+            "label": "October 5-6, 1789",
+            "text": "A crowd of women—fishmongers, seamstresses, mothers—marched from Paris to Versailles. They were hungry and angry. They demanded the king move to Paris where they could watch him."
+          },
+          {
+            "label": "The March",
+            "text": "Around 6,000 women (soon joined by National Guard soldiers) walked 20 km to Versailles. Some carried pikes and weapons. It wasn't organized—it was rage."
+          },
+          {
+            "label": "Storming the Palace",
+            "text": "The crowd breached palace gates. Some protestors demanded the queen's head. The king, terrified, agreed to move to Paris. The royal family became prisoners in their own capital."
+          },
+          {
+            "label": "The Message",
+            "text": "The March on Versailles showed: ordinary people would use violence if reforms didn't happen fast enough. The revolution was becoming more radical."
+          }
+        ],
+        "emoji": "👸",
+        "inSimpleWords": "Hungry, angry people marched to the royal palace and forced the king to move to Paris—a prisoner of his own revolution."
+      },
+      {
+        "kind": "example",
+        "title": "Worked Example: The Constitutional Phase (1789-1791)",
+        "storyContext": "Priya explains: 'From 1789–1791, the revolution tried to create a constitutional monarchy. Let's trace what was promised and what happened.'",
+        "points": [
+          {
+            "label": "What Was Promised",
+            "text": "A written Constitution. The king would have power but within legal limits. Elections for a Legislative Assembly. Abolition of feudalism and Church privileges. Freedom of speech and religion."
+          },
+          {
+            "label": "What Actually Happened",
+            "text": "The king's power was limited, but he could veto laws. Voting rights were restricted to property owners (only 50,000 men out of 26 million). Women had no vote. Servants and poor men had no vote. The Church lost land but kept some power."
+          },
+          {
+            "label": "Why It Failed",
+            "text": "Working-class men felt betrayed. They'd fought the revolution but couldn't vote. Radical clubs formed (Jacobins). Newspapers spread revolutionary ideas. By 1791, the king tried to flee to Austria—a failed escape that destroyed his credibility."
+          },
+          {
+            "label": "The Result",
+            "text": "By 1792, moderates lost control. Radicals demanded the king's head, not just a limited throne. The revolution entered its second, more violent phase."
+          }
+        ],
+        "emoji": "📜",
+        "inSimpleWords": "The first constitution tried to keep the king but with limits. Poor people felt left out. The compromise failed, and radicals took over."
+      },
+      {
+        "kind": "story",
+        "title": "War, Fear, and Paranoia (1792-1793)",
+        "storyContext": "Priya's voice grows darker: 'Everything changed when foreign armies invaded. Austria and Prussia wanted to crush the revolution and restore the king's power.'",
+        "points": [
+          {
+            "label": "Foreign Invasion",
+            "text": "In 1792, Austria and Prussia declared war on France. They wanted to restore Louis XVI to absolute power. French revolutionaries panicked. 'Enemies at the gates and traitors within!' they cried."
+          },
+          {
+            "label": "Radical Takeover",
+            "text": "Radical clubs (Jacobins, Cordeliers, Sans-Culottes) took control. They said moderates were secretly helping foreign kings. They purged the government of 'enemies of the revolution.'"
+          },
+          {
+            "label": "The King's Failed Escape (June 1791)",
+            "text": "Louis XVI secretly planned to flee to Austria. His family left Paris disguised as servants. But they were recognized and brought back as prisoners. This destroyed any hope of constitutional compromise."
+          },
+          {
+            "label": "The Mood",
+            "text": "Fear replaced idealism. If the king couldn't be trusted, and enemies were everywhere, radical logic said: anyone could be a traitor. The stage was set for terror."
+          }
+        ],
+        "emoji": "⚔️",
+        "inSimpleWords": "War with foreign countries made revolutionaries paranoid. They saw enemies everywhere and began purging suspected traitors."
+      },
+      {
         "kind": "concept",
         "title": "The Radical Phase: The Reign of Terror (1793–1794)",
         "storyContext": "Ravi frowns: 'I thought the revolution ended with the Declaration?' Priya shakes her head: 'It got much darker. Conservative nobles and foreign kings wanted to crush the revolution. Revolutionaries became more radical. By 1793, Louis XVI was executed, and the revolution turned violent.'",
@@ -232855,57 +239588,32 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
-        "title": "Legacy: How the French Revolution Changed the World",
-        "storyContext": "Priya concludes: 'Ravi, the French Revolution was a disaster in some ways—so much violence, so much suffering. But it broke the old world forever. Monarchy was never the same again.' She lists the lasting changes:",
+        "title": "Women and the French Revolution",
+        "storyContext": "Ravi asks: 'Priya, did women participate in the revolution?' Priya nods: 'Yes, but their stories are often forgotten. Women fought, organized, and demanded change—but got few rights in return.'",
         "points": [
           {
-            "label": "End of Absolute Monarchy",
-            "text": "Kings could no longer rule by divine right. After France, even restored monarchies had to accept written constitutions and limits on their power. Democracy, not autocracy, became the model for the future."
+            "label": "Women in the Streets",
+            "text": "Women led bread riots, marched to Versailles, stormed the Bastille. Fishmongers, servants, working-class women were often the first to act."
           },
           {
-            "label": "Rise of Nationalism",
-            "text": "The revolution created the modern idea of the 'nation-state'—a people united by shared values and laws, not loyalty to a king. This idea spread across Europe and the world. Nations like Germany and Italy were born from this spirit."
+            "label": "Olympe de Gouges",
+            "text": "A playwright and activist, she wrote the 'Declaration of the Rights of Woman and Citizen' (1791), demanding women's equal rights. The National Assembly ignored her. Ironically, she was guillotined in 1793 for her radical views."
           },
           {
-            "label": "Universal Rights and Citizenship",
-            "text": "The Declaration of the Rights of Man said all humans have certain rights by birth. This idea inspired independence movements (Latin America, later), abolition of slavery, women's rights, and civil rights movements. India's Constitution (1950) echoes these same principles."
+            "label": "What Women Got",
+            "text": "Divorce rights (briefly). Property rights in some cases. But: no vote, no political office, no equality with men. The 'rights of man' meant men only."
           },
           {
-            "label": "Modern Citizenship",
-            "text": "Before 1789, people were subjects of a king. After, they became citizens with duties and rights. This concept shaped democratic governments worldwide."
+            "label": "The Paradox",
+            "text": "Women helped spark the revolution but were excluded from its benefits. The gap between revolutionary ideals ('all are equal') and reality ('but not women') would fuel women's rights movements for centuries."
           }
         ],
-        "emoji": "🌍",
-        "inSimpleWords": "The French Revolution proved that people could overthrow unfair systems and create new ones based on equality and rights—an idea that spread across the entire world."
-      },
-      {
-        "kind": "example",
-        "title": "A Worked Example: The Tennis Court Oath",
-        "storyContext": "Let's look more closely at one pivotal moment: the Tennis Court Oath (June 20, 1789). Ravi asks: 'Why did it matter so much?' Priya explains the context and significance.",
-        "points": [
-          {
-            "label": "The Problem",
-            "text": "King Louis XVI called the Estates-General in May 1789, hoping the three estates would approve new taxes. But he used the old voting system: one vote per estate. The First Estate (clergy, 0.5% of people) and Second Estate (nobles, 1.5% of people) together would always outvote the Third Estate (98% of people)."
-          },
-          {
-            "label": "The Third Estate's Response",
-            "text": "Delegates of the Third Estate saw the trap. They refused to vote by estate. Instead, 600 of them left the assembly and gathered on an indoor tennis court at Versailles (June 20, 1789). Their leader, Abbe Sieyes, led them in swearing an oath: 'We will not disband until France has a constitution.'"
-          },
-          {
-            "label": "Why It Changed Everything",
-            "text": "This oath meant: we (the common people's representatives) are the real power now. The king called an assembly to get our money; instead, we're going to seize power and write France's laws. Some clergy and liberal nobles saw the logic and joined them. The king's authority crumbled. By summer 1789, the National Assembly had declared itself sovereign."
-          }
-        ],
-        "example": {
-          "problem": "Explain how the Tennis Court Oath shifted power from the king to the National Assembly.",
-          "solution": "Before: King Louis XVI had absolute power. He summoned the Estates-General expecting three separate votes, which would let him control outcomes (nobles and clergy would vote with him). After the oath: The Third Estate's delegates declared themselves the 'National Assembly'—the representatives of the nation, not servants of the king. They swore they wouldn't leave until they wrote a constitution (laws). By uniting and refusing to obey, ordinary people's representatives claimed sovereignty. When some nobles and clergy joined them, the king lost his majority. He could no longer overrule them. Power had shifted from the monarchy to the nation's representatives. This moment proved that revolutions aren't just violent—they're also about seizing legitimacy and moral authority."
-        },
-        "emoji": "📋",
-        "inSimpleWords": "Ordinary people's representatives said 'We are the government now—not the king,' and the system broke because enough people believed them."
+        "emoji": "👩‍🦰",
+        "inSimpleWords": "Women fought in the revolution but didn't get equal rights. The Declaration promised equality—just not for women."
       },
       {
         "kind": "challenge",
-        "title": "Your Turn: The Three Phases",
+        "title": "Challenge: The Three Phases of the French Revolution",
         "storyContext": "Priya asks Ravi to organize the revolution: 'Can you explain the three major phases? What caused each to end?'",
         "points": [
           {
@@ -232930,8 +239638,8 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "challenge",
-        "title": "Your Turn: Analyzing Revolutions",
-        "storyContext": "Priya gives Ravi a challenge: 'Think about this: The French Revolution promised liberty, equality, and fraternity. But it ended with a Reign of Terror, mass executions, and another strongman (Napoleon). Was it a success or a failure?' Ravi thinks hard...",
+        "title": "Challenge: Was the Revolution Worth It?",
+        "storyContext": "Priya gives Ravi the hardest question: 'Think about this: The French Revolution promised liberty, equality, and fraternity. But it ended with a Reign of Terror, mass executions, and another strongman (Napoleon). Was it a success or a failure?'",
         "points": [
           {
             "label": "The Question",
@@ -232948,6 +239656,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "emoji": "🤔",
         "inSimpleWords": "History isn't tidy: the revolution failed to create stable democracy but succeeded in proving that people could change their own governments and write their own rules."
+      },
+      {
+        "kind": "concept",
+        "title": "Legacy: How the French Revolution Changed the World",
+        "storyContext": "Priya concludes: 'Ravi, the French Revolution was a disaster in some ways—so much violence, so much suffering. But it broke the old world forever. Monarchy was never the same again.' She lists the lasting changes:",
+        "points": [
+          {
+            "label": "End of Absolute Monarchy",
+            "text": "Kings could no longer rule by divine right. After France, even restored monarchies had to accept written constitutions and limits on their power. Democracy, not autocracy, became the model for the future."
+          },
+          {
+            "label": "Rise of Nationalism",
+            "text": "The revolution created the modern idea of the 'nation-state'—a people united by shared values and laws, not loyalty to a king. This idea spread across Europe and the world. Nations like Germany and Italy were born from this spirit."
+          },
+          {
+            "label": "Universal Rights and Citizenship",
+            "text": "The Declaration of the Rights of Man said all humans have certain rights by birth. This idea inspired independence movements (Latin America, later), abolition of slavery, women's rights, and civil rights movements. India's Constitution (1950) echoes these same principles."
+          },
+          {
+            "label": "Modern Citizenship",
+            "text": "Before 1789, people were subjects of a king. After, they became citizens with duties and rights. This concept shaped democratic governments worldwide."
+          }
+        ],
+        "emoji": "🌍",
+        "inSimpleWords": "The French Revolution proved that people could overthrow unfair systems and create new ones based on equality and rights—an idea that spread across the entire world."
       },
       {
         "kind": "recap",
@@ -233218,6 +239951,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "👶👴"
       },
       {
+        "kind": "concept",
+        "title": "Urbanization: Villages to Cities",
+        "storyContext": "Arun explains: 'Your village is growing, but it's still rural. Most people in India live in villages. Yet, every year, more move to cities.'",
+        "points": [
+          {
+            "label": "Urbanization definition",
+            "text": "The growth of cities and the shift of population from rural to urban areas."
+          },
+          {
+            "label": "India's urban percentage",
+            "text": "In 1951, 14% of Indians lived in cities. By 2021, 35%. By 2050, predicted 50%."
+          },
+          {
+            "label": "Why urbanization happens",
+            "text": "Jobs in factories and offices. Better schools and hospitals. More entertainment and opportunity."
+          },
+          {
+            "label": "Problems of rapid urbanization",
+            "text": "Slums develop (no planning). Pollution. Water shortage. Traffic. Strain on municipal services."
+          }
+        ],
+        "inSimpleWords": "Urbanization is the shift of people from villages to cities. India is becoming less rural and more urban.",
+        "emoji": "🏙️"
+      },
+      {
         "kind": "example",
         "title": "Real Example: India's Population Story",
         "storyContext": "Arun sits with Priya and Grandfather: 'Look at India's numbers over time. See how they tell a story.'",
@@ -233268,8 +240026,33 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "As countries develop, populations go from fast-growing (lots of babies) to stable (few babies). India is mid-transition: fewer babies now, but not as few as Europe."
       },
       {
+        "kind": "story",
+        "title": "The Story of Priya's Grandmother: Women's Education and Birth Rates",
+        "storyContext": "Priya's grandmother had 8 children. Her mother had 3. Priya might have 1 or 2. What changed? Education.",
+        "points": [
+          {
+            "label": "Grandmother's Time (1950s)",
+            "text": "Girls didn't go to school. Marriage by 16. 8 children by age 30. Working in fields. No access to contraception."
+          },
+          {
+            "label": "Mother's Time (1980s)",
+            "text": "Girls got schooling until age 12. Marriage at 22. 3 children. Working as a clerk in town. Access to family planning clinics."
+          },
+          {
+            "label": "Priya's Time (2020s)",
+            "text": "College education. Career focus. Marriage at 28. Might have 1–2 children after establishing career. Contraception is normal."
+          },
+          {
+            "label": "The Pattern",
+            "text": "When women are educated, they marry later, have fewer children, and work longer. This single change—female education—explains most of India's lower birth rates."
+          }
+        ],
+        "emoji": "📚",
+        "inSimpleWords": "When girls go to school, they marry later, work longer, and have fewer children. Female education is the biggest factor in lowering birth rates."
+      },
+      {
         "kind": "challenge",
-        "title": "Your Challenge: Plan for Growth",
+        "title": "Challenge: Plan for Population Growth",
         "storyContext": "Arun tells Priya: 'Your village is growing. Next year, 500 new families will arrive. You're on the village council. What do you need to build?'",
         "points": [
           {
@@ -233290,8 +240073,8 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "challenge",
-        "title": "Your Challenge: Analyze a City's Growth",
-        "storyContext": "Arun shows Priya data from a growing city: 'A city grew from 1 million (2000) to 2.5 million (2020). Not all of this was babies. Most was migration. What questions would you ask to understand this growth?'",
+        "title": "Challenge: Analyze a City's Growth Problem",
+        "storyContext": "Arun shows Priya data from a growing city: 'A city grew from 1 million (2000) to 2.5 million (2020). Not all of this was babies. Most was migration. What questions would you ask?'",
         "points": [
           {
             "label": "Questions to Ask",
@@ -233545,33 +240328,46 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "👥"
       },
       {
-        "kind": "example",
-        "title": "Worked Example: How India's Democracy Checks Power",
-        "storyContext": "Ms. Sharma shows Rohan India's structure: 'We have separation of powers. Look at how each branch checks the others.'",
+        "kind": "concept",
+        "title": "Separation of Powers in India",
+        "storyContext": "Ms. Sharma draws boxes on the board: Executive, Legislative, Judicial. 'India's government has three branches that check each other. This stops any one person from grabbing all power.'",
         "points": [
           {
-            "label": "Executive (President, PM, Cabinet)",
-            "text": "Runs day-to-day government, enforces laws."
+            "label": "Executive Branch",
+            "text": "President, Prime Minister, Cabinet. Runs government, enforces laws, commands armed forces. But: can't make laws alone, must respect court orders."
           },
           {
-            "label": "Legislative (Parliament: Lok Sabha + Rajya Sabha)",
-            "text": "Votes on laws. Can remove PM in vote of no-confidence. Controls budget."
+            "label": "Legislative Branch",
+            "text": "Parliament (Lok Sabha + Rajya Sabha). Votes on laws, controls budget, can remove PM in vote of no-confidence. But: can't override court rulings on constitutional matters."
           },
           {
-            "label": "Judicial (Supreme Court + High Courts)",
-            "text": "Interprets laws. Can strike down unjust laws. Protects citizens' rights."
-          },
-          {
-            "label": "Checks in Action",
-            "text": "PM proposes a law. Parliament debates. Supreme Court can block it if unconstitutional. President must sign off. No single person has all power."
+            "label": "Judicial Branch",
+            "text": "Supreme Court, High Courts. Interprets laws, can strike down unjust laws, protects rights. But: can't make laws, depends on executive to enforce rulings."
           }
         ],
-        "example": {
-          "problem": "A PM passes an unjust law that targets one religion. How does democracy stop this?",
-          "solution": "Parliament (Opposition parties) can debate and vote against it. If it passes anyway, citizens can file cases. Supreme Court can rule it violates the Constitution (Article 15: no discrimination). The law is struck down. The PM can't just impose will by decree. This is separation of powers."
-        },
-        "emoji": "🏢",
-        "inSimpleWords": "India's government has three branches (Executive, Legislative, Judicial) that check each other. No branch can grab all power alone."
+        "inSimpleWords": "Three branches check each other: Executive makes decisions, Legislative votes on laws, Judicial protects rights. No branch has all power.",
+        "emoji": "🏢"
+      },
+      {
+        "kind": "story",
+        "title": "Constitutional Rights: The Backbone of Indian Democracy",
+        "storyContext": "Ms. Sharma explains: 'Democracy works because India has a Constitution. Written in 1950, it guarantees rights that no government can take away.'",
+        "points": [
+          {
+            "label": "What's the Constitution?",
+            "text": "A written document that lists how government works and what rights citizens have. No government can ignore it. Even the PM must obey."
+          },
+          {
+            "label": "Fundamental Rights (Articles 12-35)",
+            "text": "Right to equality (no discrimination by caste, religion, gender). Right to freedom of speech, religion, association. Right to life and personal liberty. Right to constitutional remedies (you can sue if rights are violated)."
+          },
+          {
+            "label": "Check on power",
+            "text": "If a government tries to violate these rights, you can go to court. Supreme Court can strike down the law. This protects minorities from majority tyranny."
+          }
+        ],
+        "emoji": "📜",
+        "inSimpleWords": "India's Constitution guarantees rights that no government can take away. If violated, you can go to court. This protects democracy."
       },
       {
         "kind": "concept",
@@ -233662,7 +240458,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "challenge",
-        "title": "Your Challenge: Is Your School Democratic?",
+        "title": "Challenge: Is Your School Democratic?",
         "storyContext": "Ms. Sharma assigns: 'Look at how decisions are made in school. Which are democratic? Which aren't?'",
         "points": [
           {
@@ -233687,7 +240483,7 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "challenge",
-        "title": "Your Challenge: Design a Fair Election",
+        "title": "Challenge: Design a Fair Election System",
         "storyContext": "Ms. Sharma asks: 'If you were election commissioner, how would you make India's elections fairer for rich and poor candidates equally?'",
         "points": [
           {
@@ -233728,6 +240524,9 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           },
           {
             "text": "Separation of powers: Executive, Legislative, Judicial branches check each other so no one person grabs all power."
+          },
+          {
+            "text": "Constitution protects fundamental rights. Courts can strike down laws that violate the Constitution."
           },
           {
             "text": "Democracy is not perfect but better than dictatorship because power can change hands peacefully and ordinary people have a say."
@@ -240998,6 +247797,48 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "📍"
       },
       {
+        "kind": "story",
+        "title": "Finding India on a Grid",
+        "storyContext": "Ravi uses a globe with latitude and longitude lines. He points to where his home city lies. 'So every place on Earth has a numerical address?' Professor Chakra smiles. 'Exactly. This grid allows sailors, pilots, and scientists to locate any spot precisely.'",
+        "emoji": "🧭"
+      },
+      {
+        "kind": "concept",
+        "title": "Absolute vs. Relative Location",
+        "storyContext": "Professor Chakra distinguishes two ways to describe where India is. 'Absolute location uses coordinates. Relative location uses neighboring features.'",
+        "points": [
+          {
+            "label": "Absolute Location",
+            "text": "Defined by latitude and longitude. India: 8° 4' N to 35° 30' N, 68° 7' E to 97° 25' E. This is precise, objective, and doesn't change."
+          },
+          {
+            "label": "Relative Location",
+            "text": "Defined by relationship to other places. Example: 'India is south of China, west of Thailand, east of Afghanistan.' Relative location is intuitive but less precise."
+          },
+          {
+            "label": "Why Both Matter",
+            "text": "Absolute location is for precise mapping and navigation (GPS, ships). Relative location helps understand regional connections and geopolitics."
+          },
+          {
+            "label": "Example",
+            "text": "'Latitude 28° N, Longitude 77° E' is Delhi's absolute location. 'Delhi is in North India, south of the Himalayas, on the Yamuna River' is its relative location. Same city, two ways of describing it."
+          }
+        ],
+        "inSimpleWords": "Absolute location uses coordinates (lat/long). Relative location uses neighboring places and features. Both are useful in geography.",
+        "emoji": "📍"
+      },
+      {
+        "kind": "example",
+        "title": "How Location Affects Food, Clothing, and Customs",
+        "storyContext": "Ravi observes: 'In my house, we wear light cotton clothes. But my cousin in Kashmir wears thick wool. Why?'",
+        "example": {
+          "problem": "Explain how India's geographical location and latitude affect regional food, clothing, and customs.",
+          "solution": "Latitude → climate → agriculture → diet → culture. Example: Kerala (8° N, tropical): warm year-round, high rainfall. Grows coconut, rice, spices. Diet: coconut curry, seafood, rice. Clothing: light cotton, minimal. Customs: water festivals (reflect abundant water). Kashmir (35° N, temperate/alpine): cold winters, snow, less rainfall. Grows apples, walnuts, saffron. Diet: mutton, dairy (yak butter), apples. Clothing: wool, heavy layers. Customs: skiing, ice festivals. Same country, latitude creates completely different cultures. This is why India's diversity exists—geography creates regional identity."
+        },
+        "inSimpleWords": "Latitude determines climate, which determines what grows, which determines diet, clothing, and customs. Geography creates cultural diversity.",
+        "emoji": "🍛"
+      },
+      {
         "kind": "challenge",
         "title": "Why Does Location Still Matter for Modern India?",
         "storyContext": "Ravi asks: 'Dadi, does location still matter in the age of airplanes and the internet?' Dadi smiles. 'More than ever, beta.'",
@@ -241069,6 +247910,48 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "India is in the Eastern and Northern Hemispheres. It uses one time zone (IST) across the entire country.",
         "emoji": "🌐"
+      },
+      {
+        "kind": "story",
+        "title": "A Connected Subcontinent",
+        "storyContext": "Ravi realizes that India's position in the Eastern Hemisphere and Northern Hemisphere means it shares a different 'neighborhood' than Europe or Africa. 'We're in the Asia-Pacific region,' he says. 'And that shapes our trading partners, our allies, our destiny.'",
+        "emoji": "🗺️"
+      },
+      {
+        "kind": "concept",
+        "title": "Location and Time Zones",
+        "storyContext": "Professor Chakra shows how longitude creates time differences. 'India doesn't use multiple time zones like many countries. Here's why.'",
+        "points": [
+          {
+            "label": "Longitude and Time",
+            "text": "Each 15° of longitude equals 1 hour of time difference. Since Earth rotates 360° in 24 hours, each degree = 4 minutes."
+          },
+          {
+            "label": "Single Time Zone Benefit",
+            "text": "India stretches ~29° of longitude (68-97° E). This spans nearly 2 hours of 'natural' time. But India uses a single time zone (IST, UTC+5:30) to keep the nation synchronized. Benefits: unified railway schedule, seamless commerce, national unity."
+          },
+          {
+            "label": "Eastern vs. Western India",
+            "text": "In Western India (Gujarat, Mumbai): sunrise at ~6:30 AM IST. In Eastern India (Assam, West Bengal): sunrise at ~4:30 AM IST. The same clock time means different actual sunrise times—an adaptation to geography."
+          },
+          {
+            "label": "Historical and Political Reason",
+            "text": "Using one time zone strengthens national integration. A single IST connects Delhi and Chennai, Amritsar and Kolkata. It's a geographic choice with political meaning."
+          }
+        ],
+        "inSimpleWords": "India uses one time zone (IST) across its entire breadth, even though it spans nearly 2 hours of natural time. This unifies the nation.",
+        "emoji": "⏰"
+      },
+      {
+        "kind": "example",
+        "title": "Time Zone Quirk: Why Assam Wakes Earlier",
+        "storyContext": "Ravi reads that Eastern India wakes much earlier than Western India despite the same clock time. 'So the sunrise in Assam and Gujarat are different times?'",
+        "example": {
+          "problem": "Explain why places in Eastern India experience sunrise earlier than Western India, even though they share the same time zone.",
+          "solution": "Longitude. Assam is ~30° farther east than Gujarat. East → sunrise earlier in absolute terms (sun rises sooner as you move eastward). India's IST is set to the middle of the country (82.5° E, roughly). Western states (68° E in Gujarat) are ~14° west of this reference. They experience 'clock time' delayed relative to the sun. Eastern states (97° E in Assam) are ~15° east of reference. They experience 'clock time' ahead of the sun. Result: In Assam, sunrise at 4:30 AM IST. In Gujarat, sunrise at 6:30 AM IST—two hours later despite the same clock. This is the cost of a single time zone: everyone uses the same numbers, but the sun and clock don't align equally everywhere. It's a trade-off: national unity (one time zone) vs. local solar alignment."
+        },
+        "inSimpleWords": "India's single time zone means Eastern India experiences sunrise earlier than Western India, even though both use the same clock.",
+        "emoji": "🌅"
       },
       {
         "kind": "recap",
@@ -241216,6 +248099,12 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "⛈️"
       },
       {
+        "kind": "story",
+        "title": "Life in the Plateau",
+        "storyContext": "Arun crosses the Deccan and feels the heat. 'It's so dry here compared to the coast.' A farmer explains: 'The monsoon comes from the southwest, but the mountains block it. We're in the shadow. We farm millet, not rice. We dig wells and save water.'",
+        "emoji": "🏜️"
+      },
+      {
         "kind": "concept",
         "title": "Plains: The Fertile Heart",
         "storyContext": "Arun descends from mountains into the Indo-Gangetic plains. 'Here,' says the Guide, 'most Indians live and farm. This is why.'",
@@ -241249,6 +248138,35 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "title": "Life in the Plains",
         "storyContext": "Arun walks through wheat fields near Punjab. Farmers are already planning next season's crop. A farmer explains: 'The Sutlej river brings water from the Himalayas. The soil is endless—my grandfather farmed here, his grandfather before him. This plain feeds all of India.'",
         "emoji": "👨‍🌾"
+      },
+      {
+        "kind": "concept",
+        "title": "Soil Types and Fertility",
+        "storyContext": "The Guide digs soil samples from different regions. 'Soil is not uniform. Each type has different fertility and crops.'",
+        "points": [
+          {
+            "label": "Alluvial Soil (Plains)",
+            "text": "Fine sediment from rivers. Rich in nitrogen, potassium, phosphorus. Excellent for wheat, rice, sugarcane. Covers Indo-Gangetic plains and river deltas."
+          },
+          {
+            "label": "Black Soil (Deccan)",
+            "text": "Formed from weathered lava. High in iron and magnesium. Excellent for cotton, sugarcane, groundnuts. Covers Deccan plateau and Maharashtra."
+          },
+          {
+            "label": "Red Soil (South)",
+            "text": "Formed from granite and gneiss rocks. Lower fertility than black soil. Good for millets, pulses, groundnuts. Covers South India."
+          },
+          {
+            "label": "Laterite Soil (Western Ghats)",
+            "text": "Formed in tropical regions with high rainfall and weathering. Poor farming soil. Used for bricks and construction. Covers laterite plateaus."
+          },
+          {
+            "label": "Desert Soil (Thar)",
+            "text": "Sandy, low moisture, low fertility. Supports sparse vegetation. Limited agriculture without irrigation."
+          }
+        ],
+        "inSimpleWords": "Different regions have different soil types. Fertile alluvial and black soils feed millions; poorer soils support less agriculture.",
+        "emoji": "🌱"
       },
       {
         "kind": "concept",
@@ -241311,6 +248229,37 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "India has long coastlines with three separate coasts. Islands, deltas, and ports make coasts economically and strategically important.",
         "emoji": "🏝️"
+      },
+      {
+        "kind": "story",
+        "title": "Island Life",
+        "storyContext": "Arun visits the Andaman Islands. 'This is part of India, but it's so different—tropical, forested, few people.' The islanders explain: 'We're isolated. But India connects us—trade, government, culture. Geography separated us, but politics and trade united us.'",
+        "emoji": "🏝️"
+      },
+      {
+        "kind": "concept",
+        "title": "Valleys and Depression Areas",
+        "storyContext": "The Guide points to low-lying regions between mountains. 'These valleys and depressions have unique geography and importance.'",
+        "points": [
+          {
+            "label": "Kashmir Valley",
+            "text": "Surrounded by mountains (Himalayas, Pir Panjal). ~120 km long, ~30 km wide. Fertile alluvial soil from rivers. Mild climate despite high altitude (1,600 m). Called 'Jewel of India' for beauty and agriculture."
+          },
+          {
+            "label": "Assam Valley",
+            "text": "The largest river valley in India. Surrounding Brahmaputra. ~900 km long, ~80 km wide. Fertile, monsoon-rich. Home to tea plantations and oil fields."
+          },
+          {
+            "label": "Narmada Valley",
+            "text": "A rift valley (depression caused by geological forces, not mountains). Flows westward through central India. Important for irrigation and dams."
+          },
+          {
+            "label": "Importance of Valleys",
+            "text": "Valleys are fertile, sheltered from extreme weather, and easy to settle. Many Indian cities are in valleys: Bangalore (Mysore Plateau valley), Hyderabad (Musi river valley)."
+          }
+        ],
+        "inSimpleWords": "Valleys between mountains are often fertile and sheltered. Kashmir Valley and Assam Valley are among India's most important regions.",
+        "emoji": "🏔️"
       },
       {
         "kind": "example",
@@ -241426,6 +248375,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "The Deccan's black soil comes from ancient volcanic eruptions. It's great for farming cotton and sugarcane.",
         "emoji": "🌋"
+      },
+      {
+        "kind": "concept",
+        "title": "Tectonic Plates and Mountain Formation",
+        "storyContext": "The Guide shows a cross-section of Earth's crust. 'India itself is a huge plate, moving northward. It collided with Asia and created the Himalayas—and it's still colliding.'",
+        "points": [
+          {
+            "label": "Indian Plate",
+            "text": "A tectonic plate that includes India and surrounding oceanic crust. Moves northward at ~5 cm/year (as fast as fingernails grow)."
+          },
+          {
+            "label": "The Collision",
+            "text": "About 50 million years ago, the Indian plate collided with the Eurasian plate. Instead of sliding under (subduction), the lighter Indian crust pushed up. Result: mountains."
+          },
+          {
+            "label": "Ongoing Collision",
+            "text": "The collision continues today. The Himalayas rise ~5 mm/year. Erosion wears them down at ~3 mm/year. Net growth: ~2 mm/year. In a million years, they could grow another 2 km."
+          },
+          {
+            "label": "Earthquakes",
+            "text": "The collision zone is tectonically active. Earthquakes occur when stress is released. The 2015 Nepal earthquake (7.8 magnitude) and 2023 Afghanistan earthquakes were consequences of the ongoing collision."
+          }
+        ],
+        "inSimpleWords": "The Indian tectonic plate collides with Asia, pushing up mountains. The Himalayas are still growing a few millimeters per year.",
+        "emoji": "🌍"
       },
       {
         "kind": "recap",
@@ -241557,6 +248531,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "North India drains via the Ganges, Brahmaputra, and Indus. South India drains via the Godavari, Krishna, Kaveri, and other rivers. A watershed line (Vindhyas) divides them.",
         "emoji": "🌊"
+      },
+      {
+        "kind": "concept",
+        "title": "How Gravity Shapes River Flow",
+        "storyContext": "The Hydrologist explains the fundamental principle: 'Every river follows gravity. Water always flows downhill. The terrain determines the path.'",
+        "points": [
+          {
+            "label": "Gravitational Pull",
+            "text": "Water has weight. Gravity pulls it downward. Rivers are nature's solution to move water from high ground to sea level. This is inevitable."
+          },
+          {
+            "label": "Slope and Speed",
+            "text": "Steeper slopes → faster flow. Gentle slopes → slower flow. Mountain rivers (Himalayas) flow fast; plain rivers (Ganges) flow slow."
+          },
+          {
+            "label": "Path of Least Resistance",
+            "text": "Water follows the easiest downhill path. If a rock blocks the way, water flows around it. Over time, water carves channels—creating riverbeds."
+          },
+          {
+            "label": "Erosion and Deposition",
+            "text": "Fast-flowing water erodes rock and soil, carrying sediment downstream. As flow slows (in plains), sediment settles, building deltas and fertile plains."
+          }
+        ],
+        "inSimpleWords": "Gravity pulls water downhill. Rivers follow the path of least resistance, flowing faster on steep slopes and slower on gentle slopes.",
+        "emoji": "⬇️"
       },
       {
         "kind": "example",
@@ -241692,6 +248691,37 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🗺️"
       },
       {
+        "kind": "story",
+        "title": "The Narmada's Westward Journey",
+        "storyContext": "Rathan notices the Narmada flows west, not east like most peninsular rivers. 'Why?' The Hydrologist explains: 'A rift valley—a geological depression—trends westward. Water finds the lowest path. The Narmada follows this ancient rift.'",
+        "emoji": "🏞️"
+      },
+      {
+        "kind": "concept",
+        "title": "River Discharge and Flow Patterns",
+        "storyContext": "The Hydrologist shows graphs of river flow over seasons. 'Notice how northern and southern rivers behave differently?'",
+        "points": [
+          {
+            "label": "Perennial vs. Seasonal",
+            "text": "Perennial rivers (Ganges, Brahmaputra): flow year-round. Himalayan snowmelt provides base flow in dry season. Seasonal rivers (Godavari, Krishna): flow mainly in monsoon; dry up in summer."
+          },
+          {
+            "label": "Monsoon Peak",
+            "text": "Southern rivers discharge 10-100x more water during monsoon (June-Sept) than in dry season. Northern rivers are more stable."
+          },
+          {
+            "label": "Discharge Rate",
+            "text": "Measured in cubic meters per second (m³/s). Ganges: ~12,000 m³/s. Brahmaputra: ~19,000 m³/s (highest). Godavari: ~3,000 m³/s. Variation reflects basin size and rainfall."
+          },
+          {
+            "label": "Predictability",
+            "text": "Northern rivers are predictable (steady flow). Southern rivers are unpredictable (high variation). This affects irrigation and power planning."
+          }
+        ],
+        "inSimpleWords": "Northern rivers flow year-round (perennial). Southern rivers flow mainly during monsoon (seasonal). Flow rates vary dramatically by region.",
+        "emoji": "📊"
+      },
+      {
         "kind": "example",
         "title": "Drainage and Civilization: The Historical Link",
         "storyContext": "Mohan reflects: 'All great Indian civilizations were born on rivers. Why?'",
@@ -241813,6 +248843,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Dams store monsoon water in reservoirs. This water is used year-round for power, irrigation, and drinking. Dams are crucial but environmentally costly.",
         "emoji": "🏗️"
+      },
+      {
+        "kind": "concept",
+        "title": "Flow Velocity and River Behavior",
+        "storyContext": "The Hydrologist explains how fast-flowing and slow-flowing rivers behave differently. 'The same water, different speeds, different effects.'",
+        "points": [
+          {
+            "label": "Mountain Rivers (Fast)",
+            "text": "Mountain rivers in Himalayas: steep slope → fast flow (3-5 m/s or faster). Fast flow = high energy. Result: erosion (cutting deep canyons), carrying large boulders, white-water rapids."
+          },
+          {
+            "label": "Plain Rivers (Slow)",
+            "text": "Plain rivers in Indo-Gangetic plain: gentle slope → slow flow (0.5-1 m/s). Slow flow = low energy. Result: deposition (building sandbars and deltas), carrying fine sediment (silt), lazy meanders."
+          },
+          {
+            "label": "Erosion and Deposition",
+            "text": "Same sediment (silt, sand, boulders) has different fates: in mountains, it's carried far; in plains, it settles. This is why plains are fertile (sediment deposits) and mountains are rocky."
+          },
+          {
+            "label": "Flood Behavior",
+            "text": "Fast mountain rivers flood quickly when monsoon hits. Slow plain rivers swell gradually. Different flood risks = different management strategies."
+          }
+        ],
+        "inSimpleWords": "Mountain rivers flow fast and erode. Plain rivers flow slow and deposit sediment. This difference shapes geography and determines where farming thrives.",
+        "emoji": "🌊"
       },
       {
         "kind": "recap",
@@ -258183,1298 +265238,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Paintbrush_screenshot.png/960px-Paintbrush_screenshot.png",
           "alt": "The Magic Brush: Every Dream Needs an Artist — The Magic Brush of Dreams",
           "q": "paintbrush"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "class-8-mathematics-a-square-and-a-cube",
-    "classLevel": "8",
-    "subject": "Mathematics",
-    "chapter": "A Square and A Cube",
-    "title": "Rohan's Tile Shop: Squares and Cubes",
-    "hook": "How does a tile shop owner calculate orders using perfect squares and cubes?",
-    "characters": [
-      {
-        "name": "Rohan",
-        "emoji": "👨",
-        "role": "tile shop owner in Delhi"
-      },
-      {
-        "name": "Priya",
-        "emoji": "👧",
-        "role": "Rohan's daughter, learning business math"
-      },
-      {
-        "name": "Kumar Uncle",
-        "emoji": "👴",
-        "role": "retired accountant helping with calculations"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "A Square and A Cube",
-        "storyContext": "Rohan's tile shop needs to order ceramic tiles. His supplier charges by square meter for floor tiles and by cubic meter for storage boxes. Priya watches as Kumar Uncle teaches the math behind the order.",
-        "emoji": "🟦",
-        "image": {
-          "url": "https://images.pexels.com/photos/30742339/pexels-photo-30742339.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "A Square and A Cube — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Order Problem",
-        "storyContext": "A customer wants a 6 meter × 6 meter bathroom floor covered with 1 meter × 1 meter tiles. Rohan calculates: 6 × 6 = 36 tiles. But the supplier lists the area as \"6 squared.\" Priya asks: what does that mean?",
-        "emoji": "🛁",
-        "image": {
-          "url": "https://images.pexels.com/photos/28857258/pexels-photo-28857258.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Order Problem — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Perfect Squares: Numbers That Multiply Themselves",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "When a number multiplies by itself, the result is a perfect square. If n × n = n², then n² is a perfect square."
-          },
-          {
-            "label": "Examples",
-            "text": "1² = 1, 2² = 4, 3² = 9, 4² = 16, 5² = 25, 6² = 36, 7² = 49, 8² = 64, 9² = 81, 10² = 100."
-          }
-        ],
-        "example": {
-          "problem": "Rohan's customer has a square courtyard with side 7 meters. How many square meter tiles does he need?",
-          "solution": "Area = 7 × 7 = 7² = 49 square meters. He needs 49 tiles."
-        },
-        "inSimpleWords": "A perfect square is the result when you multiply a number by itself. 5 × 5 = 25, so 25 is a perfect square.",
-        "emoji": "⬜",
-        "image": {
-          "url": "https://images.pexels.com/photos/19504257/pexels-photo-19504257.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Perfect Squares: Numbers That Multiply Themselves — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Finding Square Roots: Reversing Multiplication",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "The square root of a number n (written √n) is the number you multiply by itself to get n. If m² = n, then √n = m."
-          },
-          {
-            "label": "Real-world use",
-            "text": "If Rohan knows he needs exactly 81 tiles to cover a square floor, he can find the side: √81 = 9 meters."
-          }
-        ],
-        "example": {
-          "problem": "A square kitchen has area 144 square meters. What is the side length?",
-          "solution": "Side length = √144 = 12 meters (because 12 × 12 = 144)."
-        },
-        "inSimpleWords": "The square root reverses squaring. If 9² = 81, then √81 = 9.",
-        "emoji": "√",
-        "image": {
-          "url": "https://images.pexels.com/photos/6373662/pexels-photo-6373662.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Finding Square Roots: Reversing Multiplication — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Perfect Cubes: Volume in Three Dimensions",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "When a number multiplies by itself THREE times, the result is a perfect cube. If n × n × n = n³, then n³ is a perfect cube."
-          },
-          {
-            "label": "Real-world use",
-            "text": "Rohan stores tiles in cubic boxes. A box with side 3 meters holds 3 × 3 × 3 = 27 cubic meters of tiles."
-          }
-        ],
-        "example": {
-          "problem": "A storage room is a perfect cube with side 5 meters. What is its volume?",
-          "solution": "Volume = 5 × 5 × 5 = 5³ = 125 cubic meters."
-        },
-        "inSimpleWords": "A perfect cube is the result when you multiply a number by itself three times. 4 × 4 × 4 = 64, so 64 is a perfect cube.",
-        "emoji": "📦",
-        "image": {
-          "url": "https://images.pexels.com/photos/31673591/pexels-photo-31673591.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Perfect Cubes: Volume in Three Dimensions — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Common Perfect Squares and Cubes",
-        "points": [
-          {
-            "label": "Perfect squares to know",
-            "text": "1², 2², 3² ... 15² are called the first 15 perfect squares: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225."
-          },
-          {
-            "label": "Perfect cubes to know",
-            "text": "1³, 2³, 3³ ... 10³: 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000."
-          }
-        ],
-        "example": {
-          "problem": "Is 144 a perfect square? Is 125 a perfect cube?",
-          "solution": "Yes, 144 = 12². Yes, 125 = 5³."
-        },
-        "inSimpleWords": "Memorizing the first 10–15 perfect squares and cubes helps you solve problems faster without a calculator.",
-        "emoji": "🧮",
-        "image": {
-          "url": "https://images.pexels.com/photos/6991809/pexels-photo-6991809.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Common Perfect Squares and Cubes — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Recognizing Non-Perfect Squares and Cubes",
-        "points": [
-          {
-            "label": "Not every number is perfect",
-            "text": "Numbers like 50, 100 (perfect), 127 (not perfect), etc. Some are perfect, many are not."
-          },
-          {
-            "label": "How to check",
-            "text": "Try multiplying candidates. For 50: 7 × 7 = 49, 8 × 8 = 64. Since 49 < 50 < 64, 50 is not a perfect square."
-          }
-        ],
-        "example": {
-          "problem": "Is 48 a perfect cube?",
-          "solution": "Try: 3 × 3 × 3 = 27, 4 × 4 × 4 = 64. Since 27 < 48 < 64, 48 is not a perfect cube."
-        },
-        "inSimpleWords": "If no whole number multiplied by itself (or itself three times) equals your target, then the target is not a perfect square (or cube).",
-        "emoji": "❌",
-        "image": {
-          "url": "https://images.pexels.com/photos/7792415/pexels-photo-7792415.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Recognizing Non-Perfect Squares and Cubes — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "Rohan's Final Order",
-        "storyContext": "Rohan receives a big order: customer needs 10 square meters of floor tiles (10 different 1m×1m designs) and a storage box with side 4 meters for leftover stock.",
-        "example": {
-          "problem": "How many cubic meters does the storage box hold?",
-          "solution": "Volume of box = 4 × 4 × 4 = 4³ = 64 cubic meters."
-        },
-        "inSimpleWords": "Squares measure area (2D), cubes measure volume (3D). Rohan uses both for his business.",
-        "emoji": "📊",
-        "image": {
-          "url": "https://images.pexels.com/photos/15409966/pexels-photo-15409966.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Rohan's Final Order — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Turn: The Garden Problem",
-        "storyContext": "Priya's school is building a square vegetable garden with side 8 meters, and a cube-shaped rainwater tank with side 2 meters.",
-        "example": {
-          "problem": "Find the garden area and tank volume.",
-          "solution": "Garden area = 8² = 64 square meters. Tank volume = 2³ = 8 cubic meters."
-        },
-        "inSimpleWords": "Remember: squares use ², cubes use ³.",
-        "emoji": "🌱",
-        "image": {
-          "url": "https://images.pexels.com/photos/9499858/pexels-photo-9499858.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Turn: The Garden Problem — A Square and A Cube",
-          "q": "square"
-        }
-      },
-      {
-        "kind": "recap",
-        "title": "What We Learned",
-        "points": [
-          {
-            "text": "A perfect square is n × n = n². Examples: 25 = 5², 100 = 10²."
-          },
-          {
-            "text": "A square root (√n) reverses squaring. √25 = 5."
-          },
-          {
-            "text": "A perfect cube is n × n × n = n³. Examples: 8 = 2³, 125 = 5³."
-          },
-          {
-            "text": "Squares measure area (floors, tiles). Cubes measure volume (boxes, tanks)."
-          }
-        ],
-        "inSimpleWords": "Squares and cubes help us calculate areas and volumes in real life.",
-        "emoji": "✅",
-        "image": {
-          "url": "https://images.pexels.com/photos/6727761/pexels-photo-6727761.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What We Learned — A Square and A Cube",
-          "q": "square"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "class-8-mathematics-a-story-of-numbers",
-    "classLevel": "8",
-    "subject": "Mathematics",
-    "chapter": "A Story of Numbers",
-    "title": "Divya's Number Hunt: Rational and Irrational",
-    "hook": "Are all numbers fractions? Divya discovers the mystery of numbers that cannot be written as fractions.",
-    "characters": [
-      {
-        "name": "Divya",
-        "emoji": "👩",
-        "role": "student curious about math"
-      },
-      {
-        "name": "Anand",
-        "emoji": "👦",
-        "role": "Divya's friend who loves puzzles"
-      },
-      {
-        "name": "Ms. Sharma",
-        "emoji": "👩‍🏫",
-        "role": "math teacher explaining number types"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "A Story of Numbers",
-        "storyContext": "Divya and Anand visit Ms. Sharma's class for a special lesson on numbers. Ms. Sharma asks: \"Can every number be written as a fraction?\" The answer surprises them.",
-        "emoji": "🔢"
-      },
-      {
-        "kind": "story",
-        "title": "The Fraction Question",
-        "storyContext": "Ms. Sharma draws numbers on the board: 1/2, 3, -5, 7/4. Then she asks, \"Can you write 3 as a fraction?\" Anand says, \"Yes! 3 = 3/1.\" Ms. Sharma smiles and says, \"Good. But what about √2? Can you write that as a fraction?\" The class goes silent.",
-        "emoji": "❓",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Pizza_slices_on_a_plate.jpg/960px-Pizza_slices_on_a_plate.jpg",
-          "alt": "The Fraction Question — A Story of Numbers",
-          "q": "pizza slices on plate"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Rational Numbers: Fractions We Can Write",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "A rational number is any number that can be written as p/q, where p and q are integers and q ≠ 0."
-          },
-          {
-            "label": "Examples",
-            "text": "1/2, 3/4, -5/2, 7 (which is 7/1), 0 (which is 0/1), 2.5 (which is 5/2), -3.75 (which is -15/4)."
-          }
-        ],
-        "example": {
-          "problem": "Is 2.5 a rational number?",
-          "solution": "Yes. 2.5 = 25/10 = 5/2. Since it can be written as a fraction of two integers, it is rational."
-        },
-        "inSimpleWords": "Rational numbers are any numbers you can write as a fraction: whole numbers, decimals that stop, and repeating decimals.",
-        "emoji": "📋",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Two_slices_of_pizza_at_Kampin_Pippuri.jpg/960px-Two_slices_of_pizza_at_Kampin_Pippuri.jpg",
-          "alt": "Rational Numbers: Fractions We Can Write — A Story of Numbers",
-          "q": "pizza slices on plate"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Repeating Decimals Are Rational",
-        "points": [
-          {
-            "label": "Repeating decimals",
-            "text": "Decimals like 0.333... (1/3) and 0.1666... (1/6) repeat forever but are still rational because they equal a fraction."
-          },
-          {
-            "label": "How to identify",
-            "text": "If a decimal repeats the same digit or pattern endlessly, it is rational. Example: 0.123123123... repeats \"123.\""
-          }
-        ],
-        "example": {
-          "problem": "Is 0.333... rational?",
-          "solution": "Yes. 0.333... = 1/3. It repeats but equals a fraction, so it is rational."
-        },
-        "inSimpleWords": "Any decimal that repeats, no matter how long the pattern, can be written as a fraction.",
-        "emoji": "🔄"
-      },
-      {
-        "kind": "concept",
-        "title": "Irrational Numbers: Beyond Fractions",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "An irrational number CANNOT be written as p/q. Its decimal never stops and never repeats."
-          },
-          {
-            "label": "Famous examples",
-            "text": "√2 ≈ 1.41421356..., π ≈ 3.14159265..., e ≈ 2.71828... These decimals go on forever with no repeating pattern."
-          }
-        ],
-        "example": {
-          "problem": "Is √2 rational or irrational?",
-          "solution": "Irrational. √2 ≈ 1.414213562... Its decimal never ends and never repeats. It cannot be written as a fraction p/q."
-        },
-        "inSimpleWords": "Irrational numbers are decimals that go on forever without repeating. You cannot write them as fractions.",
-        "emoji": "∞",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Pepperoni_pizza_slice_on_a_red_plate.jpg/960px-Pepperoni_pizza_slice_on_a_red_plate.jpg",
-          "alt": "Irrational Numbers: Beyond Fractions — A Story of Numbers",
-          "q": "pizza slices on plate"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Square Roots and Irrational Numbers",
-        "points": [
-          {
-            "label": "Perfect squares",
-            "text": "√1 = 1, √4 = 2, √9 = 3, √16 = 4, √25 = 5. These are all rational (integers)."
-          },
-          {
-            "label": "Non-perfect squares",
-            "text": "√2, √3, √5, √6, √7, √8, √10 are all irrational. Their decimals never end."
-          }
-        ],
-        "example": {
-          "problem": "Which is rational and which is irrational: √25 or √26?",
-          "solution": "√25 = 5 (rational). √26 ≈ 5.099... (irrational—decimal never ends)."
-        },
-        "inSimpleWords": "Square roots of perfect squares are rational. Square roots of non-perfect squares are irrational.",
-        "emoji": "√"
-      },
-      {
-        "kind": "concept",
-        "title": "Real Numbers: The Complete Number Line",
-        "points": [
-          {
-            "label": "Definition",
-            "text": "The set of all rational and irrational numbers together is called the real numbers. Every point on the number line is a real number."
-          },
-          {
-            "label": "Order",
-            "text": "Real numbers include: negative integers, zero, positive integers, fractions, and irrationals. They can be ordered from smallest to largest."
-          }
-        ],
-        "example": {
-          "problem": "Order these from smallest to largest: -2, 1/2, √2, 3.",
-          "solution": "-2 < 1/2 < √2 (≈1.414) < 3."
-        },
-        "inSimpleWords": "The real number line contains all numbers—fractions, whole numbers, and never-ending decimals. Together, they form the complete real numbers.",
-        "emoji": "📐"
-      },
-      {
-        "kind": "example",
-        "title": "Ms. Sharma's Challenge",
-        "storyContext": "Ms. Sharma asks Divya and Anand to classify 10 numbers. They work together to sort them into rational and irrational.",
-        "example": {
-          "problem": "Is π irrational?",
-          "solution": "Yes. π ≈ 3.141592653... Its decimal never ends and never repeats. π cannot be written as p/q."
-        },
-        "inSimpleWords": "π is irrational because its decimal never terminates or repeats.",
-        "emoji": "🥧"
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Turn: Classify the Numbers",
-        "storyContext": "Divya and Anand give you a list: 7, 0.5, √9, √10, 22/7, π. Sort them into rational and irrational.",
-        "example": {
-          "problem": "Which are rational and which are irrational?",
-          "solution": "Rational: 7 (= 7/1), 0.5 (= 1/2), √9 (= 3), 22/7. Irrational: √10, π."
-        },
-        "inSimpleWords": "Remember: if it can be written as a fraction, it is rational. If it cannot, it is irrational.",
-        "emoji": "🎯"
-      },
-      {
-        "kind": "recap",
-        "title": "What We Learned",
-        "points": [
-          {
-            "text": "Rational numbers can be written as fractions p/q. Examples: 1/2, 3, 2.5, 0.333..."
-          },
-          {
-            "text": "Irrational numbers cannot be written as fractions. Their decimals never end and never repeat. Examples: √2, π, e."
-          },
-          {
-            "text": "Real numbers include all rational and irrational numbers."
-          },
-          {
-            "text": "Square roots of perfect squares are rational; square roots of non-perfect squares are irrational."
-          }
-        ],
-        "inSimpleWords": "Not all numbers are fractions. Some numbers, like √2 and π, are irrational and cannot be written as fractions.",
-        "emoji": "✅",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Two_slices_of_pizza_in_Loviisa.jpg/960px-Two_slices_of_pizza_in_Loviisa.jpg",
-          "alt": "What We Learned — A Story of Numbers",
-          "q": "pizza slices on plate"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "class-8-mathematics-we-distribute-yet-things-multiply",
-    "classLevel": "8",
-    "subject": "Mathematics",
-    "chapter": "We Distribute, Yet Things Multiply",
-    "title": "Vikram's Sweet Shop: Expanding Expressions",
-    "hook": "When Vikram distributes sweets to groups, the numbers multiply in unexpected ways. Learn the algebra of expansion.",
-    "characters": [
-      {
-        "name": "Vikram",
-        "emoji": "👨",
-        "role": "sweet shop owner"
-      },
-      {
-        "name": "Maya",
-        "emoji": "👧",
-        "role": "Vikram's daughter helping with orders"
-      },
-      {
-        "name": "Ravi",
-        "emoji": "👦",
-        "role": "school friend learning algebra from Vikram"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "We Distribute, Yet Things Multiply",
-        "storyContext": "Vikram's sweet shop receives bulk orders. He uses algebra to calculate: if each customer wants (a + b) sweets from c different vendors, how many total? His method: distribute, then multiply.",
-        "emoji": "🍭"
-      },
-      {
-        "kind": "story",
-        "title": "The Festival Order",
-        "storyContext": "A school festival orders sweets. Vikram knows: each of the 3 booths gets 2 types of sweets (gulab jamun and laddu). So each booth wants (2 + 3) sweets... wait, he realizes it's (g + l) where g = gulab jamun, l = laddu. When 5 shopkeepers each order the same mix (g + l), the total is 5(g + l). But how many sweets is that?",
-        "emoji": "🎊",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Holi_Festival_Celebrations.jpg/960px-Holi_Festival_Celebrations.jpg",
-          "alt": "The Festival Order — We Distribute, Yet Things Multiply",
-          "q": "indian festival celebration"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "The Distributive Property: Multiply First, Then Add",
-        "points": [
-          {
-            "label": "Rule",
-            "text": "a(b + c) = ab + ac. When you multiply a number outside brackets by the terms inside, multiply the outside number by EACH term inside."
-          },
-          {
-            "label": "Why?",
-            "text": "Imagine 3 bags, each with (2 apples + 4 oranges). Total apples = 3 × 2 = 6. Total oranges = 3 × 4 = 12. Total fruit = 6 + 12 = 18. So 3(2 + 4) = 6 + 12."
-          }
-        ],
-        "example": {
-          "problem": "Expand 5(g + l) where g = gulab jamun, l = laddu.",
-          "solution": "5(g + l) = 5g + 5l. If each sweet costs the same, Vikram counts: 5 gulab jamun and 5 laddu."
-        },
-        "inSimpleWords": "When you see a number outside brackets, multiply that number by EVERY term inside the brackets.",
-        "emoji": "⊕"
-      },
-      {
-        "kind": "concept",
-        "title": "Expanding with Subtraction",
-        "points": [
-          {
-            "label": "Rule",
-            "text": "a(b - c) = ab - ac. The distributive property works the same with subtraction."
-          },
-          {
-            "label": "Examples",
-            "text": "3(x - 2) = 3x - 6. If a shop sells (price - discount), and you buy 3, you pay 3price - 3discount."
-          }
-        ],
-        "example": {
-          "problem": "A customer buys 4 boxes. Each box has (x chocolates - 2 damaged). How many good chocolates total?",
-          "solution": "4(x - 2) = 4x - 8 good chocolates."
-        },
-        "inSimpleWords": "Subtraction in brackets: multiply the outside number by each term, and keep the minus sign.",
-        "emoji": "➖",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Swallow-tailed_bee-eater_%28Merops_hirundineus_chrysolaimus%29.jpg/960px-Swallow-tailed_bee-eater_%28Merops_hirundineus_chrysolaimus%29.jpg",
-          "alt": "Expanding with Subtraction — We Distribute, Yet Things Multiply",
-          "q": "apples on table"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Expanding Two Brackets: (a + b)(c + d)",
-        "points": [
-          {
-            "label": "Rule",
-            "text": "(a + b)(c + d) = ac + ad + bc + bd. Multiply EVERY term in the first bracket by EVERY term in the second."
-          },
-          {
-            "label": "Method (FOIL)",
-            "text": "First: a × c. Outer: a × d. Inner: b × c. Last: b × d. Then add all four."
-          }
-        ],
-        "example": {
-          "problem": "Vikram arranges sweets in (x + 3) rows and (y + 2) columns. How many sweets total?",
-          "solution": "(x + 3)(y + 2) = xy + 2x + 3y + 6."
-        },
-        "inSimpleWords": "When multiplying two brackets, each term in the first bracket multiplies every term in the second. You get four products; add them all.",
-        "emoji": "✕",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/A_methodology_for_software_cost_estimation_using_machine_learning_techniques_%28IA_methodologyforso00kell%29.pdf/page1-500px-A_methodology_for_software_cost_estimation_using_machine_learning_techniques_%28IA_methodologyforso00kell%29.pdf.jpg",
-          "alt": "Expanding Two Brackets: (a + b)(c + d) — We Distribute, Yet Things Multiply",
-          "q": "expanding colorful learning"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Perfect Square Expansion: (a + b)² and (a - b)²",
-        "points": [
-          {
-            "label": "(a + b)² = a² + 2ab + b²",
-            "text": "Example: (x + 3)² = x² + 6x + 9."
-          },
-          {
-            "label": "(a - b)² = a² - 2ab + b²",
-            "text": "Example: (x - 2)² = x² - 4x + 4."
-          }
-        ],
-        "example": {
-          "problem": "A square sweet box has side (a + 5). What is its area?",
-          "solution": "Area = (a + 5)² = a² + 10a + 25 square units."
-        },
-        "inSimpleWords": "For (a + b)²: square the first term, double the product, then square the second term. (a - b)² is the same but the middle term is negative.",
-        "emoji": "⬜"
-      },
-      {
-        "kind": "concept",
-        "title": "Difference of Squares: (a + b)(a - b) = a² - b²",
-        "points": [
-          {
-            "label": "Rule",
-            "text": "(a + b)(a - b) = a² - b². When the same terms add in one bracket and subtract in the other, the middle cancels."
-          },
-          {
-            "label": "Quick factoring",
-            "text": "If you see a² - b², it factors as (a + b)(a - b). Useful for checking work and simplifying."
-          }
-        ],
-        "example": {
-          "problem": "Expand (x + 4)(x - 4).",
-          "solution": "(x + 4)(x - 4) = x² - 16. Notice: no middle term! The +4x and -4x cancel."
-        },
-        "inSimpleWords": "When two brackets have the same terms but opposite signs (one + one -), multiply to get: (first term)² - (second term)².",
-        "emoji": "↔"
-      },
-      {
-        "kind": "example",
-        "title": "Vikram's Real Order",
-        "storyContext": "A restaurant orders sweets in (2x + 3) boxes of (x + 2) sweets each. Vikram must calculate the total.",
-        "example": {
-          "problem": "Find the total number of sweets in (2x + 3)(x + 2).",
-          "solution": "(2x + 3)(x + 2) = 2x² + 4x + 3x + 6 = 2x² + 7x + 6 sweets."
-        },
-        "inSimpleWords": "Expand by multiplying every term in the first bracket by every term in the second, then combine like terms.",
-        "emoji": "📊"
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Turn: The Sweet Box Problem",
-        "storyContext": "Maya designs a box with dimensions (a + 5) by (a + 5) by (a + 3). What is the volume?",
-        "example": {
-          "problem": "Find the volume of a box with dimensions (a + 5) × (a + 5) × (a + 3).",
-          "solution": "First, (a + 5)² = a² + 10a + 25. Then multiply by (a + 3): (a² + 10a + 25)(a + 3) = a³ + 3a² + 10a² + 30a + 25a + 75 = a³ + 13a² + 55a + 75."
-        },
-        "inSimpleWords": "Expand step by step: first expand the square, then multiply the result by the third dimension.",
-        "emoji": "🎁",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Fireworks_Small_Magellanic_Cloud.jpg/960px-Fireworks_Small_Magellanic_Cloud.jpg",
-          "alt": "Your Turn: The Sweet Box Problem — We Distribute, Yet Things Multiply",
-          "q": "turn: colorful learning"
-        }
-      },
-      {
-        "kind": "recap",
-        "title": "What We Learned",
-        "points": [
-          {
-            "text": "Distributive property: a(b + c) = ab + ac."
-          },
-          {
-            "text": "Expanding two brackets: (a + b)(c + d) = ac + ad + bc + bd."
-          },
-          {
-            "text": "Perfect squares: (a + b)² = a² + 2ab + b² and (a - b)² = a² - 2ab + b²."
-          },
-          {
-            "text": "Difference of squares: (a + b)(a - b) = a² - b²."
-          }
-        ],
-        "inSimpleWords": "Expanding means removing brackets by multiplying and adding terms. Master these patterns to simplify algebra.",
-        "emoji": "✅"
-      }
-    ]
-  },
-  {
-    "slug": "class-3-science-light-and-shadow",
-    "classLevel": "3",
-    "subject": "Science",
-    "chapter": "Light and Shadow",
-    "chapterAliases": [
-      "How Shadows Form",
-      "Properties of Light",
-      "Reflection"
-    ],
-    "title": "Arun and Priya's Shadow Theater",
-    "hook": "Can you make shadows dance? Arun and Priya explore light and dark.",
-    "characters": [
-      {
-        "name": "Arun",
-        "emoji": "👦",
-        "role": "shadow puppet artist"
-      },
-      {
-        "name": "Priya",
-        "emoji": "👧",
-        "role": "light scientist"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "story",
-        "title": "The Puppet Show",
-        "storyContext": "On a rainy evening, Arun and Priya set up a shadow puppet show. Priya holds a lamp. Arun makes hand shapes between the lamp and a white sheet. Giant shadows dance on the wall. 'How does this work?' asks Arun.",
-        "points": [
-          {
-            "label": "Scene",
-            "text": "Arun's house. White sheet hung on wall. Lamp behind Arun. Dark room."
-          }
-        ],
-        "inSimpleWords": "Light makes shadows when blocked by objects.",
-        "emoji": "🎭",
-        "image": {
-          "url": "https://images.pexels.com/photos/10846201/pexels-photo-10846201.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Puppet Show — Light and Shadow",
-          "q": "light"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "What is Light?",
-        "storyContext": "Priya explains: 'Light travels in straight lines from a source (like the sun or a lamp). When light hits an object, it can pass through (transparent), bend through (transparent-ish), or bounce off (opaque/reflective).'",
-        "points": [
-          {
-            "label": "Transparent",
-            "text": "Light passes through—you see clearly (glass, water)"
-          },
-          {
-            "label": "Translucent",
-            "text": "Light bends through—blurry view (frosted glass)"
-          },
-          {
-            "label": "Opaque",
-            "text": "Light bounces off—you cannot see through (wood, paper)"
-          }
-        ],
-        "inSimpleWords": "Light travels straight and bounces off things.",
-        "emoji": "💡",
-        "image": {
-          "url": "https://images.pexels.com/photos/5767823/pexels-photo-5767823.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What is Light? — Light and Shadow",
-          "q": "light"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "How Shadows Form",
-        "storyContext": "Arun holds his hand up to the lamp. 'Light goes straight from the lamp, hits my hand (opaque), and cannot go through. Behind my hand, there is no light—a shadow!'",
-        "example": {
-          "problem": "Why is there a shadow behind an opaque object in a light beam?",
-          "solution": "Light travels in straight lines. When it hits an opaque object, it cannot pass through, creating a dark area (shadow) behind it."
-        },
-        "inSimpleWords": "Shadows form when objects block light rays.",
-        "emoji": "🚫",
-        "image": {
-          "url": "https://images.pexels.com/photos/12515986/pexels-photo-12515986.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "How Shadows Form — Light and Shadow",
-          "q": "light"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Shadow Sizes Change",
-        "storyContext": "Priya moves the lamp closer to Arun's hand. His shadow gets bigger. 'The closer the light source, the bigger the shadow because light spreads out from a point!'",
-        "points": [
-          {
-            "label": "Close light",
-            "text": "Bigger shadow"
-          },
-          {
-            "label": "Far light",
-            "text": "Smaller shadow"
-          },
-          {
-            "label": "Reason",
-            "text": "Light rays spread wider from close source"
-          }
-        ],
-        "inSimpleWords": "Light distance changes the size of shadows.",
-        "emoji": "🔍",
-        "image": {
-          "url": "https://images.pexels.com/photos/37192626/pexels-photo-37192626.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Shadow Sizes Change — Light and Shadow",
-          "q": "light"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "Sun Shadows During the Day",
-        "storyContext": "Priya says, 'The sun creates your shadow outdoors. In the morning, your shadow is long. At noon, it is short. In the evening, it is long again. Why?' Arun figures out: 'Because the sun is angle changes!'",
-        "example": {
-          "problem": "Why is your shadow longest in early morning and late evening?",
-          "solution": "When the sun is low on the horizon, light rays hit at an angle, making shadows stretch. At noon, the sun is high, shadows are short."
-        },
-        "inSimpleWords": "Sun angle changes shadow size throughout the day.",
-        "emoji": "🌅",
-        "image": {
-          "url": "https://images.pexels.com/photos/34386517/pexels-photo-34386517.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Sun Shadows During the Day — Light and Shadow",
-          "q": "light"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Reflection: Light Bounces",
-        "storyContext": "Priya holds a mirror in Arun's light beam. 'Look! The light bounces off the mirror and reflects. Mirrors are very smooth and shiny, so light bounces perfectly.'",
-        "points": [
-          {
-            "label": "Reflection",
-            "text": "Light bounces off smooth, shiny surfaces (mirrors)"
-          },
-          {
-            "label": "Angle",
-            "text": "Light bounces at the same angle it hits (angle of incidence = angle of reflection)"
-          },
-          {
-            "label": "Diffuse",
-            "text": "Rough surfaces scatter light in all directions"
-          }
-        ],
-        "inSimpleWords": "Mirrors reflect light back instead of absorbing it.",
-        "emoji": "🪞",
-        "image": {
-          "url": "https://images.pexels.com/photos/29109680/pexels-photo-29109680.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Reflection: Light Bounces — Light and Shadow",
-          "q": "light"
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Create Shadow Art",
-        "storyContext": "Arun and Priya stage a shadow puppet show: a dog, a butterfly, a bird. 'Make bigger shadows, smaller shadows, moving shadows!' says Priya. Arun practices different hand shapes and lamp distances.",
-        "points": [
-          {
-            "label": "Try this",
-            "text": "Make 5 different animal shadows using your hands and a light source."
-          }
-        ],
-        "inSimpleWords": "Shadow puppets show how light and objects interact.",
-        "emoji": "🎯",
-        "image": {
-          "url": "https://images.pexels.com/photos/5812839/pexels-photo-5812839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Create Shadow Art — Light and Shadow",
-          "q": "light"
-        }
-      },
-      {
-        "kind": "recap",
-        "title": "Light and Shadow Mastery",
-        "storyContext": "By night's end, Arun and Priya have created a complete puppet story. They now know: light travels straight, shadows form when light is blocked, and mirrors reflect light. Magic is just science!",
-        "points": [
-          {
-            "label": "Remember",
-            "text": "Light travels in straight lines from a source"
-          },
-          {
-            "label": "Remember",
-            "text": "Shadows form behind opaque objects blocking light"
-          },
-          {
-            "label": "Remember",
-            "text": "Shadow size depends on light distance and angle"
-          },
-          {
-            "label": "Remember",
-            "text": "Mirrors reflect light; rough surfaces scatter it"
-          }
-        ],
-        "inSimpleWords": "Light, shadows, and reflection create amazing effects.",
-        "emoji": "⭐",
-        "image": {
-          "url": "https://images.pexels.com/photos/8358607/pexels-photo-8358607.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Light and Shadow Mastery — Light and Shadow",
-          "q": "light"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "class-5-financial-literacy-needs-vs-wants-smart-spending",
-    "classLevel": "5",
-    "subject": "Financial Literacy",
-    "chapter": "Needs vs Wants — Smart Spending",
-    "title": "Priya's Shopping Puzzle",
-    "hook": "Should you buy everything you want, or only what you need? Priya finds out!",
-    "characters": [
-      {
-        "name": "Priya",
-        "emoji": "👧",
-        "role": "a thoughtful student learning to spend wisely"
-      },
-      {
-        "name": "Mom",
-        "emoji": "👩",
-        "role": "Priya's mother who teaches smart spending"
-      },
-      {
-        "name": "Dev",
-        "emoji": "👦",
-        "role": "Priya's friend who wants everything"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "Priya's Shopping Puzzle",
-        "storyContext": "Priya learns the difference between what she needs and what she just wants.",
-        "emoji": "🛍️",
-        "image": {
-          "url": "https://images.pexels.com/photos/10127242/pexels-photo-10127242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Priya's Shopping Puzzle — Needs vs Wants — Smart Spending",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Festival Fair",
-        "storyContext": "During the local Diwali fair, Priya's mom gives her ₹500. Priya's eyes grow wide—there are so many stalls! Toys, clothes, jewelry, sweets, games, books! Her friend Dev is already running toward the toy stall. But Priya's mom says, 'Wait. Before you spend, let's think about what you NEED versus what you WANT.' Priya is confused: doesn't she need everything that looks fun?",
-        "emoji": "🎡",
-        "image": {
-          "url": "https://images.pexels.com/photos/36650154/pexels-photo-36650154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Festival Fair — Needs vs Wants — Smart Spending",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "What Are Needs?",
-        "storyContext": "Mom sits with Priya and explains: 'Needs are things your body and life require to be healthy and safe.'",
-        "points": [
-          {
-            "text": "Food (rice, bread, vegetables, milk) to stay strong."
-          },
-          {
-            "text": "Clothes to cover your body and stay warm."
-          },
-          {
-            "text": "A home to sleep and be safe."
-          },
-          {
-            "text": "School books and pencils to learn."
-          },
-          {
-            "text": "Medicine when you're sick."
-          }
-        ],
-        "example": {
-          "problem": "Priya needs new school shoes (hers are worn out). This costs ₹400. Is this a need or a want?",
-          "solution": "A NEED—school shoes protect her feet and are required for school."
-        },
-        "inSimpleWords": "Needs are things you must have to be healthy, safe, and to do your work or go to school.",
-        "emoji": "❤️",
-        "image": {
-          "url": "https://images.pexels.com/photos/256491/pexels-photo-256491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What Are Needs? — Needs vs Wants — Smart Spending",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "What Are Wants?",
-        "storyContext": "Priya points at a beautiful toy robot on a stall. Mom says, 'That's a WANT. Wants are things you desire but don't truly need.'",
-        "points": [
-          {
-            "text": "Toys and games you enjoy but don't use every day."
-          },
-          {
-            "text": "Extra clothes because they look nice (beyond what you wear)."
-          },
-          {
-            "text": "Sweets and snacks (beyond basic food for health)."
-          },
-          {
-            "text": "Movies, fun outings, video games."
-          },
-          {
-            "text": "Jewelry, fancy items, new gadgets."
-          }
-        ],
-        "example": {
-          "problem": "Priya sees a ₹250 toy robot. She already has toys at home. Is this a need or a want?",
-          "solution": "A WANT—it's nice to have but she doesn't need it to be healthy or safe."
-        },
-        "inSimpleWords": "Wants are things that make you happy or entertained but you can live without them.",
-        "emoji": "🎮",
-        "image": {
-          "url": "https://images.pexels.com/photos/8500417/pexels-photo-8500417.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What Are Wants? — Needs vs Wants — Smart Spending",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Needs Come First—Smart Spending Rule #1",
-        "storyContext": "Mom hands Priya a simple rule: 'Every rupee you have should go to needs FIRST. Only spend on wants with leftover money.' Priya nods—this makes sense!",
-        "points": [
-          {
-            "text": "Priority 1: Buy what you need for health, safety, and learning."
-          },
-          {
-            "text": "Priority 2: If money is left after needs, then buy a want (if you really want it)."
-          },
-          {
-            "text": "Priority 3: Save any money that's left (for later surprises or emergencies)."
-          }
-        ],
-        "example": {
-          "problem": "Priya has ₹500. She needs new shoes (₹400) and school books (₹50). That's ₹450. She wants a toy (₹150). What should she do?",
-          "solution": "First buy needs: ₹400 + ₹50 = ₹450. Left: ₹50. The toy costs ₹150, so she CAN'T afford the want. Better to save the ₹50 or buy a smaller want."
-        },
-        "inSimpleWords": "Always buy what you need first, then if there's money left, you can spend on wants.",
-        "emoji": "📋",
-        "image": {
-          "url": "https://images.pexels.com/photos/4912789/pexels-photo-4912789.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Needs Come First—Smart Spending Rule #1 — Needs vs Wants — Smart Spending",
-          "q": "money"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "The Trap of Too Many Wants",
-        "storyContext": "Priya watches Dev at the fair. He buys a toy (₹120), then a game (₹180), then snacks (₹100). He spent ₹400 on things he wanted! By the end, he's out of money and can't buy the winter jacket he actually needs. Mom says gently, 'That's the trap of wants—they add up fast and eat your money.'",
-        "points": [
-          {
-            "text": "Wants are unlimited—there's always something new and shiny to buy."
-          },
-          {
-            "text": "If you spend on every want, you'll run out of money for real needs."
-          },
-          {
-            "text": "Smart spenders pick ONE want they love, not ten small wants."
-          }
-        ],
-        "inSimpleWords": "Wants are tempting and endless—if you buy many small wants, you'll waste money and not have enough for needs.",
-        "emoji": "⚠️",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/D%C3%BClmen%2C_Viktorkirmes_auf_dem_Overbergplatz_--_2014_--_3738_%282%29.jpg/960px-D%C3%BClmen%2C_Viktorkirmes_auf_dem_Overbergplatz_--_2014_--_3738_%282%29.jpg",
-          "alt": "The Trap of Too Many Wants — Needs vs Wants — Smart Spending",
-          "q": "fair"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Smart Spending at the Fair",
-        "storyContext": "Priya decides to be smart. She checks her list: 'I need school shoes (₹400) and new socks (₹50). That's ₹450. I have ₹500 left: ₹50. I could save it, or buy ONE small want like a book (₹40).'",
-        "points": [
-          {
-            "text": "Make a list of needs BEFORE you go shopping."
-          },
-          {
-            "text": "Buy needs first—don't get distracted by bright, shiny things."
-          },
-          {
-            "text": "From leftover money, pick ONE want you really love (not many small wants)."
-          },
-          {
-            "text": "Save the rest for later or emergencies."
-          }
-        ],
-        "inSimpleWords": "Make a list, buy needs first, pick one small want if there's money left, and save the rest.",
-        "emoji": "✅",
-        "image": {
-          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Smart Spending at the Fair — Needs vs Wants — Smart Spending",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "Priya's Smart Shopping (Full Example)",
-        "storyContext": "Priya goes to the fair with ₹500. She needs: new shoes (₹400), socks (₹50), and wants to buy a book (₹40). How much money does she save?",
-        "example": {
-          "problem": "Needs: ₹400 + ₹50 = ₹450. One want: book ₹40. Total spent: ₹450 + ₹40 = ₹490. Saved: ₹500 − ₹490 = ?",
-          "solution": "₹10 saved for later."
-        },
-        "emoji": "🧮",
-        "image": {
-          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Priya's Smart Shopping (Full Example) — Needs vs Wants — Smart Spending",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Turn: Smart Shopping",
-        "storyContext": "You have ₹300. You need a new school bag (₹200). You want a pencil box (₹50) and a notebook (₹30). Do you have enough? How much is left after buying needs AND one want? Can you buy everything?",
-        "example": {
-          "problem": "Needs: ₹200 (bag). Wants: ₹50 (pencil box) + ₹30 (notebook) = ₹80. Total: ₹200 + ₹80 = ₹280. You have ₹300. Left: ?",
-          "solution": "Yes, you can afford everything! Leftover: ₹300 − ₹280 = ₹20."
-        },
-        "emoji": "🎯",
-        "image": {
-          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Turn: Smart Shopping — Needs vs Wants — Smart Spending",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "recap",
-        "title": "What We Learned",
-        "storyContext": "Priya bought her needs, one small want, and saved money. She felt wise and happy!",
-        "points": [
-          {
-            "text": "Needs are food, clothes, shelter, school, and medicine—things you must have."
-          },
-          {
-            "text": "Wants are toys, games, snacks, and fun things you enjoy but can live without."
-          },
-          {
-            "text": "Smart rule: Buy needs FIRST, then one want if money is left, then SAVE."
-          },
-          {
-            "text": "Don't fall into the trap of many small wants—they add up and waste money."
-          }
-        ],
-        "inSimpleWords": "Be smart about money: needs first, one favorite want second, and save the rest.",
-        "emoji": "🎓",
-        "image": {
-          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What We Learned — Needs vs Wants — Smart Spending",
-          "q": "classroom"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "class-6-english-the-winner",
-    "classLevel": "6",
-    "subject": "English",
-    "chapter": "The Winner",
-    "title": "The Winner",
-    "hook": "A boy discovers that true victory isn't about beating others—it's about becoming better than you were yesterday.",
-    "characters": [
-      {
-        "name": "Arjun",
-        "emoji": "👦",
-        "role": "a competitive boy who learns what winning really means"
-      },
-      {
-        "name": "Coach Sharma",
-        "emoji": "🏃",
-        "role": "wise running coach who teaches through example"
-      },
-      {
-        "name": "Dev",
-        "emoji": "👦",
-        "role": "Arjun's rival who becomes his mirror"
-      }
-    ],
-    "slides": [
-      {
-        "kind": "title",
-        "title": "The Winner",
-        "storyContext": "In a village near a cricket ground, Arjun runs every morning—always trying to be faster than Dev, always chasing first place.",
-        "emoji": "🏃‍♂️",
-        "image": {
-          "url": "https://images.pexels.com/photos/17979564/pexels-photo-17979564.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Winner — The Winner",
-          "q": "running"
-        }
-      },
-      {
-        "kind": "story",
-        "title": "The Race That Wasn't a Real Race",
-        "storyContext": "Every morning, Arjun and Dev race around the village boundary. Arjun beats Dev by a few seconds and feels proud all day. Dev feels defeated. One morning, Coach Sharma stops them and asks: 'Who won?' Arjun says, 'I did!' The coach says, 'But who became faster than yesterday? That's the real winner.'",
-        "emoji": "🏁",
-        "image": {
-          "url": "https://images.pexels.com/photos/12168815/pexels-photo-12168815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Race That Wasn't a Real Race — The Winner",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Two Kinds of Winning",
-        "points": [
-          {
-            "label": "Beating someone else",
-            "text": "This winning depends on another person being slower than you. If they improve, you have to improve more to stay ahead. It's exhausting. And if you lose once, you feel like a complete failure."
-          },
-          {
-            "label": "Beating yourself",
-            "text": "This winning is personal. Did you run faster than last week? Did you study harder? Did you become kinder? This winning never stops because you're always competing with yesterday's version of you."
-          }
-        ],
-        "inSimpleWords": "Winning against another person depends on luck and their performance. But winning against yourself is always in your control.",
-        "emoji": "⚖️",
-        "image": {
-          "url": "https://images.pexels.com/photos/36159720/pexels-photo-36159720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Two Kinds of Winning — The Winner",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "The Real Problem with Needing to Beat Others",
-        "points": [
-          {
-            "label": "What Coach teaches",
-            "text": "He asks Arjun: 'If I told you Dev stopped running, would you still run?' Arjun realizes he only runs because he's trying to beat Dev. Without an opponent, the joy disappears."
-          },
-          {
-            "label": "The trap",
-            "text": "When you need someone to lose so you can win, you can never be happy. Because there's always someone faster, smarter, richer, better at something. The finish line keeps moving."
-          }
-        ],
-        "inSimpleWords": "If you only feel good when you're beating someone else, you'll feel bad most of your life because someone is always better at something.",
-        "emoji": "😢",
-        "image": {
-          "url": "https://images.pexels.com/photos/8363021/pexels-photo-8363021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The Real Problem with Needing to Beat Others — The Winner",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Arjun's New Time Trial",
-        "points": [
-          {
-            "label": "The experiment",
-            "text": "Coach Sharma times Arjun running alone, with no Dev in sight. 'Run as fast as you can,' he says. Arjun runs and his time is the best ever. When he finishes, he's not thinking about Dev—he's thinking, 'I just did something I couldn't do last month!'"
-          },
-          {
-            "label": "The feeling",
-            "text": "This joy is different. It's deeper because it's about growth, not about beating someone. It's about Arjun becoming a better version of himself."
-          }
-        ],
-        "inSimpleWords": "The real victory is personal. It's the joy of knowing you tried your hardest and became better than before.",
-        "emoji": "✨",
-        "image": {
-          "url": "https://images.pexels.com/photos/9780101/pexels-photo-9780101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Arjun's New Time Trial — The Winner",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Dev's Secret Journey",
-        "points": [
-          {
-            "label": "What Arjun doesn't know",
-            "text": "Dev is also running every morning, but for a different reason. He has asthma. Last year, doctors said he couldn't run. Now, he can finish a full morning run without stopping. For Dev, every morning is a victory over his own limits."
-          },
-          {
-            "label": "True competitors",
-            "text": "When Arjun learns this, he stops seeing Dev as an opponent. They're both fighting battles Arjun didn't know about. Dev is the real winner—winning against his own body's limits."
-          }
-        ],
-        "inSimpleWords": "The greatest victories are often invisible. You don't see the battle someone else is fighting inside themselves.",
-        "emoji": "💪",
-        "image": {
-          "url": "https://images.pexels.com/photos/10646409/pexels-photo-10646409.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Dev's Secret Journey — The Winner",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "example",
-        "title": "The District Race",
-        "example": {
-          "problem": "Arjun and Dev enter the village's district running race. There are fifty boys from different villages running. Arjun expects to finish first. But a boy from a mountain village finishes first, and Dev finishes second. Arjun finishes fifth. He feels devastated—he lost! But Coach Sharma is smiling at him. Why?",
-          "solution": "Arjun looks at his time. It's the fastest he's ever run—faster than last month, faster than last week. He also ran faster today than yesterday. He improved. In a big race with unknown runners, his improvement is what matters, not the rank. Dev is happy too—his second place is a new personal best for him. The boy from the mountain village is happy—he's training for the state championship. Everyone improved their time. Everyone is a winner by the real measure. Arjun finally understands what Coach meant."
-        },
-        "emoji": "🏆",
-        "image": {
-          "url": "https://images.pexels.com/photos/12199101/pexels-photo-12199101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "The District Race — The Winner",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Your Challenge: Define Your Own Winning",
-        "example": {
-          "problem": "Pick something you do that you want to get better at—running, studies, art, music, sports, anything. For the next week, don't focus on beating anyone else. Focus only on beating yesterday's version of you. Can you do ten more math problems than yesterday? Can you run 10 seconds faster? Can you write one more page? Track just this improvement.",
-          "solution": "At the end of the week, you'll notice something: the joy of improvement is reliable. You can always find something to improve. You can always beat yesterday. This is true winning—winning that depends only on you and your effort. When you beat yourself, no one can take that victory away. And when you meet someone who beat you in a race or test, you don't feel threatened—you think, 'Great, someone to learn from. Maybe I can improve more.'"
-        },
-        "emoji": "📈",
-        "image": {
-          "url": "https://images.pexels.com/photos/19579986/pexels-photo-19579986.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Your Challenge: Define Your Own Winning — The Winner",
-          "q": "student"
-        }
-      },
-      {
-        "kind": "recap",
-        "title": "What We Learned About Real Winning",
-        "points": [
-          {
-            "text": "True victory isn't about beating others. It's about being better today than you were yesterday."
-          },
-          {
-            "text": "When you need someone to lose so you can win, you're never truly happy—there's always someone better at something."
-          },
-          {
-            "text": "The greatest victories are often invisible. You don't see the battles people fight within themselves."
-          },
-          {
-            "text": "Real winning brings joy that lasts, because it depends only on your effort, not on someone else's performance."
-          },
-          {
-            "text": "When you stop competing against others and start competing against yourself, you become unstoppable."
-          }
-        ],
-        "emoji": "💎",
-        "image": {
-          "url": "https://images.pexels.com/photos/31864418/pexels-photo-31864418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "What We Learned About Real Winning — The Winner",
-          "q": "classroom"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Arjun and Dev Become Partners",
-        "points": [
-          {
-            "label": "A year later",
-            "text": "Arjun and Dev now run together every morning. They check each other's times and celebrate improvements. 'You beat your time by 5 seconds!' they say to each other. 'I beat my asthma for another day!' says Dev. They're still competing, but now they're competing against their own yesterday."
-          },
-          {
-            "label": "The cycle of growth",
-            "text": "When Arjun helps Dev improve, and Dev inspires Arjun not to give up, they're both growing. This is the real power of competition—not crushing others, but lifting each other."
-          }
-        ],
-        "inSimpleWords": "The greatest competitors aren't enemies—they're partners who push each other to be better every single day.",
-        "emoji": "🤝",
-        "image": {
-          "url": "https://images.pexels.com/photos/8363754/pexels-photo-8363754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Arjun and Dev Become Partners — The Winner",
-          "q": "classroom"
         }
       }
     ]
