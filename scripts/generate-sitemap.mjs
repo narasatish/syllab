@@ -258,11 +258,9 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/ai-hub/${t.slug}`, priority: 0.7, changefreq: 'monthly' });
   }
 
-  // Difference Between (comparison) cluster
+  // Difference Between (comparison) cluster — marked noindex (thin content).
+  // Index only hub, not individual comparison pages.
   urls.push({ loc: '/difference-between', priority: 0.8, changefreq: 'weekly' });
-  for (const d of getDifferences(ROOT)) {
-    urls.push({ loc: `/difference-between/${d.slug}`, priority: 0.7, changefreq: 'monthly' });
-  }
 
   // Full Forms cluster — marked noindex (thin content: 1–2 sentence definitions with
   // minimal unique value). These are SEO-scaled templates that drag domain quality.
@@ -270,11 +268,9 @@ function buildUrls({ languages, topicsByLang }) {
   urls.push({ loc: '/full-forms', priority: 0.8, changefreq: 'weekly' });
   // Individual full form pages are omitted to avoid thin-content penalty
 
-  // Glossary cluster
+  // Glossary cluster — marked noindex (thin content). Index only hub.
   urls.push({ loc: '/glossary', priority: 0.8, changefreq: 'weekly' });
-  for (const g of getGlossary(ROOT)) {
-    urls.push({ loc: `/glossary/${g.slug}`, priority: 0.7, changefreq: 'monthly' });
-  }
+  // Individual glossary term pages are omitted to avoid thin-content penalty
 
   // Revision Notes cluster
   urls.push({ loc: '/revision-notes', priority: 0.8, changefreq: 'weekly' });

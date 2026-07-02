@@ -340,20 +340,23 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
 
           {/* CTAs */}
           <div className="anim-fade-up anim-delay-3 flex gap-3 justify-center flex-wrap">
-            <button onClick={goToSkills}
-              className="group bg-gradient-to-r from-violet-500 to-purple-600 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-purple-900/40 hover:shadow-purple-900/60 active:scale-95 transition-all">
+            <a href="/coding"
+              onClick={(e) => { e.preventDefault(); goToSkills(); }}
+              className="group bg-gradient-to-r from-violet-500 to-purple-600 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-purple-900/40 hover:shadow-purple-900/60 active:scale-95 transition-all cursor-pointer">
               <Play size={15} />
               Start Coding Now
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button onClick={goToSyllabus}
-              className="hidden sm:flex bg-white/10 border border-white/20 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:bg-white/15 backdrop-blur-sm items-center gap-2">
+            </a>
+            <a href="/syllabus"
+              onClick={(e) => { e.preventDefault(); goToSyllabus(); }}
+              className="hidden sm:flex bg-white/10 border border-white/20 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:bg-white/15 backdrop-blur-sm items-center gap-2 cursor-pointer">
               📚 Browse Syllabus
-            </button>
-            <button onClick={goToParent}
-              className="hidden md:inline-block text-slate-400 px-5 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:text-white">
+            </a>
+            <a href="/parent"
+              onClick={(e) => { e.preventDefault(); goToParent(); }}
+              className="hidden md:inline-block text-slate-400 px-5 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:text-white cursor-pointer">
               For Parents →
-            </button>
+            </a>
           </div>
 
           {/* Trust strip */}
@@ -390,9 +393,10 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             </p>
           </div>
           {/* Snap & Solve — surface the existing AI doubt solver prominently */}
-          <button
-            onClick={() => { setTab?.('doubt_solver'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="hover-lift group relative overflow-hidden rounded-[1.5rem] p-6 text-left text-white"
+          <a
+            href="/doubt-solver"
+            onClick={(e) => { e.preventDefault(); setTab?.('doubt_solver'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="hover-lift group relative overflow-hidden rounded-[1.5rem] p-6 text-left text-white cursor-pointer"
             style={{ backgroundImage: 'var(--grad-vivid)', boxShadow: '0 16px 40px -10px rgba(139,92,246,.45)' }}
           >
             <span className="absolute right-4 top-4 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-black tracking-wider">FREE</span>
@@ -400,7 +404,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             <h3 className="mt-3 text-xl font-extrabold">Snap &amp; Solve a doubt</h3>
             <p className="mt-1.5 text-sm font-medium text-white/90">Stuck on a question? Photograph it and get a clear, step-by-step AI solution in seconds.</p>
             <span className="mt-4 inline-flex items-center gap-1 text-sm font-black">Open the doubt solver →</span>
-          </button>
+          </a>
         </div>
       </section>
 
@@ -409,18 +413,18 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         <h2 className="sr-only">What makes Syllab different</h2>
         <div className="grid gap-4 sm:grid-cols-3">
           {([
-            { tab: 'learning_lab', emoji: '🎓', title: 'AI Tuition Teacher', desc: 'Daily homework by class & chapter — type or upload your answers, get marked instantly with XP. Like a private tutor, free.', badge: 'NEW', grad: 'from-emerald-500 to-teal-600' },
-            { tab: 'important_questions', emoji: '🎯', title: 'Important Questions', desc: 'Chapter-wise board-exam questions for Class 6–12, each with a full AI answer.', badge: 'NEW', grad: 'from-violet-500 to-indigo-600' },
-            { tab: 'syllabus', emoji: '👶', title: 'Kids Zone + Worksheets', desc: 'Free preschool learning, stories, games & 200+ printable worksheets.', badge: 'FREE', grad: 'from-pink-500 to-rose-600' },
+            { tab: 'learning_lab', path: '/ai-tutor', emoji: '🎓', title: 'AI Tuition Teacher', desc: 'Daily homework by class & chapter — type or upload your answers, get marked instantly with XP. Like a private tutor, free.', badge: 'NEW', grad: 'from-emerald-500 to-teal-600' },
+            { tab: 'important_questions', path: '/important-questions', emoji: '🎯', title: 'Important Questions', desc: 'Chapter-wise board-exam questions for Class 6–12, each with a full AI answer.', badge: 'NEW', grad: 'from-violet-500 to-indigo-600' },
+            { tab: 'syllabus', path: '/syllabus', emoji: '👶', title: 'Kids Zone + Worksheets', desc: 'Free preschool learning, stories, games & 200+ printable worksheets.', badge: 'FREE', grad: 'from-pink-500 to-rose-600' },
           ]).map((c) => (
-            <button key={c.tab} onClick={() => { setTab?.(c.tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${c.grad} p-5 text-left text-white shadow-lg transition-transform hover:-translate-y-1`}>
+            <a key={c.tab} href={c.path} onClick={(e) => { e.preventDefault(); setTab?.(c.tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${c.grad} p-5 text-left text-white shadow-lg transition-transform hover:-translate-y-1 cursor-pointer`}>
               {c.badge ? <span className="absolute right-3 top-3 rounded-full bg-white/25 px-2 py-0.5 text-[10px] font-black tracking-wider">{c.badge}</span> : null}
               <div className="text-4xl">{c.emoji}</div>
               <h3 className="mt-3 text-lg font-black">{c.title}</h3>
               <p className="mt-1 text-sm font-medium text-white/85">{c.desc}</p>
               <span className="mt-3 inline-flex items-center gap-1 text-xs font-black text-white/90">Explore →</span>
-            </button>
+            </a>
           ))}
         </div>
       </section>
@@ -442,11 +446,11 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
 
         <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-2 sm:gap-3 max-w-5xl mx-auto">
           {CLASSES.map((classNum) => (
-            <button key={classNum} onClick={() => handleClassClick(classNum)}
-              className="group card-hover p-3 sm:p-5 bg-white border-2 border-slate-100 rounded-2xl text-center hover:border-violet-500 hover:bg-violet-50 active:scale-95 transition-all">
+            <a key={classNum} href={`/class-${classNum}`} onClick={(e) => { e.preventDefault(); handleClassClick(classNum); }}
+              className="group card-hover p-3 sm:p-5 bg-white border-2 border-slate-100 rounded-2xl text-center hover:border-violet-500 hover:bg-violet-50 active:scale-95 transition-all cursor-pointer">
               <div className="text-[8px] font-black uppercase tracking-widest text-slate-600 group-hover:text-violet-500 transition-colors">Cls</div>
               <div className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-violet-700 transition-colors">{classNum}</div>
-            </button>
+            </a>
           ))}
         </div>
       </section>

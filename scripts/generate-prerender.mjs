@@ -84,16 +84,28 @@ const ROUTES = [
     title: 'Mock Tests — Free JEE, NEET, EAMCET & State Exam Papers | Syllab.in',
     description: 'Free mock tests for JEE Main, NEET, EAMCET, VIT, BITSAT, and all state engineering entrance exams (WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE). 10+ mocks each. Math & Science Olympiads included.',
     keywords: 'JEE Main mock test 2026 free, NEET mock test 2026 free, EAMCET mock test free, VIT mock test, BITSAT mock test free, WBJEE mock test free, TNEA mock test, UPSEE 2026 free, MHT-CET mock test free, KCET 2026 mock test, COMEDK UGET practice, GUJCET practice free, OJEE mock test free, state engineering entrance exams, full length mock test free India, board exam practice test Class 10, Math Olympiad free, Science Olympiad practice, sample paper CBSE 2026, previous year question paper, engineering entrance exam preparation free',
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Course',
-      name: 'Free Mock Tests for JEE, NEET, EAMCET & State Exams',
-      description: 'Practice with full mock tests for JEE Mains, NEET, EAMCET, BITSAT, WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE and Olympiads — 200+ mocks total, all free',
-      provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
-      isAccessibleForFree: true,
-      inLanguage: 'en-IN',
-      educationalLevel: 'Class 9 to Class 12',
-    },
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: 'Free Mock Tests for JEE, NEET, EAMCET & State Exams',
+        description: 'Practice with full mock tests for JEE Mains, NEET, EAMCET, BITSAT, WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE and Olympiads — 200+ mocks total, all free',
+        provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+        isAccessibleForFree: true,
+        inLanguage: 'en-IN',
+        educationalLevel: 'Class 9 to Class 12',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Syllab Mock Tests',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        isAccessibleForFree: true,
+        description: '200+ full-length mock tests for JEE, NEET, EAMCET and state engineering exams',
+      },
+    ],
   },
   {
     path: '/ai-tutor',
@@ -437,6 +449,7 @@ for (let c = 1; c <= 12; c++) {
         '@type': 'CourseInstance',
         name: `Class ${c} ${sub}`,
         courseMode: 'online',
+        isAccessibleForFree: true,
       })),
     },
   });
@@ -992,6 +1005,7 @@ for (const d of DIFFS) {
     title: `${d.title} (with Comparison Table) | Syllab.in`,
     description: d.intro,
     keywords: `difference between ${d.termA.toLowerCase()} and ${d.termB.toLowerCase()}, ${d.termA.toLowerCase()} vs ${d.termB.toLowerCase()}, ${d.category.toLowerCase()} comparison, ${d.classLevel.toLowerCase()}`,
+    noindex: true, // Post-March-2026 update: thin templated content drags domain quality.
     jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Difference Between', item: `${SITE}/difference-between` },
       { '@type': 'ListItem', position: 2, name: d.title, item: `${SITE}/difference-between/${d.slug}` },
@@ -1119,7 +1133,21 @@ ROUTES.push({
   title: 'Glossary — Key Science, Maths & Subject Definitions for Students | Syllab.in',
   description: `Free student glossary — clear definitions of ${GLOSSARY_DATA.length}+ key terms across Biology, Physics, Chemistry, Maths and more, with examples. CBSE/NCERT aligned.`,
   keywords: 'definition, glossary, what is photosynthesis, science definitions, maths definitions, CBSE terms, NCERT definitions',
-  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Student Glossary', url: `${SITE}/glossary`, inLanguage: 'en-IN', isAccessibleForFree: true },
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Student Glossary', url: `${SITE}/glossary`, inLanguage: 'en-IN', isAccessibleForFree: true },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTermSet',
+      name: 'Student Glossary',
+      description: `${GLOSSARY_DATA.length}+ key terms across Biology, Physics, Chemistry, Maths and more`,
+      hasDefinedTerm: GLOSSARY_DATA.slice(0, 20).map(g => ({
+        '@type': 'DefinedTerm',
+        name: g.term,
+        description: g.definition,
+        url: `${SITE}/glossary/${g.slug}`,
+      })),
+    },
+  ],
 });
 const GLOSS_BY_CAT = {};
 for (const g of GLOSSARY_DATA) (GLOSS_BY_CAT[g.category || ''] ||= []).push(g);
@@ -1134,6 +1162,7 @@ for (const g of GLOSSARY_DATA) {
     title: `What is ${g.term}? Definition, Meaning & Example | Syllab.in`,
     description: g.definition,
     keywords: `${g.term.toLowerCase()} definition, what is ${g.term.toLowerCase()}, ${g.term.toLowerCase()} meaning, ${(g.category||'').toLowerCase()}`,
+    noindex: true, // Post-March-2026 update: thin templated content drags domain quality.
     bodyHtml: glossaryBody(g, sibs),
     jsonLd: (g.faqs && g.faqs.length) ? [breadcrumb, faqJsonLd(g.faqs)] : breadcrumb,
   });
@@ -2037,7 +2066,7 @@ function ogImageFor(p) {
 function buildHeadBlock(route) {
   const canonical = `${SITE}${route.path}`;
   const robots = route.noindex
-    ? 'noindex,nofollow'
+    ? 'noindex,follow' // follow (not nofollow): pruned thin pages still pass link equity
     : 'index,follow,max-image-preview:large,max-snippet:-1';
   const ogImg = `${SITE}/${ogImageFor(route.path)}.png`;
 

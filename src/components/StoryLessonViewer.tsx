@@ -59,10 +59,12 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
   const slide = isCover ? null : lesson.slides[index - 1];
   const progress = Math.round(((index + 1) / total) * 100);
 
-  // Voice-over — free on-device browser TTS (SpeechSynthesis). A premium human
-  // voice can be layered on later behind a key without changing this UI.
+  // Voice-over — prefers pre-generated human-sounding neural MP3s
+  // (/audio/story/{slug}/{index}.mp3, made by scripts/gen-voice.py); falls back
+  // to on-device browser TTS when a clip doesn't exist (e.g. higher classes).
   const [speaking, setSpeaking] = useState(false);
-  const speak = () => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const speakBrowser = () => {
     try {
       const synth = window.speechSynthesis;
       if (!synth) return;
@@ -80,12 +82,27 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
       synth.speak(u);
     } catch { setSpeaking(false); }
   };
-  const stopSpeak = () => { try { window.speechSynthesis?.cancel(); } catch { /* ignore */ } setSpeaking(false); };
+  const speak = () => {
+    const a = new Audio(`/audio/story/${lesson.slug}/${index}.mp3`);
+    audioRef.current = a;
+    a.onended = () => setSpeaking(false);
+    a.onerror = () => { audioRef.current = null; speakBrowser(); };
+    setSpeaking(true);
+    a.play().catch(() => { audioRef.current = null; speakBrowser(); });
+  };
+  const stopSpeak = () => {
+    try { audioRef.current?.pause(); } catch { /* ignore */ }
+    audioRef.current = null;
+    try { window.speechSynthesis?.cancel(); } catch { /* ignore */ }
+    setSpeaking(false);
+  };
 
   // Keyboard nav + reset scroll + stop narration on slide change.
   const bodyRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     bodyRef.current?.scrollTo({ top: 0 });
+    try { audioRef.current?.pause(); } catch { /* ignore */ }
+    audioRef.current = null;
     try { window.speechSynthesis?.cancel(); } catch { /* ignore */ }
     setSpeaking(false);
     const onKey = (e: KeyboardEvent) => {
@@ -94,7 +111,11 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
       else if (e.key === 'Escape') onClose?.();
     };
     window.addEventListener('keydown', onKey);
-    return () => { window.removeEventListener('keydown', onKey); try { window.speechSynthesis?.cancel(); } catch { /* ignore */ } };
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      try { audioRef.current?.pause(); } catch { /* ignore */ }
+      try { window.speechSynthesis?.cancel(); } catch { /* ignore */ }
+    };
   }, [index, total, onClose]);
 
   const meta = slide ? KIND_META[slide.kind] : KIND_META.title;

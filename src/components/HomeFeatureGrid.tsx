@@ -144,13 +144,27 @@ export default function HomeFeatureGrid({ onNavigate }: Props) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {FEATURES.map((f, i) => (
-          <button
+        {FEATURES.map((f, i) => {
+          const tabToPath: Record<string, string> = {
+            learning_lab: '/ai-tutor',
+            arena: '/practice',
+            mock_tests: '/mock-tests',
+            skills_lab: '/coding',
+            english_lab: '/english',
+            general_knowledge: '/gk-quiz',
+            visual_learning: '/visual-learning',
+            quiz_duel: '/quiz-duel',
+            what_to_study: '/what-to-study',
+            syllabus: '/syllabus',
+          };
+          const path = tabToPath[f.tab] || '/';
+          return (
+          <a
             key={f.id}
-            type="button"
-            onClick={() => onNavigate(f.tab)}
+            href={path}
+            onClick={(e) => { e.preventDefault(); onNavigate(f.tab); }}
             style={{ animationDelay: `${i * 0.08}s` }}
-            className={`hfg-tile group relative overflow-hidden rounded-3xl bg-gradient-to-br ${f.gradient} p-6 sm:p-7 text-left text-white shadow-xl hover:ring-4 transition-transform duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.02] active:scale-95 ${f.ringColor}`}
+            className={`hfg-tile group relative overflow-hidden rounded-3xl bg-gradient-to-br ${f.gradient} p-6 sm:p-7 text-left text-white shadow-xl hover:ring-4 transition-transform duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.02] active:scale-95 ${f.ringColor} cursor-pointer`}
           >
             {/* Decorative floating blobs */}
             <div className="pointer-events-none absolute -top-4 -right-4 w-32 h-32 rounded-full bg-white/10 blur-xl" />
@@ -176,8 +190,9 @@ export default function HomeFeatureGrid({ onNavigate }: Props) {
                 </span>
               </div>
             </div>
-          </button>
-        ))}
+          </a>
+          );
+        })}
       </div>
     </section>
   );

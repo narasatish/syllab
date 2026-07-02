@@ -374,7 +374,7 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     url: 'https://syllab.in/worksheets',
   },
   calculators: {
-    title: 'Free Student Calculators — Percentage, CGPA & Attendance | Syllab.in',
+    title: 'Free Percentage, CGPA & Attendance Calculators for CBSE Students | Syllab.in',
     description: 'Free online calculators for Indian students: marks-to-percentage, CGPA to percentage (CBSE 9.5 rule) and back, and an attendance "can I bunk?" calculator. Instant, no signup.',
     keywords: 'percentage calculator, CGPA to percentage calculator, CBSE CGPA calculator, attendance calculator, can I bunk calculator, marks percentage calculator India, student calculators free',
     url: 'https://syllab.in/calculators',
@@ -497,8 +497,14 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
       inLanguage: 'en-IN',
     },
   },
+  live_quiz: {
+    title: 'Free Live Multiplayer Quiz for Class 6–12 — GK, Science & Maths (Kahoot Alternative) | Syllab.in',
+    description: 'Play free live multiplayer quizzes with Indian students across GK, Science, Maths, and more. Real-time rankings, instant feedback, and daily leaderboards. Like Kahoot but free, no login needed.',
+    keywords: 'live quiz free India, multiplayer quiz online, Kahoot alternative free India, GK quiz live, science quiz multiplayer, maths quiz live, quiz game online free students, competitive quiz app free',
+    url: 'https://syllab.in/live-quiz',
+  },
   prep_hub: {
-    title: 'JEE NEET EAMCET Board Exam Preparation Guides | Syllab.in',
+    title: 'Free JEE Main, NEET & EAMCET Preparation Guides 2026 — Chapter Weightage & Study Plans | Syllab.in',
     description: 'Comprehensive preparation guides for JEE Mains, NEET, EAMCET, and CBSE boards — chapter weightage, study plans, important formulas, and tips from top scorers.',
     keywords: 'JEE Mains preparation 2026, NEET preparation guide, EAMCET strategy, CBSE board exam tips, high weightage chapters JEE, NEET important topics, study plan competitive exam',
     url: 'https://syllab.in/preparation',
@@ -577,7 +583,7 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     },
   },
   english_lab: {
-    title: 'English — Free AI Speaking, Grammar & Vocabulary Practice | Syllab.in',
+    title: 'Free English Grammar, Speaking & Vocabulary Practice for CBSE Class 1–12 | Syllab.in',
     description: 'Practice English daily with AI speaking coach, grammar challenges, reading passages, NCERT story guides, vocabulary builder, and IELTS prep — all free for Indian students.',
     keywords: 'English speaking practice free India, IELTS preparation free, English grammar CBSE Class 10, English vocabulary app free, spoken English practice app, NCERT English Class 9 10, English reading comprehension free, AI English teacher free India, free English coach India, English fluency app free, spoken English course free, learn English online free India, English speaking practice for students, English vocabulary builder Class 6 7 8 9 10',
     url: 'https://syllab.in/english',
@@ -673,7 +679,7 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     url: 'https://syllab.in/web-development',
   },
   general_knowledge: {
-    title: 'GK Quiz — Free General Knowledge MCQs for Indian Students | Syllab.in',
+    title: 'Free GK Quiz for Class 5–12 Students India 2026 — Daily General Knowledge MCQs | Syllab.in',
     description: 'Practice 150+ GK quiz questions on Indian history, geography, polity, static GK, current affairs 2025-26, and science. Free daily GK quiz for Class 5-12 students. Same daily quiz for all users — compete with friends.',
     keywords: 'GK quiz free India, GK questions India free, general knowledge MCQ free India, Indian history MCQ Class 8 9 10, geography questions India, current affairs 2026 India, GK quiz Class 5 6 7 8 9 10, CBSE GK questions free, competitive exam GK preparation, polity questions UPSC SSC, daily GK quiz India, static GK MCQ, Indian constitution MCQ, GK for SSC banking exams, GK Olympiad questions, NTSE GK preparation, Indian states capitals quiz, ISRO missions GK, awards 2026 India, GK questions India daily',
     url: 'https://syllab.in/gk-quiz',
