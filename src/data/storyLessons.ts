@@ -7,7 +7,7 @@
  * authored lessons and AI-generated ones render identically.
  */
 
-import { STORY_LESSONS_GENERATED } from './storyLessonsGenerated';
+import { STORY_LESSONS_INDEX } from './storyLessonsIndex';
 
 export interface StoryCharacter {
   name: string;
@@ -165,26 +165,50 @@ export const STORY_LESSONS: StoryLesson[] = [
   },
 ];
 
-/** Hand-authored flagship lessons + all subagent-generated lessons. */
-const ALL_STORY_LESSONS: StoryLesson[] = [...STORY_LESSONS, ...STORY_LESSONS_GENERATED];
+/*
+ * PERF: generated lessons (~14MB of JSON) are NOT bundled. A tiny metadata index
+ * (STORY_LESSONS_INDEX) answers "does this chapter have a story?" synchronously;
+ * the full lesson is fetched from /story-lessons/class-{n}.json on demand and
+ * memoised per class. Hand-authored STORY_LESSONS stay bundled (they're tiny).
+ */
+const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
-/** Look up a story lesson by chapter identity (class + subject + chapter title). */
-export function getStoryLesson(classLevel?: string, subject?: string, chapter?: string): StoryLesson | null {
-  if (!classLevel || !chapter) return null;
-  const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-  const cls = String(classLevel).replace(/[^0-9]/g, '');
-  const wantChapter = norm(chapter);
-  return (
-    ALL_STORY_LESSONS.find((l) => {
-      if (l.classLevel !== cls) return false;
-      const subjOk = !subject || norm(l.subject) === norm(subject) || norm(l.subject).startsWith(norm(subject).slice(0, 4));
-      if (!subjOk) return false;
-      const names = [l.chapter, ...(l.chapterAliases || [])].map(norm);
-      return names.includes(wantChapter);
-    }) || null
-  );
+function matches(l: { classLevel: string; subject: string; chapter: string; chapterAliases?: string[] }, cls: string, subject?: string, chapter?: string): boolean {
+  if (l.classLevel !== cls || !chapter) return false;
+  const subjOk = !subject || norm(l.subject) === norm(subject) || norm(l.subject).startsWith(norm(subject).slice(0, 4));
+  if (!subjOk) return false;
+  return [l.chapter, ...(l.chapterAliases || [])].map(norm).includes(norm(chapter));
 }
 
+/** Synchronous: does a story lesson exist for this chapter? (index lookup) */
 export function hasStoryLesson(classLevel?: string, subject?: string, chapter?: string): boolean {
-  return getStoryLesson(classLevel, subject, chapter) !== null;
+  if (!classLevel || !chapter) return false;
+  const cls = String(classLevel).replace(/[^0-9]/g, '');
+  return STORY_LESSONS.some((l) => matches(l, cls, subject, chapter))
+    || STORY_LESSONS_INDEX.some((l) => matches(l, cls, subject, chapter));
+}
+
+/** Memoised per-class fetch of the full lesson data. */
+const classCache = new Map<string, Promise<StoryLesson[]>>();
+function loadClass(cls: string): Promise<StoryLesson[]> {
+  let p = classCache.get(cls);
+  if (!p) {
+    p = fetch(`/story-lessons/class-${cls}.json`)
+      .then((r) => (r.ok ? (r.json() as Promise<StoryLesson[]>) : []))
+      .catch(() => { classCache.delete(cls); return []; });
+    classCache.set(cls, p);
+  }
+  return p;
+}
+
+/** Async: load the full story lesson for a chapter (null if none). */
+export async function loadStoryLesson(classLevel?: string, subject?: string, chapter?: string): Promise<StoryLesson | null> {
+  if (!classLevel || !chapter) return null;
+  const cls = String(classLevel).replace(/[^0-9]/g, '');
+  const hand = STORY_LESSONS.find((l) => matches(l, cls, subject, chapter));
+  if (hand) return hand;
+  const entry = STORY_LESSONS_INDEX.find((l) => matches(l, cls, subject, chapter));
+  if (!entry) return null;
+  const lessons = await loadClass(cls);
+  return lessons.find((l) => l.slug === entry.slug) || null;
 }

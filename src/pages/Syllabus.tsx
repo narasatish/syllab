@@ -13,7 +13,7 @@ import { getDeepPptLesson, DeepPptLesson, prewarmPptBackend } from '../lib/pptLe
 import WebSlideViewer from '../components/WebSlideViewer';
 import LessonViewer from '../components/LessonViewer';
 import StoryLessonViewer from '../components/StoryLessonViewer';
-import { getStoryLesson, type StoryLesson } from '../data/storyLessons';
+import { hasStoryLesson, loadStoryLesson, type StoryLesson } from '../data/storyLessons';
 import DeckSlideshow from '../components/DeckSlideshow';
 import { getUploadedDeck, type UploadedDeck } from '../data/uploadedDecks';
 import DeckViewer from '../components/DeckViewer';
@@ -1242,8 +1242,13 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
                 onClick={() => {
                   const uploaded = getUploadedDeck(chapter.classLevel, chapter.title);
                   if (uploaded) { setSlideDeck(uploaded); return; }
-                  const story = getStoryLesson(chapter.classLevel, chapter.subject, chapter.title);
-                  if (story) { setStoryLesson(story); return; }
+                  // Story lessons are fetched on demand (perf: they're not bundled).
+                  if (hasStoryLesson(chapter.classLevel, chapter.subject, chapter.title)) {
+                    void loadStoryLesson(chapter.classLevel, chapter.subject, chapter.title).then((story) => {
+                      if (story) setStoryLesson(story);
+                    });
+                    return;
+                  }
                   const pdfDeck = getDeckUrl(chapter.classLevel, chapter.title);
                   const htmlDeckUrl = getGeneratedDeckUrl(chapter.classLevel, chapter.title);
                   if (pdfDeck) setDeck({ url: pdfDeck, chapter });
