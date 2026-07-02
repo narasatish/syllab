@@ -74,6 +74,35 @@ const ROUTES = [
     keywords: 'CBSE MCQ practice, NCERT questions, chapter wise quiz, online MCQ test, timed practice, CBSE exam prep, free MCQ India, practice arena alternative',
   },
   {
+    path: '/story-lessons',
+    title: 'Story-Based Learning for CBSE Classes 1–12 — NCERT Chapters as Stories | Syllab.in',
+    description: 'Free story-based learning for CBSE NCERT chapters Class 1-12. Every chapter becomes an engaging story. 569 lessons, 534 chapters, voice narration, 100% free for Indian students.',
+    keywords: 'story based learning CBSE, NCERT chapters as stories, engaging learning for kids, memory techniques CBSE, narrative learning, free learning stories India, CBSE Class 1-12 stories',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          { '@type': 'Question', name: 'What is story-based learning?', acceptedAnswer: { '@type': 'Answer', text: 'Story-based learning transforms NCERT chapters into engaging narratives. Students learn through stories that illustrate key concepts, making them 3-4x more memorable and enjoyable.' } },
+          { '@type': 'Question', name: 'Is story-based learning really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, 100% free forever. All 569 story lessons are available to every Indian student at no cost — no signup required, no ads, no hidden charges.' } },
+          { '@type': 'Question', name: 'Which classes are covered?', acceptedAnswer: { '@type': 'Answer', text: 'Story lessons are available for Class 1 through Class 12, covering all subjects following the official NCERT curriculum.' } },
+          { '@type': 'Question', name: 'Does it follow NCERT exactly?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every story maps 1:1 to NCERT chapters, covering 534 chapters across all subjects and classes.' } },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'LearningResource',
+        name: 'Story-Based Learning for CBSE Classes 1–12',
+        description: 'Free story-based learning platform for NCERT chapters — every chapter as an engaging narrative for better retention.',
+        learningResourceType: 'Story-based lesson',
+        isAccessibleForFree: true,
+        educationalLevel: 'CBSE Class 1-12',
+        inLanguage: 'en-IN',
+        url: 'https://syllab.in/story-lessons',
+      },
+    ],
+  },
+  {
     path: '/daily-challenges',
     title: 'Daily Challenge — JEE NEET EAMCET & School Daily Quiz | Syllab.in',
     description: 'Take a daily quiz challenge for JEE, NEET, EAMCET, and school aptitude with live rankings and streak tracking. Same quiz for all users — compete with friends. Practice every day, improve your rank.',

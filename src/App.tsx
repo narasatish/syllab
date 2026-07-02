@@ -64,6 +64,7 @@ import { getCloudRole, getExtendedProfile, getStoredRole, saveUserRole, setStore
 import { initGamification, syncXpMirror } from './lib/gamification';
 import RewardToast from './components/RewardToast';
 import ErrorBoundary from './components/ErrorBoundary';
+import { MotionConfig } from 'motion/react';
 
 // Lazy load pages for performance
 const HomePage = React.lazy(() => import('./pages/Home'));
@@ -140,6 +141,7 @@ const MicrolearningPage = React.lazy(() => import('./pages/Microlearning'));
 const StudyRoomPage = React.lazy(() => import('./pages/StudyRoom'));
 const CalculatorsPage = React.lazy(() => import('./pages/Calculators'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
+const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -261,6 +263,7 @@ const TAB_TO_PATH: Record<string, string> = {
   concepts: '/concepts',
   solved_examples: '/solved-examples',
   lab_practicals: '/lab-practicals',
+  story_lessons: '/story-lessons',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -356,6 +359,7 @@ function resolveTab(pathname: string): string {
   if (pathname === '/concepts' || pathname.startsWith('/concepts/')) return 'concepts';
   if (pathname === '/solved-examples' || pathname.startsWith('/solved-examples/')) return 'solved_examples';
   if (pathname === '/lab-practicals' || pathname.startsWith('/lab-practicals/')) return 'lab_practicals';
+  if (pathname === '/story-lessons' || pathname.startsWith('/story-lessons/')) return 'story_lessons';
   if (pathname === '/doubt-solver') return 'doubt_solver';
   if (pathname === '/micro' || pathname.startsWith('/micro/')) return 'microlearning';
   // Coding deep links (/coding/<lang>, /coding/<lang>/<topic>) — without this,
@@ -384,6 +388,12 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Free AI study room for Indian students: Pomodoro focus timer, calming study ambience, exam countdowns, voice AI tutor for instant doubts, break reminders & study-streak tracking. Study like you have a tuition teacher beside you.',
     keywords: 'study room online free, pomodoro timer study, AI tutor voice India, study with me focus timer, study music free, exam countdown CBSE JEE NEET, distraction blocker study, online study room India students',
     url: 'https://syllab.in/study-room',
+  },
+  story_lessons: {
+    title: 'Story-Based Learning for CBSE Classes 1–12 — NCERT Chapters as Stories | Syllab.in',
+    description: 'Free story-based learning for CBSE NCERT chapters Class 1-12. Every chapter becomes an engaging story. 569 lessons, 534 chapters, voice narration, 100% free for Indian students.',
+    keywords: 'story based learning CBSE, NCERT chapters as stories, engaging learning for kids, memory techniques CBSE, narrative learning, free learning stories India, CBSE Class 1-12 stories',
+    url: 'https://syllab.in/story-lessons',
   },
   home: {
     title: 'Syllab.in — Free AI Learning for CBSE, NCERT, JEE & NEET | Class 1–12',
@@ -1377,6 +1387,9 @@ export default function App() {
   const seo = PAGE_SEO[activeTab] || PAGE_SEO.home;
 
   return (
+    // reducedMotion="user": every motion/react animation respects the OS
+    // prefers-reduced-motion setting (the CSS-only rule can't reach JS animations).
+    <MotionConfig reducedMotion="user">
     <div className="flex min-h-screen flex-col bg-bg-beige text-secondary">
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[100] focus:bg-primary focus:text-white focus:p-4 focus:rounded-b-lg">
         Skip to main content
@@ -1751,6 +1764,7 @@ export default function App() {
                   {activeTab === 'study_room' ? <StudyRoomPage onExit={() => navigate('home')} userUid={currentUser?.uid} userName={currentUser?.displayName || currentUser?.email?.split('@')[0] || null} /> : null}
                   {activeTab === 'calculators' ? <CalculatorsPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
+                  {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
                   {activeTab === 'important_questions' ? <ImportantQuestionsPage setTab={navigate} /> : null}
                   {activeTab === 'mock_exam' ? <MockExamLandingPage setTab={navigate} /> : null}
@@ -1933,6 +1947,7 @@ export default function App() {
           <div className="md:col-span-2">
             <h2 className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-primary mb-4 sm:mb-8">Learning Hub</h2>
             <ul className="grid grid-cols-2 gap-x-5 gap-y-2 sm:gap-y-3 content-start">
+              <li><a href="/story-lessons" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Story Lessons</a></li>
               <li><button onClick={() => navigate('syllabus')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus</button></li>
               <li><button onClick={() => navigate('arena')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
               <li><button onClick={() => navigate('daily')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>
@@ -2074,5 +2089,6 @@ export default function App() {
       ) : null}
       <InstallPrompt />
     </div>
+    </MotionConfig>
   );
 }

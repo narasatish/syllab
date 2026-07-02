@@ -177,6 +177,9 @@ function buildUrls({ languages, topicsByLang }) {
   // Free printable worksheets.
   urls.push({ loc: '/worksheets', priority: 0.8, changefreq: 'weekly' });
 
+  // Story-based learning — index page with all class sections.
+  urls.push({ loc: '/story-lessons', priority: 0.9, changefreq: 'weekly' });
+
   // GK Questions cluster — index + per class (5–12).
   urls.push({ loc: '/gk-questions', priority: 0.8, changefreq: 'weekly' });
   for (let c = 5; c <= 12; c++) {
