@@ -11,7 +11,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { usePathname } from '../lib/isomorphic';
 import {
-  Building2, MapPin, ArrowLeft, GraduationCap, Wallet, BedDouble,
+  MapPin, ArrowLeft, GraduationCap, Wallet, BedDouble,
   Briefcase, TrendingUp, CalendarClock, ChevronRight, AlertCircle, Globe, Compass,
 } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -301,7 +301,6 @@ function CollegeCard({ college: c, go }: { college: CollegeFull; go: (to: string
 /* ─── College detail ────────────────────────────────────────────────────────*/
 function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (to: string) => void; goBack: (parent: string) => void }) {
   const stateSlug = stateSlugForCollege(c);
-  const info = getStateInfo(stateSlug);
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <SEO

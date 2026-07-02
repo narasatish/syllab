@@ -14,7 +14,7 @@ import { usePathname } from '../lib/isomorphic';
 const SITE = 'https://syllab.in';
 
 function parseSlug(pathname: string): string | null {
-  const m = pathname.match(/\/english-grammar\/([a-z\-]+)/);
+  const m = pathname.match(/\/english-grammar\/([a-z-]+)/);
   return m ? m[1] : null;
 }
 

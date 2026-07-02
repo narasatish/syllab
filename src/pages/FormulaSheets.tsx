@@ -4,7 +4,7 @@
  * /formula-sheets/{slug}. High-intent revision searches ("class 12 physics formula
  * sheet pdf") and a strong linkable/shareable asset. All free, static data.
  */
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowLeft, Download, Sparkles, FileText } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';

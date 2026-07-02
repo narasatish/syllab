@@ -1125,46 +1125,6 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
   );
 }
 
-/* ─── Project Idea view ─────────────────────────────────────────────────────── */
-function ProjectIdeaView({ lang }: { lang: LanguageConfig }) {
-  const pi = lang.projectIdea;
-  if (!pi) return (
-    <div className="rounded-2xl bg-slate-50 p-8 text-center text-slate-400 font-bold">Project idea coming soon for {lang.name}!</div>
-  );
-  return (
-    <div className="space-y-5 pb-12">
-      <div className={cn('rounded-2xl p-6 text-white', lang.bgClass)}>
-        <p className="text-[10px] font-black uppercase tracking-widest text-white/70 mb-2">🛠️ Simple Project Idea</p>
-        <h2 className="text-2xl font-black">{pi.title}</h2>
-        <p className="mt-2 text-sm font-medium text-white/80">{pi.description}</p>
-        <div className="mt-3 flex items-center gap-3">
-          <span className={cn('rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-widest', pi.difficulty === 'Beginner' ? 'bg-emerald-400/30 text-white' : 'bg-amber-400/30 text-white')}>
-            {pi.difficulty}
-          </span>
-          <span className="rounded-full bg-white/20 px-3 py-1 text-[9px] font-black uppercase tracking-widest text-white">{pi.techStack}</span>
-        </div>
-      </div>
-      <div className="rounded-2xl bg-white shadow p-6">
-        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">📋 Step-by-Step Plan</p>
-        <ol className="space-y-3">
-          {pi.steps.map((step, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <span className={cn('flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-black text-white', lang.bgClass)}>
-                {i + 1}
-              </span>
-              <p className="text-sm font-medium leading-relaxed text-slate-700 mt-1">{step}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-      <div className="rounded-2xl bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 p-5">
-        <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 mb-2">💡 Pro Tip</p>
-        <p className="text-sm font-medium text-slate-700">Build this project, upload it to GitHub, and add it to your resume or LinkedIn. Recruiters love seeing real projects more than certificates!</p>
-      </div>
-    </div>
-  );
-}
-
 /* ─── Language selector grid ────────────────────────────────────────────────── */
 function LanguageGrid({
   active,

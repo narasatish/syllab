@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { BookOpen, CheckCircle, Clock, Zap, ChevronDown, Trophy, BarChart3, RefreshCw } from 'lucide-react';
+import React, { useState } from 'react';
+import { CheckCircle, Clock, Zap, Trophy, BarChart3, RefreshCw } from 'lucide-react';
 import { cn } from '../lib/utils';
 import SEO from '../components/SEO';
-import { GK_QUESTIONS, getDailyGKQuiz, getQuestionsByCategory, GKItem } from '../data/generalKnowledge';
+import { getDailyGKQuiz, getQuestionsByCategory, GKItem } from '../data/generalKnowledge';
 import FunFactCarousel from '../components/FunFactCarousel';
 
 type ViewMode = 'daily' | 'practice';
@@ -66,7 +66,7 @@ function generateSet(category: CategoryType, currentSeen: Set<string>): { set: G
   const unseen = all.filter((q) => !currentSeen.has(q.id));
 
   let chosen: GKItem[];
-  let workingSeen = new Set(currentSeen);
+  const workingSeen = new Set(currentSeen);
 
   if (unseen.length >= SET_SIZE) {
     chosen = sampleN(unseen, SET_SIZE);

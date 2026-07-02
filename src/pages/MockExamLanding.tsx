@@ -7,7 +7,7 @@
  * - Cross-links to other exams
  */
 import { useEffect, useState, useMemo } from 'react';
-import { ArrowLeft, ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { MOCK_EXAMS } from '../data/mockExams';

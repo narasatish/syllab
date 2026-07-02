@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gamepad2, Zap, Code, Database } from 'lucide-react';
+import { Zap, Code, Database } from 'lucide-react';
 import { motion } from 'motion/react';
 import SEO from '../components/SEO';
 

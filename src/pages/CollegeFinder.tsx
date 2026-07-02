@@ -6,7 +6,7 @@
  * Plus index pages at /colleges-accepting and /best-colleges. All free, static data.
  */
 import { useEffect, useState } from 'react';
-import { ArrowLeft, ChevronRight, Award, ClipboardList } from 'lucide-react';
+import { ArrowLeft, ChevronRight, Award } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { COLLEGES, stateSlugForCollege, type CollegeFull } from '../data/colleges';

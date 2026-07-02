@@ -187,7 +187,7 @@ export default function ImportantQuestions({ setTab }: { setTab: (tab: string) =
               <div key={ch.id} className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
                 {/* Chapter header (click to expand) */}
                 <button
-                  onClick={() => setOpenChapters((s) => { const n = new Set(s); n.has(ch.id) ? n.delete(ch.id) : n.add(ch.id); return n; })}
+                  onClick={() => setOpenChapters((s) => { const n = new Set(s); if (n.has(ch.id)) n.delete(ch.id); else n.add(ch.id); return n; })}
                   className="flex w-full items-center gap-3 p-4 text-left hover:bg-slate-50"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-sm font-black text-emerald-700">{ci + 1}</span>

@@ -5,7 +5,7 @@
  * banners (no copyrighted photos). Links to the NEET predictor, NEET PYQ & state boards.
  */
 import { useState, useEffect, useCallback } from 'react';
-import { ChevronRight, ArrowLeft, MapPin, Wallet, Users, Stethoscope, Globe, GraduationCap, Building2, ClipboardList } from 'lucide-react';
+import { ArrowLeft, MapPin, Wallet, Users, Stethoscope, Globe, GraduationCap, Building2, ClipboardList } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { usePathname } from '../lib/isomorphic';

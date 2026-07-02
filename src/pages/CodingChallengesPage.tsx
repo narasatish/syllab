@@ -12,7 +12,6 @@ import {
   ChevronRight,
   Play,
   Check,
-  X,
   Lightbulb,
   Trophy,
 } from 'lucide-react';
@@ -114,7 +113,7 @@ interface ChallengeModalProps {
   isCompleted: boolean;
 }
 
-function ChallengeModal({ challenge, isOpen, onClose, onComplete, isCompleted }: ChallengeModalProps) {
+function ChallengeModal({ challenge, isOpen, onClose, onComplete }: ChallengeModalProps) {
   const [code, setCode] = useState(challenge.starterCode);
   const [output, setOutput] = useState('');
   const [showHints, setShowHints] = useState(false);
@@ -309,7 +308,7 @@ interface CodingChallengesPageProps {
   currentUser?: FirebaseUser | null;
 }
 
-export default function CodingChallengesPage({ currentUser }: CodingChallengesPageProps) {
+export default function CodingChallengesPage({}: CodingChallengesPageProps) {
   const [difficulty, setDifficulty] = useState<'all' | 'beginner' | 'intermediate' | 'advanced'>('all');
   const [selectedChallenge, setSelectedChallenge] = useState<CodingChallenge | null>(null);
   const [completedChallenges, setCompletedChallenges] = useState<Set<string>>(new Set());
