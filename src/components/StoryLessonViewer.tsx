@@ -5,8 +5,21 @@
  * while this is open (so it never overlaps the Next button).
  */
 import { useEffect, useRef, useState } from 'react';
-import { X, ArrowLeft, ArrowRight, Sparkles, BookOpen, PenLine, Trophy, Map } from 'lucide-react';
+import { X, ArrowLeft, ArrowRight, Sparkles, BookOpen, PenLine, Trophy, Map, Volume2, Square } from 'lucide-react';
 import type { StoryLesson, StorySlide } from '../data/storyLessons';
+
+/** Build the spoken narration for a slide (or the cover). */
+function narrationFor(lesson: StoryLesson, slide: StorySlide | null, isCover: boolean): string {
+  if (isCover || !slide) {
+    return `${lesson.title}. ${lesson.hook}. Let's meet our story friends: ${lesson.characters.map((c) => `${c.name}, ${c.role}`).join('. ')}.`;
+  }
+  const parts: string[] = [slide.title];
+  if (slide.storyContext) parts.push(slide.storyContext);
+  (slide.points || []).forEach((p) => parts.push((p.label ? p.label + '. ' : '') + p.text));
+  if (slide.example) parts.push(`Here's an example. ${slide.example.problem}. Solution: ${slide.example.solution}`);
+  if (slide.inSimpleWords) parts.push(`In simple words. ${slide.inSimpleWords}`);
+  return parts.join('. ').replace(/\s+/g, ' ');
+}
 
 const KIND_META: Record<StorySlide['kind'], { label: string; Icon: typeof BookOpen; grad: string }> = {
   title:     { label: 'Story',     Icon: Sparkles, grad: 'from-violet-500 to-indigo-600' },
@@ -46,17 +59,42 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
   const slide = isCover ? null : lesson.slides[index - 1];
   const progress = Math.round(((index + 1) / total) * 100);
 
-  // Keyboard nav + reset scroll on slide change.
+  // Voice-over — free on-device browser TTS (SpeechSynthesis). A premium human
+  // voice can be layered on later behind a key without changing this UI.
+  const [speaking, setSpeaking] = useState(false);
+  const speak = () => {
+    try {
+      const synth = window.speechSynthesis;
+      if (!synth) return;
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(narrationFor(lesson, slide, isCover));
+      u.lang = 'en-IN'; u.rate = 0.98;
+      const voices = synth.getVoices();
+      const v = voices.find((x) => x.lang === 'en-IN')
+        || voices.find((x) => /female|heera|neerja|priya/i.test(x.name) && /^en/i.test(x.lang))
+        || voices.find((x) => /^en/i.test(x.lang));
+      if (v) u.voice = v;
+      u.onend = () => setSpeaking(false);
+      u.onerror = () => setSpeaking(false);
+      setSpeaking(true);
+      synth.speak(u);
+    } catch { setSpeaking(false); }
+  };
+  const stopSpeak = () => { try { window.speechSynthesis?.cancel(); } catch { /* ignore */ } setSpeaking(false); };
+
+  // Keyboard nav + reset scroll + stop narration on slide change.
   const bodyRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     bodyRef.current?.scrollTo({ top: 0 });
+    try { window.speechSynthesis?.cancel(); } catch { /* ignore */ }
+    setSpeaking(false);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') setIndex((v) => Math.min(total - 1, v + 1));
       else if (e.key === 'ArrowLeft') setIndex((v) => Math.max(0, v - 1));
       else if (e.key === 'Escape') onClose?.();
     };
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    return () => { window.removeEventListener('keydown', onKey); try { window.speechSynthesis?.cancel(); } catch { /* ignore */ } };
   }, [index, total, onClose]);
 
   const meta = slide ? KIND_META[slide.kind] : KIND_META.title;
@@ -73,11 +111,21 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
             <h2 className="mt-1 truncate text-lg font-extrabold leading-tight sm:text-2xl">{lesson.title}</h2>
             <p className="mt-0.5 text-xs text-white/80">{isCover ? 'Cover' : `Slide ${index} of ${lesson.slides.length}`}</p>
           </div>
-          {onClose && (
-            <button onClick={onClose} aria-label="Close" className="shrink-0 rounded-xl bg-white/15 p-2.5 text-white hover:bg-white/25 transition-all touch-manipulation">
-              <X size={20} />
+          <div className="flex shrink-0 items-center gap-1.5">
+            <button
+              onClick={() => (speaking ? stopSpeak() : speak())}
+              aria-label={speaking ? 'Stop narration' : 'Listen to this slide'}
+              className="flex items-center gap-1.5 rounded-xl bg-white/15 px-3 py-2.5 text-xs font-black text-white transition-all hover:bg-white/25 touch-manipulation"
+            >
+              {speaking ? <Square size={16} /> : <Volume2 size={16} />}
+              <span className="hidden sm:inline">{speaking ? 'Stop' : 'Listen'}</span>
             </button>
-          )}
+            {onClose && (
+              <button onClick={onClose} aria-label="Close" className="rounded-xl bg-white/15 p-2.5 text-white transition-all hover:bg-white/25 touch-manipulation">
+                <X size={20} />
+              </button>
+            )}
+          </div>
         </div>
         <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/20">
           <div className="h-full rounded-full bg-white transition-all duration-500" style={{ width: `${progress}%` }} />
@@ -95,11 +143,11 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
               <div className="text-6xl sm:text-7xl">📖</div>
               <h1 className="mt-4 text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl">{lesson.title}</h1>
               <p className="mt-3 text-base font-semibold text-slate-600 sm:text-lg">{lesson.hook}</p>
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <div className="mx-auto mt-6 flex max-w-md flex-col gap-2.5">
                 {lesson.characters.map((c) => (
-                  <div key={c.name} className="flex items-center gap-2 rounded-2xl border border-slate-100 bg-slate-50 px-4 py-2.5 text-left">
-                    <span className="text-2xl">{c.emoji || '🙂'}</span>
-                    <span><span className="block text-sm font-black text-slate-900">{c.name}</span><span className="block text-[11px] font-medium text-slate-500">{c.role}</span></span>
+                  <div key={c.name} className="flex w-full items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-4 py-3 text-left">
+                    <span className="shrink-0 text-2xl">{c.emoji || '🙂'}</span>
+                    <span className="min-w-0"><span className="block text-sm font-black text-slate-900">{c.name}</span><span className="block text-xs font-medium text-slate-500">{c.role}</span></span>
                   </div>
                 ))}
               </div>
