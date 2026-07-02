@@ -86,7 +86,10 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
 
       {/* Body */}
       <div ref={bodyRef} className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-8">
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto flex min-h-full max-w-2xl flex-col">
+          {/* my-auto centres short slides vertically; tall slides collapse the
+              auto margins and scroll normally — so slides never look half-empty. */}
+          <div className="my-auto w-full">
           {isCover ? (
             <div className="text-center">
               <div className="text-6xl sm:text-7xl">📖</div>
@@ -109,10 +112,12 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
                 {slide.emoji ? <span className="text-sm">{slide.emoji}</span> : null}
               </div>
 
+              {slide.emoji && <div className="mb-2 text-5xl leading-none sm:text-6xl">{slide.emoji}</div>}
+
               <h3 className="text-xl font-extrabold leading-tight text-slate-900 sm:text-3xl">{slide.title}</h3>
 
               {slide.storyContext && (
-                <p className="mt-3 border-l-4 border-violet-300 bg-violet-50/60 py-2 pl-4 text-base italic leading-relaxed text-slate-700">
+                <p className="mt-4 rounded-r-2xl border-l-4 border-violet-300 bg-violet-50/60 py-4 pl-5 pr-4 text-lg italic leading-relaxed text-slate-700 sm:text-xl">
                   {slide.storyContext}
                 </p>
               )}
@@ -148,6 +153,7 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
               )}
             </>
           ) : null}
+          </div>
         </div>
       </div>
 
