@@ -83947,6 +83947,59 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "concept",
+        "title": "Appreciation vs Depreciation: Karan's Daily Dilemma",
+        "points": [
+          {
+            "label": "Rupee appreciation",
+            "text": "₹ value INCREASES vs $. Example: ₹84/$ → ₹82/$. Need FEWER rupees per dollar (stronger ₹). Good for importers, bad for exporters."
+          },
+          {
+            "label": "Rupee depreciation",
+            "text": "₹ value DECREASES vs $. Example: ₹82/$ → ₹84/$. Need MORE rupees per dollar (weaker ₹). Good for exporters, bad for importers."
+          },
+          {
+            "label": "Karan's perspective (exporter)",
+            "text": "He PRAYS for depreciation (weak ₹). Each ₹1 more per $ = bigger profit. But he hedges to avoid betting on it."
+          },
+          {
+            "label": "Long-term trends",
+            "text": "₹ has depreciated 50% since 2008 (₹40 → ₹83/$). Structural: inflation in India > inflation globally. Natural slide."
+          }
+        ],
+        "inSimpleWords": "Appreciation = stronger currency (fewer units to buy foreign). Depreciation = weaker currency (more units needed). Exporters love depreciation; importers fear it.",
+        "emoji": "📉"
+      },
+      {
+        "kind": "story",
+        "title": "The Spot Rate: Today's Market Price",
+        "storyContext": "Mr. Patel explains: 'The spot rate ₹83/$ is like a stock price — it changes every second based on live buy-sell orders. It's the rate you see on your phone's currency app.' Karan checks live rates at 2 PM: ₹83.20/$. Same time 2:01 PM: ₹83.18/$. It moved 2 paise in one minute! 'Why so volatile?' Karan asks. Patel: 'Because millions trade simultaneously. A large FPI investment → ₹ strengthens instantly. Oil price jump → more dollar demand → ₹ weakens.' Karan realizes: spot rates are LIVE democracy of supply-demand."
+      },
+      {
+        "kind": "concept",
+        "title": "Spot vs Forward: Why Rates Differ",
+        "points": [
+          {
+            "label": "Spot rate (today)",
+            "text": "₹83/$. Settlement: 2 business days. Money & goods exchange fast."
+          },
+          {
+            "label": "Forward rate (future)",
+            "text": "₹83.50/$ for 90-day delivery. Settlement: 90+ days later."
+          },
+          {
+            "label": "Why forward > spot",
+            "text": "Time cost. Exporter gives credit (waits 90 days for cash). Banks demand premium for that risk & capital tie-up."
+          },
+          {
+            "label": "Lock-in concept",
+            "text": "Forward eliminates uncertainty. Karan knows EXACTLY what ₹ he'll get, no guessing, no sleepless nights."
+          }
+        ],
+        "inSimpleWords": "Spot = today's price. Forward = agreed price for later. Forward costs more because you're buying certainty in an uncertain market.",
+        "emoji": "⏰"
+      },
+      {
         "kind": "example",
         "title": "Full Trade Cycle: Exporter Perspective",
         "storyContext": "Karan exports 100 bags of premium turmeric to a UK buyer. Trace every rupee and every dollar.",
@@ -83960,51 +84013,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "url": "https://images.pexels.com/photos/29672336/pexels-photo-29672336.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
           "alt": "Full Trade Cycle: Exporter Perspective — Forex & Global Trade — Imports, Exports & Balance",
           "q": "turmeric"
-        }
-      },
-      {
-        "kind": "concept",
-        "title": "Balance of Payments & RBI Role",
-        "points": [
-          {
-            "label": "Balance of Trade",
-            "text": "Exports − Imports. India's is negative (more imports). Puts downward pressure on ₹."
-          },
-          {
-            "label": "Foreign investments",
-            "text": "FDI (factories, stakes) and FPI (stock/bond buying). Foreigners investing in India = $ inflow = ₹ strengthens."
-          },
-          {
-            "label": "RBI's job",
-            "text": "Prevent wild ₹ swings. RBI buys dollars when ₹ weakens (supply $, reduce ₹ fall). Sells dollars when ₹ strengthens (reduce upside)."
-          },
-          {
-            "label": "Reserves",
-            "text": "RBI holds $600+ Billion to stabilize ₹. If ₹ crashes, RBI sells dollars to prop it up."
-          }
-        ],
-        "inSimpleWords": "The RBI is like a referee in the forex game, ensuring ₹ doesn't swing wildly. Without RBI, ₹ would crash in bad times and spike in good times.",
-        "emoji": "🏛️",
-        "image": {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Nagpur_Reserve_Bank.JPG/960px-Nagpur_Reserve_Bank.JPG",
-          "alt": "Balance of Payments & RBI Role — Forex & Global Trade — Imports, Exports & Balance",
-          "q": "rbi"
-        }
-      },
-      {
-        "kind": "challenge",
-        "title": "Global Supply Chain Crisis",
-        "storyContext": "2023: geopolitical tensions, shipping costs spike 3×. Karan's US customers demand lower prices. But ₹ has weakened (₹82 → ₹86 per $). Karan's margin is squeezed from both sides.",
-        "example": {
-          "problem": "Karan's spice export margin (before forex): 25%. Spot rate ₹82 per $. US customer now offers 10% lower price due to market pressure. Rupee weakens to ₹86 per $. Does Karan still make 25% margin? Calculate.",
-          "solution": "Original margin: 25%. After 10% price cut from customer: margin = 15% (on USD basis). Rupee weakness: ₹82 → ₹86 per $. Percentage change: (86−82)/82 = 4.9% weaker ₹. A 5% weaker ₹ actually INCREASES Karan's rupee revenue by 5% (more rupees per dollar). So: 15% margin (from price cut) + 5% bonus (from weak ₹) = 20% net margin. Still positive! Weak ₹ paradoxically HELPED Karan absorb the price cut. This is why exporters survive despite import-cost inflation."
-        },
-        "inSimpleWords": "Currency movements can compensate for market pressures. Exporters benefit when ₹ weakens even if foreign customers demand lower prices. Timing matters.",
-        "emoji": "❓",
-        "image": {
-          "url": "https://images.pexels.com/photos/20821680/pexels-photo-20821680.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-          "alt": "Global Supply Chain Crisis — Forex & Global Trade — Imports, Exports & Balance",
-          "q": "cargo ship"
         }
       },
       {
@@ -84090,6 +84098,30 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🏦"
       },
       {
+        "kind": "concept",
+        "title": "Multi-Currency Hedging: Global Exporters",
+        "points": [
+          {
+            "label": "Currency diversification",
+            "text": "Karan exports to USA ($), Europe (€), UK (£), Japan (¥). Each has own exchange rate, own hedging cost."
+          },
+          {
+            "label": "Natural hedge",
+            "text": "If $ weakens but € strengthens, overall exposure balanced. Diversified currency receivables reduce risk."
+          },
+          {
+            "label": "Selective hedging",
+            "text": "Hedge 80% of $ receivables. Leave 20% unhedged for upside (if ₹ weakens, he gains). Balanced risk-reward."
+          },
+          {
+            "label": "Repatriate or hold",
+            "text": "Convert foreign currency to rupees immediately (capture rate now) or hold overseas (speculate on ₹ movements). Tradeoff: certainty vs opportunity."
+          }
+        ],
+        "inSimpleWords": "Global exporters hedge selectively. 80% locked for safety, 20% free to catch lucky currency moves. Mix of discipline + opportunity.",
+        "emoji": "🌐"
+      },
+      {
         "kind": "example",
         "title": "Importer vs Exporter: Opposite Fortunes",
         "storyContext": "Same ₹ movement, opposite impact: Karan (exporter) benefits from weak ₹. Roshni (importer) suffers.",
@@ -84123,17 +84155,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Emerging markets like India have volatile currencies. When global investors flee, ₹ crashes. Importers and foreign borrowers get hammered. RBI can cushion but not prevent.",
         "emoji": "⚠️"
-      },
-      {
-        "kind": "challenge",
-        "title": "Multi-Currency Trade: Karan Exports to 3 Countries",
-        "storyContext": "Karan's spices are now selling globally: USA (USD), Europe (EUR), UK (GBP). Each has different ₹ rates and hedging costs. How does he manage?",
-        "example": {
-          "problem": "Karan has 3 invoices due in 90 days: USA ₹83/$ (cost to hedge forward: ₹83.50), Europe ₹90/€ (cost: ₹91), UK ₹105/£ (cost: ₹106). He has $100K, €50K, £25K receivable. Total revenue at spot: $100K × ₹83 + €50K × ₹90 + £25K × ₹105 = ₹83L + ₹45L + ₹26.25L = ₹154.25L. If all currencies weaken (₹83.5, ₹91, ₹106 forward rates are HIGHER, not lower—ERROR: let's recalculate). Actually, ₹ strengthens (rates LOWER than forward): ₹82, ₹88.5, ₹103. Unhedged loss?",
-          "solution": "Unhedged revenue at strengthened spot rates: $100K × ₹82 + €50K × ₹88.5 + £25K × ₹103 = ₹82L + ₹44.25L + ₹25.75L = ₹152L. Loss: ₹154.25L − ₹152L = ₹2.25L. If hedged at forward rates: ₹83.5 + ₹91 + ₹106 = ₹83.5L + ₹45.5L + ₹26.5L = ₹155.5L. Gain from hedging: ₹155.5L − ₹152L = ₹3.5L. Hedging cost: ₹155.5L − ₹154.25L (spot) = ₹1.25L insurance premium paid upfront. Karan regrets not hedging (lost ₹2.25L) but celebrates being globally diversified (€ drop offset by $ strength in a hypothetical scenario). Multi-currency exposure = natural diversification IF rates move differently."
-        },
-        "inSimpleWords": "Selling to multiple countries = exposure to multiple currencies. Sometimes they move together (risk concentrates); sometimes opposite (natural hedge). Diversification works here.",
-        "emoji": "🌍"
       },
       {
         "kind": "story",
@@ -84192,6 +84213,110 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Trade docs are safety nets. LC = bank guarantee. Bills & receipts prove the shipment. Together, they ensure payment even if buyer vanishes.",
         "emoji": "📄"
+      },
+      {
+        "kind": "concept",
+        "title": "Balance of Payments & RBI Role",
+        "points": [
+          {
+            "label": "Balance of Trade",
+            "text": "Exports − Imports. India's is negative (more imports). Puts downward pressure on ₹."
+          },
+          {
+            "label": "Foreign investments",
+            "text": "FDI (factories, stakes) and FPI (stock/bond buying). Foreigners investing in India = $ inflow = ₹ strengthens."
+          },
+          {
+            "label": "RBI's job",
+            "text": "Prevent wild ₹ swings. RBI buys dollars when ₹ weakens (supply $, reduce ₹ fall). Sells dollars when ₹ strengthens (reduce upside)."
+          },
+          {
+            "label": "Reserves",
+            "text": "RBI holds $600+ Billion to stabilize ₹. If ₹ crashes, RBI sells dollars to prop it up."
+          }
+        ],
+        "inSimpleWords": "The RBI is like a referee in the forex game, ensuring ₹ doesn't swing wildly. Without RBI, ₹ would crash in bad times and spike in good times.",
+        "emoji": "🏛️",
+        "image": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Nagpur_Reserve_Bank.JPG/960px-Nagpur_Reserve_Bank.JPG",
+          "alt": "Balance of Payments & RBI Role — Forex & Global Trade — Imports, Exports & Balance",
+          "q": "rbi"
+        }
+      },
+      {
+        "kind": "challenge",
+        "title": "Multi-Currency Trade: Karan Exports to 3 Countries",
+        "storyContext": "Karan's spices are now selling globally: USA (USD), Europe (EUR), UK (GBP). Each has different ₹ rates and hedging costs. How does he manage?",
+        "example": {
+          "problem": "Karan has 3 invoices due in 90 days: USA ₹83/$ (cost to hedge forward: ₹83.50), Europe ₹90/€ (cost: ₹91), UK ₹105/£ (cost: ₹106). He has $100K, €50K, £25K receivable. Total revenue at spot: $100K × ₹83 + €50K × ₹90 + £25K × ₹105 = ₹83L + ₹45L + ₹26.25L = ₹154.25L. If all currencies weaken (₹83.5, ₹91, ₹106 forward rates are HIGHER, not lower—ERROR: let's recalculate). Actually, ₹ strengthens (rates LOWER than forward): ₹82, ₹88.5, ₹103. Unhedged loss?",
+          "solution": "Unhedged revenue at strengthened spot rates: $100K × ₹82 + €50K × ₹88.5 + £25K × ₹103 = ₹82L + ₹44.25L + ₹25.75L = ₹152L. Loss: ₹154.25L − ₹152L = ₹2.25L. If hedged at forward rates: ₹83.5 + ₹91 + ₹106 = ₹83.5L + ₹45.5L + ₹26.5L = ₹155.5L. Gain from hedging: ₹155.5L − ₹152L = ₹3.5L. Hedging cost: ₹155.5L − ₹154.25L (spot) = ₹1.25L insurance premium paid upfront. Karan regrets not hedging (lost ₹2.25L) but celebrates being globally diversified (€ drop offset by $ strength in a hypothetical scenario). Multi-currency exposure = natural diversification IF rates move differently."
+        },
+        "inSimpleWords": "Selling to multiple countries = exposure to multiple currencies. Sometimes they move together (risk concentrates); sometimes opposite (natural hedge). Diversification works here.",
+        "emoji": "🌍"
+      },
+      {
+        "kind": "challenge",
+        "title": "Global Supply Chain Crisis",
+        "storyContext": "2023: geopolitical tensions, shipping costs spike 3×. Karan's US customers demand lower prices. But ₹ has weakened (₹82 → ₹86 per $). Karan's margin is squeezed from both sides.",
+        "example": {
+          "problem": "Karan's spice export margin (before forex): 25%. Spot rate ₹82 per $. US customer now offers 10% lower price due to market pressure. Rupee weakens to ₹86 per $. Does Karan still make 25% margin? Calculate.",
+          "solution": "Original margin: 25%. After 10% price cut from customer: margin = 15% (on USD basis). Rupee weakness: ₹82 → ₹86 per $. Percentage change: (86−82)/82 = 4.9% weaker ₹. A 5% weaker ₹ actually INCREASES Karan's rupee revenue by 5% (more rupees per dollar). So: 15% margin (from price cut) + 5% bonus (from weak ₹) = 20% net margin. Still positive! Weak ₹ paradoxically HELPED Karan absorb the price cut. This is why exporters survive despite import-cost inflation."
+        },
+        "inSimpleWords": "Currency movements can compensate for market pressures. Exporters benefit when ₹ weakens even if foreign customers demand lower prices. Timing matters.",
+        "emoji": "❓",
+        "image": {
+          "url": "https://images.pexels.com/photos/20821680/pexels-photo-20821680.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+          "alt": "Global Supply Chain Crisis — Forex & Global Trade — Imports, Exports & Balance",
+          "q": "cargo ship"
+        }
+      },
+      {
+        "kind": "concept",
+        "title": "Geopolitical Events & Currency Crisis",
+        "points": [
+          {
+            "label": "Brexit (2016)",
+            "text": "UK voted to leave EU. Pound crashed 15% in weeks. British exporters celebrated, importers suffered. Political event = currency shock."
+          },
+          {
+            "label": "Russia-Ukraine war (2022)",
+            "text": "Global money fled emerging markets (India). ₹ weakened 10%. Oil prices spiked (India imports 80% oil). Double blow for rupee."
+          },
+          {
+            "label": "Fed rate hikes (2022–2023)",
+            "text": "US raised rates 5% in 18 months. Money fled India for higher US returns. ₹ crashed 12%. Karan's hedging costs rose (less attractive forward rates)."
+          },
+          {
+            "label": "What Karan learned",
+            "text": "Geopolitics = tail risk. Hedge always. Never assume peace/stability. Black swans do exist; insurance (hedging) is non-negotiable."
+          }
+        ],
+        "inSimpleWords": "Wars, elections, rate hikes abroad = sudden currency swings. Exporters/importers can't predict these, so they hedge. Plan for the unexpected.",
+        "emoji": "🌍"
+      },
+      {
+        "kind": "concept",
+        "title": "Purchasing Power Parity: Why ₹ Should Weaken Over Time",
+        "points": [
+          {
+            "label": "PPP concept",
+            "text": "If inflation in India (6%) > inflation in US (2%), ₹ should weaken to equalize purchasing power over time."
+          },
+          {
+            "label": "Example",
+            "text": "A burger costs ₹200 in India (₹1 = $0.012). Same burger costs $3 in USA (₹1 = $0.015). PPP suggests ₹/$0.0125 is fair."
+          },
+          {
+            "label": "Reality",
+            "text": "Spot rate often deviates from PPP (short-term: financial flows, capital, FDI pull $ inflows). Long-term (10+ years), ₹ gravitates to PPP-implied rate."
+          },
+          {
+            "label": "Karan's takeaway",
+            "text": "High Indian inflation vs US = structural weakness of ₹. Over 25 years, expect ₹ to depreciate 1–2%/year structurally (+ cyclical swings)."
+          }
+        ],
+        "inSimpleWords": "PPP says: countries with high inflation → weak currency. ₹ should weaken 1–2% p.a. structurally. Short-term noise around that trend.",
+        "emoji": "💹"
       },
       {
         "kind": "recap",
@@ -84405,6 +84530,35 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         }
       },
       {
+        "kind": "story",
+        "title": "Vijay's All-In Bet: Lessons from a Mistake",
+        "storyContext": "5 years later. Vijay put all ₹50 Lac into Reliance & Infosys (his original plan). In Year 1, 15% gain (₹57.5 Lac). In Year 3, IT crash: down 40% to ₹34.5 Lac. Panic-sold. Watched from sidelines as stocks recovered to ₹65 Lac. His 'aggressive strategy' = buy high, sell low. Sophia's diversified 70/15/10/5: ₹50 Lac → ₹63 Lac in same 5 years. No drama, no losses, better outcome. Vijay finally calls Dr. Rajeev: 'I get it now.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Types of Bonds: Safety & Stability",
+        "points": [
+          {
+            "label": "Government securities (G-secs)",
+            "text": "Issued by RBI, backed by government. 10-year bonds yield ≈6.5% p.a. Risk: near-zero (government can't default)."
+          },
+          {
+            "label": "Corporate bonds",
+            "text": "Issued by blue-chip companies (HDFC, Bajaj, Nestle). Yield 7–8% p.a. Risk: company can default (rare if A-rated or above)."
+          },
+          {
+            "label": "Fixed deposits",
+            "text": "Bank deposits, 6.5% p.a., FDIC insured up to ₹5 Lac. Safest but lowest return."
+          },
+          {
+            "label": "Bond fund vs individual bonds",
+            "text": "Individual bonds: hold till maturity, guaranteed income. Bond funds: diversified, but prices fluctuate (interest rate risk)."
+          }
+        ],
+        "inSimpleWords": "Bonds are IOUs. You lend ₹100, get back ₹106.50 after 1 year. Government bonds = safer. Corporate bonds = higher returns, some risk. Choose wisely.",
+        "emoji": "📋"
+      },
+      {
         "kind": "example",
         "title": "Building Sophia's Real Portfolio",
         "storyContext": "Sophia decides: 70% stocks, 15% bonds, 10% gold, 5% cash. ₹50 Lac total.",
@@ -84549,11 +84703,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🌍"
       },
       {
-        "kind": "story",
-        "title": "Vijay's All-In Bet: Lessons from a Mistake",
-        "storyContext": "5 years later. Vijay put all ₹50 Lac into Reliance & Infosys (his original plan). In Year 1, 15% gain (₹57.5 Lac). In Year 3, IT crash: down 40% to ₹34.5 Lac. Panic-sold. Watched from sidelines as stocks recovered to ₹65 Lac. His 'aggressive strategy' = buy high, sell low. Sophia's diversified 70/15/10/5: ₹50 Lac → ₹63 Lac in same 5 years. No drama, no losses, better outcome. Vijay finally calls Dr. Rajeev: 'I get it now.'"
-      },
-      {
         "kind": "concept",
         "title": "Dollar-Cost Averaging vs Lumpsum",
         "points": [
@@ -84616,6 +84765,136 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "alt": "Choosing Between 2 Similar Portfolios — Building a Portfolio — Risk, Return & Diversification",
           "q": "compare"
         }
+      },
+      {
+        "kind": "concept",
+        "title": "Gold: The Inflation Hedge",
+        "points": [
+          {
+            "label": "Why gold in portfolio",
+            "text": "Stocks fall in inflation (real purchasing power drops). Gold rises with inflation, protecting wealth."
+          },
+          {
+            "label": "Return profile",
+            "text": "Gold: 6–8% p.a. historically. Not as high as stocks (12%), but stable in crises."
+          },
+          {
+            "label": "How to invest",
+            "text": "Physical gold (jewelry, coins): risky (theft, purity). Gold ETF/digital gold: liquid, transparent, no risk. Sovereign gold bonds: add interest + capital appreciation."
+          },
+          {
+            "label": "Allocation rule",
+            "text": "10% of portfolio in gold (₹5 Lac for Sophia). In severe inflation (>8%), increase to 15%. In deflation, reduce to 5%."
+          }
+        ],
+        "inSimpleWords": "Gold is portfolio insurance. Doesn't return much, but preserves value when stocks crash or inflation spikes. Insurance = mandatory.",
+        "emoji": "⭐"
+      },
+      {
+        "kind": "concept",
+        "title": "Understanding Correlation: When Assets Move Together",
+        "points": [
+          {
+            "label": "Positive correlation",
+            "text": "Assets move in same direction. Banks + Insurance (both rise in strong economy). If one falls, both fall. Poor diversifier."
+          },
+          {
+            "label": "Negative correlation",
+            "text": "Assets move opposite. Stocks + Bonds (stocks up when rates cut, bonds down when rates cut). When stocks crash 30%, bonds may stay flat. Excellent diversifier."
+          },
+          {
+            "label": "Zero correlation",
+            "text": "No pattern. Stocks + Gold (sometimes move together, sometimes opposite). Gold doesn't track stock moves. Good hedge."
+          },
+          {
+            "label": "Sophia's portfolio",
+            "text": "70% stocks (positive), 15% bonds (negative), 10% gold (zero). Average correlation ≈ 0.2 (low). Portfolio swings < any single component."
+          }
+        ],
+        "inSimpleWords": "Correlation = how assets move together. Want LOW correlation (diversification works). Own stocks + bonds (opposite) + gold (uncorrelated). Avoid owning all similar stocks.",
+        "emoji": "🔗"
+      },
+      {
+        "kind": "story",
+        "title": "Compound Interest: Sophia's Secret Superpower",
+        "storyContext": "Sophia realizes: her ₹50 Lac isn't just growing at 11% p.a. It's compounding. Year 1: ₹5.5 Lac gain (₹55.5 Lac total). Year 2: gain on ₹55.5 Lac = ₹6.1 Lac (now ₹61.6 Lac). Year 3: gain on ₹61.6 = ₹6.77 Lac (₹68.37 Lac). The gain itself grows! By Year 25: she doesn't have ₹50 Lac + (25 × ₹5.5 Lac). She has ₹3+ Cr. The compounding effect (gain on gains) delivered ₹2 Cr+ of it! Einstein called this 'the eighth wonder.' Sophia calls it 'magical.'"
+      },
+      {
+        "kind": "concept",
+        "title": "How Stocks Generate Returns: Dividends + Capital Appreciation",
+        "points": [
+          {
+            "label": "Dividends (income)",
+            "text": "Company profits → cash paid to shareholders. Nifty 50 average: 1.5–2% dividend yield p.a. Steady income."
+          },
+          {
+            "label": "Capital appreciation (growth)",
+            "text": "Stock price rises. Buy TCS @ ₹3 Lac, sell @ ₹3.5 Lac. ₹0.5 Lac gain (20% in 2 years). Growth."
+          },
+          {
+            "label": "Total return",
+            "text": "Dividend 1.5% + capital gain 10% = total 11.5% annual return. Both components matter."
+          },
+          {
+            "label": "Reinvest dividends",
+            "text": "Don't spend dividends. Auto-reinvest to compound. ₹1 Lac investment, ₹1.5K dividend/year. Reinvest ₹1.5K → becomes ₹1.01 Lac earning ₹1.515K next year. Compounding."
+          }
+        ],
+        "inSimpleWords": "Stocks return via dividends (cash) + price growth. Reinvesting dividends = compounding on compounding. Double superpower.",
+        "emoji": "💰"
+      },
+      {
+        "kind": "concept",
+        "title": "Real Estate in Portfolio: Home, Not Investment",
+        "points": [
+          {
+            "label": "Why NOT real estate in portfolio",
+            "text": "Illiquid (takes months to sell). Emotional (home). Needs maintenance. Returns: 6–8% p.a. (similar to bonds, but less liquid)."
+          },
+          {
+            "label": "Home ownership",
+            "text": "Separate from portfolio. Buy home for living (forced saving). Don't count home equity in investment portfolio (you can't easily sell to live elsewhere)."
+          },
+          {
+            "label": "REITs (Real Estate Investment Trusts)",
+            "text": "Alternative: own commercial real estate via REIT ETF. Liquid (trade like stocks), dividend-paying (4–5% p.a.), no maintenance."
+          },
+          {
+            "label": "Sophia's approach",
+            "text": "Portfolio = stocks/bonds/gold/cash (liquid). Home = separate (personal asset). If excess cash, REIT ETF is better than physical property."
+          }
+        ],
+        "inSimpleWords": "Your home is not an investment portfolio; it's where you live. Own real estate via liquid REITs if you want exposure. Keep portfolio liquid.",
+        "emoji": "🏠"
+      },
+      {
+        "kind": "story",
+        "title": "Sequence of Returns: Why 2008 Hit Hard",
+        "storyContext": "If Sophia had invested ₹50 Lac in 2007 (all stocks), then the 2008 crash hit. Her ₹50 Lac → ₹20 Lac (60% loss). Then she panicked and sold. Portfolio locked at ₹20 Lac loss. BUT if she stayed invested through 2008–2012 (added more via SIP during crash), her ₹50 Lac + ₹10 Lac (crisis SIP) would have recovered to ₹80 Lac by 2012. The SEQUENCE (crash, then recovery, not selling in crash) = wealth preservation. This is why dollar-cost averaging works: you buy MORE when cheap (crash), less when expensive (boom)."
+      },
+      {
+        "kind": "concept",
+        "title": "SIP vs Lumpsum: A Deeper Dive",
+        "points": [
+          {
+            "label": "Lumpsum math",
+            "text": "Invest ₹50 Lac today at ₹100/unit = 50,000 units. Wait 25 years, unit price = ₹450. Final value: 50,000 × ₹450 = ₹2.25 Cr."
+          },
+          {
+            "label": "SIP math (₹5 Lac/month for 10 months)",
+            "text": "Month 1: ₹5 Lac at ₹100 = 5,000 units. Month 2: ₹5 Lac at ₹95 (dip) = 5,263 units (more units because cheaper!). Month 3: ₹5 Lac at ₹105 = 4,762 units. Avg cost: (5L+5L+5L)/avg price = ~₹98.50/unit. Final units: ~50,500. Final value: 50,500 × ₹450 = ₹2.27 Cr."
+          },
+          {
+            "label": "Winner",
+            "text": "SIP slightly ahead (1% gain) due to buying more units on dips. Lumpsum wins 60% of times if market rises from day 1."
+          },
+          {
+            "label": "Choice",
+            "text": "If you have lumpsum (inheritance, bonus), deploy 50% now, 50% via SIP over 6 months. Best hybrid."
+          }
+        ],
+        "inSimpleWords": "Lumpsum is mathematically optimal for 25+ years. SIP is psychologically better (less regret). Use both: lumpsum for 50%, SIP for rest.",
+        "emoji": "📊"
       },
       {
         "kind": "recap",
@@ -84787,6 +85066,11 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🛒"
       },
       {
+        "kind": "story",
+        "title": "Why Insurance Isn't Optional",
+        "storyContext": "Aryan's uncle Sharma didn't buy health insurance. Age 45, well-paid, thought he was too healthy to need it. Then a heart attack. Hospital bills: ₹20 Lac. Surgery, ICU, recovery meds. Insurance (if he had it) would cover ₹8–10 Lac. He paid ₹12 Lac from savings. His dream vacation fund? GONE. Home loan EMI struggle? Came true. He spent next 3 years just recovering financially, not medically. Priya tells Aryan: 'Insurance isn't an expense; it's a LIMIT on catastrophic financial loss.'"
+      },
+      {
         "kind": "concept",
         "title": "Insurance: The Financial Fortress",
         "points": [
@@ -84853,6 +85137,30 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "title": "When Insurance Saves Lives (and Savings)",
         "storyContext": "Priya shares a real story: Client Anjali, 32, bought ₹5 Lac health insurance (premium ₹12K/year). One month later, diagnosed with thyroid cancer. Surgery + chemotherapy + hospitalization = ₹25 Lac. Insurance covered ₹22 Lac. Out-of-pocket: ₹3 Lac (manageable). Without insurance? ₹25 Lac out-of-pocket would have bankrupted her family. She'd have sold house, borrowed from relatives. Insurance SAVED her financial future.",
         "emoji": "❤️"
+      },
+      {
+        "kind": "concept",
+        "title": "Emergency Fund: Your Financial Cushion",
+        "points": [
+          {
+            "label": "Definition",
+            "text": "Cash reserve = 3–6 months living expenses. BEFORE investing, BEFORE insurance (well, insurance too, but emergency fund first)."
+          },
+          {
+            "label": "How much for Aryan",
+            "text": "Living expenses: ₹60K/month. Emergency fund: 6 months = ₹3.6 Lac. Keep in bank FD or savings account."
+          },
+          {
+            "label": "Why it matters",
+            "text": "Job loss? Emergency fund covers 6 months while finding new job (no panic sell investments). Medical emergency? Hospital today, payment plan tomorrow."
+          },
+          {
+            "label": "Return expectations",
+            "text": "Emergency fund earns 6–7% p.a. (FD) or 4% (savings account). Not investing for growth; investing for PEACE."
+          }
+        ],
+        "inSimpleWords": "Emergency fund = financial airbag. Get in an accident (job loss, illness), airbag deploys (emergency fund pays), you don't crash.",
+        "emoji": "💼"
       },
       {
         "kind": "concept",
@@ -84986,9 +85294,120 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🗓️"
       },
       {
+        "kind": "concept",
+        "title": "Standard Deduction & Taxable Income",
+        "points": [
+          {
+            "label": "Standard deduction",
+            "text": "₹50K flat reduction for all salaried employees (FY 2024–25). Reduces taxable income without itemizing."
+          },
+          {
+            "label": "How it works",
+            "text": "Aryan's gross ₹25 Lac: auto-reduce ₹50K. Taxable becomes ₹24.5 Lac. Saves on tax instantly."
+          },
+          {
+            "label": "Plus 80C deductions",
+            "text": "PF ₹2 Lac + ELSS ₹1.5 Lac = ₹3.5 Lac. Additional reduction. Taxable now ₹21 Lac."
+          },
+          {
+            "label": "Stacking deductions",
+            "text": "Standard deduction + 80C + 80D + 80E (if applicable). Smart filers reduce taxable income by ₹6–8 Lac easily."
+          }
+        ],
+        "inSimpleWords": "Standard deduction is free; everyone gets it. Stack it with 80C/80D/80E, and you shrink taxable income dramatically. More deductions = less tax paid.",
+        "emoji": "✂️"
+      },
+      {
+        "kind": "story",
+        "title": "When Life Changes: Marriage & Insurance Reset",
+        "storyContext": "Aryan gets married. Now his wife (Priyanka, earning ₹20 Lac) and he must combine finances. New priorities: joint health insurance (₹50K now covers both), life insurance (he needs ₹50 Lac for wife, ₹50 Lac for kids if any), joint investment (spousal SIP). Priya reviews: 'Your combined gross: ₹45 Lac. New tax slabs apply. Both get 80C separately (₹3 Lac combined deduction). Joint health insurance, separate term life.' They recalculate. Combined tax (after optimization): ₹9 Lac (vs ₹5.5 Lac each before, total ₹11 Lac). Savings: ₹2 Lac annually by optimizing together. Aryan realizes: life changes demand financial replanning."
+      },
+      {
+        "kind": "concept",
+        "title": "Spousal Income Optimization: Two Earners, Smarter Tax",
+        "points": [
+          {
+            "label": "Individual slabs",
+            "text": "Each earner files separately. Each gets own 80C (₹1.5 Lac), own 80D (₹50K). Total deductions: ₹5 Lac combined."
+          },
+          {
+            "label": "Interest/dividend transfer",
+            "text": "If one spouse earns high interest, other spouse (lower slab) files. Saves tax (15% vs 30% slab rate)."
+          },
+          {
+            "label": "Joint investments",
+            "text": "Own stocks jointly (both names). Dividend split 50–50. Both get ₹50K no-tax income (individual limit). Saves tax vs one person owning all."
+          },
+          {
+            "label": "Aryan's example",
+            "text": "He owns ₹50 Lac in stocks (earning ₹2 Lac dividend/year @ 4%). He pays 30% tax = ₹60K tax. If joint with Priyanka (50–50): each reports ₹1 Lac dividend. Both in 20% slab. Tax: ₹20K each = ₹40K total. Savings: ₹20K/year."
+          }
+        ],
+        "inSimpleWords": "Two earners = more deductions, smarter income split. Use joint ownership of investments to spread income, shrink tax. Easy money saved.",
+        "emoji": "👫"
+      },
+      {
+        "kind": "story",
+        "title": "Baby on the Way: Insurance & Savings Reset",
+        "storyContext": "Priyanka gets pregnant. Aryan panics: 'Now I need MUCH more insurance. What if something happens to me? Wife + baby MUST be protected.' Insurance advisor recalculates: term life increases from ₹50 Lac to ₹1.5 Cr (10 years of ₹15 Lac salary + education savings). Premium jumps from ₹2.4K/year to ₹8K/year. Health insurance now covers maternity (₹2 Lac), baby (auto-added post-birth). Aryan starts ₹1 Lac/year SIP for child's education (18 years till college). Life changes, plan changes. Being nimble = staying protected."
+      },
+      {
         "kind": "story",
         "title": "Priya's Proof: 20 Lac Salary to 2 Cr Wealth",
         "storyContext": "Priya started 20 Lac salary. Applied discipline: 80C maxed, health insurance, 5 Lac/year SIP, annual rebalance. Salary grew to 30 Lac (she DIDN'T inflate lifestyle). 25 years later: 2 Cr+ wealth. No startup luck, no inheritance. Just discipline + time + compounding. Aryan realizes: this could be me."
+      },
+      {
+        "kind": "concept",
+        "title": "Roth vs Traditional: Tax Now vs Tax Later",
+        "points": [
+          {
+            "label": "Traditional (India: NPS Tier-1)",
+            "text": "Contribute before tax (₹1.5 Lac reduces taxable income). Grow tax-free. Pay tax on withdrawal. Good if you earn high now, expect low tax bracket at 60."
+          },
+          {
+            "label": "Roth (India: limited; PPF closest)",
+            "text": "Contribute after-tax (₹1.5 Lac in PPF, no deduction). Grow tax-free. Withdraw tax-free (if ₹1.5 Lac, zero tax). Good if you earn low now, expect high tax bracket at 60."
+          },
+          {
+            "label": "Aryan's situation",
+            "text": "Earns ₹25 Lac (30% tax bracket). Expects to earn ₹35 Lac at 35 (still 30% bracket). Traditional NPS (Tier-1, locked) = 30% tax on withdrawal = similar. PPF = tax-free withdrawal = better."
+          },
+          {
+            "label": "Choice",
+            "text": "Max both: NPS ₹1.5 Lac (traditional) + PPF ₹1.5 Lac (Roth equivalent). Diversify tax treatment. Hedge tax rate changes."
+          }
+        ],
+        "inSimpleWords": "Traditional = tax deduction now, tax on withdrawal. Roth = no deduction, no tax on withdrawal. Choose based on tax bracket expectations.",
+        "emoji": "🏦"
+      },
+      {
+        "kind": "concept",
+        "title": "Insurance Claim Process: What to Do If Disaster Strikes",
+        "points": [
+          {
+            "label": "Health claim (hospitalization)",
+            "text": "Get admitted, inform insurance. Cashless claim: insurance pays hospital directly (if in-network). Out-of-pocket claim: pay first, then claim reimbursement (if out-of-network)."
+          },
+          {
+            "label": "Life claim (death)",
+            "text": "Family contacts insurer with death certificate + policy number. Insurer verifies. Pays beneficiary within 30 days (if no fraud). Done."
+          },
+          {
+            "label": "Disability claim",
+            "text": "Get medical evaluation proving disability (accident, illness). Submit to insurer. Insurer verifies via own doctor. If approved, pays monthly income."
+          },
+          {
+            "label": "Common mistakes",
+            "text": "Not disclosing health conditions (fraud = claim denied). Losing policy documents (slow reimbursement). Not listing correct beneficiary (wrong person gets ₹)."
+          }
+        ],
+        "inSimpleWords": "Insurance claims are straightforward if you did your homework (bought right, listed beneficiary, disclosed health). Don't hide info; be honest.",
+        "emoji": "✅"
+      },
+      {
+        "kind": "story",
+        "title": "A Crisis Averted: Priya's Real Story",
+        "storyContext": "Priya (the advisor) had a personal wake-up at 32. She was uninsured, earning ₹25 Lac, no emergency fund. Suddenly, her father suffered a stroke. Medical bills: ₹15 Lac. Her savings: ₹8 Lac (wiped). Had to borrow ₹7 Lac from friends. Took 3 years to repay. That day, she decided: NEVER again. She bought ₹50 Lac term life (₹2.4K/year), ₹10 Lac health insurance (₹15K/year), built 6-month emergency fund (₹3 Lac). Now at 50, she has ₹2 Cr wealth. She tells Aryan: 'Insurance saved me. Had I been protected then, I'd be ₹2 Cr richer now (no debt, more investment). Do NOT wait for crisis. Act today.'"
       },
       {
         "kind": "recap",
@@ -85001,9 +85420,6 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "INSURANCE is NOT investment; it's PROTECTION. Term life (₹2K/year for ₹50L cover), health (₹12K/year for ₹5–10L cover). Mandatory for anyone with dependents or loans."
           },
           {
-            "text": "BUDGET ruthlessly. 60% living expenses, 20% investments, 10% insurance/taxes/emergency, 10% wants. Adjust for your life stage, but the ratio works."
-          },
-          {
             "text": "EMERGENCY fund = 3–6 months living expenses. BEFORE you invest. ₹1.8 Lac for Aryan. Prevents panic-selling in downturns."
           },
           {
@@ -85011,6 +85427,9 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           },
           {
             "text": "REVIEW annually: tax situation (did you use all deductions?), insurance coverage (life changes, recheck), investment returns, spending. 1 hour/year = thousands saved."
+          },
+          {
+            "text": "REAL LESSON: Wealth is built from consistency, not from clever tricks. Max tax deductions, insure against catastrophe, invest regularly, stay invested 25+ years."
           }
         ],
         "emoji": "✅",
@@ -94372,6 +94791,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "storyContext": "Priya looks at herself in Dr. Sharma's plane mirror—she sees an upright, same-size image at the same distance behind the mirror as she stands in front. But then she notices the concave mirror in his makeup kit. Getting closer, her image grows and inverts. Ramesh explains: 'Plane mirrors always show your true face. Concave mirrors can magnify (used for shaving, makeup). Convex mirrors see the widest angle—that's why cars use them for rear-view mirrors, sacrificing some magnification for a wider field of view.'"
       },
       {
+        "kind": "concept",
+        "title": "Critical Angle & Total Internal Reflection",
+        "storyContext": "Dr. Sharma demonstrates with a fiber optic cable and laser. 'Light traveling in a denser medium (glass) toward a less dense medium (air) can be trapped if the angle exceeds a critical angle. At that angle, all light reflects back into the glass—total internal reflection. This is how fiber optics work: light bounces down the fiber without escaping.'",
+        "points": [
+          {
+            "label": "Critical Angle",
+            "text": "θ_c = sin^(-1)(n₂/n₁), where n₁ is denser medium, n₂ is less dense. For glass-air: θ_c = sin^(-1)(1/1.5) ≈ 41.8°."
+          },
+          {
+            "label": "Total Internal Reflection",
+            "text": "When θ > θ_c, all light reflects; none refracts. Occurs only when traveling from denser to less dense medium."
+          },
+          {
+            "label": "Applications",
+            "text": "Fiber optics (telecommunications), diamond brilliance (high refractive index → low critical angle → light trapped), prism corners in binoculars."
+          },
+          {
+            "label": "Condition",
+            "text": "Requires n₁ > n₂ (denser to less dense). Traveling opposite direction (air to glass) cannot produce total internal reflection."
+          }
+        ],
+        "inSimpleWords": "If light hits a glass-to-air boundary at a steep enough angle, it bounces back completely instead of escaping. This is total internal reflection.",
+        "emoji": "✨"
+      },
+      {
         "kind": "example",
         "title": "Worked Example: Mirror Magnification",
         "storyContext": "Ramesh demonstrates mirror magnification by placing an object in front of different mirrors and measuring the image size.",
@@ -94405,6 +94849,11 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "inSimpleWords": "Real lenses aren't perfect. They have aberrations (defects): colors focus differently, edges focus differently. Quality optics correct these with combinations of lenses.",
         "emoji": "👁️"
+      },
+      {
+        "kind": "story",
+        "title": "Priya's Exploration: Light Travels Straight",
+        "storyContext": "Ramesh shows Priya a shadow experiment. 'Light travels in straight lines—that's why shadows have sharp edges. But at the edge of a shadow, light bends slightly (diffraction). And if light passes through two slits, it interferes.' Priya realizes: the ray model (straight lines) is perfect for understanding lenses and mirrors, but it breaks down when dealing with narrow openings or obstacles."
       },
       {
         "kind": "challenge",
@@ -94465,6 +94914,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Priya's Rainbow: Spectrum in Action",
         "storyContext": "Priya creates her own rainbow using a prism and white light. She sees seven distinct colors arranged by wavelength. Ramesh points out the pattern: 'Red on the outside of the rainbow (longest wavelength, bends least), violet on the inside (shortest wavelength, bends most). This is why rainbows always have the same order of colors. The prism does exactly what raindrops do—separate white light by wavelength.'"
+      },
+      {
+        "kind": "concept",
+        "title": "Refractive Index: Materials & Applications",
+        "storyContext": "Dr. Sharma teaches Priya about refractive index values. 'Different materials bend light by different amounts. Diamond (n ≈ 2.4) bends light so much that it sparkles. Water (n ≈ 1.33) is only slightly denser than air. Knowing n is key to designing any optical instrument.'",
+        "points": [
+          {
+            "label": "Refractive Index Values",
+            "text": "Air: n ≈ 1. Water: n ≈ 1.33. Glass: n ≈ 1.5. Diamond: n ≈ 2.4. Higher n = more bending, more light trapped."
+          },
+          {
+            "label": "Optical Materials",
+            "text": "Crown glass (n ≈ 1.52) for lenses. Flint glass (n ≈ 1.7) for dispersion. Silica (n ≈ 1.46) for fiber optics."
+          },
+          {
+            "label": "Why Diamond Sparkles",
+            "text": "High refractive index (n ≈ 2.4) and low critical angle mean light bounces inside many times before exiting, creating vivid flashes."
+          },
+          {
+            "label": "Temperature & Refractive Index",
+            "text": "n slightly increases as temperature decreases (glass contracts, bending increases). Mirage phenomenon: hot air (low n) acts as lens, bending light from sky."
+          }
+        ],
+        "inSimpleWords": "Different materials bend light by different amounts. Diamond bends light so much it sparkles. The refractive index n tells us how much bending happens.",
+        "emoji": "💎"
       },
       {
         "kind": "challenge",
@@ -94539,6 +95013,9 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           },
           {
             "text": "Prisms disperse light into a spectrum; dispersion depends on wavelength and refractive index."
+          },
+          {
+            "text": "Critical angle and total internal reflection confine light to denser media; used in fiber optics and diamond brilliance."
           }
         ],
         "emoji": "✓",
@@ -94722,6 +95199,71 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Fraunhofer vs. Fresnel Diffraction",
+        "storyContext": "Prof. Nair explains to Aditya: 'There are two types of diffraction. Fraunhofer diffraction occurs when light travels far from the obstacle (parallel rays). Fresnel diffraction occurs near the obstacle (diverging rays). They follow different math but both show wave properties.'",
+        "points": [
+          {
+            "label": "Fraunhofer Diffraction",
+            "text": "Light source and screen are very far from the slit (or at infinity). Plane waves incident and observed. Simpler math: d sin θ = nλ for minima."
+          },
+          {
+            "label": "Fresnel Diffraction",
+            "text": "Light source or screen is close to the slit. Curved wavefronts. More complex to analyze; requires Fresnel integrals."
+          },
+          {
+            "label": "Practical Difference",
+            "text": "Lab setups usually have both elements. Fraunhofer approximation valid if D >> a²/λ, where D is screen distance, a is slit width."
+          },
+          {
+            "label": "Newton's Rings",
+            "text": "Classic Fresnel diffraction pattern: a lens rests on a flat surface, creating an air gap. Thin-film interference produces concentric rings."
+          }
+        ],
+        "inSimpleWords": "Diffraction patterns depend on distance from the obstacle. Far away: Fraunhofer (simpler). Close: Fresnel (more complex). Both prove light is a wave.",
+        "emoji": "🔬"
+      },
+      {
+        "kind": "story",
+        "title": "Newton's Rings Mystery: Interference Inside Diffraction",
+        "storyContext": "Aditya experiments with Newton's rings in the advanced optics lab. A plano-convex lens sits on a flat glass plate, creating a thin air gap that gets thinner toward the center. In reflected light, he sees alternating bright and dark concentric rings. 'This is Fresnel diffraction combined with thin-film interference,' Prof. Nair explains. 'The varying air-gap thickness creates path differences, interfering constructively and destructively at different radii. Newton observed this in 1666—proof that light has wave properties.'"
+      },
+      {
+        "kind": "example",
+        "title": "Worked Example: Newton's Rings Radius",
+        "storyContext": "Aditya calculates the radius of Newton's rings for a known lens radius.",
+        "example": {
+          "problem": "A plano-convex lens of radius R = 100 cm rests on a flat plate. For the kth dark ring (destructive interference), the air gap thickness is related to ring radius r by: t = r²/(2R). At wavelength λ = 600 nm, find the radius of the 10th dark ring.",
+          "solution": "For dark rings in reflected light with a phase change at one surface: 2t = (m + 1/2)λ, where m = 0, 1, 2, ... For the 10th dark ring, m = 9. 2 × r²/(2R) = (9 + 0.5) × 600 × 10^-9. r²/R = 9.5 × 600 × 10^-9. r² = 100 × 9.5 × 600 × 10^-9 = 5700 × 10^-9 = 5.7 × 10^-6 m². r ≈ 2.39 × 10^-3 m = 2.39 mm."
+        },
+        "emoji": "⭕"
+      },
+      {
+        "kind": "concept",
+        "title": "Rayleigh Criterion: Optical Resolution",
+        "storyContext": "Prof. Nair challenges Aditya: 'How close can two point sources be before we can't distinguish them anymore? The Rayleigh criterion sets the limit based on diffraction.'",
+        "points": [
+          {
+            "label": "Rayleigh Criterion",
+            "text": "Two point sources are just resolved when the central maximum of one diffraction pattern coincides with the first minimum of the other. Angular separation: θ ≈ 1.22λ/D (for circular aperture)."
+          },
+          {
+            "label": "Resolving Power",
+            "text": "R = 1/θ_min = D/(1.22λ). Larger diameter → better resolution. Shorter wavelength → better resolution."
+          },
+          {
+            "label": "Telescope Resolution",
+            "text": "For a telescope with objective diameter D: θ_min ≈ 1.22λ/D. Hubble (D = 2.4 m, λ = 500 nm): θ_min ≈ 0.05 arcsec (amazing precision)."
+          },
+          {
+            "label": "Microscope Resolution",
+            "text": "Limited by diffraction: d_min ≈ λ/(2NA), where NA is numerical aperture. Max resolution: ~200 nm (visible light). Electron microscopes overcome this."
+          }
+        ],
+        "inSimpleWords": "Diffraction limits how finely we can resolve details. Larger apertures and shorter wavelengths give better resolution. This is why big telescopes see faint stars, and why UV microscopes reveal finer detail than visible light.",
+        "emoji": "🔭"
+      },
+      {
+        "kind": "concept",
         "title": "Polarization & Optical Activity",
         "storyContext": "Leela hands Aditya two pieces of polaroid film. When she stacks them, light passes through. When she rotates one 90°, darkness. 'Light waves oscillate perpendicular to their direction of travel. Normally, all directions are equal (unpolarized). Polaroid filters only allow oscillations along one axis. If two filters are perpendicular, no light gets through.'",
         "points": [
@@ -94822,6 +95364,56 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Wavelength of Light & Measuring with Diffraction",
+        "storyContext": "Prof. Nair brings out a diffraction grating—a device with thousands of parallel slits. 'Each slit diffracts light. All the diffracted beams interfere constructively in specific directions, depending on wavelength. This lets us measure the wavelength precisely.'",
+        "points": [
+          {
+            "label": "Diffraction Grating Equation",
+            "text": "d sin(θ) = mλ, where d is spacing between slits, θ is diffraction angle, m = 0, 1, 2, ... (order of diffraction)."
+          },
+          {
+            "label": "Resolving Power",
+            "text": "Ability to separate two close wavelengths: R = λ/Δλ = mN, where N is total number of slits. More slits → higher resolution."
+          },
+          {
+            "label": "Visible Wavelengths",
+            "text": "Red: 700 nm, Orange: 600 nm, Yellow: 580 nm, Green: 550 nm, Blue: 450 nm, Violet: 400 nm."
+          },
+          {
+            "label": "Spectral Lines",
+            "text": "Each element emits specific wavelengths (spectral lines) when heated. Hydrogen: 656 nm (red), 486 nm (cyan), 434 nm (violet)."
+          }
+        ],
+        "inSimpleWords": "A diffraction grating separates light by wavelength, creating a spectrum. By measuring angles, we can calculate the exact wavelength of light.",
+        "emoji": "🌈"
+      },
+      {
+        "kind": "concept",
+        "title": "Coherence Length & Monochromaticity",
+        "storyContext": "Prof. Nair explains why lasers are special for interference. 'A laser emits highly monochromatic (single wavelength) light with high coherence. Ordinary light has many wavelengths mixed in. If path differences exceed the coherence length, interference fringes vanish. This is why we need lasers for clear interference patterns.'",
+        "points": [
+          {
+            "label": "Coherence Length",
+            "text": "L_c = λ² / Δλ, where Δλ is spectral width. Larger L_c means better coherence. Laser: L_c ~ meters. Ordinary light: L_c ~ micrometers."
+          },
+          {
+            "label": "Monochromaticity",
+            "text": "Measure of spectral purity. Δλ/λ = degree of monochromaticity. Lasers: Δλ/λ ~ 10^-8. Ordinary lamps: Δλ/λ ~ 10^-2."
+          },
+          {
+            "label": "Temporal Coherence",
+            "text": "Coherence over time interval: related to monochromaticity. Better monochromaticity → longer temporal coherence."
+          },
+          {
+            "label": "Spatial Coherence",
+            "text": "Coherence across the wavefront. Extended sources (like sun) have poor spatial coherence. Point sources have better spatial coherence."
+          }
+        ],
+        "inSimpleWords": "Laser light is pure (monochromatic) and coherent, perfect for interference. Ordinary light has many wavelengths mixed, so fringes fade if paths differ too much.",
+        "emoji": "📍"
+      },
+      {
+        "kind": "concept",
         "title": "Holography: Wave Optics in 3D",
         "storyContext": "Prof. Nair shows Aditya a hologram—a shiny plastic card with a 3D image. 'A hologram is recorded using interference. A laser splits into two beams: one lights the object, the other acts as a reference. Both beams interfere on photographic film, encoding both amplitude and phase of the object's light. When you shine laser light on the developed hologram, it reconstructs the 3D image. It's the ultimate application of interference—capturing and replaying light itself.'",
         "points": [
@@ -94880,19 +95472,28 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "Diffraction: Light bends around obstacles or through slits; single slit produces dark fringes at a sin θ = nλ."
           },
           {
+            "text": "Fraunhofer vs. Fresnel: Diffraction depends on distance. Fraunhofer far-field; Fresnel near-field. Both prove wave nature."
+          },
+          {
+            "text": "Diffraction grating: Thousands of slits separate light into spectrum; equation d sin θ = mλ allows wavelength measurement."
+          },
+          {
+            "text": "Rayleigh criterion limits resolution by diffraction. Larger aperture or shorter wavelength → finer detail (better resolution)."
+          },
+          {
             "text": "Polarization: Light's E-field can oscillate in a specific direction; polarizers, Brewster's angle, and optical activity show this."
           },
           {
             "text": "Thin-film interference: Oil films, soap bubbles, and anti-reflection coatings use constructive/destructive interference."
           },
           {
-            "text": "Wave optics explains phenomena particle models cannot: Newton's rings, diffraction gratings, spectroscopy, holograms."
+            "text": "Coherence is essential for stable interference; laser light is coherent (long coherence length), ordinary light sources are not."
           },
           {
-            "text": "Diffraction gratings separate light by wavelength; used in spectroscopy to identify elements."
+            "text": "Spectroscopy: unique wavelengths (spectral lines) identify elements. Each element's fingerprint is written in light."
           },
           {
-            "text": "Coherence is essential for stable interference; laser light is coherent, ordinary light sources are not."
+            "text": "Holography records both amplitude and phase using interference, enabling perfect 3D reconstruction."
           }
         ],
         "emoji": "✓",
@@ -94992,6 +95593,36 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Planck's Constant & Quantum of Energy",
+        "storyContext": "Dr. Banerjee explains Planck's revolutionary hypothesis. 'In 1900, Max Planck proposed that energy isn't continuous but comes in packets—quanta. Each quantum carries energy E = hf, proportional to frequency. This single idea solved the ultraviolet catastrophe in blackbody radiation and laid the foundation for quantum physics.'",
+        "points": [
+          {
+            "label": "Planck's Hypothesis",
+            "text": "Energy is quantized: E = nhf, where n = 1, 2, 3, ... and h = 6.63 × 10^-34 J·s (Planck's constant)."
+          },
+          {
+            "label": "Blackbody Radiation",
+            "text": "Classical physics predicted infinite energy at high frequencies (ultraviolet catastrophe). Planck's quantization fixed this: high-frequency oscillators cost energy, so few quanta are emitted."
+          },
+          {
+            "label": "Energy Quantization Examples",
+            "text": "Visible photon (~500 nm): E = hc/λ ≈ 2.5 eV. X-ray photon (0.1 nm): E ≈ 10 keV. Radio wave (1 m): E ≈ 10^-6 eV (negligible)."
+          },
+          {
+            "label": "Implications",
+            "text": "Energy at atomic scale comes in definite packets, not a continuous spectrum. This explains discrete spectral lines, atomic stability, chemical bonding."
+          }
+        ],
+        "inSimpleWords": "Energy comes in packets called quanta. Each photon carries energy E = hf depending on its frequency. Higher frequency = higher energy per photon.",
+        "emoji": "⚡"
+      },
+      {
+        "kind": "story",
+        "title": "Planck's Desperate Gamble: Birth of Quantum Physics",
+        "storyContext": "Dr. Banerjee tells Rohan the historical context. 'In 1900, Planck was stuck. His experiments on blackbody radiation didn't match classical predictions. In desperation, he proposed that energy comes in packets—quanta. He didn't believe it at first; he called it a mathematical trick. But it worked. In 1918, he won the Nobel Prize for this discovery that revolutionized physics.'"
+      },
+      {
+        "kind": "de Broglie Waves: Matter as Waves",
         "title": "De Broglie Waves: Matter as Waves",
         "storyContext": "Zara, an artist, asks Dr. Banerjee: 'If light acts like matter (particles), can matter act like light (waves)?' Dr. Banerjee smiles. 'In 1924, Louis de Broglie proposed exactly that. Every particle—electron, proton, even a cricket ball—has an associated wavelength λ = h/p, where p is momentum. The more massive the object, the shorter its wavelength. Electrons are light enough that their de Broglie wavelength is measurable. This is why electrons can be diffracted, proving they're waves too.'",
         "points": [
@@ -95073,6 +95704,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "kind": "story",
         "title": "Compton's Discovery: The Aha Moment",
         "storyContext": "Arthur Compton's 1923 experiments sent shockwaves through physics. He showed that scattered X-rays had longer wavelengths than incident rays—the shift depending on scattering angle, exactly as photon-electron collision predicted. This was irrefutable proof that photons are particles. Rohan reads how Compton won the Nobel Prize for this work, transforming physics from 'wave-only' to 'wave and particle.' The universe, once again, revealed its layers."
+      },
+      {
+        "kind": "concept",
+        "title": "Energy Levels & Spectral Series",
+        "storyContext": "Rohan studies the hydrogen spectrum. 'Different series of spectral lines correspond to electrons falling to different lower levels. Lyman series: n → 1. Balmer series: n → 2. Paschen series: n → 3.'",
+        "points": [
+          {
+            "label": "Lyman Series",
+            "text": "Transitions to n = 1: ultraviolet lines. Lyman alpha (n=2→1): 121.6 nm (most energetic). Series limit (n=∞→1): 91.2 nm."
+          },
+          {
+            "label": "Balmer Series",
+            "text": "Transitions to n = 2: visible and near-UV. Balmer alpha (n=3→2, Hα): 656 nm (deep red). Only Hα to Hε are in visible range."
+          },
+          {
+            "label": "Paschen Series",
+            "text": "Transitions to n = 3: infrared lines. Paschen alpha (n=4→3): 1875 nm."
+          },
+          {
+            "label": "Ritz Combination Principle",
+            "text": "Frequencies add: f_total = f_1 + f_2 if transitions are combined. Allows predicting unknown spectral lines from known ones."
+          }
+        ],
+        "inSimpleWords": "Electrons jump between quantized energy levels, emitting photons at specific wavelengths. Each transition series has a different pattern, creating the element's unique spectral fingerprint.",
+        "emoji": "🌈"
       },
       {
         "kind": "concept",
@@ -95175,6 +95831,56 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Photon Momentum & Radiation Pressure",
+        "storyContext": "Dr. Banerjee reveals another consequence of photons being particles. 'Each photon carries not just energy but also momentum: p = E/c = h/λ. This means light exerts pressure—radiation pressure. Solar sails use this to propel spacecraft.'",
+        "points": [
+          {
+            "label": "Photon Momentum",
+            "text": "p = E/c = hf/c = h/λ. Even though photons are massless, they carry momentum."
+          },
+          {
+            "label": "Radiation Pressure",
+            "text": "Force from photon momentum transfer: F = P/c, where P is power (energy per unit time). For perfect reflection, force doubles."
+          },
+          {
+            "label": "Solar Radiation Pressure",
+            "text": "Sun's light exerts ~5 μN/m² pressure on Earth. Tiny, but exploited by solar sails for spacecraft propulsion (no fuel needed!)."
+          },
+          {
+            "label": "Compton Momentum Transfer",
+            "text": "In Compton effect, the wavelength shift equals the momentum transferred to electron: Δλ = (h/m_e c)(1 - cos θ)."
+          }
+        ],
+        "inSimpleWords": "Photons are particles with momentum p = h/λ. When they bounce off a surface, they transfer momentum—this is radiation pressure. Solar sails use it for propulsion.",
+        "emoji": "🚀"
+      },
+      {
+        "kind": "concept",
+        "title": "Wave-Particle Duality in Everyday Technology",
+        "storyContext": "Dr. Banerjee summarizes the modern applications of wave-particle duality. 'The universe is built on this duality. Lasers use stimulated emission of photons. Solar cells use photoelectric effect. Electron microscopes use electron wavelengths. LEDs and transistors rely on quantized energy levels.'",
+        "points": [
+          {
+            "label": "Laser Technology",
+            "text": "Stimulated emission: an incoming photon triggers an electron to fall to lower energy, emitting an identical photon (coherent light)."
+          },
+          {
+            "label": "Solar Cells",
+            "text": "Photoelectric effect in semiconductors: photons excite electrons across band gap, creating electrical current."
+          },
+          {
+            "label": "LEDs",
+            "text": "Electrons fall between quantized energy levels, emitting photons at specific wavelengths (colors)."
+          },
+          {
+            "label": "Semiconductors & Transistors",
+            "text": "Band structure (quantized energy) controls electrical conduction. Transistors switch by controlling electron transitions."
+          }
+        ],
+        "inSimpleWords": "Modern technology—lasers, solar cells, LEDs, phone cameras, microscopes—all rely on wave-particle duality and quantum physics.",
+        "emoji": "💡"
+      },
+      {
+        "kind": "concept",
         "title": "Uncertainty Principle: Limits of Measurement",
         "storyContext": "Dr. Banerjee introduces Heisenberg's uncertainty principle. 'Because electrons have wave properties, we cannot simultaneously know their exact position and momentum with arbitrary precision. The more precisely we measure position, the less we know about momentum, and vice versa. This isn't a limitation of our instruments; it's fundamental to nature. Δx × Δp ≥ h/(4π).'",
         "points": [
@@ -95219,6 +95925,12 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
             "text": "Bohr model: electrons are confined to quantized orbits where the de Broglie wavelength fits. Transitions emit/absorb photons with specific energies."
           },
           {
+            "text": "Energy quantization explains discrete spectral lines, atomic stability, and all chemistry."
+          },
+          {
+            "text": "Planck's quantization E = nhf solved the ultraviolet catastrophe and founded quantum mechanics."
+          },
+          {
             "text": "Dual nature is fundamental: the same entity behaves differently depending on how we measure it."
           },
           {
@@ -95226,6 +95938,9 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           },
           {
             "text": "Quantum mechanics replaces determinism with probability—nature is fundamentally probabilistic at atomic scales."
+          },
+          {
+            "text": "Modern technology (lasers, solar cells, LEDs, transistors, electron microscopes) is built on wave-particle duality."
           }
         ],
         "emoji": "✓",
@@ -95532,6 +96247,40 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Decay Constant & Exponential Decay Law",
+        "storyContext": "Aryan derives the fundamental law of radioactive decay. 'The rate of decay is proportional to the number of nuclei present: dN/dt = -λN. Solving gives N(t) = N₀ e^(-λt). This is exponential decay—characteristic of all first-order processes in nature.'",
+        "points": [
+          {
+            "label": "Decay Constant λ",
+            "text": "Probability per unit time that one nucleus decays. Units: s^-1. Related to half-life: λ = ln(2) / T_1/2 ≈ 0.693 / T_1/2."
+          },
+          {
+            "label": "Exponential Decay",
+            "text": "N(t) = N₀ e^(-λt). Fraction remaining after time t: N/N₀ = e^(-λt)."
+          },
+          {
+            "label": "Half-life",
+            "text": "Time for N to drop to N₀/2. T_1/2 = ln(2)/λ ≈ 0.693/λ."
+          },
+          {
+            "label": "Activity",
+            "text": "Rate of decays: A = |dN/dt| = λN. Units: becquerels (Bq = 1 decay/s) or curies (Ci = 3.7 × 10^10 Bq)."
+          }
+        ],
+        "emoji": "📉"
+      },
+      {
+        "kind": "example",
+        "title": "Multiple Decays: Branching Ratios",
+        "storyContext": "Sneha studies a nucleus that can decay via multiple paths. 'Some nuclei decay via alpha, others via beta. The branching ratio tells us the probability of each path.'",
+        "example": {
+          "problem": "Co-60 has two decay paths: β− decay to Ni-60 (99.9% branching) and β+ decay to Fe-60 (0.1% branching). Half-life = 5.27 years. In a sample with 1 mole initially, how many decays to Ni-60 occur in the first year?",
+          "solution": "λ = ln(2) / (5.27 × 365.25 × 24 × 3600) ≈ 4.17 × 10^-9 s^-1. Decays in 1 year: ΔN = N₀ (1 - e^(-λt)) = 6.02 × 10^23 × (1 - e^(-4.17 × 10^-9 × 3.15 × 10^7)) ≈ 6.02 × 10^23 × 0.131 ≈ 7.9 × 10^22. Decays to Ni-60: 7.9 × 10^22 × 0.999 ≈ 7.89 × 10^22."
+        },
+        "emoji": "🌳"
+      },
+      {
+        "kind": "concept",
         "title": "Nuclear Fission & Fusion",
         "storyContext": "Prof. Desai shows a diagram of uranium fission. 'A slow neutron hits U-235. The nucleus splits into two smaller nuclei (Ba-141, Kr-92, plus 2-3 free neutrons). The binding energy per nucleon increases, so mass is released as heat (E = mc²). This is fission, used in nuclear reactors and weapons. Fusion is the opposite: light nuclei combine (like hydrogen isotopes forming helium) in stars, also releasing energy.'",
         "points": [
@@ -95643,6 +96392,30 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "solution": "(a) He-4: Z=2, N=2, N/Z=1.0 (stable). (b) O-16: Z=8, N=8, N/Z=1.0 (stable). (c) Fe-56: Z=26, N=30, N/Z=1.15 (stable). (d) U-238: Z=92, N=146, N/Z=1.59 (stable but radioactive, long half-life). Light nuclei cluster at N/Z≈1; heavy nuclei require N/Z>1 for stability."
         },
         "emoji": "📊"
+      },
+      {
+        "kind": "concept",
+        "title": "Nuclear Reactions & Conservation Laws",
+        "storyContext": "Prof. Desai emphasizes conservation principles. 'In every nuclear reaction, charge (Z), mass number (A), and energy-momentum are conserved. These laws constrain what reactions are possible and what particles must be emitted.'",
+        "points": [
+          {
+            "label": "Charge Conservation",
+            "text": "Total Z before = total Z after. In beta decay, a neutron becomes a proton, so Z increases by 1."
+          },
+          {
+            "label": "Mass Number Conservation",
+            "text": "Total A before = total A after. In alpha decay, A decreases by 4 (He-4 nucleus)."
+          },
+          {
+            "label": "Energy-Momentum Conservation",
+            "text": "ΣE_before = ΣE_after, Σp_before = Σp_after. Momentum conservation explains recoil in decay."
+          },
+          {
+            "label": "Q-value",
+            "text": "Q = (M_reactants - M_products) c². For Q > 0, reaction is exothermic and spontaneous."
+          }
+        ],
+        "emoji": "⚖️"
       },
       {
         "kind": "recap",
@@ -96023,6 +96796,26 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Quantum Tunneling in Nuclear Reactions",
+        "storyContext": "Dr. Malhotra explains the quantum mechanics that enables fusion. 'Two nuclei approaching each other experience a Coulomb barrier—a peak in potential energy. Classically, they must have kinetic energy exceeding this barrier. But quantum mechanically, there's a small probability the nuclei tunnel through the barrier without crossing the peak. This tunneling is essential to both fusion and radioactive decay.'",
+        "points": [
+          {
+            "label": "Tunneling Probability",
+            "text": "P ∝ exp(-2πη), where η = Z1 × Z2 × e²/(4πε₀ℏv) (Coulomb parameter). For two protons at solar T, η ~0.4, so P ~10^-30."
+          },
+          {
+            "label": "WKB Approximation",
+            "text": "Tunneling rate R ∝ P × collision frequency. For realistic rates, need either extreme temperature or extreme cross-section focusing (astrophysics uses high density)."
+          },
+          {
+            "label": "Fusion Cross-Section",
+            "text": "σ(E) = geometric cross-section × transmission coefficient. σ_dt >> σ_pp at same energy, making DT favored for reactors."
+          }
+        ],
+        "emoji": "🌌"
+      },
+      {
+        "kind": "concept",
         "title": "Future Fusion Reactors: Challenges Ahead",
         "storyContext": "Dr. Malhotra outlines the road to commercial fusion. 'NIF proved ignition is possible, but only once—with massive input. Commercial reactors need repeated ignition, high efficiency, and economic viability. ITER (International Thermonuclear Experimental Reactor) will be the largest tokamak ever built, demonstrating sustained Q > 10 by 2030s. Private companies (Commonwealth Fusion, TAE Technologies) pursue smaller, faster designs using superconducting magnets and AI control.'",
         "points": [
@@ -96040,6 +96833,72 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           }
         ],
         "emoji": "🔧"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Comparing Fusion vs. Fission Energy",
+        "storyContext": "Karan asks: 'Which releases more energy—fusion or fission?' Maya suggests calculating energy per unit mass for both.",
+        "example": {
+          "problem": "Compare energy output: (a) Fission: U-235 + n → Ba-141 + Kr-92 + 3n, releasing ~200 MeV. (b) Fusion: d + t → He-4 + n, releasing 17.6 MeV. Masses: M_U235 ≈ 235 u, M_d ≈ 2 u, M_t ≈ 3 u. Energy per unit mass for 1 kg of each fuel.",
+          "solution": "(a) Fission: 200 MeV per 235 u ≈ 0.85 MeV/u. Energy per kg: (1 kg / 235 u) × (235 u/kg) × 0.85 MeV/u ≈ 0.85 MeV per u in 1 kg ≈ (10^3 g / 235 g/mol) × (6 × 10^23 atoms/mol) × 0.85 × 1.6 × 10^-13 J ≈ 3.3 × 10^13 J/kg. (b) Fusion: 17.6 MeV per 5 u = 3.5 MeV/u. But 1 kg of D-T mix (~1.5:3.5 mass ratio) gives (1000 / 5) × 6 × 10^23 × 3.5 × 1.6 × 10^-13 J ≈ 6.7 × 10^13 J/kg. Fusion releases ~2× more energy per unit mass than fission!"
+        },
+        "emoji": "⚡"
+      },
+      {
+        "kind": "example",
+        "title": "Calculating Reactor Performance",
+        "storyContext": "Maya estimates energy output from a hypothetical DT reactor.",
+        "example": {
+          "problem": "A fusion reactor achieves Q = 2 (twice input energy). Input power = 100 MW. Assume 50% of fusion output heats the reactor (rest lost to conduction/radiation). How much usable heat is generated? If converted to electricity at 40% efficiency, what is electrical output?",
+          "solution": "Fusion output = Q × Input = 2 × 100 = 200 MW. Heat for electricity = 50% × 200 = 100 MW. Electrical output = 40% × 100 = 40 MW. Even with modest Q and efficiency, the output is significant for grid-scale power."
+        },
+        "emoji": "⚡"
+      },
+      {
+        "kind": "story",
+        "title": "Maya's Vision: Fusion for Climate Solutions",
+        "storyContext": "Maya reflects on the stakes. 'Global carbon emissions drive climate change. Solar and wind are intermittent. Nuclear fission has waste and safety concerns. But fusion—if we can make it work—is truly unlimited. A liter of seawater contains enough deuterium to equal the energy of a ton of oil. Imagine powering Earth with ocean water. That's the dream fusion enables.'",
+        "emoji": "🌍",
+        "points": [
+          {
+            "label": "Abundance",
+            "text": "Deuterium exists naturally in seawater at ~0.015% abundance. Tritium is produced in reactors via Li-6 + n → Li-3 + He-4 + tritium."
+          },
+          {
+            "label": "Environmental Benefits",
+            "text": "Zero carbon emissions. No long-lived radioactive waste (D-T fusion produces He-4, inert)."
+          }
+        ]
+      },
+      {
+        "kind": "concept",
+        "title": "Tokamak Scaling & Engineering Challenges",
+        "storyContext": "Dr. Malhotra discusses ITER's engineering. 'ITER is 10× larger than current tokamaks, requiring unprecedented magnet strength, cryogenic systems, and neutron shielding. Each component is custom-built, pushing materials science to extremes. But the payoff—Q > 10—is worth the investment.'",
+        "points": [
+          {
+            "label": "Superconducting Magnets",
+            "text": "Niobium-tin coils, cooled to 4 K with liquid helium. Must withstand 80 GJ of energy release in 1 second (equivalent to 20 tons TNT)."
+          },
+          {
+            "label": "Neutron Shielding",
+            "text": "14 MeV neutrons penetrate deep. Multi-layer shielding: water, boron carbide, steel. Absorbs energy and slows neutrons."
+          },
+          {
+            "label": "First-Wall Erosion",
+            "text": "Plasma-facing materials: tungsten, beryllium. Tolerate 10+ MW/m² heat flux (sun's surface ~0.06 MW/m²)."
+          }
+        ],
+        "emoji": "🏗️"
+      },
+      {
+        "kind": "example",
+        "title": "Energy Gain & Q-value in Fusion Reactions",
+        "storyContext": "Karan calculates the Q-value (energy ratio) for different fusion processes.",
+        "example": {
+          "problem": "Compare Q-values: (a) PP chain (4 protons → He-4 + 26.7 MeV). Total mass: 4 × 938.3 = 3753.2 MeV/c². (b) DT reaction (deuteron + tritium → He-4 + neutron + 17.6 MeV). Initial mass: 2.014 + 3.016 ≈ 5.03 u ≈ 4685 MeV/c². (c) Which has better energy per nucleon released?",
+          "solution": "(a) PP: 26.7 MeV / 4 nucleons = 6.7 MeV/nucleon. (b) DT: 17.6 MeV / 5 nucleons = 3.5 MeV/nucleon. PP chain releases more energy per nucleon, but DT is easier to trigger at reactor temperatures due to lower Coulomb barrier (smaller Z)."
+        },
+        "emoji": "📊"
       },
       {
         "kind": "recap",
@@ -96180,6 +97039,26 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           "solution": "σ = e × n × μ_n = (1.6 × 10^-19 C) × (10^16 cm^-3) × (1350 cm²/(V·s)) ≈ (1.6 × 10^-19) × (10^16) × (1350) ≈ 2160 S/m ≈ 0.2 Ω^-1·cm (moderate conductor, 10^6 times better than intrinsic Si)."
         },
         "emoji": "⚡"
+      },
+      {
+        "kind": "concept",
+        "title": "Band Structure & Conduction",
+        "storyContext": "Sophia explains the quantum mechanical picture. 'In a crystal, electrons organize into energy bands—regions of allowed energy separated by band gaps (forbidden regions). The valence band holds electrons in covalent bonds; the conduction band holds free electrons. An electron must gain E_g energy to jump from valence to conduction band. Heat or photons can provide this energy.'",
+        "points": [
+          {
+            "label": "Energy Bands",
+            "text": "Due to quantum periodicity in the crystal lattice. Valence band (full of electrons at T=0), conduction band (empty). Gap E_g = 1.1 eV for Si."
+          },
+          {
+            "label": "Electron vs. Hole Conduction",
+            "text": "Electrons move in conduction band; holes move in valence band (absence of electron = positive charge moving opposite)."
+          },
+          {
+            "label": "Effective Mass",
+            "text": "Electron and hole effective masses m_e*, m_h* differ from bare electron mass. m_h* > m_e* for Si, so holes are slower."
+          }
+        ],
+        "emoji": "🌈"
       },
       {
         "kind": "concept",
@@ -96363,6 +97242,30 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🔌"
       },
       {
+        "kind": "concept",
+        "title": "Leakage Currents & Power Dissipation",
+        "storyContext": "Mr. Gupta explains the challenge of miniaturization. 'As gate length shrinks, the oxide thickness decreases proportionally. Electrons tunnel through the thin oxide, causing gate leakage. Subthreshold swing (how sharply the transistor turns off) worsens, allowing current even below V_T. Leakage power grows exponentially, limiting further scaling without new materials or techniques.'",
+        "points": [
+          {
+            "label": "Gate Leakage",
+            "text": "Tunneling current through oxide: I_gate ∝ exp(-2√(2mE_ox^(3/2)) / (3eℏE_ox)), where E_ox is oxide field."
+          },
+          {
+            "label": "Subthreshold Leakage",
+            "text": "Current below threshold: I_sub = I_0 × 10^((V_GS-V_T)/nV_T), where n is subthreshold swing (ideally 60 mV/decade at 300K)."
+          },
+          {
+            "label": "Junction Leakage",
+            "text": "Reverse-biased junctions (p-n junctions at source/drain) leak via thermally-generated carriers and band-to-band tunneling."
+          },
+          {
+            "label": "Power Scaling Limits",
+            "text": "Total power = dynamic (switched) + static (leakage). At 5 nm, static power ≈ 30% of total, limiting supply voltage reduction."
+          }
+        ],
+        "emoji": "⚡"
+      },
+      {
         "kind": "challenge",
         "title": "Challenge: Solar Cell as Photodiode",
         "storyContext": "Nikhil asks: 'How do solar panels work?' Mr. Gupta explains: 'A solar cell is a p-n junction exposed to sunlight. Photons knock electrons from the valence band to the conduction band, creating electron-hole pairs in the depletion region. The built-in electric field separates them: electrons to the n-side, holes to the p-side. This generates voltage and current without any external power.'",
@@ -96408,6 +97311,72 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
           }
         ],
         "emoji": "⚙️"
+      },
+      {
+        "kind": "example",
+        "title": "Comparing Transistor Gain Metrics",
+        "storyContext": "Sophia compares gain and switching characteristics across transistor types.",
+        "example": {
+          "problem": "Compare: (a) BJT with β=200, (b) MOSFET with transconductance g_m = 100 mS (millisiemens). For a 10 kΩ load, which provides higher voltage gain? (Assume BJT r_e = 26 Ω.)",
+          "solution": "(a) BJT: A_v ≈ β × R_L / r_e = 200 × 10000 / 26 ≈ 77,000. (b) MOSFET: A_v = g_m × R_L = 0.1 × 10000 = 1000. BJT gain is higher by ~77×. But MOSFET requires zero base current, uses less power, and scales better."
+        },
+        "emoji": "📊"
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Optimizing Power Consumption in Logic",
+        "storyContext": "Nikhil designs a simple CMOS inverter (NOT gate) and calculates power dissipation.",
+        "example": {
+          "problem": "CMOS inverter: NMOS W/L = 1, PMOS W/L = 2.5 (larger to match drive strength). Supply voltage V_dd = 1.2 V, frequency f = 1 GHz, load capacitance C_L = 0.1 pF. (a) Calculate dynamic (switching) power. (b) If static leakage per gate ≈ 1 nanoamp, total leakage power for 10 billion gates. (c) Total power in 1 cm² chip.",
+          "solution": "(a) P_dyn = C_L × V_dd² × f = 0.1 × 10^-12 × (1.2)² × 10^9 ≈ 1.44 × 10^-4 W per gate. For 10^10 gates: 1.44 MW. (b) P_leak = I_leak × V_dd = 10^-9 × 1.2 × 10^10 ≈ 12 mW (much less). (c) Total ≈ 1.44 MW for that 1 cm² chip at full speed—requires aggressive cooling."
+        },
+        "emoji": "🔥"
+      },
+      {
+        "kind": "story",
+        "title": "Sophia's Prediction: Beyond CMOS",
+        "storyContext": "Sophia looks ahead. 'Classical CMOS will likely reach its limit around 2030. We're exploring quantum-dot transistors (single-electron devices), graphene FETs (atomically thin channels), and photonic logic (using light instead of electrons). Each approach trades off simplicity for speed or power. The winner will be whichever solves the cost problem at scale.'",
+        "emoji": "🚀",
+        "points": [
+          {
+            "label": "Quantum-Dot Transistors",
+            "text": "Coulomb blockade effect controls single electrons. Ultra-low power but requires extreme cooling (~millikelvin)."
+          },
+          {
+            "label": "Graphene & 2D Materials",
+            "text": "Atomic thickness → tiny capacitance. High electron mobility (higher speed). But band gap engineering and contacts remain challenging."
+          }
+        ]
+      },
+      {
+        "kind": "concept",
+        "title": "Frequency Response & Parasitic Effects",
+        "storyContext": "Sophia explains signal integrity. 'Real transistors aren't ideal switches. Parasitic capacitances and inductances at high frequency distort signals. As clock speeds approach GHz, we must account for transmission-line effects, crosstalk, and signal integrity margins.'",
+        "points": [
+          {
+            "label": "Parasitic Capacitance",
+            "text": "Gate-to-drain (C_gd), gate-to-source (C_gs), junction capacitances. Limit maximum frequency and increase power."
+          },
+          {
+            "label": "Transmission-Line Effects",
+            "text": "On-chip wires above ~1 mm length have significant inductance (L ~ 1 nH/mm). Reflections and resonances occur at multi-GHz."
+          },
+          {
+            "label": "Signal Integrity",
+            "text": "Crosstalk between adjacent wires, supply noise, ground bounce. Margins typically 10-20% of signal swing."
+          }
+        ],
+        "emoji": "📶"
+      },
+      {
+        "kind": "example",
+        "title": "Designing a Ring Oscillator (Frequency Test Circuit)",
+        "storyContext": "Nikhil designs a simple circuit to measure gate propagation delay.",
+        "example": {
+          "problem": "A ring oscillator consists of 101 inverters in series (odd number forces oscillation). Each inverter has propagation delay t_pd ≈ 10 picoseconds. (a) Calculate oscillation frequency. (b) For 5 nm CMOS with 3V supply, estimate power dissipation if each inverter has capacitance C = 1 fF.",
+          "solution": "(a) Period T = 2 × 101 × t_pd = 2 × 101 × 10 ps ≈ 2.02 ns. Frequency f = 1/T ≈ 495 MHz. (b) Power ≈ 101 × 1 fF × (3V)² × 495 MHz ≈ 1.5 mW per oscillator. This is a test structure; actual logic consumes less."
+        },
+        "emoji": "🔄"
       },
       {
         "kind": "recap",
@@ -239321,6 +240290,56 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
       },
       {
         "kind": "concept",
+        "title": "Why Enlightenment Ideas Mattered",
+        "storyContext": "Ravi wonders: 'Books and ideas—how do they change the world?' Priya smiles: 'Because they plant seeds. Before 1789, people thought the king's power was natural, God-given. Enlightenment thinkers said NO. That's revolutionary.'",
+        "points": [
+          {
+            "label": "From Divine Right to Natural Rights",
+            "text": "Before: King has power by God's will. After: All people have natural rights (freedom, equality) by birth. Government must protect these rights."
+          },
+          {
+            "label": "The Shift in Thinking",
+            "text": "Enlightenment said: Use reason, not tradition. Question authority. Humans are equal. Laws should serve people, not the reverse."
+          },
+          {
+            "label": "Spread of Ideas",
+            "text": "Salons in Paris, pamphlets, books, secret meetings. Educated commoners—lawyers, merchants, clergy—debated and shared. By 1789, the Third Estate understood: we could rule ourselves."
+          },
+          {
+            "label": "The Gap: Ideals vs. Reality",
+            "text": "But Enlightenment thinkers mostly excluded women, slaves, and the very poor from 'natural rights.' They claimed universal principles, but applied them narrowly. This gap lasted for centuries."
+          }
+        ],
+        "emoji": "💡",
+        "inSimpleWords": "Enlightenment thinkers proved using reason that people could govern themselves. This destroyed the idea that kings ruled by God's will."
+      },
+      {
+        "kind": "concept",
+        "title": "Analyzing the Tennis Court Oath",
+        "storyContext": "Ravi asks: 'The oath is powerful, but how does swearing in a tennis court actually change government?' Priya nods: 'Good question. It breaks legitimacy.'",
+        "points": [
+          {
+            "label": "What Legitimacy Means",
+            "text": "A government is legitimate if people accept its right to rule. Before June 20, the king had legitimacy—people obeyed because they believed he had the right. After June 20, that broke."
+          },
+          {
+            "label": "The Shift",
+            "text": "Louis XIV had said 'I am the state.' Now, the National Assembly said 'We are the nation.' Who has the right to rule? The king or the elected representatives? By June 21, the Third Estate was organizing, and the king's control was slipping."
+          },
+          {
+            "label": "Why the King Couldn't Stop It",
+            "text": "Louis XVI could have sent troops to arrest the delegates. But what then? The army couldn't arrest everyone. And many soldiers came from the Third Estate—would they kill their own people? The king hesitated, and hesitation meant defeat."
+          },
+          {
+            "label": "The Speed of Change",
+            "text": "In days, centuries-old absolute monarchy was challenged. A written constitution became inevitable. The revolution's pace was accelerating."
+          }
+        ],
+        "emoji": "⚖️",
+        "inSimpleWords": "By refusing the king's authority and creating their own assembly, the Third Estate destroyed the king's legitimacy—his claim to rightfully rule."
+      },
+      {
+        "kind": "concept",
         "title": "The Estates-General and the Third Estate's Revolt (1789)",
         "storyContext": "Priya explains: In May 1789, King Louis XVI called an assembly of all three estates to solve the crisis—the Estates-General. The nobles and clergy wanted to vote by estate (meaning the first two could always outvote the third), but the Third Estate refused. Ravi imagines the tension: 'What did they do?'",
         "points": [
@@ -239516,6 +240535,27 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "inSimpleWords": "The first constitution tried to keep the king but with limits. Poor people felt left out. The compromise failed, and radicals took over."
       },
       {
+        "kind": "concept",
+        "title": "The Constitutional Monarchy Experiment (1791)",
+        "storyContext": "Priya explains: 'The first constitution created a limited monarchy. The king kept executive power, but law made limits.'",
+        "points": [
+          {
+            "label": "What Changed",
+            "text": "King had veto power (could reject laws but not forever). Parliament would hold power. Nobles lost feudal privileges. All citizens equal before law."
+          },
+          {
+            "label": "Who Could Vote",
+            "text": "Only property owners could vote (about 50,000 men). Women: none. Servants, laborers: none. This limited democracy sparked anger."
+          },
+          {
+            "label": "The Church Issue",
+            "text": "Church property seized. Clergy became state employees. Many clergy refused. This alienated the Church and common believers."
+          }
+        ],
+        "emoji": "📜",
+        "inSimpleWords": "The first constitution kept the king but limited his power. But voting was restricted to the rich, angering ordinary people."
+      },
+      {
         "kind": "story",
         "title": "War, Fear, and Paranoia (1792-1793)",
         "storyContext": "Priya's voice grows darker: 'Everything changed when foreign armies invaded. Austria and Prussia wanted to crush the revolution and restore the king's power.'",
@@ -239564,6 +240604,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "emoji": "💀",
         "inSimpleWords": "The revolution that wanted freedom turned into a nightmare where anyone suspected of opposing it could be executed. Fear ruled instead of justice."
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: From Ideals to Violence",
+        "storyContext": "Ravi asks: 'How does a revolution that starts with 'liberty, equality, fraternity' end with mass executions?' Priya sighs: 'It's a pattern we see again and again. Let me explain.'",
+        "points": [
+          {
+            "label": "The Gap",
+            "text": "Ideals are perfect in theory ('all people are equal'). Reality is messy. Some don't want change. Foreign enemies attack. The revolution hardens."
+          },
+          {
+            "label": "Us vs. Them",
+            "text": "At first, it's 'us' (revolutionaries) vs. 'them' (king, nobles). But as the revolution deepens, 'them' expands: moderates are traitors. Even other revolutionaries become 'enemies' if they disagree."
+          },
+          {
+            "label": "The Logic of Terror",
+            "text": "When external enemies attack and internal enemies are everywhere, the revolutionary logic becomes: 'We must eliminate traitors to save the revolution.' This justifies violence."
+          },
+          {
+            "label": "The Trap",
+            "text": "Once violence starts, it's hard to stop. Each act breeds revenge. Each execution breeds more executions. The revolution becomes more violent to defend itself from the violence it created."
+          }
+        ],
+        "emoji": "⚠️",
+        "inSimpleWords": "Revolutions start with hope but face enemies. As enemies seem to multiply, violence grows. Leaders convince themselves terror is necessary."
       },
       {
         "kind": "story",
@@ -239681,6 +240746,52 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "emoji": "🌍",
         "inSimpleWords": "The French Revolution proved that people could overthrow unfair systems and create new ones based on equality and rights—an idea that spread across the entire world."
+      },
+      {
+        "kind": "concept",
+        "title": "Key Figures: Architects and Destroyers",
+        "storyContext": "Priya introduces the people who shaped the revolution: 'Every revolution has key figures. Let's meet them.'",
+        "points": [
+          {
+            "label": "Mirabeau",
+            "text": "Nobleman who sided with commoners. Powerful speaker in National Assembly. Died 1791, before the Terror."
+          },
+          {
+            "label": "Danton",
+            "text": "Lawyer, early radical. Wanted to preserve some monarchy. Opposed Robespierre. Guillotined 1794."
+          },
+          {
+            "label": "Robespierre",
+            "text": "Lawyer, extreme radical. Believed in 'purifying' the revolution through terror. Guillotined 1794."
+          },
+          {
+            "label": "Marat",
+            "text": "Radical journalist. Stirred crowds with fiery writing. Assassinated 1793 by a political enemy."
+          }
+        ],
+        "emoji": "👥",
+        "inSimpleWords": "The revolution had competing leaders: some wanted moderate reform, others wanted radical change. Their conflicts drove the revolution's cycles."
+      },
+      {
+        "kind": "example",
+        "title": "Comparing Revolutions: French vs. American",
+        "storyContext": "Ravi asks: 'Why did the French Revolution become so violent when the American Revolution (1776) was quicker?' Priya nods: 'Good comparison.'",
+        "points": [
+          {
+            "label": "American Revolution",
+            "text": "Elite-led. Goal: independence from Britain. Power transferred to landowners. No social upheaval. Violence limited and quick (8 years)."
+          },
+          {
+            "label": "French Revolution",
+            "text": "Massive population. Goal: complete social restructuring. Old hierarchy destroyed. New one fought for control. Violence escalated (Terror lasted 2 years, but whole process was 25 years)."
+          },
+          {
+            "label": "Why the Difference",
+            "text": "France was more unequal. Revolution threatened everyone's position. Each group—nobles, clergy, moderates, radicals—fought for power. This internal conflict fed violence."
+          }
+        ],
+        "emoji": "🌍",
+        "inSimpleWords": "The French Revolution was messier than the American because France was more unequal and the revolution went deeper—it didn't just change government, it tried to change society itself."
       },
       {
         "kind": "recap",
@@ -239976,6 +241087,31 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         "emoji": "🏙️"
       },
       {
+        "kind": "challenge",
+        "title": "Challenge: Interpret Density Data",
+        "storyContext": "Arun shows Priya population density numbers for different states. 'What do these numbers tell us?' he asks.",
+        "points": [
+          {
+            "label": "Bihar: 1,100 per sq km",
+            "text": "Extremely dense. One of the most crowded states in India. Infrastructure struggles to keep up. Schools are overflowing. Water is scarce."
+          },
+          {
+            "label": "Maharashtra: 365 per sq km",
+            "text": "Medium-high density. Cities (Mumbai, Pune) are very crowded, but rural areas are less dense. Uneven distribution."
+          },
+          {
+            "label": "Himachal Pradesh: 123 per sq km",
+            "text": "Low density. Mountainous terrain makes large populations difficult. Smaller towns, more spread out."
+          }
+        ],
+        "example": {
+          "problem": "Two states have same population (50 million), but State A covers 100,000 sq km and State B covers 200,000 sq km. Which is more crowded?",
+          "solution": "State A: 50M ÷ 100K = 500 per sq km. State B: 50M ÷ 200K = 250 per sq km. State A is twice as crowded, even though both have the same population."
+        },
+        "emoji": "📍",
+        "inSimpleWords": "Density varies wildly across India. Crowded areas need better infrastructure. Less crowded areas may have isolation problems."
+      },
+      {
         "kind": "example",
         "title": "Real Example: India's Population Story",
         "storyContext": "Arun sits with Priya and Grandfather: 'Look at India's numbers over time. See how they tell a story.'",
@@ -240091,6 +241227,202 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         },
         "emoji": "🏙️",
         "inSimpleWords": "Cities need to plan infrastructure (water, power, roads, schools) before people arrive. Fast growth without planning creates slums and misery."
+      },
+      {
+        "kind": "concept",
+        "title": "Factors Lowering Birth Rates",
+        "storyContext": "Arun explains to Priya: 'As countries develop, families get smaller. What causes this?'",
+        "points": [
+          {
+            "label": "Female Education",
+            "text": "When girls go to school, they marry later, work longer, and choose to have fewer children."
+          },
+          {
+            "label": "Access to Contraception",
+            "text": "Family planning clinics, pills, and modern methods let couples plan families."
+          },
+          {
+            "label": "Economic Security",
+            "text": "In poor regions, families need many children for farm labor and old-age support. In cities with pensions, fewer children are needed."
+          },
+          {
+            "label": "Urbanization",
+            "text": "In cities, children are expensive (schools, food) and don't contribute labor. In villages, children help farm. More children = higher cost in cities."
+          }
+        ],
+        "emoji": "📉",
+        "inSimpleWords": "Birth rates fall when women are educated, families move to cities, and people have access to contraception and old-age security."
+      },
+      {
+        "kind": "example",
+        "title": "Population Projections: India in 2050",
+        "storyContext": "Arun shows Priya forecasts: 'Based on current trends, India will hit 1.7 billion people by 2050, then stabilize.'",
+        "points": [
+          {
+            "label": "Growth Will Slow",
+            "text": "Birth rates are falling. By 2050, India's growth rate will be near zero. Population will stabilize."
+          },
+          {
+            "label": "Age Structure Changes",
+            "text": "Today: 27% under 14. By 2050: 16% under 14, 18% over 60. India will have many more elderly people."
+          },
+          {
+            "label": "Challenges Ahead",
+            "text": "Fewer young workers supporting more retirees. Pension systems will strain. But also: less pressure on schools, less competition for jobs (for each generation)."
+          },
+          {
+            "label": "What It Means",
+            "text": "India is transitioning from a 'youth dividend' (lots of young workers) to an 'aging society' (lots of retirees). Countries like Japan and Germany are already there."
+          }
+        ],
+        "emoji": "📊",
+        "inSimpleWords": "India's population will stop growing around 2050 as birth rates fall. Then India will have fewer young people and more elderly—like Europe."
+      },
+      {
+        "kind": "concept",
+        "title": "Population Policies: Government Intervention",
+        "storyContext": "Arun discusses: 'Governments try to shape population trends. Sometimes with cruel results.'",
+        "points": [
+          {
+            "label": "One-Child Policy (China, 1980-2015)",
+            "text": "China forced families to have only one child to slow growth. Result: imbalanced sex ratio (too many boys), elderly without children to care for them. Policy reversed in 2015."
+          },
+          {
+            "label": "Sterilization (India, 1970s)",
+            "text": "Emergency period: government sterilized millions against their will. Backfired. People lost trust in family planning programs."
+          },
+          {
+            "label": "Pronatalist Policies (France, Germany, Singapore)",
+            "text": "These countries paid families to have more children because birth rates fell too low. Modest success."
+          },
+          {
+            "label": "The Lesson",
+            "text": "Governments can't force population change. Education, opportunity, and choice work. Coercion breeds resentment and fails."
+          }
+        ],
+        "emoji": "⚖️",
+        "inSimpleWords": "Governments have tried to control population—some with force (bad idea), others with incentives (modest success). Education and choice work best."
+      },
+      {
+        "kind": "story",
+        "title": "The Story of Urban Migration: Priya's Story",
+        "storyContext": "Priya imagines: 'My cousin Ravi moved to Mumbai 5 years ago. Let's trace what happened to him and the city.'",
+        "points": [
+          {
+            "label": "Why He Went",
+            "text": "Village had 2,000 people. Limited schools, no college. Ravi went to Mumbai for engineering degree and found a tech job."
+          },
+          {
+            "label": "Mumbai's Change",
+            "text": "Millions like Ravi arrived. Mumbai grew from 12 million (1990) to 21 million (2020). Unplanned. Slums sprawled."
+          },
+          {
+            "label": "Ravi's Life",
+            "text": "Lives in a cramped room with 3 others. Paid 15,000 rupees rent (his salary: 60,000). Works 10 hours/day. Better life than village, but still hard."
+          },
+          {
+            "label": "The Cost",
+            "text": "Village lost a bright young man. Mumbai gained a worker but no proper housing. Unplanned urbanization creates slums, pollution, strain."
+          }
+        ],
+        "emoji": "🏙️",
+        "inSimpleWords": "Young people leave villages for cities, improving their lives but straining city infrastructure. Fast urbanization creates slums if not planned."
+      },
+      {
+        "kind": "concept",
+        "title": "Sex Ratio: The Missing Women",
+        "storyContext": "Arun brings troubling data: 'In some Indian regions, there are far fewer girls than boys. This is a demographic crisis.'",
+        "points": [
+          {
+            "label": "The Problem",
+            "text": "India's sex ratio (2021): 943 females per 1,000 males. Some states (Punjab): 895. Why? Female infanticide, selective abortion, neglect of girls."
+          },
+          {
+            "label": "Cultural Causes",
+            "text": "Dowry tradition (bride's family pays groom's family). Sons earn money; daughters cost money. Some families abort female fetuses."
+          },
+          {
+            "label": "Social Impact",
+            "text": "Fewer women means fewer mothers (population falls faster). Women face pressure: high bride prices. Men face shortage—can't marry. Violence increases."
+          },
+          {
+            "label": "Solutions",
+            "text": "Ban on sex-selective abortion (1994, re-enacted 2002). Dowry ban (1961, but ignored). Female education and empowerment—most effective."
+          }
+        ],
+        "emoji": "👩",
+        "inSimpleWords": "Some Indian regions have far fewer girls than boys due to female infanticide and sex-selective abortion. This harms women and future population growth."
+      },
+      {
+        "kind": "example",
+        "title": "Case Study: Kerala vs. Bihar Population Trends",
+        "storyContext": "Arun compares two states: 'Look at how differently they developed. Very different populations today.'",
+        "points": [
+          {
+            "label": "Kerala (2024)",
+            "text": "Sex ratio: 1,084 women per 1,000 men (surplus of women—unusual in India). Birth rate: 11 per 1,000. Literacy: 94%. Urban: 48%. Median age: 35 (aging society)."
+          },
+          {
+            "label": "Bihar (2024)",
+            "text": "Sex ratio: 918 women per 1,000 men (huge deficit). Birth rate: 28 per 1,000 (highest in India). Literacy: 63%. Urban: 11%. Median age: 22 (young society)."
+          },
+          {
+            "label": "Why the Difference",
+            "text": "Kerala invested in education (especially girls), healthcare, family planning. Early. Bihar was slower. Result: Kerala transitioned early, Bihar still in growth phase."
+          },
+          {
+            "label": "The Lesson",
+            "text": "State policy matters. Kerala shows that even poor regions can invest in education and healthcare, lowering birth rates and improving health. Other states can follow."
+          }
+        ],
+        "emoji": "📊",
+        "inSimpleWords": "Kerala chose education and health; birth rates fell, women's status rose. Bihar is behind. Same country, very different demographic outcomes based on policy."
+      },
+      {
+        "kind": "example",
+        "title": "Demographic Dividend: The Window of Opportunity",
+        "storyContext": "Arun explains: 'Right now (2024-2050), India has mostly working-age people. Few children, not yet many elderly. This is the demographic dividend—a chance to grow fast.'",
+        "points": [
+          {
+            "label": "What It Is",
+            "text": "When birth rates fall and death rates are low, the ratio of workers to dependents is at its peak. Fewer people to support, more people working."
+          },
+          {
+            "label": "India's Window",
+            "text": "Now, ~67% of Indians are working-age. In 2050, only 60%. The window lasts ~25 years. After 2050, it closes as people age."
+          },
+          {
+            "label": "How to Use It",
+            "text": "Invest in jobs, education, skills. Young workers can power growth and innovation. If wasted (no jobs), people migrate, frustration grows."
+          },
+          {
+            "label": "Countries That Used It",
+            "text": "South Korea, Taiwan, Singapore: invested in education and exports. Took off economically. Countries that wasted it: stagnated."
+          }
+        ],
+        "emoji": "🚀",
+        "inSimpleWords": "India's young population is an opportunity: more workers, fewer dependents. But only if we create good jobs and education. Miss this window, and it's gone."
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Planning Your City's Growth",
+        "storyContext": "Arun asks: 'Your city will grow 50% in 10 years. Schools, water, roads, jobs needed. Prioritize. What do you build first?'",
+        "points": [
+          {
+            "label": "The Constraint",
+            "text": "Limited budget. Can build: (A) 50 schools, (B) water treatment plant, (C) roads, (D) hospitals, (E) job training center. Pick 2-3."
+          },
+          {
+            "label": "The Trade-off",
+            "text": "All are needed. But if no water, people can't live. If no jobs, young people leave. If no schools, next generation lacks skills. Priorities matter."
+          },
+          {
+            "label": "Wise Sequence",
+            "text": "Water & sanitation first (health). Then schools (future). Then roads/jobs (economic). Hard choices—but good planning prevents chaos later."
+          }
+        ],
+        "inSimpleWords": "Cities growing fast need to plan carefully: water, schools, jobs, roads. Get the order wrong, and growth becomes a disaster.",
+        "emoji": "🏗️"
       },
       {
         "kind": "recap",
@@ -240501,6 +241833,260 @@ export const STORY_LESSONS_GENERATED: StoryLesson[] = [
         ],
         "emoji": "⚙️",
         "inSimpleWords": "Democracy works best when poor candidates can compete fairly with rich ones. But balancing fairness and freedom is hard."
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Democracy or Mob Rule?",
+        "storyContext": "Rohan poses a tough question: 'If 99% of the school voted to ban left-handed students, would that be democratic? Or tyranny?'",
+        "points": [
+          {
+            "label": "The Problem",
+            "text": "Pure majority rule (51% can oppress 49%) isn't actually democracy—it's mob tyranny. Real democracy protects minorities."
+          },
+          {
+            "label": "Constitutional Limits",
+            "text": "India's Constitution says even Parliament can't violate fundamental rights. Even if 100% voted to ban a religion, Supreme Court would strike it down."
+          },
+          {
+            "label": "The Balance",
+            "text": "Democracy = majority rule + minority protection. Voting matters, but rights are sacred. This is the core tension in democratic theory."
+          },
+          {
+            "label": "Real Examples",
+            "text": "USA South: Democracy let majorities vote for segregation. But Supreme Court and civil rights movement said NO. Courts had to force democracy to honor its own principles."
+          }
+        ],
+        "emoji": "⚖️",
+        "inSimpleWords": "Just because 51% voted for something doesn't make it democratic if it violates the rights of the 49%. Real democracy protects minorities."
+      },
+      {
+        "kind": "concept",
+        "title": "Types of Democracy Around the World",
+        "storyContext": "Ms. Sharma explains: 'Not all democracies work the same way. India has a parliamentary system. Others have presidential systems.'",
+        "points": [
+          {
+            "label": "Parliamentary (India, UK, Germany)",
+            "text": "Legislature elects the executive (PM). PM answers to Parliament. If Parliament votes no-confidence, PM is out."
+          },
+          {
+            "label": "Presidential (USA, Brazil, Mexico)",
+            "text": "President elected directly and rules independently from Legislature. Congress can't remove president except through impeachment."
+          },
+          {
+            "label": "Semi-Presidential (France, Russia)",
+            "text": "Both President and PM. President is head of state (symbolic). PM handles daily government. Confusing, often conflicts."
+          },
+          {
+            "label": "Key Difference",
+            "text": "Parliamentary: Legislature supreme. Presidential: Executive (President) more powerful. Different systems, different trade-offs."
+          }
+        ],
+        "emoji": "🏛️",
+        "inSimpleWords": "Democracies vary: some give power mainly to Parliament (India), others to an elected President (USA). Different systems, different strengths and weaknesses."
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Strengthening Indian Democracy",
+        "storyContext": "Ms. Sharma poses: 'What could India do to make democracy work better? Reduce corruption? Fix money in politics? Improve voter awareness?'",
+        "points": [
+          {
+            "label": "Voter Education",
+            "text": "More civic education in schools. Help voters understand issues, not just vote for famous people or buy elections."
+          },
+          {
+            "label": "Campaign Finance Reform",
+            "text": "Limit spending. Require transparency. Level the playing field so poor candidates can compete."
+          },
+          {
+            "label": "Anti-Corruption Measures",
+            "text": "Stronger oversight of elected officials. Fast-track courts for corruption cases. Publish politician's assets."
+          },
+          {
+            "label": "Inclusive Representation",
+            "text": "Reservations for backward classes, SC/ST. More women in Parliament. Different communities should have voice."
+          }
+        ],
+        "emoji": "🛠️",
+        "inSimpleWords": "Democracy works best when voters are informed, money doesn't dominate, politicians aren't corrupt, and all communities have representation."
+      },
+      {
+        "kind": "story",
+        "title": "Local Democracy: Village Panchayats",
+        "storyContext": "Ms. Sharma shares: 'Democracy doesn't just happen at national level. India's villages have their own elected councils.'",
+        "points": [
+          {
+            "label": "What is a Panchayat?",
+            "text": "Elected council of 5-11 people in a village. They decide on roads, schools, water, disputes. Closer to people than Parliament."
+          },
+          {
+            "label": "Why It Matters",
+            "text": "Local government is where people experience democracy directly. If panchayats are corrupt or unfair, people lose faith in democracy."
+          },
+          {
+            "label": "Reservation for Women",
+            "text": "India requires at least 1/3 of panchayat seats for women. This increased women's participation and voice."
+          },
+          {
+            "label": "The Challenge",
+            "text": "Upper-caste men often dominate even with women's seats. Social norms restrict women's voice. Real democracy requires cultural change, not just laws."
+          }
+        ],
+        "emoji": "🏘️",
+        "inSimpleWords": "Villages have their own elected councils (panchayats). They handle local issues. Democracy works best when it's close to people's lives."
+      },
+      {
+        "kind": "example",
+        "title": "How a Bill Becomes Law in India",
+        "storyContext": "Ms. Sharma walks through: 'Say someone proposes a law to ban child labor. Here's how it moves through Parliament.'",
+        "points": [
+          {
+            "label": "Bill Introduction",
+            "text": "An MP (government or opposition) introduces a bill in Lok Sabha (lower house). Public reading. Debate."
+          },
+          {
+            "label": "Committee Review",
+            "text": "Bill sent to committee of MPs. They study it, propose amendments. Public feedback. Report back to Lok Sabha."
+          },
+          {
+            "label": "Vote in Lok Sabha",
+            "text": "Full debate. All MPs vote. Needs simple majority. If passes, goes to Rajya Sabha (upper house)."
+          },
+          {
+            "label": "Rajya Sabha & Presidential Assent",
+            "text": "Same process in Rajya Sabha. If both pass, goes to President. President signs it. Bill becomes law."
+          }
+        ],
+        "emoji": "📋",
+        "inSimpleWords": "Laws go through multiple stages: committee review, floor debate, votes in both houses, presidential approval. Slow, but thorough."
+      },
+      {
+        "kind": "story",
+        "title": "The Right to Information: Democracy's Accountability Tool",
+        "storyContext": "Ms. Sharma explains: 'In India, citizens have a right to ask the government for information. This is called RTI (Right to Information).'",
+        "points": [
+          {
+            "label": "What is RTI?",
+            "text": "Law (2005) gives any citizen the right to request government documents and data. Govt must respond within 30 days."
+          },
+          {
+            "label": "Example",
+            "text": "A journalist files RTI asking: 'How much money did the city spent on contracts to Company X?' City can't refuse. Must disclose (unless it's classified)."
+          },
+          {
+            "label": "Impact",
+            "text": "RTI exposed corruption, illegal deals, wasteful spending. Journalists, activists, and ordinary people use it to hold government accountable."
+          },
+          {
+            "label": "Why It Matters",
+            "text": "Transparency is democracy's oxygen. If citizens can access info, they can catch corruption. If secret, abuse grows."
+          }
+        ],
+        "emoji": "🔍",
+        "inSimpleWords": "India's Right to Information law lets citizens demand answers from government. Transparency keeps democracy honest."
+      },
+      {
+        "kind": "concept",
+        "title": "Judicial Review: Courts as Democracy's Guardian",
+        "storyContext": "Ms. Sharma explains: 'India's Supreme Court has power to strike down laws—even laws passed by Parliament. This is checks and balances.'",
+        "points": [
+          {
+            "label": "What is Judicial Review",
+            "text": "Courts can declare laws or actions unconstitutional and void them. A law passed by 100% of Parliament is invalid if it violates the Constitution."
+          },
+          {
+            "label": "Example",
+            "text": "Dowry prohibition (1961): Outlawed bride-price. Constitutional. Court upheld it. Sati prohibition (1829): Outlawed widow-burning. Constitutional. Court upheld it."
+          },
+          {
+            "label": "Who Can Challenge",
+            "text": "Any citizen can challenge any law in court. File a 'public interest petition.' Supreme Court listens. Rich or poor, your case matters."
+          },
+          {
+            "label": "Why It Works",
+            "text": "Democratic majorities can oppress minorities. Judicial review protects minorities. Courts say: 'Constitution is supreme. Laws must respect it.'"
+          }
+        ],
+        "emoji": "⚖️",
+        "inSimpleWords": "Courts can veto laws that violate the Constitution. This stops majorities from oppressing minorities and keeps democracy honest."
+      },
+      {
+        "kind": "challenge",
+        "title": "Challenge: Evaluating Democratic Health",
+        "storyContext": "Ms. Sharma asks: 'How do we know if a country is truly democratic? What are the signs?'",
+        "points": [
+          {
+            "label": "Free & Fair Elections",
+            "text": "Multiple parties compete. Voters can choose. Losers accept results peacefully. No rigging."
+          },
+          {
+            "label": "Free Press",
+            "text": "Journalists can criticize government. Media is independent. No censorship."
+          },
+          {
+            "label": "Independent Courts",
+            "text": "Courts rule against government if law is unjust. Not puppets of executive."
+          },
+          {
+            "label": "Actual Participation",
+            "text": "Citizens feel empowered. Panchayats work. Civil society is active. Not just elections, but real involvement."
+          },
+          {
+            "label": "Peaceful Alternation",
+            "text": "Ruling party loses, accepts it. No violence. New party takes office. This has happened in India 8 times."
+          }
+        ],
+        "emoji": "✅",
+        "inSimpleWords": "A healthy democracy has free elections, independent courts, free press, peaceful power transfers, and active citizens—not just voting."
+      },
+      {
+        "kind": "story",
+        "title": "Election Commission: Umpire of Democracy",
+        "storyContext": "Ms. Sharma explains: 'India's Election Commission is an independent body that runs elections. No government interference.'",
+        "points": [
+          {
+            "label": "What They Do",
+            "text": "Conduct elections. Check voter rolls. Ensure secret ballot. Prevent fraud. Monitor campaign spending. Hear complaints. Announce results."
+          },
+          {
+            "label": "Independence",
+            "text": "EC reports to President, not PM. Can't be fired by government. Has power to freeze assets if candidate spends illegally."
+          },
+          {
+            "label": "Challenges",
+            "text": "Money still influences elections. Not all EC orders are followed. Some politicians ignore spending limits. But EC's independence is real and strong."
+          },
+          {
+            "label": "Why It Matters",
+            "text": "If government ran elections, it would rig them for itself. EC as neutral umpire (imperfect, but trying) keeps elections fair."
+          }
+        ],
+        "emoji": "🗳️",
+        "inSimpleWords": "The Election Commission is democracy's umpire: independent, monitors elections, prevents fraud. Imperfect, but crucial."
+      },
+      {
+        "kind": "concept",
+        "title": "Democratic Culture: Beyond Laws",
+        "storyContext": "Ms. Sharma concludes: 'Democracy is more than laws and institutions. It's a culture—a way of thinking and acting.'",
+        "points": [
+          {
+            "label": "Respecting Opponents",
+            "text": "In true democracy, you argue with your opponent but accept they have a right to argue back. You lose elections without violence."
+          },
+          {
+            "label": "Listening to Dissent",
+            "text": "If government listens to critics, democracy works. If government silences critics (arrests, censors), democracy dies—even if elections happen."
+          },
+          {
+            "label": "Civic Duty",
+            "text": "Democracy needs citizens to vote, serve on juries, follow laws, pay taxes. If citizens are apathetic, democracy weakens."
+          },
+          {
+            "label": "The Real Challenge",
+            "text": "Making democracy work isn't just about Constitution or courts. It's about people choosing to respect each other, follow rules, and participate."
+          }
+        ],
+        "emoji": "❤️",
+        "inSimpleWords": "Democracy survives when people respect opponents, listen to dissent, and participate. Laws matter, but culture matters more."
       },
       {
         "kind": "recap",
