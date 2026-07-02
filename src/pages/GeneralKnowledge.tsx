@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CheckCircle, Clock, Zap, Trophy, BarChart3, RefreshCw } from 'lucide-react';
 import { cn } from '../lib/utils';
 import SEO from '../components/SEO';
+import HubNav, { HubNavItem } from '../components/HubNav';
 import { getDailyGKQuiz, getQuestionsByCategory, GKItem } from '../data/generalKnowledge';
 import FunFactCarousel from '../components/FunFactCarousel';
 
@@ -419,6 +420,13 @@ export default function GeneralKnowledgePage({ setTab }: { setTab?: (tab: string
       ? Math.round((scores.totalCorrect / (scores.totalQuizzes * 10)) * 100)
       : 0;
 
+  const quizHubItems: HubNavItem[] = [
+    { label: 'Daily Challenge', emoji: '📅', path: '/daily-challenges', tab: 'daily' },
+    { label: 'GK Quiz', emoji: '🧠', path: '/gk-quiz', tab: 'general_knowledge' },
+    { label: 'Quiz Duel', emoji: '⚔️', path: '/quiz-duel', tab: 'quiz_duel' },
+    { label: 'Live Quiz', emoji: '🎮', path: '/live-quiz', tab: 'live_quiz' },
+  ];
+
   return (
     <div className="max-w-6xl mx-auto">
       <SEO
@@ -427,6 +435,8 @@ export default function GeneralKnowledgePage({ setTab }: { setTab?: (tab: string
         keywords="GK questions India, general knowledge MCQ free, Indian history MCQ, current affairs 2026, GK quiz Class 8 9 10, CBSE GK questions, competitive exam GK"
         url="https://syllab.in/gk-quiz"
       />
+
+      <HubNav items={quizHubItems} active="general_knowledge" label="Quiz Hub" />
 
       {/* Header */}
       <div className="mb-8">

@@ -10,6 +10,7 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { ArrowLeft, ArrowRight, Target, ListChecks, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import HubNav, { HubNavItem } from '../components/HubNav';
 import { COLLEGE_PREDICTORS, getCollegePredictor, PREDICTOR_DISCLAIMER } from '../data/collegePredictors';
 import { usePathname } from '../lib/isomorphic';
 
@@ -92,6 +93,13 @@ export default function CollegePredictorLanding({ setTab }: { setTab: (tab: stri
   }
 
   // ── Index ──
+  const collegeHubItems: HubNavItem[] = [
+    { label: 'Engineering', emoji: '🏛️', path: '/colleges', tab: 'colleges' },
+    { label: 'Medical', emoji: '🩺', path: '/medical-colleges', tab: 'medical_colleges' },
+    { label: 'College Finder', emoji: '🔎', path: '/best-colleges', tab: 'college_finder' },
+    { label: 'Predictor', emoji: '🎯', path: '/college-predictor', tab: 'college_predictor' },
+  ];
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
       <SEO
@@ -101,6 +109,7 @@ export default function CollegePredictorLanding({ setTab }: { setTab: (tab: stri
         url={`${SITE}/college-predictor`}
         jsonLd={{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'College Predictors', url: `${SITE}/college-predictor`, inLanguage: 'en-IN', isAccessibleForFree: true }}
       />
+      <HubNav items={collegeHubItems} active="college_predictor" label="College Hub" />
       <PageHero emoji="🎯" title="Free College Predictor" subtitle="Predict the colleges you can get by your rank — pick your exam." className="mb-6" />
       <div className="grid gap-3 sm:grid-cols-2">
         {COLLEGE_PREDICTORS.map((p) => (

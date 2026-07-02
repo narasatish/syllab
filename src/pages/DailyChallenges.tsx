@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
 import SEO from '../components/SEO';
+import HubNav, { HubNavItem } from '../components/HubNav';
 import { cn } from '../lib/utils';
 import { db } from '../lib/firebase';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
@@ -462,6 +463,13 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
       ? 'Sign in and finish today\'s challenge to enter the rankings.'
       : 'No ranking entries for today yet. Finish a daily challenge after signing in to publish your score.';
 
+  const quizHubItems: HubNavItem[] = [
+    { label: 'Daily Challenge', emoji: '📅', path: '/daily-challenges', tab: 'daily' },
+    { label: 'GK Quiz', emoji: '🧠', path: '/gk-quiz', tab: 'general_knowledge' },
+    { label: 'Quiz Duel', emoji: '⚔️', path: '/quiz-duel', tab: 'quiz_duel' },
+    { label: 'Live Quiz', emoji: '🎮', path: '/live-quiz', tab: 'live_quiz' },
+  ];
+
   return (
     <main className="space-y-8 pb-12">
       <SEO
@@ -485,6 +493,8 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
           ],
         }}
       />
+
+      <HubNav items={quizHubItems} active="daily" label="Quiz Hub" />
 
       <section className="rounded-[2rem] bg-slate-900 p-6 text-white shadow-2xl sm:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

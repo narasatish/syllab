@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import HubNav, { HubNavItem } from '../components/HubNav';
 import CollegeExplorer from '../components/CollegeExplorer';
 import {
   COLLEGE_STATE_INFO, COLLEGES, getStateInfo, getCollegesByState,
@@ -106,6 +107,13 @@ export default function Colleges() {
 /* ─── Index: states grid ────────────────────────────────────────────────────*/
 function CollegesIndex({ go }: { go: (to: string) => void }) {
   const featured = [...COLLEGES].sort((a, b) => (a.nirf ?? 999) - (b.nirf ?? 999)).slice(0, 6);
+  const collegeHubItems: HubNavItem[] = [
+    { label: 'Engineering', emoji: '🏛️', path: '/colleges', tab: 'colleges' },
+    { label: 'Medical', emoji: '🩺', path: '/medical-colleges', tab: 'medical_colleges' },
+    { label: 'College Finder', emoji: '🔎', path: '/best-colleges', tab: 'college_finder' },
+    { label: 'Predictor', emoji: '🎯', path: '/college-predictor', tab: 'college_predictor' },
+  ];
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
       <SEO
@@ -119,6 +127,7 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
           isPartOf: { '@type': 'WebSite', name: 'Syllab.in', url: SITE },
         }}
       />
+      <HubNav items={collegeHubItems} active="colleges" label="College Hub" />
       <PageHero
         emoji="🏛️"
         title="Top Engineering Colleges in India"

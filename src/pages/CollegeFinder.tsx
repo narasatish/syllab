@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, ChevronRight, Award } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import HubNav, { HubNavItem } from '../components/HubNav';
 import { COLLEGES, stateSlugForCollege, type CollegeFull } from '../data/colleges';
 import { MEDICAL_COLLEGES, medStateSlug, type MedicalCollege } from '../data/medicalColleges';
 import { usePathname } from '../lib/isomorphic';
@@ -134,6 +135,13 @@ function ExamView({ exam, go }: { exam: typeof EXAMS[number]; go: (t: string) =>
 }
 
 function CourseIndex({ go }: { go: (t: string) => void }) {
+  const collegeHubItems: HubNavItem[] = [
+    { label: 'Engineering', emoji: '🏛️', path: '/colleges', tab: 'colleges' },
+    { label: 'Medical', emoji: '🩺', path: '/medical-colleges', tab: 'medical_colleges' },
+    { label: 'College Finder', emoji: '🔎', path: '/best-colleges', tab: 'college_finder' },
+    { label: 'Predictor', emoji: '🎯', path: '/college-predictor', tab: 'college_predictor' },
+  ];
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <SEO title="Best Colleges by Course — CSE, ECE, MBBS & More (2026 Rankings) | Syllab.in"
@@ -141,6 +149,7 @@ function CourseIndex({ go }: { go: (t: string) => void }) {
         keywords="best CSE colleges India, best MBBS colleges India, best ECE colleges, best engineering colleges by branch, course wise college ranking"
         url={`${SITE}/best-colleges`}
         jsonLd={{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Best Colleges by Course', url: `${SITE}/best-colleges`, inLanguage: 'en-IN' }} />
+      <HubNav items={collegeHubItems} active="college_finder" label="College Hub" />
       <PageHero emoji="🏆" title="Best Colleges by Course" subtitle="Pick a course to see India's top colleges for it — ranked by NIRF, with fees & placements." className="mb-6" />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {COURSES.map((c) => (

@@ -8,6 +8,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, MapPin, Wallet, Users, Stethoscope, Globe, GraduationCap, Building2, ClipboardList } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import HubNav, { HubNavItem } from '../components/HubNav';
 import { usePathname } from '../lib/isomorphic';
 import {
   MEDICAL_STATE_INFO, MEDICAL_COLLEGES, medCollegesByState, findMedCollege,
@@ -59,6 +60,13 @@ export default function MedicalColleges() {
 
 function Index({ go }: { go: (to: string) => void }) {
   const featured = [...MEDICAL_COLLEGES].sort((a, b) => (a.nirf || 999) - (b.nirf || 999)).slice(0, 8);
+  const collegeHubItems: HubNavItem[] = [
+    { label: 'Engineering', emoji: '🏛️', path: '/colleges', tab: 'colleges' },
+    { label: 'Medical', emoji: '🩺', path: '/medical-colleges', tab: 'medical_colleges' },
+    { label: 'College Finder', emoji: '🔎', path: '/best-colleges', tab: 'college_finder' },
+    { label: 'Predictor', emoji: '🎯', path: '/college-predictor', tab: 'college_predictor' },
+  ];
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
       <SEO
@@ -68,6 +76,7 @@ function Index({ go }: { go: (to: string) => void }) {
         url={`${SITE}/medical-colleges`}
         jsonLd={{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Top Medical Colleges in India', url: `${SITE}/medical-colleges`, inLanguage: 'en-IN', isAccessibleForFree: true }}
       />
+      <HubNav items={collegeHubItems} active="medical_colleges" label="College Hub" />
       <PageHero emoji="🩺" title="Top Medical Colleges in India" subtitle="MBBS & BDS colleges by state — AIIMS, govt & private. NEET cutoffs, fees, seats & full admission process." className="mb-6" />
       <div className="mb-2 flex items-center gap-2 rounded-xl bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/40 dark:text-amber-200">
         <span>NEET cutoffs, fees & seats are <strong>indicative</strong> — always confirm on the official college / MCC counselling website.</span>

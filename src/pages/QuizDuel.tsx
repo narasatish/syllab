@@ -10,6 +10,7 @@ import { Swords, Bot, Users, Clock, Trophy, Share2, RotateCcw, Crown } from 'luc
 import type { User as FirebaseUser } from 'firebase/auth';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import HubNav, { HubNavItem } from '../components/HubNav';
 import { GK_QUESTIONS, type GKItem } from '../data/generalKnowledge';
 import { recordLearningActivity } from '../lib/progressTracker';
 
@@ -125,9 +126,17 @@ export default function QuizDuel({ currentUser }: { currentUser?: FirebaseUser |
 
   /* ---------- MENU ---------- */
   if (mode === 'menu') {
+    const quizHubItems: HubNavItem[] = [
+      { label: 'Daily Challenge', emoji: '📅', path: '/daily-challenges', tab: 'daily' },
+      { label: 'GK Quiz', emoji: '🧠', path: '/gk-quiz', tab: 'general_knowledge' },
+      { label: 'Quiz Duel', emoji: '⚔️', path: '/quiz-duel', tab: 'quiz_duel' },
+      { label: 'Live Quiz', emoji: '🎮', path: '/live-quiz', tab: 'live_quiz' },
+    ];
+
     return (
       <div className="mx-auto max-w-2xl px-4 py-8">
         <SEO title="Quiz Duel — Free 1v1 GK Quiz Battle for Students | Syllab.in" description="Battle the AI or challenge a friend in a fast, timed GK quiz duel. 8 questions, beat the clock, share your score on WhatsApp. Free for Indian students." keywords="quiz battle, gk quiz duel, 1v1 quiz, online quiz game students, challenge friend quiz, free quiz india" url={`${SITE}/quiz-duel`} jsonLd={[{ '@context': 'https://schema.org', '@type': 'Game', name: 'Syllab Quiz Duel', url: `${SITE}/quiz-duel`, isAccessibleForFree: true }]} />
+        <HubNav items={quizHubItems} active="quiz_duel" label="Quiz Hub" />
         <PageHero emoji="⚔️" title="Quiz Duel" subtitle="8 questions. 15 seconds each. Be fast AND right to win!" className="mb-6" />
         {challengeScore !== null && (
           <div className="mb-5 rounded-2xl bg-amber-50 p-4 text-center font-bold text-amber-900 dark:bg-amber-950/30 dark:text-amber-200">

@@ -5,8 +5,26 @@
  * while this is open (so it never overlaps the Next button).
  */
 import { useEffect, useRef, useState } from 'react';
-import { X, ArrowLeft, ArrowRight, Sparkles, BookOpen, PenLine, Trophy, Map, Volume2, Square } from 'lucide-react';
+import { X, ArrowLeft, ArrowRight, Sparkles, BookOpen, PenLine, Trophy, Map, Volume2, Square, Download } from 'lucide-react';
 import type { StoryLesson, StorySlide } from '../data/storyLessons';
+import { exportArticleAsPDF } from '../lib/printPdf';
+
+/** Offline copy: flatten the lesson's slides into watermarked PDF sections. */
+function downloadLessonPdf(lesson: StoryLesson) {
+  const sections = lesson.slides.map((s) => {
+    const lines: string[] = [];
+    if (s.storyContext) lines.push(s.storyContext);
+    for (const p of s.points || []) lines.push(`• ${p.label ? p.label + ': ' : ''}${p.text}`);
+    if (s.example) lines.push(`Example: ${s.example.problem}`, `Solution: ${s.example.solution}`);
+    if (s.inSimpleWords) lines.push(`In simple words: ${s.inSimpleWords}`);
+    return { heading: s.title, body: lines.join('\n') };
+  });
+  exportArticleAsPDF({
+    title: lesson.title,
+    subtitle: `${lesson.chapter} · Class ${lesson.classLevel} ${lesson.subject} · Story Lesson · syllab.in`,
+    sections,
+  });
+}
 
 /** Build the spoken narration for a slide (or the cover). */
 function narrationFor(lesson: StoryLesson, slide: StorySlide | null, isCover: boolean): string {
@@ -140,6 +158,15 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
             >
               {speaking ? <Square size={16} /> : <Volume2 size={16} />}
               <span className="hidden sm:inline">{speaking ? 'Stop' : 'Listen'}</span>
+            </button>
+            <button
+              onClick={() => downloadLessonPdf(lesson)}
+              aria-label="Download this lesson as PDF"
+              title="Download PDF for offline study"
+              className="flex items-center gap-1.5 rounded-xl bg-white/15 px-3 py-2.5 text-xs font-black text-white transition-all hover:bg-white/25 touch-manipulation"
+            >
+              <Download size={16} />
+              <span className="hidden sm:inline">PDF</span>
             </button>
             {onClose && (
               <button onClick={onClose} aria-label="Close" className="rounded-xl bg-white/15 p-2.5 text-white transition-all hover:bg-white/25 touch-manipulation">
