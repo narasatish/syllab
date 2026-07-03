@@ -24,7 +24,7 @@ Handoff memory from the long build session. Read once when resuming work.
 ## User's pending to-dos (remind if relevant)
 1. GSC: Validate Fix on "Duplicate without user-selected canonical" (356) — pruning is live.
 2. Firebase Console → Hosting → Release history → cap versions ~3 (deploys carry ~1GB audio).
-3. FCM VAPID key needed to activate push nudges (scaffolding ready in src/lib/push.ts).
+3. FCM push — **VAPID key now set in local `.env`** (`VITE_FIREBASE_VAPID_KEY`, gitignored; bakes into build at deploy). Messaging SW already armed (`public/firebase-messaging-sw.js`). Feature is **armed but DORMANT** — no UI opt-in wired, no `pushTokens` Firestore rule, no backend sender yet. To activate (own session): add Firestore rule `match /pushTokens/{t} { allow write: if request.auth != null; }`, wire an opt-in toggle calling `enablePush()`, and build the backend cron (separate `syllab-backend` repo) that reads `pushTokens` + sends via FCM HTTP v1. GSC "Validate Fix" (356 dup-canonical) = DONE, validation running (started 7/3/26). Firebase Hosting release cleanup = user to do in console.
 4. Newsletter: subscribers save to Firestore fine; SENDING needs syllab-backend repo + Resend key (not in this workspace).
 
 ## Open backlog (user-approved directions, not yet built)
