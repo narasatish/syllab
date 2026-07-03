@@ -15,10 +15,13 @@ import { MockTestMeta, getMocksByExam } from '../data/mockTestsList';
 import { OLYMPIAD_POOLS, generateRandomExam, type OlympiadQuestion } from '../data/olympiadQuestions';
 import { generateQuestions, getMockQuestionExplanation } from '../lib/api';
 import FormulaBank from './FormulaBank';
-import DiagramLab from './DiagramLab';
 import PyqPractice from '../components/PyqPractice';
 import QuestionSolution from '../components/QuestionSolution';
 import ShareResultCard from '../components/ShareResultCard';
+
+// Lazy: DiagramLab pulls ~14 per-class diagram data files (~480KB). It only
+// renders under the Diagrams tab, so keep it out of the initial MockTests chunk.
+const DiagramLab = React.lazy(() => import('./DiagramLab'));
 
 type ExamSection = 'mocks' | 'olympiads' | 'formulas' | 'diagrams' | 'create' | 'live' | 'pyq';
 
@@ -808,7 +811,9 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
               <h2 className="text-2xl font-black text-slate-900">🔬 Diagram Lab</h2>
               <p className="mt-1 text-sm font-medium text-slate-500">Biology, Physics &amp; Chemistry diagrams with labelled parts, explanations, and exam tips.</p>
             </div>
-            <DiagramLab />
+            <React.Suspense fallback={<p className="text-sm font-medium text-slate-400">Loading Diagram Lab…</p>}>
+              <DiagramLab />
+            </React.Suspense>
           </section>
         )}
 

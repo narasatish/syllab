@@ -2,6 +2,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { Search, Filter, BookOpen, Sparkles, X, Zap, PlayCircle, Lightbulb, ArrowRight, Bot, Target, Pin, Loader2, Presentation } from 'lucide-react';
 import { Chapter, Subject, ClassLevel, Concept } from '../types';
+import { SYLLABUS } from '../data/syllabus';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { CONCEPTS } from '../data/concepts';
@@ -30,7 +31,9 @@ import {
 interface SyllabusPageProps {
   setTab: (tab: string) => void;
   openTutor: () => void;
-  syllabus: Chapter[];
+  /** Optional override; defaults to the full SYLLABUS imported here so the
+   *  ~350KB dataset stays in this lazy chunk instead of the entry bundle. */
+  syllabus?: Chapter[];
   setPracticeConfig: (config: Record<string, unknown>) => void;
   userClass?: string;
   isLoggedIn?: boolean;
@@ -472,7 +475,7 @@ function ConceptView({
   );
 }
 
-export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeConfig, userClass, isLoggedIn = false }: SyllabusPageProps) {
+export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, setPracticeConfig, userClass, isLoggedIn = false }: SyllabusPageProps) {
   const [searchParams] = useSearchParams();
   const restoredView = React.useMemo<SyllabusViewState | null>(() => {
     try {

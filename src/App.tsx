@@ -40,7 +40,6 @@ import DraggableFab from './components/DraggableFab';
 const PomodoroTimer = React.lazy(() => import('./components/PomodoroTimer'));
 import DarkModeToggle from './components/DarkModeToggle';
 import { FIREBASE_AUTH_ENABLED, FIRESTORE_FEATURES_ENABLED } from './lib/cloudFeatures';
-import { SYLLABUS } from './data/syllabus';
 import {
   auth,
   DEFAULT_USER_PROGRESS,
@@ -1704,7 +1703,6 @@ export default function App() {
                     <SyllabusPage
                       setTab={navigate}
                       openTutor={() => setTutorOpen(true)}
-                      syllabus={SYLLABUS}
                       setPracticeConfig={setPracticeConfig}
                       userClass={userClass}
                       isLoggedIn={!!currentUser}
