@@ -29,10 +29,13 @@ Handoff memory from the long build session. Read once when resuming work.
 
 ## Open backlog (user-approved directions, not yet built)
 - Voice for Classes 6–12 (~2.5GB more; decide hosting quota first).
-- Chapter-wise long-tail SEO pages (e.g. "class 10 real numbers important questions") — keyword research done, targets listed in session audit.
 - Deepen the ~10 shallow restored lessons.
 - Backlinks (user-side): directories, teacher groups, r/CBSE.
-- Prev/next chapter links + "Updated" stamps on NCERT-solutions prerender pages (deferred from P2).
+
+## Done since v207 (committed, NOT yet deployed — bump CACHE_VERSION + deploy)
+- **Chapter-wise important-questions pages** (commit 4782210): 14 substantive Class-10 Maths pages at `/important-questions/class-10/mathematics/{chapter}` — real exam questions (2/3/5-mark) from `generateExamQuestions()`, marks table, "how to prepare", prev/next, Article+BreadcrumbList JSON-LD, ~1200 words. Pilot only (March-2026 thin-content caution — measure in GSC before expanding to Science/other classes). Source list: `scripts/iq-pilot.mjs`. Prerender pulls SYLLABUS + generator from compiled SSR bundle (re-exported in `src/entry-server.tsx`).
+- **Prev/next chapter nav** on NCERT-solutions prerender pages (same commit) — the deferred P2 item. ("Updated" stamp already existed via the tldrBlock byline — dateModified=build date.)
+- Sitemap 3084 → 3098.
 
 ## Session lessons (avoid repeating mistakes)
 - Agents writing lesson JSON: enforce exact count + JSON shape rules; validate + fix-meta + force-restore after; never trust self-reports — verify counts/images yourself.
