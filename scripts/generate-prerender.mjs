@@ -1017,7 +1017,7 @@ for (const [slug, name] of Object.entries(PYQ_GUIDES)) {
 
 // ─── Formula Sheets (free PDF revision assets — strong linkable/backlink magnet) ─
 const FORMULA_SHEETS_DATA = getFormulaSheets(ROOT);
-ROUTES.push({ path: '/formula-sheets', title: 'Free Formula Sheets (PDF) — Maths, Physics & Chemistry Class 9–12 | Syllab.in', description: `Free downloadable formula sheets for CBSE Class 9–12 — ${FORMULA_SHEETS_DATA.length}+ chapter & subject sheets in Maths, Physics & Chemistry. Every formula on one page for fast revision before boards, JEE & NEET. Free PDF, no signup.`, keywords: 'formula sheet pdf, class 12 physics formula sheet, class 10 maths formulas, class 11 chemistry formulas, all formulas pdf free download', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Formula Sheets for Class 9–12', url: `${SITE}/formula-sheets`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+ROUTES.push({ path: '/formula-sheets', title: 'Free Formula Sheets (PDF) — Maths, Physics & Chemistry Class 9–12 | Syllab.in', description: `Free downloadable formula sheets for CBSE Class 9–12 — ${FORMULA_SHEETS_DATA.length}+ chapter & subject sheets in Maths, Physics & Chemistry. Every formula on one page for fast revision before boards, JEE & NEET. Free PDF, no signup.`, keywords: 'formula sheet pdf, class 12 physics formula sheet, class 10 maths formulas, class 11 chemistry formulas, all formulas pdf free download', bodyHtml: `<div style="margin:1rem 0;padding:1rem;background:#ecfdf5;border:2px solid #059669;border-radius:8px;"><h2 style="margin:0 0 .4rem 0;font-size:1.05rem;color:#065f46;">🖨️ NEW: Printable Class 10 Maths Formula Poster</h2><p style="margin:0;">All 44 formulas on one A4 sheet — <a href="/posters/class-10-maths-formulas.html" style="color:#047857;font-weight:700;">print it free for your classroom →</a></p></div>`, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Formula Sheets for Class 9–12', url: `${SITE}/formula-sheets`, inLanguage: 'en-IN', isAccessibleForFree: true } });
 // Group for sibling internal links (same class+subject).
 const FS_BY_GROUP = {};
 for (const s of FORMULA_SHEETS_DATA) (FS_BY_GROUP[`${s.classLevel}|${s.subject}`] ||= []).push(s);
@@ -1677,6 +1677,71 @@ for (const lang of CODE_LANGS) {
   }
 }
 
+// ─── Cross-cluster internal-link mesh ────────────────────────────────────────
+// Chapter-level pages across clusters (NCERT solutions, MCQs, PYQs, revision
+// notes, solved examples, formula sheets, important questions) link to EACH
+// OTHER when they cover the same class + chapter. Join key: normalized
+// class|subject-family|chapter — the family check lets Science↔Physics match
+// (the same chapter drifts between those labels across clusters) while keeping
+// e.g. Class 11 Maths "Statistics" apart from Economics "Statistics".
+const MESH_BY_PATH = new Map();
+{
+  const normChap = (s) => String(s || '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const normCls = (s) => String(s || '').replace(/class\s*/i, '').trim();
+  const famOf = (subj) => {
+    const s = String(subj || '').toLowerCase();
+    if (/math/.test(s)) return 'maths';
+    if (/(science|physics|chemistry|biology)/.test(s)) return 'science';
+    if (/(social|history|geograph|civics|polit|econom)/.test(s)) return 'social';
+    if (/english/.test(s)) return 'english';
+    return s || 'other';
+  };
+  const entries = [];
+  const add = (path, label, cls, subj, chap) => {
+    const c = normCls(cls), ch = normChap(chap);
+    if (!c || !ch) return;
+    entries.push({ path, label, key: `${c}|${famOf(subj)}|${ch}` });
+  };
+  for (const c of NCERT_CHAPTERS) add(`/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`, 'NCERT Solutions', c.classLevel, c.subject, c.chapSlug);
+  for (const p of IQ_PILOT) add(`/important-questions/class-${p.cls}/${p.subjSlug}/${p.chapSlug}`, 'Important Questions', p.cls, p.subjName, p.chapSlug);
+  for (const x of getChapterMcqs(ROOT)) add(`/mcqs/${x.slug}`, 'MCQ Practice', x.classLevel, x.subject, x.chapter);
+  for (const x of PYQ_ALL) add(`/pyqs/${x.slug}`, 'Previous Year Questions', x.classLevel, x.subject, x.chapter);
+  for (const x of getRevisionNotes(ROOT)) add(`/revision-notes/${x.slug}`, 'Revision Notes', x.classLevel, x.subject, x.chapter);
+  for (const x of getSolvedExamples(ROOT)) add(`/solved-examples/${x.slug}`, 'Solved Examples', x.classLevel, x.subject, x.chapter);
+  // Chapter-level formula sheets: chapter is only encoded in the slug
+  // (class-10-maths-quadratic-equations); subject-level sheets don't match and are skipped.
+  for (const s of FORMULA_SHEETS_DATA) {
+    const m = s.slug.match(/^class-(\d+)-([a-z]+)-(.+?)(?:-formulas)?$/);
+    if (m && m[3] && m[3] !== 'formulas') add(`/formula-sheets/${s.slug}`, 'Formula Sheet', m[1], s.subject || m[2], m[3]);
+  }
+  const byKey = new Map();
+  for (const e of entries) (byKey.get(e.key) || byKey.set(e.key, []).get(e.key)).push(e);
+  let meshed = 0;
+  for (const group of byKey.values()) {
+    if (group.length < 2) continue;
+    for (const e of group) {
+      // One link per resource TYPE (label) — some clusters have duplicate
+      // slug variants for the same chapter; show each type once.
+      const seenLabel = new Set();
+      const others = group.filter((o) => {
+        if (o.path === e.path || seenLabel.has(o.label)) return false;
+        seenLabel.add(o.label);
+        return true;
+      }).slice(0, 6);
+      if (!others.length) continue;
+      MESH_BY_PATH.set(e.path, `
+        <div style="margin-top: 1.5rem; padding: 1rem; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
+          <h2 style="font-size: 1.05rem; margin: 0 0 0.5rem 0; color: #166534;">More free resources for this chapter</h2>
+          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.9;">
+            ${others.map((o) => `<li><a href="${o.path}" style="color: #0066cc; text-decoration: none; font-weight: 600;">${o.label} →</a></li>`).join('')}
+          </ul>
+        </div>`);
+      meshed++;
+    }
+  }
+  console.log(`🔗 Internal-link mesh: ${meshed} chapter pages cross-linked (${byKey.size} chapter keys).`);
+}
+
 // ─── HTML injection helpers ──────────────────────────────────────────────────
 
 function esc(str) {
@@ -2166,6 +2231,7 @@ ${esc(topicContent.syntaxText)}
       <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #666;">${esc(desc)}</p>
       ${tldrBlock}
       ${richContent}
+      ${MESH_BY_PATH.get(route.path) || ''}
       ${mainNav}
       <footer style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #999;">
         <p style="margin: 0;">Syllab.in — Free learning for Indian students, Class 1–12</p>

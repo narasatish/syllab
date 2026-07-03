@@ -199,6 +199,9 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/important-questions/class-${c}`, priority: 0.7, changefreq: 'monthly' });
     for (const s of subs) urls.push({ loc: `/important-questions/class-${c}/${s}`, priority: 0.6, changefreq: 'monthly' });
   }
+  // Linkable assets — printable posters (static files in public/posters/).
+  urls.push({ loc: '/posters/class-10-maths-formulas.html', priority: 0.7, changefreq: 'monthly' });
+
   // Chapter-level important-questions PILOT (substantive pages; see scripts/iq-pilot.mjs).
   for (const ch of IQ_PILOT) {
     urls.push({ loc: `/important-questions/class-${ch.cls}/${ch.subjSlug}/${ch.chapSlug}`, priority: 0.6, changefreq: 'monthly' });
