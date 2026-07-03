@@ -104,7 +104,7 @@ function tokenize(s: string): string[] {
  * slide gets a DIFFERENT image based on its own content — not the chapter.
  * Requires a strong match (>= 4) so only genuinely relevant slides get a picture.
  */
-function matchDiagram(slideText: string, classNum: number): LessonImage | null {
+function matchDiagram(slideText: string): LessonImage | null {
   const wanted = new Set(tokenize(slideText));
   if (wanted.size === 0) return null;
 
@@ -165,7 +165,7 @@ export function pickSlideImage(
   const concept = cls <= 5 ? matchConcept(slideText) : null;
   // Only science subjects may use the science diagram library.
   const allowDiagram = !subject || SCIENCE_SUBJECTS.has(subject);
-  const diagram = allowDiagram ? matchDiagram(slideText, cls) : null;
+  const diagram = allowDiagram ? matchDiagram(slideText) : null;
   // Science fallback: if this slide didn't match its own diagram, offer the
   // CHAPTER's diagram (class + subject filtered). The generator de-dupes, so the
   // chapter diagram appears once — guaranteeing a real image on science decks.

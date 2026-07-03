@@ -9,7 +9,6 @@ import {
   drawWriteSheet, wordSearchSheet,
 } from './core';
 
-const VOWELS = ['A', 'E', 'I', 'O', 'U'];
 const rotate = <T,>(a: T[], k: number): T[] => a.slice(k % a.length).concat(a.slice(0, k % a.length));
 
 // ── LETTERS ──────────────────────────────────────────────────────────────────

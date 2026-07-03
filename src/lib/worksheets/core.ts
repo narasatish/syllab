@@ -241,7 +241,8 @@ export function pictographSheet(title: string, line: string, rows: { emoji: stri
 /** Colour-by-key grid: each cell shows a key (number/letter); colour per key. */
 export function colourByKeySheet(title: string, line: string, key: { k: string; name: string; hex: string }[], cells: string[]): string {
   const head = instr(line);
-  let body = head.svg; let y = head.nextY + 6;
+  let body = head.svg;
+  const y = head.nextY + 6;
   const cols = 5;
   cells.forEach((v, i) => {
     const col = i % cols, row = Math.floor(i / cols);

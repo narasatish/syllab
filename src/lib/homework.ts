@@ -276,7 +276,7 @@ export async function generateHomework(opts: {
       `Return ONLY strict JSON: {"questions":[{"topic":"sub-topic","type":"short|long|diagram","question":"...","marks":2,"answer":"model answer","explanation":"..."}]}`,
     ].filter(Boolean).join('\n');
 
-    let gen: HwQuestion[] = [];
+    let gen: HwQuestion[];
     try {
       const reply = await askTutor(prompt, []);
       const parsed = parseJson<{ questions: HwQuestion[] }>(reply);
@@ -337,7 +337,7 @@ export async function gradeHomework(set: HomeworkSet, answers: HwAnswer[]): Prom
     const a = answers[i] || {};
     const typed = (a.text || '').trim();
     if (a.image) {
-      let read = '';
+      let read: string;
       try { read = await scanAndSolve(a.image); } catch { read = ''; }
       resolved[i] = [typed, read && `[from uploaded photo] ${read}`].filter(Boolean).join('\n') || '(uploaded a photo, could not read clearly)';
     } else {
@@ -356,7 +356,7 @@ export async function gradeHomework(set: HomeworkSet, answers: HwAnswer[]): Prom
  * question by number and grades — like a teacher reading a submitted sheet.
  */
 export async function gradeFromSheet(set: HomeworkSet, fileDataUrl: string): Promise<HomeworkResult> {
-  let transcript = '';
+  let transcript: string;
   try { transcript = await scanAndSolve(fileDataUrl); } catch { transcript = ''; }
   if (!transcript) throw new Error('Could not read the uploaded sheet. Try a clearer, well-lit photo.');
 
@@ -374,7 +374,7 @@ export async function gradeFromSheet(set: HomeworkSet, fileDataUrl: string): Pro
     `Student's transcribed sheet:\n"""${transcript.slice(0, 6000)}"""`,
   ].join('\n');
 
-  let results: Array<Partial<GradedItem>> = [];
+  let results: Array<Partial<GradedItem>>;
   try {
     const reply = await askTutor(prompt, []);
     const parsed = parseJson<{ results: Array<Partial<GradedItem>> }>(reply);

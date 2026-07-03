@@ -30,7 +30,7 @@ export function initAnalytics(): void {
 
     const w = window as unknown as { dataLayer: unknown[]; gtag: (...a: unknown[]) => void };
     w.dataLayer = w.dataLayer || [];
-    w.gtag = function gtag() { w.dataLayer.push(arguments); };
+    w.gtag = function gtag(...args: unknown[]) { w.dataLayer.push(args); };
     w.gtag('js', new Date());
     // anonymize_ip for privacy; send_page_view:false because we send them manually.
     w.gtag('config', GA_ID, { send_page_view: false, anonymize_ip: true });

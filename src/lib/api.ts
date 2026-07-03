@@ -457,6 +457,6 @@ export async function getMockQuestionExplanation(
     return raw.trim();
   } catch (err) {
     const friendly = (err as Error & { message?: string }).message || 'Could not load explanation. Please try again.';
-    throw new Error(friendly);
+    throw new Error(friendly, { cause: err });
   }
 }

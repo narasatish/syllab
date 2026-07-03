@@ -4,7 +4,7 @@
  */
 import { shapeTiles } from '../../data/kids/shapes';
 import {
-  type Worksheet, page, header, instr,
+  type Worksheet, page, header,
   circleSheet, matchingSheet, sortSheet, readingSheet, fillBlankSheet,
   drawWriteSheet, colourByKeySheet,
 } from './core';

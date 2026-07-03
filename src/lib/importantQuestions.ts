@@ -10,8 +10,6 @@ export interface ExamQuestion { q: string; marks: number; }
 
 interface QChapter { title: string; subject: string; topics?: string[]; }
 
-const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-
 /** Clean the chapter's topic list: drop the subject name + the title itself + dupes. */
 function cleanTopics(ch: QChapter): string[] {
   const subj = ch.subject.toLowerCase();
