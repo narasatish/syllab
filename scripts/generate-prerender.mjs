@@ -22,6 +22,7 @@ import { getBlogArticles } from './blogArticles.mjs';
 import { getNcertChapters } from './ncertChapters.mjs';
 import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
+import { IQ_PILOT } from './iq-pilot.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
@@ -812,6 +813,104 @@ for (const [c, subs] of Object.entries(IQ_SUBJECTS)) {
         { '@type': 'ListItem', position: 3, name: subjName(s), item: `${SITE}/important-questions/class-${c}/${s}` },
       ] },
     });
+  }
+}
+
+// ─── Chapter-level important-questions PILOT (substantive, hand-picked) ──────
+// Pulls the REAL syllabus data + deterministic question generator from the
+// compiled SSR bundle (single source of truth — no duplicated question logic).
+// The bundle exists whenever this script runs inside `npm run build`
+// (vite build --ssr runs immediately before). Standalone runs without the
+// bundle skip these routes with a warning (the SEO audit will then flag the
+// sitemap mismatch, which is the correct failure mode).
+{
+  const iqBundlePath = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+  let iqData = null;
+  if (existsSync(iqBundlePath)) {
+    try {
+      const { pathToFileURL } = await import('node:url');
+      const mod = await import(pathToFileURL(iqBundlePath).href);
+      if (mod.SYLLABUS && mod.generateExamQuestions) iqData = mod;
+    } catch (e) {
+      console.warn(`⚠️  Could not load SSR bundle for IQ chapter pages: ${e.message}`);
+    }
+  }
+  if (!iqData) {
+    console.warn('⚠️  IQ chapter pilot pages SKIPPED (no SSR bundle) — run the full `npm run build`.');
+  } else {
+    const { SYLLABUS, generateExamQuestions } = iqData;
+    for (let i = 0; i < IQ_PILOT.length; i++) {
+      const p = IQ_PILOT[i];
+      const ch = SYLLABUS.find((x) => x.id === p.id);
+      if (!ch) { console.warn(`⚠️  IQ pilot chapter not in SYLLABUS: ${p.id}`); continue; }
+      const qs = generateExamQuestions({ title: ch.title, subject: String(ch.subject), topics: ch.topics });
+      const url = `${SITE}/important-questions/class-${p.cls}/${p.subjSlug}/${p.chapSlug}`;
+      const chapterNo = i + 1;
+      const prev = IQ_PILOT[i - 1];
+      const next = IQ_PILOT[i + 1];
+      const marksOf = (m) => qs.filter((q) => q.marks === m).length;
+      const topicsHtml = ch.topics?.length
+        ? `<h2>Key Topics in ${esc(ch.title)}</h2><ul>${ch.topics.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`
+        : '';
+      const qListHtml = `<h2>Class ${p.cls} Maths Chapter ${chapterNo} — ${esc(ch.title)} Important Questions</h2><ol>${
+        qs.map((q) => `<li><strong>${esc(q.q)}</strong> <em>(${q.marks} marks)</em></li>`).join('')
+      }</ol>`;
+      const marksTable = `
+        <h2>Marks Distribution</h2>
+        <table><thead><tr><th>Question type</th><th>Count</th></tr></thead><tbody>
+          <tr><td>2-mark (very short answer)</td><td>${marksOf(2)}</td></tr>
+          <tr><td>3-mark (short answer)</td><td>${marksOf(3)}</td></tr>
+          <tr><td>4–5-mark (long answer)</td><td>${marksOf(4) + marksOf(5)}</td></tr>
+          <tr><td><strong>Total questions</strong></td><td><strong>${qs.length}</strong></td></tr>
+        </tbody></table>`;
+      const prevNext = `<nav style="display:flex;justify-content:space-between;gap:1rem;margin:1.5rem 0;">
+        ${prev ? `<a href="/important-questions/class-${prev.cls}/${prev.subjSlug}/${prev.chapSlug}">← Ch ${chapterNo - 1}: ${esc(prev.title)}</a>` : '<span></span>'}
+        ${next ? `<a href="/important-questions/class-${next.cls}/${next.subjSlug}/${next.chapSlug}">Ch ${chapterNo + 1}: ${esc(next.title)} →</a>` : '<span></span>'}
+      </nav>`;
+      const howToPrep = `
+        <h2>How to Prepare "${esc(ch.title)}" for the Board Exam</h2>
+        <ol>
+          <li><strong>Master the NCERT examples first</strong> — most board questions in ${esc(ch.title)} follow NCERT in-text and exercise patterns.</li>
+          <li><strong>Practise every question above on paper</strong>, timed: allow ~3 minutes per 2-mark, ~5 minutes per 3-mark and ~8 minutes per 5-mark question.</li>
+          <li><strong>Use the free AI tutor</strong> on this page to get a board-style model answer for any question you get stuck on.</li>
+          <li><strong>Finish with a mock test</strong> to check speed and accuracy under exam conditions.</li>
+        </ol>`;
+      ROUTES.push({
+        path: `/important-questions/class-${p.cls}/${p.subjSlug}/${p.chapSlug}`,
+        title: `${ch.title} Class ${p.cls} Important Questions (Maths Ch ${chapterNo}) — Free | Syllab.in`,
+        description: `Class ${p.cls} Maths "${ch.title}" important questions — ${qs.length} board-exam-style questions (2, 3 & 5 marks) with free AI model answers. CBSE/NCERT 2026-27 aligned, no login.`,
+        keywords: `${ch.title.toLowerCase()} class ${p.cls} important questions, class ${p.cls} maths chapter ${chapterNo} important questions, ${p.chapSlug.replace(/-/g, ' ')} extra questions, cbse class ${p.cls} maths ${ch.title.toLowerCase()}`,
+        bodyHtml: `
+          <p class="speakable">Practise <strong>${qs.length} important questions from "${esc(ch.title)}"</strong> (Class ${p.cls} Mathematics, Chapter ${chapterNo}) — exam-pattern 2, 3 and 5-mark questions covering ${esc((ch.topics || []).slice(0, 4).join(', '))}. Every question has a free AI-written board-style model answer.</p>
+          ${topicsHtml}
+          ${qListHtml}
+          ${marksTable}
+          ${howToPrep}
+          ${prevNext}
+          <p><a href="/important-questions/class-${p.cls}/${p.subjSlug}">All Class ${p.cls} Maths important questions →</a> · <a href="/ncert-solutions">NCERT Solutions →</a> · <a href="/mock-tests">Free mock tests →</a></p>`,
+        jsonLd: [
+          { '@context': 'https://schema.org', '@type': 'Article',
+            headline: `${ch.title} — Class ${p.cls} Maths Important Questions`,
+            url, inLanguage: 'en-IN', isAccessibleForFree: true,
+            author: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
+            publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
+            datePublished: today, dateModified: today },
+          { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Important Questions', item: `${SITE}/important-questions` },
+            { '@type': 'ListItem', position: 2, name: `Class ${p.cls}`, item: `${SITE}/important-questions/class-${p.cls}` },
+            { '@type': 'ListItem', position: 3, name: p.subjName, item: `${SITE}/important-questions/class-${p.cls}/${p.subjSlug}` },
+            { '@type': 'ListItem', position: 4, name: ch.title, item: url },
+          ] },
+        ],
+      });
+    }
+    // Crawl discovery: link every pilot chapter from its subject hub page.
+    const hub = ROUTES.find((r) => r.path === `/important-questions/class-10/mathematics`);
+    if (hub && !hub.bodyHtml) {
+      hub.bodyHtml = `<h2>Class 10 Maths — Chapter-wise Important Questions</h2><ol>${
+        IQ_PILOT.map((c) => `<li><a href="/important-questions/class-${c.cls}/${c.subjSlug}/${c.chapSlug}">${esc(c.title)} — Class 10 Maths Important Questions</a></li>`).join('')
+      }</ol>`;
+    }
   }
 }
 
@@ -1754,6 +1853,20 @@ function buildBodyContent(route) {
         `;
       }
       richContent += `<p style="color: #666; font-size: 0.9rem; font-style: italic;">Showing ${displayLimit} of ${qas.length} questions. Visit the full page for complete solutions.</p>`;
+
+      // Prev/next chapter navigation (sequential crawl path + UX), using the
+      // NCERT ordering within the same class + subject.
+      const ordered = NCERT_CHAPTERS.filter((c) => c.classLevel === classLevel && c.subjSlug === subjSlug);
+      const idx = ordered.findIndex((c) => c.chapSlug === chapSlug);
+      const prevCh = idx > 0 ? ordered[idx - 1] : null;
+      const nextCh = idx >= 0 && idx < ordered.length - 1 ? ordered[idx + 1] : null;
+      if (prevCh || nextCh) {
+        const link = (c, label) => `<a href="/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}" style="color: #0066cc; text-decoration: none; font-weight: 600;">${label}</a>`;
+        richContent += `<nav style="display: flex; justify-content: space-between; gap: 1rem; margin: 1.5rem 0; font-size: 0.9rem;">
+          ${prevCh ? link(prevCh, `← Previous: ${esc(prevCh.title)}`) : '<span></span>'}
+          ${nextCh ? link(nextCh, `Next: ${esc(nextCh.title)} →`) : '<span></span>'}
+        </nav>`;
+      }
 
       // Sibling-chapter interlinking — link other chapters in the same class + subject
       // (internal linking + topical clustering + dwell time; reuses existing data).

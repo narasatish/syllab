@@ -20,6 +20,7 @@ import { getNcertChapters } from './ncertChapters.mjs';
 import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getMedicalManifest } from './medicalColleges.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
+import { IQ_PILOT } from './iq-pilot.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
@@ -197,6 +198,10 @@ function buildUrls({ languages, topicsByLang }) {
   for (const [c, subs] of Object.entries(IQ)) {
     urls.push({ loc: `/important-questions/class-${c}`, priority: 0.7, changefreq: 'monthly' });
     for (const s of subs) urls.push({ loc: `/important-questions/class-${c}/${s}`, priority: 0.6, changefreq: 'monthly' });
+  }
+  // Chapter-level important-questions PILOT (substantive pages; see scripts/iq-pilot.mjs).
+  for (const ch of IQ_PILOT) {
+    urls.push({ loc: `/important-questions/class-${ch.cls}/${ch.subjSlug}/${ch.chapSlug}`, priority: 0.6, changefreq: 'monthly' });
   }
 
   // Mock-test exam landing pages

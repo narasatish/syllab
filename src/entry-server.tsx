@@ -21,6 +21,12 @@ import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
 import { SsrPathContext } from './lib/isomorphic';
 
+// Re-exported for generate-prerender.mjs: it imports the compiled SSR bundle
+// and uses the REAL syllabus + question generator to build substantive static
+// bodies for chapter-level important-questions pages (single source of truth).
+export { SYLLABUS } from './data/syllabus';
+export { generateExamQuestions } from './lib/importantQuestions';
+
 export interface RenderResult {
   /** Full prerender output (hoisted metadata + body). */
   html: string;

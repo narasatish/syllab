@@ -67,12 +67,16 @@ export default function ImportantQuestions({ setTab }: { setTab: (tab: string) =
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const parts = path.split('/').filter(Boolean); // ['important-questions', 'class-10', 'science']
+  const parts = path.split('/').filter(Boolean); // ['important-questions', 'class-10', 'science', 'real-numbers'?]
   const clsMatch = (parts[1] || '').match(/^class-(\d+)$/);
   const cls = (clsMatch && CLASSES.includes(clsMatch[1] as ClassLevel) ? clsMatch[1] : null) as ClassLevel | null;
   const subjects = useMemo(() => (cls ? subjectsFor(cls) : []), [cls]);
   const subject = useMemo(() => (cls && parts[2] ? subjects.find((s) => slug(s) === parts[2]) || null : null), [cls, parts, subjects]);
-  const chapters = useMemo(() => (cls && subject ? chaptersFor(cls, subject) : []), [cls, subject]);
+  const allChapters = useMemo(() => (cls && subject ? chaptersFor(cls, subject) : []), [cls, subject]);
+  // Level 4: /important-questions/class-10/mathematics/real-numbers → single-chapter page.
+  const chapterIdx = useMemo(() => (parts[3] ? allChapters.findIndex((c) => slug(c.title) === parts[3]) : -1), [parts, allChapters]);
+  const focusChapter = chapterIdx >= 0 ? allChapters[chapterIdx] : null;
+  const chapters = useMemo(() => (focusChapter ? [focusChapter] : allChapters), [focusChapter, allChapters]);
 
   // AI answers (on demand + cached in localStorage) keyed by chapter+question index.
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -83,6 +87,9 @@ export default function ImportantQuestions({ setTab }: { setTab: (tab: string) =
   const [loadingChapters, setLoadingChapters] = useState<Set<string>>(new Set()); // chapters currently fetching shared answers
   const answersRef = useRef(answers);
   useEffect(() => { answersRef.current = answers; }, [answers]);
+  // Auto-expand the chapter on its own single-chapter page (declared after
+  // openChapters state so the setter is unambiguously in scope here).
+  useEffect(() => { if (focusChapter) setOpenChapters(new Set([focusChapter.id])); }, [focusChapter?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Persist a generated answer to BOTH local cache and the shared Firestore cache
   // (so it shows for everyone, free, next time).
@@ -157,25 +164,43 @@ export default function ImportantQuestions({ setTab }: { setTab: (tab: string) =
     setRevealing(null);
   }, [revealing]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ── Level 3: class + subject → chapters ──
+  // ── Level 3: class + subject → chapters (or Level 4: single chapter) ──
   if (cls && subject) {
+    const subjUrl = `${SITE}/important-questions/class-${cls}/${slug(subject)}`;
+    const crumbs = [
+      { '@type': 'ListItem', position: 1, name: 'Important Questions', item: `${SITE}/important-questions` },
+      { '@type': 'ListItem', position: 2, name: `Class ${cls}`, item: `${SITE}/important-questions/class-${cls}` },
+      { '@type': 'ListItem', position: 3, name: subject, item: subjUrl },
+      ...(focusChapter ? [{ '@type': 'ListItem', position: 4, name: focusChapter.title, item: `${subjUrl}/${slug(focusChapter.title)}` }] : []),
+    ];
+    const prevCh = chapterIdx > 0 ? allChapters[chapterIdx - 1] : null;
+    const nextCh = chapterIdx >= 0 && chapterIdx < allChapters.length - 1 ? allChapters[chapterIdx + 1] : null;
     return (
       <div className="mx-auto max-w-3xl px-4 py-8">
         <SEO
-          title={`Important Questions for Class ${cls} ${subject} (Chapter-wise, Free) | Syllab.in`}
-          description={`Important questions and key chapters for Class ${cls} ${subject} — chapter-wise high-weightage topics, with free practice. CBSE/NCERT-aligned for Indian students.`}
-          keywords={`important questions class ${cls} ${subject.toLowerCase()}, class ${cls} ${subject.toLowerCase()} important chapters, ${subject.toLowerCase()} class ${cls} questions, cbse class ${cls} ${subject.toLowerCase()} important`}
-          url={`${SITE}/important-questions/class-${cls}/${slug(subject)}`}
-          jsonLd={[
-            { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Important Questions', item: `${SITE}/important-questions` },
-              { '@type': 'ListItem', position: 2, name: `Class ${cls}`, item: `${SITE}/important-questions/class-${cls}` },
-              { '@type': 'ListItem', position: 3, name: subject, item: `${SITE}/important-questions/class-${cls}/${slug(subject)}` },
-            ] },
-          ]}
+          title={focusChapter
+            ? `${focusChapter.title} Class ${cls} Important Questions (Free) | Syllab.in`
+            : `Important Questions for Class ${cls} ${subject} (Chapter-wise, Free) | Syllab.in`}
+          description={focusChapter
+            ? `Class ${cls} ${subject} "${focusChapter.title}" important questions — board-exam-style 2, 3 & 5 mark questions with free AI model answers. CBSE/NCERT-aligned, no login.`
+            : `Important questions and key chapters for Class ${cls} ${subject} — chapter-wise high-weightage topics, with free practice. CBSE/NCERT-aligned for Indian students.`}
+          keywords={focusChapter
+            ? `${focusChapter.title.toLowerCase()} class ${cls} important questions, class ${cls} ${subject.toLowerCase()} ${focusChapter.title.toLowerCase()}, ${focusChapter.title.toLowerCase()} extra questions`
+            : `important questions class ${cls} ${subject.toLowerCase()}, class ${cls} ${subject.toLowerCase()} important chapters, ${subject.toLowerCase()} class ${cls} questions, cbse class ${cls} ${subject.toLowerCase()} important`}
+          url={focusChapter ? `${subjUrl}/${slug(focusChapter.title)}` : subjUrl}
+          jsonLd={[{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: crumbs }]}
         />
-        <button onClick={() => go(`/important-questions/class-${cls}`)} className="mb-4 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary"><ArrowLeft size={14} /> Class {cls} subjects</button>
-        <PageHero emoji="🎯" title={`Class ${cls} ${subject} — Important Questions`} subtitle={`${chapters.length} chapters with high-weightage topics. Practice each one free.`} className="mb-6" />
+        <button onClick={() => go(focusChapter ? `/important-questions/class-${cls}/${slug(subject)}` : `/important-questions/class-${cls}`)} className="mb-4 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary">
+          <ArrowLeft size={14} /> {focusChapter ? `All Class ${cls} ${subject} chapters` : `Class ${cls} subjects`}
+        </button>
+        <PageHero
+          emoji="🎯"
+          title={focusChapter ? `${focusChapter.title} — Important Questions` : `Class ${cls} ${subject} — Important Questions`}
+          subtitle={focusChapter
+            ? `Class ${cls} ${subject} · board-exam-style questions with free AI answers.`
+            : `${chapters.length} chapters with high-weightage topics. Practice each one free.`}
+          className="mb-6"
+        />
 
         <p className="mb-3 text-sm text-slate-500">Tap a chapter to see its important questions. Each answer is written by the AI tutor in board-exam style.</p>
         <div className="space-y-3">
@@ -190,7 +215,7 @@ export default function ImportantQuestions({ setTab }: { setTab: (tab: string) =
                   onClick={() => setOpenChapters((s) => { const n = new Set(s); if (n.has(ch.id)) n.delete(ch.id); else n.add(ch.id); return n; })}
                   className="flex w-full items-center gap-3 p-4 text-left hover:bg-slate-50"
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-sm font-black text-emerald-700">{ci + 1}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-sm font-black text-emerald-700">{focusChapter ? chapterIdx + 1 : ci + 1}</span>
                   <span className="min-w-0 flex-1">
                     <span className="block font-black text-slate-900">{ch.title}</span>
                     <span className="text-xs font-bold text-slate-400">{qs.length} important questions{answered ? ` · ${answered} answered` : ''}</span>
@@ -205,6 +230,13 @@ export default function ImportantQuestions({ setTab }: { setTab: (tab: string) =
                     <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                       {ch.topics?.length ? <p className="text-xs text-slate-500"><span className="font-bold text-slate-600">Key topics:</span> {ch.topics.slice(0, 6).join(' · ')}</p> : <span />}
                       <div className="flex gap-2">
+                        {!focusChapter ? (
+                          <a href={`/important-questions/class-${cls}/${slug(subject)}/${slug(ch.title)}`}
+                            onClick={(e) => { e.preventDefault(); go(`/important-questions/class-${cls}/${slug(subject)}/${slug(ch.title)}`); }}
+                            className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-black text-slate-600 hover:bg-slate-200">
+                            Full page <ArrowRight size={12} />
+                          </a>
+                        ) : null}
                         <button onClick={() => setTab('arena')} className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-black text-emerald-700 hover:bg-emerald-100"><Target size={13} /> Practice</button>
                         <button onClick={() => void revealAll(ch.id, ch.title, String(ch.subject), ch.topics, String(cls))} disabled={!!revealing}
                           className="inline-flex items-center gap-1 rounded-full bg-indigo-500 px-3 py-1.5 text-xs font-black text-white hover:bg-indigo-600 disabled:opacity-50">
@@ -243,6 +275,21 @@ export default function ImportantQuestions({ setTab }: { setTab: (tab: string) =
           })}
           {!chapters.length ? <p className="text-sm text-slate-500">Chapters for this subject are being added.</p> : null}
         </div>
+
+        {focusChapter && (prevCh || nextCh) ? (
+          <nav className="mt-6 flex items-center justify-between gap-3 text-sm font-black">
+            {prevCh ? (
+              <button onClick={() => go(`/important-questions/class-${cls}/${slug(subject)}/${slug(prevCh.title)}`)} className="inline-flex items-center gap-1 text-slate-500 hover:text-primary">
+                <ArrowLeft size={15} /> {prevCh.title}
+              </button>
+            ) : <span />}
+            {nextCh ? (
+              <button onClick={() => go(`/important-questions/class-${cls}/${slug(subject)}/${slug(nextCh.title)}`)} className="inline-flex items-center gap-1 text-slate-500 hover:text-primary">
+                {nextCh.title} <ArrowRight size={15} />
+              </button>
+            ) : <span />}
+          </nav>
+        ) : null}
 
         <div className="mt-6 flex flex-wrap items-center gap-3 rounded-2xl bg-emerald-50 p-4">
           <p className="flex-1 text-sm font-bold text-emerald-800">Test yourself with free chapter-wise practice & mock tests.</p>
