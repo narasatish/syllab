@@ -32,6 +32,13 @@ Handoff memory from the long build session. Read once when resuming work.
 - Deepen the ~10 shallow restored lessons.
 - Backlinks (user-side): directories, teacher groups, r/CBSE.
 
+## Live as of v210 (2026-07-04) — SEO/perf push
+- **v208**: chapter-level important-questions pages (Class 10 Maths pilot, 14 pages) + NCERT prev/next nav.
+- **v209**: cross-cluster internal-link mesh (503 chapter pages) + printable Class 10 Maths formula poster (`/posters/class-10-maths-formulas.html`, first linkable asset) + CWV code-split (Syllabus data + DiagramLab lazy-loaded off entry/MockTests chunks).
+- **v210** (GSC-driven, from 2026-07 export): all 210 college detail pages deepened with data-driven fee tables (per-year + 4-year), cutoff, placements, FAQ + FAQPage schema (was empty-bodied); CTR titles ("Fees 2026"). Re-indexed 5 GSC-proven difference-between winners (see `scripts/diff-reindex.mjs`) with factual FAQ — rest stay noindex. Skipped full-forms (55% of impressions but 0.06% CTR = answer-in-SERP dead-end).
+- GSC insight: 91k impressions / 0.24% CTR. Converting clusters = state-board (6.2%), ncert-solutions (2.2%), english-literature (1.7%); college + difference-between have real click intent at position 8-10.
+- **Pending user decisions**: expand IQ pilot to Science/other classes AFTER 2-4 wks GSC data; deepen more college/diff pages if v210 lifts them; Firebase Hosting release cleanup (console).
+
 ## Done since v207 (committed, NOT yet deployed — bump CACHE_VERSION + deploy)
 - **Chapter-wise important-questions pages** (commit 4782210): 14 substantive Class-10 Maths pages at `/important-questions/class-10/mathematics/{chapter}` — real exam questions (2/3/5-mark) from `generateExamQuestions()`, marks table, "how to prepare", prev/next, Article+BreadcrumbList JSON-LD, ~1200 words. Pilot only (March-2026 thin-content caution — measure in GSC before expanding to Science/other classes). Source list: `scripts/iq-pilot.mjs`. Prerender pulls SYLLABUS + generator from compiled SSR bundle (re-exported in `src/entry-server.tsx`).
 - **Prev/next chapter nav** on NCERT-solutions prerender pages (same commit) — the deferred P2 item. ("Updated" stamp already existed via the tldrBlock byline — dateModified=build date.)
