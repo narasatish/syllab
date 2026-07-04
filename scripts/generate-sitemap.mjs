@@ -21,6 +21,7 @@ import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getMedicalManifest } from './medicalColleges.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
+import { DIFF_REINDEX } from './diff-reindex.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
@@ -201,6 +202,9 @@ function buildUrls({ languages, topicsByLang }) {
   }
   // Linkable assets — printable posters (static files in public/posters/).
   urls.push({ loc: '/posters/class-10-maths-formulas.html', priority: 0.7, changefreq: 'monthly' });
+
+  // Re-indexed difference-between winners (GSC-proven, deepened with FAQ — see diff-reindex.mjs).
+  for (const d of DIFF_REINDEX) urls.push({ loc: `/difference-between/${d.slug}`, priority: 0.6, changefreq: 'monthly' });
 
   // Chapter-level important-questions PILOT (substantive pages; see scripts/iq-pilot.mjs).
   for (const ch of IQ_PILOT) {

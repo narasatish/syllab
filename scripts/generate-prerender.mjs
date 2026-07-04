@@ -24,6 +24,7 @@ import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
 import { getDifferences } from './differencesData.mjs';
+import { DIFF_REINDEX, DIFF_REINDEX_SLUGS } from './diff-reindex.mjs';
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -510,17 +511,51 @@ for (const s of COLLEGE_STATES_M) {
   });
 }
 
+// Indian-format a rupee amount from a raw number/string ("300000" → "₹3,00,000").
+const inr = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? `₹${n.toLocaleString('en-IN')}` : null; };
+const lakh = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? `₹${(n / 100000).toFixed(n % 100000 === 0 ? 0 : 1)} lakh` : null; };
 for (const c of COLLEGES_M) {
+  // Data-driven body from the manifest (fees/cutoff/placement all present for every
+  // college). 4-year B.Tech tuition = per-year × 4; hostel/mess noted as separate
+  // (we don't hold that figure, so we never invent one). GSC shows real research
+  // intent here ("<college> fees for 4 years with hostel", "<college> placement 2026").
+  const feeYr = inr(c.feesPerYear);
+  const fee4 = (() => { const n = Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? inr(n * 4) : null; })();
+  const pkg = inr(c.placementAvg);
+  const faqs = [
+    feeYr && { q: `What is the B.Tech fee at ${c.shortName}?`, a: `The B.Tech tuition fee at ${c.name}, ${c.city} is about ${feeYr} per year${lakh(c.feesPerYear) ? ` (${lakh(c.feesPerYear)} per year)` : ''}. Hostel and mess are charged separately.` },
+    fee4 && { q: `What is the total 4-year B.Tech fee at ${c.shortName}?`, a: `Over the full four-year B.Tech course, tuition works out to roughly ${fee4}${lakh(Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')) * 4) ? ` (${lakh(Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')) * 4)})` : ''}, excluding hostel, mess and one-time charges.` },
+    c.cutoff && { q: `What is the cutoff / admission requirement for ${c.shortName}?`, a: `${c.cutoff}` },
+    pkg && { q: `What is the average placement package at ${c.shortName}?`, a: `The average placement package at ${c.name} is around ${pkg} per annum${lakh(c.placementAvg) ? ` (${lakh(c.placementAvg)} LPA)` : ''}.` },
+  ].filter(Boolean);
+  const body = `
+    <p class="speakable"><strong>${esc(c.name)}</strong> is an engineering college in ${esc(c.city)}, ${esc(c.stateName)}.${feeYr ? ` B.Tech tuition is about ${esc(feeYr)}/year${fee4 ? ` (≈ ${esc(fee4)} for 4 years)` : ''}` : ''}${pkg ? `, with an average placement package of around ${esc(pkg)}` : ''}.</p>
+    <h2>${esc(c.shortName)} B.Tech Fees (2026)</h2>
+    <table><tbody>
+      ${feeYr ? `<tr><td>Tuition fee (per year)</td><td>${esc(feeYr)}</td></tr>` : ''}
+      ${fee4 ? `<tr><td>Total tuition (4 years, B.Tech)</td><td>${esc(fee4)}</td></tr>` : ''}
+      <tr><td>Hostel &amp; mess</td><td>Charged separately (varies by room type)</td></tr>
+      ${pkg ? `<tr><td>Average placement package</td><td>${esc(pkg)} per annum</td></tr>` : ''}
+    </tbody></table>
+    <h2>Admission &amp; Cutoff</h2>
+    <p>${esc(c.cutoff)}</p>
+    <h2>Frequently Asked Questions</h2>
+    ${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
+    <p><a href="/colleges/${c.stateSlug}">More engineering colleges in ${esc(c.stateName)} →</a> · <a href="/college-predictor">Free college predictor →</a></p>`;
   ROUTES.push({
     path: `/colleges/${c.stateSlug}/${c.slug}`,
-    title: `${c.shortName} — Fees, Cutoff, Placements & Admission 2026 | Syllab.in`,
-    description: `${c.name}, ${c.city}: B.Tech fees ${c.feesPerYear}/yr, ${c.cutoff}, average package ${c.placementAvg}. Full admission process, hostel & placements — free guide on Syllab.in.`,
-    keywords: `${c.name} fees, ${c.shortName} cutoff 2026, ${c.shortName} placements, ${c.name} admission process, ${c.name} hostel, ${c.city} engineering college`,
-    jsonLd: {
-      '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name,
-      url: `${SITE}/colleges/${c.stateSlug}/${c.slug}`,
-      address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.stateName, addressCountry: 'IN' },
-    },
+    title: `${c.shortName} Fees 2026 — B.Tech Fees, Cutoff & Placements | Syllab.in`,
+    description: `${c.name}, ${c.city}: B.Tech tuition ${feeYr || c.feesPerYear}/yr${fee4 ? ` (≈${fee4} for 4 years)` : ''}, ${c.cutoff} Average package ${pkg || c.placementAvg}. Full fees, cutoff & placements — free.`,
+    keywords: `${c.name} fees, ${c.shortName} fees for 4 years, ${c.shortName} cutoff 2026, ${c.shortName} placements, ${c.name} admission process, ${c.city} engineering college`,
+    bodyHtml: body,
+    jsonLd: [
+      {
+        '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name,
+        url: `${SITE}/colleges/${c.stateSlug}/${c.slug}`,
+        address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.stateName, addressCountry: 'IN' },
+      },
+      ...(faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+    ],
   });
 }
 
@@ -1111,6 +1146,7 @@ ROUTES.push({
 });
 const DIFF_BY_CAT = {};
 for (const x of DIFFS) (DIFF_BY_CAT[x.category] ||= []).push(x);
+const DIFF_REINDEX_FAQ = new Map(DIFF_REINDEX.map((d) => [d.slug, d.faqs]));
 for (const d of DIFFS) {
   const rows = (d.table || []).slice(0, 12);
   const tableHtml = rows.length
@@ -1120,24 +1156,34 @@ for (const d of DIFFS) {
   const kpHtml = kp.length ? `<h2>Key Points</h2><ul>${kp.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : '';
   const sib = (DIFF_BY_CAT[d.category] || []).filter((x) => x.slug !== d.slug).slice(0, 6);
   const relHtml = sib.length ? `<h2>More ${esc(d.category)} Comparisons</h2><ul>${sib.map((x) => `<li><a href="/difference-between/${x.slug}">${esc(x.title)}</a></li>`).join('')}</ul>` : '';
+  // Curated re-index: GSC-proven winners get a factual FAQ (substantive, not thin)
+  // and are allowed to index; everything else stays noindex.
+  const reFaqs = DIFF_REINDEX_FAQ.get(d.slug);
+  const faqHtml = reFaqs ? `<h2>Frequently Asked Questions</h2>${reFaqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
   const bodyHtml = `
     <p class="speakable"><strong>The main difference between ${esc(d.termA)} and ${esc(d.termB)}:</strong> ${esc(d.intro)}</p>
     <h2>${esc(d.termA)} vs ${esc(d.termB)} — Comparison Table</h2>
     ${tableHtml}
     ${kpHtml}
+    ${faqHtml}
     ${relHtml}
     <p><a href="/difference-between">See all difference-between comparisons →</a></p>`;
+  const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Difference Between', item: `${SITE}/difference-between` },
+    { '@type': 'ListItem', position: 2, name: d.title, item: `${SITE}/difference-between/${d.slug}` },
+  ] };
   ROUTES.push({
     path: `/difference-between/${d.slug}`,
     bodyHtml,
-    title: `${d.title} (with Comparison Table) | Syllab.in`,
+    title: `${d.termA} vs ${d.termB} — Difference (with Table & FAQs) | Syllab.in`,
     description: d.intro,
     keywords: `difference between ${d.termA.toLowerCase()} and ${d.termB.toLowerCase()}, ${d.termA.toLowerCase()} vs ${d.termB.toLowerCase()}, ${d.category.toLowerCase()} comparison, ${d.classLevel.toLowerCase()}`,
-    noindex: true, // Post-March-2026 update: thin templated content drags domain quality.
-    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Difference Between', item: `${SITE}/difference-between` },
-      { '@type': 'ListItem', position: 2, name: d.title, item: `${SITE}/difference-between/${d.slug}` },
-    ] },
+    // Re-indexed winners are deepened (table + key points + FAQ); the rest stay
+    // noindex under the post-March-2026 thin-content policy.
+    noindex: !DIFF_REINDEX_SLUGS.has(d.slug),
+    jsonLd: reFaqs
+      ? [breadcrumb, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: reFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
+      : breadcrumb,
   });
 }
 
@@ -2039,23 +2085,9 @@ ${esc(topicContent.syntaxText)}
   }
 
   // College pages — render details
-  else if (route.path.match(/^\/colleges\/([a-z-]+)\/([a-z-]+)$/)) {
-    const [, stateSlug, collegeSlug] = route.path.match(/^\/colleges\/([a-z-]+)\/([a-z-]+)$/);
-    const college = COLLEGES_M.find(c => c.stateSlug === stateSlug && c.slug === collegeSlug);
-    if (college) {
-      richContent = `
-        <div style="margin-top: 1.5rem; padding: 1rem; background: #f0f8ff; border-radius: 8px;">
-          <h2 style="font-size: 1.1rem; margin: 0 0 0.5rem 0;">Key Details:</h2>
-          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
-            <li style="margin: 0.3rem 0;"><strong>Location:</strong> ${esc(college.city)}, ${esc(college.stateName)}</li>
-            <li style="margin: 0.3rem 0;"><strong>Fees:</strong> ${esc(college.feesPerYear)} per year</li>
-            <li style="margin: 0.3rem 0;"><strong>Cutoff:</strong> ${esc(college.cutoff)}</li>
-            <li style="margin: 0.3rem 0;"><strong>Avg. Package:</strong> ${esc(college.placementAvg)}</li>
-          </ul>
-        </div>
-      `;
-    }
-  }
+  // College detail pages render via their own route.bodyHtml (data-driven fees
+  // table + admission + FAQ, built at route-creation time) — handled by the
+  // `if (route.bodyHtml)` branch above, so no college-specific block here.
 
   // Blog article pages — show summary
   else if (route.path.match(/^\/updates\/[a-z0-9-]+$/)) {
