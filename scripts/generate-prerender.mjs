@@ -25,6 +25,7 @@ import { getAiHubTopics } from './aiHubTopics.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { DIFF_REINDEX, DIFF_REINDEX_SLUGS } from './diff-reindex.mjs';
+import { CONCEPT_FAQ } from './concept-faq.mjs';
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1404,7 +1405,11 @@ function mathsTableBody(x, sibs, base) {
 }
 function conceptBody(x, sibs, base) {
   const rel = sibs.length ? `<h2>Related ${esc(x.subject || '')} Concepts</h2><ul>${sibs.map((s) => `<li><a href="${base}/${s.slug}">${esc(s.title)} Explained</a></li>`).join('')}</ul>` : '';
-  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p><h2>${esc(x.title)} Explained Simply</h2><p>${esc(x.intro)}${x.classLevel || x.subject ? ` This is a key ${esc(x.subject || '')} concept${x.classLevel ? ` for ${esc(x.classLevel)}` : ''}.` : ''}</p>${rel}<p><a href="${base}">Browse all concepts →</a></p>`;
+  // Curated FAQ (concept-faq.mjs) deepens thin concept pages into substantive,
+  // snippet-worthy answers for the exact question forms users search.
+  const faqs = (x.faqs || []).slice(0, 6);
+  const faqHtml = faqs.length ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p><h2>${esc(x.title)} Explained Simply</h2><p>${esc(x.intro)}${x.classLevel || x.subject ? ` This is a key ${esc(x.subject || '')} concept${x.classLevel ? ` for ${esc(x.classLevel)}` : ''}.` : ''}</p>${faqHtml}${rel}<p><a href="${base}">Browse all concepts →</a></p>`;
 }
 const STUDY_CLUSTERS = [
   { base: '/maths-tables', name: 'Maths Tables & Charts', kw: 'maths tables, multiplication table, squares cubes primes', data: getMathsTables(ROOT), label: (x) => x.title, titleSuffix: '— Full Chart & Quick Revision', body: mathsTableBody },
@@ -1413,7 +1418,7 @@ const STUDY_CLUSTERS = [
   { base: '/gk-facts', name: 'General Knowledge', kw: 'general knowledge, static GK, GK for exams', data: getStaticGk(ROOT), label: (x) => x.title, body: gkBody },
   { base: '/vocabulary', name: 'English Vocabulary', kw: 'idioms and phrases, proverbs, one word substitution, synonyms antonyms', data: getEnglishVocab(ROOT), label: (x) => x.title, body: vocabBody },
   { base: '/english-literature', name: 'English Literature', kw: 'english summary, character sketch, NCERT english chapter summary', data: getEnglishLiterature(ROOT), label: (x) => `${x.chapter} (${x.classLevel} English)`, body: litBody },
-  { base: '/concepts', name: 'Concepts Explained', kw: 'concept explained, science maths concepts simple, real-life examples', data: getConcepts(ROOT), label: (x) => `${x.title} Explained`, body: conceptBody },
+  { base: '/concepts', name: 'Concepts Explained', kw: 'concept explained, science maths concepts simple, real-life examples', data: getConcepts(ROOT).map((x) => (CONCEPT_FAQ[x.slug] ? { ...x, faqs: CONCEPT_FAQ[x.slug] } : x)), label: (x) => `${x.title} Explained`, body: conceptBody },
   { base: '/solved-examples', name: 'Solved Numerical Examples', kw: 'solved examples, numerical problems with solutions, step by step', data: getSolvedExamples(ROOT), label: (x) => `${x.chapter} Solved Examples (${x.classLevel} ${x.subject})`, body: solvedBody },
   { base: '/lab-practicals', name: 'Lab Practicals & Viva', kw: 'lab practical, science experiment procedure, viva questions, CBSE practical', data: getLabPracticals(ROOT), label: (x) => `${x.title} (${x.classLevel} ${x.subject} Practical)`, body: labBody },
   { base: '/visual-learning', name: 'Visual Learning — Interactive Diagrams', kw: 'animated diagrams, interactive diagrams, step by step science diagrams, water cycle photosynthesis heart', data: getVisualLessons(ROOT), label: (x) => `${x.title} — Interactive Diagram` },
