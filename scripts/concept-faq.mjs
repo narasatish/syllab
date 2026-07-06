@@ -49,4 +49,10 @@ export const CONCEPT_FAQ = {
     { q: 'What is the minimum distance needed to hear an echo?', a: 'To hear a distinct echo the reflecting surface must be at least about 17 metres away, so the reflected sound returns after at least 0.1 second (the persistence of hearing).' },
     { q: 'What is the difference between an echo and reverberation?', a: 'An echo is a single, clearly separated repetition of sound. Reverberation is the persistence of sound caused by repeated reflections in a closed space such as a large hall, heard as a prolonged blur rather than a distinct repeat.' },
   ],
+  'magnetic-field-and-field-lines': [
+    { q: 'What is a magnetic field?', a: 'A magnetic field is the region around a magnet or a current-carrying conductor where a magnetic force can be detected. It is a vector quantity, having both magnitude and direction.' },
+    { q: 'What are magnetic field lines?', a: 'Magnetic field lines are imaginary curved lines used to represent a magnetic field. Outside a magnet they run from the north pole to the south pole, and their direction at any point is the direction a compass north pole would point.' },
+    { q: 'Why do two magnetic field lines never intersect?', a: 'If two field lines crossed, a compass placed at that point would have to point in two different directions at once, which is impossible. So magnetic field lines never intersect.' },
+    { q: 'How do you find the direction of the magnetic field around a straight current-carrying wire?', a: 'By the right-hand thumb rule: point the right thumb in the direction of the current, and the way the fingers curl gives the direction of the circular magnetic field lines around the wire.' },
+  ],
 };

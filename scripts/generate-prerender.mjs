@@ -1766,6 +1766,9 @@ const MESH_BY_PATH = new Map();
   for (const x of PYQ_ALL) add(`/pyqs/${x.slug}`, 'Previous Year Questions', x.classLevel, x.subject, x.chapter);
   for (const x of getRevisionNotes(ROOT)) add(`/revision-notes/${x.slug}`, 'Revision Notes', x.classLevel, x.subject, x.chapter);
   for (const x of getSolvedExamples(ROOT)) add(`/solved-examples/${x.slug}`, 'Solved Examples', x.classLevel, x.subject, x.chapter);
+  // State-board solutions — our best-converting cluster (6.2% CTR); cross-link so its
+  // visitors reach the matching NCERT solutions, MCQs, PYQs and important questions.
+  for (const x of SB_CHAPTERS) add(`/state-board-solutions/${x.boardSlug}/class-${x.classLevel}/${x.subjSlug}/${x.chapSlug}`, 'State Board Solutions', x.classLevel, x.subject, x.chapSlug);
   // Chapter-level formula sheets: chapter is only encoded in the slug
   // (class-10-maths-quadratic-equations); subject-level sheets don't match and are skipped.
   for (const s of FORMULA_SHEETS_DATA) {
