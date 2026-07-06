@@ -1656,12 +1656,22 @@ function extractTopicContent(filePath) {
       topics[topicId] = { title, theoryText: '', syntaxText: '' };
     }
 
-    // For each topic, extract first theory paragraph (most substantial)
-    const theoryPattern = /id:\s*['"]([a-z0-9-]+)['"][^}]*?theory:\s*\[\s*`([^`]{200,600})/gm;
+    // For each topic, extract ALL paragraphs of its theory array (joined) — the
+    // real, unique content. Tutorial files quote theory paragraphs differently
+    // (python/sql use backticks, java/js/html use single quotes), so match all
+    // three string styles. The old regex required a ≥200-char backtick FIRST
+    // paragraph, so most topics extracted nothing and the page fell back to
+    // identical boilerplate (thin + duplicate across every coding page).
+    const STR = String.raw`(?:\`[^\`]+\`|'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")`;
+    const theoryPattern = new RegExp(String.raw`id:\s*['"\`]([a-z0-9-]+)['"\`][\s\S]*?theory:\s*\[((?:\s*${STR}\s*,?)+)`, 'g');
+    const tokPattern = new RegExp(STR, 'g');
     for (const match of content.matchAll(theoryPattern)) {
       const topicId = match[1];
-      if (topics[topicId]) {
-        topics[topicId].theoryText = match[2];
+      if (topics[topicId] && !topics[topicId].theoryText) {
+        const paras = [...match[2].matchAll(tokPattern)]
+          .map((p) => p[0].slice(1, -1).replace(/\\(['"\\])/g, '$1').replace(/\s+/g, ' ').trim())
+          .filter(Boolean);
+        if (paras.length) topics[topicId].theoryText = paras.join('\n\n').slice(0, 1600);
       }
     }
 
@@ -2013,64 +2023,23 @@ function buildBodyContent(route) {
     const [, lang, topic] = route.path.match(/^\/coding\/([a-z-]+)\/([a-z0-9-]+)$/);
     const topicContent = route.topicContent;
     if (topicContent && topicContent.theoryText) {
-      // Rich, unique content: topic's theory paragraph + syntax if available + numbered list + table
+      // Render the topic's REAL theory paragraphs (unique per page) + syntax. No
+      // generic "Learning Path" / "Key Concepts" boilerplate — that was identical
+      // on every coding page (duplicate content) and added nothing.
+      const paras = topicContent.theoryText.split('\n\n').map((p) => p.trim()).filter(Boolean);
       richContent = `
         <div style="margin-top: 1.5rem;">
-          <div style="padding: 1rem; background: #f9f9f9; border-left: 3px solid #667eea; margin-bottom: 1.5rem;">
-            <h2 style="margin: 0 0 0.5rem 0; font-size: 1.1rem; color: #333;">Overview:</h2>
-            <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.6;">
-              ${esc(topicContent.theoryText.slice(0, 400))}${topicContent.theoryText.length > 400 ? '...' : ''}
-            </p>
-          </div>
-
-          <!-- Numbered list of learning steps -->
-          <div style="margin-bottom: 2rem;">
-            <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: #333;">Learning Path:</h3>
-            <ol style="margin: 0; padding-left: 1.5rem; color: #555; line-height: 1.8; font-size: 0.95rem;">
-              <li style="margin-bottom: 0.5rem;"><strong>Understand the fundamentals</strong> — Learn core concepts and terminology</li>
-              <li style="margin-bottom: 0.5rem;"><strong>Study syntax and structure</strong> — Master the language-specific patterns</li>
-              <li style="margin-bottom: 0.5rem;"><strong>Practice with examples</strong> — Apply concepts through hands-on exercises</li>
-              <li style="margin-bottom: 0.5rem;"><strong>Build projects</strong> — Combine skills to create real applications</li>
-            </ol>
-          </div>
-
-          <!-- Key concepts comparison table -->
-          <div style="margin-bottom: 2rem; overflow-x: auto;">
-            <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: #333;">Key Concepts:</h3>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; background: white; border: 1px solid #ddd;">
-              <thead style="background: #f5f5f5;">
-                <tr>
-                  <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #667eea; font-weight: 600; width: 40%;">Concept</th>
-                  <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #667eea; font-weight: 600;">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid #eee;">
-                  <td style="padding: 0.75rem;"><strong>${esc(titleCase(topic))}</strong></td>
-                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Essential programming concept for ${esc(langLabel(lang))}</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #eee;">
-                  <td style="padding: 0.75rem;"><strong>Use Case</strong></td>
-                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Practical applications and real-world scenarios</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.75rem;"><strong>Difficulty</strong></td>
-                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Beginner-friendly with step-by-step guidance</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+          <h2 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #333;">${esc(titleCase(topic))} in ${esc(langLabel(lang))}</h2>
+          ${paras.map((p) => `<p style="margin: 0 0 0.9rem 0; font-size: 0.97rem; color: #444; line-height: 1.7;">${esc(p)}</p>`).join('')}
           ${topicContent.syntaxText ? `
-            <div style="padding: 1rem; background: #f5f5f5; border-left: 3px solid #4caf50; margin-bottom: 1.5rem;">
-              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">Syntax Reference:</h3>
-              <pre style="margin: 0; font-size: 0.85rem; color: #555; white-space: pre-wrap; font-family: 'Courier New', monospace;">
-${esc(topicContent.syntaxText)}
-              </pre>
+            <div style="padding: 1rem; background: #f5f5f5; border-left: 3px solid #4caf50; margin: 1.25rem 0;">
+              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">${esc(titleCase(topic))} — Syntax</h3>
+              <pre style="margin: 0; font-size: 0.85rem; color: #333; white-space: pre-wrap; font-family: 'Courier New', monospace;">${esc(topicContent.syntaxText)}</pre>
             </div>
           ` : ''}
-          <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 1rem;">
-            Explore the interactive tutorial above to learn ${titleCase(topic)} step-by-step with practice exercises.
+          <p style="font-size: 0.95rem; color: #444; line-height: 1.7; margin-top: 1rem;">
+            Learn <strong>${esc(titleCase(topic))}</strong> step by step with Syllab's free interactive ${esc(langLabel(lang))} tutorial — runnable code examples, practice exercises and instant AI feedback, all free with no signup.
+            <a href="/coding/${lang}" style="color: #0066cc; text-decoration: none; font-weight: 600;"> Explore the full ${esc(langLabel(lang))} course →</a>
           </p>
         </div>
       `;
