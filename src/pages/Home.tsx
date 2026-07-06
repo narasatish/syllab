@@ -469,6 +469,42 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         onOpenArticle={(articleId) => goToArticle(articleId)}
       />
 
+      {/* ── STUDY ABROAD — LandingPrep (our sister product) ──────────────────── */}
+      <section className="reveal max-w-6xl mx-auto px-5 py-12 sm:py-16">
+        <a
+          href="https://landingprep.com"
+          target="_blank"
+          rel="noopener"
+          className="group block no-underline bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-14 text-white overflow-hidden relative"
+        >
+          <div className="absolute top-0 right-0 w-72 h-72 rounded-full opacity-10"
+            style={{ background: 'radial-gradient(circle, white, transparent)', transform: 'translate(30%, -30%)' }} />
+          <div className="absolute -bottom-6 left-4 text-[7rem] sm:text-[9rem] opacity-10 select-none" aria-hidden="true">✈️</div>
+          <div className="relative">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wide">
+              ✈️ From the makers of Syllab
+            </span>
+            <h2 className="mt-4 text-2xl sm:text-4xl font-black leading-tight">
+              Going abroad after Class 12? Prep for it free.
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm sm:text-lg font-medium text-sky-50/90">
+              <strong>LandingPrep</strong> is our sister platform for students headed overseas. Practise
+              IELTS, TOEFL, SAT, GRE and GMAT with 1,000+ real mock tests, shortlist your best-fit
+              universities with the college predictor, compare education loans, and get help with your
+              SOP and visa answers. Same promise as Syllab — <strong>no signup, no paywall.</strong>
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {['1,000+ mock tests', 'IELTS · TOEFL · SAT · GRE', 'College predictor', 'SOP & visa help'].map((chip) => (
+                <span key={chip} className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold text-white">{chip}</span>
+              ))}
+            </div>
+            <span className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm sm:text-base font-black text-blue-700 transition-all group-hover:gap-3">
+              Explore LandingPrep <ArrowRight size={18} />
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* ── FOR PARENTS ──────────────────────────────────────────────────────── */}
       <section className="reveal max-w-6xl mx-auto px-5 py-12 sm:py-16">
         <div className="bg-gradient-to-br from-violet-600 to-purple-700 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-14 text-white overflow-hidden relative">
