@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v217-2026-07-05-stateboard-mesh';
+const CACHE_VERSION = 'syllab-v218-2026-07-05-revision-nudge';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
