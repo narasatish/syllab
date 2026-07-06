@@ -27,6 +27,8 @@ import { getDifferences } from './differencesData.mjs';
 import { DIFF_REINDEX, DIFF_REINDEX_SLUGS } from './diff-reindex.mjs';
 import { CONCEPT_FAQ } from './concept-faq.mjs';
 import { POSTER_SHEETS, posterHref } from './posters.mjs';
+import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
+const HINDI_CONCEPT_SLUGS = new Set(HINDI_CONCEPTS.map((c) => c.slug));
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1452,6 +1454,10 @@ for (const c of STUDY_CLUSTERS) {
     if (x.faqs && x.faqs.length) {
       route.jsonLd = [route.jsonLd, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: x.faqs.slice(0, 6).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }];
     }
+    // Reciprocal hreflang to the Hindi version, where one exists (see hindi-concepts.mjs).
+    if (c.base === '/concepts' && HINDI_CONCEPT_SLUGS.has(x.slug)) {
+      route.hreflangAlt = [{ lang: 'hi-IN', href: `${SITE}/hi/concepts/${x.slug}` }];
+    }
     ROUTES.push(route);
   }
 }
@@ -2323,9 +2329,19 @@ function buildHeadBlock(route) {
     `  <meta name="robots" content="${robots}" />`,
     `  <meta name="googlebot" content="${robots}" />`,
     `  <link rel="canonical" href="${canonical}" />`,
-    `  <link rel="alternate" hreflang="en-IN" href="${canonical}" />`,
-    `  <link rel="alternate" hreflang="en" href="${canonical}" />`,
-    `  <link rel="alternate" hreflang="x-default" href="${canonical}" />`,
+    // Per-route language alternates (e.g. an English page that has a /hi/ version);
+    // falls back to self-referencing en-IN/en/x-default.
+    ...(route.hreflangAlt && route.hreflangAlt.length
+      ? [
+          `  <link rel="alternate" hreflang="en-IN" href="${canonical}" />`,
+          ...route.hreflangAlt.map((a) => `  <link rel="alternate" hreflang="${a.lang}" href="${a.href}" />`),
+          `  <link rel="alternate" hreflang="x-default" href="${canonical}" />`,
+        ]
+      : [
+          `  <link rel="alternate" hreflang="en-IN" href="${canonical}" />`,
+          `  <link rel="alternate" hreflang="en" href="${canonical}" />`,
+          `  <link rel="alternate" hreflang="x-default" href="${canonical}" />`,
+        ]),
     `  <link rel="alternate" type="application/rss+xml" title="Syllab.in Blog — Free Exam Prep & Study Updates" href="${SITE}/feed.xml" />`,
     `  <meta property="og:title" content="${esc(route.title)}" />`,
     `  <meta property="og:description" content="${esc(route.description)}" />`,

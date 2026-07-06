@@ -1,0 +1,159 @@
+#!/usr/bin/env node
+/**
+ * gen-hindi-pages.mjs — builds the Hindi (हिन्दी) concept pages as standalone
+ * static HTML (like the formula posters). Firebase Hosting serves the physical
+ * file directly, so users AND crawlers get real Hindi content — no SPA i18n, no
+ * cloaking. Each page carries reciprocal hreflang with its English counterpart.
+ *
+ * Output: public/hi/concepts/{slug}/index.html  →  served at /hi/concepts/{slug}
+ * Regenerate after editing hindi-concepts.mjs:  node scripts/gen-hindi-pages.mjs
+ */
+import { writeFileSync, mkdirSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const SITE = 'https://syllab.in';
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+function buildPage(c) {
+  const hiUrl = `${SITE}/hi/concepts/${c.slug}`;
+  const enUrl = `${SITE}/concepts/${c.slug}`;
+  const faqHtml = c.faqs.map((f) => `
+      <div class="faq">
+        <h3>${esc(f.q)}</h3>
+        <p>${esc(f.a)}</p>
+      </div>`).join('');
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org', '@type': 'LearningResource',
+      name: c.title, description: c.intro,
+      educationalLevel: c.level, inLanguage: 'hi-IN', isAccessibleForFree: true,
+      learningResourceType: 'Concept explainer', url: hiUrl,
+      provider: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      inLanguage: 'hi-IN',
+      mainEntity: c.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ];
+
+  return `<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(c.title)} (${esc(c.level)}) — मुफ़्त हिन्दी नोट्स | Syllab.in</title>
+<meta name="description" content="${esc(c.intro.slice(0, 155))}">
+<meta name="keywords" content="${esc(c.title)}, ${esc(c.subject)} ${esc(c.level)} हिन्दी नोट्स, ${esc(c.slug.replace(/-/g, ' '))} in hindi">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="${hiUrl}">
+<link rel="alternate" hreflang="hi-IN" href="${hiUrl}">
+<link rel="alternate" hreflang="en-IN" href="${enUrl}">
+<link rel="alternate" hreflang="x-default" href="${enUrl}">
+<meta property="og:title" content="${esc(c.title)} — मुफ़्त हिन्दी नोट्स">
+<meta property="og:description" content="${esc(c.intro.slice(0, 155))}">
+<meta property="og:image" content="${SITE}/og-image.png">
+<meta property="og:url" content="${hiUrl}">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="hi_IN">
+<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans', 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.7; }
+  .bar { background: #059669; color: #fff; padding: 10px 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .bar a { color: #fff; text-decoration: none; font-weight: 700; font-size: 14px; }
+  .bar .sp { flex: 1; }
+  .bar .en { background: #fff; color: #047857; padding: 6px 12px; border-radius: 8px; font-size: 13px; }
+  main { max-width: 760px; margin: 0 auto; background: #fff; padding: 22px 20px 40px; }
+  .crumb { font-size: 13px; color: #64748b; margin-bottom: 10px; }
+  .crumb a { color: #0891b2; text-decoration: none; }
+  h1 { font-size: 26px; color: #065f46; line-height: 1.35; margin-bottom: 6px; }
+  .meta { font-size: 13px; color: #64748b; margin-bottom: 16px; }
+  .lead { font-size: 16px; background: #ecfdf5; border-right: 4px solid #059669; padding: 12px 14px; border-radius: 8px; margin-bottom: 22px; }
+  h2 { font-size: 20px; color: #0f172a; margin: 24px 0 10px; }
+  .faq { margin-bottom: 16px; }
+  .faq h3 { font-size: 16px; color: #065f46; margin-bottom: 4px; }
+  .faq p { font-size: 15px; color: #334155; }
+  .note { margin-top: 26px; padding: 14px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; font-size: 14px; }
+  .note a { color: #1d4ed8; font-weight: 700; }
+  footer { max-width: 760px; margin: 0 auto; padding: 16px 20px 34px; font-size: 13px; color: #64748b; }
+  footer a { color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="/">🎓 Syllab.in</a>
+  <span class="sp"></span>
+  <a class="en" href="/concepts/${c.slug}">Read in English</a>
+</div>
+<main>
+  <nav class="crumb"><a href="/">होम</a> › <a href="/hi/concepts">हिन्दी कॉन्सेप्ट</a> › ${esc(c.title)}</nav>
+  <h1>${esc(c.title)}</h1>
+  <p class="meta">${esc(c.subject)} · ${esc(c.level)} · मुफ़्त हिन्दी नोट्स (NCERT आधारित)</p>
+  <p class="lead">${esc(c.intro)}</p>
+  <h2>अक्सर पूछे जाने वाले प्रश्न (FAQs)</h2>
+  ${faqHtml}
+  <div class="note">
+    📘 <strong>पूरी पढ़ाई मुफ़्त:</strong> Syllab.in पर कक्षा 1–12 के लिए मुफ़्त NCERT नोट्स, मॉक टेस्ट, प्रैक्टिस और AI ट्यूटर उपलब्ध हैं।
+    <a href="/concepts/${c.slug}">इस टॉपिक को अंग्रेज़ी में विस्तार से पढ़ें →</a>
+  </div>
+</main>
+<footer>
+  <strong>Syllab.in</strong> — भारतीय विद्यार्थियों के लिए मुफ़्त शिक्षा (कक्षा 1–12)।
+  <a href="/hi/concepts">सभी हिन्दी कॉन्सेप्ट देखें</a> · <a href="/">मुख्य वेबसाइट</a>
+</footer>
+</body>
+</html>
+`;
+}
+
+// Hindi concepts index/hub page (links every Hindi page — crawl + UX).
+function buildHub() {
+  const items = HINDI_CONCEPTS.map((c) => `<li><a href="/hi/concepts/${c.slug}">${esc(c.title)}</a> <span>(${esc(c.subject)}, ${esc(c.level)})</span></li>`).join('');
+  return `<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मुफ़्त हिन्दी कॉन्सेप्ट नोट्स (कक्षा 9–10 विज्ञान) | Syllab.in</title>
+<meta name="description" content="कक्षा 9 और 10 विज्ञान के महत्वपूर्ण कॉन्सेप्ट हिन्दी में — संक्षारण, अम्ल-क्षार, लेंस की क्षमता, फ्यूज़ और भू-संपर्कण, प्रिज़्म से अपवर्तन आदि, सरल भाषा और FAQ के साथ। मुफ़्त।">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<link rel="canonical" href="${SITE}/hi/concepts">
+<link rel="alternate" hreflang="hi-IN" href="${SITE}/hi/concepts">
+<link rel="alternate" hreflang="en-IN" href="${SITE}/concepts">
+<link rel="alternate" hreflang="x-default" href="${SITE}/concepts">
+<style>
+  body { font-family: 'Noto Sans','Segoe UI',system-ui,sans-serif; background:#f8fafc; color:#0f172a; line-height:1.7; margin:0; }
+  .bar { background:#059669; color:#fff; padding:10px 16px; } .bar a { color:#fff; text-decoration:none; font-weight:700; }
+  main { max-width:760px; margin:0 auto; background:#fff; padding:22px 20px 40px; }
+  h1 { font-size:26px; color:#065f46; } p.sub { color:#475569; margin:6px 0 18px; }
+  ul { list-style:none; padding:0; } li { padding:12px 0; border-bottom:1px solid #e2e8f0; }
+  li a { color:#0891b2; text-decoration:none; font-weight:700; font-size:17px; } li span { color:#64748b; font-size:13px; }
+</style>
+</head>
+<body>
+<div class="bar"><a href="/">🎓 Syllab.in</a></div>
+<main>
+  <h1>हिन्दी में कॉन्सेप्ट नोट्स</h1>
+  <p class="sub">कक्षा 9–10 विज्ञान के महत्वपूर्ण टॉपिक सरल हिन्दी में, FAQ के साथ। सभी मुफ़्त।</p>
+  <ul>${items}</ul>
+</main>
+</body>
+</html>
+`;
+}
+
+let n = 0;
+for (const c of HINDI_CONCEPTS) {
+  const dir = path.join(ROOT, 'public', 'hi', 'concepts', c.slug);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(path.join(dir, 'index.html'), buildPage(c));
+  n++;
+}
+const hubDir = path.join(ROOT, 'public', 'hi', 'concepts');
+mkdirSync(hubDir, { recursive: true });
+writeFileSync(path.join(hubDir, 'index.html'), buildHub());
+console.log(`✅ ${n} Hindi concept pages + 1 hub written to public/hi/concepts/`);
