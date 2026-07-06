@@ -1,19 +1,20 @@
 #!/usr/bin/env node
 /**
- * gen-formula-poster.mjs — builds the printable Class 10 Maths formula POSTER
- * (the site's first deliberate linkable asset: teachers print/share it, bloggers
- * link to it). Reads the SAME data as the /formula-sheets pages (formulaSheets.ts)
- * so it never drifts from the site content.
+ * gen-formula-poster.mjs — builds the printable formula POSTERS (the site's
+ * deliberate linkable assets: teachers print/share them, bloggers link to them).
+ * One poster per high-demand whole-subject sheet in scripts/posters.mjs. Reads the
+ * SAME data as the /formula-sheets pages (formulaSheets.ts) so it never drifts.
  *
- * Output: public/posters/class-10-maths-formulas.html — a standalone, static,
- * print-optimised (A4) page served directly by Firebase Hosting (physical file
- * wins over the SPA rewrite; no app integration needed).
+ * Output: public/posters/{slug}-formulas.html — standalone, static, print-optimised
+ * (A4) pages served directly by Firebase Hosting (physical file wins over the SPA
+ * rewrite; no app integration needed).
  *
- * Regenerate after editing formulaSheets.ts:  node scripts/gen-formula-poster.mjs
+ * Regenerate after editing formulaSheets.ts or posters.mjs:  node scripts/gen-formula-poster.mjs
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { POSTER_SHEETS } from './posters.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -23,43 +24,48 @@ const marker = 'export const FORMULA_SHEETS: FormulaSheet[] = ';
 const start = src.indexOf(marker);
 if (start < 0) { console.error('❌ FORMULA_SHEETS marker not found'); process.exit(1); }
 const arrText = src.slice(start + marker.length);
-const sheet = (0, eval)(arrText.slice(0, arrText.lastIndexOf(']') + 1)).find((s) => s.slug === 'class-10-maths');
-if (!sheet) { console.error('❌ class-10-maths sheet not found'); process.exit(1); }
+const ALL_SHEETS = (0, eval)(arrText.slice(0, arrText.lastIndexOf(']') + 1));
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const total = sheet.sections.reduce((n, s) => n + s.formulas.length, 0);
 
-const sectionsHtml = sheet.sections.map((sec) => `
-  <section class="card">
-    <h2>${esc(sec.heading)}</h2>
-    <dl>
-      ${sec.formulas.map((f) => `
-      <div class="row">
-        <dt>${esc(f.name)}</dt>
-        <dd><code>${esc(f.formula)}</code>${f.note ? `<span class="note">${esc(f.note)}</span>` : ''}</dd>
-      </div>`).join('')}
-    </dl>
-  </section>`).join('');
+function buildPoster({ slug, label, level }) {
+  const sheet = ALL_SHEETS.find((s) => s.slug === slug);
+  if (!sheet) { console.warn(`⚠️  poster skipped — sheet not found: ${slug}`); return null; }
+  const total = sheet.sections.reduce((n, s) => n + s.formulas.length, 0);
+  const url = `https://syllab.in/posters/${slug}-formulas.html`;
+  const jeeNeet = level === 'Class 11' || level === 'Class 12' ? ', JEE & NEET' : '';
 
-const html = `<!DOCTYPE html>
+  const sectionsHtml = sheet.sections.map((sec) => `
+    <section class="card">
+      <h2>${esc(sec.heading)}</h2>
+      <dl>
+        ${sec.formulas.map((f) => `
+        <div class="row">
+          <dt>${esc(f.name)}</dt>
+          <dd><code>${esc(f.formula)}</code>${f.note ? `<span class="note">${esc(f.note)}</span>` : ''}</dd>
+        </div>`).join('')}
+      </dl>
+    </section>`).join('');
+
+  return `<!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Class 10 Maths Formula Poster (Printable PDF, Free) — All ${total} Formulas | Syllab.in</title>
-<meta name="description" content="Free printable Class 10 Maths formula poster — all ${total} CBSE/NCERT formulas on one A4 sheet: quadratic equations, trigonometry, AP, coordinate geometry, circles, surface areas, statistics. Print or save as PDF, no login.">
-<link rel="canonical" href="https://syllab.in/posters/class-10-maths-formulas.html">
-<meta property="og:title" content="Class 10 Maths Formula Poster — All ${total} Formulas, Free Printable">
-<meta property="og:description" content="Every CBSE Class 10 Maths formula on one printable A4 poster. Free for classrooms — print it, share it, stick it on the wall.">
+<title>${esc(label)} Formula Poster (Printable PDF, Free) — All ${total} Formulas | Syllab.in</title>
+<meta name="description" content="Free printable ${esc(label)} formula poster — all ${total} CBSE/NCERT formulas on one A4 sheet for fast revision before boards${jeeNeet}. Print or save as PDF, no login.">
+<link rel="canonical" href="${url}">
+<meta property="og:title" content="${esc(label)} Formula Poster — All ${total} Formulas, Free Printable">
+<meta property="og:description" content="Every ${esc(label)} formula on one printable A4 poster. Free for classrooms — print it, share it, stick it on the wall.">
 <meta property="og:image" content="https://syllab.in/og-image.png">
-<meta property="og:url" content="https://syllab.in/posters/class-10-maths-formulas.html">
+<meta property="og:url" content="${url}">
 <meta name="robots" content="index,follow,max-snippet:-1">
 <script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org', '@type': 'LearningResource',
-  name: `Class 10 Maths Formula Poster — All ${total} Formulas`,
-  description: 'Printable A4 poster with every CBSE Class 10 Mathematics formula, free for classroom use.',
-  educationalLevel: 'Class 10', inLanguage: 'en-IN', isAccessibleForFree: true,
-  learningResourceType: 'Poster', url: 'https://syllab.in/posters/class-10-maths-formulas.html',
+  name: `${label} Formula Poster — All ${total} Formulas`,
+  description: `Printable A4 poster with every CBSE ${label} formula, free for classroom use.`,
+  educationalLevel: level, inLanguage: 'en-IN', isAccessibleForFree: true,
+  learningResourceType: 'Poster', url,
   provider: { '@type': 'Organization', name: 'Syllab.in', url: 'https://syllab.in' },
 })}</script>
 <style>
@@ -92,27 +98,33 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
 <div class="toolbar">
-  <strong>📐 Free Class 10 Maths Formula Poster</strong>
+  <strong>📐 Free ${esc(label)} Formula Poster</strong>
   <span class="sp"></span>
   <button onclick="window.print()">🖨️ Print / Save as PDF</button>
   <a class="btn" href="/formula-sheets">All formula sheets →</a>
 </div>
 <div class="page">
   <header class="head">
-    <h1>CBSE Class 10 Mathematics — All ${total} Formulas on One Page</h1>
+    <h1>CBSE ${esc(label)} — All ${total} Formulas on One Page</h1>
     <p>${esc(sheet.intro)}</p>
   </header>
   <div class="grid">${sectionsHtml}</div>
   <footer class="foot">
     <span><b>syllab.in</b> — free NCERT notes, mock tests &amp; AI tutor for Class 1–12</span>
-    <span>Free to print &amp; share in classrooms · syllab.in/posters/class-10-maths-formulas.html</span>
+    <span>Free to print &amp; share in classrooms · ${url.replace('https://', '')}</span>
   </footer>
 </div>
 </body>
 </html>
 `;
+}
 
 mkdirSync(path.join(ROOT, 'public', 'posters'), { recursive: true });
-const OUT = path.join(ROOT, 'public', 'posters', 'class-10-maths-formulas.html');
-writeFileSync(OUT, html);
-console.log(`✅ poster written: ${OUT} (${total} formulas, ${sheet.sections.length} sections)`);
+let n = 0;
+for (const p of POSTER_SHEETS) {
+  const html = buildPoster(p);
+  if (!html) continue;
+  writeFileSync(path.join(ROOT, 'public', 'posters', `${p.slug}-formulas.html`), html);
+  n++;
+}
+console.log(`✅ ${n}/${POSTER_SHEETS.length} formula posters written to public/posters/`);

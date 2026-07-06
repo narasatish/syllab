@@ -22,6 +22,7 @@ import { getMedicalManifest } from './medicalColleges.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
 import { DIFF_REINDEX } from './diff-reindex.mjs';
+import { POSTER_SHEETS, posterHref } from './posters.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
@@ -200,8 +201,8 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/important-questions/class-${c}`, priority: 0.7, changefreq: 'monthly' });
     for (const s of subs) urls.push({ loc: `/important-questions/class-${c}/${s}`, priority: 0.6, changefreq: 'monthly' });
   }
-  // Linkable assets — printable posters (static files in public/posters/).
-  urls.push({ loc: '/posters/class-10-maths-formulas.html', priority: 0.7, changefreq: 'monthly' });
+  // Linkable assets — printable formula posters (static files in public/posters/).
+  for (const p of POSTER_SHEETS) urls.push({ loc: posterHref(p.slug), priority: 0.7, changefreq: 'monthly' });
 
   // Re-indexed difference-between winners (GSC-proven, deepened with FAQ — see diff-reindex.mjs).
   for (const d of DIFF_REINDEX) urls.push({ loc: `/difference-between/${d.slug}`, priority: 0.6, changefreq: 'monthly' });
