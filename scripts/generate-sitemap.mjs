@@ -24,6 +24,7 @@ import { IQ_PILOT } from './iq-pilot.mjs';
 import { DIFF_REINDEX } from './diff-reindex.mjs';
 import { POSTER_SHEETS, posterHref } from './posters.mjs';
 import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
+import { HINDI_BOARDS } from './hindi-boards.mjs';
 import { EXAM_LIST } from './exam-slugs.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
@@ -209,9 +210,10 @@ function buildUrls({ languages, topicsByLang }) {
   // Re-indexed difference-between winners (GSC-proven, deepened with FAQ — see diff-reindex.mjs).
   for (const d of DIFF_REINDEX) urls.push({ loc: `/difference-between/${d.slug}`, priority: 0.6, changefreq: 'monthly' });
 
-  // Hindi concept pages pilot (standalone static pages in public/hi/concepts/).
+  // Hindi content (standalone static pages in public/hi/): concept notes + state-board guides.
   urls.push({ loc: '/hi/concepts', priority: 0.6, changefreq: 'monthly' });
   for (const c of HINDI_CONCEPTS) urls.push({ loc: `/hi/concepts/${c.slug}`, priority: 0.6, changefreq: 'monthly' });
+  for (const b of HINDI_BOARDS) urls.push({ loc: `/hi/${b.slug}`, priority: 0.7, changefreq: 'monthly' });
 
   // Chapter-level important-questions PILOT (substantive pages; see scripts/iq-pilot.mjs).
   for (const ch of IQ_PILOT) {

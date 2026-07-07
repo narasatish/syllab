@@ -12,6 +12,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
+import { HINDI_BOARDS } from './hindi-boards.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://syllab.in';
@@ -137,9 +138,73 @@ function buildHub() {
 <body>
 <div class="bar"><a href="/">🎓 Syllab.in</a></div>
 <main>
-  <h1>हिन्दी में कॉन्सेप्ट नोट्स</h1>
-  <p class="sub">कक्षा 9–10 विज्ञान के महत्वपूर्ण टॉपिक सरल हिन्दी में, FAQ के साथ। सभी मुफ़्त।</p>
+  <h1>हिन्दी में मुफ़्त पढ़ाई</h1>
+  <p class="sub">राज्य बोर्ड गाइड और कक्षा 9–10 विज्ञान के महत्वपूर्ण कॉन्सेप्ट सरल हिन्दी में, FAQ के साथ। सभी मुफ़्त।</p>
+  <h2 style="font-size:18px;color:#065f46;margin:18px 0 6px;">राज्य बोर्ड (State Boards)</h2>
+  <ul>${HINDI_BOARDS.map((b) => `<li><a href="/hi/${b.slug}">${esc(b.title)}</a> <span>कक्षा 10 व 12 — पैटर्न, अंक, तैयारी</span></li>`).join('')}</ul>
+  <h2 style="font-size:18px;color:#065f46;margin:22px 0 6px;">कॉन्सेप्ट नोट्स (Concepts)</h2>
   <ul>${items}</ul>
+</main>
+</body>
+</html>
+`;
+}
+
+// Hindi state-board guide pages (/hi/{board-slug}).
+function buildBoardPage(b) {
+  const url = `${SITE}/hi/${b.slug}`;
+  const secHtml = b.sections.map((s) => `<h2>${esc(s.h)}</h2><p>${esc(s.body)}</p>`).join('');
+  const faqHtml = b.faqs.map((f) => `<div class="faq"><h3>${esc(f.q)}</h3><p>${esc(f.a)}</p></div>`).join('');
+  const jsonLd = [
+    { '@context': 'https://schema.org', '@type': 'LearningResource', name: b.heading, description: b.intro, inLanguage: 'hi-IN', isAccessibleForFree: true, learningResourceType: 'Exam guide', url, provider: { '@type': 'Organization', name: 'Syllab.in', url: SITE } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: 'hi-IN', mainEntity: b.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+  ];
+  return `<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(b.heading)} | Syllab.in</title>
+<meta name="description" content="${esc(b.intro.slice(0, 155))}">
+<meta name="keywords" content="${esc(b.title)}, ${esc(b.slug.replace('-', ' '))} class 10, ${esc(b.slug.replace('-', ' '))} class 12, हिन्दी नोट्स, exam pattern, passing marks">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="${url}">
+<link rel="alternate" hreflang="hi-IN" href="${url}">
+<meta property="og:title" content="${esc(b.heading)}">
+<meta property="og:description" content="${esc(b.intro.slice(0, 155))}">
+<meta property="og:image" content="${SITE}/og-image.png">
+<meta property="og:url" content="${url}">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="hi_IN">
+<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Noto Sans','Segoe UI',system-ui,sans-serif; background:#f8fafc; color:#0f172a; line-height:1.7; }
+  .bar { background:#059669; color:#fff; padding:10px 16px; display:flex; gap:12px; flex-wrap:wrap; }
+  .bar a { color:#fff; text-decoration:none; font-weight:700; font-size:14px; } .bar .sp { flex:1; }
+  main { max-width:760px; margin:0 auto; background:#fff; padding:22px 20px 40px; }
+  .crumb { font-size:13px; color:#64748b; margin-bottom:10px; } .crumb a { color:#0891b2; text-decoration:none; }
+  h1 { font-size:25px; color:#065f46; line-height:1.35; margin-bottom:8px; }
+  .meta { font-size:13px; color:#64748b; margin-bottom:16px; }
+  .lead { font-size:16px; background:#ecfdf5; border-right:4px solid #059669; padding:12px 14px; border-radius:8px; margin-bottom:20px; }
+  h2 { font-size:19px; color:#0f172a; margin:22px 0 8px; }
+  p { font-size:15px; color:#334155; margin-bottom:10px; }
+  .faq h3 { font-size:16px; color:#065f46; margin:14px 0 4px; }
+  .note { margin-top:24px; padding:14px; background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; font-size:14px; }
+  .note a { color:#1d4ed8; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="bar"><a href="/">🎓 Syllab.in</a><span class="sp"></span><a href="/hi/concepts">सभी हिन्दी पेज</a></div>
+<main>
+  <nav class="crumb"><a href="/">होम</a> › <a href="/hi/concepts">हिन्दी</a> › ${esc(b.title)}</nav>
+  <h1>${esc(b.heading)}</h1>
+  <p class="meta">राज्य बोर्ड गाइड · मुफ़्त · आधिकारिक स्रोत: ${esc(b.official)}</p>
+  <p class="lead">${esc(b.intro)}</p>
+  ${secHtml}
+  <h2>अक्सर पूछे जाने वाले प्रश्न (FAQs)</h2>
+  ${faqHtml}
+  <div class="note">📘 <strong>ध्यान दें:</strong> परीक्षा पैटर्न और तिथियाँ बदल सकती हैं — नवीनतम जानकारी के लिए आधिकारिक वेबसाइट (${esc(b.official)}) अवश्य देखें। NCERT आधारित मुफ़्त हल व नोट्स के लिए <a href="/ncert-solutions">NCERT Solutions</a> और <a href="/hi/concepts">हिन्दी कॉन्सेप्ट</a> देखें।</div>
 </main>
 </body>
 </html>
@@ -153,7 +218,14 @@ for (const c of HINDI_CONCEPTS) {
   writeFileSync(path.join(dir, 'index.html'), buildPage(c));
   n++;
 }
+let nb = 0;
+for (const b of HINDI_BOARDS) {
+  const dir = path.join(ROOT, 'public', 'hi', b.slug);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(path.join(dir, 'index.html'), buildBoardPage(b));
+  nb++;
+}
 const hubDir = path.join(ROOT, 'public', 'hi', 'concepts');
 mkdirSync(hubDir, { recursive: true });
 writeFileSync(path.join(hubDir, 'index.html'), buildHub());
-console.log(`✅ ${n} Hindi concept pages + 1 hub written to public/hi/concepts/`);
+console.log(`✅ ${n} Hindi concept pages + ${nb} board pages + 1 hub written to public/hi/`);
