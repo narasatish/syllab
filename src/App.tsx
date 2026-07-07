@@ -103,6 +103,7 @@ const AlternativesPage = React.lazy(() => import('./pages/Alternatives'));
 const KidsPage = React.lazy(() => import('./pages/Kids'));
 const GkQuestionsPage = React.lazy(() => import('./pages/GkQuestions'));
 const ImportantQuestionsPage = React.lazy(() => import('./pages/ImportantQuestions'));
+const PromptLabPage = React.lazy(() => import('./pages/PromptLab'));
 const MockExamLandingPage = React.lazy(() => import('./pages/MockExamLanding'));
 const CollegePredictorLandingPage = React.lazy(() => import('./pages/CollegePredictorLanding'));
 const EnglishTopicsPage = React.lazy(() => import('./pages/EnglishTopics'));
@@ -238,6 +239,7 @@ const TAB_TO_PATH: Record<string, string> = {
   formula_sheets: '/formula-sheets',
   state_board_solutions: '/state-board-solutions',
   ai_hub: '/ai-hub',
+  prompt_lab: '/prompt-lab',
   embed: '/embed',
   medical_colleges: '/medical-colleges',
   college_finder: '/best-colleges',
@@ -325,6 +327,7 @@ function resolveTab(pathname: string): string {
   if (pathname === '/kids' || pathname.startsWith('/kids/')) return 'kids';
   if (pathname === '/gk-questions' || pathname.startsWith('/gk-questions/')) return 'gk_questions';
   if (pathname === '/important-questions' || pathname.startsWith('/important-questions/')) return 'important_questions';
+  if (pathname === '/prompt-lab') return 'prompt_lab';
   // SEO landing clusters (deep routes → their own pages; bare /mock-tests stays the main page).
   if (pathname.startsWith('/mock-tests/')) return 'mock_exam';
   if (pathname === '/english-grammar' || pathname.startsWith('/english-grammar/')) return 'english_grammar';
@@ -1765,6 +1768,7 @@ export default function App() {
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
                   {activeTab === 'important_questions' ? <ImportantQuestionsPage setTab={navigate} /> : null}
+                  {activeTab === 'prompt_lab' ? <PromptLabPage setTab={navigate} /> : null}
                   {activeTab === 'mock_exam' ? <MockExamLandingPage setTab={navigate} /> : null}
                   {activeTab === 'college_predictor' ? <CollegePredictorLandingPage setTab={navigate} /> : null}
                   {activeTab === 'english_grammar' ? <EnglishTopicsPage setTab={navigate} /> : null}

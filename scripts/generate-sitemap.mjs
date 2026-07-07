@@ -96,7 +96,7 @@ function buildUrls({ languages, topicsByLang }) {
   // /general-knowledge→/gk-quiz. (/3d-lab removed.)
   for (const p of ['/syllabus', '/practice', '/daily-challenges', '/mock-tests', '/gk-quiz',
                    '/ai-tutor', '/coding', '/english', '/updates', '/career-predictor',
-                   '/preparation', '/coding-challenges', '/mini-projects']) {
+                   '/preparation', '/coding-challenges', '/mini-projects', '/prompt-lab']) {
     urls.push({ loc: p, priority: 0.9, changefreq: 'daily' });
   }
 

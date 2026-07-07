@@ -1176,6 +1176,32 @@ for (const c of SB_CHAPTERS) {
 // drifts from the app's actual AI-hub pages.
 const AI_HUB = getAiHubTopics(ROOT).map((t) => [t.slug, t.title, t.desc]);
 ROUTES.push({ path: '/ai-hub', title: 'AI for Students — Free Guides: ChatGPT, AI Tools, AI Careers | Syllab.in', description: 'Free, simple AI guides for students & teachers — what is AI & ChatGPT, best free AI study tools 2026, AI prompts for studying, is AI cheating, and how to become an AI engineer in India.', keywords: 'AI for students, what is ChatGPT, best free AI tools for students, AI prompts for studying, how to become AI engineer India', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'AI for Students Hub', url: `${SITE}/ai-hub`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+// AI Prompt Lab — hands-on prompt-writing practice (interactive, complements /ai-hub guides).
+ROUTES.push({
+  path: '/prompt-lab',
+  title: 'AI Prompt Lab — Practise Writing AI Prompts (Free) | Syllab.in',
+  description: 'Free hands-on AI prompt practice for students. Pick a study task, write a prompt, and get instant AI coaching on how to prompt better — plus a model prompt and the answer. Learn prompt engineering by doing.',
+  keywords: 'ai prompt practice, prompt engineering for students, how to write ai prompts, learn prompting free, ai literacy for students, chatgpt prompts for studying, prompt writing practice India',
+  bodyHtml: `
+    <p class="speakable">The <strong>AI Prompt Lab</strong> is a free, hands-on way for students to learn <strong>prompt engineering</strong> — the skill of asking AI clearly to get useful answers. Pick a real study task, write your prompt, and Syllab's AI coaches your prompt: what's good, how to make it stronger, and then it answers the improved prompt.</p>
+    <h2>What you can practise</h2>
+    <ul>
+      <li>Explaining a hard topic simply (e.g. "explain photosynthesis like I'm in Class 7")</li>
+      <li>Making a revision/study plan before an exam</li>
+      <li>Generating exam-style practice questions</li>
+      <li>Understanding why an answer is wrong</li>
+      <li>Summarising a chapter into quick revision points</li>
+    </ul>
+    <h2>4 rules for a great AI prompt</h2>
+    <ol>
+      <li><strong>Be specific</strong> — name the class, subject and chapter.</li>
+      <li><strong>Give context</strong> — say what you already know and where you're stuck.</li>
+      <li><strong>Ask for a format</strong> — "in 5 bullet points", "with a worked example", "like I'm 12".</li>
+      <li><strong>Iterate</strong> — refine your prompt instead of starting over.</li>
+    </ol>
+    <p>Prompting well is a real skill for school, college and future jobs. <a href="/ai-hub">Read the free AI-for-students guides →</a> · <a href="/ai-tutor">Try the free AI Tutor →</a></p>`,
+  jsonLd: { '@context': 'https://schema.org', '@type': 'LearningResource', name: 'AI Prompt Lab', description: 'Interactive practice for writing effective AI prompts, with instant AI feedback.', learningResourceType: 'Interactive tool', educationalUse: 'Practice', inLanguage: 'en-IN', isAccessibleForFree: true, url: `${SITE}/prompt-lab` },
+});
 for (const [slug, title, desc] of AI_HUB) {
   ROUTES.push({
     path: `/ai-hub/${slug}`,
