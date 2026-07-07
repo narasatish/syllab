@@ -23,6 +23,19 @@ function matchConcept(title: string) {
 const SITE = 'https://syllab.in';
 const DONE_KEY = 'syllab_visual_done_v1';
 
+// Kids layer: a friendly guide for younger learners. Shown only on lessons whose
+// audience starts at Class 6 or below, so it never feels childish to seniors.
+const MASCOT = '🦉';
+/** Lowest class number in a range like "Class 3–7" / "Class 10–12" (999 if none). */
+function minClassOf(classLevel: string): number {
+  const nums = (classLevel.match(/\d+/g) || []).map(Number);
+  return nums.length ? Math.min(...nums) : 999;
+}
+const KID_LINES = [
+  `Hi, I'm Vidya the owl! Tap play and watch it come alive — then try the "Test yourself" at the bottom. You've got this!`,
+  `Let's learn this together! Watch each step, then see if you can remember it. Learning is more fun when you can picture it.`,
+];
+
 export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab: string) => void; currentUser?: FirebaseUser | null }) {
   // Award XP + a 'lesson' counter the first time each lesson is finished.
   const awardLesson = (slug: string, title: string) => {
@@ -34,6 +47,13 @@ export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab:
     } catch { /* ignore */ }
   };
   const [path, setPath] = useState(usePathname());
+  // Completion streak (retention hook). Read from storage on mount only, so SSR
+  // and the first client render agree (no hydration mismatch).
+  const [doneCount, setDoneCount] = useState(0);
+  const refreshStreak = () => {
+    try { setDoneCount((JSON.parse(localStorage.getItem(DONE_KEY) || '[]') as string[]).length); } catch { /* ignore */ }
+  };
+  useEffect(refreshStreak, [path]);
   useEffect(() => {
     const onPop = () => setPath(window.location.pathname);
     window.addEventListener('popstate', onPop);
@@ -71,9 +91,20 @@ export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab:
         <button onClick={() => go('/visual-learning')} className="mb-4 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary"><ArrowLeft size={14} /> All visual lessons</button>
         <div className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-primary"><PlayCircle size={13} /> {lesson.subject} · {lesson.classLevel}</div>
         <h1 className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl dark:text-slate-100">{lesson.title}</h1>
-        <p className="mb-5 mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{lesson.intro}</p>
+        <p className="mb-4 mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{lesson.intro}</p>
 
-        <AnimatedDiagram key={lesson.slug} lesson={lesson} onPractice={(t) => setTab?.(t)} onComplete={() => awardLesson(lesson.slug, lesson.title)} />
+        {/* Kids layer: friendly mascot guide for younger-audience lessons + a streak. */}
+        {minClassOf(lesson.classLevel) <= 6 ? (
+          <div className="mb-4 flex items-start gap-3 rounded-2xl border border-violet-200 bg-violet-50 p-3 dark:border-violet-900/50 dark:bg-violet-950/30">
+            <span className="text-2xl leading-none" aria-hidden>{MASCOT}</span>
+            <p className="text-sm font-semibold leading-relaxed text-violet-900 dark:text-violet-100">{KID_LINES[lesson.slug.length % KID_LINES.length]}</p>
+          </div>
+        ) : null}
+        {doneCount > 0 ? (
+          <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-black text-amber-700 dark:bg-amber-950/40 dark:text-amber-300">🔥 {doneCount} visual {doneCount === 1 ? 'lesson' : 'lessons'} completed — keep the streak going!</div>
+        ) : null}
+
+        <AnimatedDiagram key={lesson.slug} lesson={lesson} onPractice={(t) => setTab?.(t)} onComplete={() => { awardLesson(lesson.slug, lesson.title); refreshStreak(); }} />
 
         {/* ── Memory-first layers: remember it, real-life, crux notes, recall ── */}
         {(lesson.memoryHook || lesson.realLifeExample) ? (
