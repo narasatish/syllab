@@ -24,6 +24,7 @@ import { IQ_PILOT } from './iq-pilot.mjs';
 import { DIFF_REINDEX } from './diff-reindex.mjs';
 import { POSTER_SHEETS, posterHref } from './posters.mjs';
 import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
+import { EXAM_LIST } from './exam-slugs.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
@@ -217,9 +218,9 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/important-questions/class-${ch.cls}/${ch.subjSlug}/${ch.chapSlug}`, priority: 0.6, changefreq: 'monthly' });
   }
 
-  // Mock-test exam landing pages
-  for (const slug of ['jee-main', 'neet', 'ap-eapcet', 'ts-eapcet', 'bitsat', 'kcet', 'mht-cet', 'wbjee', 'science-olympiad', 'maths-olympiad']) {
-    urls.push({ loc: `/mock-tests/${slug}`, priority: 0.7, changefreq: 'monthly' });
+  // Competitive-exam guide pages (engineering/medical/university/govt/law + olympiads).
+  for (const ex of EXAM_LIST) {
+    urls.push({ loc: `/mock-tests/${ex.slug}`, priority: 0.7, changefreq: 'monthly' });
   }
   // English grammar topic pages
   urls.push({ loc: '/english-grammar', priority: 0.7, changefreq: 'monthly' });

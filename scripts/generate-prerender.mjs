@@ -28,6 +28,7 @@ import { DIFF_REINDEX, DIFF_REINDEX_SLUGS } from './diff-reindex.mjs';
 import { CONCEPT_FAQ } from './concept-faq.mjs';
 import { POSTER_SHEETS, posterHref } from './posters.mjs';
 import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
+import { EXAM_LIST, EXAM_CATEGORIES } from './exam-slugs.mjs';
 const HINDI_CONCEPT_SLUGS = new Set(HINDI_CONCEPTS.map((c) => c.slug));
 import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
@@ -955,18 +956,67 @@ for (const [c, subs] of Object.entries(IQ_SUBJECTS)) {
 
 // ─── SEO landing clusters: mock-test exams, English grammar, career guides ────
 const tcSlug = (s) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-const MOCK_EXAM_NAMES = { 'jee-main': 'JEE Main', 'neet': 'NEET', 'ap-eapcet': 'AP EAPCET', 'ts-eapcet': 'TS EAPCET', 'bitsat': 'BITSAT', 'kcet': 'KCET', 'mht-cet': 'MHT-CET', 'wbjee': 'WBJEE', 'science-olympiad': 'Science Olympiad', 'maths-olympiad': 'Maths Olympiad' };
-for (const [slug, name] of Object.entries(MOCK_EXAM_NAMES)) {
-  ROUTES.push({
-    path: `/mock-tests/${slug}`,
-    title: `Free ${name} Mock Test 2026 — Online Practice with Answers | Syllab.in`,
-    description: `Take a free ${name} mock test online — timed, exam-pattern practice with answers and instant review. Free for Indian students on Syllab.in.`,
-    keywords: `${name} mock test free, ${name} online test, ${name} practice test 2026, ${name} exam pattern`,
-    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Mock Tests', item: `${SITE}/mock-tests` },
-      { '@type': 'ListItem', position: 2, name: `${name} Mock Test`, item: `${SITE}/mock-tests/${slug}` },
-    ] },
-  });
+// Competitive-exam guide pages (/mock-tests/{slug}) — render the REAL exam data
+// (about, pattern, subjects, prep tips, FAQs) from mockExams.ts so crawlers get the
+// substantive content the app shows, not a thin BreadcrumbList. Content is read from
+// the compiled SSR bundle (single source of truth); routes come from exam-slugs.mjs.
+{
+  const examBundlePath = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+  let MOCK_EXAMS_DATA = null;
+  if (existsSync(examBundlePath)) {
+    try {
+      const { pathToFileURL } = await import('node:url');
+      const mod = await import(pathToFileURL(examBundlePath).href);
+      if (Array.isArray(mod.MOCK_EXAMS)) MOCK_EXAMS_DATA = mod.MOCK_EXAMS;
+    } catch (e) { console.warn(`⚠️  Could not load SSR bundle for exam pages: ${e.message}`); }
+  }
+  const byExamSlug = new Map((MOCK_EXAMS_DATA || []).map((e) => [e.slug, e]));
+
+  // Category-grouped hub body for /mock-tests (the competitive-exams hub).
+  const hubRoute = ROUTES.find((r) => r.path === '/mock-tests');
+  if (hubRoute) {
+    let hub = '<p class="speakable">Free exam guides and practice for India\'s top competitive &amp; entrance exams — engineering, medical, university (CUET), government jobs and law. Each guide covers the exam pattern, syllabus, eligibility, preparation tips and FAQs.</p>';
+    for (const cat of EXAM_CATEGORIES) {
+      const inCat = EXAM_LIST.filter((e) => e.category === cat);
+      if (!inCat.length) continue;
+      hub += `<h2>${esc(cat)} Exams</h2><ul>${inCat.map((e) => `<li><a href="/mock-tests/${e.slug}">${esc(e.name)} — pattern, syllabus &amp; preparation guide</a></li>`).join('')}</ul>`;
+    }
+    hubRoute.bodyHtml = hub;
+  }
+
+  for (const ex of EXAM_LIST) {
+    const d = byExamSlug.get(ex.slug);
+    const isMock = ex.category === 'Engineering' || ex.category === 'Medical' || ex.category === 'Olympiad';
+    const route = {
+      path: `/mock-tests/${ex.slug}`,
+      title: `${ex.name} 2026 — ${isMock ? 'Free Mock Test, ' : ''}Exam Pattern, Syllabus & Preparation | Syllab.in`,
+      description: d ? `${d.about.slice(0, 155).trim()}…` : `${ex.name} exam pattern, syllabus, eligibility and free preparation guide for Indian students on Syllab.in.`,
+      keywords: `${ex.name} 2026, ${ex.name} exam pattern, ${ex.name} syllabus, ${ex.name} eligibility, ${ex.name} preparation guide${isMock ? `, ${ex.name} mock test free` : ''}`,
+      jsonLd: [
+        { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Competitive Exams', item: `${SITE}/mock-tests` },
+          { '@type': 'ListItem', position: 2, name: ex.name, item: `${SITE}/mock-tests/${ex.slug}` },
+        ] },
+      ],
+    };
+    if (d) {
+      const patternRows = [['Total questions', d.pattern.questions], ['Duration', `${d.pattern.durationMin} minutes`], ['Marking scheme', d.pattern.marking]];
+      route.bodyHtml = `
+        <p class="speakable"><strong>${esc(d.name)} (${esc(d.fullName)}):</strong> ${esc(d.about)}</p>
+        <h2>${esc(d.name)} Exam Pattern</h2>
+        <table><tbody>${patternRows.map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(String(v))}</td></tr>`).join('')}</tbody></table>
+        <h3>Sections</h3><ul>${d.pattern.sections.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+        <h2>Subjects Covered in ${esc(d.name)}</h2><p>${d.subjects.map(esc).join(' · ')}</p>
+        <h2>How to Prepare for ${esc(d.name)}</h2><ol>${d.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>
+        <h2>${esc(d.name)} — Frequently Asked Questions</h2>${d.faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
+        <p style="margin-top:1rem;padding:0.85rem 1rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;">📌 Exam patterns and dates can change — always verify the latest details on the official website before applying.</p>
+        <p><a href="/mock-tests">← All competitive exams</a> · <a href="/practice">Free practice →</a> · <a href="/important-questions">Important questions →</a></p>`;
+      route.jsonLd.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });
+    }
+    ROUTES.push(route);
+  }
+  if (!MOCK_EXAMS_DATA) console.warn('⚠️  Exam guide bodies SKIPPED (no SSR bundle) — run the full `npm run build`.');
+  else console.log(`📝 Competitive-exam pages: ${EXAM_LIST.length} (rich bodies from ${MOCK_EXAMS_DATA.length} exam records).`);
 }
 const ENGLISH_TOPIC_SLUGS = ['tenses', 'parts-of-speech', 'nouns', 'pronouns', 'verbs', 'adjectives', 'adverbs', 'articles', 'prepositions', 'active-passive-voice', 'direct-indirect-speech', 'subject-verb-agreement', 'essay-writing', 'letter-writing', 'reading-comprehension'];
 ROUTES.push({ path: '/english-grammar', title: 'English Grammar for Students — Free Lessons, Examples & Practice | Syllab.in', description: 'Learn English grammar free — tenses, parts of speech, articles, prepositions, voice, narration, essay & letter writing and more, with examples and practice for Indian students.', keywords: 'english grammar for students, learn english grammar free, grammar rules with examples, english practice', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'English Grammar for Students', url: `${SITE}/english-grammar`, inLanguage: 'en-IN', isAccessibleForFree: true } });
@@ -2089,7 +2139,9 @@ function buildBodyContent(route) {
   }
 
   // Mock tests page — show numbered list of exam types + table of exams covered
-  else if (route.path === '/mock-tests') {
+  // /mock-tests hub now ships a richer category-grouped body via route.bodyHtml
+  // (set in the exam-guide block); this static fallback only runs if that's absent.
+  else if (route.path === '/mock-tests' && !route.bodyHtml) {
     richContent = `
       <div style="margin-top: 2rem;">
         <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: #333;">Exam Types Available:</h2>
