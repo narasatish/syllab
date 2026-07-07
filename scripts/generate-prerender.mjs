@@ -1488,7 +1488,9 @@ function conceptBody(x, sibs, base) {
   // snippet-worthy answers for the exact question forms users search.
   const faqs = (x.faqs || []).slice(0, 6);
   const faqHtml = faqs.length ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
-  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p><h2>${esc(x.title)} Explained Simply</h2><p>${esc(x.intro)}${x.classLevel || x.subject ? ` This is a key ${esc(x.subject || '')} concept${x.classLevel ? ` for ${esc(x.classLevel)}` : ''}.` : ''}</p>${faqHtml}${rel}<p><a href="${base}">Browse all concepts →</a></p>`;
+  const vSlug = CONCEPT_TO_VISUAL[x.slug];
+  const visualLink = vSlug ? `<p><a href="/visual-learning/${vSlug}">🎬 Watch the animated, step-by-step ${esc(x.title)} diagram →</a></p>` : '';
+  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p><h2>${esc(x.title)} Explained Simply</h2><p>${esc(x.intro)}${x.classLevel || x.subject ? ` This is a key ${esc(x.subject || '')} concept${x.classLevel ? ` for ${esc(x.classLevel)}` : ''}.` : ''}</p>${visualLink}${faqHtml}${rel}<p><a href="${base}">Browse all concepts →</a></p>`;
 }
 function visualBody(x, sibs, base) {
   const why = x.whyItMatters ? `<p><strong>Why it matters:</strong> ${esc(x.whyItMatters)}</p>` : '';
@@ -1498,13 +1500,17 @@ function visualBody(x, sibs, base) {
   const real = x.realLifeExample ? `<h2>Real-Life Example</h2><p>${esc(x.realLifeExample)}</p>` : '';
   const notes = (x.cruxNotes || []).length ? `<h2>Quick Notes — the Exam Crux</h2><ul>${x.cruxNotes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : '';
   const recall = (x.recall || []).length ? `<h2>Test Yourself</h2>${x.recall.map((r) => `<h3>${esc(r.q)}</h3><p>${esc(r.a)}</p>`).join('')}` : '';
-  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p>${why}${steps}${notes}${hook}${real}${recall}${relBlock(sibs, base, `More Visual Lessons`)}${aiCta}`;
+  const cSlug = VISUAL_TO_CONCEPT[x.slug];
+  const conceptLink = cSlug ? `<p><a href="/concepts/${cSlug}">📖 Read the full explanation of ${esc(x.title)} →</a></p>` : '';
+  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p>${why}${steps}${notes}${hook}${real}${recall}${conceptLink}${relBlock(sibs, base, `More Visual Lessons`)}${aiCta}`;
 }
 // Load FULL visual lessons from the compiled SSR bundle so the prerender can
 // render memoryHook/realLifeExample/cruxNotes/recall (the regex-based
 // getVisualLessons only extracts slug/title/subject/classLevel/intro). Falls
 // back to the thin regex data when the bundle is absent (standalone runs).
 let VISUAL_LESSONS_FULL = getVisualLessons(ROOT);
+let VISUAL_TO_CONCEPT = {};
+let CONCEPT_TO_VISUAL = {};
 {
   const vlBundlePath = path.join(ROOT, 'dist-ssr', 'entry-server.js');
   if (existsSync(vlBundlePath)) {
@@ -1512,6 +1518,8 @@ let VISUAL_LESSONS_FULL = getVisualLessons(ROOT);
       const { pathToFileURL } = await import('node:url');
       const mod = await import(pathToFileURL(vlBundlePath).href);
       if (Array.isArray(mod.VISUAL_LESSONS) && mod.VISUAL_LESSONS.length) VISUAL_LESSONS_FULL = mod.VISUAL_LESSONS;
+      if (mod.VISUAL_TO_CONCEPT) VISUAL_TO_CONCEPT = mod.VISUAL_TO_CONCEPT;
+      if (mod.CONCEPT_TO_VISUAL) CONCEPT_TO_VISUAL = mod.CONCEPT_TO_VISUAL;
     } catch { /* keep regex fallback */ }
   }
 }

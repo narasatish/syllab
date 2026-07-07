@@ -32,6 +32,8 @@ export { MOCK_EXAMS } from './data/mockExams';
 // Full visual-learning lessons (incl. memoryHook/realLifeExample/cruxNotes/recall)
 // → prerender renders substantive "visual notes" bodies + FAQ schema.
 export { VISUAL_LESSONS } from './data/visualLessons';
+// Curated reciprocal visual-lesson ↔ concept links → prerender cross-links both ways.
+export { VISUAL_TO_CONCEPT, CONCEPT_TO_VISUAL } from './data/visualConceptLinks';
 
 export interface RenderResult {
   /** Full prerender output (hoisted metadata + body). */

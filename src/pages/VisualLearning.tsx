@@ -10,15 +10,9 @@ import PageHero from '../components/PageHero';
 import AnimatedDiagram from '../components/AnimatedDiagram';
 import type { User as FirebaseUser } from 'firebase/auth';
 import { VISUAL_LESSONS, getVisualLesson } from '../data/visualLessons';
-import { CONCEPT_EXPLAINERS } from '../data/conceptExplainers';
+import { VISUAL_TO_CONCEPT } from '../data/visualConceptLinks';
 import { recordLearningActivity } from '../lib/progressTracker';
 import { usePathname } from '../lib/isomorphic';
-
-const VL_STOP = new Set(['the', 'and', 'of', 'a', 'an', 'human', 'system', 'cell', 'law', 'laws']);
-function matchConcept(title: string) {
-  const words = title.toLowerCase().replace(/[^a-z ]/g, ' ').split(/\s+/).filter((w) => w.length >= 6 && !VL_STOP.has(w));
-  return CONCEPT_EXPLAINERS.find((c) => words.some((w) => c.title.toLowerCase().includes(w)));
-}
 
 const SITE = 'https://syllab.in';
 const DONE_KEY = 'syllab_visual_done_v1';
@@ -154,11 +148,11 @@ export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab:
           </div>
         ) : null}
 
-        {(() => { const c = matchConcept(lesson.title); return c ? (
-          <a href={`/concepts/${c.slug}`} className="mt-4 inline-flex items-center gap-2 rounded-xl bg-secondary px-4 py-2 text-sm font-black text-white shadow-sm transition-opacity hover:opacity-90">
-            📖 Read the full explanation
+        {VISUAL_TO_CONCEPT[lesson.slug] ? (
+          <a href={`/concepts/${VISUAL_TO_CONCEPT[lesson.slug]}`} className="mt-4 inline-flex items-center gap-2 rounded-xl bg-secondary px-4 py-2 text-sm font-black text-white shadow-sm transition-opacity hover:opacity-90">
+            📖 Read the full explanation of {lesson.title}
           </a>
-        ) : null; })()}
+        ) : null}
 
         {/* Other lessons */}
         <h2 className="mb-3 mt-10 text-lg font-black text-slate-900 dark:text-slate-100">More visual lessons</h2>

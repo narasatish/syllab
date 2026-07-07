@@ -4,19 +4,9 @@ import { ArrowLeft, ArrowRight, Search, Sparkles, Lightbulb, AlertTriangle, Down
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { CONCEPT_EXPLAINERS, getConcept, type ConceptExplainer } from '../data/conceptExplainers';
-import { VISUAL_LESSONS } from '../data/visualLessons';
+import { CONCEPT_TO_VISUAL } from '../data/visualConceptLinks';
 import { exportArticleAsPDF } from '../lib/printPdf';
 import { usePathname } from '../lib/isomorphic';
-
-const STOP = new Set(['the', 'and', 'of', 'a', 'an', 'in', 'on', 'to', 'for', 'human', 'system', 'cell', 'law', 'laws']);
-/** Find a Visual Learning lesson that shares a meaningful keyword with the concept. */
-function matchVisual(title: string) {
-  const words = title.toLowerCase().replace(/[^a-z ]/g, ' ').split(/\s+/).filter((w) => w.length >= 6 && !STOP.has(w));
-  return VISUAL_LESSONS.find((v) => {
-    const vt = v.title.toLowerCase();
-    return words.some((w) => vt.includes(w));
-  });
-}
 
 function downloadConceptPdf(c: ConceptExplainer) {
   const sections = [
@@ -98,11 +88,11 @@ function Detail({ concept: c, go, setTab }: { concept: ConceptExplainer; go: (to
         <button onClick={() => downloadConceptPdf(c)} className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-black text-white shadow-sm transition-colors hover:bg-emerald-600">
           <Download size={15} /> Download PDF
         </button>
-        {(() => { const v = matchVisual(c.title); return v ? (
-          <a href={`/visual-learning/${v.slug}`} className="inline-flex items-center gap-2 rounded-xl bg-teal-500 px-4 py-2 text-sm font-black text-white shadow-sm transition-colors hover:bg-teal-600">
+        {CONCEPT_TO_VISUAL[c.slug] ? (
+          <a href={`/visual-learning/${CONCEPT_TO_VISUAL[c.slug]}`} className="inline-flex items-center gap-2 rounded-xl bg-teal-500 px-4 py-2 text-sm font-black text-white shadow-sm transition-colors hover:bg-teal-600">
             🎬 Watch the animated version
           </a>
-        ) : null; })()}
+        ) : null}
       </div>
 
       <article className="mt-6 space-y-5">
