@@ -29,6 +29,9 @@ export { generateExamQuestions } from './lib/importantQuestions';
 // Rich competitive-exam data → prerender renders substantive exam-guide bodies
 // (about, pattern, subjects, tips, FAQs) instead of the old thin BreadcrumbList-only pages.
 export { MOCK_EXAMS } from './data/mockExams';
+// Full visual-learning lessons (incl. memoryHook/realLifeExample/cruxNotes/recall)
+// → prerender renders substantive "visual notes" bodies + FAQ schema.
+export { VISUAL_LESSONS } from './data/visualLessons';
 
 export interface RenderResult {
   /** Full prerender output (hoisted metadata + body). */

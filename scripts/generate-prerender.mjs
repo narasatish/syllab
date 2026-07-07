@@ -1490,6 +1490,31 @@ function conceptBody(x, sibs, base) {
   const faqHtml = faqs.length ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
   return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p><h2>${esc(x.title)} Explained Simply</h2><p>${esc(x.intro)}${x.classLevel || x.subject ? ` This is a key ${esc(x.subject || '')} concept${x.classLevel ? ` for ${esc(x.classLevel)}` : ''}.` : ''}</p>${faqHtml}${rel}<p><a href="${base}">Browse all concepts →</a></p>`;
 }
+function visualBody(x, sibs, base) {
+  const why = x.whyItMatters ? `<p><strong>Why it matters:</strong> ${esc(x.whyItMatters)}</p>` : '';
+  // Step captions carry the real teaching — render them as an ordered walkthrough.
+  const steps = (x.steps || []).length ? `<h2>${esc(x.title)} — Step by Step</h2><ol>${x.steps.map((s) => `<li>${esc(s.caption)}</li>`).join('')}</ol>` : '';
+  const hook = x.memoryHook ? `<h2>Remember It (Memory Trick)</h2><p>${esc(x.memoryHook)}</p>` : '';
+  const real = x.realLifeExample ? `<h2>Real-Life Example</h2><p>${esc(x.realLifeExample)}</p>` : '';
+  const notes = (x.cruxNotes || []).length ? `<h2>Quick Notes — the Exam Crux</h2><ul>${x.cruxNotes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : '';
+  const recall = (x.recall || []).length ? `<h2>Test Yourself</h2>${x.recall.map((r) => `<h3>${esc(r.q)}</h3><p>${esc(r.a)}</p>`).join('')}` : '';
+  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p>${why}${steps}${notes}${hook}${real}${recall}${relBlock(sibs, base, `More Visual Lessons`)}${aiCta}`;
+}
+// Load FULL visual lessons from the compiled SSR bundle so the prerender can
+// render memoryHook/realLifeExample/cruxNotes/recall (the regex-based
+// getVisualLessons only extracts slug/title/subject/classLevel/intro). Falls
+// back to the thin regex data when the bundle is absent (standalone runs).
+let VISUAL_LESSONS_FULL = getVisualLessons(ROOT);
+{
+  const vlBundlePath = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+  if (existsSync(vlBundlePath)) {
+    try {
+      const { pathToFileURL } = await import('node:url');
+      const mod = await import(pathToFileURL(vlBundlePath).href);
+      if (Array.isArray(mod.VISUAL_LESSONS) && mod.VISUAL_LESSONS.length) VISUAL_LESSONS_FULL = mod.VISUAL_LESSONS;
+    } catch { /* keep regex fallback */ }
+  }
+}
 const STUDY_CLUSTERS = [
   { base: '/maths-tables', name: 'Maths Tables & Charts', kw: 'maths tables, multiplication table, squares cubes primes', data: getMathsTables(ROOT), label: (x) => x.title, titleSuffix: '— Full Chart & Quick Revision', body: mathsTableBody },
   { base: '/english-writing', name: 'English Writing Skills', kw: 'essay writing, letter writing, notice article speech writing', data: getEnglishWriting(ROOT), label: (x) => x.title },
@@ -1500,7 +1525,7 @@ const STUDY_CLUSTERS = [
   { base: '/concepts', name: 'Concepts Explained', kw: 'concept explained, science maths concepts simple, real-life examples', data: getConcepts(ROOT).map((x) => (CONCEPT_FAQ[x.slug] ? { ...x, faqs: CONCEPT_FAQ[x.slug] } : x)), label: (x) => `${x.title} Explained`, body: conceptBody },
   { base: '/solved-examples', name: 'Solved Numerical Examples', kw: 'solved examples, numerical problems with solutions, step by step', data: getSolvedExamples(ROOT), label: (x) => `${x.chapter} Solved Examples (${x.classLevel} ${x.subject})`, body: solvedBody },
   { base: '/lab-practicals', name: 'Lab Practicals & Viva', kw: 'lab practical, science experiment procedure, viva questions, CBSE practical', data: getLabPracticals(ROOT), label: (x) => `${x.title} (${x.classLevel} ${x.subject} Practical)`, body: labBody },
-  { base: '/visual-learning', name: 'Visual Learning — Interactive Diagrams', kw: 'animated diagrams, interactive diagrams, step by step science diagrams, water cycle photosynthesis heart', data: getVisualLessons(ROOT), label: (x) => `${x.title} — Interactive Diagram` },
+  { base: '/visual-learning', name: 'Visual Learning — Interactive Diagrams', kw: 'animated diagrams, interactive diagrams, step by step science diagrams, water cycle photosynthesis heart', data: VISUAL_LESSONS_FULL.map((x) => (x.recall && x.recall.length ? { ...x, faqs: x.recall } : x)), label: (x) => `${x.title} — Interactive Diagram`, body: visualBody },
   { base: '/timelines', name: 'History Timelines', kw: 'history timeline, indian freedom struggle timeline, mughal empire timeline, important dates history', data: getTimelines(ROOT), label: (x) => `${x.title} — Interactive Timeline` },
   { base: '/what-to-study', name: 'What to Study — Marks Weightage', kw: 'important chapters by marks, cbse weightage, what to study for boards, marks distribution', data: getWhatToStudy(ROOT), label: (x) => `Most Important Chapters — ${x.title}` },
   { base: '/pyqs', name: 'Previous Year Questions (PYQ)', kw: 'previous year questions, pyq chapter wise, board questions with solutions, important questions', data: getPyqs(ROOT), label: (x) => `${x.chapter} — Previous Year Questions (${x.classLevel} ${x.subject})`, body: pyqBody },

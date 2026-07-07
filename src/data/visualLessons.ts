@@ -6,6 +6,8 @@
  */
 
 export interface VisualStep { caption: string; svg: string; }
+/** Active-recall Q&A shown as "cover and answer" checks (feeds retrieval practice). */
+export interface RecallCheck { q: string; a: string; }
 export interface VisualLesson {
   slug: string;
   title: string;
@@ -15,6 +17,15 @@ export interface VisualLesson {
   whyItMatters: string;
   practice?: { label: string; tab: string };
   steps: VisualStep[];
+  // ── Memory-first layers (optional; authored per chapter) ──────────────────
+  /** A mnemonic / analogy that makes the concept stick. */
+  memoryHook?: string;
+  /** One vivid real-life (ideally Indian) example connecting the concept to daily life. */
+  realLifeExample?: string;
+  /** The exam-critical crux — the bullets a student must remember. */
+  cruxNotes?: string[];
+  /** 2–3 active-recall questions with answers (retrieval practice + FAQ schema). */
+  recall?: RecallCheck[];
 }
 
 const FRAME = (inner: string) =>
@@ -31,6 +42,20 @@ export const VISUAL_LESSONS: VisualLesson[] = [
     classLevel: 'Class 6–9',
     intro: 'Watch how water moves between the earth and the sky — evaporation, condensation, precipitation and collection — one step at a time.',
     whyItMatters: 'The water cycle explains rain, rivers and why fresh water never runs out — a guaranteed exam favourite and the basis of weather and the monsoon.',
+    memoryHook: `Remember the 4 stages as "Every Cloud Pours, then Collects" — Evaporation → Condensation → Precipitation → Collection.`,
+    realLifeExample: `Leave a glass of cold water out on a hot Chennai afternoon and droplets appear on the outside — that is condensation, the very step that builds clouds. The monsoon that fills our rivers is just this same cycle at a giant scale.`,
+    cruxNotes: [
+      `The Sun's heat drives evaporation: liquid water turns into invisible water vapour.`,
+      `High up, the cooler air makes vapour condense into tiny droplets that form clouds.`,
+      `When droplets grow heavy they fall as precipitation — rain, snow or hail.`,
+      `Water collects in rivers, oceans and groundwater, then the cycle repeats — no new water is ever created.`,
+      `Transpiration (water vapour released by plant leaves) also feeds moisture into the cycle.`,
+    ],
+    recall: [
+      { q: `Which process turns liquid water into vapour, and what supplies the energy?`, a: `Evaporation; the Sun's heat supplies the energy.` },
+      { q: `Why does the amount of fresh water on Earth never run out?`, a: `Water is recycled endlessly — it only changes state, it is never destroyed, so the same water keeps moving through the cycle.` },
+      { q: `What is transpiration's role in the water cycle?`, a: `Plants release water vapour from their leaves, adding moisture to the air that later condenses into clouds.` },
+    ],
     practice: { label: 'Practice Water Cycle questions', tab: 'arena' },
     steps: [
       {
@@ -58,6 +83,20 @@ export const VISUAL_LESSONS: VisualLesson[] = [
     classLevel: 'Class 7–10',
     intro: 'See exactly how a green leaf turns sunlight, water and carbon dioxide into food and oxygen.',
     whyItMatters: 'Photosynthesis is how almost all food and oxygen on Earth is made. Its equation and the role of chlorophyll are asked in every board exam.',
+    memoryHook: `The recipe: sunlight + water + carbon dioxide → glucose + oxygen, cooked inside the green chlorophyll. "A leaf drinks CO₂ and water, and with sunlight cooks sugar, breathing out oxygen."`,
+    realLifeExample: `A peepal or banyan tree cooling a village square is a giant food-and-oxygen factory: every leaf is quietly turning sunlight into the sugar that feeds the tree and the oxygen you breathe.`,
+    cruxNotes: [
+      `Equation: 6CO₂ + 6H₂O --(sunlight, chlorophyll)--> C₆H₁₂O₆ + 6O₂.`,
+      `It happens in the chloroplasts, which contain the green pigment chlorophyll.`,
+      `Raw materials: carbon dioxide (from air through stomata) and water (from soil through roots).`,
+      `Products: glucose (stored as food/energy) and oxygen (released into the air).`,
+      `It needs sunlight, so it mainly occurs during the day.`,
+    ],
+    recall: [
+      { q: `Where in the cell does photosynthesis take place?`, a: `In the chloroplasts, which contain chlorophyll.` },
+      { q: `Name the raw materials and the products of photosynthesis.`, a: `Raw materials: carbon dioxide and water. Products: glucose and oxygen.` },
+      { q: `Through which tiny pores does a leaf take in carbon dioxide?`, a: `The stomata.` },
+    ],
     practice: { label: 'Practice Photosynthesis questions', tab: 'arena' },
     steps: [
       {
@@ -85,6 +124,21 @@ export const VISUAL_LESSONS: VisualLesson[] = [
     classLevel: 'Class 7–10',
     intro: 'Follow a drop of blood through the four chambers of the heart and understand double circulation.',
     whyItMatters: 'How blood flows through the heart, lungs and body (double circulation) is one of the most-asked diagrams in biology board exams.',
+    memoryHook: `Four chambers, two sides. Right side carries "blue" deoxygenated blood, left side carries "red" oxygenated blood — "Left is Loaded with oxygen." Blood passes through the heart twice = double circulation.`,
+    realLifeExample: `When you sprint for a bus in the heat, your heart pounds because your muscles are demanding more oxygen — the left side pumps oxygen-rich blood out faster to keep up.`,
+    cruxNotes: [
+      `4 chambers: right atrium, right ventricle, left atrium, left ventricle.`,
+      `Right side handles deoxygenated blood; left side handles oxygenated blood.`,
+      `Deoxygenated path: body → right atrium → right ventricle → lungs (via pulmonary artery).`,
+      `Oxygenated path: lungs → left atrium → left ventricle → whole body (via aorta).`,
+      `The left ventricle has the thickest wall because it pumps blood to the entire body.`,
+      `Valves stop blood flowing backward; blood crosses the heart twice per cycle (double circulation).`,
+    ],
+    recall: [
+      { q: `Which chamber has the thickest muscular wall, and why?`, a: `The left ventricle — it must pump oxygenated blood to the whole body against high pressure.` },
+      { q: `What is double circulation?`, a: `Blood passes through the heart twice in one complete cycle — once through the lungs (pulmonary) and once through the body (systemic).` },
+      { q: `Which vessel carries deoxygenated blood from the heart to the lungs?`, a: `The pulmonary artery.` },
+    ],
     practice: { label: 'Practice Circulatory System questions', tab: 'arena' },
     steps: [
       {
@@ -149,6 +203,20 @@ export const VISUAL_LESSONS: VisualLesson[] = [
     classLevel: 'Class 8–10',
     intro: 'Build up a cell part by part and spot exactly what makes plant cells different from animal cells.',
     whyItMatters: 'The differences between plant and animal cells (cell wall, chloroplasts, vacuole) are one of the most common 3-mark questions in biology.',
+    memoryHook: `Plant cells have 3 extras — Cell Wall, Chloroplasts, a big Vacuole. "Plants Wall themselves in, Cook their own food, and Store water big." Animal cells have none of these three.`,
+    realLifeExample: `A crunchy carrot or a stiff spinach leaf holds its shape because plant cells have a rigid cell wall — a piece of chicken is soft because its animal cells have only a flexible membrane.`,
+    cruxNotes: [
+      `Both have: cell membrane, cytoplasm, nucleus, mitochondria, ER and ribosomes.`,
+      `Plant cell ONLY: cell wall (rigid, cellulose), chloroplasts (photosynthesis), one large central vacuole.`,
+      `Animal cell: no cell wall, no chloroplasts, small or no vacuoles, and often centrioles.`,
+      `The cell wall gives plant cells a fixed rectangular shape; animal cells are rounder and irregular.`,
+      `The large vacuole keeps a plant cell turgid (firm) — losing that water makes the plant wilt.`,
+    ],
+    recall: [
+      { q: `Name three structures found in a plant cell but not in an animal cell.`, a: `Cell wall, chloroplasts, and a large central vacuole.` },
+      { q: `Why does a plant cell keep a fixed rectangular shape while an animal cell is rounded?`, a: `The rigid cellulose cell wall gives plant cells a fixed shape; animal cells have only a flexible membrane.` },
+      { q: `What happens to a plant cell when it loses water from its vacuole?`, a: `It loses turgidity and the plant wilts (the cell becomes flaccid).` },
+    ],
     practice: { label: 'Practice Cell questions', tab: 'arena' },
     steps: [
       { caption: 'An ANIMAL CELL has a flexible cell membrane, jelly-like cytoplasm, and a nucleus that controls the cell.', svg: FRAME(`<rect width="400" height="300" rx="14" fill="#fdf4ff"/><ellipse cx="200" cy="150" rx="130" ry="95" fill="#fbcfe8" stroke="#db2777" stroke-width="3"/><circle cx="200" cy="150" r="34" fill="#a21caf"/>${label(200,154,'Nucleus','#fff',10)}${label(200,255,'Animal cell','#86198f',12)}${label(110,110,'Membrane','#be185d',9)}`) },
@@ -263,6 +331,22 @@ export const VISUAL_LESSONS: VisualLesson[] = [
     classLevel: 'Class 8–10',
     intro: 'Build an atom from the inside out — nucleus, protons, neutrons and electron shells.',
     whyItMatters: 'Protons, neutrons, electrons and shells explain the whole periodic table, ions and bonding — the foundation of all chemistry.',
+    memoryHook: `Positive protons and neutral neutrons sit in the tiny nucleus; negative electrons orbit in shells. Shell capacity = 2n² (K=2, L=8, M=18). "Protons Push in the centre, Electrons Everywhere else."`,
+    realLifeExample: `A hydrogen balloon rises while a helium balloon floats gently at a birthday — the two behave differently because their atoms differ by just one proton. Atomic structure decides an element's entire personality.`,
+    cruxNotes: [
+      `An atom = a nucleus (protons + neutrons) surrounded by electrons in shells.`,
+      `Proton: +1 charge, mass ≈ 1u. Neutron: 0 charge, mass ≈ 1u. Electron: −1 charge, negligible mass.`,
+      `Atomic number (Z) = number of protons = number of electrons in a neutral atom.`,
+      `Mass number (A) = protons + neutrons.`,
+      `Maximum electrons in a shell = 2n² (K=2, L=8, M=18, N=32).`,
+      `Valence (outermost-shell) electrons decide chemical behaviour and bonding.`,
+      `Isotopes = same number of protons but different neutrons (e.g. C-12 and C-14).`,
+    ],
+    recall: [
+      { q: `What is the maximum number of electrons the L shell (n = 2) can hold?`, a: `8, using 2n² = 2 × 2² = 8.` },
+      { q: `How do you calculate the number of neutrons in an atom?`, a: `Neutrons = mass number (A) − atomic number (Z).` },
+      { q: `What are isotopes?`, a: `Atoms of the same element with the same number of protons but different numbers of neutrons.` },
+    ],
     practice: { label: 'Practice Atomic Structure questions', tab: 'arena' },
     steps: [
       { caption: 'At the centre is the NUCLEUS — packed with positively charged PROTONS and neutral NEUTRONS. It holds almost all the atom’s mass.', svg: FRAME(`<rect width="400" height="300" rx="14" fill="#faf5ff"/><circle cx="200" cy="150" r="34" fill="#fca5a5"/><circle cx="190" cy="145" r="9" fill="#dc2626"/><circle cx="210" cy="158" r="9" fill="#dc2626"/><circle cx="205" cy="140" r="9" fill="#94a3b8"/><circle cx="188" cy="162" r="9" fill="#94a3b8"/>${label(200,215,'Nucleus: protons (+) & neutrons','#7f1d1d',11)}`) },
@@ -319,6 +403,21 @@ export const VISUAL_LESSONS: VisualLesson[] = [
     classLevel: 'Class 10',
     intro: 'See the four main types of chemical reactions with a simple example of each.',
     whyItMatters: 'Combination, decomposition, displacement and double-displacement reactions are the backbone of the Chemical Reactions chapter.',
+    memoryHook: `Combination = "join", Decomposition = "break", Displacement = "kick out", Double displacement = "swap partners", Redox = oxidation and reduction happening together.`,
+    realLifeExample: `An iron gate rusting through the monsoon (iron + oxygen + water → rust) is oxidation; milk turning to curd and a firecracker bursting are chemical reactions too — each makes new substances with new properties.`,
+    cruxNotes: [
+      `Combination: two or more reactants form one product. e.g. CaO + H₂O → Ca(OH)₂.`,
+      `Decomposition: one reactant breaks into two or more (needs heat/light/electricity). e.g. 2FeSO₄ --heat--> Fe₂O₃ + SO₂ + SO₃.`,
+      `Displacement: a more reactive element displaces a less reactive one. e.g. Fe + CuSO₄ → FeSO₄ + Cu.`,
+      `Double displacement: two compounds exchange ions, often forming a precipitate. e.g. Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl.`,
+      `Oxidation = gain of oxygen / loss of hydrogen; Reduction = loss of oxygen / gain of hydrogen — they always occur together (redox).`,
+      `A balanced equation must have equal atoms of each element on both sides.`,
+    ],
+    recall: [
+      { q: `Classify the reaction: Fe + CuSO₄ → FeSO₄ + Cu.`, a: `A displacement reaction — the more reactive iron displaces copper.` },
+      { q: `What is a decomposition reaction, and what usually drives it?`, a: `A single reactant breaks into two or more products; it usually needs energy as heat, light or electricity.` },
+      { q: `In a redox reaction, what happens to the substance that is oxidised?`, a: `It gains oxygen (or loses hydrogen) — in electron terms, it loses electrons.` },
+    ],
     practice: { label: 'Practice Chemical Reactions questions', tab: 'arena' },
     steps: [
       { caption: 'COMBINATION: two or more substances join to form one product. Example: 2Mg + O₂ → 2MgO.', svg: FRAME(`<rect width="400" height="300" rx="14" fill="#faf5ff"/><circle cx="110" cy="150" r="26" fill="#fca5a5"/><text x="160" y="158" font-size="30" text-anchor="middle">+</text><circle cx="210" cy="150" r="26" fill="#93c5fd"/><text x="260" y="158" font-size="26" text-anchor="middle">→</text><circle cx="320" cy="150" r="34" fill="#a78bfa"/>${label(200,235,'A + B → AB','#6b21a8',13)}`) },
@@ -347,6 +446,22 @@ export const VISUAL_LESSONS: VisualLesson[] = [
     classLevel: 'Class 8–10',
     intro: 'See how the eye focuses light to form a clear image — and what goes wrong in short and long sight.',
     whyItMatters: 'The parts of the eye, image formation on the retina, and defects (myopia, hypermetropia) are core to the Human Eye chapter.',
+    memoryHook: `Light path: Cornea → Pupil → Lens → Retina. The lens forms a real, inverted, smaller image on the retina and the brain flips it upright. Myopia = near-sighted (image falls short of retina); Hypermetropia = far-sighted.`,
+    realLifeExample: `Walking from bright afternoon sun into a dark cinema hall, your pupil widens to let in more light — the iris adjusting the pupil works exactly like a camera's aperture.`,
+    cruxNotes: [
+      `Cornea: the transparent front that does most of the bending of light.`,
+      `Iris: the coloured part that controls the size of the pupil.`,
+      `Pupil: the adjustable opening that regulates how much light enters.`,
+      `Ciliary muscles change the eye lens's focal length — this ability is called accommodation.`,
+      `Retina: the light-sensitive screen where a real, inverted image forms; it has rods and cones.`,
+      `Myopia (near-sightedness): image forms in front of the retina → corrected with a concave lens.`,
+      `Hypermetropia (far-sightedness): image forms behind the retina → corrected with a convex lens.`,
+    ],
+    recall: [
+      { q: `What kind of image is formed on the retina?`, a: `A real, inverted and smaller image; the brain interprets it as upright.` },
+      { q: `Which lens is used to correct myopia (near-sightedness)?`, a: `A concave (diverging) lens.` },
+      { q: `What is the power of accommodation of the eye?`, a: `The eye lens's ability to change its focal length (via the ciliary muscles) to focus on both near and distant objects.` },
+    ],
     practice: { label: 'Practice Human Eye questions', tab: 'arena' },
     steps: [
       { caption: 'Light enters through the CORNEA and PUPIL. The LENS bends it to focus a sharp, upside-down image on the RETINA at the back.', svg: FRAME(`<rect width="400" height="300" rx="14" fill="#eff6ff"/><ellipse cx="200" cy="150" rx="120" ry="80" fill="#fff" stroke="#1e3a8a" stroke-width="3"/><path d="M90 110 Q70 150 90 190" fill="none" stroke="#60a5fa" stroke-width="5"/>${label(85,95,'Cornea','#1e40af',9)}<ellipse cx="120" cy="150" rx="12" ry="34" fill="#93c5fd"/>${label(120,200,'Lens','#1e40af',9)}<line x1="290" y1="100" x2="290" y2="200" stroke="#fca5a5" stroke-width="5"/>${label(300,150,'Retina','#b91c1c',9)}<line x1="30" y1="120" x2="120" y2="150" stroke="#facc15" stroke-width="2"/><line x1="120" y1="150" x2="290" y2="185" stroke="#facc15" stroke-width="2"/>`) },
@@ -361,6 +476,22 @@ export const VISUAL_LESSONS: VisualLesson[] = [
     classLevel: 'Class 7–10',
     intro: 'See how the pH scale measures how acidic or basic a substance is, from 0 to 14.',
     whyItMatters: 'pH tells us if something is an acid, base or neutral — vital for chemistry, biology and everyday life (soil, soaps, antacids).',
+    memoryHook: `0–6 is acid, 7 is neutral, 8–14 is base. Lower pH = stronger acid. "Below 7 is sour like lemon, above 7 is soapy like bleach, 7 is plain water."`,
+    realLifeExample: `An antacid tablet (a base) relieves acidity because your stomach's HCl has pushed the pH too low — the base neutralises the excess acid. Curd, lemon and tamarind taste sour because they are acidic (low pH).`,
+    cruxNotes: [
+      `The pH scale runs from 0 to 14 and measures the concentration of H⁺ ions.`,
+      `pH < 7 = acidic, pH = 7 = neutral, pH > 7 = basic (alkaline).`,
+      `Lower pH means more acidic (more H⁺); higher pH means more basic (more OH⁻).`,
+      `Acids turn blue litmus red; bases turn red litmus blue.`,
+      `Neutralisation: acid + base → salt + water (pH moves toward 7).`,
+      `Everyday values: gastric acid ≈ 1–3, pure water 7, blood ≈ 7.4, soap ≈ 9–10.`,
+      `Tooth decay begins when the mouth's pH falls below 5.5.`,
+    ],
+    recall: [
+      { q: `What does a pH of 7 indicate?`, a: `A neutral solution — neither acidic nor basic, e.g. pure water.` },
+      { q: `Why does an antacid relieve an acidic stomach?`, a: `It is a mild base that neutralises the excess hydrochloric acid, raising the pH back toward neutral.` },
+      { q: `Which is more acidic — a solution of pH 2 or pH 5?`, a: `pH 2; the lower the pH, the more acidic (more H⁺ ions).` },
+    ],
     practice: { label: 'Practice Acids & Bases questions', tab: 'arena' },
     steps: [
       { caption: 'The pH scale runs from 0 to 14. Lower numbers are more ACIDIC; higher numbers are more BASIC (alkaline).', svg: FRAME(`<rect width="400" height="300" rx="14" fill="#f8fafc"/>${[...Array(15)].map((_,i)=>`<rect x="${30+i*24}" y="120" width="24" height="40" fill="hsl(${i*9},80%,55%)"/>`).join('')}${label(60,180,'0 acidic','#b91c1c',10)}${label(200,180,'7 neutral','#475569',10)}${label(345,180,'14 basic','#1e3a8a',10)}`) },

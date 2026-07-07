@@ -65,6 +65,7 @@ export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab:
               { '@type': 'ListItem', position: 1, name: 'Visual Learning', item: `${SITE}/visual-learning` },
               { '@type': 'ListItem', position: 2, name: lesson.title, item: `${SITE}/visual-learning/${lesson.slug}` },
             ] },
+            ...(lesson.recall && lesson.recall.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: lesson.recall.map((r) => ({ '@type': 'Question', name: r.q, acceptedAnswer: { '@type': 'Answer', text: r.a } })) }] : []),
           ]}
         />
         <button onClick={() => go('/visual-learning')} className="mb-4 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary"><ArrowLeft size={14} /> All visual lessons</button>
@@ -73,6 +74,54 @@ export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab:
         <p className="mb-5 mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{lesson.intro}</p>
 
         <AnimatedDiagram key={lesson.slug} lesson={lesson} onPractice={(t) => setTab?.(t)} onComplete={() => awardLesson(lesson.slug, lesson.title)} />
+
+        {/* ── Memory-first layers: remember it, real-life, crux notes, recall ── */}
+        {(lesson.memoryHook || lesson.realLifeExample) ? (
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {lesson.memoryHook ? (
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/50 dark:bg-amber-950/30">
+                <p className="mb-1 flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-amber-700 dark:text-amber-300">🧠 Remember it</p>
+                <p className="text-sm leading-relaxed text-amber-900 dark:text-amber-100">{lesson.memoryHook}</p>
+              </div>
+            ) : null}
+            {lesson.realLifeExample ? (
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-900/50 dark:bg-emerald-950/30">
+                <p className="mb-1 flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-emerald-700 dark:text-emerald-300">🌏 In real life</p>
+                <p className="text-sm leading-relaxed text-emerald-900 dark:text-emerald-100">{lesson.realLifeExample}</p>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
+        {lesson.cruxNotes && lesson.cruxNotes.length > 0 ? (
+          <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-800">
+            <h2 className="mb-3 flex items-center gap-2 text-lg font-black text-slate-900 dark:text-slate-100">📝 Quick Notes — the exam crux</h2>
+            <ul className="space-y-2">
+              {lesson.cruxNotes.map((n, i) => (
+                <li key={i} className="flex gap-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <span className="mt-0.5 shrink-0 font-black text-primary">▸</span><span>{n}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {lesson.recall && lesson.recall.length > 0 ? (
+          <div className="mt-4">
+            <h2 className="mb-2 flex items-center gap-2 text-lg font-black text-slate-900 dark:text-slate-100">🎯 Test yourself (tap to reveal)</h2>
+            <div className="space-y-2">
+              {lesson.recall.map((r, i) => (
+                <details key={i} className="group rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+                  <summary className="cursor-pointer list-none font-bold text-slate-800 marker:hidden dark:text-slate-100">
+                    <span className="mr-2 text-primary">Q{i + 1}.</span>{r.q}
+                    <span className="float-right text-xs font-black text-slate-400 group-open:hidden">tap ▸</span>
+                  </summary>
+                  <p className="mt-2 border-t border-slate-100 pt-2 text-sm leading-relaxed text-slate-600 dark:border-slate-700 dark:text-slate-300"><span className="font-black text-emerald-600">A.</span> {r.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        ) : null}
 
         {(() => { const c = matchConcept(lesson.title); return c ? (
           <a href={`/concepts/${c.slug}`} className="mt-4 inline-flex items-center gap-2 rounded-xl bg-secondary px-4 py-2 text-sm font-black text-white shadow-sm transition-opacity hover:opacity-90">
