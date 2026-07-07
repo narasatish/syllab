@@ -1910,7 +1910,7 @@ export default function App() {
           onToggle={() => setTutorOpen((open) => !open)}
           panel={
             <Suspense fallback={<div className="h-full rounded-3xl bg-white p-8 text-center text-sm font-bold text-slate-400 shadow-2xl">Loading tutor...</div>}>
-              <TutorPage currentUser={currentUser} floating onClose={() => setTutorOpen(false)} />
+              <TutorPage currentUser={currentUser} userClass={userClass} floating onClose={() => setTutorOpen(false)} />
             </Suspense>
           }
         />
