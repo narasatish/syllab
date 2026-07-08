@@ -1517,7 +1517,7 @@ function conceptBody(x, sibs, base) {
   const rel = sibs.length ? `<h2>Related ${esc(x.subject || '')} Concepts</h2><ul>${sibs.map((s) => `<li><a href="${base}/${s.slug}">${esc(s.title)} Explained</a></li>`).join('')}</ul>` : '';
   // Curated FAQ (concept-faq.mjs) deepens thin concept pages into substantive,
   // snippet-worthy answers for the exact question forms users search.
-  const faqs = (x.faqs || []).slice(0, 6);
+  const faqs = (x.faqs || []).slice(0, 8);
   const faqHtml = faqs.length ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
   const vSlug = CONCEPT_TO_VISUAL[x.slug];
   const visualLink = vSlug ? `<p><a href="/visual-learning/${vSlug}">🎬 Watch the animated, step-by-step ${esc(x.title)} diagram →</a></p>` : '';
@@ -1602,7 +1602,7 @@ for (const c of STUDY_CLUSTERS) {
       route.bodyHtml = c.body(x, sibs, c.base);
     }
     if (x.faqs && x.faqs.length) {
-      route.jsonLd = [route.jsonLd, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: x.faqs.slice(0, 6).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }];
+      route.jsonLd = [route.jsonLd, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: x.faqs.slice(0, 8).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }];
     }
     // Reciprocal hreflang to the Hindi version, where one exists (see hindi-concepts.mjs).
     if (c.base === '/concepts' && HINDI_CONCEPT_SLUGS.has(x.slug)) {

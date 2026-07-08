@@ -207,6 +207,14 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
       {
         "q": "Does a heavier object fall faster than a lighter one?",
         "a": "No, both fall with the same acceleration of 10 m/s squared (ignoring air resistance) because gravitational force is proportional to mass. F = mg and a = F/m = g, so acceleration is independent of mass."
+      },
+      {
+        "q": "What is the difference between mass and weight?",
+        "a": "Mass is the amount of matter in an object (measured in kg) and is the same everywhere. Weight is the gravitational force acting on that mass (measured in newtons, W = mg) and changes with location — your weight on the Moon is about one-sixth of your weight on Earth, but your mass stays the same."
+      },
+      {
+        "q": "Why do passengers lurch forward when a moving bus stops suddenly?",
+        "a": "Because of inertia (Newton's first law). The passengers' bodies tend to stay in motion even after the bus stops, so they keep moving forward until a force — the seat in front or a handhold — stops them."
       }
     ]
   },
@@ -1052,6 +1060,14 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
       {
         "q": "How do catalysts affect chemical reactions?",
         "a": "Catalysts speed up reactions by providing alternative pathways with lower activation energy. They are not consumed in the reaction and do not appear in the balanced equation. Enzymes are biological catalysts that enable life's chemistry."
+      },
+      {
+        "q": "What is the difference between an exothermic and an endothermic reaction?",
+        "a": "An exothermic reaction releases heat to the surroundings (e.g. combustion and respiration), so the surroundings get warmer. An endothermic reaction absorbs heat (e.g. photosynthesis and the decomposition of calcium carbonate), so the surroundings get cooler."
+      },
+      {
+        "q": "How do you balance a chemical equation?",
+        "a": "Adjust the coefficients (the numbers in front of the formulae) so the number of atoms of each element is equal on both sides. Never change the subscripts inside a formula — that would change the substance itself. Balance one element at a time, leaving hydrogen and oxygen for last."
       }
     ]
   },
@@ -2100,6 +2116,14 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
       {
         "q": "When should I use factoring versus the quadratic formula?",
         "a": "Use factoring if the roots are simple integers or fractions, as it is faster. Use the quadratic formula for all other cases or if factoring is difficult. The formula always works but may give irrational or complex answers."
+      },
+      {
+        "q": "What does the discriminant tell you about a quadratic equation?",
+        "a": "The discriminant is b squared minus 4ac. If it is positive there are two distinct real roots; if it is zero there is one repeated real root; if it is negative there are no real roots (the roots are imaginary)."
+      },
+      {
+        "q": "What is the sum and product of the roots of a quadratic equation?",
+        "a": "For ax squared + bx + c = 0, the sum of the roots is minus b/a and the product of the roots is c/a. This lets you quickly check your answers or build a quadratic equation from its roots."
       }
     ]
   },
@@ -2169,6 +2193,14 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
       {
         "q": "What is the unit circle?",
         "a": "The unit circle is a circle with radius 1 centered at the origin. It is used to define trigonometric functions for all angles. A point on the unit circle at angle theta has coordinates (cos(theta), sin(theta))."
+      },
+      {
+        "q": "What is the easiest way to remember the trigonometric ratios?",
+        "a": "Use SOH-CAH-TOA: Sine = Opposite/Hypotenuse, Cosine = Adjacent/Hypotenuse, Tangent = Opposite/Adjacent. It maps each ratio to the sides of a right-angled triangle relative to the angle."
+      },
+      {
+        "q": "What are the values of sin 30, cos 60 and tan 45?",
+        "a": "sin 30 degrees = 1/2, cos 60 degrees = 1/2, and tan 45 degrees = 1. The standard-angle values for 0, 30, 45, 60 and 90 degrees are worth memorising for board exams."
       }
     ]
   },
@@ -3922,6 +3954,14 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
       {
         "q": "Why is regular exercise good for the heart?",
         "a": "Exercise increases heart rate and cardiac output, strengthening the heart muscle (myocardium). Regular exercise improves cardiovascular efficiency, lowers resting heart rate, reduces blood pressure, and improves overall circulation and oxygen delivery to tissues."
+      },
+      {
+        "q": "What is blood pressure and what do the two numbers mean?",
+        "a": "Blood pressure is the force blood exerts on the artery walls. The higher number (systolic) is the pressure when the heart contracts; the lower number (diastolic) is the pressure when the heart relaxes. A typical healthy reading is about 120/80 mmHg."
+      },
+      {
+        "q": "What is the difference between arteries and veins?",
+        "a": "Arteries carry blood away from the heart (usually oxygenated, at high pressure, with thick muscular walls). Veins carry blood back to the heart (usually deoxygenated, at low pressure) and have valves to stop backflow. The pulmonary artery and vein are the exceptions to the oxygen rule."
       }
     ]
   },

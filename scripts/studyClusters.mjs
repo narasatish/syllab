@@ -84,7 +84,7 @@ export function getEnglishLiterature(root) {
 export function getConcepts(root) {
   return readArray(root, 'conceptExplainers.ts', 'export const CONCEPT_EXPLAINERS: ConceptExplainer[] = ')
     .filter((c) => c && c.slug && c.title)
-    .map((c) => ({ slug: c.slug, title: c.title, subject: c.subject, classLevel: c.classLevel, intro: String(c.intro || '').slice(0, 155) }));
+    .map((c) => ({ slug: c.slug, title: c.title, subject: c.subject, classLevel: c.classLevel, intro: String(c.intro || '').slice(0, 155), faqs: Array.isArray(c.faqs) ? c.faqs : [] }));
 }
 export function getSolvedExamples(root) {
   return readArray(root, 'solvedExamples.ts', 'export const SOLVED_SETS: SolvedSet[] = ')
