@@ -318,6 +318,8 @@ function buildUrls({ languages, topicsByLang }) {
   // Physical files are emitted to dist/web-stories/ by generate-prerender.mjs.
   urls.push({ loc: '/web-stories', priority: 0.7, changefreq: 'weekly' });
   for (const x of getVisualLessons(ROOT)) urls.push({ loc: `/web-stories/${x.slug}.html`, priority: 0.6, changefreq: 'monthly' });
+  // Shareable Science Memory Tricks cheat-sheet (emitted to dist/posters/).
+  urls.push({ loc: '/posters/science-memory-tricks.html', priority: 0.6, changefreq: 'monthly' });
 
   // Microlearning index + modules.
   urls.push({ loc: '/micro', priority: 0.8, changefreq: 'weekly' });
