@@ -570,13 +570,16 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
               Going abroad after Class 12? Prep for it free.
             </h2>
             <p className="mt-3 max-w-2xl text-sm sm:text-lg font-medium text-sky-50/90">
-              <strong>LandingPrep</strong> is our sister platform for students headed overseas. Practise
-              IELTS, TOEFL, SAT, GRE and GMAT with 1,000+ real mock tests, shortlist your best-fit
-              universities with the college predictor, compare education loans, and get help with your
-              SOP and visa answers. Same promise as Syllab — <strong>no signup, no paywall.</strong>
+              <strong>LandingPrep</strong> is our sister platform — a <strong>100% free exam-prep and
+              study-abroad platform</strong> for students headed overseas. Practise IELTS, TOEFL, PTE,
+              GRE, GMAT, OET, SAT and more with <strong>1,000+ full-length mock tests</strong> (real
+              timing, instant scoring) and an AI speaking &amp; writing partner. Then shortlist your
+              Safe/Target/Reach universities with the free college predictor, build your SOP, LOR and
+              resume, work out costs and education loans, and prep for the visa interview. Same promise
+              as Syllab — <strong>no signup, no paywall.</strong>
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {['1,000+ mock tests', 'IELTS · TOEFL · SAT · GRE', 'College predictor', 'SOP & visa help'].map((chip) => (
+              {['1,000+ mock tests', 'IELTS · TOEFL · PTE · GRE · GMAT', 'AI speaking & writing', 'College predictor', 'SOP · LOR · visa prep'].map((chip) => (
                 <span key={chip} className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold text-white">{chip}</span>
               ))}
             </div>
