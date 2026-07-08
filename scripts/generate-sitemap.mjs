@@ -314,6 +314,11 @@ function buildUrls({ languages, topicsByLang }) {
     for (const x of fn(ROOT)) urls.push({ loc: `${base}/${x.slug}`, priority: 0.7, changefreq: 'monthly' });
   }
 
+  // AMP Web Stories (Google Discover) — one per visual lesson + the hub.
+  // Physical files are emitted to dist/web-stories/ by generate-prerender.mjs.
+  urls.push({ loc: '/web-stories', priority: 0.7, changefreq: 'weekly' });
+  for (const x of getVisualLessons(ROOT)) urls.push({ loc: `/web-stories/${x.slug}.html`, priority: 0.6, changefreq: 'monthly' });
+
   // Microlearning index + modules.
   urls.push({ loc: '/micro', priority: 0.8, changefreq: 'weekly' });
   for (const m of ['quadratic-formula','newtons-first-law','trigonometry-ratios','photosynthesis','periodic-table-trends','probability-basics','linear-equations','surface-area-volume','acids-bases','fractions-decimals','imperialism-colonialism','plate-tectonics','english-tenses','photosynthesis-respiration','mean-median-mode']) {

@@ -1954,6 +1954,7 @@ export default function App() {
             <h2 className="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-primary mb-4 sm:mb-8">Learning Hub</h2>
             <ul className="grid grid-cols-2 gap-x-5 gap-y-2 sm:gap-y-3 content-start">
               <li><a href="/story-lessons" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Story Lessons</a></li>
+              <li><a href="/web-stories" className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Web Stories</a></li>
               <li><button onClick={() => navigate('syllabus')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus</button></li>
               <li><button onClick={() => navigate('arena')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
               <li><button onClick={() => navigate('daily')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>

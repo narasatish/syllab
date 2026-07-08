@@ -1554,6 +1554,11 @@ let CONCEPT_TO_VISUAL = {};
     } catch { /* keep regex fallback */ }
   }
 }
+// Generate AMP Web Stories (Google Discover channel) from the full lesson data.
+try {
+  const { generateWebStories } = await import('./webStories.mjs');
+  await generateWebStories(ROOT, VISUAL_LESSONS_FULL);
+} catch (e) { console.warn('⚠️  Web Stories generation error:', e?.message || e); }
 const STUDY_CLUSTERS = [
   { base: '/maths-tables', name: 'Maths Tables & Charts', kw: 'maths tables, multiplication table, squares cubes primes', data: getMathsTables(ROOT), label: (x) => x.title, titleSuffix: '— Full Chart & Quick Revision', body: mathsTableBody },
   { base: '/english-writing', name: 'English Writing Skills', kw: 'essay writing, letter writing, notice article speech writing', data: getEnglishWriting(ROOT), label: (x) => x.title },
