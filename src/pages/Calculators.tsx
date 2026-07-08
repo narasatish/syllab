@@ -3,7 +3,7 @@
  * attendance "can I bunk?"). Pure client-side; each is an indexable SEO page.
  */
 import { useState } from 'react';
-import { Percent, GraduationCap, CalendarCheck, Target, Plus, Trash2 } from 'lucide-react';
+import { Percent, GraduationCap, CalendarCheck, Target, Plus, Trash2, CalendarClock } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import {
   percentage, cgpaToPercentage, percentageToCgpa,
@@ -77,6 +77,17 @@ export default function Calculators() {
   const gpaParsed = gpaRows.map((r) => ({ points: num(r.points), credits: num(r.credits) }));
   const gpaHasInput = gpaParsed.some((r) => r.credits > 0 && !Number.isNaN(r.points));
   const sgpa = semesterGpa(gpaParsed);
+
+  // Exam countdown — days until a chosen exam date
+  const [examDate, setExamDate] = useState('');
+  let daysToExam: number | null = null;
+  if (examDate) {
+    const target = new Date(examDate + 'T00:00:00');
+    if (!Number.isNaN(target.getTime())) {
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      daysToExam = Math.round((target.getTime() - today.getTime()) / 86400000);
+    }
+  }
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
@@ -177,6 +188,25 @@ export default function Calculators() {
             <div className="text-[11px] font-bold text-violet-600/80">your SGPA (credit-weighted)</div>
           </div>
         </Card>
+
+        {/* Exam countdown */}
+        <Card icon={<CalendarClock size={18} className="text-primary" />} title="Exam Countdown">
+          <label className="block">
+            <span className="text-xs font-bold text-slate-500">Your exam date</span>
+            <input type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)} className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-primary focus:bg-white" />
+          </label>
+          {daysToExam !== null ? (
+            <div className="mt-4 rounded-xl bg-sky-50 p-3 text-center">
+              {daysToExam > 0 ? (
+                <><div className="text-2xl font-black text-sky-700">{daysToExam} {daysToExam === 1 ? 'day' : 'days'}</div><div className="text-[11px] font-bold text-sky-600/80">to go — {Math.floor(daysToExam / 7)} weeks {daysToExam % 7} days. Start today!</div></>
+              ) : daysToExam === 0 ? (
+                <div className="text-xl font-black text-emerald-700">It's exam day — you've got this! 💪</div>
+              ) : (
+                <div className="text-base font-black text-slate-500">That date passed {Math.abs(daysToExam)} days ago.</div>
+              )}
+            </div>
+          ) : <p className="mt-4 text-center text-xs text-slate-400">Pick your exam date to see how long you have to prepare.</p>}
+        </Card>
       </div>
 
       {/* SEO content — high-intent, indexable, no clutter */}
@@ -187,6 +217,7 @@ export default function Calculators() {
         <p><strong className="text-slate-800">Attendance "can I bunk?":</strong> tells you how many classes you can safely skip — or must attend — to stay at the 75% most colleges require.</p>
         <p><strong className="text-slate-800">Marks needed in final exam:</strong> enter what you've scored so far and your target overall percentage; we tell you the exact marks needed in the upcoming board or final paper.</p>
         <p><strong className="text-slate-800">Semester GPA (SGPA):</strong> SGPA = Σ(grade points × credits) ÷ Σ(credits). Add a row per subject for a credit-weighted result.</p>
+        <p><strong className="text-slate-800">Exam countdown:</strong> pick your board or entrance exam date to see exactly how many days (and weeks) you have left to prepare — a simple nudge to plan your revision.</p>
         <p className="text-xs text-slate-400">All tools run entirely in your browser. No login, no ads, nothing stored — free for every Indian student.</p>
       </section>
     </div>

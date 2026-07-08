@@ -104,7 +104,6 @@ const KidsPage = React.lazy(() => import('./pages/Kids'));
 const GkQuestionsPage = React.lazy(() => import('./pages/GkQuestions'));
 const ImportantQuestionsPage = React.lazy(() => import('./pages/ImportantQuestions'));
 const PromptLabPage = React.lazy(() => import('./pages/PromptLab'));
-const StudyToolsPage = React.lazy(() => import('./pages/StudyTools'));
 const MockExamLandingPage = React.lazy(() => import('./pages/MockExamLanding'));
 const CollegePredictorLandingPage = React.lazy(() => import('./pages/CollegePredictorLanding'));
 const EnglishTopicsPage = React.lazy(() => import('./pages/EnglishTopics'));
@@ -241,7 +240,6 @@ const TAB_TO_PATH: Record<string, string> = {
   state_board_solutions: '/state-board-solutions',
   ai_hub: '/ai-hub',
   prompt_lab: '/prompt-lab',
-  tools: '/tools',
   embed: '/embed',
   medical_colleges: '/medical-colleges',
   college_finder: '/best-colleges',
@@ -330,7 +328,6 @@ function resolveTab(pathname: string): string {
   if (pathname === '/gk-questions' || pathname.startsWith('/gk-questions/')) return 'gk_questions';
   if (pathname === '/important-questions' || pathname.startsWith('/important-questions/')) return 'important_questions';
   if (pathname === '/prompt-lab') return 'prompt_lab';
-  if (pathname === '/tools') return 'tools';
   // SEO landing clusters (deep routes → their own pages; bare /mock-tests stays the main page).
   if (pathname.startsWith('/mock-tests/')) return 'mock_exam';
   if (pathname === '/english-grammar' || pathname.startsWith('/english-grammar/')) return 'english_grammar';
@@ -1772,7 +1769,6 @@ export default function App() {
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
                   {activeTab === 'important_questions' ? <ImportantQuestionsPage setTab={navigate} /> : null}
                   {activeTab === 'prompt_lab' ? <PromptLabPage setTab={navigate} /> : null}
-                  {activeTab === 'tools' ? <StudyToolsPage setTab={navigate} /> : null}
                   {activeTab === 'mock_exam' ? <MockExamLandingPage setTab={navigate} /> : null}
                   {activeTab === 'college_predictor' ? <CollegePredictorLandingPage setTab={navigate} /> : null}
                   {activeTab === 'english_grammar' ? <EnglishTopicsPage setTab={navigate} /> : null}
@@ -1959,7 +1955,7 @@ export default function App() {
               <li><button onClick={() => navigate('arena')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
               <li><button onClick={() => navigate('daily')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>
               <li><button onClick={() => navigate('mock_tests')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
-              <li><button onClick={() => navigate('tools')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
+              <li><button onClick={() => navigate('calculators')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
               <li><button onClick={() => navigate('progress')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Dashboard</button></li>
               <li><button onClick={() => navigate('learning_lab')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Tutor</button></li>
               <li><button onClick={() => setTutorOpen(true)} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
