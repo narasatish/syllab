@@ -1202,6 +1202,37 @@ ROUTES.push({
     <p>Prompting well is a real skill for school, college and future jobs. <a href="/ai-hub">Read the free AI-for-students guides →</a> · <a href="/ai-tutor">Try the free AI Tutor →</a></p>`,
   jsonLd: { '@context': 'https://schema.org', '@type': 'LearningResource', name: 'AI Prompt Lab', description: 'Interactive practice for writing effective AI prompts, with instant AI feedback.', learningResourceType: 'Interactive tool', educationalUse: 'Practice', inLanguage: 'en-IN', isAccessibleForFree: true, url: `${SITE}/prompt-lab` },
 });
+// Free student calculators — high-intent, evergreen, linkable utilities (100% client-side).
+ROUTES.push({
+  path: '/tools',
+  title: 'Free Student Calculators — CBSE Percentage, CGPA to %, Marks Needed | Syllab.in',
+  description: 'Free online calculators for Indian students: CBSE percentage calculator, CGPA to percentage converter (×9.5), marks-needed target calculator and exam countdown. No sign-up, instant results.',
+  keywords: 'cbse percentage calculator, cgpa to percentage calculator, cgpa calculator cbse, marks needed calculator, percentage calculator for students, exam countdown, free student calculator India',
+  bodyHtml: `
+    <p class="speakable">Free, instant <strong>calculators for Indian students</strong> — work out your <strong>CBSE percentage</strong>, convert <strong>CGPA to percentage</strong>, find the <strong>marks you need</strong> to hit a target, and count down to your exam. Every tool is free, runs in your browser and never stores your marks.</p>
+    <h2>How to calculate your CBSE percentage</h2>
+    <p>Add the marks you scored in every subject, add the maximum marks, then divide and multiply by 100: <strong>Percentage = (Total obtained ÷ Total maximum) × 100</strong>. For example, 425 out of 500 is (425 ÷ 500) × 100 = <strong>85%</strong>.</p>
+    <h2>CGPA to percentage (CBSE ×9.5 rule)</h2>
+    <p>CBSE uses the official formula <strong>Percentage = CGPA × 9.5</strong>. So a CGPA of 9.2 equals 9.2 × 9.5 = <strong>87.4%</strong>. To convert a percentage back to CGPA, divide by 9.5.</p>
+    <h2>Marks needed for your target</h2>
+    <p>Multiply your target percentage by the grand total of all exams, then subtract the marks you have already scored — the result is the minimum marks you need in your remaining exams.</p>
+    <h3>Frequently asked questions</h3>
+    <h3>How do I calculate my CBSE percentage from marks?</h3>
+    <p>Divide total marks obtained by total maximum marks and multiply by 100. For example, 425 out of 500 is 85%.</p>
+    <h3>How do I convert CGPA to percentage in CBSE?</h3>
+    <p>Use Percentage = CGPA × 9.5. A CGPA of 9.2 equals 87.4%.</p>
+    <h3>Are these calculators free?</h3>
+    <p>Yes — every tool on Syllab is free, needs no sign-up, and never stores your marks.</p>
+    <p><a href="/mock-tests">Practise free mock tests →</a> · <a href="/ai-tutor">Ask the free AI Tutor →</a></p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Student Calculators', applicationCategory: 'EducationalApplication', operatingSystem: 'Any (web)', url: `${SITE}/tools`, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }, inLanguage: 'en-IN', isAccessibleForFree: true, publisher: { '@type': 'Organization', name: 'Syllab.in' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'How do I calculate my CBSE percentage from marks?', acceptedAnswer: { '@type': 'Answer', text: 'Divide total marks obtained by total maximum marks and multiply by 100. For example, 425 out of 500 is 85%.' } },
+      { '@type': 'Question', name: 'How do I convert CGPA to percentage in CBSE?', acceptedAnswer: { '@type': 'Answer', text: 'Use Percentage = CGPA × 9.5. A CGPA of 9.2 equals 87.4%.' } },
+      { '@type': 'Question', name: 'Are these calculators free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — every tool on Syllab is free, needs no sign-up, and never stores your marks.' } },
+    ] },
+  ],
+});
 for (const [slug, title, desc] of AI_HUB) {
   ROUTES.push({
     path: `/ai-hub/${slug}`,
