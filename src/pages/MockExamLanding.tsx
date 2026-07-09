@@ -20,6 +20,21 @@ function parseSlug(pathname: string): string | null {
   return m ? m[1] : null;
 }
 
+// Broad subjects the AI question generator handles well. We pick the exam's
+// first few of these so "Start mock test" launches a real, exam-relevant paper.
+const GENERATABLE = new Set([
+  'Physics', 'Chemistry', 'Mathematics', 'Biology', 'English', 'English Language',
+  'General Knowledge', 'Current Affairs', 'Logical Reasoning', 'Quantitative Ability',
+  'Reasoning', 'General Aptitude', 'Aptitude', 'Verbal Ability',
+]);
+
+/** Map an exam to a mock config the generator can actually build a paper from. */
+function mockConfigFor(exam: { subjects: string[] }): { class: string; subjects: string[]; level: string; count: number } {
+  const preferred = exam.subjects.filter((s) => GENERATABLE.has(s));
+  const subjects = (preferred.length ? preferred : exam.subjects).slice(0, 3);
+  return { class: '12', subjects, level: 'Medium', count: 30 };
+}
+
 export default function MockExamLanding({ setTab }: { setTab: (tab: string) => void }) {
   const [path, setPath] = useState(usePathname());
   useEffect(() => {
@@ -172,7 +187,10 @@ export default function MockExamLanding({ setTab }: { setTab: (tab: string) => v
           Ready to start your {exam.name} mock test? Practice now with full answers and explanations.
         </p>
         <button
-          onClick={() => setTab('mock_tests')}
+          onClick={() => {
+            try { sessionStorage.setItem('syllab_mock_autostart', JSON.stringify(mockConfigFor(exam))); } catch { /* ignore */ }
+            setTab('mock_tests');
+          }}
           className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-sm font-black text-white hover:bg-emerald-600"
         >
           Start {exam.name} Mock Test <ArrowRight size={15} />

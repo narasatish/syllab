@@ -175,6 +175,26 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
       setJoinCode(code.toUpperCase().replace(/[^A-Z0-9]/g, ''));
       // Auto-trigger join after a brief delay so UI settles
       window.setTimeout(() => handleJoinExam(code.toUpperCase()), 500);
+      return;
+    }
+    // Auto-start a real exam-configured mock when arriving from an exam landing page.
+    let raw: string | null = null;
+    try { raw = sessionStorage.getItem('syllab_mock_autostart'); if (raw) sessionStorage.removeItem('syllab_mock_autostart'); } catch { /* ignore */ }
+    if (raw) {
+      try {
+        const cfg = JSON.parse(raw) as { class?: string; subjects?: string[]; level?: string; count?: number };
+        if (Array.isArray(cfg.subjects) && cfg.subjects.length) {
+          setCreateClass(cfg.class || '12');
+          setCreateSubjects(cfg.subjects);
+          setCreateLevel((cfg.level as 'Easy' | 'Medium' | 'Hard') || 'Medium');
+          setCreateCount(cfg.count || 30);
+          setActiveSection('create');
+          window.setTimeout(() => {
+            const btn = document.getElementById('generate-exam-btn');
+            if (btn) (btn as HTMLButtonElement).click();
+          }, 400);
+        }
+      } catch { /* ignore malformed config */ }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
