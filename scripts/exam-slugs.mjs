@@ -17,6 +17,8 @@ export const EXAM_LIST = [
   { slug: 'ap-eapcet', name: 'AP EAPCET', category: 'Engineering' },
   { slug: 'ts-eapcet', name: 'TS EAPCET', category: 'Engineering' },
   { slug: 'gujcet', name: 'GUJCET', category: 'Engineering' },
+  { slug: 'comedk-uget', name: 'COMEDK UGET', category: 'Engineering' },
+  { slug: 'viteee', name: 'VITEEE', category: 'Engineering' },
   // Medical
   { slug: 'neet', name: 'NEET UG', category: 'Medical' },
   // University
@@ -28,6 +30,7 @@ export const EXAM_LIST = [
   { slug: 'ibps-clerk', name: 'IBPS Clerk', category: 'Government' },
   // Law
   { slug: 'clat', name: 'CLAT UG', category: 'Law' },
+  { slug: 'ailet', name: 'AILET', category: 'Law' },
   // Olympiads
   { slug: 'science-olympiad', name: 'Science Olympiad', category: 'Olympiad' },
   { slug: 'maths-olympiad', name: 'Maths Olympiad', category: 'Olympiad' },
