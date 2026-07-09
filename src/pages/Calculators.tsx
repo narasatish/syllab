@@ -89,6 +89,14 @@ export default function Calculators() {
     }
   }
 
+  // CBSE Best-of-Five percentage (best 5 of 6 subjects, each out of 100)
+  const [bof, setBof] = useState<string[]>(['', '', '', '', '', '']);
+  const setBofAt = (i: number, v: string) => setBof((a) => a.map((x, idx) => (idx === i ? v : x)));
+  const bofNums = bof.map((s) => num(s)).filter((n) => !Number.isNaN(n) && n >= 0 && n <= 100);
+  const bofPct = bofNums.length >= 5
+    ? Math.round(([...bofNums].sort((a, b) => b - a).slice(0, 5).reduce((s, n) => s + n, 0) / 5) * 100) / 100
+    : null;
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <PageHero emoji="🧮" title="Free Student Calculators" subtitle="Instant marks-percentage, CGPA↔percentage, and an attendance 'can I bunk?' calculator. Free, no signup." className="mb-8" />
@@ -207,6 +215,20 @@ export default function Calculators() {
             </div>
           ) : <p className="mt-4 text-center text-xs text-slate-400">Pick your exam date to see how long you have to prepare.</p>}
         </Card>
+
+        {/* CBSE Best-of-Five percentage */}
+        <Card icon={<Percent size={18} className="text-primary" />} title="CBSE Best-of-Five %">
+          <p className="mb-2 text-xs text-slate-500">Marks (out of 100) for your 6 subjects — CBSE counts your best 5.</p>
+          <div className="grid grid-cols-3 gap-2">
+            {bof.map((v, i) => (
+              <input key={i} type="number" inputMode="decimal" value={v} onChange={(e) => setBofAt(i, e.target.value)} placeholder={`Sub ${i + 1}`} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-2 py-2 text-sm outline-none focus:border-primary focus:bg-white" />
+            ))}
+          </div>
+          <div className="mt-3 rounded-xl bg-emerald-50 p-3 text-center">
+            <div className="text-2xl font-black text-emerald-700">{bofPct !== null ? `${bofPct}%` : '—'}</div>
+            <div className="text-[11px] font-bold text-emerald-600/80">best-of-five percentage {bofNums.length > 0 && bofNums.length < 5 ? `(enter ${5 - bofNums.length} more)` : ''}</div>
+          </div>
+        </Card>
       </div>
 
       {/* SEO content — high-intent, indexable, no clutter */}
@@ -218,6 +240,7 @@ export default function Calculators() {
         <p><strong className="text-slate-800">Marks needed in final exam:</strong> enter what you've scored so far and your target overall percentage; we tell you the exact marks needed in the upcoming board or final paper.</p>
         <p><strong className="text-slate-800">Semester GPA (SGPA):</strong> SGPA = Σ(grade points × credits) ÷ Σ(credits). Add a row per subject for a credit-weighted result.</p>
         <p><strong className="text-slate-800">Exam countdown:</strong> pick your board or entrance exam date to see exactly how many days (and weeks) you have left to prepare — a simple nudge to plan your revision.</p>
+        <p><strong className="text-slate-800">CBSE Best-of-Five:</strong> CBSE calculates your Class 10 and 12 percentage on your best 5 subjects. Enter marks for all 6 and we drop your lowest to show the percentage that appears on your result.</p>
         <p className="text-xs text-slate-400">All tools run entirely in your browser. No login, no ads, nothing stored — free for every Indian student.</p>
       </section>
     </div>

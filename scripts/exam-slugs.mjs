@@ -19,6 +19,7 @@ export const EXAM_LIST = [
   { slug: 'gujcet', name: 'GUJCET', category: 'Engineering' },
   { slug: 'comedk-uget', name: 'COMEDK UGET', category: 'Engineering' },
   { slug: 'viteee', name: 'VITEEE', category: 'Engineering' },
+  { slug: 'srmjeee', name: 'SRMJEEE', category: 'Engineering' },
   // Medical
   { slug: 'neet', name: 'NEET UG', category: 'Medical' },
   // University
@@ -31,9 +32,13 @@ export const EXAM_LIST = [
   // Law
   { slug: 'clat', name: 'CLAT UG', category: 'Law' },
   { slug: 'ailet', name: 'AILET', category: 'Law' },
+  // Management
+  { slug: 'ipmat', name: 'IPMAT', category: 'Management' },
+  // Architecture & Design
+  { slug: 'nata', name: 'NATA', category: 'Architecture & Design' },
   // Olympiads
   { slug: 'science-olympiad', name: 'Science Olympiad', category: 'Olympiad' },
   { slug: 'maths-olympiad', name: 'Maths Olympiad', category: 'Olympiad' },
 ];
 
-export const EXAM_CATEGORIES = ['Engineering', 'Medical', 'University', 'Government', 'Law', 'Olympiad'];
+export const EXAM_CATEGORIES = ['Engineering', 'Medical', 'University', 'Management', 'Architecture & Design', 'Government', 'Law', 'Olympiad'];
