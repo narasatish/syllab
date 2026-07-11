@@ -463,6 +463,35 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         <HomeInteractiveDemo onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
       </React.Suspense>
 
+      {/* ── FREE TOOLS & EXTRAS — internal-link hub (discovery + SEO) ──────────── */}
+      <section className="reveal max-w-6xl mx-auto px-5 py-8">
+        <h2 className="mb-1 text-center text-xl font-black text-slate-900 sm:text-2xl dark:text-slate-100">More free tools & resources</h2>
+        <p className="mb-5 text-center text-sm font-medium text-slate-500 dark:text-slate-400">Everything below is 100% free — no signup, no paywall.</p>
+        <div className="flex flex-wrap justify-center gap-2.5">
+          {[
+            { label: '🧮 Free Calculators', tab: 'calculators' },
+            { label: '📝 Mock Tests', tab: 'mock_tests' },
+            { label: '🎬 Visual Learning', tab: 'visual_learning' },
+            { label: '📄 Previous Year Papers', tab: 'previous_year_papers' },
+            { label: '⭐ Important Questions', tab: 'important_questions' },
+            { label: '🎯 What to Study (weightage)', tab: 'what_to_study' },
+            { label: '📐 Formula Sheets', tab: 'formula_sheets' },
+            { label: '🎓 College Predictor', tab: 'college_predictor' },
+            { label: '💡 Concepts Explained', tab: 'concepts' },
+          ].map((t) => (
+            <button
+              key={t.tab}
+              onClick={() => { setTab?.(t.tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+            >
+              {t.label}
+            </button>
+          ))}
+          <a href="/web-stories" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">📱 Web Stories</a>
+          <a href="/posters/science-memory-tricks.html" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">🧠 Memory Tricks Cheat-sheet</a>
+        </div>
+      </section>
+
       {/* ── WHAT'S NEW — Latest blog posts & new features ─────────────────── */}
       <WhatsNew
         onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
