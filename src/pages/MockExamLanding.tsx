@@ -35,6 +35,29 @@ function mockConfigFor(exam: { subjects: string[] }): { class: string; subjects:
   return { class: '12', subjects, level: 'Medium', count: 30 };
 }
 
+// Exam-specific counselling/admission route (accurate, evergreen — no dated numbers).
+const COUNSELLING: Record<string, string> = {
+  'neet': 'MCC (mcc.nic.in) for the 15% All-India Quota, plus your state counselling authority for state-quota seats',
+  'jee-main': 'JoSAA (josaa.nic.in) for NITs, IIITs and CFTIs, followed by CSAB special rounds',
+  'jee-advanced': 'JoSAA (josaa.nic.in) for admission to the IITs',
+  'clat': 'the CLAT Consortium (consortiumofnlus.ac.in) for the participating National Law Universities',
+  'ailet': "National Law University (NLU) Delhi's own admission portal",
+  'ipmat': "IIM Indore's admission process (and other participating IIMs)",
+  'nata': 'the Council of Architecture and the relevant state/institute counselling for B.Arch admission',
+  'bitsat': 'the BITS Pilani admissions portal (bitsadmission.com)',
+  'viteee': "VIT's own rank-based counselling across its campuses",
+  'srmjeee': "SRM's own rank-based counselling across its campuses",
+  'comedk-uget': 'the COMEDK counselling portal for private Karnataka colleges',
+  'cuet': "the CUET-participating universities' own CSAS/admission portals",
+  'ap-eapcet': 'the AP state counselling authority (APSCHE)',
+  'ts-eapcet': 'the Telangana state counselling authority (TSCHE)',
+  'kcet': 'the Karnataka Examinations Authority (KEA) counselling',
+  'mht-cet': 'the Maharashtra CET Cell (CAP rounds)',
+  'wbjee': 'the West Bengal Joint Entrance Examinations Board counselling',
+  'gujcet': 'the Gujarat ACPC counselling',
+};
+const counsellingFor = (slug: string) => COUNSELLING[slug] || "the official conducting body's counselling / admission process";
+
 export default function MockExamLanding({ setTab }: { setTab: (tab: string) => void }) {
   const [path, setPath] = useState(usePathname());
   useEffect(() => {
@@ -82,8 +105,8 @@ export default function MockExamLanding({ setTab }: { setTab: (tab: string) => v
     <div className="mx-auto max-w-3xl px-4 py-8">
       <SEO
         title={`Free ${exam.fullName} Mock Test 2026 | Online Practice with Answers | Syllab.in`}
-        description={`Practice free ${exam.name} mock tests online with detailed answers and explanations. ${exam.about.substring(0, 100)}...`}
-        keywords={`${exam.slug} mock test, ${exam.name} mock test free, ${exam.name} practice test, ${exam.name} online exam, entrance exam practice`}
+        description={`Free ${exam.name} mock tests, plus exam pattern, syllabus, preparation tips, and how the ${exam.name} result, cutoff and counselling work. ${exam.about.substring(0, 90)}...`}
+        keywords={`${exam.slug} mock test, ${exam.name} mock test free, ${exam.name} practice test, ${exam.name} exam pattern, ${exam.name} cutoff, ${exam.name} result, ${exam.name} counselling, ${exam.name} syllabus, entrance exam practice`}
         url={`${SITE}/mock-tests/${exam.slug}`}
         jsonLd={[
           {
@@ -178,6 +201,17 @@ export default function MockExamLanding({ setTab }: { setTab: (tab: string) => v
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Result, Cutoff & Counselling — evergreen, exam-aware (no dated numbers) */}
+      <section className="mb-8">
+        <h2 className="mb-3 text-lg font-black text-slate-900">{exam.name} Result, Cutoff &amp; Counselling</h2>
+        <div className="space-y-3 rounded-2xl border border-slate-100 bg-white p-4 text-sm leading-relaxed text-slate-700 shadow-sm">
+          <p><span className="font-black text-slate-900">How to check the result:</span> Once the {exam.name} result is declared, log in to the official conducting body's website with your application number and password / date of birth, then download your scorecard or rank card.</p>
+          <p><span className="font-black text-slate-900">Understanding the cutoff:</span> The {exam.name} cutoff is the minimum rank or score needed to get a seat. It changes every year with the number of candidates, the paper's difficulty and the seats available, and it also differs by category (General / OBC / SC / ST / EWS) and quota — so always check the latest official cutoff.</p>
+          <p><span className="font-black text-slate-900">Counselling &amp; admission:</span> Admission is through {counsellingFor(exam.slug)}. You register, fill your college/branch choices by rank, and report for document verification and seat confirmation.</p>
+          <p className="text-xs text-slate-500">📌 Exact dates, cutoffs and the counselling process are announced officially each year — always verify on the official website before acting.</p>
         </div>
       </section>
 

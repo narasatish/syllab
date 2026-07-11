@@ -984,6 +984,27 @@ const tcSlug = (s) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase
     hubRoute.bodyHtml = hub;
   }
 
+  const EXAM_COUNSELLING = {
+    'neet': 'MCC (mcc.nic.in) for the 15% All-India Quota, plus your state counselling authority for state-quota seats',
+    'jee-main': 'JoSAA (josaa.nic.in) for NITs, IIITs and CFTIs, followed by CSAB special rounds',
+    'jee-advanced': 'JoSAA (josaa.nic.in) for admission to the IITs',
+    'clat': 'the CLAT Consortium (consortiumofnlus.ac.in) for the participating National Law Universities',
+    'ailet': "National Law University (NLU) Delhi's own admission portal",
+    'ipmat': "IIM Indore's admission process (and other participating IIMs)",
+    'nata': 'the Council of Architecture and the relevant state/institute counselling for B.Arch admission',
+    'bitsat': 'the BITS Pilani admissions portal (bitsadmission.com)',
+    'viteee': "VIT's own rank-based counselling across its campuses",
+    'srmjeee': "SRM's own rank-based counselling across its campuses",
+    'comedk-uget': 'the COMEDK counselling portal for private Karnataka colleges',
+    'cuet': "the CUET-participating universities' own CSAS/admission portals",
+    'ap-eapcet': 'the AP state counselling authority (APSCHE)',
+    'ts-eapcet': 'the Telangana state counselling authority (TSCHE)',
+    'kcet': 'the Karnataka Examinations Authority (KEA) counselling',
+    'mht-cet': 'the Maharashtra CET Cell (CAP rounds)',
+    'wbjee': 'the West Bengal Joint Entrance Examinations Board counselling',
+    'gujcet': 'the Gujarat ACPC counselling',
+  };
+  const counsellingFor = (slug) => EXAM_COUNSELLING[slug] || "the official conducting body's counselling / admission process";
   for (const ex of EXAM_LIST) {
     const d = byExamSlug.get(ex.slug);
     const isMock = ex.category === 'Engineering' || ex.category === 'Medical' || ex.category === 'Olympiad';
@@ -991,7 +1012,7 @@ const tcSlug = (s) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase
       path: `/mock-tests/${ex.slug}`,
       title: `${ex.name} 2026 — ${isMock ? 'Free Mock Test, ' : ''}Exam Pattern, Syllabus & Preparation | Syllab.in`,
       description: d ? `${d.about.slice(0, 155).trim()}…` : `${ex.name} exam pattern, syllabus, eligibility and free preparation guide for Indian students on Syllab.in.`,
-      keywords: `${ex.name} 2026, ${ex.name} exam pattern, ${ex.name} syllabus, ${ex.name} eligibility, ${ex.name} preparation guide${isMock ? `, ${ex.name} mock test free` : ''}`,
+      keywords: `${ex.name} 2026, ${ex.name} exam pattern, ${ex.name} syllabus, ${ex.name} eligibility, ${ex.name} cutoff, ${ex.name} result, ${ex.name} counselling, ${ex.name} preparation guide${isMock ? `, ${ex.name} mock test free` : ''}`,
       jsonLd: [
         { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Competitive Exams', item: `${SITE}/mock-tests` },
@@ -1008,8 +1029,12 @@ const tcSlug = (s) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase
         <h3>Sections</h3><ul>${d.pattern.sections.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
         <h2>Subjects Covered in ${esc(d.name)}</h2><p>${d.subjects.map(esc).join(' · ')}</p>
         <h2>How to Prepare for ${esc(d.name)}</h2><ol>${d.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>
+        <h2>${esc(d.name)} Result, Cutoff &amp; Counselling</h2>
+        <p><strong>How to check the result:</strong> Once the ${esc(d.name)} result is declared, log in to the official conducting body's website with your application number and password / date of birth, then download your scorecard or rank card.</p>
+        <p><strong>Understanding the cutoff:</strong> The ${esc(d.name)} cutoff is the minimum rank or score needed to get a seat. It changes every year with the number of candidates, the paper's difficulty and the seats available, and it differs by category (General / OBC / SC / ST / EWS) and quota — so always check the latest official cutoff.</p>
+        <p><strong>Counselling &amp; admission:</strong> Admission is through ${esc(counsellingFor(ex.slug))}. You register, fill your college and branch choices by rank, and report for document verification and seat confirmation.</p>
         <h2>${esc(d.name)} — Frequently Asked Questions</h2>${d.faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
-        <p style="margin-top:1rem;padding:0.85rem 1rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;">📌 Exam patterns and dates can change — always verify the latest details on the official website before applying.</p>
+        <p style="margin-top:1rem;padding:0.85rem 1rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;">📌 Exam patterns, dates, cutoffs and counselling are announced officially each year — always verify the latest details on the official website before applying.</p>
         <p><a href="/mock-tests">← All competitive exams</a> · <a href="/practice">Free practice →</a> · <a href="/important-questions">Important questions →</a></p>`;
       route.jsonLd.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });
     }
