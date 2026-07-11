@@ -13,6 +13,7 @@ import { recordMasteryResult } from '../lib/mastery';
 import { MockPaper, loadMockTest, MockTestLoadError } from '../lib/mockTestLoader';
 import { MockTestMeta, getMocksByExam } from '../data/mockTestsList';
 import { OLYMPIAD_POOLS, generateRandomExam, type OlympiadQuestion } from '../data/olympiadQuestions';
+import { MOCK_EXAMS } from '../data/mockExams';
 import { generateQuestions, getMockQuestionExplanation } from '../lib/api';
 import FormulaBank from './FormulaBank';
 import PyqPractice from '../components/PyqPractice';
@@ -691,8 +692,8 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
           {/* SEO cross-links → per-exam mock-test landing pages */}
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <span className="self-center text-[10px] font-black uppercase tracking-widest text-slate-400">Exam guides:</span>
-            {([['jee-main', 'JEE Main'], ['neet', 'NEET'], ['ap-eapcet', 'AP EAPCET'], ['ts-eapcet', 'TS EAPCET'], ['bitsat', 'BITSAT'], ['kcet', 'KCET'], ['mht-cet', 'MHT-CET'], ['wbjee', 'WBJEE']] as const).map(([slug, label]) => (
-              <a key={slug} href={`/mock-tests/${slug}`} className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600 transition-colors hover:bg-emerald-100 hover:text-emerald-700">{label}</a>
+            {MOCK_EXAMS.map((e) => (
+              <a key={e.slug} href={`/mock-tests/${e.slug}`} className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600 transition-colors hover:bg-emerald-100 hover:text-emerald-700">{e.name}</a>
             ))}
           </div>
           {/* Tab bar */}
