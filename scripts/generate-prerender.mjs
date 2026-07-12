@@ -220,6 +220,30 @@ const ROUTES = [
     keywords: 'DSA course free, data structures and algorithms tutorial, DSA for placements, DSA in Python, LeetCode preparation free, arrays linked list tree graph dynamic programming, coding interview preparation India, competitive programming basics',
   },
   {
+    path: '/coding/c-cpp',
+    title: 'Free C & C++ Course — From Basics to OOP & STL | Syllab.in',
+    description: 'Learn C and C++ free — variables, control flow, functions, arrays, pointers, structs, dynamic memory, and full C++ OOP (classes, inheritance, polymorphism) plus the STL. Deep, correct examples with practice for college and placements.',
+    keywords: 'C programming course free, C++ tutorial free, learn C and C++ online, pointers in C, C++ OOP classes inheritance polymorphism, STL vector map, C++ for placements India, engineering C programming',
+  },
+  {
+    path: '/coding/excel',
+    title: 'Free Excel & Google Sheets Course — Formulas, VLOOKUP, Pivot Tables | Syllab.in',
+    description: 'Master Excel and Google Sheets free — SUM, IF, VLOOKUP/XLOOKUP, SUMIFS, data cleaning, pivot tables, charts and data validation. The highest-ROI office and data skill for Indian jobs, with real formulas and hands-on practice.',
+    keywords: 'Excel course free, Google Sheets tutorial, VLOOKUP XLOOKUP tutorial, pivot table tutorial free, Excel formulas for jobs, SUMIF COUNTIF, Excel for data analyst India, spreadsheet skills',
+  },
+  {
+    path: '/coding/finance',
+    title: 'Free Financial Literacy Course — Budgeting, SIP, Stock Market Basics | Syllab.in',
+    description: 'Learn money skills free — budgeting (50/30/20), compound interest, banking, mutual funds & SIPs, how the stock market works, risk & diversification, insurance and India income-tax basics. Educational only, not financial advice.',
+    keywords: 'financial literacy course free, personal finance for students India, budgeting 50/30/20, compound interest, mutual funds SIP basics, stock market for beginners India, income tax basics, money management skills',
+  },
+  {
+    path: '/coding/digital-marketing',
+    title: 'Free Digital Marketing Course — SEO, Ads, Social & Analytics | Syllab.in',
+    description: 'Learn digital marketing free — the full funnel: SEO, content, social media, email, Google & Meta ads, and analytics (CPC, ROAS, conversion rate). A degree-optional, high-demand career skill with real examples and practice.',
+    keywords: 'digital marketing course free, learn SEO free, social media marketing, Google Ads Meta Ads basics, email marketing, marketing analytics ROAS CPC, digital marketing career India, performance marketing',
+  },
+  {
     path: '/english',
     title: 'English — Free AI Speaking, Grammar & Vocabulary Practice | Syllab.in',
     description: 'Practice English daily with AI speaking coach, grammar challenges, reading passages, NCERT story guides, vocabulary builder, and IELTS prep — all free for Indian students.',
