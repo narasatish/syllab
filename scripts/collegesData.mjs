@@ -15,6 +15,16 @@ function numField(line, key) {
   const m = line.match(new RegExp(`${key}:\\s*(\\d+)`));
   return m ? Number(m[1]) : null;
 }
+// Array field written either as `key: J('a', 'b')` or `key: ['a', 'b']`.
+// Robust to parentheses/brackets INSIDE the quoted values (e.g.
+// `admissionSteps: J('JAC Delhi (women) registration', ...)`): we match a run of
+// quoted strings (honouring \' escapes), which naturally stops at the closing
+// `)`/`]` — a plain `[^)]*` capture would truncate at the first inner paren.
+function arrField(line, key) {
+  const m = line.match(new RegExp(`${key}:\\s*(?:J\\(|\\[)((?:\\s*'(?:[^'\\\\]|\\\\.)*'\\s*,?)*)`));
+  if (!m) return [];
+  return [...m[1].matchAll(/'((?:[^'\\]|\\.)*)'/g)].map((x) => x[1].replace(/\\'/g, "'"));
+}
 
 export function getCollegesManifest(root) {
   const txt = readFileSync(path.join(root, 'src', 'data', 'colleges.ts'), 'utf8');
@@ -34,10 +44,22 @@ export function getCollegesManifest(root) {
         city: field(line, 'city'),
         stateName: field(line, 'state'),
         type: field(line, 'type'),
+        established: numField(line, 'established'),
         nirf: numField(line, 'nirf'),
         feesPerYear: field(line, 'feesPerYear'),
+        feesTotal: field(line, 'feesTotal'),
+        hostelPerYear: field(line, 'hostelPerYear'),
+        accommodation: field(line, 'accommodation'),
         cutoff: field(line, 'cutoff'),
         placementAvg: field(line, 'placementAvg'),
+        placementHighest: field(line, 'placementHighest'),
+        placementRate: field(line, 'placementRate'),
+        about: field(line, 'about'),
+        website: field(line, 'website'),
+        exams: arrField(line, 'exams'),
+        topBranches: arrField(line, 'topBranches'),
+        recruiters: arrField(line, 'recruiters'),
+        admissionSteps: arrField(line, 'admissionSteps'),
       });
     }
   }

@@ -17,6 +17,7 @@ import { promises as fs, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
+import { ownershipLabel, recognitionLabel, eligibility as collegeEligibility, coursesOffered, documentsRequired, typicalFacilities, scholarships as collegeScholarships, newsLinks as collegeNewsLinks, comparisonSet } from './collegeEnrich.mjs';
 import { getMedicalManifest } from './medicalColleges.mjs';
 import { getBlogArticles } from './blogArticles.mjs';
 import { getNcertChapters } from './ncertChapters.mjs';
@@ -653,26 +654,95 @@ for (const c of COLLEGES_M) {
   const feeYr = inr(c.feesPerYear);
   const fee4 = (() => { const n = Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? inr(n * 4) : null; })();
   const pkg = inr(c.placementAvg);
+  const hi = inr(c.placementHighest);
+  const branches = (c.topBranches || []);
+  const recruiters = (c.recruiters || []);
+  const exams = (c.exams || []);
+  const steps = (c.admissionSteps || []);
+  const cmpSet = comparisonSet(c, COLLEGES_M);
+  const cmpHasPeers = cmpSet.length > 1;
+  const good = (() => {
+    const bits = [];
+    if (c.nirf) bits.push(`ranked #${c.nirf} in India (NIRF Engineering 2024)`);
+    if (pkg) bits.push(`an average package of about ${pkg}`);
+    if (c.placementRate) bits.push(`a placement rate of around ${c.placementRate}`);
+    return bits.length ? `${c.shortName} is a well-regarded choice — it has ${bits.join(', ')}. Whether it is "good for you" depends on your rank, budget and preferred branch (${branches.slice(0, 3).join(', ') || 'engineering'}).` : `${c.shortName} is one of the engineering colleges in ${c.stateName}. Compare its fees, cutoff and placements below to judge fit for your rank and budget.`;
+  })();
   const faqs = [
     feeYr && { q: `What is the B.Tech fee at ${c.shortName}?`, a: `The B.Tech tuition fee at ${c.name}, ${c.city} is about ${feeYr} per year${lakh(c.feesPerYear) ? ` (${lakh(c.feesPerYear)} per year)` : ''}. Hostel and mess are charged separately.` },
     fee4 && { q: `What is the total 4-year B.Tech fee at ${c.shortName}?`, a: `Over the full four-year B.Tech course, tuition works out to roughly ${fee4}${lakh(Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')) * 4) ? ` (${lakh(Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')) * 4)})` : ''}, excluding hostel, mess and one-time charges.` },
-    c.cutoff && { q: `What is the cutoff / admission requirement for ${c.shortName}?`, a: `${c.cutoff}` },
-    pkg && { q: `What is the average placement package at ${c.shortName}?`, a: `The average placement package at ${c.name} is around ${pkg} per annum${lakh(c.placementAvg) ? ` (${lakh(c.placementAvg)} LPA)` : ''}.` },
+    c.cutoff && { q: `What is the cutoff / admission requirement for ${c.shortName}?`, a: `${c.cutoff}. Admission is through ${exams.join(' / ') || 'the relevant entrance exam'} followed by counselling.` },
+    pkg && { q: `What is the average placement package at ${c.shortName}?`, a: `The average placement package at ${c.name} is around ${pkg} per annum${lakh(c.placementAvg) ? ` (${lakh(c.placementAvg)} LPA)` : ''}${hi ? `, with the highest package reported around ${hi}` : ''}.` },
+    exams.length && { q: `Which entrance exam is needed for admission to ${c.shortName}?`, a: `Admission to B.Tech at ${c.name} is based on ${exams.join(', ')}${c.cutoff ? ` — indicatively, ${c.cutoff.toLowerCase()}` : ''}.` },
+    { q: `What is the eligibility for B.Tech at ${c.shortName}?`, a: collegeEligibility(c) },
+    { q: `Is ${c.shortName} a good college?`, a: good },
+    branches.length && { q: `Which branches / courses does ${c.shortName} offer?`, a: `Popular B.Tech branches include ${branches.join(', ')}.${(c.type === 'IIT' || c.type === 'NIT/IIIT' || c.type === 'Government') ? ' Postgraduate (M.Tech) and research (Ph.D.) programmes are also offered.' : ''}` },
   ].filter(Boolean);
+  const cmpTable = cmpHasPeers ? `
+    <h2>${esc(c.shortName)} vs Top ${esc(c.type)} Colleges — Comparison</h2>
+    <p>How ${esc(c.shortName)} compares with peer colleges on the key numbers students weigh (all figures indicative, 2024).</p>
+    <table><thead><tr><th>College</th><th>NIRF</th><th>Fees / year</th><th>Avg package</th><th>Placement rate</th></tr></thead><tbody>
+      ${cmpSet.map((o) => `<tr><td>${o.slug === c.slug ? `<strong>${esc(o.shortName)}</strong>` : `<a href="/colleges/${o.stateSlug}/${o.slug}">${esc(o.shortName)}</a>`}</td><td>${o.nirf ? '#' + o.nirf : '—'}</td><td>${esc(inr(o.feesPerYear) || o.feesPerYear || '—')}</td><td>${esc(inr(o.placementAvg) || o.placementAvg || '—')}</td><td>${esc(o.placementRate || '—')}</td></tr>`).join('')}
+    </tbody></table>` : '';
+  const news = collegeNewsLinks(c);
+  const scholes = collegeScholarships(c);
   const body = `
-    <p class="speakable"><strong>${esc(c.name)}</strong> is an engineering college in ${esc(c.city)}, ${esc(c.stateName)}.${feeYr ? ` B.Tech tuition is about ${esc(feeYr)}/year${fee4 ? ` (≈ ${esc(fee4)} for 4 years)` : ''}` : ''}${pkg ? `, with an average placement package of around ${esc(pkg)}` : ''}.</p>
+    <p class="speakable"><strong>${esc(c.name)}</strong>${c.shortName && c.shortName !== c.name ? ` (${esc(c.shortName)})` : ''} is a ${esc(ownershipLabel(c.type))} in ${esc(c.city)}, ${esc(c.stateName)}${c.established ? `, established in ${c.established}` : ''}.${feeYr ? ` B.Tech tuition is about ${esc(feeYr)}/year${fee4 ? ` (≈ ${esc(fee4)} for 4 years)` : ''}` : ''}${pkg ? `, with an average placement package of around ${esc(pkg)}` : ''}. Admission is through ${esc(exams.join(' / ') || 'the relevant entrance exam')}.</p>
+    ${c.about ? `<p>${esc(c.about)}</p>` : ''}
+
+    <h2>${esc(c.shortName)} — Quick Facts</h2>
+    <table><tbody>
+      <tr><td>Type / ownership</td><td>${esc(ownershipLabel(c.type))}</td></tr>
+      ${c.established ? `<tr><td>Established</td><td>${c.established}</td></tr>` : ''}
+      <tr><td>Location</td><td>${esc(c.city)}, ${esc(c.stateName)}</td></tr>
+      ${c.nirf ? `<tr><td>NIRF Engineering rank (2024)</td><td>#${c.nirf}</td></tr>` : ''}
+      <tr><td>Recognition</td><td>${esc(recognitionLabel(c.type))}</td></tr>
+      <tr><td>Entrance exam(s)</td><td>${esc(exams.join(', ') || '—')}</td></tr>
+      ${c.website ? `<tr><td>Official website</td><td><a href="https://${esc(c.website)}" rel="nofollow noopener">${esc(c.website)}</a></td></tr>` : ''}
+    </tbody></table>
+
+    <h2>Courses Offered at ${esc(c.shortName)}</h2>
+    <ul>${coursesOffered(c).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+
     <h2>${esc(c.shortName)} B.Tech Fees (2026)</h2>
     <table><tbody>
       ${feeYr ? `<tr><td>Tuition fee (per year)</td><td>${esc(feeYr)}</td></tr>` : ''}
       ${fee4 ? `<tr><td>Total tuition (4 years, B.Tech)</td><td>${esc(fee4)}</td></tr>` : ''}
-      <tr><td>Hostel &amp; mess</td><td>Charged separately (varies by room type)</td></tr>
-      ${pkg ? `<tr><td>Average placement package</td><td>${esc(pkg)} per annum</td></tr>` : ''}
+      ${c.hostelPerYear ? `<tr><td>Hostel &amp; mess (per year)</td><td>${esc(c.hostelPerYear)} (indicative)</td></tr>` : `<tr><td>Hostel &amp; mess</td><td>Charged separately (varies by room type)</td></tr>`}
     </tbody></table>
-    <h2>Admission &amp; Cutoff</h2>
-    <p>${esc(c.cutoff)}</p>
+
+    <h2>Admission &amp; Eligibility</h2>
+    <p>${esc(collegeEligibility(c))}</p>
+    <p><strong>Indicative cutoff:</strong> ${esc(c.cutoff || '—')}</p>
+    ${steps.length ? `<h3>Admission process (step by step)</h3><ol>${steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
+    <h3>Documents required</h3>
+    <ul>${documentsRequired(c).map((d) => `<li>${esc(d)}</li>`).join('')}</ul>
+
+    <h2>${esc(c.shortName)} Placements (2026)</h2>
+    <table><tbody>
+      ${pkg ? `<tr><td>Average package</td><td>${esc(pkg)} per annum</td></tr>` : ''}
+      ${hi ? `<tr><td>Highest package</td><td>${esc(hi)}</td></tr>` : ''}
+      ${c.placementRate ? `<tr><td>Placement rate</td><td>${esc(c.placementRate)}</td></tr>` : ''}
+    </tbody></table>
+    ${recruiters.length ? `<p><strong>Top recruiters:</strong> ${esc(recruiters.join(', '))}.</p>` : ''}
+
+    ${c.accommodation ? `<h2>Campus &amp; Hostel</h2><p>${esc(c.accommodation)}</p>` : '<h2>Campus &amp; Facilities</h2>'}
+    <p><strong>Typical facilities</strong> (verify specifics with the college): ${typicalFacilities().join(', ')}.</p>
+
+    <h2>Scholarships</h2>
+    <ul>${scholes.map((s) => `<li><strong>${esc(s.name)}:</strong> ${esc(s.desc)}${s.url ? ` <a href="${s.url}" rel="nofollow noopener">${esc(s.url.replace('https://', ''))}</a>` : ''}</li>`).join('')}</ul>
+
+    ${cmpTable}
+
+    <h2>Latest News &amp; Official Notices</h2>
+    <p>For current admission dates, cut-offs and notifications, check the official and news sources directly:</p>
+    <ul>${news.map((n) => `<li><a href="${n.url}" rel="nofollow noopener">${esc(n.label)}</a></li>`).join('')}</ul>
+
     <h2>Frequently Asked Questions</h2>
     ${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
-    <p><a href="/colleges/${c.stateSlug}">More engineering colleges in ${esc(c.stateName)} →</a> · <a href="/college-predictor">Free college predictor →</a></p>`;
+
+    <p><a href="/colleges/${c.stateSlug}">More engineering colleges in ${esc(c.stateName)} →</a> · <a href="/college-predictor">Free college predictor →</a> · <a href="/colleges">All colleges by state →</a></p>
+    <p><em>All figures (fees, NIRF rank, cutoffs, placements) are indicative for guidance and should be verified on the official college / counselling website before any decision.</em></p>`;
   ROUTES.push({
     path: `/colleges/${c.stateSlug}/${c.slug}`,
     title: `${c.shortName} Fees 2026 — B.Tech Fees, Cutoff & Placements | Syllab.in`,

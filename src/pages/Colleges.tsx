@@ -23,6 +23,10 @@ import {
   getCollegeBySlug, stateSlugForCollege, getRankings, getStateRank, getNationalRank,
   TOTAL_COLLEGES, getCitiesWithColleges, getCollegesByCity, cityInfoForSlug, type CollegeFull,
 } from '../data/colleges';
+import {
+  ownershipLabel, recognitionLabel, eligibility, coursesOffered, documentsRequired,
+  typicalFacilities, scholarships, newsLinks, comparisonSet, isGoodSummary,
+} from '../data/collegeEnrich';
 
 const SITE = 'https://syllab.in';
 
@@ -374,6 +378,15 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
           className="mt-2 inline-flex items-center gap-1 text-xs font-black text-primary dark:text-emerald-400 hover:underline"><Globe size={12} />{c.website}</a>
       </Section>
 
+      <Section title="Quick facts">
+        <Detail label="Type / ownership" value={ownershipLabel(c.type)} />
+        <Detail label="Established" value={String(c.established)} />
+        <Detail label="Location" value={`${c.city}, ${c.state}`} />
+        {c.nirf ? <Detail label="NIRF rank (2024)" value={`#${c.nirf}`} /> : null}
+        <Detail label="Recognition" value={recognitionLabel(c.type)} />
+        <Detail label="Entrance exam(s)" value={c.exams.join(', ')} />
+      </Section>
+
       {getRankings(c).length > 0 && (
         <Section title="Rankings (top sources)">
           <div className="flex flex-wrap gap-2">
@@ -431,6 +444,98 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
             </li>
           ))}
         </ol>
+      </Section>
+
+      <Section title="Courses offered">
+        <ul className="space-y-1.5">
+          {coursesOffered(c).map((x, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-primary" />{x}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section title="Eligibility & documents required">
+        <p className="text-sm text-slate-600 dark:text-slate-300">{eligibility(c)}</p>
+        <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-slate-400">Documents required</p>
+        <ul className="mt-1 space-y-1.5">
+          {documentsRequired(c).map((d, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-slate-300 dark:bg-slate-600" />{d}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section title="Campus & facilities">
+        <div className="flex flex-wrap gap-1.5">
+          {typicalFacilities().map(f => (
+            <span key={f} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2.5 py-1 text-[11px] font-bold text-slate-600 dark:text-slate-300">{f}</span>
+          ))}
+        </div>
+        <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">Typical facilities — verify specifics with the college.</p>
+      </Section>
+
+      <Section title="Scholarships">
+        <ul className="space-y-2">
+          {scholarships(c).map((s, i) => (
+            <li key={i} className="text-sm text-slate-600 dark:text-slate-300">
+              <span className="font-black text-slate-800 dark:text-slate-100">{s.name}:</span> {s.desc}
+              {s.url ? <> <a href={s.url} target="_blank" rel="noopener noreferrer" className="font-bold text-primary dark:text-emerald-400 hover:underline">{s.url.replace('https://', '')}</a></> : null}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {(() => {
+        const cmp = comparisonSet(c, COLLEGES);
+        if (cmp.length < 2) return null;
+        return (
+          <Section title={`Compare ${c.shortName || c.name} with top ${c.type} colleges`}>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+                    <th className="py-1.5 pr-2">College</th><th className="px-2">NIRF</th><th className="px-2">Fees/yr</th><th className="px-2">Avg pkg</th><th className="px-2">Placed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cmp.map(o => (
+                    <tr key={o.slug} className={`border-t border-slate-100 dark:border-slate-700 ${o.slug === c.slug ? 'bg-primary/5' : ''}`}>
+                      <td className="py-1.5 pr-2 font-bold">
+                        {o.slug === c.slug ? <span className="text-slate-900 dark:text-slate-100">{o.shortName || o.name}</span>
+                          : <button onClick={() => go(`/colleges/${stateSlugForCollege(o)}/${o.slug}`)} className="text-primary dark:text-emerald-400 hover:underline">{o.shortName || o.name}</button>}
+                      </td>
+                      <td className="px-2 text-slate-600 dark:text-slate-300">{o.nirf ? `#${o.nirf}` : '—'}</td>
+                      <td className="px-2 text-slate-600 dark:text-slate-300">{o.feesPerYear}</td>
+                      <td className="px-2 text-slate-600 dark:text-slate-300">{o.placementAvg}</td>
+                      <td className="px-2 text-slate-600 dark:text-slate-300">{o.placementRate}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">All figures indicative (2024) — verify on official sources.</p>
+          </Section>
+        );
+      })()}
+
+      <Section title="Is this college good for you?">
+        <p className="text-sm text-slate-600 dark:text-slate-300">{isGoodSummary(c)}</p>
+      </Section>
+
+      <Section title="Latest news & official notices">
+        <p className="text-sm text-slate-600 dark:text-slate-300">For current admission dates, cut-offs and notifications, check the official and news sources directly:</p>
+        <ul className="mt-2 space-y-1.5">
+          {newsLinks(c).map((n, i) => (
+            <li key={i}>
+              <a href={n.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-bold text-primary dark:text-emerald-400 hover:underline">
+                <Globe size={12} />{n.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       {/* Other colleges in state */}
