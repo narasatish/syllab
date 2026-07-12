@@ -94,6 +94,12 @@ export default function EnglishLab({ currentUser }: EnglishLabProps) {
         }}
       />
 
+      {/* SEO cross-link → English grammar topic pages */}
+      <a href="/english-grammar" className="flex items-center justify-between gap-3 rounded-2xl border border-indigo-200 bg-indigo-50 p-4 text-left transition hover:bg-indigo-100 dark:border-indigo-900 dark:bg-indigo-950/40">
+        <span className="text-sm font-black text-indigo-900 dark:text-indigo-200">📖 Free English grammar lessons — tenses, parts of speech, voice, narration, essay & letter writing</span>
+        <span className="shrink-0 text-sm font-black text-indigo-700 dark:text-indigo-300">Explore grammar →</span>
+      </a>
+
       {/* Hero */}
       <section className="rounded-[2rem] bg-gradient-to-br from-sky-500 via-indigo-600 to-violet-600 p-7 text-white shadow-2xl shadow-indigo-500/20 sm:p-9">
         <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
@@ -712,6 +718,20 @@ function VocabSection({ level }: { level: Level }) {
 
   return (
     <section className="space-y-5">
+      {/* Full vocabulary reference library (idioms, proverbs, one-word substitutions,
+          synonyms, antonyms, phrasal verbs…) — the former standalone /vocabulary page,
+          now surfaced here inside English. Route + detail pages stay live for SEO. */}
+      <a
+        href="/vocabulary"
+        className="block rounded-[2rem] border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-6 shadow transition-all hover:border-emerald-400 sm:p-8"
+      >
+        <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">📚 Vocabulary Reference Library</p>
+        <h2 className="mt-2 text-xl font-black text-slate-900">Idioms, Proverbs, One-Word Substitutions, Synonyms &amp; Antonyms</h2>
+        <p className="mt-2 text-sm font-semibold text-slate-600">
+          Browse the full collection of exam-ready vocabulary sets with meanings and example sentences →
+        </p>
+      </a>
+
       {/* Word of the Day */}
       <div className="rounded-[2rem] bg-gradient-to-br from-pink-100 to-purple-100 p-6 shadow sm:p-8">
         <p className="text-[10px] font-black uppercase tracking-widest text-pink-700">⭐ Word of the Day</p>

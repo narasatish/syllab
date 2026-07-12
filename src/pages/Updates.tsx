@@ -583,7 +583,8 @@ function ArticleModal({
                       { label: 'Mock Tests', tab: 'mock_tests' },
                       { label: 'Skills Lab', tab: 'skills_lab' },
                     ]
-                ).map(({ label, tab }) => (
+                ).filter((l, i, arr) => arr.findIndex((x) => x.tab === l.tab && x.label === l.label) === i)
+                 .map(({ label, tab }) => (
                   <button
                     key={`${tab}-${label}`}
                     onClick={() => { setTab(tab); onClose(); }}
@@ -607,6 +608,7 @@ interface UpdatesProps { setTab: (t: string) => void; }
 export default function Updates({ setTab }: UpdatesProps) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [visibleCount, setVisibleCount] = useState(9);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(() => {
     try {
       // Deep link: /updates/<slug> → open that article directly (so the
@@ -739,7 +741,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             <Flame size={13} className="text-red-500" /> Trending Now
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {trending.map(a => <ArticleCard key={a.id} article={a} onRead={openArticle} />)}
+            {trending.slice(0, visibleCount).map(a => <ArticleCard key={a.slug} article={a} onRead={openArticle} />)}
           </div>
         </section>
       )}
@@ -751,7 +753,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             <Star size={13} className="text-amber-500" /> Essential Evergreen Guides
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {pinned.map(a => <ArticleCard key={a.id} article={a} onRead={openArticle} />)}
+            {pinned.slice(0, visibleCount).map(a => <ArticleCard key={a.slug} article={a} onRead={openArticle} />)}
           </div>
         </section>
       )}
@@ -782,11 +784,23 @@ export default function Updates({ setTab }: UpdatesProps) {
               <p className="text-sm text-slate-500 font-medium">Try a different search term or category.</p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <AnimatePresence>
-                {filtered.map(a => <ArticleCard key={a.id} article={a} onRead={openArticle} />)}
-              </AnimatePresence>
-            </div>
+            <>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <AnimatePresence>
+                  {filtered.slice(0, visibleCount).map(a => <ArticleCard key={a.slug} article={a} onRead={openArticle} />)}
+                </AnimatePresence>
+              </div>
+              {filtered.length > 9 && visibleCount < filtered.length && (
+                <div className="flex justify-center mt-8">
+                  <button
+                    onClick={() => setVisibleCount(visibleCount + 9)}
+                    className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
+                  >
+                    Load More Articles
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </section>
       )}
@@ -798,8 +812,18 @@ export default function Updates({ setTab }: UpdatesProps) {
             <TrendingUp size={13} /> All Updates
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ARTICLES.map(a => <ArticleCard key={a.id} article={a} onRead={openArticle} />)}
+            {ARTICLES.slice(0, visibleCount).map(a => <ArticleCard key={a.slug} article={a} onRead={openArticle} />)}
           </div>
+          {ARTICLES.length > 9 && visibleCount < ARTICLES.length && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setVisibleCount(visibleCount + 9)}
+                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
+              >
+                Load More Articles
+              </button>
+            </div>
+          )}
         </section>
       )}
 

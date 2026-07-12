@@ -4,7 +4,11 @@
  * Features Grid) with a single clear interactive grid.
  */
 import React from 'react';
-import { motion } from 'framer-motion';
+// NOTE: framer-motion removed here on purpose — this grid sits in the home-page
+// critical path, and dropping the lib lets the ~124 kB vendor-motion chunk fall
+// off first paint. The entrance / float / hover animations are now pure CSS
+// (see .hfg-tile / .hfg-emoji in index.css), which the GPU compositor handles
+// without any main-thread JS.
 
 interface Feature {
   id: string;
@@ -79,11 +83,41 @@ const FEATURES: Feature[] = [
     ringColor: 'ring-cyan-300',
   },
   {
+    id: 'visual-learning',
+    emoji: '🎬',
+    title: 'Visual Learning',
+    tagline: 'Watch concepts come alive — step by step.',
+    badge: 'New · Animated',
+    tab: 'visual_learning',
+    gradient: 'from-teal-500 to-cyan-600',
+    ringColor: 'ring-teal-300',
+  },
+  {
+    id: 'quiz-duel',
+    emoji: '⚔️',
+    title: 'Quiz Duel',
+    tagline: 'Battle the AI or a friend in a timed quiz.',
+    badge: 'New · 1v1',
+    tab: 'quiz_duel',
+    gradient: 'from-fuchsia-500 to-rose-600',
+    ringColor: 'ring-fuchsia-300',
+  },
+  {
+    id: 'what-to-study',
+    emoji: '📊',
+    title: 'What to Study',
+    tagline: 'Focus where the marks are — chapter weightage.',
+    badge: 'New · Smart',
+    tab: 'what_to_study',
+    gradient: 'from-indigo-500 to-blue-600',
+    ringColor: 'ring-indigo-300',
+  },
+  {
     id: 'finance',
     emoji: '💰',
     title: 'Life Skills',
     tagline: 'Money, saving, stocks & markets — Class 5 to 12.',
-    badge: 'New · Beyond school',
+    badge: 'Beyond school',
     tab: 'syllabus',
     gradient: 'from-amber-500 to-emerald-600',
     ringColor: 'ring-emerald-300',
@@ -105,36 +139,44 @@ export default function HomeFeatureGrid({ onNavigate }: Props) {
           Everything you need to ace school + entrance exams.
         </h2>
         <p className="text-slate-500 font-medium max-w-xl mx-auto">
-          Seven tools designed together — including money &amp; markets school doesn't teach. No app-switching. All free.
+          Ten free tools designed together — animated lessons, quiz battles, money &amp; markets school doesn't teach. No app-switching. All free.
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {FEATURES.map((f, i) => (
-          <motion.button
+        {FEATURES.map((f, i) => {
+          const tabToPath: Record<string, string> = {
+            learning_lab: '/ai-tutor',
+            arena: '/practice',
+            mock_tests: '/mock-tests',
+            skills_lab: '/coding',
+            english_lab: '/english',
+            general_knowledge: '/gk-quiz',
+            visual_learning: '/visual-learning',
+            quiz_duel: '/quiz-duel',
+            what_to_study: '/what-to-study',
+            syllabus: '/syllabus',
+          };
+          const path = tabToPath[f.tab] || '/';
+          return (
+          <a
             key={f.id}
-            type="button"
-            onClick={() => onNavigate(f.tab)}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ y: -6, scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${f.gradient} p-6 sm:p-7 text-left text-white shadow-xl hover:ring-4 transition-all ${f.ringColor}`}
+            href={path}
+            onClick={(e) => { e.preventDefault(); onNavigate(f.tab); }}
+            style={{ animationDelay: `${i * 0.08}s` }}
+            className={`hfg-tile group relative overflow-hidden rounded-3xl bg-gradient-to-br ${f.gradient} p-6 sm:p-7 text-left text-white shadow-xl hover:ring-4 transition-transform duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.02] active:scale-95 ${f.ringColor} cursor-pointer`}
           >
             {/* Decorative floating blobs */}
             <div className="pointer-events-none absolute -top-4 -right-4 w-32 h-32 rounded-full bg-white/10 blur-xl" />
             <div className="pointer-events-none absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/10 blur-lg" />
 
             <div className="relative">
-              <motion.div
-                className="text-6xl mb-4 drop-shadow-lg"
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.2 }}
+              <div
+                className="hfg-emoji text-6xl mb-4 drop-shadow-lg"
+                style={{ animationDelay: `${i * 0.2}s` }}
               >
                 {f.emoji}
-              </motion.div>
+              </div>
 
               <h3 className="text-2xl font-black mb-2 drop-shadow">{f.title}</h3>
               <p className="text-sm font-medium text-white/90 mb-4 leading-relaxed">{f.tagline}</p>
@@ -148,8 +190,9 @@ export default function HomeFeatureGrid({ onNavigate }: Props) {
                 </span>
               </div>
             </div>
-          </motion.button>
-        ))}
+          </a>
+          );
+        })}
       </div>
     </section>
   );

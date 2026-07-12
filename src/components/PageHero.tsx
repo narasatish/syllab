@@ -1,7 +1,8 @@
 /**
- * PageHero — the site's standard branded page header (emerald/teal gradient,
- * rounded-3xl, soft decorative circles). Use at the top of a page so every page
- * shares one visual language instead of a plain <h1>.
+ * PageHero — the site's standard branded page header. 2026 refresh: drifting
+ * aurora glow + a fine dot-grid texture + a soft top sheen, with a gentle
+ * entrance. API is unchanged so all 45 pages that use it upgrade automatically.
+ * Motion is CSS transform/opacity only and respects prefers-reduced-motion.
  */
 import { cn } from '../lib/utils';
 
@@ -27,22 +28,34 @@ export default function PageHero({
   return (
     <div
       className={cn(
-        'relative overflow-hidden rounded-3xl bg-gradient-to-br p-6 sm:p-8 text-white shadow-xl shadow-emerald-500/20',
+        'app-card-in relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br p-6 sm:p-9 text-white',
         gradient,
         className,
       )}
+      style={{ boxShadow: '0 18px 50px -12px rgba(16,185,129,.45)' }}
     >
-      {/* soft decorative circles — the site's hero motif */}
-      <div className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-white/10" />
-      <div className="pointer-events-none absolute -bottom-12 -left-8 h-32 w-32 rounded-full bg-white/10" />
+      {/* drifting aurora glow */}
+      <div className="aurora" aria-hidden="true">
+        <span className="aurora-blob" style={{ top: '-30%', right: '-10%', width: '60%', height: '140%', background: 'radial-gradient(circle, rgba(255,255,255,.5), transparent 60%)' }} />
+        <span className="aurora-blob" style={{ bottom: '-40%', left: '-8%', width: '50%', height: '130%', background: 'radial-gradient(circle, rgba(45,212,191,.55), transparent 62%)', animationDelay: '-6s' }} />
+      </div>
+      {/* fine dot-grid texture */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.12]"
+        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)', backgroundSize: '22px 22px' }}
+        aria-hidden="true"
+      />
+      {/* top sheen */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" aria-hidden="true" />
+
       <div className="relative flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black tracking-tight sm:text-3xl">
-            {emoji ? <span className="mr-1">{emoji}</span> : null}
+          <h1 className="text-2xl font-extrabold tracking-tight drop-shadow-sm sm:text-[2rem] sm:leading-[1.1]">
+            {emoji ? <span className="mr-1.5">{emoji}</span> : null}
             {title}
           </h1>
           {subtitle ? (
-            <p className="mt-2 max-w-2xl text-sm font-medium leading-relaxed text-white/90 sm:text-base">
+            <p className="mt-2.5 max-w-2xl text-sm font-medium leading-relaxed text-white/90 sm:text-base">
               {subtitle}
             </p>
           ) : null}

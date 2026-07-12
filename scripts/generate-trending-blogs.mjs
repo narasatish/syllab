@@ -18,6 +18,133 @@ const OUTPUT_PATH = path.join(ROOT, 'src', 'data', 'autoBlogs.json');
 // Blog templates for trending topics relevant to Indian students
 const BLOG_TEMPLATES = [
   {
+    id: 'python-for-kids-free-beginners-guide',
+    title: 'Python for Kids: A Free Beginner Guide (Class 4 to 8)',
+    category: 'Coding',
+    description: 'A simple, free roadmap to teach kids Python — what to learn first, fun project ideas, and the best free tools for Indian children in Class 4 to 8.',
+    readTime: '8 min read',
+    content: `Python is the best first programming language for kids — it reads almost like plain English, runs everywhere, and powers real apps, games and AI. The good news for parents: your child can learn it for free. This guide shows exactly how to start.
+
+## Why Python for Kids?
+
+Python uses simple words like \`print\`, \`if\` and \`for\`, with very little punctuation, so children focus on ideas instead of fighting syntax. It is used by Google, NASA and Instagram, so kids learn a genuinely useful skill — not a toy language they will outgrow.
+
+## What Age Should Kids Start?
+
+Most children can begin Python around **Class 4 to 5 (age 9–10)**, once they read comfortably and know basic maths. Younger kids (Class 1–3) are better off with block-based coding (drag-and-drop) first, then moving to typed Python.
+
+## The Right Order to Learn
+
+1. **Printing and variables** — make the computer say things and remember values.
+2. **Input** — ask the user questions and use their answers.
+3. **Maths and strings** — calculators, name games, simple text tricks.
+4. **if / else** — make the program decide things.
+5. **Loops (for / while)** — repeat actions, draw patterns.
+6. **Functions** — reuse code, build bigger programs.
+7. **Mini-projects** — a quiz game, a number-guessing game, a dice roller.
+
+Learn each step by **building something**, not just reading. A child who writes a working "guess the number" game remembers loops far better than one who only reads about them.
+
+## 5 Fun First Projects
+
+- **Number guessing game** — the computer picks a number, you guess.
+- **Mad Libs story generator** — fill in words to make a funny story.
+- **Rock-paper-scissors** vs the computer.
+- **Simple calculator** for homework.
+- **Dice roller / quiz game** with a score.
+
+## Best Free Tools
+
+Start with a free online editor so there is nothing to install. On Syllab, the free **[Coding section](https://syllab.in/coding)** and **[Python for Kids](https://syllab.in/python-for-kids)** pages give step-by-step tutorials and a live code editor — kids type real Python and see it run instantly, no signup needed.
+
+## Tips for Parents
+
+- Keep sessions short (20–30 minutes) and project-based.
+- Let them make mistakes — debugging IS the learning.
+- Celebrate working programs, however small.
+- Don't rush to "advanced" topics; depth beats speed.
+
+Python rewards curiosity. Give your child small wins, keep it playful, and the logic skills will carry into maths, science and beyond — all for free.`,
+  },
+  {
+    id: 'maths-for-kids-make-maths-fun',
+    title: 'Maths for Kids: How to Make Maths Fun (Pre-KG to Class 5)',
+    category: 'Resources',
+    description: 'Practical, free ways to help young children love maths — from counting games and tables to printable worksheets for Pre-KG to Class 5.',
+    readTime: '7 min read',
+    content: `Many children decide they are "bad at maths" very young — usually because it felt boring or scary, not because they lack ability. The fix is to make early maths visual, playful and pressure-free. Here is how, using free resources.
+
+## Start with Real Things, Not Symbols
+
+Before worksheets, count real objects — fingers, toys, steps, fruits. Maths becomes meaningful when a child sees that "3" means three actual things. Visual counting (with dots and pictures) builds number sense that abstract digits cannot.
+
+## A Simple Progression (Pre-KG to Class 5)
+
+1. **Counting 1–100** with objects and visual dots.
+2. **Shapes and patterns** — sorting, matching, what-comes-next.
+3. **Addition and subtraction** using pictures and number lines.
+4. **Multiplication tables (2–20)** through rhythm and charts.
+5. **Fractions and basic operations** with real examples (slices of roti, pieces of chocolate).
+
+## Make It a Game
+
+- **Counting hunts:** "Find 5 red things in this room."
+- **Shop play:** use coins to add up and give change.
+- **Table chants:** tables stick faster when said aloud in rhythm.
+- **Dice and card games:** sneaky addition practice that feels like play.
+
+## Use Free Printables and Activities
+
+Repetition matters, but it should be light. On Syllab, the free **[Kids Zone](https://syllab.in/kids)** has tap-to-count number activities and games, **[Maths Tables & Charts](https://syllab.in/maths-tables)** for printable references, and **200+ free printable [worksheets](https://syllab.in/worksheets)** — all free, no login. See the **[Maths for Kids](https://syllab.in/maths-for-kids)** page to begin.
+
+## What NOT to Do
+
+- Don't time young children or compare them to others — it builds fear.
+- Don't jump to symbols before the idea is clear.
+- Don't treat mistakes as failures; treat them as clues.
+
+## The Goal
+
+At this age, the aim is not speed — it is **confidence and curiosity**. A child who enjoys numbers will practise willingly, and that practice is what creates real ability. Keep it visual, keep it playful, and keep it free.`,
+  },
+  {
+    id: 'how-to-use-pyqs-to-top-boards',
+    title: 'How to Use Previous Year Questions (PYQs) to Top Your Board Exams',
+    category: 'Study Tips',
+    description: 'PYQs are the highest-return study tool for CBSE boards and JEE/NEET. Here is exactly how to use them — chapter-wise — to score more.',
+    readTime: '7 min read',
+    content: `Toppers and coaching institutes have one habit in common: they obsess over previous year questions (PYQs). PYQs show you exactly how a chapter is tested, which concepts repeat, and how to write answers that earn full marks. Here is how to use them properly.
+
+## Why PYQs Beat Endless Notes
+
+Reading notes is passive. PYQs are active — they force you to apply what you know under exam conditions. They also reveal the **pattern**: examiners reuse the same concepts and question types year after year. Spot the pattern and you study smarter, not longer.
+
+## The Right Way to Use PYQs
+
+1. **Finish the chapter first.** PYQs are for testing and revising, not first-time learning.
+2. **Go chapter-wise, not year-wise.** Solving all questions from one chapter back-to-back reveals the repeating ideas fast.
+3. **Attempt before peeking.** Write the full solution yourself, then compare with the model answer.
+4. **Mark frequency.** Note which concepts appear again and again — those are your highest-priority revision targets.
+5. **Time yourself** on 3 and 5-mark questions to build exam speed.
+6. **Review presentation** — board marks reward labelled diagrams, key terms, and clear steps.
+
+## Build a "Most-Asked" List
+
+As you solve, keep a one-page list of concepts that show up repeatedly. In the last week before the exam, revise only that list. This is the single highest-return revision habit for boards.
+
+## Free PYQs on Syllab
+
+Syllab has free, **chapter-wise [Previous Year Questions](https://syllab.in/pyqs)** with full step-by-step solutions, marks, year tags and a "frequently asked" badge — so you can see at a glance which questions repeat. Pair them with the **[What to Study](https://syllab.in/what-to-study)** weightage tool to focus on the chapters that carry the most marks, and **[chapter MCQs](https://syllab.in/mcqs)** for quick self-testing.
+
+## A Simple 30-Day PYQ Plan
+
+- **Days 1–20:** one chapter's PYQs per day, with the most-asked list.
+- **Days 21–27:** full previous papers, timed, in exam conditions.
+- **Days 28–30:** revise only your most-asked list and your own mistakes.
+
+Do this consistently and you will walk into the exam having already seen the *kind* of questions you are about to face — which is exactly what calm, confident scoring feels like.`,
+  },
+  {
     id: 'cbse-class-10-board-tips-2026',
     title: 'How to Score 90+ in Class 10 CBSE Board Exams 2026: Subject-Wise Strategy',
     category: 'Class 10',

@@ -9,22 +9,29 @@
  */
 
 import React, { useEffect, useState, useCallback } from 'react';
+import { usePathname } from '../lib/isomorphic';
 import {
-  Building2, MapPin, ArrowLeft, GraduationCap, Wallet, BedDouble,
-  Briefcase, TrendingUp, CalendarClock, ChevronRight, AlertCircle, Globe,
+  MapPin, ArrowLeft, GraduationCap, Wallet, BedDouble,
+  Briefcase, TrendingUp, CalendarClock, ChevronRight, AlertCircle, Globe, Compass,
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import HubNav, { HubNavItem } from '../components/HubNav';
+import CollegeExplorer from '../components/CollegeExplorer';
 import {
   COLLEGE_STATE_INFO, COLLEGES, getStateInfo, getCollegesByState,
   getCollegeBySlug, stateSlugForCollege, getRankings, getStateRank, getNationalRank,
-  TOTAL_COLLEGES, type CollegeFull,
+  TOTAL_COLLEGES, getCitiesWithColleges, getCollegesByCity, cityInfoForSlug, type CollegeFull,
 } from '../data/colleges';
+import {
+  ownershipLabel, recognitionLabel, eligibility, coursesOffered, documentsRequired,
+  typicalFacilities, scholarships, newsLinks, comparisonSet, isGoodSummary,
+} from '../data/collegeEnrich';
 
 const SITE = 'https://syllab.in';
 
 function useCollegePath() {
-  const [path, setPath] = useState(() => window.location.pathname);
+  const [path, setPath] = useState(usePathname());
   useEffect(() => {
     const onPop = () => setPath(window.location.pathname);
     window.addEventListener('popstate', onPop);
@@ -34,24 +41,28 @@ function useCollegePath() {
       window.removeEventListener('syllab:navigate', onPop);
     };
   }, []);
+  // How many hops we've pushed *inside* the colleges section this visit. Only
+  // when this is > 0 is the previous history entry guaranteed to be a colleges
+  // page — so history.back() is safe. Otherwise we landed directly (e.g. from
+  // the AI Tutor page) and must navigate to the parent path explicitly, NOT
+  // history.back() (which would jump back to wherever we came from).
+  const depthRef = React.useRef(0);
   const go = useCallback((to: string) => {
-    // Mark our own history entries so goBack() can tell an in-app push from a
-    // fresh page load / external referrer.
-    if (window.location.pathname !== to) window.history.pushState({ syllabNav: true }, '', to);
+    if (window.location.pathname !== to) {
+      window.history.pushState({ syllabNav: true }, '', to);
+      depthRef.current += 1;
+    }
     setPath(to);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
   /**
-   * "Up/back" navigation. If the current view was reached via an in-app push
-   * (sentinel on history.state), use a real history.back() so the browser's
-   * back stack stays clean and consistent — this fixes the bug where in-page
-   * back buttons pushState'd a new entry and the browser Back button then
-   * landed on the wrong page. On a direct deep-link landing (no in-app history)
-   * we navigate to the parent path instead.
+   * "Up/back" navigation. If we pushed in-section history, pop it with a real
+   * history.back() (clean back stack). On a direct landing (depth 0) navigate
+   * to the parent path explicitly so Back never escapes the colleges section.
    */
   const goBack = useCallback((parent: string) => {
-    const st = window.history.state as { syllabNav?: boolean } | null;
-    if (st && st.syllabNav && window.history.length > 1) {
+    if (depthRef.current > 0) {
+      depthRef.current -= 1;
       window.history.back();
     } else {
       if (window.location.pathname !== parent) window.history.pushState({ syllabNav: true }, '', parent);
@@ -70,7 +81,7 @@ const typeColor: Record<string, string> = {
 };
 
 const Disclaimer = () => (
-  <div className="mb-6 flex items-start gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-800">
+  <div className="mb-6 flex items-start gap-2 rounded-2xl border border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950 px-4 py-3 text-xs text-amber-800 dark:text-amber-200">
     <AlertCircle size={16} className="shrink-0 mt-0.5" />
     <span>Fees, NIRF ranks, cutoffs and placement figures are <strong>indicative</strong> (2024) for guidance. Always confirm on the official college / counselling website before any decision.</span>
   </div>
@@ -82,6 +93,10 @@ export default function Colleges() {
   const stateSlug = parts[1];
   const collegeSlug = parts[2];
 
+  // /colleges/city/{citySlug} — "Top Engineering Colleges in {City}"
+  if (stateSlug === 'city' && collegeSlug) {
+    if (cityInfoForSlug(collegeSlug)) return <CityColleges citySlug={collegeSlug} go={go} goBack={goBack} />;
+  }
   if (collegeSlug) {
     const college = getCollegeBySlug(collegeSlug);
     if (college) return <CollegeDetail college={college} go={go} goBack={goBack} />;
@@ -96,6 +111,13 @@ export default function Colleges() {
 /* ─── Index: states grid ────────────────────────────────────────────────────*/
 function CollegesIndex({ go }: { go: (to: string) => void }) {
   const featured = [...COLLEGES].sort((a, b) => (a.nirf ?? 999) - (b.nirf ?? 999)).slice(0, 6);
+  const collegeHubItems: HubNavItem[] = [
+    { label: 'Engineering', emoji: '🏛️', path: '/colleges', tab: 'colleges' },
+    { label: 'Medical', emoji: '🩺', path: '/medical-colleges', tab: 'medical_colleges' },
+    { label: 'College Finder', emoji: '🔎', path: '/best-colleges', tab: 'college_finder' },
+    { label: 'Predictor', emoji: '🎯', path: '/college-predictor', tab: 'college_predictor' },
+  ];
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
       <SEO
@@ -109,6 +131,7 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
           isPartOf: { '@type': 'WebSite', name: 'Syllab.in', url: SITE },
         }}
       />
+      <HubNav items={collegeHubItems} active="colleges" label="College Hub" />
       <PageHero
         emoji="🏛️"
         title="Top Engineering Colleges in India"
@@ -118,33 +141,100 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
       />
       <Disclaimer />
 
-      <h2 className="text-sm font-black uppercase tracking-widest text-slate-400 mb-3">Browse by state</h2>
+      <h2 className="text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-3">Browse by state</h2>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {COLLEGE_STATE_INFO.map(s => {
           const count = getCollegesByState(s.slug).length;
           return (
             <button key={s.slug} onClick={() => go(`/colleges/${s.slug}`)}
-              className="text-left rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
+              className="text-left rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
               <div className="flex items-center justify-between">
                 <span className="text-2xl">{s.emoji}</span>
-                <span className="text-[10px] font-black text-slate-400">{count} colleges</span>
+                <span className="text-[10px] font-black text-slate-400 dark:text-slate-500">{count} colleges</span>
               </div>
-              <h3 className="mt-2 text-base font-black text-slate-900">{s.name}</h3>
-              <p className="mt-1 text-[11px] text-slate-500 line-clamp-2">{s.blurb}</p>
+              <h3 className="mt-2 text-base font-black text-slate-900 dark:text-slate-100">{s.name}</h3>
+              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2">{s.blurb}</p>
               <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-black text-primary">View colleges <ChevronRight size={12} /></span>
             </button>
           );
         })}
       </div>
 
-      <a href="/career-predictor" className="mt-6 flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-4 text-white shadow-md hover:scale-[1.01] transition">
-        <span className="text-sm font-black">🎯 Not sure which college you'll get? Try the free JEE/NEET rank & college predictor →</span>
-      </a>
+      <h2 className="mt-8 mb-3 text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Browse by city</h2>
+      <div className="flex flex-wrap gap-2">
+        {getCitiesWithColleges().map((c) => (
+          <button key={c.slug} onClick={() => go(`/colleges/city/${c.slug}`)}
+            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-700 hover:border-primary hover:bg-emerald-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+            {c.city} <span className="text-slate-400">({c.count})</span>
+          </button>
+        ))}
+      </div>
 
-      <h2 className="mt-8 text-sm font-black uppercase tracking-widest text-slate-400 mb-3">Featured top colleges</h2>
+      <button onClick={() => go('/career-predictor')} className="mt-6 flex w-full items-center justify-between gap-3 rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-5 text-left text-white shadow-md ring-1 ring-amber-300/20 transition hover:scale-[1.01]">
+        <span>
+          <span className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-amber-300"><Compass size={13} /> Career Compass</span>
+          <span className="mt-1 block text-sm font-black">Not sure which college you'll get? Predict your JEE/NEET rank → see the colleges you can target.</span>
+        </span>
+        <ChevronRight size={20} className="shrink-0 text-amber-300" />
+      </button>
+
+      <h2 className="mt-8 text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-3">Featured top colleges</h2>
       <div className="grid gap-3 sm:grid-cols-2">
         {featured.map(c => <CollegeCard key={c.slug} college={c} go={go} />)}
       </div>
+
+      <h2 className="mt-8 mb-3 flex items-center gap-2 text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">
+        <Compass size={14} className="text-indigo-700" /> Browse &amp; compare all colleges
+      </h2>
+      <CollegeExplorer colleges={COLLEGES} go={go} />
+    </div>
+  );
+}
+
+/* ─── City view: "Top Engineering Colleges in {City}" ───────────────────────*/
+function CityColleges({ citySlug, go, goBack }: { citySlug: string; go: (to: string) => void; goBack: (parent: string) => void }) {
+  const info = cityInfoForSlug(citySlug)!;
+  const colleges = getCollegesByCity(citySlug);
+  const otherCities = getCitiesWithColleges().filter((c) => c.slug !== citySlug).slice(0, 12);
+  return (
+    <div className="mx-auto max-w-5xl px-4 py-8">
+      <SEO
+        title={`Top ${colleges.length} Engineering Colleges in ${info.city} 2026 — Fees, Cutoff & Ranking | Syllab.in`}
+        description={`Best engineering colleges in ${info.city}, ${info.state} (2026) — NIRF rank, B.Tech fees, cutoffs, placements and admission process. Compare the top engineering colleges in ${info.city}. Free.`}
+        keywords={`top engineering colleges in ${info.city}, best engineering colleges in ${info.city}, engineering colleges in ${info.city} fees, ${info.city} btech admission, ${info.city} college cutoff 2026`}
+        url={`${SITE}/colleges/city/${citySlug}`}
+        jsonLd={{
+          '@context': 'https://schema.org', '@type': 'ItemList',
+          name: `Top Engineering Colleges in ${info.city}`,
+          itemListElement: colleges.map((c, i) => ({
+            '@type': 'ListItem', position: i + 1, name: c.name,
+            url: `${SITE}/colleges/${stateSlugForCollege(c)}/${c.slug}`,
+          })),
+        }}
+      />
+      <button onClick={() => goBack('/colleges')} className="mb-3 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary dark:text-slate-400">
+        <ArrowLeft size={14} /> All colleges
+      </button>
+      <PageHero
+        emoji="🏙️"
+        title={`Top Engineering Colleges in ${info.city}`}
+        subtitle={`${colleges.length} top colleges in ${info.city}, ${info.state} — fees, NIRF rank, cutoffs, placements & admission.`}
+        className="mb-5"
+      />
+      <Disclaimer />
+      <div className="grid gap-3 sm:grid-cols-2">
+        {colleges.map((c) => <CollegeCard key={c.slug} college={c} go={go} />)}
+      </div>
+      {otherCities.length ? (
+        <nav className="mt-8 border-t border-slate-100 pt-4 dark:border-slate-800">
+          <p className="mb-2 text-xs font-black uppercase tracking-wide text-slate-400 dark:text-slate-500">Engineering colleges in other cities</p>
+          <div className="flex flex-wrap gap-2">
+            {otherCities.map((c) => (
+              <button key={c.slug} onClick={() => go(`/colleges/city/${c.slug}`)} className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300">{c.city}</button>
+            ))}
+          </div>
+        </nav>
+      ) : null}
     </div>
   );
 }
@@ -187,7 +277,7 @@ function StateColleges({ stateSlug, go, goBack }: { stateSlug: string; go: (to: 
         <div className="grid gap-3 sm:grid-cols-2">
           {colleges.map(c => <CollegeCard key={c.slug} college={c} go={go} />)}
         </div>
-      ) : <p className="text-sm text-slate-500">Colleges for this state are being added.</p>}
+      ) : <p className="text-sm text-slate-500 dark:text-slate-400">Colleges for this state are being added.</p>}
     </div>
   );
 }
@@ -197,14 +287,14 @@ function CollegeCard({ college: c, go }: { college: CollegeFull; go: (to: string
   const stateSlug = stateSlugForCollege(c);
   return (
     <button onClick={() => go(`/colleges/${stateSlug}/${c.slug}`)}
-      className="text-left rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
+      className="text-left rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
             <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
-            <h3 className="text-sm font-black text-slate-900 leading-tight truncate">{c.shortName || c.name}</h3>
+            <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 leading-tight truncate">{c.shortName || c.name}</h3>
           </div>
-          <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-400"><MapPin size={11} />{c.city}</p>
+          <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-400 dark:text-slate-500"><MapPin size={11} />{c.city}</p>
         </div>
         <div className="flex flex-col items-end gap-1 shrink-0">
           <span className={`rounded-full px-2 py-0.5 text-[9px] font-black ${typeColor[c.type]}`}>{c.type}</span>
@@ -212,10 +302,10 @@ function CollegeCard({ college: c, go }: { college: CollegeFull; go: (to: string
         </div>
       </div>
       <div className="mt-2 grid grid-cols-2 gap-2 text-[11px]">
-        <div className="rounded-lg bg-emerald-50 px-2 py-1"><p className="text-[9px] font-bold text-emerald-600/70 uppercase">Fees/yr</p><p className="font-black text-emerald-700">{c.feesPerYear}</p></div>
-        <div className="rounded-lg bg-blue-50 px-2 py-1"><p className="text-[9px] font-bold text-blue-600/70 uppercase">Avg package</p><p className="font-black text-blue-700">{c.placementAvg}</p></div>
+        <div className="rounded-lg bg-emerald-50 dark:bg-emerald-950 px-2 py-1"><p className="text-[9px] font-bold text-emerald-600/70 dark:text-emerald-400 uppercase">Fees/yr</p><p className="font-black text-emerald-700 dark:text-emerald-300">{c.feesPerYear}</p></div>
+        <div className="rounded-lg bg-blue-50 dark:bg-blue-950 px-2 py-1"><p className="text-[9px] font-bold text-blue-600/70 dark:text-blue-400 uppercase">Avg package</p><p className="font-black text-blue-700 dark:text-blue-300">{c.placementAvg}</p></div>
       </div>
-      <p className="mt-2 text-[11px] text-slate-500"><span className="font-black text-slate-600">Cutoff:</span> {c.cutoff}</p>
+      <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400"><span className="font-black text-slate-600 dark:text-slate-300">Cutoff:</span> {c.cutoff}</p>
       <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-black text-primary">Full details <ChevronRight size={12} /></span>
     </button>
   );
@@ -224,7 +314,6 @@ function CollegeCard({ college: c, go }: { college: CollegeFull; go: (to: string
 /* ─── College detail ────────────────────────────────────────────────────────*/
 function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (to: string) => void; goBack: (parent: string) => void }) {
   const stateSlug = stateSlugForCollege(c);
-  const info = getStateInfo(stateSlug);
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <SEO
@@ -252,7 +341,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
         ]}
       />
       {/* Breadcrumb */}
-      <nav className="mb-3 flex flex-wrap items-center gap-1 text-[11px] font-bold text-slate-400">
+      <nav className="mb-3 flex flex-wrap items-center gap-1 text-[11px] font-bold text-slate-400 dark:text-slate-500">
         <button onClick={() => go('/colleges')} className="hover:text-primary">Colleges</button>
         <ChevronRight size={11} />
         <button onClick={() => goBack(`/colleges/${stateSlug}`)} className="hover:text-primary">{c.state}</button>
@@ -260,7 +349,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
         <span className="text-slate-600">{c.shortName || c.name}</span>
       </nav>
 
-      {/* Header */}
+      {/* Header — navy (already dark, keep as-is) */}
       <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-700 p-5 text-white shadow-lg">
         <div className="flex items-start justify-between gap-3">
           <div>
@@ -286,26 +375,35 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
       <Section title="About">
         <p className="text-sm text-slate-600">{c.about}</p>
         <a href={`https://${c.website}`} target="_blank" rel="noopener noreferrer"
-          className="mt-2 inline-flex items-center gap-1 text-xs font-black text-primary hover:underline"><Globe size={12} />{c.website}</a>
+          className="mt-2 inline-flex items-center gap-1 text-xs font-black text-primary dark:text-emerald-400 hover:underline"><Globe size={12} />{c.website}</a>
+      </Section>
+
+      <Section title="Quick facts">
+        <Detail label="Type / ownership" value={ownershipLabel(c.type)} />
+        <Detail label="Established" value={String(c.established)} />
+        <Detail label="Location" value={`${c.city}, ${c.state}`} />
+        {c.nirf ? <Detail label="NIRF rank (2024)" value={`#${c.nirf}`} /> : null}
+        <Detail label="Recognition" value={recognitionLabel(c.type)} />
+        <Detail label="Entrance exam(s)" value={c.exams.join(', ')} />
       </Section>
 
       {getRankings(c).length > 0 && (
         <Section title="Rankings (top sources)">
           <div className="flex flex-wrap gap-2">
             {getRankings(c).map(r => (
-              <div key={r.source} className="rounded-xl bg-amber-50 border border-amber-100 px-3 py-1.5 text-center">
-                <p className="text-sm font-black text-amber-700">{r.rank}</p>
-                <p className="text-[10px] font-bold text-amber-600/70 uppercase tracking-wide">{r.source}</p>
+              <div key={r.source} className="rounded-xl bg-amber-50 dark:bg-amber-950 border border-amber-100 dark:border-amber-900 px-3 py-1.5 text-center">
+                <p className="text-sm font-black text-amber-700 dark:text-amber-300">{r.rank}</p>
+                <p className="text-[10px] font-bold text-amber-600/70 dark:text-amber-400 uppercase tracking-wide">{r.source}</p>
               </div>
             ))}
           </div>
-          <p className="mt-2 text-[11px] text-slate-400">Indicative — confirm on each ranking body's official list.</p>
+          <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">Indicative — confirm on each ranking body's official list.</p>
         </Section>
       )}
 
       <Section title="Top branches">
         <div className="flex flex-wrap gap-1.5">
-          {c.topBranches.map(b => <span key={b} className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">{b}</span>)}
+          {c.topBranches.map(b => <span key={b} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2.5 py-1 text-[11px] font-bold text-slate-600 dark:text-slate-300">{b}</span>)}
         </div>
       </Section>
 
@@ -333,14 +431,14 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
         </div>
         <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-slate-400">Top recruiters</p>
         <div className="mt-1 flex flex-wrap gap-1.5">
-          {c.recruiters.map(r => <span key={r} className="rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] font-bold text-indigo-600">{r}</span>)}
+          {c.recruiters.map(r => <span key={r} className="rounded-full bg-indigo-50 dark:bg-indigo-950 px-2.5 py-1 text-[11px] font-bold text-indigo-600 dark:text-indigo-400">{r}</span>)}
         </div>
       </Section>
 
       <Section title={<span className="flex items-center gap-1.5"><CalendarClock size={14} /> Admission process (step by step)</span>}>
         <ol className="space-y-2">
           {c.admissionSteps.map((s, i) => (
-            <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
+            <li key={i} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
               <span className="flex-none w-6 h-6 rounded-full bg-primary text-white text-xs font-black flex items-center justify-center">{i + 1}</span>
               <span className="pt-0.5">{s}</span>
             </li>
@@ -348,12 +446,104 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
         </ol>
       </Section>
 
+      <Section title="Courses offered">
+        <ul className="space-y-1.5">
+          {coursesOffered(c).map((x, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-primary" />{x}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section title="Eligibility & documents required">
+        <p className="text-sm text-slate-600 dark:text-slate-300">{eligibility(c)}</p>
+        <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-slate-400">Documents required</p>
+        <ul className="mt-1 space-y-1.5">
+          {documentsRequired(c).map((d, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-slate-300 dark:bg-slate-600" />{d}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section title="Campus & facilities">
+        <div className="flex flex-wrap gap-1.5">
+          {typicalFacilities().map(f => (
+            <span key={f} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2.5 py-1 text-[11px] font-bold text-slate-600 dark:text-slate-300">{f}</span>
+          ))}
+        </div>
+        <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">Typical facilities — verify specifics with the college.</p>
+      </Section>
+
+      <Section title="Scholarships">
+        <ul className="space-y-2">
+          {scholarships(c).map((s, i) => (
+            <li key={i} className="text-sm text-slate-600 dark:text-slate-300">
+              <span className="font-black text-slate-800 dark:text-slate-100">{s.name}:</span> {s.desc}
+              {s.url ? <> <a href={s.url} target="_blank" rel="noopener noreferrer" className="font-bold text-primary dark:text-emerald-400 hover:underline">{s.url.replace('https://', '')}</a></> : null}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {(() => {
+        const cmp = comparisonSet(c, COLLEGES);
+        if (cmp.length < 2) return null;
+        return (
+          <Section title={`Compare ${c.shortName || c.name} with top ${c.type} colleges`}>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+                    <th className="py-1.5 pr-2">College</th><th className="px-2">NIRF</th><th className="px-2">Fees/yr</th><th className="px-2">Avg pkg</th><th className="px-2">Placed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cmp.map(o => (
+                    <tr key={o.slug} className={`border-t border-slate-100 dark:border-slate-700 ${o.slug === c.slug ? 'bg-primary/5' : ''}`}>
+                      <td className="py-1.5 pr-2 font-bold">
+                        {o.slug === c.slug ? <span className="text-slate-900 dark:text-slate-100">{o.shortName || o.name}</span>
+                          : <button onClick={() => go(`/colleges/${stateSlugForCollege(o)}/${o.slug}`)} className="text-primary dark:text-emerald-400 hover:underline">{o.shortName || o.name}</button>}
+                      </td>
+                      <td className="px-2 text-slate-600 dark:text-slate-300">{o.nirf ? `#${o.nirf}` : '—'}</td>
+                      <td className="px-2 text-slate-600 dark:text-slate-300">{o.feesPerYear}</td>
+                      <td className="px-2 text-slate-600 dark:text-slate-300">{o.placementAvg}</td>
+                      <td className="px-2 text-slate-600 dark:text-slate-300">{o.placementRate}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">All figures indicative (2024) — verify on official sources.</p>
+          </Section>
+        );
+      })()}
+
+      <Section title="Is this college good for you?">
+        <p className="text-sm text-slate-600 dark:text-slate-300">{isGoodSummary(c)}</p>
+      </Section>
+
+      <Section title="Latest news & official notices">
+        <p className="text-sm text-slate-600 dark:text-slate-300">For current admission dates, cut-offs and notifications, check the official and news sources directly:</p>
+        <ul className="mt-2 space-y-1.5">
+          {newsLinks(c).map((n, i) => (
+            <li key={i}>
+              <a href={n.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-bold text-primary dark:text-emerald-400 hover:underline">
+                <Globe size={12} />{n.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
       {/* Other colleges in state */}
       <Section title={`More colleges in ${c.state}`}>
         <div className="flex flex-wrap gap-1.5">
           {getCollegesByState(stateSlug).filter(o => o.slug !== c.slug).slice(0, 8).map(o => (
             <button key={o.slug} onClick={() => go(`/colleges/${stateSlug}/${o.slug}`)}
-              className="rounded-full bg-slate-100 px-3 py-1.5 text-[11px] font-bold text-slate-600 hover:bg-primary/10 hover:text-primary transition">
+              className="rounded-full bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition">
               {o.shortName || o.name}
             </button>
           ))}
@@ -368,31 +558,31 @@ function Stat({ icon, label, value }: { icon: React.ReactNode; label: string; va
   return (
     <div className="rounded-xl bg-white/10 px-2 py-2">
       <p className="flex items-center justify-center gap-1 text-[10px] font-bold text-white/60 uppercase">{icon}{label}</p>
-      <p className="mt-0.5 text-sm font-black">{value}</p>
+      <p className="mt-0.5 text-sm font-black text-white">{value}</p>
     </div>
   );
 }
 function Section({ title, children }: { title: React.ReactNode; children: React.ReactNode }) {
   return (
-    <section className="mt-3 rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
-      <h2 className="text-sm font-black text-slate-900 mb-2">{title}</h2>
+    <section className="mt-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 shadow-sm">
+      <h2 className="text-sm font-black text-slate-900 dark:text-slate-100 mb-2">{title}</h2>
       {children}
     </section>
   );
 }
 function Detail({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between gap-2 py-1 border-b border-slate-50 last:border-0">
-      <span className="text-[11px] font-bold text-slate-400">{label}</span>
-      <span className="text-xs font-black text-slate-700 text-right">{value}</span>
+    <div className="flex items-center justify-between gap-2 py-1 border-b border-slate-50 dark:border-slate-700 last:border-0">
+      <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">{label}</span>
+      <span className="text-xs font-black text-slate-700 dark:text-slate-200 text-right">{value}</span>
     </div>
   );
 }
 function PlaceStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl bg-slate-50 px-2 py-2">
-      <p className="text-sm font-black text-slate-800">{value}</p>
-      <p className="text-[10px] font-bold text-slate-400 uppercase">{label}</p>
+    <div className="rounded-xl bg-slate-50 dark:bg-slate-700 px-2 py-2">
+      <p className="text-sm font-black text-slate-800 dark:text-slate-100">{value}</p>
+      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase">{label}</p>
     </div>
   );
 }

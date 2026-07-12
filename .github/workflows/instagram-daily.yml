@@ -1,0 +1,90 @@
+name: Instagram daily posts (10/day)
+
+# Publishes 10 posts/day to @syllab.in via Instagram's official Graph API
+# (scripts/instagram-bot/run-daily.mjs): 5 reels, 3 carousels, 2 images, all
+# generated from unique website content (never repeated). Posts are spread across
+# 5 runs at IST peak hours (2 posts each) for maximum reach.
+#
+# REQUIRED repository secrets (Settings → Secrets and variables → Actions):
+#   IG_BUSINESS_ACCOUNT_ID  — your Instagram Business account id
+#   IG_ACCESS_TOKEN         — a long-lived Facebook Page access token
+# OPTIONAL:
+#   FIREBASE_STORAGE_BUCKET + GOOGLE_APPLICATION_CREDENTIALS — host media on your
+#     own Firebase Storage (otherwise 0x0.st temp hosting is used automatically).
+#
+# The job is GUARDED: skipped until IG_ACCESS_TOKEN is set, so it never errors
+# before Meta setup is done. Test anytime from the Actions tab ("Run workflow").
+#
+# IMPORTANT: the dedup registry + day plan live in .instagram-bot-output/, which
+# is committed back after each run so the 5 slots share one plan and content never
+# repeats across days.
+
+on:
+  schedule:
+    - cron: '0 2 * * *'    # 07:30 IST  → slot 0
+    - cron: '0 7 * * *'    # 12:30 IST  → slot 1
+    - cron: '30 10 * * *'  # 16:00 IST  → slot 2
+    - cron: '0 14 * * *'   # 19:30 IST  → slot 3
+    - cron: '0 16 * * *'   # 21:30 IST  → slot 4
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (generate media, do NOT post)'
+        required: false
+        default: 'true'
+
+concurrency:
+  group: instagram-daily
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.IG_ACCESS_TOKEN != '' || github.event_name == 'workflow_dispatch' }}
+    permissions:
+      contents: write   # to commit the dedup registry back
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+
+      - name: Compute slot from trigger time
+        id: slot
+        run: |
+          H=$(date -u +%H); M=$(date -u +%M)
+          SLOT=""
+          case "$H:$M" in
+            02:0*) SLOT=0 ;;
+            07:0*) SLOT=1 ;;
+            10:3*) SLOT=2 ;;
+            14:0*) SLOT=3 ;;
+            16:0*) SLOT=4 ;;
+          esac
+          echo "slot=$SLOT" >> "$GITHUB_OUTPUT"
+          echo "Resolved slot='$SLOT' for ${H}:${M} UTC"
+
+      - name: Run Instagram pipeline
+        env:
+          IG_BUSINESS_ACCOUNT_ID: ${{ secrets.IG_BUSINESS_ACCOUNT_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
+        run: |
+          if [ -n "${{ steps.slot.outputs.slot }}" ]; then
+            node scripts/instagram-bot/run-daily.mjs --slot=${{ steps.slot.outputs.slot }} --slots=5
+          else
+            node scripts/instagram-bot/run-daily.mjs
+          fi
+
+      - name: Persist dedup registry + day plan
+        if: ${{ env.DRY_RUN != 'true' }}
+        run: |
+          git config user.name "syllab-ig-bot"
+          git config user.email "bot@syllab.in"
+          git add -f .instagram-bot-output/posted-registry.json .instagram-bot-output/plan-*.json 2>/dev/null || true
+          git commit -m "chore(ig): update dedup registry [skip ci]" || echo "nothing to commit"
+          git push || echo "push skipped"

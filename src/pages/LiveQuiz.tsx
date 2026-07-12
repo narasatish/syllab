@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import HubNav, { HubNavItem } from '../components/HubNav';
 import { auth } from '../lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { QUIZ_PACKS, getPack } from '../data/quizPacks';
@@ -103,6 +104,13 @@ export default function LiveQuizPage() {
   }
 
   // ============================ RENDER ============================
+  const quizHubItems: HubNavItem[] = [
+    { label: 'Daily Challenge', emoji: '📅', path: '/daily-challenges', tab: 'daily' },
+    { label: 'GK Quiz', emoji: '🧠', path: '/gk-quiz', tab: 'general_knowledge' },
+    { label: 'Quiz Duel', emoji: '⚔️', path: '/quiz-duel', tab: 'quiz_duel' },
+    { label: 'Live Quiz', emoji: '🎮', path: '/live-quiz', tab: 'live_quiz' },
+  ];
+
   return (
     <div className="mx-auto max-w-4xl space-y-6">
       <SEO
@@ -117,6 +125,8 @@ export default function LiveQuizPage() {
           offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         }}
       />
+
+      <HubNav items={quizHubItems} active="live_quiz" label="Quiz Hub" />
 
       {screen === 'home' && (
         <>

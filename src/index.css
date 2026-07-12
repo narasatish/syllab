@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+/* Google Fonts load via <link> in index.html (parallel fetch → better LCP),
+   not a render-blocking CSS @import. */
 @import "tailwindcss";
 
 /* Tailwind v4 class-based dark mode (instead of prefers-color-scheme).
@@ -13,16 +14,47 @@
   .rotate-y-180 { transform: rotateY(180deg); }
 }
 
+/* Accessibility: a clear, consistent keyboard-focus ring on every interactive
+ * element (only on keyboard focus, not mouse clicks). Improves a11y + Lighthouse.
+ * Components can still override with their own :focus-visible styles. */
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  /* Don't double-up the default outline when our ring is shown. */
+  :focus:not(:focus-visible) { outline: none; }
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Playfair Display", serif;
-  
+  --font-heading: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
   --color-primary: #10B981;
   --color-primary-dark: #059669;
   --color-primary-light: #34D399;
   --color-secondary: #0F172A;
   --color-accent: #F97316;
   --color-bg-beige: #F8F5F0;
+
+  /* ── Redesign tokens (2026 refresh) ── brand gradients, depth scale, motion.
+   * Reused via the component classes below so the look cascades site-wide. */
+  --grad-brand: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+  --grad-brand-soft: linear-gradient(135deg, #34D399 0%, #22D3EE 100%);
+  --grad-vivid: linear-gradient(120deg, #6366F1 0%, #8B5CF6 45%, #EC4899 100%);
+  --grad-sunrise: linear-gradient(120deg, #F97316 0%, #F59E0B 100%);
+  --shadow-soft: 0 1px 2px rgba(15,23,42,.04), 0 4px 16px rgba(15,23,42,.06);
+  --shadow-lift: 0 12px 32px -8px rgba(15,23,42,.16);
+  --shadow-glow: 0 12px 40px -8px rgba(16,185,129,.35);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
@@ -184,19 +216,78 @@
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-4 bg-primary text-white rounded-2xl font-black text-sm uppercase tracking-widest 
-           hover:bg-primary-dark hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/30 
+    @apply relative px-8 py-4 text-white rounded-2xl font-extrabold text-sm uppercase tracking-widest
+           -translate-y-0 hover:-translate-y-0.5 active:translate-y-0
+           transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden;
+    background-image: var(--grad-brand);
+    box-shadow: var(--shadow-glow);
+  }
+  .btn-primary:hover { box-shadow: 0 16px 48px -8px rgba(16,185,129,.5); }
+  /* moving sheen on hover — pure transform/opacity, GPU-composited */
+  .btn-primary::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.35) 50%, transparent 65%);
+    transform: translateX(-120%); transition: transform .6s var(--ease-spring);
+  }
+  .btn-primary:hover::after { transform: translateX(120%); }
+
+  .btn-secondary {
+    @apply px-7 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-widest
+           bg-white text-secondary border border-slate-200 shadow-sm
+           hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/40
            active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2;
+  }
+  .btn-ghost {
+    @apply px-5 py-3 rounded-xl font-bold text-sm text-secondary/80
+           hover:text-primary hover:bg-primary/5 transition-colors duration-200 flex items-center gap-2;
   }
 
   .card {
-    @apply bg-white rounded-[1.5rem] sm:rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/20 p-5 sm:p-8 
-           hover:shadow-2xl hover:shadow-slate-200/40 transition-all duration-500;
+    @apply bg-white rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 p-5 sm:p-8
+           transition-all duration-300;
+    box-shadow: var(--shadow-soft);
   }
+  /* lift only when explicitly interactive, so static cards stay calm */
+  .card.hover-lift:hover, .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lift);
+  }
+  .hover-lift { transition: transform .3s var(--ease-spring), box-shadow .3s ease; will-change: transform; }
 
   .glass {
     @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-2xl;
   }
+
+  /* When a fullscreen lesson/PPT viewer is open, hide the global AI-tutor FAB.
+   * The viewer is nested deep (its own stacking context) so the near-root FAB
+   * would otherwise float over the Next button on mobile. The viewer has its
+   * own "Ask AI" control, so the FAB is redundant while a lesson is open. */
+  body.lesson-open #tutor-fab { display: none !important; }
+  .glass-card {
+    @apply rounded-[1.5rem] border border-white/50 bg-white/60 backdrop-blur-xl p-5 sm:p-7;
+    box-shadow: 0 8px 32px -8px rgba(15,23,42,.18);
+  }
+
+  /* Gradient text — brand by default; .gradient-text-vivid for hero accents */
+  .gradient-text {
+    background-image: var(--grad-brand);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .gradient-text-vivid {
+    background-image: var(--grad-vivid); background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    animation: gt-shine 5s linear infinite;
+  }
+
+  /* Eyebrow / pill label above section headings */
+  .eyebrow {
+    /* text-emerald-800 on the tinted pill clears WCAG 4.5:1 for this small label */
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-extrabold
+           uppercase tracking-widest text-emerald-800 bg-primary/10 border border-primary/20;
+  }
+  html.dark .eyebrow { @apply text-emerald-300; }
 
   /* Markdown Styles for AI responses */
   .markdown-body {
@@ -267,4 +358,81 @@
   .card-3d-back {
     transform: rotateY(180deg);
   }
+}
+
+/* HomeFeatureGrid — CSS replacements for the framer-motion animations that used
+   to ship the vendor-motion chunk on the home critical path. GPU-composited,
+   zero main-thread JS. */
+@keyframes hfg-rise {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hfg-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+.hfg-tile  { animation: hfg-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hfg-emoji { animation: hfg-float 2.5s ease-in-out infinite; will-change: transform; }
+
+/* App-shell modals / menus / route transitions — CSS replacements for the
+   framer-motion AnimatePresence blocks so vendor-motion no longer loads on the
+   universal critical path. Enter-only (exit happens instantly, which is fine
+   for full-screen overlays and keeps navigation snappy). */
+@keyframes app-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes app-card-in    { from { opacity: 0; transform: translateY(16px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes app-menu-in    { from { opacity: 0; transform: translateY(-20px); }            to { opacity: 1; transform: translateY(0); } }
+@keyframes app-tutor-in   { from { opacity: 0; transform: translateY(18px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.app-overlay-in { animation: app-overlay-in 0.2s ease-out both; }
+.app-card-in    { animation: app-card-in 0.25s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.app-menu-in    { animation: app-menu-in 0.2s ease-out both; }
+.app-route-in   { animation: app-overlay-in 0.12s ease-out both; }
+.app-tutor-in   { animation: app-tutor-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* HomeInteractiveDemo — CSS replacements for its framer animations. */
+@keyframes demo-fade-up  { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes demo-blink    { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes demo-slide-in { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes demo-line-in  { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+.demo-fade-up  { animation: demo-fade-up 0.3s ease-out both; }
+.demo-cursor   { animation: demo-blink 0.8s steps(1, end) infinite; }
+.demo-code-in  { animation: demo-fade-up 0.6s ease-out both; }
+.demo-line-in  { animation: demo-line-in 0.4s ease-out both; animation-delay: 1.2s; }
+.demo-slide-in { animation: demo-slide-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* RewardToast — global gamification toast; CSS so vendor-motion stays off entry. */
+@keyframes reward-toast-in { from { opacity: 0; transform: translateY(24px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.reward-toast-in { animation: reward-toast-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+/* ── Scroll reveal (driven by lib/scrollReveal.ts → IntersectionObserver) ──
+ * Elements start hidden+offset; .is-visible animates them in once on entry.
+ * transform/opacity only = GPU-composited, no layout, no main-thread cost. */
+/* Hidden state is GATED behind .js-reveal on <html> (set by an inline head script
+ * only when JS is enabled). So with JS off / failed, content stays fully visible —
+ * never an invisible page. transform/opacity only = GPU-composited. */
+.js-reveal .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s var(--ease-spring); will-change: opacity, transform; }
+.reveal.is-visible { opacity: 1; transform: none; }
+.js-reveal .reveal-zoom { opacity: 0; transform: scale(.94); transition: opacity .5s ease, transform .5s var(--ease-spring); }
+.reveal-zoom.is-visible { opacity: 1; transform: none; }
+/* stagger children: set --i on each child for a sequenced entrance */
+.reveal-stagger.is-visible > * { animation: rv-rise .55s var(--ease-spring) both; animation-delay: calc(var(--i, 0) * 60ms); }
+@keyframes rv-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* Animated brand gradient text */
+@keyframes gt-shine { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+
+/* Aurora — soft drifting blobs for hero/section backgrounds (decorative, subtle) */
+@keyframes aurora-drift { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(4%, -6%, 0) scale(1.12); } }
+.aurora { position: absolute; inset: -20%; pointer-events: none; z-index: 0; filter: blur(40px); opacity: .5; }
+.aurora-blob { position: absolute; border-radius: 9999px; animation: aurora-drift 14s ease-in-out infinite; will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hfg-tile, .hfg-emoji,
+  .app-overlay-in, .app-card-in, .app-menu-in, .app-route-in, .app-tutor-in,
+  .demo-fade-up, .demo-cursor, .demo-code-in, .demo-line-in, .demo-slide-in,
+  .reward-toast-in, .gradient-text-vivid, .aurora-blob,
+  .reveal-stagger.is-visible > * {
+    animation: none;
+    opacity: 1;
+  }
+  .reveal, .reveal-zoom { opacity: 1; transform: none; transition: none; }
 }

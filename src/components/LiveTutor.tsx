@@ -10,7 +10,7 @@
  * (VITE_PREMIUM_VOICE_KEY) — base stays 100% free.
  */
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Mic, Square, Loader2, Volume2, Sparkles } from 'lucide-react';
+import { Mic, Square, Loader2, Volume2, Sparkles, X } from 'lucide-react';
 import { askTutor } from '../lib/api';
 import { cn } from '../lib/utils';
 
@@ -47,6 +47,7 @@ export default function LiveTutor({ onActivity, onSpeakingChange, context }: Pro
   const [lastQ, setLastQ] = useState('');
   const [lastA, setLastA] = useState('');
   const [err, setErr] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recRef = useRef<any>(null);
@@ -177,8 +178,28 @@ export default function LiveTutor({ onActivity, onSpeakingChange, context }: Pro
     status === 'thinking' ? 'Thinking…' :
     status === 'speaking' ? 'Speaking…' : 'Tap to talk to Sahay';
 
+  // Collapsed by default — voice is opt-in, and a clear launcher/close avoids the
+  // "I can't get out of this" problem when a session is live.
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        className="flex w-full items-center justify-center gap-2 rounded-2xl border border-emerald-400/20 bg-emerald-500/10 px-4 py-3.5 text-sm font-black text-emerald-200 transition-colors hover:bg-emerald-500/20"
+      >
+        <Sparkles size={15} /> Talk to Sahay — hands-free voice tutor
+      </button>
+    );
+  }
+
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur">
+    <div className="relative rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur">
+      <button
+        onClick={() => { stop(); setOpen(false); }}
+        aria-label="Close voice tutor"
+        className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
+      >
+        <X size={15} />
+      </button>
       <div className="mb-1 inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-emerald-300">
         <Sparkles size={13} /> Sahay · your AI study buddy
       </div>

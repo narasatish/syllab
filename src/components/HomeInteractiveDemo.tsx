@@ -8,7 +8,8 @@
  *  3. Coding preview — code snippet with a "Run on Coding →" CTA
  */
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// framer-motion removed — pure-CSS animations (see .demo-* in index.css) keep
+// the vendor-motion chunk off the home critical path.
 import { ChevronLeft, ChevronRight, Sparkles, CheckCircle2, XCircle } from 'lucide-react';
 import { cn } from '../lib/utils';
 
@@ -74,11 +75,7 @@ function QuickMcqDemo({ onNavigate }: { onNavigate: (tab: string) => void }) {
           );
         })}
         {selected !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-3 rounded-xl bg-slate-50 border border-slate-200 px-4 py-3"
-          >
+          <div className="demo-fade-up mt-3 rounded-xl bg-slate-50 border border-slate-200 px-4 py-3">
             <p className="text-xs font-bold text-slate-700">
               {selected === correct ? '🎉 Correct!' : 'Not quite —'}{' '}
               <span className="font-normal text-slate-500">
@@ -92,7 +89,7 @@ function QuickMcqDemo({ onNavigate }: { onNavigate: (tab: string) => void }) {
             >
               Practice 1000+ more →
             </button>
-          </motion.div>
+          </div>
         )}
       </div>
     </div>
@@ -151,11 +148,7 @@ function AiTutorDemo({ onNavigate }: { onNavigate: (tab: string) => void }) {
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center flex-shrink-0 text-sm">🤖</div>
           <div className="bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-2xl rounded-bl-sm px-4 py-2.5 max-w-[85%] whitespace-pre-line">
             {text}
-            <motion.span
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 0.8, repeat: Infinity }}
-              className="inline-block w-0.5 h-4 bg-violet-500 ml-0.5 align-middle"
-            />
+            <span className="demo-cursor inline-block w-0.5 h-4 bg-violet-500 ml-0.5 align-middle" />
           </div>
         </div>
       </div>
@@ -193,23 +186,14 @@ function CodingDemo({ onNavigate }: { onNavigate: (tab: string) => void }) {
           <div className="w-3 h-3 rounded-full bg-emerald-500" />
           <span className="text-xs text-slate-500 ml-2">python · main.py</span>
         </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, staggerChildren: 0.15 }}
-        >
+        <div className="demo-code-in">
           <div className="text-slate-400"><span className="text-violet-400">def</span> <span className="text-cyan-300">greet</span>(name):</div>
           <div className="text-slate-300 pl-4"><span className="text-violet-400">return</span> <span className="text-emerald-300">f"Namaste, {`{name}`}! 🙏"</span></div>
           <div className="mt-2 text-slate-500">{'>>>'} <span className="text-slate-300">greet(<span className="text-emerald-300">"Priya"</span>)</span></div>
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.2 }}
-            className="text-emerald-400"
-          >
+          <div className="demo-line-in text-emerald-400">
             'Namaste, Priya! 🙏'
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -250,18 +234,9 @@ export default function HomeInteractiveDemo({ onNavigate }: Props) {
 
       <div className="relative">
         <div className="bg-white border border-slate-100 rounded-3xl shadow-xl p-6 sm:p-8 min-h-[340px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="h-full"
-            >
-              <CurrentDemo onNavigate={onNavigate} />
-            </motion.div>
-          </AnimatePresence>
+          <div key={index} className="demo-slide-in h-full">
+            <CurrentDemo onNavigate={onNavigate} />
+          </div>
         </div>
 
         <button

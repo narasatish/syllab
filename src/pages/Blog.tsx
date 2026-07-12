@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, BookOpen, Clock, ChevronDown, ChevronUp, Tag } from 'lucide-react';
 import SEO from '../components/SEO';
 import WhatsAppShare from '../components/WhatsAppShare';
+import autoBlogsRaw from '../data/autoBlogs.json';
 
 interface BlogPost {
   id: string;
@@ -477,14 +478,14 @@ export default function BlogPage({ setTab }: BlogPageProps) {
   const [expandedId, setExpandedId] = useState<string | null>(POSTS[0].id);
   const [progress, setProgress] = useState(0);
   const [allPosts, setAllPosts] = useState<BlogPost[]>(POSTS);
+  const [visibleCount, setVisibleCount] = useState(9);
 
   // Load auto-generated blogs
   useEffect(() => {
     async function loadAutoBlogs() {
       try {
-        const response = await fetch('/autoBlogs.json');
-        if (response.ok) {
-          const autoBlogs = await response.json();
+        const autoBlogs = autoBlogsRaw as any[];
+        if (autoBlogs.length) {
           // Convert auto-blog strings to JSX for consistent rendering
           const convertedAutoBlogs = autoBlogs.map((blog: any) => ({
             ...blog,
@@ -626,13 +627,13 @@ export default function BlogPage({ setTab }: BlogPageProps) {
 
         {/* Posts */}
         <div className="space-y-4">
-          {allPosts.map((post, idx) => {
+          {allPosts.slice(0, visibleCount).map((post, idx) => {
             const isOpen = expandedId === post.id;
             return (
               <article
                 key={post.id}
                 id={post.id}
-                className="bg-white border border-slate-100 rounded-3xl overflow-hidden"
+                className="bg-white border border-slate-100 rounded-3xl overflow-hidden dark:bg-slate-800 dark:border-slate-700"
               >
                 <button
                   onClick={() => setExpandedId(isOpen ? null : post.id)}
@@ -640,20 +641,20 @@ export default function BlogPage({ setTab }: BlogPageProps) {
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-3 mb-2">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full dark:text-emerald-400 dark:bg-emerald-900/30">
                         <Tag size={10} />
                         {post.category}
                       </span>
-                      <span className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                      <span className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400 dark:text-slate-500">
                         <Clock size={10} />
                         {post.readTime}
                       </span>
-                      <span className="text-[10px] font-bold text-slate-400">{post.date}</span>
+                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{post.date}</span>
                     </div>
-                    <h2 className="text-lg sm:text-xl font-black text-slate-900 leading-tight mb-2">
+                    <h2 className="text-lg sm:text-xl font-black text-slate-900 leading-tight mb-2 dark:text-white">
                       {post.title}
                     </h2>
-                    <p className="text-sm text-slate-500 font-medium leading-relaxed">
+                    <p className="text-sm text-slate-500 font-medium leading-relaxed dark:text-slate-400">
                       {post.description}
                     </p>
                   </div>
@@ -667,7 +668,7 @@ export default function BlogPage({ setTab }: BlogPageProps) {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 sm:px-8 pb-8 border-t border-slate-100 pt-6">
+                  <div className="px-6 sm:px-8 pb-8 border-t border-slate-100 pt-6 dark:border-slate-700">
                     {post.content}
 
                     {/* Mid-article ad placeholder */}
@@ -703,6 +704,31 @@ export default function BlogPage({ setTab }: BlogPageProps) {
             );
           })}
         </div>
+
+        {/* Load more or article count */}
+        {allPosts.length > 0 && (
+          <div className="flex justify-center items-center gap-4 mt-8">
+            {allPosts.length <= 9 ? (
+              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                Showing {allPosts.length} article{allPosts.length !== 1 ? 's' : ''}
+              </p>
+            ) : (
+              <>
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                  Showing {Math.min(visibleCount, allPosts.length)} of {allPosts.length}
+                </p>
+                {visibleCount < allPosts.length && (
+                  <button
+                    onClick={() => setVisibleCount(visibleCount + 9)}
+                    className="inline-flex items-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-transform shadow-lg hover:bg-emerald-600"
+                  >
+                    Load More Articles
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+        )}
 
         {/* Bottom ad placeholder */}
         <div className="mt-8 mb-4">

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { BookOpen, CheckCircle, Clock, Zap, ChevronDown, Trophy, BarChart3, RefreshCw } from 'lucide-react';
+import React, { useState } from 'react';
+import { CheckCircle, Clock, Zap, Trophy, BarChart3, RefreshCw } from 'lucide-react';
 import { cn } from '../lib/utils';
 import SEO from '../components/SEO';
-import { GK_QUESTIONS, getDailyGKQuiz, getQuestionsByCategory, GKItem } from '../data/generalKnowledge';
+import HubNav, { HubNavItem } from '../components/HubNav';
+import { getDailyGKQuiz, getQuestionsByCategory, GKItem } from '../data/generalKnowledge';
 import FunFactCarousel from '../components/FunFactCarousel';
 
 type ViewMode = 'daily' | 'practice';
@@ -66,7 +67,7 @@ function generateSet(category: CategoryType, currentSeen: Set<string>): { set: G
   const unseen = all.filter((q) => !currentSeen.has(q.id));
 
   let chosen: GKItem[];
-  let workingSeen = new Set(currentSeen);
+  const workingSeen = new Set(currentSeen);
 
   if (unseen.length >= SET_SIZE) {
     chosen = sampleN(unseen, SET_SIZE);
@@ -419,6 +420,13 @@ export default function GeneralKnowledgePage({ setTab }: { setTab?: (tab: string
       ? Math.round((scores.totalCorrect / (scores.totalQuizzes * 10)) * 100)
       : 0;
 
+  const quizHubItems: HubNavItem[] = [
+    { label: 'Daily Challenge', emoji: '📅', path: '/daily-challenges', tab: 'daily' },
+    { label: 'GK Quiz', emoji: '🧠', path: '/gk-quiz', tab: 'general_knowledge' },
+    { label: 'Quiz Duel', emoji: '⚔️', path: '/quiz-duel', tab: 'quiz_duel' },
+    { label: 'Live Quiz', emoji: '🎮', path: '/live-quiz', tab: 'live_quiz' },
+  ];
+
   return (
     <div className="max-w-6xl mx-auto">
       <SEO
@@ -427,6 +435,8 @@ export default function GeneralKnowledgePage({ setTab }: { setTab?: (tab: string
         keywords="GK questions India, general knowledge MCQ free, Indian history MCQ, current affairs 2026, GK quiz Class 8 9 10, CBSE GK questions, competitive exam GK"
         url="https://syllab.in/gk-quiz"
       />
+
+      <HubNav items={quizHubItems} active="general_knowledge" label="Quiz Hub" />
 
       {/* Header */}
       <div className="mb-8">
@@ -615,6 +625,40 @@ export default function GeneralKnowledgePage({ setTab }: { setTab?: (tab: string
               Scientists, theories, units of measurement, chemistry, physics, biology, and scientific discoveries.
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* GK Facts & Biographies — merged in from the former standalone GK Facts page.
+          Routes (/gk-facts and /gk-facts/*) stay live; this is the in-hub entry point. */}
+      <div className="mt-8 bg-white rounded-2xl p-8 shadow-xl shadow-slate-200/50">
+        <h2 className="text-2xl font-black text-slate-900 mb-2">GK Facts &amp; Biographies</h2>
+        <p className="text-slate-600 text-sm leading-relaxed mb-6">
+          Beyond the quiz, explore detailed static GK reference lists (countries &amp; capitals, important days,
+          rivers, awards, national symbols and more) plus biographies of scientists, freedom fighters and leaders.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <button
+            type="button"
+            onClick={() => setTab?.('static_gk')}
+            className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-left transition-all hover:border-emerald-300 hover:bg-emerald-50"
+          >
+            <span className="text-2xl">🎓</span>
+            <span>
+              <span className="block text-base font-black text-slate-900">Static GK Topics</span>
+              <span className="block text-xs font-semibold text-slate-500">Capitals, days, symbols, awards, geography &amp; more</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setTab?.('static_gk')}
+            className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-left transition-all hover:border-emerald-300 hover:bg-emerald-50"
+          >
+            <span className="text-2xl">👤</span>
+            <span>
+              <span className="block text-base font-black text-slate-900">Biographies</span>
+              <span className="block text-xs font-semibold text-slate-500">Kalam, Gandhi, Ramanujan, Einstein &amp; many more</span>
+            </span>
+          </button>
         </div>
       </div>
     </div>

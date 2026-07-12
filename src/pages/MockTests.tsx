@@ -13,12 +13,16 @@ import { recordMasteryResult } from '../lib/mastery';
 import { MockPaper, loadMockTest, MockTestLoadError } from '../lib/mockTestLoader';
 import { MockTestMeta, getMocksByExam } from '../data/mockTestsList';
 import { OLYMPIAD_POOLS, generateRandomExam, type OlympiadQuestion } from '../data/olympiadQuestions';
+import { MOCK_EXAMS } from '../data/mockExams';
 import { generateQuestions, getMockQuestionExplanation } from '../lib/api';
 import FormulaBank from './FormulaBank';
-import DiagramLab from './DiagramLab';
 import PyqPractice from '../components/PyqPractice';
 import QuestionSolution from '../components/QuestionSolution';
 import ShareResultCard from '../components/ShareResultCard';
+
+// Lazy: DiagramLab pulls ~14 per-class diagram data files (~480KB). It only
+// renders under the Diagrams tab, so keep it out of the initial MockTests chunk.
+const DiagramLab = React.lazy(() => import('./DiagramLab'));
 
 type ExamSection = 'mocks' | 'olympiads' | 'formulas' | 'diagrams' | 'create' | 'live' | 'pyq';
 
@@ -172,6 +176,26 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
       setJoinCode(code.toUpperCase().replace(/[^A-Z0-9]/g, ''));
       // Auto-trigger join after a brief delay so UI settles
       window.setTimeout(() => handleJoinExam(code.toUpperCase()), 500);
+      return;
+    }
+    // Auto-start a real exam-configured mock when arriving from an exam landing page.
+    let raw: string | null = null;
+    try { raw = sessionStorage.getItem('syllab_mock_autostart'); if (raw) sessionStorage.removeItem('syllab_mock_autostart'); } catch { /* ignore */ }
+    if (raw) {
+      try {
+        const cfg = JSON.parse(raw) as { class?: string; subjects?: string[]; level?: string; count?: number };
+        if (Array.isArray(cfg.subjects) && cfg.subjects.length) {
+          setCreateClass(cfg.class || '12');
+          setCreateSubjects(cfg.subjects);
+          setCreateLevel((cfg.level as 'Easy' | 'Medium' | 'Hard') || 'Medium');
+          setCreateCount(cfg.count || 30);
+          setActiveSection('create');
+          window.setTimeout(() => {
+            const btn = document.getElementById('generate-exam-btn');
+            if (btn) (btn as HTMLButtonElement).click();
+          }, 400);
+        }
+      } catch { /* ignore malformed config */ }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -665,6 +689,13 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
               Mock tests for JEE/NEET/EAMCET, Math & Science Olympiads, Formula Bank, Diagram Lab, and create your own custom shareable exams.
             </p>
           </div>
+          {/* SEO cross-links → per-exam mock-test landing pages */}
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <span className="self-center text-[10px] font-black uppercase tracking-widest text-slate-400">Exam guides:</span>
+            {MOCK_EXAMS.map((e) => (
+              <a key={e.slug} href={`/mock-tests/${e.slug}`} className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600 transition-colors hover:bg-emerald-100 hover:text-emerald-700">{e.name}</a>
+            ))}
+          </div>
           {/* Tab bar */}
           <div className="mt-6 flex flex-wrap gap-2">
             {sectionTabs.map((tab) => (
@@ -801,7 +832,9 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
               <h2 className="text-2xl font-black text-slate-900">🔬 Diagram Lab</h2>
               <p className="mt-1 text-sm font-medium text-slate-500">Biology, Physics &amp; Chemistry diagrams with labelled parts, explanations, and exam tips.</p>
             </div>
-            <DiagramLab />
+            <React.Suspense fallback={<p className="text-sm font-medium text-slate-400">Loading Diagram Lab…</p>}>
+              <DiagramLab />
+            </React.Suspense>
           </section>
         )}
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { FULL_ARTICLES } from '../data/updateArticles';
 import {
@@ -18,8 +18,12 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import StructuredData from '../seo/StructuredData';
-import HomeFeatureGrid from '../components/HomeFeatureGrid';
-import HomeInteractiveDemo from '../components/HomeInteractiveDemo';
+import StudyNudge from '../components/StudyNudge';
+import { getStreak } from '../lib/gamification';
+// Below-the-fold — lazy so they don't sit on the homepage's critical render path
+// (the hero/LCP element paints without waiting for this JS to parse/execute).
+const HomeFeatureGrid = React.lazy(() => import('../components/HomeFeatureGrid'));
+const HomeInteractiveDemo = React.lazy(() => import('../components/HomeInteractiveDemo'));
 import WhatsNew from '../components/WhatsNew';
 
 interface HomePageProps {
@@ -79,6 +83,27 @@ const HOME_SCHEMA = [
 ];
 
 export default function HomePage({ setTab, currentUser, stats, userClass }: HomePageProps) {
+  // "Pick up where you left off" — reads the client-side breadcrumb App writes on
+  // every learning-area visit. Shown only when recent (≤14 days) so it never feels stale.
+  const [resume, setResume] = useState<{ tab: string; label: string; ts: number } | null>(null);
+  const [streakAtRisk, setStreakAtRisk] = useState(0);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('syllab_last_visit');
+      if (raw) {
+        const v = JSON.parse(raw);
+        if (v && v.tab && v.label && Date.now() - (v.ts || 0) < 14 * 86400000) setResume(v);
+      }
+    } catch { /* ignore */ }
+    // Streak nudge: active streak but nothing done today → remind them to keep it alive.
+    try {
+      const s = getStreak();
+      const d = new Date();
+      const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+      if (s.count >= 1 && s.last !== today) setStreakAtRisk(s.count);
+    } catch { /* ignore */ }
+  }, []);
+
   const handleClassClick = (classNum: number) => {
     if (setTab) {
       setTab(`class_${classNum}`);
@@ -136,6 +161,43 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           description: 'AI-powered learning platform for Indian students, Class 1–12. NCERT-aligned, free.',
         }}
       />
+
+      {/* Retention: keep-your-streak nudge when nothing's been done today */}
+      {streakAtRisk > 0 && (
+        <div className="px-4 pt-4">
+          <button
+            onClick={() => setTab?.('daily')}
+            className="flex w-full items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 px-5 py-4 text-left shadow-sm transition-all hover:shadow-md dark:border-amber-900/40 dark:from-amber-950/30 dark:to-orange-950/20"
+          >
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-widest text-amber-600">🔥 Keep your streak alive</p>
+              <p className="mt-0.5 text-base font-black text-slate-800 dark:text-slate-100">You're on a {streakAtRisk}-day streak — do one quick thing today!</p>
+            </div>
+            <span className="shrink-0 rounded-full bg-amber-500 px-4 py-2 text-xs font-black text-white shadow-sm">Today's quiz →</span>
+          </button>
+        </div>
+      )}
+
+      {/* Retention: one-tap return to the last learning area visited */}
+      {resume && (
+        <div className="px-4 pt-4">
+          <button
+            onClick={() => setTab?.(resume.tab)}
+            className="flex w-full items-center justify-between gap-3 rounded-2xl border border-emerald-100 bg-gradient-to-r from-emerald-50 to-teal-50 px-5 py-4 text-left shadow-sm transition-all hover:shadow-md"
+          >
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">↩ Pick up where you left off</p>
+              <p className="mt-0.5 text-base font-black text-slate-800">{resume.label}</p>
+            </div>
+            <span className="shrink-0 rounded-full bg-emerald-500 px-4 py-2 text-xs font-black text-white shadow-sm">Continue →</span>
+          </button>
+        </div>
+      )}
+
+      {/* Personal "revise your weak chapters" nudge from Study Room memory */}
+      <div className="px-4 pt-4">
+        <StudyNudge onOpenStudyRoom={() => setTab?.('study_room')} />
+      </div>
 
       <style>{`
         @keyframes float-slow {
@@ -278,20 +340,23 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
 
           {/* CTAs */}
           <div className="anim-fade-up anim-delay-3 flex gap-3 justify-center flex-wrap">
-            <button onClick={goToSkills}
-              className="group bg-gradient-to-r from-violet-500 to-purple-600 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-purple-900/40 hover:shadow-purple-900/60 active:scale-95 transition-all">
+            <a href="/coding"
+              onClick={(e) => { e.preventDefault(); goToSkills(); }}
+              className="group bg-gradient-to-r from-violet-500 to-purple-600 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-purple-900/40 hover:shadow-purple-900/60 active:scale-95 transition-all cursor-pointer">
               <Play size={15} />
               Start Coding Now
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button onClick={goToSyllabus}
-              className="hidden sm:flex bg-white/10 border border-white/20 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:bg-white/15 backdrop-blur-sm items-center gap-2">
+            </a>
+            <a href="/syllabus"
+              onClick={(e) => { e.preventDefault(); goToSyllabus(); }}
+              className="hidden sm:flex bg-white/10 border border-white/20 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:bg-white/15 backdrop-blur-sm items-center gap-2 cursor-pointer">
               📚 Browse Syllabus
-            </button>
-            <button onClick={goToParent}
-              className="hidden md:inline-block text-slate-400 px-5 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:text-white">
+            </a>
+            <a href="/parent"
+              onClick={(e) => { e.preventDefault(); goToParent(); }}
+              className="hidden md:inline-block text-slate-400 px-5 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-all hover:text-white cursor-pointer">
               For Parents →
-            </button>
+            </a>
           </div>
 
           {/* Trust strip */}
@@ -303,8 +368,69 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         </div>
       </section>
 
+      {/* ── REAL-NUMBERS TRUST BAND + SNAP & SOLVE (conversion) ──────────────── */}
+      <section className="reveal max-w-6xl mx-auto px-5 pt-10">
+        <h2 className="sr-only">Why students choose Syllab</h2>
+        <div className="grid gap-4 lg:grid-cols-[1.5fr_1fr]">
+          {/* Verifiable free-content stats — real counts, no inflated claims */}
+          <div className="rounded-[1.5rem] border border-slate-100 bg-white p-5 sm:p-7" style={{ boxShadow: 'var(--shadow-soft)' }}>
+            <span className="eyebrow mb-4">Everything free · no login needed</span>
+            <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {[
+                { n: '3,900+', l: 'free study pages' },
+                { n: '890+', l: 'previous-year Qs' },
+                { n: '470+', l: 'full-form guides' },
+                { n: '1–12', l: 'classes covered' },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="text-2xl font-extrabold text-secondary sm:text-3xl">{s.n}</div>
+                  <div className="mt-1 text-xs font-semibold text-slate-600">{s.l}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-sm font-medium text-slate-600">
+              CBSE · NCERT · JEE · NEET — notes, mock tests, formula sheets &amp; a free AI tutor. No paywall, ever.
+            </p>
+          </div>
+          {/* Snap & Solve — surface the existing AI doubt solver prominently */}
+          <a
+            href="/doubt-solver"
+            onClick={(e) => { e.preventDefault(); setTab?.('doubt_solver'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="hover-lift group relative overflow-hidden rounded-[1.5rem] p-6 text-left text-white cursor-pointer"
+            style={{ backgroundImage: 'var(--grad-vivid)', boxShadow: '0 16px 40px -10px rgba(139,92,246,.45)' }}
+          >
+            <span className="absolute right-4 top-4 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-black tracking-wider">FREE</span>
+            <div className="text-4xl">📸</div>
+            <h3 className="mt-3 text-xl font-extrabold">Snap &amp; Solve a doubt</h3>
+            <p className="mt-1.5 text-sm font-medium text-white/90">Stuck on a question? Photograph it and get a clear, step-by-step AI solution in seconds.</p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-black">Open the doubt solver →</span>
+          </a>
+        </div>
+      </section>
+
+      {/* ── USP HIGHLIGHTS — what makes Syllab different (keep it to 3) ───────── */}
+      <section className="reveal max-w-6xl mx-auto px-5 pt-10">
+        <h2 className="sr-only">What makes Syllab different</h2>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {([
+            { tab: 'learning_lab', path: '/ai-tutor', emoji: '🎓', title: 'AI Tuition Teacher', desc: 'Daily homework by class & chapter — type or upload your answers, get marked instantly with XP. Like a private tutor, free.', badge: 'NEW', grad: 'from-emerald-500 to-teal-600' },
+            { tab: 'important_questions', path: '/important-questions', emoji: '🎯', title: 'Important Questions', desc: 'Chapter-wise board-exam questions for Class 6–12, each with a full AI answer.', badge: 'NEW', grad: 'from-violet-500 to-indigo-600' },
+            { tab: 'syllabus', path: '/syllabus', emoji: '👶', title: 'Kids Zone + Worksheets', desc: 'Free preschool learning, stories, games & 200+ printable worksheets.', badge: 'FREE', grad: 'from-pink-500 to-rose-600' },
+          ]).map((c) => (
+            <a key={c.tab} href={c.path} onClick={(e) => { e.preventDefault(); setTab?.(c.tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${c.grad} p-5 text-left text-white shadow-lg transition-transform hover:-translate-y-1 cursor-pointer`}>
+              {c.badge ? <span className="absolute right-3 top-3 rounded-full bg-white/25 px-2 py-0.5 text-[10px] font-black tracking-wider">{c.badge}</span> : null}
+              <div className="text-4xl">{c.emoji}</div>
+              <h3 className="mt-3 text-lg font-black">{c.title}</h3>
+              <p className="mt-1 text-sm font-medium text-white/85">{c.desc}</p>
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-black text-white/90">Explore →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* ── PICK YOUR CLASS ──────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16 pb-16 sm:pb-20">
+      <section className="reveal max-w-6xl mx-auto px-5 py-12 sm:py-16 pb-16 sm:pb-20">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">
             <GraduationCap size={13} />
@@ -313,27 +439,58 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
             Pick your class.
           </h2>
-          <p className="text-slate-500 font-medium">
+          <p className="text-slate-600 font-medium">
             Personalized content for every grade — Class 1 to 12.
           </p>
         </div>
 
         <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-2 sm:gap-3 max-w-5xl mx-auto">
           {CLASSES.map((classNum) => (
-            <button key={classNum} onClick={() => handleClassClick(classNum)}
-              className="group card-hover p-3 sm:p-5 bg-white border-2 border-slate-100 rounded-2xl text-center hover:border-violet-500 hover:bg-violet-50 active:scale-95 transition-all">
+            <a key={classNum} href={`/class-${classNum}`} onClick={(e) => { e.preventDefault(); handleClassClick(classNum); }}
+              className="group card-hover p-3 sm:p-5 bg-white border-2 border-slate-100 rounded-2xl text-center hover:border-violet-500 hover:bg-violet-50 active:scale-95 transition-all cursor-pointer">
               <div className="text-[8px] font-black uppercase tracking-widest text-slate-600 group-hover:text-violet-500 transition-colors">Cls</div>
               <div className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-violet-700 transition-colors">{classNum}</div>
-            </button>
+            </a>
           ))}
         </div>
       </section>
 
       {/* ── WHAT YOU CAN DO — 6 animated feature tiles ──────────────────────── */}
-      <HomeFeatureGrid onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+      <React.Suspense fallback={<div className="min-h-[40vh]" aria-hidden="true" />}>
+        <HomeFeatureGrid onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
 
-      {/* ── SEE IT IN ACTION — interactive demo carousel ─────────────────── */}
-      <HomeInteractiveDemo onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+        {/* ── SEE IT IN ACTION — interactive demo carousel ─────────────────── */}
+        <HomeInteractiveDemo onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+      </React.Suspense>
+
+      {/* ── FREE TOOLS & EXTRAS — internal-link hub (discovery + SEO) ──────────── */}
+      <section className="reveal max-w-6xl mx-auto px-5 py-8">
+        <h2 className="mb-1 text-center text-xl font-black text-slate-900 sm:text-2xl dark:text-slate-100">More free tools & resources</h2>
+        <p className="mb-5 text-center text-sm font-medium text-slate-500 dark:text-slate-400">Everything below is 100% free — no signup, no paywall.</p>
+        <div className="flex flex-wrap justify-center gap-2.5">
+          {[
+            { label: '🧮 Free Calculators', tab: 'calculators' },
+            { label: '📝 Mock Tests', tab: 'mock_tests' },
+            { label: '🎬 Visual Learning', tab: 'visual_learning' },
+            { label: '📄 Previous Year Papers', tab: 'previous_year_papers' },
+            { label: '⭐ Important Questions', tab: 'important_questions' },
+            { label: '🎯 What to Study (weightage)', tab: 'what_to_study' },
+            { label: '📐 Formula Sheets', tab: 'formula_sheets' },
+            { label: '🎓 College Predictor', tab: 'college_predictor' },
+            { label: '💡 Concepts Explained', tab: 'concepts' },
+          ].map((t) => (
+            <button
+              key={t.tab}
+              onClick={() => { setTab?.(t.tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+            >
+              {t.label}
+            </button>
+          ))}
+          <a href="/web-stories" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">📱 Web Stories</a>
+          <a href="/posters/science-memory-tricks.html" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">🧠 Memory Tricks Cheat-sheet</a>
+        </div>
+      </section>
 
       {/* ── WHAT'S NEW — Latest blog posts & new features ─────────────────── */}
       <WhatsNew
@@ -342,7 +499,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       />
 
       {/* ── FOR PARENTS ──────────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16">
+      <section className="reveal max-w-6xl mx-auto px-5 py-12 sm:py-16">
         <div className="bg-gradient-to-br from-violet-600 to-purple-700 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-14 text-white overflow-hidden relative">
           {/* decorative */}
           <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10"
@@ -423,17 +580,56 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         </div>
       </section>
 
+      {/* ── STUDY ABROAD — LandingPrep (our sister product) ──────────────────── */}
+      <section className="reveal max-w-6xl mx-auto px-5 py-12 sm:py-16">
+        <a
+          href="https://landingprep.com"
+          target="_blank"
+          rel="noopener"
+          className="group block no-underline bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-14 text-white overflow-hidden relative"
+        >
+          <div className="absolute top-0 right-0 w-72 h-72 rounded-full opacity-10"
+            style={{ background: 'radial-gradient(circle, white, transparent)', transform: 'translate(30%, -30%)' }} />
+          <div className="absolute -bottom-6 left-4 text-[7rem] sm:text-[9rem] opacity-10 select-none" aria-hidden="true">✈️</div>
+          <div className="relative">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wide">
+              ✈️ From the makers of Syllab
+            </span>
+            <h2 className="mt-4 text-2xl sm:text-4xl font-black leading-tight">
+              Going abroad after Class 12? Prep for it free.
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm sm:text-lg font-medium text-sky-50/90">
+              <strong>LandingPrep</strong> is our sister platform — a <strong>100% free exam-prep and
+              study-abroad platform</strong> for students headed overseas. Practise IELTS, TOEFL, PTE,
+              GRE, GMAT, OET, SAT and more with <strong>1,000+ full-length mock tests</strong> (real
+              timing, instant scoring) and an AI speaking &amp; writing partner. Then shortlist your
+              Safe/Target/Reach universities with the free college predictor, build your SOP, LOR and
+              resume, work out costs and education loans, and prep for the visa interview. Same promise
+              as Syllab — <strong>no signup, no paywall.</strong>
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {['1,000+ mock tests', 'IELTS · TOEFL · PTE · GRE · GMAT', 'AI speaking & writing', 'College predictor', 'SOP · LOR · visa prep'].map((chip) => (
+                <span key={chip} className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold text-white">{chip}</span>
+              ))}
+            </div>
+            <span className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm sm:text-base font-black text-blue-700 transition-all group-hover:gap-3">
+              Explore LandingPrep <ArrowRight size={18} />
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* ── FAQ ──────────────────────────────────────────────────────────────── */}
       <FaqSection />
 
       {/* ── FINAL CTA ────────────────────────────────────────────────────────── */}
-      <section className="text-center px-5 py-16 sm:py-20">
+      <section className="reveal text-center px-5 py-16 sm:py-20">
         <div className="max-w-2xl mx-auto">
           <div className="text-5xl mb-5">🚀</div>
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tighter mb-4">
             Your learning journey starts now.
           </h2>
-          <p className="text-slate-500 font-medium mb-8 max-w-md mx-auto leading-relaxed">
+          <p className="text-slate-600 font-medium mb-8 max-w-md mx-auto leading-relaxed">
             Join thousands of students learning Python, AI, and more — completely free. No card, no spam.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
@@ -462,7 +658,7 @@ const FAQS = [
   },
   {
     q: 'Is Syllab.in completely free?',
-    a: 'Yes. Core features including Skills Lab (Python, AI, SQL, Java, HTML, CSS, JS), AI Tutor, chapter practice, and daily challenges are completely free. No credit card required. No hidden subscription.',
+    a: 'Yes. Core features including the AI Tuition Teacher (personalized daily homework with instant marking), Skills Lab (Python, AI, SQL, Java, HTML, CSS, JS), AI Tutor, chapter practice, and daily challenges are completely free. No credit card required. No hidden subscription.',
   },
   {
     q: 'Which classes does Syllab cover?',
@@ -494,7 +690,7 @@ function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section className="max-w-3xl mx-auto px-5 py-16 sm:py-20">
+    <section className="reveal max-w-3xl mx-auto px-5 py-16 sm:py-20">
       {/* FAQ JSON-LD intentionally lives once in index.html (crawlable without JS).
           Removed the duplicate here to avoid multiple FAQPage blocks on the page. */}
       <div className="text-center mb-10">
@@ -504,7 +700,7 @@ function FaqSection() {
         <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
           Got questions?
         </h2>
-        <p className="text-slate-500 font-medium">Everything you need to know about Syllab.in</p>
+        <p className="text-slate-600 font-medium">Everything you need to know about Syllab.in</p>
       </div>
 
       <div className="space-y-3">

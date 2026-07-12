@@ -2,6 +2,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { Search, Filter, BookOpen, Sparkles, X, Zap, PlayCircle, Lightbulb, ArrowRight, Bot, Target, Pin, Loader2, Presentation } from 'lucide-react';
 import { Chapter, Subject, ClassLevel, Concept } from '../types';
+import { SYLLABUS } from '../data/syllabus';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { CONCEPTS } from '../data/concepts';
@@ -12,6 +13,10 @@ import { loadConcept } from '../lib/api';
 import { getDeepPptLesson, DeepPptLesson, prewarmPptBackend } from '../lib/pptLessonApi';
 import WebSlideViewer from '../components/WebSlideViewer';
 import LessonViewer from '../components/LessonViewer';
+import StoryLessonViewer from '../components/StoryLessonViewer';
+import { hasStoryLesson, loadStoryLesson, type StoryLesson } from '../data/storyLessons';
+import DeckSlideshow from '../components/DeckSlideshow';
+import { getUploadedDeck, type UploadedDeck } from '../data/uploadedDecks';
 import DeckViewer from '../components/DeckViewer';
 import HtmlDeckViewer from '../components/HtmlDeckViewer';
 import { getDeckUrl } from '../data/chapterDecks';
@@ -26,7 +31,9 @@ import {
 interface SyllabusPageProps {
   setTab: (tab: string) => void;
   openTutor: () => void;
-  syllabus: Chapter[];
+  /** Optional override; defaults to the full SYLLABUS imported here so the
+   *  ~350KB dataset stays in this lazy chunk instead of the entry bundle. */
+  syllabus?: Chapter[];
   setPracticeConfig: (config: Record<string, unknown>) => void;
   userClass?: string;
   isLoggedIn?: boolean;
@@ -468,7 +475,7 @@ function ConceptView({
   );
 }
 
-export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeConfig, userClass, isLoggedIn = false }: SyllabusPageProps) {
+export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, setPracticeConfig, userClass, isLoggedIn = false }: SyllabusPageProps) {
   const [searchParams] = useSearchParams();
   const restoredView = React.useMemo<SyllabusViewState | null>(() => {
     try {
@@ -564,6 +571,10 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   const [deck, setDeck] = useState<{ url: string; chapter: Chapter } | null>(null);
   // Generated HTML deck (free, emoji/CSS designed) — used when no PDF deck exists
   const [htmlDeck, setHtmlDeck] = useState<{ url: string; chapter: Chapter } | null>(null);
+  // Story-based lesson (narrative teaching) — opens StoryLessonViewer.
+  const [storyLesson, setStoryLesson] = useState<StoryLesson | null>(null);
+  // Uploaded chapter slide deck (owner-made PPT exported as images) — top priority.
+  const [slideDeck, setSlideDeck] = useState<UploadedDeck | null>(null);
 
   // Close all modals if user navigates away via navbar — defensive fix for
   // "stuck on page" reports where a tab click didn't visibly change page.
@@ -580,10 +591,21 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       setLessonChapter(null);
       setDeck(null);
       setHtmlDeck(null);
+      setStoryLesson(null);
+      setSlideDeck(null);
     };
     window.addEventListener('syllab:navigate', onNavigate);
     return () => window.removeEventListener('syllab:navigate', onNavigate);
   }, []);
+
+  // While any fullscreen lesson/deck viewer is open, mark <body> so the global
+  // AI-tutor FAB hides (it's nested-stacking-context vs the FAB and would overlap
+  // the slide Next button on mobile). The viewer has its own "Ask AI" control.
+  const lessonOpen = !!(pptLesson || pptLoading || deck || htmlDeck || storyLesson || slideDeck);
+  useEffect(() => {
+    document.body.classList.toggle('lesson-open', lessonOpen);
+    return () => document.body.classList.remove('lesson-open');
+  }, [lessonOpen]);
 
   // Pinned chapters now live in Firestore (cloud-synced across devices).
   // Guests see an empty list and a soft prompt when they try to pin.
@@ -785,6 +807,11 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
 
   const totalQuestions = syllabus.length * 300;
 
+  // Show the big Kids Zone banner only for the youngest students (or guests who
+  // haven't picked a class). Older students get a small box at the bottom instead,
+  // so their own class content is front-and-centre.
+  const showFullJunior = !userClass || ['1', '2', '3'].includes(String(userClass));
+
   return (
     <div className="space-y-8 pb-12">
       <SEO
@@ -979,6 +1006,47 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         </div>
       )}
 
+      {/* ── Syllab Junior (Kids Zone) — full banner only for the youngest students ── */}
+      {showFullJunior ? (
+      <section className="overflow-hidden rounded-3xl border border-purple-100 bg-gradient-to-br from-purple-50 via-pink-50 to-amber-50 p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-xs font-black uppercase tracking-widest text-purple-500">👶 Syllab Junior · Kids Zone · Pre-KG to Class 3</h2>
+            <p className="mt-1 max-w-xl text-sm font-medium text-slate-700">
+              A full preschool zone — alphabet &amp; phonics, numbers, shapes, animals, <strong>moral stories</strong>, <strong>action rhymes</strong>, <strong>matching games</strong>, a paint-and-fill <strong>Colouring Studio</strong>, tracing and <strong>200+ printable worksheets</strong>. All free.
+            </p>
+          </div>
+          <button
+            onClick={() => setTab('kids')}
+            className="shrink-0 rounded-xl bg-purple-500 px-5 py-3 text-sm font-black text-white shadow-sm transition-colors hover:bg-purple-600"
+          >
+            Open Kids Zone →
+          </button>
+        </div>
+        <div className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+          {([
+            { emoji: '🔤', label: 'Alphabet', tab: 'kids', c: 'from-blue-300 to-blue-500' },
+            { emoji: '🔢', label: 'Numbers', tab: 'kids', c: 'from-green-300 to-green-500' },
+            { emoji: '🎨', label: 'Shapes', tab: 'kids', c: 'from-yellow-300 to-amber-500' },
+            { emoji: '🐮', label: 'GK & More', tab: 'kids', c: 'from-orange-300 to-orange-500' },
+            { emoji: '📚', label: 'Stories', tab: 'kids', c: 'from-amber-300 to-orange-500' },
+            { emoji: '🎶', label: 'Rhymes', tab: 'kids', c: 'from-pink-300 to-pink-500' },
+            { emoji: '🧩', label: 'Games', tab: 'kids', c: 'from-indigo-300 to-purple-500' },
+            { emoji: '📝', label: 'Worksheets', tab: 'worksheets', c: 'from-emerald-300 to-emerald-500' },
+          ]).map((t) => (
+            <button
+              key={t.label}
+              onClick={() => setTab(t.tab)}
+              className={`flex flex-col items-center gap-1 rounded-2xl bg-gradient-to-br ${t.c} px-2 py-4 text-white shadow-md transition-transform hover:scale-105`}
+            >
+              <span className="text-2xl">{t.emoji}</span>
+              <span className="text-[11px] font-black">{t.label}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+      ) : null}
+
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl md:text-3xl font-heading font-black mb-1 tracking-tight">📚 Curriculum Vault</h2>
@@ -994,7 +1062,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
             placeholder="Search curricula..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all w-64 text-sm"
+            className="pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all w-full sm:w-64 text-sm"
           />
         </div>
       </div>
@@ -1171,10 +1239,19 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-3">
-              {/* Lesson button — opens the polished provided deck if one exists,
-                  otherwise the AI-generated lesson. */}
+              {/* Lesson button — if a story-based lesson exists it IS the lesson PPT;
+                  else the polished provided deck, else the AI-generated lesson. */}
               <button
                 onClick={() => {
+                  const uploaded = getUploadedDeck(chapter.classLevel, chapter.title);
+                  if (uploaded) { setSlideDeck(uploaded); return; }
+                  // Story lessons are fetched on demand (perf: they're not bundled).
+                  if (hasStoryLesson(chapter.classLevel, chapter.subject, chapter.title)) {
+                    void loadStoryLesson(chapter.classLevel, chapter.subject, chapter.title).then((story) => {
+                      if (story) setStoryLesson(story);
+                    });
+                    return;
+                  }
                   const pdfDeck = getDeckUrl(chapter.classLevel, chapter.title);
                   const htmlDeckUrl = getGeneratedDeckUrl(chapter.classLevel, chapter.title);
                   if (pdfDeck) setDeck({ url: pdfDeck, chapter });
@@ -1255,18 +1332,60 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         )}
       </AnimatePresence>
 
-      {/* Syllab Junior — early-learning section for the youngest students */}
-      <section className="rounded-3xl border border-purple-100 bg-gradient-to-br from-purple-50 to-pink-50 p-6">
-        <h2 className="text-xs font-black uppercase tracking-widest text-purple-500">👶 Syllab Junior · Pre-KG to Class 3</h2>
-        <div className="mt-2 flex flex-wrap items-center justify-between gap-4">
-          <p className="max-w-xl text-sm font-medium text-slate-700">
-            Playful early learning — alphabet &amp; phonics, numbers, shapes, <strong>30 nursery rhymes</strong> (read aloud), a tap-to-fill <strong>Colouring Studio</strong> and <strong>letter tracing</strong>. All free.
-          </p>
-          <button
-            onClick={() => setTab('kids')}
-            className="shrink-0 rounded-xl bg-purple-500 px-5 py-3 text-sm font-black text-white transition-colors hover:bg-purple-600"
+      {/* Story-based lesson — fullscreen on mobile, centered card on desktop */}
+      {storyLesson && (
+        <div
+          className="fixed inset-0 z-[70] flex items-stretch justify-center bg-slate-900/60 backdrop-blur-sm sm:items-center sm:p-4"
+          onClick={() => setStoryLesson(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative flex w-full flex-col bg-white shadow-2xl sm:max-w-4xl sm:rounded-[2rem]"
+            style={{ height: '100dvh', maxHeight: '100dvh' }}
           >
-            Open Syllab Junior →
+            <StoryLessonViewer lesson={storyLesson} onClose={() => setStoryLesson(null)} />
+          </div>
+        </div>
+      )}
+
+      {/* Uploaded chapter slide deck (owner-made PPT) — fullscreen slideshow */}
+      {slideDeck && (
+        <div
+          className="fixed inset-0 z-[70] flex items-stretch justify-center bg-slate-900/70 backdrop-blur-sm sm:items-center sm:p-4"
+          onClick={() => setSlideDeck(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative flex w-full flex-col bg-white shadow-2xl sm:max-w-5xl sm:rounded-[2rem]"
+            style={{ height: '100dvh', maxHeight: '100dvh' }}
+          >
+            <DeckSlideshow deck={slideDeck} onClose={() => setSlideDeck(null)} />
+          </div>
+        </div>
+      )}
+
+      {/* Small Kids Zone box — shown for older students (the full banner is hidden for them) */}
+      {!showFullJunior ? (
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-purple-100 bg-purple-50 px-4 py-3">
+          <p className="text-sm font-bold text-slate-600">👶 <strong>Syllab Junior</strong> — fun learning &amp; worksheets for the little ones (Pre-KG to Class 3).</p>
+          <button onClick={() => setTab('kids')} className="shrink-0 rounded-full bg-purple-500 px-4 py-1.5 text-xs font-black text-white hover:bg-purple-600">Open Kids Zone →</button>
+        </div>
+      ) : null}
+
+      {/* Printable Worksheets — its own section (kept near the bottom too) */}
+      <section className="overflow-hidden rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-teal-50 p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-xs font-black uppercase tracking-widest text-emerald-600">📝 Printable Worksheets · 200+ free PDFs</h2>
+            <p className="mt-1 max-w-xl text-sm font-medium text-slate-700">
+              Alphabet &amp; tracing, phonics, vocabulary, reading, writing, maths, shapes, colours, science and more — every sheet free to print or save as PDF, watermarked <strong>syllab.in</strong>.
+            </p>
+          </div>
+          <button
+            onClick={() => setTab('worksheets')}
+            className="shrink-0 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-black text-white shadow-sm transition-colors hover:bg-emerald-600"
+          >
+            Browse worksheets →
           </button>
         </div>
       </section>

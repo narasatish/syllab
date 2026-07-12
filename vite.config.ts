@@ -20,7 +20,10 @@ export default defineConfig({
     modulePreload: {
       resolveDependencies(_url, deps, context) {
         if (context.hostType !== 'html') return deps;
-        return deps.filter((dep) => !dep.includes('vendor-charts') && !dep.includes('vendor-pdf') && !dep.includes('vendor-markdown'));
+        // Don't preload heavy chunks that aren't needed for first paint/LCP — they
+        // load on demand when their feature mounts. Improves mobile Core Web Vitals.
+        const SKIP = ['vendor-charts', 'vendor-pdf', 'vendor-markdown', 'vendor-motion', 'vendor-firebase'];
+        return deps.filter((dep) => !SKIP.some((s) => dep.includes(s)));
       },
     },
     rollupOptions: {

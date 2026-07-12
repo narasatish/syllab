@@ -8,19 +8,25 @@
  */
 export type AmbienceKey =
   | 'off' | 'rain' | 'ocean' | 'forest' | 'fire'
-  | 'brown' | 'pink' | 'focus';
+  | 'brown' | 'pink' | 'focus'
+  | 'lofi' | 'dream' | 'piano';
 
-export interface AmbienceOption { key: AmbienceKey; label: string; emoji: string; }
+export interface AmbienceOption { key: AmbienceKey; label: string; emoji: string; group?: 'sound' | 'music'; }
 
 export const AMBIENCE_OPTIONS: AmbienceOption[] = [
   { key: 'off', label: 'Off', emoji: '🔇' },
-  { key: 'rain', label: 'Rain', emoji: '🌧️' },
-  { key: 'ocean', label: 'Ocean', emoji: '🌊' },
-  { key: 'forest', label: 'Forest', emoji: '🌲' },
-  { key: 'fire', label: 'Fireplace', emoji: '🔥' },
-  { key: 'brown', label: 'Deep Noise', emoji: '🟤' },
-  { key: 'pink', label: 'Soft Noise', emoji: '🌸' },
-  { key: 'focus', label: 'Focus Drone', emoji: '🧘' },
+  // Soundscapes
+  { key: 'rain', label: 'Rain', emoji: '🌧️', group: 'sound' },
+  { key: 'ocean', label: 'Ocean', emoji: '🌊', group: 'sound' },
+  { key: 'forest', label: 'Forest', emoji: '🌲', group: 'sound' },
+  { key: 'fire', label: 'Fireplace', emoji: '🔥', group: 'sound' },
+  { key: 'brown', label: 'Deep Noise', emoji: '🟤', group: 'sound' },
+  { key: 'pink', label: 'Soft Noise', emoji: '🌸', group: 'sound' },
+  { key: 'focus', label: 'Focus Drone', emoji: '🧘', group: 'sound' },
+  // Study music — continuous harmonic loops, perfect for 2–10 hour sessions
+  { key: 'lofi', label: 'Lo-Fi', emoji: '🎧', group: 'music' },
+  { key: 'dream', label: 'Dream Pad', emoji: '✨', group: 'music' },
+  { key: 'piano', label: 'Soft Keys', emoji: '🎹', group: 'music' },
 ];
 
 export class Ambience {
@@ -28,6 +34,7 @@ export class Ambience {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private nodes: any[] = [];
   private master: GainNode | null = null;
+  private timers: ReturnType<typeof setInterval>[] = [];
   private volume = 0.5;
   current: AmbienceKey = 'off';
 
@@ -113,12 +120,60 @@ export class Ambience {
         const o1 = ctx.createOscillator(); o1.type = 'sine'; o1.frequency.value = 110; o1.connect(g);
         const o2 = ctx.createOscillator(); o2.type = 'sine'; o2.frequency.value = 110.5; o2.connect(g);
         start(o1); start(o2);
+      } else if (key === 'lofi') {
+        // Warm Cmaj7 chord pad + slow tremolo + faint vinyl noise → lo-fi study loop.
+        const g = ctx.createGain(); g.gain.value = 0.0001; g.connect(master); this.nodes.push(g);
+        [130.81, 164.81, 196.00, 246.94].forEach((f) => { // C3 E3 G3 B3
+          const o = ctx.createOscillator(); o.type = 'triangle'; o.frequency.value = f; o.connect(g); start(o);
+        });
+        g.gain.setTargetAtTime(0.14, ctx.currentTime, 1.5); // gentle fade-in
+        const lfo = ctx.createOscillator(); lfo.frequency.value = 0.15;
+        const lg = ctx.createGain(); lg.gain.value = 0.04; lfo.connect(lg).connect(g.gain); start(lfo); this.nodes.push(lg);
+        const vinyl = this.src(ctx, 'brown'); const vf = lp(800); const vg = ctx.createGain(); vg.gain.value = 0.04;
+        vinyl.connect(vf).connect(vg).connect(master); start(vinyl); this.nodes.push(vf, vg);
+      } else if (key === 'dream') {
+        // Airy higher Fmaj9-ish pad — soft and open, loops forever.
+        const g = ctx.createGain(); g.gain.value = 0.0001; g.connect(master); this.nodes.push(g);
+        [174.61, 220.00, 261.63, 329.63].forEach((f) => { // F3 A3 C4 E4
+          const o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = f; o.connect(g); start(o);
+        });
+        g.gain.setTargetAtTime(0.10, ctx.currentTime, 2.5);
+        const lfo = ctx.createOscillator(); lfo.frequency.value = 0.08;
+        const lg = ctx.createGain(); lg.gain.value = 0.03; lfo.connect(lg).connect(g.gain); start(lfo); this.nodes.push(lg);
+      } else if (key === 'piano') {
+        // Soft Keys — a calm pentatonic arpeggio that loops, over a quiet pad.
+        const pad = ctx.createGain(); pad.gain.value = 0.05; pad.connect(master); this.nodes.push(pad);
+        [130.81, 196.00].forEach((f) => { const o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = f; o.connect(pad); start(o); });
+        // C-major pentatonic across two octaves — gentle, never dissonant.
+        const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25];
+        let step = 0;
+        const pluck = (freq: number) => {
+          if (this.ctx !== ctx) return;
+          const o = ctx.createOscillator(); o.type = 'triangle'; o.frequency.value = freq;
+          const e = ctx.createGain(); e.gain.value = 0.0001;
+          o.connect(e).connect(master);
+          const t = ctx.currentTime;
+          e.gain.setValueAtTime(0.0001, t);
+          e.gain.exponentialRampToValueAtTime(0.16, t + 0.02); // quick attack
+          e.gain.exponentialRampToValueAtTime(0.0001, t + 1.6); // long soft decay
+          o.start(t); o.stop(t + 1.8);
+        };
+        pluck(notes[0]);
+        const timer = setInterval(() => {
+          step = (step + 1) % notes.length;
+          // wander a little so it doesn't feel mechanical
+          const idx = step % 2 === 0 ? step : (step + 2) % notes.length;
+          pluck(notes[idx]);
+        }, 850);
+        this.timers.push(timer);
       }
       this.current = key;
     } catch { /* audio unavailable — never break the room */ }
   }
 
   private stopNodes() {
+    for (const t of this.timers) { try { clearInterval(t); } catch { /* ignore */ } }
+    this.timers = [];
     for (const n of this.nodes) {
       try { n.stop?.(); } catch { /* ignore */ }
       try { n.disconnect?.(); } catch { /* ignore */ }

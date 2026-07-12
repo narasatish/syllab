@@ -20,7 +20,14 @@ export function printWorksheet(title: string, svg: string): void {
   .bar button { background: #10b981; color: #fff; border: 0; padding: 9px 18px; border-radius: 10px; font-weight: 900; cursor: pointer; }
   .sheet { max-width: 820px; margin: 16px auto; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,.12); }
   .sheet svg { display: block; width: 100%; height: auto; }
-  @media print { .bar { display: none; } body { background: #fff; } .sheet { margin: 0; box-shadow: none; max-width: none; } }
+  /* In print, size the A4 SVG by height (just under one page) with auto width so
+     it always fits on EXACTLY one page — fixes the trailing blank 2nd page. */
+  @media print {
+    .bar { display: none; }
+    html, body { margin: 0; padding: 0; background: #fff; }
+    .sheet { margin: 0; box-shadow: none; max-width: none; }
+    .sheet svg { width: auto; height: 296mm; max-width: 100%; margin: 0 auto; }
+  }
 </style>
 <script>
   function go(){ try { window.focus(); window.print(); } catch(e){} }

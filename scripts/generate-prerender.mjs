@@ -13,12 +13,25 @@
  * Run: node scripts/generate-prerender.mjs  (called by npm run build automatically)
  */
 
-import { promises as fs, readFileSync } from 'node:fs';
+import { promises as fs, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
+import { ownershipLabel, recognitionLabel, eligibility as collegeEligibility, coursesOffered, documentsRequired, typicalFacilities, scholarships as collegeScholarships, newsLinks as collegeNewsLinks, comparisonSet } from './collegeEnrich.mjs';
+import { getMedicalManifest } from './medicalColleges.mjs';
 import { getBlogArticles } from './blogArticles.mjs';
 import { getNcertChapters } from './ncertChapters.mjs';
+import { getStateBoardChapters } from './stateBoardChapters.mjs';
+import { getAiHubTopics } from './aiHubTopics.mjs';
+import { IQ_PILOT } from './iq-pilot.mjs';
+import { getDifferences } from './differencesData.mjs';
+import { DIFF_REINDEX, DIFF_REINDEX_SLUGS } from './diff-reindex.mjs';
+import { CONCEPT_FAQ } from './concept-faq.mjs';
+import { POSTER_SHEETS, posterHref } from './posters.mjs';
+import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
+import { EXAM_LIST, EXAM_CATEGORIES } from './exam-slugs.mjs';
+const HINDI_CONCEPT_SLUGS = new Set(HINDI_CONCEPTS.map((c) => c.slug));
+import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -69,6 +82,35 @@ const ROUTES = [
     keywords: 'CBSE MCQ practice, NCERT questions, chapter wise quiz, online MCQ test, timed practice, CBSE exam prep, free MCQ India, practice arena alternative',
   },
   {
+    path: '/story-lessons',
+    title: 'Story-Based Learning for CBSE Classes 1–12 — NCERT Chapters as Stories | Syllab.in',
+    description: 'Free story-based learning for CBSE NCERT chapters Class 1-12. Every chapter becomes an engaging story. 569 lessons, 534 chapters, voice narration, 100% free for Indian students.',
+    keywords: 'story based learning CBSE, NCERT chapters as stories, engaging learning for kids, memory techniques CBSE, narrative learning, free learning stories India, CBSE Class 1-12 stories',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          { '@type': 'Question', name: 'What is story-based learning?', acceptedAnswer: { '@type': 'Answer', text: 'Story-based learning transforms NCERT chapters into engaging narratives. Students learn through stories that illustrate key concepts, making them 3-4x more memorable and enjoyable.' } },
+          { '@type': 'Question', name: 'Is story-based learning really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, 100% free forever. All 569 story lessons are available to every Indian student at no cost — no signup required, no ads, no hidden charges.' } },
+          { '@type': 'Question', name: 'Which classes are covered?', acceptedAnswer: { '@type': 'Answer', text: 'Story lessons are available for Class 1 through Class 12, covering all subjects following the official NCERT curriculum.' } },
+          { '@type': 'Question', name: 'Does it follow NCERT exactly?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every story maps 1:1 to NCERT chapters, covering 534 chapters across all subjects and classes.' } },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'LearningResource',
+        name: 'Story-Based Learning for CBSE Classes 1–12',
+        description: 'Free story-based learning platform for NCERT chapters — every chapter as an engaging narrative for better retention.',
+        learningResourceType: 'Story-based lesson',
+        isAccessibleForFree: true,
+        educationalLevel: 'CBSE Class 1-12',
+        inLanguage: 'en-IN',
+        url: 'https://syllab.in/story-lessons',
+      },
+    ],
+  },
+  {
     path: '/daily-challenges',
     title: 'Daily Challenge — JEE NEET EAMCET & School Daily Quiz | Syllab.in',
     description: 'Take a daily quiz challenge for JEE, NEET, EAMCET, and school aptitude with live rankings and streak tracking. Same quiz for all users — compete with friends. Practice every day, improve your rank.',
@@ -79,16 +121,28 @@ const ROUTES = [
     title: 'Mock Tests — Free JEE, NEET, EAMCET & State Exam Papers | Syllab.in',
     description: 'Free mock tests for JEE Main, NEET, EAMCET, VIT, BITSAT, and all state engineering entrance exams (WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE). 10+ mocks each. Math & Science Olympiads included.',
     keywords: 'JEE Main mock test 2026 free, NEET mock test 2026 free, EAMCET mock test free, VIT mock test, BITSAT mock test free, WBJEE mock test free, TNEA mock test, UPSEE 2026 free, MHT-CET mock test free, KCET 2026 mock test, COMEDK UGET practice, GUJCET practice free, OJEE mock test free, state engineering entrance exams, full length mock test free India, board exam practice test Class 10, Math Olympiad free, Science Olympiad practice, sample paper CBSE 2026, previous year question paper, engineering entrance exam preparation free',
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Course',
-      name: 'Free Mock Tests for JEE, NEET, EAMCET & State Exams',
-      description: 'Practice with full mock tests for JEE Mains, NEET, EAMCET, BITSAT, WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE and Olympiads — 200+ mocks total, all free',
-      provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
-      isAccessibleForFree: true,
-      inLanguage: 'en-IN',
-      educationalLevel: 'Class 9 to Class 12',
-    },
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: 'Free Mock Tests for JEE, NEET, EAMCET & State Exams',
+        description: 'Practice with full mock tests for JEE Mains, NEET, EAMCET, BITSAT, WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE and Olympiads — 200+ mocks total, all free',
+        provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+        isAccessibleForFree: true,
+        inLanguage: 'en-IN',
+        educationalLevel: 'Class 9 to Class 12',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Syllab Mock Tests',
+        applicationCategory: 'EducationalApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        isAccessibleForFree: true,
+        description: '200+ full-length mock tests for JEE, NEET, EAMCET and state engineering exams',
+      },
+    ],
   },
   {
     path: '/ai-tutor',
@@ -159,6 +213,102 @@ const ROUTES = [
     title: 'Free Data Mining Course for Students India | Python Analytics | Syllab.in',
     description: 'Discover patterns in large datasets — classification, clustering, association rules, and predictive analytics with Python.',
     keywords: 'data mining for students, data mining tutorial free, machine learning basics, Python data analysis, predictive analytics learning',
+  },
+  {
+    path: '/coding/dsa',
+    title: 'Free DSA Course — Data Structures & Algorithms for Placements | Syllab.in',
+    description: 'Learn Data Structures & Algorithms free — arrays, hashing, linked lists, stacks, queues, recursion, sorting, searching, trees, heaps, graphs and dynamic programming, with Python examples and practice. The #1 skill for coding interviews.',
+    keywords: 'DSA course free, data structures and algorithms tutorial, DSA for placements, DSA in Python, LeetCode preparation free, arrays linked list tree graph dynamic programming, coding interview preparation India, competitive programming basics',
+  },
+  {
+    path: '/coding/c-cpp',
+    title: 'Free C & C++ Course — From Basics to OOP & STL | Syllab.in',
+    description: 'Learn C and C++ free — variables, control flow, functions, arrays, pointers, structs, dynamic memory, and full C++ OOP (classes, inheritance, polymorphism) plus the STL. Deep, correct examples with practice for college and placements.',
+    keywords: 'C programming course free, C++ tutorial free, learn C and C++ online, pointers in C, C++ OOP classes inheritance polymorphism, STL vector map, C++ for placements India, engineering C programming',
+  },
+  {
+    path: '/coding/excel',
+    title: 'Free Excel & Google Sheets Course — Formulas, VLOOKUP, Pivot Tables | Syllab.in',
+    description: 'Master Excel and Google Sheets free — SUM, IF, VLOOKUP/XLOOKUP, SUMIFS, data cleaning, pivot tables, charts and data validation. The highest-ROI office and data skill for Indian jobs, with real formulas and hands-on practice.',
+    keywords: 'Excel course free, Google Sheets tutorial, VLOOKUP XLOOKUP tutorial, pivot table tutorial free, Excel formulas for jobs, SUMIF COUNTIF, Excel for data analyst India, spreadsheet skills',
+  },
+  {
+    path: '/coding/finance',
+    title: 'Free Financial Literacy Course — Budgeting, SIP, Stock Market Basics | Syllab.in',
+    description: 'Learn money skills free — budgeting (50/30/20), compound interest, banking, mutual funds & SIPs, how the stock market works, risk & diversification, insurance and India income-tax basics. Educational only, not financial advice.',
+    keywords: 'financial literacy course free, personal finance for students India, budgeting 50/30/20, compound interest, mutual funds SIP basics, stock market for beginners India, income tax basics, money management skills',
+  },
+  {
+    path: '/coding/digital-marketing',
+    title: 'Free Digital Marketing Course — SEO, Ads, Social & Analytics | Syllab.in',
+    description: 'Learn digital marketing free — the full funnel: SEO, content, social media, email, Google & Meta ads, and analytics (CPC, ROAS, conversion rate). A degree-optional, high-demand career skill with real examples and practice.',
+    keywords: 'digital marketing course free, learn SEO free, social media marketing, Google Ads Meta Ads basics, email marketing, marketing analytics ROAS CPC, digital marketing career India, performance marketing',
+  },
+  {
+    path: '/coding/react',
+    title: 'Free React Course — Build Modern Web Apps (React 19 & Hooks) | Syllab.in',
+    description: 'Learn React 19 free — JSX, components & props, hooks (useState, useEffect, useContext), forms, lists, fetching APIs and deploying with Vite. Function components and hooks only, with real JSX examples and practice for frontend jobs.',
+    keywords: 'React course free, learn React 19, React hooks tutorial, useState useEffect, JSX components props, frontend development India, React for placements, build web apps React Vite',
+  },
+  {
+    path: '/coding/machine-learning',
+    title: 'Free Machine Learning Course — scikit-learn, Regression to Neural Nets | Syllab.in',
+    description: 'Learn machine learning free — supervised vs unsupervised learning, preprocessing, linear & logistic regression, evaluation metrics, overfitting & regularization, decision trees, random forests, K-Means and intro neural networks, with real scikit-learn code.',
+    keywords: 'machine learning course free, ML tutorial scikit-learn, learn machine learning India, linear regression logistic regression, decision trees random forest, K-means clustering, neural networks basics, data science course free',
+  },
+  {
+    path: '/coding/power-bi',
+    title: 'Free Power BI Course — Dashboards, DAX & Data Visualization | Syllab.in',
+    description: 'Learn Power BI free — connect & clean data with Power Query, model relationships (star schema), choose the right charts, write DAX (measures, CALCULATE, SUMX), add slicers & drill-through, and publish dashboards. A fast route into a data-analyst career.',
+    keywords: 'Power BI course free, learn Power BI, DAX tutorial, data visualization course, Power Query, business intelligence India, data analyst dashboard, Power BI for jobs',
+  },
+  {
+    path: '/coding/spoken-english',
+    title: 'Free Spoken English Course — Speak Fluently & Confidently | Syllab.in',
+    description: 'Learn spoken English free — overcome hesitation, everyday conversation, fix common grammar mistakes, build vocabulary, improve pronunciation, professional communication, self-introduction & interviews, and a 30-day fluency plan for Indian students.',
+    keywords: 'spoken English course free, learn English speaking India, English fluency, English grammar mistakes Indians make, English for interviews, improve pronunciation, self introduction English, communication skills',
+  },
+  {
+    path: '/coding/linux',
+    title: 'Free Linux & Command Line Course — Terminal, Bash & SSH | Syllab.in',
+    description: 'Learn Linux free — navigate the filesystem, manage files, permissions (chmod), pipes & grep, processes, package management, shell scripting and SSH. Essential for developer, data, DevOps and cybersecurity careers, with real commands and practice.',
+    keywords: 'Linux course free, learn command line, bash scripting tutorial, Linux terminal commands, chmod permissions, grep pipes, SSH tutorial, Linux for DevOps India',
+  },
+  {
+    path: '/coding/reasoning',
+    title: 'Free Logical Reasoning & Verbal Ability Course — Placement Prep | Syllab.in',
+    description: 'Learn logical reasoning & verbal ability free — series & patterns, coding-decoding, blood relations, direction sense, syllogisms, seating puzzles, logical deduction, reading comprehension and verbal ability, with reliable techniques for placements & competitive exams.',
+    keywords: 'logical reasoning course free, verbal ability, aptitude reasoning for placements, syllogisms coding decoding, blood relations direction sense, seating arrangement puzzles, reasoning for TCS Infosys, competitive exam reasoning',
+  },
+  {
+    path: '/coding/interview-prep',
+    title: 'Free Resume & Interview Preparation Course — Land the Offer | Syllab.in',
+    description: 'Learn resume & interview prep free — build a strong one-page resume, write achievement bullets, beat the ATS, craft your LinkedIn & cover letter, answer "tell me about yourself", master the STAR method, and handle salary & tricky questions. For Indian freshers.',
+    keywords: 'resume building course free, interview preparation India, ATS friendly resume, STAR method interview, tell me about yourself answer, fresher interview tips, LinkedIn profile, HR interview questions',
+  },
+  {
+    path: '/coding/entrepreneurship',
+    title: 'Free Entrepreneurship & Startup Course — Idea to Business | Syllab.in',
+    description: 'Learn entrepreneurship free — the founder mindset, validating a problem, market research, business models (Business Model Canvas), building an MVP (lean startup), unit economics & break-even, first customers, funding and scaling in the Indian startup ecosystem.',
+    keywords: 'entrepreneurship course free, how to start a startup India, business model canvas, MVP lean startup, unit economics break-even, startup funding bootstrapping, customer validation, Indian startup ecosystem',
+  },
+  {
+    path: '/coding/public-speaking',
+    title: 'Free Public Speaking Course — Present with Confidence | Syllab.in',
+    description: 'Learn public speaking free — overcome stage fear, structure a talk (hook, body, close), tell engaging stories, master body language and voice, design clean slides, handle Q&A, present online, and follow a 30-day improvement plan. For students & professionals.',
+    keywords: 'public speaking course free, overcome stage fear, presentation skills, storytelling for speeches, body language voice, slide design, Q&A handling, communication skills India',
+  },
+  {
+    path: '/coding/graphic-design',
+    title: 'Free Graphic Design Course with Canva — Learn Design from Scratch | Syllab.in',
+    description: 'Learn graphic design free with Canva — elements of design, colour theory, typography, layout & hierarchy, the CRAP principles, designing for social media, and making resumes, posters and logos. No expensive software or prior skill needed.',
+    keywords: 'graphic design course free, Canva tutorial, learn design from scratch, colour theory typography, design principles CRAP, social media design, make a logo poster resume, freelance design India',
+  },
+  {
+    path: '/coding/vedic-maths',
+    title: 'Free Vedic & Mental Maths Course — Fast Calculation Tricks | Syllab.in',
+    description: 'Learn Vedic & mental maths free — fast addition & subtraction, multiplication tricks (by 11, near a base, criss-cross), squaring, quick division, divisibility rules and mental shortcuts for exams. Learn why each trick works, with worked examples and practice.',
+    keywords: 'vedic maths course free, mental maths tricks, fast calculation techniques, multiplication tricks, squaring numbers fast, divisibility rules, speed maths for exams, vedic maths for JEE CAT bank',
   },
   {
     path: '/english',
@@ -330,6 +480,24 @@ const ROUTES = [
     description: 'Read the Terms of Service for Syllab.in — India\'s free AI learning platform for Class 1 to 12 students.',
     keywords: 'Syllab terms of service, terms and conditions',
     noindex: true,
+    bodyHtml: `
+      <p style="font-size:0.8rem;color:#666;">Last updated: 11 June 2026</p>
+      <p>By using Syllab.in you agree to these terms. Please read them. If you do not agree, please do not use the service.</p>
+      <h2>1. The service</h2>
+      <p>Syllab provides free educational content and tools (syllabus notes, practice, mock tests, an AI tutor, a career &amp; college predictor, worksheets and more) for students in India. Features may change or improve over time.</p>
+      <h2>2. Eligibility</h2>
+      <p>Syllab is intended for school students. If you are under 18, you should use Syllab with the involvement and consent of a parent or guardian.</p>
+      <h2>3. Acceptable use</h2>
+      <p>Use Syllab for learning. Do not misuse it — no attempts to break, overload or reverse-engineer the service, no scraping at scale, no uploading unlawful or harmful content, and no using the AI features to generate abusive or unsafe content.</p>
+      <h2>4. Educational guidance only</h2>
+      <p>All content — including AI answers, rank/college predictions, cut-offs, fees and placement figures — is indicative and for guidance only, and may contain errors. Always verify important decisions against official sources (NCERT/CBSE, the exam board, JoSAA/MCC/NTA, and college websites). Syllab does not provide professional, legal, medical or financial advice.</p>
+      <h2>5. Intellectual property</h2>
+      <p>Syllab's name, design and original content belong to Syllab. You may use the content for personal, non-commercial learning. Third-party names and trademarks belong to their owners.</p>
+      <h2>6. Disclaimers &amp; liability</h2>
+      <p>The service is provided "as is", without warranties. To the extent permitted by law, Syllab is not liable for any loss arising from reliance on the content or from interruptions to the free service.</p>
+      <h2>7. Changes, termination &amp; law</h2>
+      <p>We may update these terms and may suspend accounts that misuse the service. These terms are governed by the laws of India. Questions? Email <a href="mailto:narasatish966@gmail.com">narasatish966@gmail.com</a>.</p>
+    `,
   },
   {
     path: '/privacy',
@@ -337,6 +505,29 @@ const ROUTES = [
     description: 'Read the Privacy Policy for Syllab.in. We are committed to protecting student data and your privacy.',
     keywords: 'Syllab privacy policy, data protection, student privacy',
     noindex: true,
+    bodyHtml: `
+      <p style="font-size:0.8rem;color:#666;">Last updated: 11 June 2026</p>
+      <p>Syllab.in ("Syllab", "we", "us") is a free learning platform for students in India. We respect your privacy and keep data collection to the minimum needed to run the service. This policy explains what we collect, why, and your choices.</p>
+      <h2>1. Information we collect</h2>
+      <ul>
+        <li><strong>Account details</strong> (optional): if you sign in, your name, email and class/board — to save your progress.</li>
+        <li><strong>Learning activity</strong>: quizzes, practice, study sessions and progress, so we can show your dashboard.</li>
+        <li><strong>On-device storage</strong>: your browser's local storage (cached answers, preferences) — this stays on your device.</li>
+        <li><strong>Basic analytics</strong>: anonymised usage data to improve the product. We do not sell your data.</li>
+      </ul>
+      <h2>2. How we use it</h2>
+      <p>To provide and improve learning features, save your progress, personalise content to your class/board, and keep the service secure. We do not sell or rent personal data, and we do not show third-party behavioural ads to children.</p>
+      <h2>3. Children's privacy</h2>
+      <p>Syllab is used by school students, including those under 18. We collect only what is necessary for learning. In line with India's Digital Personal Data Protection (DPDP) Act, 2023, we expect a parent or guardian to provide consent for a child's account. Parents can request access to or deletion of a child's data by contacting us.</p>
+      <h2>4. Service providers</h2>
+      <p>We use trusted providers to run Syllab — Google Firebase (authentication, database, hosting) and AI APIs that generate explanations. They process data only to provide their service, under their own security and privacy terms.</p>
+      <h2>5. Data security &amp; retention</h2>
+      <p>We use reasonable technical safeguards (encrypted connections, access rules) to protect data. We keep account and progress data only while your account is active, or as required by law.</p>
+      <h2>6. Your rights</h2>
+      <p>You can access, correct or delete your personal data, and withdraw consent, at any time. To do so, email us and we'll act on your request promptly.</p>
+      <h2>7. Changes &amp; contact</h2>
+      <p>We may update this policy and will revise the date above. Questions or requests? Email <a href="mailto:narasatish966@gmail.com">narasatish966@gmail.com</a>.</p>
+    `,
   },
 ];
 
@@ -391,6 +582,7 @@ for (let c = 1; c <= 12; c++) {
         '@type': 'CourseInstance',
         name: `Class ${c} ${sub}`,
         courseMode: 'online',
+        isAccessibleForFree: true,
       })),
     },
   });
@@ -399,11 +591,41 @@ for (let c = 1; c <= 12; c++) {
 // ─── College pages (/colleges, /colleges/:state, /colleges/:state/:slug) ─────
 const { states: COLLEGE_STATES_M, colleges: COLLEGES_M } = getCollegesManifest(ROOT);
 
+// ── (H) Data study: Top engineering colleges by NIRF 2024 (crawlable, linkable asset,
+//    computed from the verified college directory — no fabricated numbers) ──────────
+const toLPA = (v) => {
+  const s = String(v ?? '');
+  const cr = s.match(/([\d.]+)\s*Cr/i); if (cr) return parseFloat(cr[1]) * 100;
+  const lpa = s.match(/([\d.]+)\s*LPA/i); if (lpa) return parseFloat(lpa[1]);
+  const n = Number(s.replace(/[^0-9.]/g, ''));
+  if (!Number.isFinite(n) || n <= 0) return null;
+  return n > 1000 ? n / 100000 : n; // raw rupees → LPA, else assume already LPA
+};
+const rankedColleges = COLLEGES_M
+  .filter((c) => Number.isFinite(Number(c.nirf)) && Number(c.nirf) > 0)
+  .sort((a, b) => Number(a.nirf) - Number(b.nirf))
+  .slice(0, 30);
+const _iitCount = rankedColleges.filter((c) => c.type === 'IIT').length;
+const _pkgs = rankedColleges.map((c) => toLPA(c.placementAvg)).filter((n) => n && n < 200);
+const _avgPkg = _pkgs.length ? (_pkgs.reduce((a, b) => a + b, 0) / _pkgs.length).toFixed(1) : null;
+const _studyRows = rankedColleges.map((c, i) => `<tr><td>${i + 1}</td><td><a href="/colleges/${c.stateSlug}/${c.slug}">${esc(c.name)}</a></td><td>${esc(c.city || '')}</td><td>${esc(c.type)}</td><td>#${c.nirf}</td><td>${esc(c.placementAvg || '—')}</td></tr>`).join('');
+const collegesDataStudy = `
+  <h2>Data Study: Top ${rankedColleges.length} Engineering Colleges in India by NIRF 2024</h2>
+  <p class="speakable">Compiled from Syllab's directory of ${COLLEGES_M.length}+ engineering colleges. The ranking uses official NIRF 2024 Engineering ranks; fees and placement figures are indicative and should be verified on each college's official website.</p>
+  <ul>
+    <li><strong>${_iitCount} of the top ${rankedColleges.length}</strong> engineering colleges in India are IITs.</li>
+    ${_avgPkg ? `<li>The average placement package across these top colleges is about <strong>₹${_avgPkg} LPA</strong> (indicative).</li>` : ''}
+    <li>Admission to the top ranks is via <a href="/mock-tests/jee-advanced">JEE Advanced</a> (IITs) and <a href="/mock-tests/jee-main">JEE Main</a> (NITs/IIITs).</li>
+  </ul>
+  <table><thead><tr><th>#</th><th>College</th><th>City</th><th>Type</th><th>NIRF 2024</th><th>Avg. package (indicative)</th></tr></thead><tbody>${_studyRows}</tbody></table>
+  <p>Browse the full directory by state below, or try the free <a href="/college-predictor">college predictor</a> and <a href="/medical-colleges">medical colleges</a>.</p>`;
+
 ROUTES.push({
   path: '/colleges',
   title: 'Top Engineering Colleges in India 2026 — Fees, NIRF Rank, Cutoffs & Admission | Syllab.in',
   description: 'Browse top engineering colleges across India by state — IITs, NITs and the best government & private colleges in Tamil Nadu, Karnataka, Maharashtra, Telangana, Andhra Pradesh, Delhi-NCR & West Bengal. Compare fees, NIRF rank, cutoffs, placements and the full admission process. Free.',
-  keywords: 'top engineering colleges India 2026, best engineering colleges by state, engineering college fees, NIRF ranking engineering, college cutoff 2026, engineering admission process, IIT NIT cutoff, college predictor India',
+  keywords: 'top engineering colleges India 2026, best engineering colleges by state, engineering college fees, NIRF ranking engineering 2024, top colleges by placement, college cutoff 2026, engineering admission process, IIT NIT cutoff, college predictor India',
+  bodyHtml: collegesDataStudy,
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Top Engineering Colleges in India', url: `${SITE}/colleges` },
 });
 
@@ -421,27 +643,170 @@ for (const s of COLLEGE_STATES_M) {
   });
 }
 
+// Indian-format a rupee amount from a raw number/string ("300000" → "₹3,00,000").
+const inr = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? `₹${n.toLocaleString('en-IN')}` : null; };
+const lakh = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? `₹${(n / 100000).toFixed(n % 100000 === 0 ? 0 : 1)} lakh` : null; };
 for (const c of COLLEGES_M) {
+  // Data-driven body from the manifest (fees/cutoff/placement all present for every
+  // college). 4-year B.Tech tuition = per-year × 4; hostel/mess noted as separate
+  // (we don't hold that figure, so we never invent one). GSC shows real research
+  // intent here ("<college> fees for 4 years with hostel", "<college> placement 2026").
+  const feeYr = inr(c.feesPerYear);
+  const fee4 = (() => { const n = Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? inr(n * 4) : null; })();
+  const pkg = inr(c.placementAvg);
+  const hi = inr(c.placementHighest);
+  const branches = (c.topBranches || []);
+  const recruiters = (c.recruiters || []);
+  const exams = (c.exams || []);
+  const steps = (c.admissionSteps || []);
+  const cmpSet = comparisonSet(c, COLLEGES_M);
+  const cmpHasPeers = cmpSet.length > 1;
+  const good = (() => {
+    const bits = [];
+    if (c.nirf) bits.push(`ranked #${c.nirf} in India (NIRF Engineering 2024)`);
+    if (pkg) bits.push(`an average package of about ${pkg}`);
+    if (c.placementRate) bits.push(`a placement rate of around ${c.placementRate}`);
+    return bits.length ? `${c.shortName} is a well-regarded choice — it has ${bits.join(', ')}. Whether it is "good for you" depends on your rank, budget and preferred branch (${branches.slice(0, 3).join(', ') || 'engineering'}).` : `${c.shortName} is one of the engineering colleges in ${c.stateName}. Compare its fees, cutoff and placements below to judge fit for your rank and budget.`;
+  })();
+  const faqs = [
+    feeYr && { q: `What is the B.Tech fee at ${c.shortName}?`, a: `The B.Tech tuition fee at ${c.name}, ${c.city} is about ${feeYr} per year${lakh(c.feesPerYear) ? ` (${lakh(c.feesPerYear)} per year)` : ''}. Hostel and mess are charged separately.` },
+    fee4 && { q: `What is the total 4-year B.Tech fee at ${c.shortName}?`, a: `Over the full four-year B.Tech course, tuition works out to roughly ${fee4}${lakh(Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')) * 4) ? ` (${lakh(Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')) * 4)})` : ''}, excluding hostel, mess and one-time charges.` },
+    c.cutoff && { q: `What is the cutoff / admission requirement for ${c.shortName}?`, a: `${c.cutoff}. Admission is through ${exams.join(' / ') || 'the relevant entrance exam'} followed by counselling.` },
+    pkg && { q: `What is the average placement package at ${c.shortName}?`, a: `The average placement package at ${c.name} is around ${pkg} per annum${lakh(c.placementAvg) ? ` (${lakh(c.placementAvg)} LPA)` : ''}${hi ? `, with the highest package reported around ${hi}` : ''}.` },
+    exams.length && { q: `Which entrance exam is needed for admission to ${c.shortName}?`, a: `Admission to B.Tech at ${c.name} is based on ${exams.join(', ')}${c.cutoff ? ` — indicatively, ${c.cutoff.toLowerCase()}` : ''}.` },
+    { q: `What is the eligibility for B.Tech at ${c.shortName}?`, a: collegeEligibility(c) },
+    { q: `Is ${c.shortName} a good college?`, a: good },
+    branches.length && { q: `Which branches / courses does ${c.shortName} offer?`, a: `Popular B.Tech branches include ${branches.join(', ')}.${(c.type === 'IIT' || c.type === 'NIT/IIIT' || c.type === 'Government') ? ' Postgraduate (M.Tech) and research (Ph.D.) programmes are also offered.' : ''}` },
+  ].filter(Boolean);
+  const cmpTable = cmpHasPeers ? `
+    <h2>${esc(c.shortName)} vs Top ${esc(c.type)} Colleges — Comparison</h2>
+    <p>How ${esc(c.shortName)} compares with peer colleges on the key numbers students weigh (all figures indicative, 2024).</p>
+    <table><thead><tr><th>College</th><th>NIRF</th><th>Fees / year</th><th>Avg package</th><th>Placement rate</th></tr></thead><tbody>
+      ${cmpSet.map((o) => `<tr><td>${o.slug === c.slug ? `<strong>${esc(o.shortName)}</strong>` : `<a href="/colleges/${o.stateSlug}/${o.slug}">${esc(o.shortName)}</a>`}</td><td>${o.nirf ? '#' + o.nirf : '—'}</td><td>${esc(inr(o.feesPerYear) || o.feesPerYear || '—')}</td><td>${esc(inr(o.placementAvg) || o.placementAvg || '—')}</td><td>${esc(o.placementRate || '—')}</td></tr>`).join('')}
+    </tbody></table>` : '';
+  const news = collegeNewsLinks(c);
+  const scholes = collegeScholarships(c);
+  const body = `
+    <p class="speakable"><strong>${esc(c.name)}</strong>${c.shortName && c.shortName !== c.name ? ` (${esc(c.shortName)})` : ''} is a ${esc(ownershipLabel(c.type))} in ${esc(c.city)}, ${esc(c.stateName)}${c.established ? `, established in ${c.established}` : ''}.${feeYr ? ` B.Tech tuition is about ${esc(feeYr)}/year${fee4 ? ` (≈ ${esc(fee4)} for 4 years)` : ''}` : ''}${pkg ? `, with an average placement package of around ${esc(pkg)}` : ''}. Admission is through ${esc(exams.join(' / ') || 'the relevant entrance exam')}.</p>
+    ${c.about ? `<p>${esc(c.about)}</p>` : ''}
+
+    <h2>${esc(c.shortName)} — Quick Facts</h2>
+    <table><tbody>
+      <tr><td>Type / ownership</td><td>${esc(ownershipLabel(c.type))}</td></tr>
+      ${c.established ? `<tr><td>Established</td><td>${c.established}</td></tr>` : ''}
+      <tr><td>Location</td><td>${esc(c.city)}, ${esc(c.stateName)}</td></tr>
+      ${c.nirf ? `<tr><td>NIRF Engineering rank (2024)</td><td>#${c.nirf}</td></tr>` : ''}
+      <tr><td>Recognition</td><td>${esc(recognitionLabel(c.type))}</td></tr>
+      <tr><td>Entrance exam(s)</td><td>${esc(exams.join(', ') || '—')}</td></tr>
+      ${c.website ? `<tr><td>Official website</td><td><a href="https://${esc(c.website)}" rel="nofollow noopener">${esc(c.website)}</a></td></tr>` : ''}
+    </tbody></table>
+
+    <h2>Courses Offered at ${esc(c.shortName)}</h2>
+    <ul>${coursesOffered(c).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+
+    <h2>${esc(c.shortName)} B.Tech Fees (2026)</h2>
+    <table><tbody>
+      ${feeYr ? `<tr><td>Tuition fee (per year)</td><td>${esc(feeYr)}</td></tr>` : ''}
+      ${fee4 ? `<tr><td>Total tuition (4 years, B.Tech)</td><td>${esc(fee4)}</td></tr>` : ''}
+      ${c.hostelPerYear ? `<tr><td>Hostel &amp; mess (per year)</td><td>${esc(c.hostelPerYear)} (indicative)</td></tr>` : `<tr><td>Hostel &amp; mess</td><td>Charged separately (varies by room type)</td></tr>`}
+    </tbody></table>
+
+    <h2>Admission &amp; Eligibility</h2>
+    <p>${esc(collegeEligibility(c))}</p>
+    <p><strong>Indicative cutoff:</strong> ${esc(c.cutoff || '—')}</p>
+    ${steps.length ? `<h3>Admission process (step by step)</h3><ol>${steps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
+    <h3>Documents required</h3>
+    <ul>${documentsRequired(c).map((d) => `<li>${esc(d)}</li>`).join('')}</ul>
+
+    <h2>${esc(c.shortName)} Placements (2026)</h2>
+    <table><tbody>
+      ${pkg ? `<tr><td>Average package</td><td>${esc(pkg)} per annum</td></tr>` : ''}
+      ${hi ? `<tr><td>Highest package</td><td>${esc(hi)}</td></tr>` : ''}
+      ${c.placementRate ? `<tr><td>Placement rate</td><td>${esc(c.placementRate)}</td></tr>` : ''}
+    </tbody></table>
+    ${recruiters.length ? `<p><strong>Top recruiters:</strong> ${esc(recruiters.join(', '))}.</p>` : ''}
+
+    ${c.accommodation ? `<h2>Campus &amp; Hostel</h2><p>${esc(c.accommodation)}</p>` : '<h2>Campus &amp; Facilities</h2>'}
+    <p><strong>Typical facilities</strong> (verify specifics with the college): ${typicalFacilities().join(', ')}.</p>
+
+    <h2>Scholarships</h2>
+    <ul>${scholes.map((s) => `<li><strong>${esc(s.name)}:</strong> ${esc(s.desc)}${s.url ? ` <a href="${s.url}" rel="nofollow noopener">${esc(s.url.replace('https://', ''))}</a>` : ''}</li>`).join('')}</ul>
+
+    ${cmpTable}
+
+    <h2>Latest News &amp; Official Notices</h2>
+    <p>For current admission dates, cut-offs and notifications, check the official and news sources directly:</p>
+    <ul>${news.map((n) => `<li><a href="${n.url}" rel="nofollow noopener">${esc(n.label)}</a></li>`).join('')}</ul>
+
+    <h2>Frequently Asked Questions</h2>
+    ${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
+
+    <p><a href="/colleges/${c.stateSlug}">More engineering colleges in ${esc(c.stateName)} →</a> · <a href="/college-predictor">Free college predictor →</a> · <a href="/colleges">All colleges by state →</a></p>
+    <p><em>All figures (fees, NIRF rank, cutoffs, placements) are indicative for guidance and should be verified on the official college / counselling website before any decision.</em></p>`;
   ROUTES.push({
     path: `/colleges/${c.stateSlug}/${c.slug}`,
-    title: `${c.shortName} — Fees, Cutoff, Placements & Admission 2026 | Syllab.in`,
-    description: `${c.name}, ${c.city}: B.Tech fees ${c.feesPerYear}/yr, ${c.cutoff}, average package ${c.placementAvg}. Full admission process, hostel & placements — free guide on Syllab.in.`,
-    keywords: `${c.name} fees, ${c.shortName} cutoff 2026, ${c.shortName} placements, ${c.name} admission process, ${c.name} hostel, ${c.city} engineering college`,
+    title: `${c.shortName} Fees 2026 — B.Tech Fees, Cutoff & Placements | Syllab.in`,
+    description: `${c.name}, ${c.city}: B.Tech tuition ${feeYr || c.feesPerYear}/yr${fee4 ? ` (≈${fee4} for 4 years)` : ''}, ${c.cutoff} Average package ${pkg || c.placementAvg}. Full fees, cutoff & placements — free.`,
+    keywords: `${c.name} fees, ${c.shortName} fees for 4 years, ${c.shortName} cutoff 2026, ${c.shortName} placements, ${c.name} admission process, ${c.city} engineering college`,
+    bodyHtml: body,
+    jsonLd: [
+      {
+        '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name,
+        url: `${SITE}/colleges/${c.stateSlug}/${c.slug}`,
+        address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.stateName, addressCountry: 'IN' },
+      },
+      ...(faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+    ],
+  });
+}
+
+// City college hubs — "Top Engineering Colleges in {City}" (cities with 2+ colleges).
+const cityHubMap = new Map();
+for (const c of COLLEGES_M) {
+  const slug = c.city.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const e = cityHubMap.get(slug) || { city: c.city, slug, state: c.stateName, list: [] };
+  e.list.push(c);
+  cityHubMap.set(slug, e);
+}
+for (const ci of cityHubMap.values()) {
+  if (ci.list.length < 2) continue;
+  const sorted = [...ci.list].sort((a, b) => (a.nirf ?? 999) - (b.nirf ?? 999));
+  ROUTES.push({
+    path: `/colleges/city/${ci.slug}`,
+    title: `Top ${ci.list.length} Engineering Colleges in ${ci.city} 2026 — Fees, Cutoff & Ranking | Syllab.in`,
+    description: `Best engineering colleges in ${ci.city}, ${ci.state} 2026 — NIRF rank, B.Tech fees, cutoffs, placements and admission process. Compare the top engineering colleges in ${ci.city}.`,
+    keywords: `top engineering colleges in ${ci.city}, best engineering colleges in ${ci.city}, engineering colleges in ${ci.city} fees, ${ci.city} btech admission, ${ci.city} college cutoff 2026`,
     jsonLd: {
-      '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name,
-      url: `${SITE}/colleges/${c.stateSlug}/${c.slug}`,
-      address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.stateName, addressCountry: 'IN' },
+      '@context': 'https://schema.org', '@type': 'ItemList', name: `Top Engineering Colleges in ${ci.city}`,
+      itemListElement: sorted.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, url: `${SITE}/colleges/${c.stateSlug}/${c.slug}` })),
     },
   });
 }
 
 // ─── NCERT Solutions: index + per-chapter pages (high-volume "NCERT solutions") ─
 const today = new Date().toISOString().split('T')[0];
+const NCERT_CHAPTERS = getNcertChapters();
+// Static link hub: list every chapter as a real <a> so crawlers discover the
+// chapter pages from the index without running JS (internal linking + PageRank flow).
+const ncertHubBody = (() => {
+  const byCls = {};
+  for (const c of NCERT_CHAPTERS) { (byCls[c.classLevel] ||= {}); (byCls[c.classLevel][c.subject] ||= []).push(c); }
+  let html = '<h2>NCERT Solutions by Class &amp; Subject</h2>';
+  for (const cls of Object.keys(byCls).sort((a, b) => Number(a) - Number(b))) {
+    for (const subj of Object.keys(byCls[cls]).sort()) {
+      html += `<h3>Class ${cls} ${esc(subj)}</h3><ul>`;
+      for (const c of byCls[cls][subj]) html += `<li><a href="/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}">${esc(c.title)} — Class ${c.classLevel} ${esc(c.subject)} NCERT Solutions</a></li>`;
+      html += '</ul>';
+    }
+  }
+  return html;
+})();
 ROUTES.push({
   path: '/ncert-solutions',
-  title: 'Free NCERT Solutions for Class 6–12 (CBSE) — Chapter-wise Answers | Syllab.in',
+  title: 'Free NCERT Solutions for Class 6–12 (CBSE 2026-27) — Chapter-wise PDF | Syllab.in',
   description: 'Free NCERT solutions for CBSE Class 6 to 12 — chapter-wise, step-by-step answers to textbook exercises in Science, Maths, Physics, Chemistry & Biology for Indian students.',
   keywords: 'NCERT solutions free, NCERT solutions Class 10, NCERT solutions Class 9, NCERT solutions Class 12, CBSE NCERT solutions chapter wise, free textbook solutions India',
+  bodyHtml: ncertHubBody,
   jsonLd: [
     { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'NCERT Solutions for Class 6–12', url: `${SITE}/ncert-solutions` },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
@@ -451,7 +816,7 @@ ROUTES.push({
     ] },
   ],
 });
-for (const c of getNcertChapters()) {
+for (const c of NCERT_CHAPTERS) {
   const today = new Date().toISOString().split('T')[0];
   ROUTES.push({
     path: `/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
@@ -540,6 +905,69 @@ for (const k of [
   });
 }
 
+// Junior "tap & listen" GK picture topics — high-intent "X for kids" searches.
+for (const t of [
+  { slug: 'animals', name: 'Animals & Their Sounds', kw: 'animals and their sounds for kids, animal names for kids, domestic and wild animals' },
+  { slug: 'birds', name: 'Birds', kw: 'birds name for kids, birds for kindergarten, list of birds' },
+  { slug: 'fruits', name: 'Fruits', kw: 'fruits name for kids, fruits for LKG, fruit names list' },
+  { slug: 'vegetables', name: 'Vegetables', kw: 'vegetables name for kids, vegetables for kids, vegetable names list' },
+  { slug: 'body', name: 'Body Parts', kw: 'body parts for kids, parts of the body for kids, human body for kindergarten' },
+  { slug: 'colours', name: 'Colours', kw: 'colours name for kids, learn colors for kids, colours for LKG' },
+  { slug: 'opposites', name: 'Opposites', kw: 'opposites for kids, opposite words for kids, opposite words list' },
+  { slug: 'transport', name: 'Vehicles & Transport', kw: 'means of transport for kids, vehicles name for kids, modes of transport' },
+  { slug: 'helpers', name: 'Community Helpers', kw: 'community helpers for kids, names of community helpers, helpers around us' },
+  { slug: 'habits', name: 'Good Habits', kw: 'good habits for kids, healthy habits for children, good manners for kids' },
+  { slug: 'wild', name: 'Wild Animals', kw: 'wild animals name for kids, wild animals for kindergarten' },
+  { slug: 'water', name: 'Water Animals', kw: 'water animals for kids, sea animals name for kids, aquatic animals' },
+  { slug: 'insects', name: 'Insects', kw: 'insects name for kids, insects for kindergarten, types of insects' },
+  { slug: 'flowers', name: 'Flowers', kw: 'flowers name for kids, flower names for kids, types of flowers' },
+  { slug: 'family', name: 'My Family', kw: 'family members name for kids, my family for kids, family for LKG' },
+  { slug: 'days', name: 'Days of the Week', kw: 'days of the week for kids, seven days for kids, weekdays names' },
+  { slug: 'seasons', name: 'Seasons', kw: 'seasons for kids, seasons in India for kids, types of seasons' },
+  { slug: 'national', name: 'National Symbols of India', kw: 'national symbols of India for kids, national bird animal flower of India, GK for kids India' },
+  { slug: 'festivals', name: 'Festivals of India', kw: 'festivals of India for kids, Indian festivals names, festivals for kids' },
+  { slug: 'hindi-swar', name: 'Hindi Varnamala Swar (Vowels)', kw: 'hindi varnamala for kids, hindi swar, hindi vowels for kids, hindi alphabet learning' },
+  { slug: 'hindi-vyanjan', name: 'Hindi Varnamala Vyanjan (Consonants)', kw: 'hindi vyanjan for kids, hindi consonants, hindi varnamala ka kha ga, learn hindi alphabet' },
+  { slug: 'hindi-numbers', name: 'Hindi Numbers (१–१०)', kw: 'hindi numbers for kids, hindi ginti 1 to 10, hindi counting for kids' },
+  { slug: 'tamil-vowels', name: 'Tamil Vowels (Uyir Ezhuthu)', kw: 'tamil letters for kids, tamil vowels, tamil alphabet uyir ezhuthu, learn tamil' },
+  { slug: 'telugu-vowels', name: 'Telugu Vowels (Achchulu)', kw: 'telugu letters for kids, telugu vowels achchulu, telugu alphabet, learn telugu' },
+  { slug: 'kannada-vowels', name: 'Kannada Vowels (Swaragalu)', kw: 'kannada letters for kids, kannada vowels swaragalu, kannada alphabet, learn kannada' },
+  { slug: 'tamil-consonants', name: 'Tamil Consonants (Mei Ezhuthu)', kw: 'tamil consonants for kids, tamil mei ezhuthu, tamil alphabet consonants, learn tamil letters' },
+  { slug: 'telugu-consonants', name: 'Telugu Consonants (Hallulu)', kw: 'telugu consonants for kids, telugu hallulu, telugu alphabet consonants, learn telugu letters' },
+  { slug: 'kannada-consonants', name: 'Kannada Consonants (Vyanjanagalu)', kw: 'kannada consonants for kids, kannada vyanjana, kannada alphabet consonants, learn kannada letters' },
+]) {
+  ROUTES.push({
+    path: `/kids/learn/${t.slug}`,
+    title: `${t.name} for Kids — Free Learning (Tap & Listen) | Syllab Junior`,
+    description: `Learn ${t.name.toLowerCase()} the fun way — tap each picture to hear it. Free GK for Pre-KG, LKG, UKG and Class 1 kids in India.`,
+    keywords: t.kw,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'LearningResource', name: `${t.name} for Kids`, url: `${SITE}/kids/learn/${t.slug}`, inLanguage: 'en-IN', isAccessibleForFree: true, educationalLevel: 'Preschool' },
+  });
+}
+
+// Moral stories, action rhymes, matching games — big evergreen kid searches.
+ROUTES.push({
+  path: '/kids/stories',
+  title: 'Moral Stories for Kids — Short Bedtime Stories with Morals | Syllab Junior',
+  description: 'Free short moral stories for kids — Thirsty Crow, Lion and the Mouse, Hare and the Tortoise and more Panchatantra & Aesop favourites, read aloud. For Pre-KG to Class 3.',
+  keywords: 'moral stories for kids, short stories with morals, panchatantra stories for kids, bedtime stories for children, thirsty crow story, hare and tortoise story',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Moral Stories for Kids', url: `${SITE}/kids/stories`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+ROUTES.push({
+  path: '/kids/action-rhymes',
+  title: 'Action Rhymes for Kids — Sing & Move | Syllab Junior',
+  description: 'Free action rhymes for preschoolers — Head Shoulders Knees and Toes, Wheels on the Bus, Itsy Bitsy Spider and more, with simple actions to do. For Pre-KG to Class 1.',
+  keywords: 'action rhymes for kids, action songs for preschool, head shoulders knees and toes, wheels on the bus, nursery rhymes with actions',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Action Rhymes for Kids', url: `${SITE}/kids/action-rhymes`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+ROUTES.push({
+  path: '/kids/games',
+  title: 'Matching Games for Kids — Free Fun Learning Games | Syllab Junior',
+  description: 'Free matching games for kids — match animals to sounds, capital to small letters, numbers to counts, fruits to colours and more. Fun learning for Pre-KG to Class 2.',
+  keywords: 'matching games for kids, free learning games for kids, match the following for kids, educational games for children, free online kids games',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Matching Games for Kids', url: `${SITE}/kids/games`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+
 // ─── Microlearning: index + bite-sized module pages ──────────────────────────
 ROUTES.push({
   path: '/micro',
@@ -559,6 +987,886 @@ for (const m of ['quadratic-formula','newtons-first-law','trigonometry-ratios','
   });
 }
 
+// ─── GK Questions — programmatic SEO cluster (index + per class) ─────────────
+ROUTES.push({
+  path: '/gk-questions',
+  title: 'GK Questions for Students — Class 5 to 12 (Free, with Answers) | Syllab.in',
+  description: 'Free General Knowledge questions and answers for Indian students Class 5 to 12 — history, geography, polity, science, static GK and current affairs, with clear explanations.',
+  keywords: 'gk questions with answers, general knowledge for students, gk for class 5 6 7 8 9 10, gk questions india, static gk, current affairs for students',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'GK Questions for Students', url: `${SITE}/gk-questions`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+for (const c of [5, 6, 7, 8, 9, 10, 11, 12]) {
+  ROUTES.push({
+    path: `/gk-questions/class-${c}`,
+    title: `GK Questions for Class ${c} with Answers (Free) | Syllab.in`,
+    description: `Free General Knowledge questions and answers for Class ${c} — GK across history, geography, polity, science and current affairs, with clear explanations for Indian students.`,
+    keywords: `gk questions for class ${c}, general knowledge for class ${c}, gk for class ${c} with answers, class ${c} gk quiz, gk questions india class ${c}`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'GK Questions', item: `${SITE}/gk-questions` },
+      { '@type': 'ListItem', position: 2, name: `Class ${c}`, item: `${SITE}/gk-questions/class-${c}` },
+    ] },
+  });
+}
+
+// ─── Important Questions — programmatic cluster (Class 6–12, per subject) ─────
+const IQ_SUBJECTS = {
+  '6': ['mathematics', 'science', 'social-science', 'english'],
+  '7': ['mathematics', 'science', 'social-science', 'english'],
+  '8': ['mathematics', 'science', 'social-science', 'english'],
+  '9': ['mathematics', 'science', 'social-science', 'english'],
+  '10': ['mathematics', 'science', 'social-science', 'english'],
+  '11': ['physics', 'chemistry', 'biology', 'mathematics'],
+  '12': ['physics', 'chemistry', 'biology', 'mathematics'],
+};
+const subjName = (s) => s.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
+ROUTES.push({
+  path: '/important-questions',
+  title: 'Important Questions for Class 6 to 12 — Chapter-wise (Free) | Syllab.in',
+  description: 'Free chapter-wise important questions and key chapters for Class 6 to 12 — Maths, Science, Physics, Chemistry, Biology, Social Science & more, CBSE/NCERT-aligned for Indian students.',
+  keywords: 'important questions, important questions class 10, important questions class 9, cbse important questions, ncert important questions, important chapters',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Important Questions for Class 6–12', url: `${SITE}/important-questions`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+for (const [c, subs] of Object.entries(IQ_SUBJECTS)) {
+  ROUTES.push({
+    path: `/important-questions/class-${c}`,
+    title: `Important Questions for Class ${c} — All Subjects (Free) | Syllab.in`,
+    description: `Chapter-wise important questions and key chapters for Class ${c} — pick a subject. Free, CBSE/NCERT-aligned practice for Indian students.`,
+    keywords: `important questions class ${c}, class ${c} important chapters, cbse class ${c} important questions`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Important Questions', item: `${SITE}/important-questions` },
+      { '@type': 'ListItem', position: 2, name: `Class ${c}`, item: `${SITE}/important-questions/class-${c}` },
+    ] },
+  });
+  for (const s of subs) {
+    ROUTES.push({
+      path: `/important-questions/class-${c}/${s}`,
+      title: `Important Questions for Class ${c} ${subjName(s)} (Chapter-wise, Free) | Syllab.in`,
+      description: `Important questions and high-weightage chapters for Class ${c} ${subjName(s)} — chapter-wise key topics with free practice. CBSE/NCERT-aligned.`,
+      keywords: `important questions class ${c} ${s.replace(/-/g, ' ')}, class ${c} ${s.replace(/-/g, ' ')} important chapters, cbse class ${c} ${s.replace(/-/g, ' ')}`,
+      jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Important Questions', item: `${SITE}/important-questions` },
+        { '@type': 'ListItem', position: 2, name: `Class ${c}`, item: `${SITE}/important-questions/class-${c}` },
+        { '@type': 'ListItem', position: 3, name: subjName(s), item: `${SITE}/important-questions/class-${c}/${s}` },
+      ] },
+    });
+  }
+}
+
+// ─── Chapter-level important-questions PILOT (substantive, hand-picked) ──────
+// Pulls the REAL syllabus data + deterministic question generator from the
+// compiled SSR bundle (single source of truth — no duplicated question logic).
+// The bundle exists whenever this script runs inside `npm run build`
+// (vite build --ssr runs immediately before). Standalone runs without the
+// bundle skip these routes with a warning (the SEO audit will then flag the
+// sitemap mismatch, which is the correct failure mode).
+{
+  const iqBundlePath = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+  let iqData = null;
+  if (existsSync(iqBundlePath)) {
+    try {
+      const { pathToFileURL } = await import('node:url');
+      const mod = await import(pathToFileURL(iqBundlePath).href);
+      if (mod.SYLLABUS && mod.generateExamQuestions) iqData = mod;
+    } catch (e) {
+      console.warn(`⚠️  Could not load SSR bundle for IQ chapter pages: ${e.message}`);
+    }
+  }
+  if (!iqData) {
+    console.warn('⚠️  IQ chapter pilot pages SKIPPED (no SSR bundle) — run the full `npm run build`.');
+  } else {
+    const { SYLLABUS, generateExamQuestions } = iqData;
+    for (let i = 0; i < IQ_PILOT.length; i++) {
+      const p = IQ_PILOT[i];
+      const ch = SYLLABUS.find((x) => x.id === p.id);
+      if (!ch) { console.warn(`⚠️  IQ pilot chapter not in SYLLABUS: ${p.id}`); continue; }
+      const qs = generateExamQuestions({ title: ch.title, subject: String(ch.subject), topics: ch.topics });
+      const url = `${SITE}/important-questions/class-${p.cls}/${p.subjSlug}/${p.chapSlug}`;
+      const chapterNo = i + 1;
+      const prev = IQ_PILOT[i - 1];
+      const next = IQ_PILOT[i + 1];
+      const marksOf = (m) => qs.filter((q) => q.marks === m).length;
+      const topicsHtml = ch.topics?.length
+        ? `<h2>Key Topics in ${esc(ch.title)}</h2><ul>${ch.topics.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`
+        : '';
+      const qListHtml = `<h2>Class ${p.cls} Maths Chapter ${chapterNo} — ${esc(ch.title)} Important Questions</h2><ol>${
+        qs.map((q) => `<li><strong>${esc(q.q)}</strong> <em>(${q.marks} marks)</em></li>`).join('')
+      }</ol>`;
+      const marksTable = `
+        <h2>Marks Distribution</h2>
+        <table><thead><tr><th>Question type</th><th>Count</th></tr></thead><tbody>
+          <tr><td>2-mark (very short answer)</td><td>${marksOf(2)}</td></tr>
+          <tr><td>3-mark (short answer)</td><td>${marksOf(3)}</td></tr>
+          <tr><td>4–5-mark (long answer)</td><td>${marksOf(4) + marksOf(5)}</td></tr>
+          <tr><td><strong>Total questions</strong></td><td><strong>${qs.length}</strong></td></tr>
+        </tbody></table>`;
+      const prevNext = `<nav style="display:flex;justify-content:space-between;gap:1rem;margin:1.5rem 0;">
+        ${prev ? `<a href="/important-questions/class-${prev.cls}/${prev.subjSlug}/${prev.chapSlug}">← Ch ${chapterNo - 1}: ${esc(prev.title)}</a>` : '<span></span>'}
+        ${next ? `<a href="/important-questions/class-${next.cls}/${next.subjSlug}/${next.chapSlug}">Ch ${chapterNo + 1}: ${esc(next.title)} →</a>` : '<span></span>'}
+      </nav>`;
+      const howToPrep = `
+        <h2>How to Prepare "${esc(ch.title)}" for the Board Exam</h2>
+        <ol>
+          <li><strong>Master the NCERT examples first</strong> — most board questions in ${esc(ch.title)} follow NCERT in-text and exercise patterns.</li>
+          <li><strong>Practise every question above on paper</strong>, timed: allow ~3 minutes per 2-mark, ~5 minutes per 3-mark and ~8 minutes per 5-mark question.</li>
+          <li><strong>Use the free AI tutor</strong> on this page to get a board-style model answer for any question you get stuck on.</li>
+          <li><strong>Finish with a mock test</strong> to check speed and accuracy under exam conditions.</li>
+        </ol>`;
+      ROUTES.push({
+        path: `/important-questions/class-${p.cls}/${p.subjSlug}/${p.chapSlug}`,
+        title: `${ch.title} Class ${p.cls} Important Questions (Maths Ch ${chapterNo}) — Free | Syllab.in`,
+        description: `Class ${p.cls} Maths "${ch.title}" important questions — ${qs.length} board-exam-style questions (2, 3 & 5 marks) with free AI model answers. CBSE/NCERT 2026-27 aligned, no login.`,
+        keywords: `${ch.title.toLowerCase()} class ${p.cls} important questions, class ${p.cls} maths chapter ${chapterNo} important questions, ${p.chapSlug.replace(/-/g, ' ')} extra questions, cbse class ${p.cls} maths ${ch.title.toLowerCase()}`,
+        bodyHtml: `
+          <p class="speakable">Practise <strong>${qs.length} important questions from "${esc(ch.title)}"</strong> (Class ${p.cls} Mathematics, Chapter ${chapterNo}) — exam-pattern 2, 3 and 5-mark questions covering ${esc((ch.topics || []).slice(0, 4).join(', '))}. Every question has a free AI-written board-style model answer.</p>
+          ${topicsHtml}
+          ${qListHtml}
+          ${marksTable}
+          ${howToPrep}
+          ${prevNext}
+          <p><a href="/important-questions/class-${p.cls}/${p.subjSlug}">All Class ${p.cls} Maths important questions →</a> · <a href="/ncert-solutions">NCERT Solutions →</a> · <a href="/mock-tests">Free mock tests →</a></p>`,
+        jsonLd: [
+          { '@context': 'https://schema.org', '@type': 'Article',
+            headline: `${ch.title} — Class ${p.cls} Maths Important Questions`,
+            url, inLanguage: 'en-IN', isAccessibleForFree: true,
+            author: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
+            publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
+            datePublished: today, dateModified: today },
+          { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Important Questions', item: `${SITE}/important-questions` },
+            { '@type': 'ListItem', position: 2, name: `Class ${p.cls}`, item: `${SITE}/important-questions/class-${p.cls}` },
+            { '@type': 'ListItem', position: 3, name: p.subjName, item: `${SITE}/important-questions/class-${p.cls}/${p.subjSlug}` },
+            { '@type': 'ListItem', position: 4, name: ch.title, item: url },
+          ] },
+        ],
+      });
+    }
+    // Crawl discovery: link every pilot chapter from its subject hub page.
+    const hub = ROUTES.find((r) => r.path === `/important-questions/class-10/mathematics`);
+    if (hub && !hub.bodyHtml) {
+      hub.bodyHtml = `<h2>Class 10 Maths — Chapter-wise Important Questions</h2><ol>${
+        IQ_PILOT.map((c) => `<li><a href="/important-questions/class-${c.cls}/${c.subjSlug}/${c.chapSlug}">${esc(c.title)} — Class 10 Maths Important Questions</a></li>`).join('')
+      }</ol>`;
+    }
+  }
+}
+
+// ─── SEO landing clusters: mock-test exams, English grammar, career guides ────
+const tcSlug = (s) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+// Competitive-exam guide pages (/mock-tests/{slug}) — render the REAL exam data
+// (about, pattern, subjects, prep tips, FAQs) from mockExams.ts so crawlers get the
+// substantive content the app shows, not a thin BreadcrumbList. Content is read from
+// the compiled SSR bundle (single source of truth); routes come from exam-slugs.mjs.
+{
+  const examBundlePath = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+  let MOCK_EXAMS_DATA = null;
+  if (existsSync(examBundlePath)) {
+    try {
+      const { pathToFileURL } = await import('node:url');
+      const mod = await import(pathToFileURL(examBundlePath).href);
+      if (Array.isArray(mod.MOCK_EXAMS)) MOCK_EXAMS_DATA = mod.MOCK_EXAMS;
+    } catch (e) { console.warn(`⚠️  Could not load SSR bundle for exam pages: ${e.message}`); }
+  }
+  const byExamSlug = new Map((MOCK_EXAMS_DATA || []).map((e) => [e.slug, e]));
+
+  // Category-grouped hub body for /mock-tests (the competitive-exams hub).
+  const hubRoute = ROUTES.find((r) => r.path === '/mock-tests');
+  if (hubRoute) {
+    let hub = '<p class="speakable">Free exam guides and practice for India\'s top competitive &amp; entrance exams — engineering, medical, university (CUET), government jobs and law. Each guide covers the exam pattern, syllabus, eligibility, preparation tips and FAQs.</p>';
+    for (const cat of EXAM_CATEGORIES) {
+      const inCat = EXAM_LIST.filter((e) => e.category === cat);
+      if (!inCat.length) continue;
+      hub += `<h2>${esc(cat)} Exams</h2><ul>${inCat.map((e) => `<li><a href="/mock-tests/${e.slug}">${esc(e.name)} — pattern, syllabus &amp; preparation guide</a></li>`).join('')}</ul>`;
+    }
+    hubRoute.bodyHtml = hub;
+  }
+
+  const EXAM_COUNSELLING = {
+    'neet': 'MCC (mcc.nic.in) for the 15% All-India Quota, plus your state counselling authority for state-quota seats',
+    'jee-main': 'JoSAA (josaa.nic.in) for NITs, IIITs and CFTIs, followed by CSAB special rounds',
+    'jee-advanced': 'JoSAA (josaa.nic.in) for admission to the IITs',
+    'clat': 'the CLAT Consortium (consortiumofnlus.ac.in) for the participating National Law Universities',
+    'ailet': "National Law University (NLU) Delhi's own admission portal",
+    'ipmat': "IIM Indore's admission process (and other participating IIMs)",
+    'nata': 'the Council of Architecture and the relevant state/institute counselling for B.Arch admission',
+    'bitsat': 'the BITS Pilani admissions portal (bitsadmission.com)',
+    'viteee': "VIT's own rank-based counselling across its campuses",
+    'srmjeee': "SRM's own rank-based counselling across its campuses",
+    'comedk-uget': 'the COMEDK counselling portal for private Karnataka colleges',
+    'cuet': "the CUET-participating universities' own CSAS/admission portals",
+    'ap-eapcet': 'the AP state counselling authority (APSCHE)',
+    'ts-eapcet': 'the Telangana state counselling authority (TSCHE)',
+    'kcet': 'the Karnataka Examinations Authority (KEA) counselling',
+    'mht-cet': 'the Maharashtra CET Cell (CAP rounds)',
+    'wbjee': 'the West Bengal Joint Entrance Examinations Board counselling',
+    'gujcet': 'the Gujarat ACPC counselling',
+  };
+  const counsellingFor = (slug) => EXAM_COUNSELLING[slug] || "the official conducting body's counselling / admission process";
+  for (const ex of EXAM_LIST) {
+    const d = byExamSlug.get(ex.slug);
+    const isMock = ex.category === 'Engineering' || ex.category === 'Medical' || ex.category === 'Olympiad';
+    const route = {
+      path: `/mock-tests/${ex.slug}`,
+      title: `${ex.name} 2026 — ${isMock ? 'Free Mock Test, ' : ''}Exam Pattern, Syllabus & Preparation | Syllab.in`,
+      description: d ? `${d.about.slice(0, 155).trim()}…` : `${ex.name} exam pattern, syllabus, eligibility and free preparation guide for Indian students on Syllab.in.`,
+      keywords: `${ex.name} 2026, ${ex.name} exam pattern, ${ex.name} syllabus, ${ex.name} eligibility, ${ex.name} cutoff, ${ex.name} result, ${ex.name} counselling, ${ex.name} preparation guide${isMock ? `, ${ex.name} mock test free` : ''}`,
+      jsonLd: [
+        { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Competitive Exams', item: `${SITE}/mock-tests` },
+          { '@type': 'ListItem', position: 2, name: ex.name, item: `${SITE}/mock-tests/${ex.slug}` },
+        ] },
+      ],
+    };
+    if (d) {
+      const patternRows = [['Total questions', d.pattern.questions], ['Duration', `${d.pattern.durationMin} minutes`], ['Marking scheme', d.pattern.marking]];
+      route.bodyHtml = `
+        <p class="speakable"><strong>${esc(d.name)} (${esc(d.fullName)}):</strong> ${esc(d.about)}</p>
+        <h2>${esc(d.name)} Exam Pattern</h2>
+        <table><tbody>${patternRows.map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(String(v))}</td></tr>`).join('')}</tbody></table>
+        <h3>Sections</h3><ul>${d.pattern.sections.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+        <h2>Subjects Covered in ${esc(d.name)}</h2><p>${d.subjects.map(esc).join(' · ')}</p>
+        <h2>How to Prepare for ${esc(d.name)}</h2><ol>${d.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ol>
+        <h2>${esc(d.name)} Result, Cutoff &amp; Counselling</h2>
+        <p><strong>How to check the result:</strong> Once the ${esc(d.name)} result is declared, log in to the official conducting body's website with your application number and password / date of birth, then download your scorecard or rank card.</p>
+        <p><strong>Understanding the cutoff:</strong> The ${esc(d.name)} cutoff is the minimum rank or score needed to get a seat. It changes every year with the number of candidates, the paper's difficulty and the seats available, and it differs by category (General / OBC / SC / ST / EWS) and quota — so always check the latest official cutoff.</p>
+        <p><strong>Counselling &amp; admission:</strong> Admission is through ${esc(counsellingFor(ex.slug))}. You register, fill your college and branch choices by rank, and report for document verification and seat confirmation.</p>
+        <h2>${esc(d.name)} — Frequently Asked Questions</h2>${d.faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
+        <p style="margin-top:1rem;padding:0.85rem 1rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;">📌 Exam patterns, dates, cutoffs and counselling are announced officially each year — always verify the latest details on the official website before applying.</p>
+        <p><a href="/mock-tests">← All competitive exams</a> · <a href="/practice">Free practice →</a> · <a href="/important-questions">Important questions →</a></p>`;
+      route.jsonLd.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });
+    }
+    ROUTES.push(route);
+  }
+  if (!MOCK_EXAMS_DATA) console.warn('⚠️  Exam guide bodies SKIPPED (no SSR bundle) — run the full `npm run build`.');
+  else console.log(`📝 Competitive-exam pages: ${EXAM_LIST.length} (rich bodies from ${MOCK_EXAMS_DATA.length} exam records).`);
+}
+const ENGLISH_TOPIC_SLUGS = ['tenses', 'parts-of-speech', 'nouns', 'pronouns', 'verbs', 'adjectives', 'adverbs', 'articles', 'prepositions', 'active-passive-voice', 'direct-indirect-speech', 'subject-verb-agreement', 'essay-writing', 'letter-writing', 'reading-comprehension'];
+ROUTES.push({ path: '/english-grammar', title: 'English Grammar for Students — Free Lessons, Examples & Practice | Syllab.in', description: 'Learn English grammar free — tenses, parts of speech, articles, prepositions, voice, narration, essay & letter writing and more, with examples and practice for Indian students.', keywords: 'english grammar for students, learn english grammar free, grammar rules with examples, english practice', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'English Grammar for Students', url: `${SITE}/english-grammar`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+for (const slug of ENGLISH_TOPIC_SLUGS) {
+  const T = tcSlug(slug);
+  ROUTES.push({
+    path: `/english-grammar/${slug}`,
+    title: `${T} — English Grammar Rules, Examples & Practice (Free) | Syllab.in`,
+    description: `Learn ${T} in English grammar with simple rules, clear examples, common mistakes and free practice questions for students.`,
+    keywords: `${T.toLowerCase()} english grammar, ${T.toLowerCase()} rules examples, ${T.toLowerCase()} practice for students`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'English Grammar', item: `${SITE}/english-grammar` },
+      { '@type': 'ListItem', position: 2, name: T, item: `${SITE}/english-grammar/${slug}` },
+    ] },
+  });
+}
+const CAREER_GUIDE_SLUGS = ['which-stream-after-10th', 'which-stream-after-12th', 'how-to-become-engineer', 'how-to-become-doctor', 'how-to-become-data-scientist', 'how-to-become-software-engineer', 'how-to-become-chartered-accountant', 'how-to-become-lawyer', 'how-to-become-ias-officer', 'careers-after-12th-commerce', 'careers-after-12th-arts', 'careers-after-12th-science'];
+ROUTES.push({ path: '/career', title: 'Career Guidance for Students — Streams, Courses & Roadmaps (Free) | Syllab.in', description: 'Free career guidance for Indian students — which stream after 10th/12th, how to become an engineer, doctor, data scientist, CA, lawyer and more, with courses, exams, skills and roadmaps.', keywords: 'career guidance students india, which stream after 10th, which stream after 12th, career options after 12th', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Career Guidance for Students', url: `${SITE}/career`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+for (const slug of CAREER_GUIDE_SLUGS) {
+  const T = tcSlug(slug);
+  ROUTES.push({
+    path: `/career/${slug}`,
+    title: `${T} — Courses, Exams, Skills & Roadmap | Syllab.in`,
+    description: `${T}: subjects to focus on, courses, entrance exams, skills, an indicative salary range and a step-by-step roadmap for Indian students.`,
+    keywords: `${T.toLowerCase()}, ${slug.replace(/-/g, ' ')}, career roadmap india`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Career Guidance', item: `${SITE}/career` },
+      { '@type': 'ListItem', position: 2, name: T, item: `${SITE}/career/${slug}` },
+    ] },
+  });
+}
+
+// ─── College Predictor landing pages (JEE/NEET/EAMCET/KCET/MHT-CET/WBJEE/BITSAT) ─
+const CP_EXAMS = { 'jee-main': 'JEE Main', 'neet': 'NEET', 'ts-eapcet': 'TS EAPCET', 'ap-eapcet': 'AP EAPCET', 'kcet': 'KCET', 'mht-cet': 'MHT-CET', 'wbjee': 'WBJEE', 'bitsat': 'BITSAT' };
+ROUTES.push({ path: '/college-predictor', title: 'Free College Predictor 2026 — JEE Main, NEET, EAMCET, KCET & More | Syllab.in', description: 'Free college predictors for Indian students — predict your colleges by rank for JEE Main, NEET, TS/AP EAPCET, KCET, MHT-CET, WBJEE and BITSAT, with category and quota. Indicative & free.', keywords: 'college predictor free, jee main college predictor, neet college predictor, eamcet college predictor, college predictor by rank', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'College Predictors', url: `${SITE}/college-predictor`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+for (const [slug, name] of Object.entries(CP_EXAMS)) {
+  ROUTES.push({
+    path: `/college-predictor/${slug}`,
+    title: `${name} College Predictor 2026 — Predict Colleges by Rank (Free) | Syllab.in`,
+    description: `Free ${name} college predictor — estimate the colleges you can get by rank, category and quota. Indicative and free for Indian students on Syllab.in.`,
+    keywords: `${name.toLowerCase()} college predictor, ${name.toLowerCase()} college predictor by rank, ${name.toLowerCase()} rank predictor, ${name.toLowerCase()} college predictor 2026 free`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'College Predictor', item: `${SITE}/college-predictor` },
+      { '@type': 'ListItem', position: 2, name: `${name} Predictor`, item: `${SITE}/college-predictor/${slug}` },
+    ] },
+  });
+}
+
+// ─── Previous Year Questions (PYQ) & Sample Papers cluster ────────────────────
+const PYQ_GUIDES = { 'cbse-class-10': 'CBSE Class 10', 'cbse-class-12': 'CBSE Class 12', 'jee-main': 'JEE Main', 'neet': 'NEET', 'ts-eamcet': 'TS EAMCET', 'ap-eamcet': 'AP EAMCET', 'cbse-class-9': 'CBSE Class 9', 'kcet': 'KCET', 'mht-cet': 'MHT-CET', 'wbjee': 'WBJEE', 'bitsat': 'BITSAT', 'cuet': 'CUET' };
+ROUTES.push({ path: '/previous-year-papers', title: 'Previous Year Question Papers & Sample Papers (Free) — CBSE, JEE, NEET, EAMCET | Syllab.in', description: 'Free guides to previous year question papers (PYQ) & sample papers for CBSE Class 10 & 12, JEE Main, NEET and EAMCET — exam pattern, high-weightage topics, how to use PYQs, and free mock tests for Indian students.', keywords: 'previous year question papers, sample papers, cbse previous year papers, jee main pyq, neet previous year papers, eamcet previous papers', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Previous Year Question Papers & Sample Papers', url: `${SITE}/previous-year-papers`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+// Map each guide to the classes whose real chapter-wise PYQs we link to.
+const PYQ_ALL = getPyqs(ROOT);
+const PYQ_BY_CLASS = {};
+for (const p of PYQ_ALL) (PYQ_BY_CLASS[p.classLevel] ||= []).push(p);
+const GUIDE_CLASSES = {
+  'cbse-class-10': ['Class 10'], 'cbse-class-12': ['Class 12'], 'cbse-class-9': ['Class 9'],
+  'jee-main': ['Class 11', 'Class 12'], 'neet': ['Class 11', 'Class 12'], 'ts-eamcet': ['Class 11', 'Class 12'],
+  'ap-eamcet': ['Class 11', 'Class 12'], 'kcet': ['Class 11', 'Class 12'], 'mht-cet': ['Class 11', 'Class 12'],
+  'wbjee': ['Class 11', 'Class 12'], 'bitsat': ['Class 11', 'Class 12'], 'cuet': ['Class 12'],
+};
+for (const [slug, name] of Object.entries(PYQ_GUIDES)) {
+  const pyqs = (GUIDE_CLASSES[slug] || []).flatMap((c) => PYQ_BY_CLASS[c] || []);
+  const bySubj = {};
+  for (const p of pyqs) (bySubj[p.subject] ||= []).push(p);
+  const listHtml = Object.keys(bySubj).sort().map((subj) =>
+    `<h3>${esc(name)} ${esc(subj)} — Chapter-wise PYQs</h3><ul>${bySubj[subj].slice(0, 30).map((p) => `<li><a href="/pyqs/${p.slug}">${esc(p.chapter)} — Previous Year Questions with solutions</a></li>`).join('')}</ul>`,
+  ).join('');
+  const bodyHtml = pyqs.length
+    ? `<p class="speakable">Practice <strong>${name} previous year questions (PYQs)</strong> chapter-by-chapter with full step-by-step solutions — free, no login. Solving PYQs is the single highest-ROI revision: the same question patterns repeat every year.</p>
+       <h2>${esc(name)} Previous Year Questions — by Chapter</h2>${listHtml}
+       <p><a href="/mock-tests">Take a free ${esc(name)} mock test →</a> · <a href="/pyqs">Browse all PYQs →</a> · <a href="/sample-papers">Sample papers →</a></p>`
+    : undefined;
+  const route = {
+    path: `/previous-year-papers/${slug}`,
+    title: `${name} Previous Year Question Papers (PYQ) — Chapter-wise with Solutions (Free) | Syllab.in`,
+    description: `Free ${name} previous year questions (PYQ) — chapter-wise with full solutions, exam pattern, most-repeated topics & free mock tests. No login. ${pyqs.length}+ solved chapters.`,
+    keywords: `${name.toLowerCase()} previous year papers, ${name.toLowerCase()} pyq, ${name.toLowerCase()} sample papers, ${name.toLowerCase()} question paper, ${name.toLowerCase()} exam pattern`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Previous Year Papers', item: `${SITE}/previous-year-papers` },
+      { '@type': 'ListItem', position: 2, name: `${name} Previous Year Papers`, item: `${SITE}/previous-year-papers/${slug}` },
+    ] },
+  };
+  if (bodyHtml) route.bodyHtml = bodyHtml;
+  ROUTES.push(route);
+}
+
+// ─── Formula Sheets (free PDF revision assets — strong linkable/backlink magnet) ─
+const FORMULA_SHEETS_DATA = getFormulaSheets(ROOT);
+ROUTES.push({ path: '/formula-sheets', title: 'Free Formula Sheets (PDF) — Maths, Physics & Chemistry Class 9–12 | Syllab.in', description: `Free downloadable formula sheets for CBSE Class 9–12 — ${FORMULA_SHEETS_DATA.length}+ chapter & subject sheets in Maths, Physics & Chemistry. Every formula on one page for fast revision before boards, JEE & NEET. Free PDF, no signup.`, keywords: 'formula sheet pdf, class 12 physics formula sheet, class 10 maths formulas, class 11 chemistry formulas, all formulas pdf free download', bodyHtml: `<div style="margin:1rem 0;padding:1rem;background:#ecfdf5;border:2px solid #059669;border-radius:8px;"><h2 style="margin:0 0 .5rem 0;font-size:1.05rem;color:#065f46;">🖨️ Free Printable Formula Posters (A4 PDF)</h2><p style="margin:0 0 .5rem 0;">Every formula for a subject on one printable sheet — free to print &amp; share in classrooms:</p><ul style="margin:0;padding-left:1.25rem;line-height:1.9;">${POSTER_SHEETS.map((p) => `<li><a href="${posterHref(p.slug)}" style="color:#047857;font-weight:700;">${esc(p.label)} Formula Poster →</a></li>`).join('')}</ul></div>`, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Formula Sheets for Class 9–12', url: `${SITE}/formula-sheets`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+// Group for sibling internal links (same class+subject).
+const FS_BY_GROUP = {};
+for (const s of FORMULA_SHEETS_DATA) (FS_BY_GROUP[`${s.classLevel}|${s.subject}`] ||= []).push(s);
+for (const s of FORMULA_SHEETS_DATA) {
+  const flat = (s.sections || []).flatMap((sec) => sec.formulas || []);
+  const formulaHtml = (s.sections || []).map((sec) => `<h2>${esc(sec.heading)}</h2><table><thead><tr><th>Formula</th><th>Expression</th></tr></thead><tbody>${(sec.formulas || []).map((fm) => `<tr><td>${esc(fm.name)}</td><td>${esc(fm.formula)}${fm.note ? ` — ${esc(fm.note)}` : ''}</td></tr>`).join('')}</tbody></table>`).join('');
+  const faqHtml = (s.faqs || []).length ? `<h2>FAQs</h2>${s.faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+  const sibs = (FS_BY_GROUP[`${s.classLevel}|${s.subject}`] || []).filter((y) => y.slug !== s.slug).slice(0, 6);
+  const relHtml = sibs.length ? `<h2>More Class ${esc(s.classLevel)} ${esc(s.subject)} Formula Sheets</h2><ul>${sibs.map((y) => `<li><a href="/formula-sheets/${y.slug}">${esc(y.title)}</a></li>`).join('')}</ul>` : '';
+  ROUTES.push({
+    path: `/formula-sheets/${s.slug}`,
+    title: `${s.title} (PDF) — All Important Formulas Free | Syllab.in`,
+    description: `Free ${s.title.toLowerCase()} — all ${flat.length} key formulas on one page, downloadable as PDF for fast revision before CBSE board exams${Number(s.classLevel) >= 11 ? ', JEE & NEET' : ''}. No signup.`,
+    keywords: `${s.title.toLowerCase()}, ${s.title.toLowerCase()} pdf, formula sheet, all formulas`,
+    bodyHtml: `<p class="speakable">${esc(s.intro)}</p>${formulaHtml}${faqHtml}${relHtml}<p><a href="/formula-sheets">See all formula sheets →</a></p>`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Formula Sheets', item: `${SITE}/formula-sheets` },
+      { '@type': 'ListItem', position: 2, name: s.title, item: `${SITE}/formula-sheets/${s.slug}` },
+    ] },
+  });
+}
+
+// ─── State Board Solutions (AP/TS/Karnataka/Maharashtra) — index + per-chapter ──
+const SB_CHAPTERS = getStateBoardChapters();
+const sbHubBody = (() => {
+  const byBoard = {};
+  for (const c of SB_CHAPTERS) { ((byBoard[c.boardLabel] ||= {})[c.classLevel] ||= {})[c.subject] ||= []; byBoard[c.boardLabel][c.classLevel][c.subject].push(c); }
+  let html = '<h2>State Board Solutions by Board, Class &amp; Subject</h2>';
+  for (const bl of Object.keys(byBoard)) {
+    for (const cls of Object.keys(byBoard[bl]).sort()) {
+      for (const subj of Object.keys(byBoard[bl][cls]).sort()) {
+        html += `<h3>${esc(bl)} — Class ${cls} ${esc(subj)}</h3><ul>`;
+        for (const c of byBoard[bl][cls][subj]) html += `<li><a href="/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}">${esc(c.title)}</a></li>`;
+        html += '</ul>';
+      }
+    }
+  }
+  return html;
+})();
+ROUTES.push({ path: '/state-board-solutions', title: 'State Board Solutions — AP, Telangana, Karnataka & Maharashtra (Free) | Syllab.in', description: 'Free chapter-wise textbook solutions for AP (SSC), Telangana (SSC), Karnataka (SSLC) and Maharashtra (SSC) — Class 9 & 10 Maths and Science, step-by-step answers for board exam prep.', keywords: 'AP SSC solutions, TS SSC solutions, Karnataka SSLC solutions, Maharashtra SSC solutions, state board maths science solutions free', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'State Board Solutions', url: `${SITE}/state-board-solutions`, inLanguage: 'en-IN', isAccessibleForFree: true }, bodyHtml: sbHubBody });
+for (const c of SB_CHAPTERS) {
+  const u = `${SITE}/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`;
+  const lim = Math.min(5, c.qa.length);
+  let body = '<div style="margin-top:1.5rem;">';
+  for (let i = 0; i < lim; i++) body += `<div style="margin-bottom:1.25rem;padding:1rem;background:#f9f9f9;border-left:3px solid #0066cc;"><h3 style="margin:0 0 .5rem;font-size:1.02rem;">Q${i + 1}: ${esc(c.qa[i].q)}</h3><div style="font-size:.95rem;color:#555;line-height:1.5;white-space:pre-line;">${esc(c.qa[i].solution).slice(0, 500)}${c.qa[i].solution.length > 500 ? '…' : ''}</div></div>`;
+  if (c.qa.length > lim) body += `<p style="color:#666;font-size:.9rem;font-style:italic;">Showing ${lim} of ${c.qa.length} questions — full solutions on the page.</p>`;
+  body += '</div>';
+  ROUTES.push({
+    path: `/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
+    title: `${c.title} — ${c.boardLabel} Class ${c.classLevel} ${c.subject} Solutions (Free) | Syllab.in`,
+    description: `Free step-by-step ${c.boardLabel} Class ${c.classLevel} ${c.subject} solutions for "${c.title}" — important questions with detailed answers, download PDF for board exam preparation.`,
+    keywords: `${c.title} ${c.board} solutions, ${c.boardLabel} class ${c.classLevel} ${c.subject.toLowerCase()} ${c.title.toLowerCase()}, state board ${c.title.toLowerCase()} answers free`,
+    bodyHtml: body,
+    jsonLd: [
+      { '@context': 'https://schema.org', '@type': 'Article', headline: `${c.title} — ${c.boardLabel} Class ${c.classLevel} ${c.subject} Solutions`, url: u, inLanguage: 'en-IN', isAccessibleForFree: true, author: { '@type': 'Organization', name: 'Syllab.in', url: SITE } },
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'State Board Solutions', item: `${SITE}/state-board-solutions` },
+        { '@type': 'ListItem', position: 2, name: `${c.boardLabel} Class ${c.classLevel} ${c.subject}`, item: `${SITE}/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}` },
+        { '@type': 'ListItem', position: 3, name: c.title, item: u },
+      ] },
+    ],
+  });
+}
+
+// ─── AI Hub ("AI for Students" guides — rides the AI search trend) ────────────
+// Read every /ai-hub guide straight from src/data/aiHub.ts so prerender never
+// drifts from the app's actual AI-hub pages.
+const AI_HUB = getAiHubTopics(ROOT).map((t) => [t.slug, t.title, t.desc]);
+ROUTES.push({ path: '/ai-hub', title: 'AI for Students — Free Guides: ChatGPT, AI Tools, AI Careers | Syllab.in', description: 'Free, simple AI guides for students & teachers — what is AI & ChatGPT, best free AI study tools 2026, AI prompts for studying, is AI cheating, and how to become an AI engineer in India.', keywords: 'AI for students, what is ChatGPT, best free AI tools for students, AI prompts for studying, how to become AI engineer India', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'AI for Students Hub', url: `${SITE}/ai-hub`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+// AI Prompt Lab — hands-on prompt-writing practice (interactive, complements /ai-hub guides).
+ROUTES.push({
+  path: '/prompt-lab',
+  title: 'AI Prompt Lab — Practise Writing AI Prompts (Free) | Syllab.in',
+  description: 'Free hands-on AI prompt practice for students. Pick a study task, write a prompt, and get instant AI coaching on how to prompt better — plus a model prompt and the answer. Learn prompt engineering by doing.',
+  keywords: 'ai prompt practice, prompt engineering for students, how to write ai prompts, learn prompting free, ai literacy for students, chatgpt prompts for studying, prompt writing practice India',
+  bodyHtml: `
+    <p class="speakable">The <strong>AI Prompt Lab</strong> is a free, hands-on way for students to learn <strong>prompt engineering</strong> — the skill of asking AI clearly to get useful answers. Pick a real study task, write your prompt, and Syllab's AI coaches your prompt: what's good, how to make it stronger, and then it answers the improved prompt.</p>
+    <h2>What you can practise</h2>
+    <ul>
+      <li>Explaining a hard topic simply (e.g. "explain photosynthesis like I'm in Class 7")</li>
+      <li>Making a revision/study plan before an exam</li>
+      <li>Generating exam-style practice questions</li>
+      <li>Understanding why an answer is wrong</li>
+      <li>Summarising a chapter into quick revision points</li>
+    </ul>
+    <h2>4 rules for a great AI prompt</h2>
+    <ol>
+      <li><strong>Be specific</strong> — name the class, subject and chapter.</li>
+      <li><strong>Give context</strong> — say what you already know and where you're stuck.</li>
+      <li><strong>Ask for a format</strong> — "in 5 bullet points", "with a worked example", "like I'm 12".</li>
+      <li><strong>Iterate</strong> — refine your prompt instead of starting over.</li>
+    </ol>
+    <p>Prompting well is a real skill for school, college and future jobs. <a href="/ai-hub">Read the free AI-for-students guides →</a> · <a href="/ai-tutor">Try the free AI Tutor →</a></p>`,
+  jsonLd: { '@context': 'https://schema.org', '@type': 'LearningResource', name: 'AI Prompt Lab', description: 'Interactive practice for writing effective AI prompts, with instant AI feedback.', learningResourceType: 'Interactive tool', educationalUse: 'Practice', inLanguage: 'en-IN', isAccessibleForFree: true, url: `${SITE}/prompt-lab` },
+});
+for (const [slug, title, desc] of AI_HUB) {
+  ROUTES.push({
+    path: `/ai-hub/${slug}`,
+    title: `${title} | AI for Students — Syllab.in`,
+    description: desc,
+    keywords: `${title.toLowerCase()}, AI for students, artificial intelligence students india`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'AI for Students', item: `${SITE}/ai-hub` },
+      { '@type': 'ListItem', position: 2, name: title, item: `${SITE}/ai-hub/${slug}` },
+    ] },
+  });
+}
+
+// ─── Difference Between (/difference-between, /difference-between/:slug) ───────
+const DIFFS = getDifferences(ROOT);
+ROUTES.push({
+  path: '/difference-between',
+  title: 'Difference Between — Topic-wise Comparisons for Students | Syllab.in',
+  description: `Free 'difference between' comparison tables for Class 6–12 — ${DIFFS.length}+ side-by-side comparisons across Biology, Physics, Chemistry, Maths and more, with key points and FAQs. CBSE/NCERT aligned.`,
+  keywords: 'difference between, comparison table, mitosis and meiosis, speed and velocity, mass and weight, acid and base, CBSE difference between, NCERT comparison',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Difference Between — Student Comparisons', url: `${SITE}/difference-between`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+const DIFF_BY_CAT = {};
+for (const x of DIFFS) (DIFF_BY_CAT[x.category] ||= []).push(x);
+const DIFF_REINDEX_FAQ = new Map(DIFF_REINDEX.map((d) => [d.slug, d.faqs]));
+for (const d of DIFFS) {
+  const rows = (d.table || []).slice(0, 12);
+  const tableHtml = rows.length
+    ? `<table><thead><tr><th>Basis</th><th>${esc(d.termA)}</th><th>${esc(d.termB)}</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${esc(r.aspect)}</td><td>${esc(r.a)}</td><td>${esc(r.b)}</td></tr>`).join('')}</tbody></table>`
+    : '';
+  const kp = (d.keyPoints || []).slice(0, 6);
+  const kpHtml = kp.length ? `<h2>Key Points</h2><ul>${kp.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : '';
+  const sib = (DIFF_BY_CAT[d.category] || []).filter((x) => x.slug !== d.slug).slice(0, 6);
+  const relHtml = sib.length ? `<h2>More ${esc(d.category)} Comparisons</h2><ul>${sib.map((x) => `<li><a href="/difference-between/${x.slug}">${esc(x.title)}</a></li>`).join('')}</ul>` : '';
+  // Curated re-index: GSC-proven winners get a factual FAQ (substantive, not thin)
+  // and are allowed to index; everything else stays noindex.
+  const reFaqs = DIFF_REINDEX_FAQ.get(d.slug);
+  const faqHtml = reFaqs ? `<h2>Frequently Asked Questions</h2>${reFaqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+  const bodyHtml = `
+    <p class="speakable"><strong>The main difference between ${esc(d.termA)} and ${esc(d.termB)}:</strong> ${esc(d.intro)}</p>
+    <h2>${esc(d.termA)} vs ${esc(d.termB)} — Comparison Table</h2>
+    ${tableHtml}
+    ${kpHtml}
+    ${faqHtml}
+    ${relHtml}
+    <p><a href="/difference-between">See all difference-between comparisons →</a></p>`;
+  const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Difference Between', item: `${SITE}/difference-between` },
+    { '@type': 'ListItem', position: 2, name: d.title, item: `${SITE}/difference-between/${d.slug}` },
+  ] };
+  ROUTES.push({
+    path: `/difference-between/${d.slug}`,
+    bodyHtml,
+    title: `${d.termA} vs ${d.termB} — Difference (with Table & FAQs) | Syllab.in`,
+    description: d.intro,
+    keywords: `difference between ${d.termA.toLowerCase()} and ${d.termB.toLowerCase()}, ${d.termA.toLowerCase()} vs ${d.termB.toLowerCase()}, ${d.category.toLowerCase()} comparison, ${d.classLevel.toLowerCase()}`,
+    // Re-indexed winners are deepened (table + key points + FAQ); the rest stay
+    // noindex under the post-March-2026 thin-content policy.
+    noindex: !DIFF_REINDEX_SLUGS.has(d.slug),
+    jsonLd: reFaqs
+      ? [breadcrumb, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: reFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
+      : breadcrumb,
+  });
+}
+
+// ─── Full Forms (/full-forms, /full-forms/:slug) ──────────────────────────────
+const FULL_FORMS_DATA = getFullForms(ROOT);
+ROUTES.push({
+  path: '/full-forms',
+  title: 'Full Forms — A to Z List for Students (NCERT, CPU, NEET…) | Syllab.in',
+  description: `Free A-to-Z full forms list — ${FULL_FORMS_DATA.length}+ abbreviations across education, computer, science, medical and banking with meanings.`,
+  keywords: 'full form, full forms list, NCERT full form, CPU full form, NEET full form, RAM full form, IFSC full form, abbreviations for students',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Full Forms for Students', url: `${SITE}/full-forms`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+// Lookups for internal linking (related abbreviations + same-category siblings).
+const FF_BY_TERM = new Map(FULL_FORMS_DATA.map((x) => [String(x.term).toUpperCase(), x]));
+const FF_BY_CAT = {};
+for (const x of FULL_FORMS_DATA) (FF_BY_CAT[x.category] ||= []).push(x);
+
+for (const f of FULL_FORMS_DATA) {
+  const t = f.term;
+  const answer = `${t} stands for ${f.fullForm}.`;
+  let desc = `${answer} ${f.description}`;
+  if (desc.length > 158) desc = desc.slice(0, 156).replace(/\s+\S*$/, '') + '…';
+  // Internal links: related abbreviations first, then same-category siblings (≤8).
+  const rel = [];
+  const seen = new Set([f.slug]);
+  for (const r of (f.related || [])) { const x = FF_BY_TERM.get(String(r).toUpperCase()); if (x && !seen.has(x.slug)) { rel.push(x); seen.add(x.slug); } }
+  for (const x of (FF_BY_CAT[f.category] || [])) { if (rel.length >= 8) break; if (!seen.has(x.slug)) { rel.push(x); seen.add(x.slug); } }
+  const relHtml = rel.length
+    ? `<h2>Related Full Forms</h2><ul>${rel.map((x) => `<li><a href="/full-forms/${x.slug}">${esc(x.term)} Full Form</a> — ${esc(x.fullForm)}</li>`).join('')}</ul>`
+    : '';
+  const bodyHtml = `
+    <p class="speakable"><strong>${esc(t)} stands for ${esc(f.fullForm)}.</strong></p>
+    <p>${esc(f.description)}</p>
+    <h2>${esc(t)} Full Form in Detail</h2>
+    <p>The abbreviation <strong>${esc(t)}</strong> expands to <strong>${esc(f.fullForm)}</strong>${f.category ? ` and is commonly used in ${esc(f.category)}` : ''}. Knowing what ${esc(t)} stands for helps you read questions, notes and notices faster.</p>
+    ${relHtml}
+    <p><a href="/full-forms">Browse all full forms (A–Z) →</a></p>`;
+  ROUTES.push({
+    path: `/full-forms/${f.slug}`,
+    bodyHtml,
+    // CTR-first title: leads with the exact query, promises MORE than the bare
+    // expansion (which Google answers inline) so there's a reason to click.
+    title: `${t} Full Form — Meaning, Definition & Uses | Syllab.in`,
+    description: desc,
+    keywords: `${t.toLowerCase()} full form, full form of ${t.toLowerCase()}, what does ${t.toLowerCase()} stand for, ${t.toLowerCase()} meaning, ${t.toLowerCase()} abbreviation`,
+    noindex: true, // Post-March-2026 update: thin templated content (1–2 sentences) drags domain quality.
+    jsonLd: [
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Full Forms', item: `${SITE}/full-forms` },
+        { '@type': 'ListItem', position: 2, name: `${t} Full Form`, item: `${SITE}/full-forms/${f.slug}` },
+      ] },
+      // Per-page FAQ → eligible for the "People also ask" / featured snippet.
+      { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+        { '@type': 'Question', name: `What is the full form of ${t}?`, acceptedAnswer: { '@type': 'Answer', text: `${answer} ${f.description}`.slice(0, 320) } },
+        { '@type': 'Question', name: `What does ${t} stand for?`, acceptedAnswer: { '@type': 'Answer', text: answer } },
+      ] },
+    ],
+  });
+}
+
+// ─── Glossary (/glossary, /glossary/:slug) ────────────────────────────────────
+// ── Rich crawlable body builders: surface the REAL Q&A / notes / examples that
+//    currently render client-side only, so Google sees substantive pages. ──
+const faqBlock = (faqs) => (faqs && faqs.length) ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+const sibLabel = (s) => s.chapter || s.title || s.term || s.slug;
+const relBlock = (sibs, base, heading) => (sibs && sibs.length) ? `<h2>${esc(heading)}</h2><ul>${sibs.map((s) => `<li><a href="${base}/${s.slug}">${esc(sibLabel(s))}</a></li>`).join('')}</ul>` : '';
+const aiCta = `<p>🤖 <a href="/ai-tutor">Stuck on any of these? Ask Syllab's free AI Tutor to explain step by step →</a></p>`;
+const nl2br = (t) => esc(String(t || '')).replace(/\n/g, '<br>');
+const faqJsonLd = (faqs) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.slice(0, 6).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });
+function pyqBody(x, sibs, base) {
+  const qs = (x.questions || []).map((q) => `<div class="qa"><h3>Q${q.year ? ` (${esc(String(q.year))}, ${esc(String(q.marks || ''))} mark${Number(q.marks) > 1 ? 's' : ''})` : ''}: ${esc(q.q)}</h3><p><strong>Answer:</strong> ${nl2br(q.answer)}</p></div>`).join('');
+  return `<p class="speakable">${esc(x.intro)}</p><h2>${esc(x.chapter)} — Previous Year Questions with Solutions</h2>${qs}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} ${esc(x.subject)} PYQs`)}${aiCta}`;
+}
+function mcqBody(x, sibs, base) {
+  const qs = (x.mcqs || []).map((m, i) => { const opts = (m.options || []).map((o, j) => `<li>${esc(o)}${j === m.correct ? ' ✓ (correct)' : ''}</li>`).join(''); return `<div class="qa"><h3>Q${i + 1}. ${esc(m.q)}</h3><ol type="A">${opts}</ol>${m.exp ? `<p><strong>Explanation:</strong> ${esc(m.exp)}</p>` : ''}</div>`; }).join('');
+  return `<p class="speakable">${esc(x.intro)}</p><h2>${esc(x.chapter)} MCQs with Answers &amp; Explanations</h2>${qs}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} ${esc(x.subject)} MCQs`)}${aiCta}`;
+}
+function solvedBody(x, sibs, base) {
+  const ex = (x.examples || []).map((e, i) => `<div class="qa"><h3>Example ${i + 1}: ${esc(e.problem)}</h3><p><strong>Solution:</strong> ${nl2br(e.solution)}</p></div>`).join('');
+  const tips = (x.tips || []).length ? `<h2>Tips</h2><ul>${x.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : '';
+  return `<p class="speakable">${esc(x.intro)}</p><h2>${esc(x.chapter)} — Solved Numerical Examples (Step by Step)</h2>${ex}${tips}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.subject)} Solved Examples`)}${aiCta}`;
+}
+function litBody(x, sibs, base) {
+  const summary = x.summary ? `<h2>${esc(x.chapter)} — Summary</h2><p>${nl2br(x.summary)}</p>` : '';
+  const chars = (x.characters || []).length ? `<h2>Characters</h2><ul>${x.characters.map((c) => `<li><strong>${esc(c.name)}:</strong> ${esc(c.description)}</li>`).join('')}</ul>` : '';
+  const themes = (x.themes || []).length ? `<h2>Themes</h2><ul>${x.themes.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : '';
+  return `<p class="speakable">${esc(x.intro)}</p>${summary}${chars}${themes}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} English Chapters`)}${aiCta}`;
+}
+function labBody(x, sibs, base) {
+  const list = (arr, h) => (arr || []).length ? `<h2>${esc(h)}</h2><ul>${arr.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : '';
+  const theory = x.theory ? `<h2>Theory</h2><p>${nl2br(x.theory)}</p>` : '';
+  const proc = (x.procedure || []).length ? `<h2>Procedure</h2><ol>${x.procedure.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>` : '';
+  const obs = x.observation ? `<h2>Observation</h2><p>${nl2br(x.observation)}</p>` : '';
+  const res = x.result ? `<h2>Result</h2><p>${nl2br(x.result)}</p>` : '';
+  const viva = (x.viva || []).length ? `<h2>Viva Questions</h2>${x.viva.map((v) => `<h3>${esc(v.q)}</h3><p>${esc(v.a)}</p>`).join('')}` : '';
+  return `<p class="speakable"><strong>Aim:</strong> ${esc(x.aim)}</p>${list(x.materials, 'Materials Required')}${theory}${proc}${obs}${res}${list(x.precautions, 'Precautions')}${viva}${relBlock(sibs, base, `More ${esc(x.classLevel)} ${esc(x.subject)} Practicals`)}${aiCta}`;
+}
+function gkBody(x, sibs, base) {
+  const items = (x.items || []).length ? `<h2>${esc(x.title)}</h2><ul>${x.items.map((i) => `<li><strong>${esc(i.name)}:</strong> ${esc(i.detail)}</li>`).join('')}</ul>` : '';
+  return `<p class="speakable">${esc(x.intro)}</p>${items}${faqBlock(x.faqs)}${relBlock(sibs, base, 'More GK Topics')}${aiCta}`;
+}
+function vocabBody(x, sibs, base) {
+  const items = (x.items || []).length ? `<h2>${esc(x.title)}</h2><ul>${x.items.map((i) => `<li><strong>${esc(i.term)}</strong> — ${esc(i.meaning)}${i.example ? ` <em>(e.g. ${esc(i.example)})</em>` : ''}</li>`).join('')}</ul>` : '';
+  return `<p class="speakable">${esc(x.intro)}</p>${items}${faqBlock(x.faqs)}${relBlock(sibs, base, 'More Vocabulary Sets')}${aiCta}`;
+}
+function glossaryBody(g, sibs) {
+  const def = `<p class="speakable"><strong>${esc(g.term)}:</strong> ${esc(g.defFull || g.definition)}</p>`;
+  const expl = g.explanation ? `<h2>Explanation</h2><p>${nl2br(g.explanation)}</p>` : '';
+  const ex = g.example ? `<h2>Example</h2><p>${nl2br(g.example)}</p>` : '';
+  return `${def}${expl}${ex}${faqBlock(g.faqs)}${relBlock(sibs, '/glossary', `More ${esc(g.category || '')} Terms`)}${aiCta}`;
+}
+function revisionBody(x, sibs) {
+  const secs = (x.sections || []).map((s) => `<h2>${esc(s.heading)}</h2><ul>${(s.points || []).map((p) => `<li>${esc(p)}</li>`).join('')}</ul>`).join('');
+  const kt = (x.keyTerms || []).length ? `<h2>Key Terms</h2><ul>${x.keyTerms.map((t) => `<li><strong>${esc(t.term)}:</strong> ${esc(t.meaning)}</li>`).join('')}</ul>` : '';
+  return `<p class="speakable">${esc(x.intro)}</p>${secs}${kt}${faqBlock(x.faqs)}${relBlock(sibs, '/revision-notes', `More ${esc(x.classLevel)} ${esc(x.subject)} Revision Notes`)}${aiCta}`;
+}
+
+const GLOSSARY_DATA = getGlossary(ROOT);
+ROUTES.push({
+  path: '/glossary',
+  title: 'Glossary — Key Science, Maths & Subject Definitions for Students | Syllab.in',
+  description: `Free student glossary — clear definitions of ${GLOSSARY_DATA.length}+ key terms across Biology, Physics, Chemistry, Maths and more, with examples. CBSE/NCERT aligned.`,
+  keywords: 'definition, glossary, what is photosynthesis, science definitions, maths definitions, CBSE terms, NCERT definitions',
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Student Glossary', url: `${SITE}/glossary`, inLanguage: 'en-IN', isAccessibleForFree: true },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTermSet',
+      name: 'Student Glossary',
+      description: `${GLOSSARY_DATA.length}+ key terms across Biology, Physics, Chemistry, Maths and more`,
+      hasDefinedTerm: GLOSSARY_DATA.slice(0, 20).map(g => ({
+        '@type': 'DefinedTerm',
+        name: g.term,
+        description: g.definition,
+        url: `${SITE}/glossary/${g.slug}`,
+      })),
+    },
+  ],
+});
+const GLOSS_BY_CAT = {};
+for (const g of GLOSSARY_DATA) (GLOSS_BY_CAT[g.category || ''] ||= []).push(g);
+for (const g of GLOSSARY_DATA) {
+  const sibs = (GLOSS_BY_CAT[g.category || ''] || []).filter((y) => y.slug !== g.slug).slice(0, 6);
+  const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Glossary', item: `${SITE}/glossary` },
+    { '@type': 'ListItem', position: 2, name: g.term, item: `${SITE}/glossary/${g.slug}` },
+  ] };
+  ROUTES.push({
+    path: `/glossary/${g.slug}`,
+    title: `What is ${g.term}? Definition, Meaning & Example | Syllab.in`,
+    description: g.definition,
+    keywords: `${g.term.toLowerCase()} definition, what is ${g.term.toLowerCase()}, ${g.term.toLowerCase()} meaning, ${(g.category||'').toLowerCase()}`,
+    noindex: true, // Post-March-2026 update: thin templated content drags domain quality.
+    bodyHtml: glossaryBody(g, sibs),
+    jsonLd: (g.faqs && g.faqs.length) ? [breadcrumb, faqJsonLd(g.faqs)] : breadcrumb,
+  });
+}
+
+// ─── Revision Notes (/revision-notes, /revision-notes/:slug) ──────────────────
+const REVISION_DATA = getRevisionNotes(ROOT);
+ROUTES.push({
+  path: '/revision-notes',
+  title: 'CBSE Revision Notes Class 9 & 10 — Quick Chapter Notes | Syllab.in',
+  description: `Free CBSE revision notes — ${REVISION_DATA.length}+ chapter-wise quick notes for Class 9 & 10 Science and Maths, with key points, formulas and FAQs. NCERT aligned.`,
+  keywords: 'CBSE revision notes, class 10 science notes, class 10 maths notes, class 9 notes, quick revision notes, NCERT chapter notes',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'CBSE Revision Notes', url: `${SITE}/revision-notes`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+const REV_BY_GROUP = {};
+for (const r of REVISION_DATA) (REV_BY_GROUP[`${r.classLevel}|${r.subject}`] ||= []).push(r);
+for (const r of REVISION_DATA) {
+  const sibs = (REV_BY_GROUP[`${r.classLevel}|${r.subject}`] || []).filter((y) => y.slug !== r.slug).slice(0, 6);
+  const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Revision Notes', item: `${SITE}/revision-notes` },
+    { '@type': 'ListItem', position: 2, name: `${r.chapter} (${r.classLevel} ${r.subject})`, item: `${SITE}/revision-notes/${r.slug}` },
+  ] };
+  ROUTES.push({
+    path: `/revision-notes/${r.slug}`,
+    title: `${r.chapter} ${r.classLevel} ${r.subject} — Revision Notes | Syllab.in`,
+    description: r.intro,
+    keywords: `${r.chapter.toLowerCase()} revision notes, ${r.classLevel.toLowerCase()} ${(r.subject||'').toLowerCase()} ${r.chapter.toLowerCase()} notes, cbse ${(r.subject||'').toLowerCase()} notes`,
+    bodyHtml: revisionBody(r, sibs),
+    jsonLd: (r.faqs && r.faqs.length) ? [breadcrumb, faqJsonLd(r.faqs)] : breadcrumb,
+  });
+}
+
+// ─── Sample Papers (/sample-papers, /sample-papers/:slug) ─────────────────────
+const SAMPLE_DATA = getSamplePapers(ROOT);
+ROUTES.push({
+  path: '/sample-papers',
+  title: 'CBSE Sample Papers 2026 (with Solutions) — Class 9 to 12 | Syllab.in',
+  description: `Free CBSE sample papers with solutions — ${SAMPLE_DATA.length}+ original model question papers for Class 9–12 Maths, Science, Social Science & English, exam-pattern with marking scheme and answers.`,
+  keywords: 'CBSE sample papers, class 10 sample paper, class 9 sample paper, class 12 sample paper, model question paper, sample paper with solutions, practice paper',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'CBSE Sample Papers', url: `${SITE}/sample-papers`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+for (const p of SAMPLE_DATA) {
+  ROUTES.push({
+    path: `/sample-papers/${p.slug}`,
+    title: `${p.title} — Free PDF | Syllab.in`,
+    description: p.intro,
+    keywords: `${(p.classLevel||'').toLowerCase()} ${(p.subject||'').toLowerCase()} sample paper, cbse ${(p.subject||'').toLowerCase()} sample paper, ${(p.classLevel||'').toLowerCase()} model paper`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Sample Papers', item: `${SITE}/sample-papers` },
+      { '@type': 'ListItem', position: 2, name: p.title, item: `${SITE}/sample-papers/${p.slug}` },
+    ] },
+  });
+}
+
+// ─── New study clusters (maths tables, writing, mcqs, gk, vocab, literature) ──
+// Rich crawlable body builders (answer block + real content + internal links).
+function mathsTableBody(x, sibs, base) {
+  const chart = (x.rows || []).length
+    ? `<h2>${esc(x.title)} — Full Chart</h2><table><thead><tr>${(x.columns || []).map((c) => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${x.rows.slice(0, 40).map((r) => `<tr>${r.map((cell) => `<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table>`
+    : '';
+  const faqs = (x.faqs || []).slice(0, 4);
+  const faqHtml = faqs.length ? `<h2>FAQs</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+  const rel = sibs.length ? `<h2>More Maths Tables & Charts</h2><ul>${sibs.map((s) => `<li><a href="${base}/${s.slug}">${esc(s.title)}</a></li>`).join('')}</ul>` : '';
+  return `<p class="speakable">${esc(x.intro)}</p>${chart}${faqHtml}${rel}<p><a href="${base}">See all maths tables &amp; charts →</a></p>`;
+}
+function conceptBody(x, sibs, base) {
+  const rel = sibs.length ? `<h2>Related ${esc(x.subject || '')} Concepts</h2><ul>${sibs.map((s) => `<li><a href="${base}/${s.slug}">${esc(s.title)} Explained</a></li>`).join('')}</ul>` : '';
+  // Curated FAQ (concept-faq.mjs) deepens thin concept pages into substantive,
+  // snippet-worthy answers for the exact question forms users search.
+  const faqs = (x.faqs || []).slice(0, 8);
+  const faqHtml = faqs.length ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+  const vSlug = CONCEPT_TO_VISUAL[x.slug];
+  const visualLink = vSlug ? `<p><a href="/visual-learning/${vSlug}">🎬 Watch the animated, step-by-step ${esc(x.title)} diagram →</a></p>` : '';
+  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p><h2>${esc(x.title)} Explained Simply</h2><p>${esc(x.intro)}${x.classLevel || x.subject ? ` This is a key ${esc(x.subject || '')} concept${x.classLevel ? ` for ${esc(x.classLevel)}` : ''}.` : ''}</p>${visualLink}${faqHtml}${rel}<p><a href="${base}">Browse all concepts →</a></p>`;
+}
+function visualBody(x, sibs, base) {
+  const why = x.whyItMatters ? `<p><strong>Why it matters:</strong> ${esc(x.whyItMatters)}</p>` : '';
+  // Step captions carry the real teaching — render them as an ordered walkthrough.
+  const steps = (x.steps || []).length ? `<h2>${esc(x.title)} — Step by Step</h2><ol>${x.steps.map((s) => `<li>${esc(s.caption)}</li>`).join('')}</ol>` : '';
+  const hook = x.memoryHook ? `<h2>Remember It (Memory Trick)</h2><p>${esc(x.memoryHook)}</p>` : '';
+  const real = x.realLifeExample ? `<h2>Real-Life Example</h2><p>${esc(x.realLifeExample)}</p>` : '';
+  const notes = (x.cruxNotes || []).length ? `<h2>Quick Notes — the Exam Crux</h2><ul>${x.cruxNotes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : '';
+  const recall = (x.recall || []).length ? `<h2>Test Yourself</h2>${x.recall.map((r) => `<h3>${esc(r.q)}</h3><p>${esc(r.a)}</p>`).join('')}` : '';
+  const cSlug = VISUAL_TO_CONCEPT[x.slug];
+  const conceptLink = cSlug ? `<p><a href="/concepts/${cSlug}">📖 Read the full explanation of ${esc(x.title)} →</a></p>` : '';
+  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p>${why}${steps}${notes}${hook}${real}${recall}${conceptLink}${relBlock(sibs, base, `More Visual Lessons`)}${aiCta}`;
+}
+// Load FULL visual lessons from the compiled SSR bundle so the prerender can
+// render memoryHook/realLifeExample/cruxNotes/recall (the regex-based
+// getVisualLessons only extracts slug/title/subject/classLevel/intro). Falls
+// back to the thin regex data when the bundle is absent (standalone runs).
+let VISUAL_LESSONS_FULL = getVisualLessons(ROOT);
+let VISUAL_TO_CONCEPT = {};
+let CONCEPT_TO_VISUAL = {};
+{
+  const vlBundlePath = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+  if (existsSync(vlBundlePath)) {
+    try {
+      const { pathToFileURL } = await import('node:url');
+      const mod = await import(pathToFileURL(vlBundlePath).href);
+      if (Array.isArray(mod.VISUAL_LESSONS) && mod.VISUAL_LESSONS.length) VISUAL_LESSONS_FULL = mod.VISUAL_LESSONS;
+      if (mod.VISUAL_TO_CONCEPT) VISUAL_TO_CONCEPT = mod.VISUAL_TO_CONCEPT;
+      if (mod.CONCEPT_TO_VISUAL) CONCEPT_TO_VISUAL = mod.CONCEPT_TO_VISUAL;
+    } catch { /* keep regex fallback */ }
+  }
+}
+// Generate AMP Web Stories (Google Discover channel) from the full lesson data.
+try {
+  const { generateWebStories, generateConceptStories } = await import('./webStories.mjs');
+  await generateWebStories(ROOT, VISUAL_LESSONS_FULL);
+  // Also generate Web Stories from the concept explainers (more Discover surface).
+  await generateConceptStories(ROOT, getConcepts(ROOT).map((x) => (CONCEPT_FAQ[x.slug] ? { ...x, faqs: CONCEPT_FAQ[x.slug] } : x)));
+} catch (e) { console.warn('⚠️  Web Stories generation error:', e?.message || e); }
+// Shareable "Science Memory Tricks" cheat-sheet (printable linkable asset).
+try {
+  const { generateMemoryPoster } = await import('./memoryPoster.mjs');
+  generateMemoryPoster(ROOT, VISUAL_LESSONS_FULL);
+} catch (e) { console.warn('⚠️  Memory poster generation error:', e?.message || e); }
+const STUDY_CLUSTERS = [
+  { base: '/maths-tables', name: 'Maths Tables & Charts', kw: 'maths tables, multiplication table, squares cubes primes', data: getMathsTables(ROOT), label: (x) => x.title, titleSuffix: '— Full Chart & Quick Revision', body: mathsTableBody },
+  { base: '/english-writing', name: 'English Writing Skills', kw: 'essay writing, letter writing, notice article speech writing', data: getEnglishWriting(ROOT), label: (x) => x.title },
+  { base: '/mcqs', name: 'Chapter-wise MCQs', kw: 'MCQ with answers, objective questions, online test CBSE', data: getChapterMcqs(ROOT), label: (x) => `${x.chapter} (${x.classLevel} ${x.subject})`, body: mcqBody },
+  { base: '/gk-facts', name: 'General Knowledge', kw: 'general knowledge, static GK, GK for exams', data: getStaticGk(ROOT), label: (x) => x.title, body: gkBody },
+  { base: '/vocabulary', name: 'English Vocabulary', kw: 'idioms and phrases, proverbs, one word substitution, synonyms antonyms', data: getEnglishVocab(ROOT), label: (x) => x.title, body: vocabBody },
+  { base: '/english-literature', name: 'English Literature', kw: 'english summary, character sketch, NCERT english chapter summary', data: getEnglishLiterature(ROOT), label: (x) => `${x.chapter} (${x.classLevel} English)`, body: litBody },
+  { base: '/concepts', name: 'Concepts Explained', kw: 'concept explained, science maths concepts simple, real-life examples', data: getConcepts(ROOT).map((x) => (CONCEPT_FAQ[x.slug] ? { ...x, faqs: CONCEPT_FAQ[x.slug] } : x)), label: (x) => `${x.title} Explained`, body: conceptBody },
+  { base: '/solved-examples', name: 'Solved Numerical Examples', kw: 'solved examples, numerical problems with solutions, step by step', data: getSolvedExamples(ROOT), label: (x) => `${x.chapter} Solved Examples (${x.classLevel} ${x.subject})`, body: solvedBody },
+  { base: '/lab-practicals', name: 'Lab Practicals & Viva', kw: 'lab practical, science experiment procedure, viva questions, CBSE practical', data: getLabPracticals(ROOT), label: (x) => `${x.title} (${x.classLevel} ${x.subject} Practical)`, body: labBody },
+  { base: '/visual-learning', name: 'Visual Learning — Interactive Diagrams', kw: 'animated diagrams, interactive diagrams, step by step science diagrams, water cycle photosynthesis heart', data: VISUAL_LESSONS_FULL.map((x) => (x.recall && x.recall.length ? { ...x, faqs: x.recall } : x)), label: (x) => `${x.title} — Interactive Diagram`, body: visualBody },
+  { base: '/timelines', name: 'History Timelines', kw: 'history timeline, indian freedom struggle timeline, mughal empire timeline, important dates history', data: getTimelines(ROOT), label: (x) => `${x.title} — Interactive Timeline` },
+  { base: '/what-to-study', name: 'What to Study — Marks Weightage', kw: 'important chapters by marks, cbse weightage, what to study for boards, marks distribution', data: getWhatToStudy(ROOT), label: (x) => `Most Important Chapters — ${x.title}` },
+  { base: '/pyqs', name: 'Previous Year Questions (PYQ)', kw: 'previous year questions, pyq chapter wise, board questions with solutions, important questions', data: getPyqs(ROOT), label: (x) => `${x.chapter} — Previous Year Questions (${x.classLevel} ${x.subject})`, body: pyqBody },
+];
+for (const c of STUDY_CLUSTERS) {
+  ROUTES.push({ path: c.base, title: `${c.name} — Free for Students | Syllab.in`, description: `${c.name} — ${c.data.length}+ free resources for Indian students. ${c.kw}.`, keywords: c.kw, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: c.name, url: `${SITE}${c.base}`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+  // Group for sibling internal links (by category/subject/class when available).
+  const gKey = (x) => x.category || x.subject || x.classLevel || 'all';
+  const byGroup = {};
+  for (const x of c.data) (byGroup[gKey(x)] ||= []).push(x);
+  for (const x of c.data) {
+    const nm = c.label(x);
+    const route = {
+      path: `${c.base}/${x.slug}`,
+      title: `${nm} ${c.titleSuffix || ''} | Syllab.in`.replace(/\s+\|/, ' |'),
+      description: x.intro || nm,
+      keywords: `${nm.toLowerCase()}, ${c.kw}`,
+      jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: c.name, item: `${SITE}${c.base}` },
+        { '@type': 'ListItem', position: 2, name: nm, item: `${SITE}${c.base}/${x.slug}` },
+      ] },
+    };
+    if (c.body) {
+      const sibs = (byGroup[gKey(x)] || []).filter((y) => y.slug !== x.slug).slice(0, 6);
+      route.bodyHtml = c.body(x, sibs, c.base);
+    }
+    if (x.faqs && x.faqs.length) {
+      route.jsonLd = [route.jsonLd, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: x.faqs.slice(0, 8).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }];
+    }
+    // Reciprocal hreflang to the Hindi version, where one exists (see hindi-concepts.mjs).
+    if (c.base === '/concepts' && HINDI_CONCEPT_SLUGS.has(x.slug)) {
+      route.hreflangAlt = [{ lang: 'hi-IN', href: `${SITE}/hi/concepts/${x.slug}` }];
+    }
+    ROUTES.push(route);
+  }
+}
+
+// ─── Medical / MBBS colleges (/medical-colleges, /:state, /:state/:slug) ──────
+const { states: MED_STATES, colleges: MED_COLLEGES } = getMedicalManifest(ROOT);
+ROUTES.push({
+  path: '/medical-colleges',
+  title: 'Top Medical Colleges in India (MBBS/BDS) — NEET Cutoffs, Fees & Admission | Syllab.in',
+  description: 'Browse the top medical colleges in India by state — AIIMS, JIPMER and the best government & private MBBS colleges. Compare NEET cutoffs, MBBS fees, seats and the full admission process. Free.',
+  keywords: 'top medical colleges India, MBBS colleges by state, NEET cutoff colleges, AIIMS MBBS fees, best government medical colleges, private MBBS colleges fees, NEET college list',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Top Medical Colleges in India', url: `${SITE}/medical-colleges`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+for (const s of MED_STATES) {
+  const inState = MED_COLLEGES.filter((c) => c.stateSlug === s.slug);
+  if (!inState.length) continue;
+  ROUTES.push({
+    path: `/medical-colleges/${s.slug}`,
+    title: `Top Medical Colleges in ${s.name} (MBBS) — NEET Cutoffs & Fees 2026 | Syllab.in`,
+    description: `Best MBBS medical colleges in ${s.name} — NEET cutoffs, MBBS fees, seats and admission process. ${s.blurb}`,
+    keywords: `medical colleges in ${s.name}, MBBS colleges ${s.name}, NEET cutoff ${s.name}, ${s.name} government medical colleges, MBBS fees ${s.name}`,
+    bodyHtml: `<ul>${inState.map((c) => `<li><a href="/medical-colleges/${s.slug}/${c.slug}">${esc(c.name)}</a> — ${esc(c.city)}, ${esc(c.type)}; MBBS fees ${esc(c.feesPerYear)}/yr, ${c.mbbsSeats} seats, NEET: ${esc(c.neetCutoff)}</li>`).join('')}</ul>`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Medical Colleges in ${s.name}`, url: `${SITE}/medical-colleges/${s.slug}`, inLanguage: 'en-IN' },
+  });
+}
+for (const c of MED_COLLEGES) {
+  const u = `${SITE}/medical-colleges/${c.stateSlug}/${c.slug}`;
+  ROUTES.push({
+    path: `/medical-colleges/${c.stateSlug}/${c.slug}`,
+    title: `${c.name} — MBBS Fees, NEET Cutoff, Seats & Admission | Syllab.in`,
+    description: `${c.name}, ${c.city}: MBBS fees ${c.feesPerYear}/yr, ${c.neetCutoff}, ${c.mbbsSeats} seats${c.nirf ? `, NIRF #${c.nirf}` : ''}. Admission via NEET UG — full process, courses, internship & hostel.`,
+    keywords: `${c.name} fees, ${c.shortName} NEET cutoff, ${c.name} MBBS admission, ${c.name} seats, ${c.city} medical college`,
+    bodyHtml: `<p>${esc(c.about)}</p><p><strong>MBBS fees:</strong> ${esc(c.feesPerYear)}/yr (${esc(c.feesTotal)} full course). <strong>Seats:</strong> ${c.mbbsSeats}. <strong>NEET cutoff (indicative):</strong> ${esc(c.neetCutoff)}.</p><h2>Admission process (NEET UG)</h2><ol>${(c.admissionSteps || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ol>`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name, foundingDate: String(c.established), url: `https://${c.website}`, address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.state, addressCountry: 'IN' } },
+  });
+}
+
+// ─── College Finder: colleges-accepting/<exam> + best-colleges/<course> ───────
+const CF_EXAMS = [['jee-main','JEE Main'],['jee-advanced','JEE Advanced'],['neet','NEET'],['bitsat','BITSAT'],['viteee','VITEEE'],['tnea','TNEA'],['kcet','KCET'],['comedk','COMEDK'],['mht-cet','MHT-CET'],['ts-eapcet','TS EAPCET'],['ap-eapcet','AP EAPCET'],['wbjee','WBJEE']];
+const CF_COURSES = [['cse','CSE','Computer Science Engineering'],['ai-ml','AI/ML','AI, ML & Data Science'],['ece','ECE','Electronics & Communication'],['it','IT','Information Technology'],['electrical','Electrical','Electrical Engineering'],['mechanical','Mechanical','Mechanical Engineering'],['civil','Civil','Civil Engineering'],['mbbs','MBBS','MBBS (Medical)']];
+ROUTES.push({ path: '/colleges-accepting', title: 'Colleges Accepting JEE, NEET, EAMCET, KCET & More (2026) | Syllab.in', description: 'Find the colleges that accept each entrance exam — JEE Main, JEE Advanced, NEET, BITSAT, VITEEE, KCET, COMEDK, MHT-CET, EAMCET, WBJEE. Fees, cutoffs & admission, free.', keywords: 'colleges accepting jee main, colleges accepting neet, colleges accepting kcet, exam wise college list india', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Colleges by Entrance Exam', url: `${SITE}/colleges-accepting`, inLanguage: 'en-IN' } });
+for (const [slug, label] of CF_EXAMS) {
+  ROUTES.push({ path: `/colleges-accepting/${slug}`, title: `Colleges Accepting ${label} (2026) — Full List, Fees & Cutoffs | Syllab.in`, description: `Complete list of top colleges that accept ${label} — fees, cutoffs, seats and the admission process. Free and indicative for guidance.`, keywords: `colleges accepting ${label.toLowerCase()}, ${label.toLowerCase()} college list, ${label.toLowerCase()} cutoff colleges, ${label.toLowerCase()} colleges fees`, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Colleges accepting ${label}`, url: `${SITE}/colleges-accepting/${slug}`, inLanguage: 'en-IN' } });
+}
+ROUTES.push({ path: '/best-colleges', title: 'Best Colleges by Course — CSE, ECE, MBBS & More (2026 Rankings) | Syllab.in', description: 'Find the best colleges in India for your course — CSE, AI/ML, ECE, IT, Mechanical, Civil and MBBS. Ranked by NIRF with fees, cutoffs & placements. Free.', keywords: 'best CSE colleges India, best MBBS colleges India, best ECE colleges, course wise college ranking', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Best Colleges by Course', url: `${SITE}/best-colleges`, inLanguage: 'en-IN' } });
+for (const [slug, short, full] of CF_COURSES) {
+  ROUTES.push({ path: `/best-colleges/${slug}`, title: `Best ${short} Colleges in India 2026 — Ranking, Fees & Cutoffs | Syllab.in`, description: `Top ${full} colleges in India — ranked by NIRF with fees, cutoffs, placements and admission. Free and indicative.`, keywords: `best ${short.toLowerCase()} colleges india, top ${short.toLowerCase()} colleges, ${short.toLowerCase()} college ranking, ${full.toLowerCase()} fees cutoff`, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Best ${short} Colleges in India`, url: `${SITE}/best-colleges/${slug}`, inLanguage: 'en-IN' } });
+}
+
+// ─── Scholarships (free, highly-linkable resource page) ───────────────────────
+ROUTES.push({
+  path: '/scholarships',
+  title: 'Scholarships for Students in India 2026 — Govt, State & Private (Free List) | Syllab.in',
+  description: 'Free, updated list of scholarships for Indian students — NSP pre/post-matric, NMMS, PM YASASVI, INSPIRE, AICTE Pragati/Saksham, Reliance, Tata & more. Eligibility, amount, deadlines and how to apply.',
+  keywords: 'scholarships for students India 2026, NSP scholarship, NMMS scholarship, INSPIRE scholarship, PM YASASVI, AICTE Pragati, private scholarships India, scholarship class 10 12',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Scholarships for Students in India', url: `${SITE}/scholarships`, inLanguage: 'en-IN', isAccessibleForFree: true },
+});
+
+// ─── Embed / Link-to-us (backlink enabler page) ───────────────────────────────
+ROUTES.push({
+  path: '/embed',
+  title: 'Link to Syllab — Free Embed Badges & Widgets for Your Site | Syllab.in',
+  description: "Add Syllab's free study resources to your school site, blog or classroom page. Copy-paste badges and widgets linking to free NCERT solutions, formula sheets and more — 100% free.",
+  keywords: 'link to syllab, embed free study tools, education widget for website, free ncert solutions widget',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Link to Syllab', url: `${SITE}/embed`, inLanguage: 'en-IN' },
+});
+
 // ─── Photo Doubt-Solver (snap a problem → instant AI solution) ────────────────
 ROUTES.push({
   path: '/doubt-solver',
@@ -575,6 +1883,21 @@ ROUTES.push({
   ],
 });
 
+// Keyword-targeted "<subject> for kids" SEO landing pages.
+for (const k of [
+  { p: '/maths-for-kids', kw: 'maths for kids', t: 'Maths for Kids — Free, Fun & Online (Pre-KG to Class 5) | Syllab.in', d: 'Free Maths for Kids — counting, shapes, addition, tables and printable worksheets through fun games. Pre-KG to Class 5, no signup. 100% free for Indian kids.' },
+  { p: '/science-for-kids', kw: 'science for kids', t: 'Science for Kids — Free, Fun & Online (Animated) | Syllab.in', d: 'Free Science for Kids — animals, plants, the human body, weather and space with animated diagrams and activities. Pre-KG to Class 5, completely free.' },
+  { p: '/english-for-kids', kw: 'english for kids', t: 'English for Kids — Free Alphabet, Phonics, Rhymes & Stories | Syllab.in', d: 'Free English for Kids — alphabet, phonics, sight words, rhymes and stories with audio, plus printable worksheets. Pre-KG to Class 5, no signup.' },
+]) {
+  ROUTES.push({ path: k.p, title: k.t, description: k.d, keywords: `${k.kw}, ${k.kw} free, ${k.kw} online, free ${k.kw} india, ${k.kw} games, ${k.kw} worksheets`, jsonLd: [{ '@context': 'https://schema.org', '@type': 'LearningResource', name: k.t, description: k.d, educationalLevel: 'Pre-KG to Class 5', inLanguage: 'en-IN', isAccessibleForFree: true }] });
+}
+ROUTES.push({
+  path: '/quiz-duel',
+  title: 'Quiz Duel — Free 1v1 GK Quiz Battle for Students | Syllab.in',
+  description: 'Battle the AI or challenge a friend in a fast, timed GK quiz duel. 8 questions, beat the clock and share your score on WhatsApp — free for Indian students.',
+  keywords: 'quiz battle, gk quiz duel, 1v1 quiz game, online quiz students India, challenge friend quiz, free quiz game',
+  jsonLd: [{ '@context': 'https://schema.org', '@type': 'Game', name: 'Syllab Quiz Duel', url: `${SITE}/quiz-duel`, inLanguage: 'en-IN', isAccessibleForFree: true }],
+});
 ROUTES.push({
   path: '/study-room',
   title: 'AI Study Room — Focus Timer, Study Music & AI Tutor (Free) | Syllab.in',
@@ -606,14 +1929,14 @@ ROUTES.push({
 
 ROUTES.push({
   path: '/worksheets',
-  title: 'Free Printable Worksheets — Tracing Letters, Numbers, Shapes (PDF) | Syllab.in',
-  description: 'Download free printable worksheets for Pre-KG, LKG & UKG kids: alphabet tracing (A–Z), number tracing & counting, and shapes — print or save as PDF. Free, watermarked early-learning worksheets for Indian kids.',
-  keywords: 'free printable worksheets, alphabet tracing worksheets pdf, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, kindergarten worksheets free download India, pre-kg worksheets pdf, LKG UKG worksheets',
+  title: 'Free Printable Worksheets — Letters, Phonics, Maths, Reading & More (PDF) | Syllab.in',
+  description: 'Download 100+ free printable worksheets for Pre-KG to Class 2 kids: letters & tracing, phonics & beginning sounds, vocabulary & sight words, reading comprehension, early writing, numbers & counting, simple maths, shapes, colours, science and social-emotional learning — print or save as PDF. Free, watermarked, made-in-India.',
+  keywords: 'free printable worksheets, alphabet tracing worksheets pdf, phonics worksheets, sight words worksheet, reading comprehension worksheets kids, addition subtraction worksheets, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, colors worksheet, science worksheets kindergarten, social emotional worksheets, kindergarten worksheets free download India, pre-kg worksheets pdf, LKG UKG worksheets',
   jsonLd: [
     { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free Printable Worksheets', url: `${SITE}/worksheets`, inLanguage: 'en-IN', isAccessibleForFree: true },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
-      { '@type': 'Question', name: 'Are the worksheets free to download?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — every worksheet (alphabet tracing, numbers, counting, shapes) is free to print or save as PDF. No signup, no payment.' } },
-      { '@type': 'Question', name: 'What worksheets are available?', acceptedAnswer: { '@type': 'Answer', text: 'A–Z letter tracing with example words, number tracing and counting, and shape tracing — designed for Pre-KG, LKG and UKG. More categories are added regularly.' } },
+      { '@type': 'Question', name: 'Are the worksheets free to download?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — every worksheet is free to print or save as PDF. No signup, no payment. Each carries a small syllab.in watermark.' } },
+      { '@type': 'Question', name: 'What worksheets are available?', acceptedAnswer: { '@type': 'Answer', text: 'Over 100 worksheets across 12 categories: Letters, Phonics, Vocabulary, Reading, Writing, Numbers & Counting, Simple Math, Shapes, Colors, Science, Social & Emotional and Other Activities — designed for Pre-KG to Class 2. More are added regularly.' } },
     ] },
   ],
 });
@@ -675,12 +1998,22 @@ function extractTopicContent(filePath) {
       topics[topicId] = { title, theoryText: '', syntaxText: '' };
     }
 
-    // For each topic, extract first theory paragraph (most substantial)
-    const theoryPattern = /id:\s*['"]([a-z0-9-]+)['"][^}]*?theory:\s*\[\s*`([^`]{200,600})/gm;
+    // For each topic, extract ALL paragraphs of its theory array (joined) — the
+    // real, unique content. Tutorial files quote theory paragraphs differently
+    // (python/sql use backticks, java/js/html use single quotes), so match all
+    // three string styles. The old regex required a ≥200-char backtick FIRST
+    // paragraph, so most topics extracted nothing and the page fell back to
+    // identical boilerplate (thin + duplicate across every coding page).
+    const STR = String.raw`(?:\`[^\`]+\`|'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")`;
+    const theoryPattern = new RegExp(String.raw`id:\s*['"\`]([a-z0-9-]+)['"\`][\s\S]*?theory:\s*\[((?:\s*${STR}\s*,?)+)`, 'g');
+    const tokPattern = new RegExp(STR, 'g');
     for (const match of content.matchAll(theoryPattern)) {
       const topicId = match[1];
-      if (topics[topicId]) {
-        topics[topicId].theoryText = match[2];
+      if (topics[topicId] && !topics[topicId].theoryText) {
+        const paras = [...match[2].matchAll(tokPattern)]
+          .map((p) => p[0].slice(1, -1).replace(/\\(['"\\])/g, '$1').replace(/\s+/g, ' ').trim())
+          .filter(Boolean);
+        if (paras.length) topics[topicId].theoryText = paras.join('\n\n').slice(0, 1600);
       }
     }
 
@@ -704,6 +2037,11 @@ function readCodingTopics() {
   try {
     const idx = readFileSync(path.join(ROOT, 'src', 'data', 'tutorials', 'index.ts'), 'utf8');
     const languages = [...new Set([...idx.matchAll(/id:\s*['"]([a-z0-9-]+)['"]/gi)].map(m => m[1]))];
+    // 'ai-agents' topics live in ai-agents.ts (merged into ai-learning at runtime),
+    // so they aren't an id: in index.ts. Register the lang so /coding/ai-agents/:topic
+    // pages get prerendered with a self-canonical (fixes GSC "alternate page with
+    // proper canonical tag" where they fell back to the homepage canonical).
+    if (!languages.includes('ai-agents')) languages.push('ai-agents');
     const fileMap = { 'ai-learning': 'aiLearning.ts', 'data-analytics': 'dataAnalytics.ts', 'app-dev': 'app-dev.ts', 'game-dev': 'game-dev.ts' };
     const topicsByLang = {};
     const contentByLang = {};
@@ -747,6 +2085,74 @@ for (const lang of CODE_LANGS) {
       topicContent: CODE_CONTENT[lang] && CODE_CONTENT[lang][topic],
     });
   }
+}
+
+// ─── Cross-cluster internal-link mesh ────────────────────────────────────────
+// Chapter-level pages across clusters (NCERT solutions, MCQs, PYQs, revision
+// notes, solved examples, formula sheets, important questions) link to EACH
+// OTHER when they cover the same class + chapter. Join key: normalized
+// class|subject-family|chapter — the family check lets Science↔Physics match
+// (the same chapter drifts between those labels across clusters) while keeping
+// e.g. Class 11 Maths "Statistics" apart from Economics "Statistics".
+const MESH_BY_PATH = new Map();
+{
+  const normChap = (s) => String(s || '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const normCls = (s) => String(s || '').replace(/class\s*/i, '').trim();
+  const famOf = (subj) => {
+    const s = String(subj || '').toLowerCase();
+    if (/math/.test(s)) return 'maths';
+    if (/(science|physics|chemistry|biology)/.test(s)) return 'science';
+    if (/(social|history|geograph|civics|polit|econom)/.test(s)) return 'social';
+    if (/english/.test(s)) return 'english';
+    return s || 'other';
+  };
+  const entries = [];
+  const add = (path, label, cls, subj, chap) => {
+    const c = normCls(cls), ch = normChap(chap);
+    if (!c || !ch) return;
+    entries.push({ path, label, key: `${c}|${famOf(subj)}|${ch}` });
+  };
+  for (const c of NCERT_CHAPTERS) add(`/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`, 'NCERT Solutions', c.classLevel, c.subject, c.chapSlug);
+  for (const p of IQ_PILOT) add(`/important-questions/class-${p.cls}/${p.subjSlug}/${p.chapSlug}`, 'Important Questions', p.cls, p.subjName, p.chapSlug);
+  for (const x of getChapterMcqs(ROOT)) add(`/mcqs/${x.slug}`, 'MCQ Practice', x.classLevel, x.subject, x.chapter);
+  for (const x of PYQ_ALL) add(`/pyqs/${x.slug}`, 'Previous Year Questions', x.classLevel, x.subject, x.chapter);
+  for (const x of getRevisionNotes(ROOT)) add(`/revision-notes/${x.slug}`, 'Revision Notes', x.classLevel, x.subject, x.chapter);
+  for (const x of getSolvedExamples(ROOT)) add(`/solved-examples/${x.slug}`, 'Solved Examples', x.classLevel, x.subject, x.chapter);
+  // State-board solutions — our best-converting cluster (6.2% CTR); cross-link so its
+  // visitors reach the matching NCERT solutions, MCQs, PYQs and important questions.
+  for (const x of SB_CHAPTERS) add(`/state-board-solutions/${x.boardSlug}/class-${x.classLevel}/${x.subjSlug}/${x.chapSlug}`, 'State Board Solutions', x.classLevel, x.subject, x.chapSlug);
+  // Chapter-level formula sheets: chapter is only encoded in the slug
+  // (class-10-maths-quadratic-equations); subject-level sheets don't match and are skipped.
+  for (const s of FORMULA_SHEETS_DATA) {
+    const m = s.slug.match(/^class-(\d+)-([a-z]+)-(.+?)(?:-formulas)?$/);
+    if (m && m[3] && m[3] !== 'formulas') add(`/formula-sheets/${s.slug}`, 'Formula Sheet', m[1], s.subject || m[2], m[3]);
+  }
+  const byKey = new Map();
+  for (const e of entries) (byKey.get(e.key) || byKey.set(e.key, []).get(e.key)).push(e);
+  let meshed = 0;
+  for (const group of byKey.values()) {
+    if (group.length < 2) continue;
+    for (const e of group) {
+      // One link per resource TYPE (label) — some clusters have duplicate
+      // slug variants for the same chapter; show each type once.
+      const seenLabel = new Set();
+      const others = group.filter((o) => {
+        if (o.path === e.path || seenLabel.has(o.label)) return false;
+        seenLabel.add(o.label);
+        return true;
+      }).slice(0, 6);
+      if (!others.length) continue;
+      MESH_BY_PATH.set(e.path, `
+        <div style="margin-top: 1.5rem; padding: 1rem; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;">
+          <h2 style="font-size: 1.05rem; margin: 0 0 0.5rem 0; color: #166534;">More free resources for this chapter</h2>
+          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.9;">
+            ${others.map((o) => `<li><a href="${o.path}" style="color: #0066cc; text-decoration: none; font-weight: 600;">${o.label} →</a></li>`).join('')}
+          </ul>
+        </div>`);
+      meshed++;
+    }
+  }
+  console.log(`🔗 Internal-link mesh: ${meshed} chapter pages cross-linked (${byKey.size} chapter keys).`);
 }
 
 // ─── HTML injection helpers ──────────────────────────────────────────────────
@@ -801,13 +2207,26 @@ function buildBodyContent(route) {
     </nav>
   `;
 
-  // E-E-A-T: TL;DR summary + byline with date (visible author + freshness signals)
+  // Trust badge (#2) — the "free / no login" edge competitors that gate content
+  // (Vedantu, BYJU'S, Toppr) literally cannot match. Visible + high-CTR.
+  const trustBadge = `
+    <div style="margin: 0 0 1rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem; font-weight: 700;">
+      <span style="background:#dcfce7;color:#166534;padding:4px 10px;border-radius:999px;">✓ 100% Free</span>
+      <span style="background:#dbeafe;color:#1e40af;padding:4px 10px;border-radius:999px;">✓ No Login Needed</span>
+      <span style="background:#fef3c7;color:#92400e;padding:4px 10px;border-radius:999px;">✓ NCERT / CBSE Aligned</span>
+      <span style="background:#f3e8ff;color:#6b21a8;padding:4px 10px;border-radius:999px;">✓ Download as PDF</span>
+    </div>`;
+
+  // E-E-A-T: TL;DR summary + reviewer byline (author authority + freshness signals)
   const tldrBlock = `
+    ${trustBadge}
     <div style="margin: 1.5rem 0; padding: 1rem; background: #e8f5e9; border-left: 4px solid #4caf50; border-radius: 4px;">
-      <p style="margin: 0; font-weight: 600; color: #2e7d32; font-size: 0.95rem;"><strong>TL;DR:</strong> ${esc(desc.length > 150 ? desc.slice(0, 150).trim() + '…' : desc)}</p>
+      <p class="speakable" style="margin: 0; font-weight: 600; color: #2e7d32; font-size: 0.95rem;"><strong>TL;DR:</strong> ${esc(desc.length > 150 ? desc.slice(0, 150).trim() + '…' : desc)}</p>
     </div>
-    <p style="margin: 1rem 0; font-size: 0.85rem; color: #666;">By <strong>Syllab.in</strong> · Updated <time datetime="${today}">${formattedDate}</time></p>
-  `;
+    <p style="margin: 1rem 0; font-size: 0.85rem; color: #666;">Written &amp; reviewed by the <strong>Syllab.in Academic Team</strong> (CBSE/NCERT subject experts) · Updated <time datetime="${today}">${formattedDate}</time></p>
+    <div style="margin: 1rem 0; padding: 0.85rem 1rem; background:#eef2ff; border:1px solid #c7d2fe; border-radius:8px; font-size:0.9rem;">
+      🤖 <strong>Stuck on any question?</strong> Ask <a href="/ai-tutor" style="color:#4f46e5;font-weight:700;text-decoration:none;">Syllab's free AI Tutor</a> for a step-by-step explanation — instant, unlimited, no login.
+    </div>`;
 
   // Quick nav to main sections (helps crawl internal structure)
   const mainNav = `
@@ -837,6 +2256,12 @@ function buildBodyContent(route) {
   // Route-specific rich content
   let richContent = '';
 
+  // Routes that ship their own static body HTML (e.g. Privacy, Terms) — so the real
+  // policy text is in the prerendered HTML for crawlers/reviewers that don't run JS.
+  if (route.bodyHtml) {
+    richContent = `<div style="margin-top:1.5rem;line-height:1.7;">${route.bodyHtml}</div>`;
+  }
+
   // NCERT chapter pages — render actual Q&A for high SEO value + numbered list + table
   const ncertMatch = route.path.match(/^\/ncert-solutions\/class-(\d+)\/([a-z-]+)\/([a-z-]+)$/);
   if (ncertMatch) {
@@ -846,7 +2271,7 @@ function buildBodyContent(route) {
     const qas = ncertData[ncertKey] || [];
 
     if (qas.length > 0) {
-      const displayLimit = Math.min(3, qas.length); // Show first 3 Q&A for brevity
+      const displayLimit = Math.min(6, qas.length); // Show first 6 Q&A as rich, indexable static content
       richContent = `<div style="margin-top: 1.5rem;">`;
 
       // Numbered list of key concepts/questions
@@ -900,12 +2325,38 @@ function buildBodyContent(route) {
           <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f9f9f9; border-left: 3px solid #0066cc;">
             <h3 style="margin: 0 0 0.5rem 0; font-size: 1.05rem; color: #333;">Q${i + 1}: ${esc(qa.q)}</h3>
             <div style="font-size: 0.95rem; color: #555; line-height: 1.5;">
-              ${esc(qa.solution).slice(0, 300)}${qa.solution.length > 300 ? '...' : ''}
+              ${esc(qa.solution).slice(0, 500)}${qa.solution.length > 500 ? '...' : ''}
             </div>
           </div>
         `;
       }
-      richContent += `<p style="color: #666; font-size: 0.9rem; font-style: italic;">Showing ${displayLimit} of ${qas.length} questions. Visit the full page for complete solutions.</p></div>`;
+      richContent += `<p style="color: #666; font-size: 0.9rem; font-style: italic;">Showing ${displayLimit} of ${qas.length} questions. Visit the full page for complete solutions.</p>`;
+
+      // Prev/next chapter navigation (sequential crawl path + UX), using the
+      // NCERT ordering within the same class + subject.
+      const ordered = NCERT_CHAPTERS.filter((c) => c.classLevel === classLevel && c.subjSlug === subjSlug);
+      const idx = ordered.findIndex((c) => c.chapSlug === chapSlug);
+      const prevCh = idx > 0 ? ordered[idx - 1] : null;
+      const nextCh = idx >= 0 && idx < ordered.length - 1 ? ordered[idx + 1] : null;
+      if (prevCh || nextCh) {
+        const link = (c, label) => `<a href="/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}" style="color: #0066cc; text-decoration: none; font-weight: 600;">${label}</a>`;
+        richContent += `<nav style="display: flex; justify-content: space-between; gap: 1rem; margin: 1.5rem 0; font-size: 0.9rem;">
+          ${prevCh ? link(prevCh, `← Previous: ${esc(prevCh.title)}`) : '<span></span>'}
+          ${nextCh ? link(nextCh, `Next: ${esc(nextCh.title)} →`) : '<span></span>'}
+        </nav>`;
+      }
+
+      // Sibling-chapter interlinking — link other chapters in the same class + subject
+      // (internal linking + topical clustering + dwell time; reuses existing data).
+      const siblings = NCERT_CHAPTERS.filter((c) => c.classLevel === classLevel && c.subjSlug === subjSlug && c.chapSlug !== chapSlug);
+      if (siblings.length) {
+        richContent += `<div style="margin-top: 2rem;"><h2 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: #333;">More Class ${classLevel} ${esc(slugToSubject(subjSlug))} NCERT Solutions</h2><ul style="line-height: 1.9; padding-left: 1.25rem;">`;
+        for (const s of siblings) {
+          richContent += `<li><a href="/ncert-solutions/class-${s.classLevel}/${s.subjSlug}/${s.chapSlug}" style="color: #0066cc; text-decoration: none;">${esc(s.title)} — Class ${s.classLevel} ${esc(s.subject)} NCERT Solutions</a></li>`;
+        }
+        richContent += `</ul></div>`;
+      }
+      richContent += `</div>`;
     }
   }
 
@@ -914,64 +2365,23 @@ function buildBodyContent(route) {
     const [, lang, topic] = route.path.match(/^\/coding\/([a-z-]+)\/([a-z0-9-]+)$/);
     const topicContent = route.topicContent;
     if (topicContent && topicContent.theoryText) {
-      // Rich, unique content: topic's theory paragraph + syntax if available + numbered list + table
+      // Render the topic's REAL theory paragraphs (unique per page) + syntax. No
+      // generic "Learning Path" / "Key Concepts" boilerplate — that was identical
+      // on every coding page (duplicate content) and added nothing.
+      const paras = topicContent.theoryText.split('\n\n').map((p) => p.trim()).filter(Boolean);
       richContent = `
         <div style="margin-top: 1.5rem;">
-          <div style="padding: 1rem; background: #f9f9f9; border-left: 3px solid #667eea; margin-bottom: 1.5rem;">
-            <h2 style="margin: 0 0 0.5rem 0; font-size: 1.1rem; color: #333;">Overview:</h2>
-            <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.6;">
-              ${esc(topicContent.theoryText.slice(0, 400))}${topicContent.theoryText.length > 400 ? '...' : ''}
-            </p>
-          </div>
-
-          <!-- Numbered list of learning steps -->
-          <div style="margin-bottom: 2rem;">
-            <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: #333;">Learning Path:</h3>
-            <ol style="margin: 0; padding-left: 1.5rem; color: #555; line-height: 1.8; font-size: 0.95rem;">
-              <li style="margin-bottom: 0.5rem;"><strong>Understand the fundamentals</strong> — Learn core concepts and terminology</li>
-              <li style="margin-bottom: 0.5rem;"><strong>Study syntax and structure</strong> — Master the language-specific patterns</li>
-              <li style="margin-bottom: 0.5rem;"><strong>Practice with examples</strong> — Apply concepts through hands-on exercises</li>
-              <li style="margin-bottom: 0.5rem;"><strong>Build projects</strong> — Combine skills to create real applications</li>
-            </ol>
-          </div>
-
-          <!-- Key concepts comparison table -->
-          <div style="margin-bottom: 2rem; overflow-x: auto;">
-            <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: #333;">Key Concepts:</h3>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; background: white; border: 1px solid #ddd;">
-              <thead style="background: #f5f5f5;">
-                <tr>
-                  <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #667eea; font-weight: 600; width: 40%;">Concept</th>
-                  <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #667eea; font-weight: 600;">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid #eee;">
-                  <td style="padding: 0.75rem;"><strong>${esc(titleCase(topic))}</strong></td>
-                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Essential programming concept for ${esc(langLabel(lang))}</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #eee;">
-                  <td style="padding: 0.75rem;"><strong>Use Case</strong></td>
-                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Practical applications and real-world scenarios</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.75rem;"><strong>Difficulty</strong></td>
-                  <td style="padding: 0.75rem; color: #666; font-size: 0.9rem;">Beginner-friendly with step-by-step guidance</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+          <h2 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #333;">${esc(titleCase(topic))} in ${esc(langLabel(lang))}</h2>
+          ${paras.map((p) => `<p style="margin: 0 0 0.9rem 0; font-size: 0.97rem; color: #444; line-height: 1.7;">${esc(p)}</p>`).join('')}
           ${topicContent.syntaxText ? `
-            <div style="padding: 1rem; background: #f5f5f5; border-left: 3px solid #4caf50; margin-bottom: 1.5rem;">
-              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">Syntax Reference:</h3>
-              <pre style="margin: 0; font-size: 0.85rem; color: #555; white-space: pre-wrap; font-family: 'Courier New', monospace;">
-${esc(topicContent.syntaxText)}
-              </pre>
+            <div style="padding: 1rem; background: #f5f5f5; border-left: 3px solid #4caf50; margin: 1.25rem 0;">
+              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">${esc(titleCase(topic))} — Syntax</h3>
+              <pre style="margin: 0; font-size: 0.85rem; color: #333; white-space: pre-wrap; font-family: 'Courier New', monospace;">${esc(topicContent.syntaxText)}</pre>
             </div>
           ` : ''}
-          <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 1rem;">
-            Explore the interactive tutorial above to learn ${titleCase(topic)} step-by-step with practice exercises.
+          <p style="font-size: 0.95rem; color: #444; line-height: 1.7; margin-top: 1rem;">
+            Learn <strong>${esc(titleCase(topic))}</strong> step by step with Syllab's free interactive ${esc(langLabel(lang))} tutorial — runnable code examples, practice exercises and instant AI feedback, all free with no signup.
+            <a href="/coding/${lang}" style="color: #0066cc; text-decoration: none; font-weight: 600;"> Explore the full ${esc(langLabel(lang))} course →</a>
           </p>
         </div>
       `;
@@ -1001,23 +2411,9 @@ ${esc(topicContent.syntaxText)}
   }
 
   // College pages — render details
-  else if (route.path.match(/^\/colleges\/([a-z-]+)\/([a-z-]+)$/)) {
-    const [, stateSlug, collegeSlug] = route.path.match(/^\/colleges\/([a-z-]+)\/([a-z-]+)$/);
-    const college = COLLEGES_M.find(c => c.stateSlug === stateSlug && c.slug === collegeSlug);
-    if (college) {
-      richContent = `
-        <div style="margin-top: 1.5rem; padding: 1rem; background: #f0f8ff; border-radius: 8px;">
-          <h2 style="font-size: 1.1rem; margin: 0 0 0.5rem 0;">Key Details:</h2>
-          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
-            <li style="margin: 0.3rem 0;"><strong>Location:</strong> ${esc(college.city)}, ${esc(college.stateName)}</li>
-            <li style="margin: 0.3rem 0;"><strong>Fees:</strong> ${esc(college.feesPerYear)} per year</li>
-            <li style="margin: 0.3rem 0;"><strong>Cutoff:</strong> ${esc(college.cutoff)}</li>
-            <li style="margin: 0.3rem 0;"><strong>Avg. Package:</strong> ${esc(college.placementAvg)}</li>
-          </ul>
-        </div>
-      `;
-    }
-  }
+  // College detail pages render via their own route.bodyHtml (data-driven fees
+  // table + admission + FAQ, built at route-creation time) — handled by the
+  // `if (route.bodyHtml)` branch above, so no college-specific block here.
 
   // Blog article pages — show summary
   else if (route.path.match(/^\/updates\/[a-z0-9-]+$/)) {
@@ -1035,7 +2431,9 @@ ${esc(topicContent.syntaxText)}
   }
 
   // Mock tests page — show numbered list of exam types + table of exams covered
-  else if (route.path === '/mock-tests') {
+  // /mock-tests hub now ships a richer category-grouped body via route.bodyHtml
+  // (set in the exam-guide block); this static fallback only runs if that's absent.
+  else if (route.path === '/mock-tests' && !route.bodyHtml) {
     richContent = `
       <div style="margin-top: 2rem;">
         <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: #333;">Exam Types Available:</h2>
@@ -1086,6 +2484,30 @@ ${esc(topicContent.syntaxText)}
           </table>
         </div>
         <p style="color: #666; font-size: 0.9rem; font-style: italic;">All mock tests include detailed solutions and performance analytics to track your progress.</p>
+      </div>
+    `;
+  }
+
+  // GK Questions cluster — unique intro + topic coverage + class cross-links
+  else if (route.path === '/gk-questions' || route.path.startsWith('/gk-questions/class-')) {
+    const m = route.path.match(/class-(\d+)/);
+    const c = m ? m[1] : null;
+    const topics = ['History', 'Geography', 'Polity & Civics', 'Science', 'Static GK', 'Current Affairs'];
+    richContent = `
+      <div style="margin-top: 1.5rem; color: #444; line-height: 1.8; font-size: 0.97rem;">
+        <p>${c
+          ? `Practise free <strong>General Knowledge questions for Class ${c}</strong> with answers and clear explanations. Every question is age-appropriate and aligned to what Indian students learn in school and need for quizzes, olympiads and competitive exams.`
+          : `Free <strong>General Knowledge questions and answers</strong> for Indian students from Class 5 to 12 — with explanations, organised by topic, and a timed quiz to test yourself.`}
+        </p>
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333;">Topics covered</h2>
+        <ul style="margin: 0; padding-left: 1.25rem;">
+          ${topics.map((t) => `<li>${t}</li>`).join('')}
+        </ul>
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333;">GK questions by class</h2>
+        <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          ${[5, 6, 7, 8, 9, 10, 11, 12].map((n) => `<li><a href="/gk-questions/class-${n}" style="color:#0066cc;text-decoration:none;">Class ${n} GK</a></li>`).join('')}
+        </ul>
+        <p style="margin-top: 1.25rem;"><a href="/gk-quiz" style="color:#0066cc;font-weight:600;text-decoration:none;">▶ Play the interactive GK Quiz</a></p>
       </div>
     `;
   }
@@ -1158,13 +2580,18 @@ ${esc(topicContent.syntaxText)}
     `;
   }
 
+  // Homepage uses H2 because the React app renders the primary H1 ("Learn smarter with AI by your side").
+  // For all other pages, use H1 for the page title.
+  const headingTag = route.path === '/' ? 'h2' : 'h1';
+
   return `
     <article style="max-width: 800px; margin: 0 auto; padding: 1rem 1.5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; line-height: 1.6;">
       ${breadcrumb}
-      <h1 style="font-size: 1.8rem; margin: 0.5rem 0 1rem 0; color: #222;">${esc(title)}</h1>
+      <${headingTag} style="font-size: 1.8rem; margin: 0.5rem 0 1rem 0; color: #222;">${esc(title)}</${headingTag}>
       <p style="font-size: 1rem; margin: 0 0 1.5rem 0; color: #666;">${esc(desc)}</p>
       ${tldrBlock}
       ${richContent}
+      ${MESH_BY_PATH.get(route.path) || ''}
       ${mainNav}
       <footer style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #999;">
         <p style="margin: 0;">Syllab.in — Free learning for Indian students, Class 1–12</p>
@@ -1192,11 +2619,24 @@ function slugToSubject(slug) {
   return map[slug] || slug;
 }
 
+// Pick the best Open Graph card for a page type (better social CTR than one
+// generic image). Falls back to the default site card.
+function ogImageFor(p) {
+  if (p.startsWith('/worksheets')) return 'og-worksheets';
+  if (p.startsWith('/kids')) return 'og-kids';
+  if (p.startsWith('/study-room')) return 'og-study-room';
+  if (p.startsWith('/gk-questions') || p.startsWith('/gk-quiz')) return 'og-gk';
+  if (p.startsWith('/mock-tests')) return 'og-mock';
+  if (p.startsWith('/coding')) return 'og-coding';
+  return 'og-image';
+}
+
 function buildHeadBlock(route) {
   const canonical = `${SITE}${route.path}`;
   const robots = route.noindex
-    ? 'noindex,nofollow'
+    ? 'noindex,follow' // follow (not nofollow): pruned thin pages still pass link equity
     : 'index,follow,max-image-preview:large,max-snippet:-1';
+  const ogImg = `${SITE}/${ogImageFor(route.path)}.png`;
 
   const lines = [
     `  <title>${esc(route.title)}</title>`,
@@ -1205,6 +2645,19 @@ function buildHeadBlock(route) {
     `  <meta name="robots" content="${robots}" />`,
     `  <meta name="googlebot" content="${robots}" />`,
     `  <link rel="canonical" href="${canonical}" />`,
+    // Per-route language alternates (e.g. an English page that has a /hi/ version);
+    // falls back to self-referencing en-IN/en/x-default.
+    ...(route.hreflangAlt && route.hreflangAlt.length
+      ? [
+          `  <link rel="alternate" hreflang="en-IN" href="${canonical}" />`,
+          ...route.hreflangAlt.map((a) => `  <link rel="alternate" hreflang="${a.lang}" href="${a.href}" />`),
+          `  <link rel="alternate" hreflang="x-default" href="${canonical}" />`,
+        ]
+      : [
+          `  <link rel="alternate" hreflang="en-IN" href="${canonical}" />`,
+          `  <link rel="alternate" hreflang="en" href="${canonical}" />`,
+          `  <link rel="alternate" hreflang="x-default" href="${canonical}" />`,
+        ]),
     `  <link rel="alternate" type="application/rss+xml" title="Syllab.in Blog — Free Exam Prep & Study Updates" href="${SITE}/feed.xml" />`,
     `  <meta property="og:title" content="${esc(route.title)}" />`,
     `  <meta property="og:description" content="${esc(route.description)}" />`,
@@ -1212,7 +2665,7 @@ function buildHeadBlock(route) {
     `  <meta property="og:type" content="website" />`,
     `  <meta property="og:site_name" content="Syllab.in" />`,
     `  <meta property="og:locale" content="en_IN" />`,
-    `  <meta property="og:image" content="${SITE}/og-image.png" />`,
+    `  <meta property="og:image" content="${ogImg}" />`,
     `  <meta property="og:image:width" content="1200" />`,
     `  <meta property="og:image:height" content="630" />`,
     `  <meta property="og:image:type" content="image/png" />`,
@@ -1220,7 +2673,7 @@ function buildHeadBlock(route) {
     `  <meta name="twitter:card" content="summary_large_image" />`,
     `  <meta name="twitter:title" content="${esc(route.title)}" />`,
     `  <meta name="twitter:description" content="${esc(route.description)}" />`,
-    `  <meta name="twitter:image" content="${SITE}/og-image.png" />`,
+    `  <meta name="twitter:image" content="${ogImg}" />`,
     `  <meta name="twitter:image:alt" content="${esc(route.title)}" />`,
   ];
 
@@ -1254,6 +2707,27 @@ function buildHeadBlock(route) {
     );
   }
 
+  // WebPage + Speakable (so voice assistants / AI search know the concise answer
+  // to read & cite) + author/publisher Organization (E-E-A-T trust signals).
+  const todayISO = new Date().toISOString().split('T')[0];
+  const webPage = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: String(route.title).split('|')[0].split('—')[0].trim(),
+    url: canonical,
+    inLanguage: 'en-IN',
+    isPartOf: { '@type': 'WebSite', name: 'Syllab.in', url: `${SITE}/` },
+    publisher: { '@type': 'Organization', name: 'Syllab.in', url: `${SITE}/`, logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
+    author: { '@type': 'Organization', name: 'Syllab Editorial Team', url: `${SITE}/about` },
+    dateModified: todayISO,
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable'] },
+  };
+  lines.push(
+    `  <script type="application/ld+json">`,
+    `  ${JSON.stringify(webPage, null, 2).split('\n').join('\n  ')}`,
+    `  </script>`,
+  );
+
   return lines.join('\n');
 }
 
@@ -1266,7 +2740,7 @@ function buildHeadBlock(route) {
  * - Unique, semantic HTML content in <body id="root"> ✓
  * - React still safely mounts on client (createRoot clears #root and rerenders) ✓
  */
-function injectMeta(baseHtml, route) {
+function injectMeta(baseHtml, route, ssrBody) {
   const headBlock = buildHeadBlock(route);
   const bodyContent = buildBodyContent(route);
 
@@ -1274,6 +2748,10 @@ function injectMeta(baseHtml, route) {
   // tags (the default index.html title was surviving outside the replaced block,
   // producing duplicate titles on every prerendered page — bad for SEO).
   baseHtml = baseHtml.replace(/<title>[\s\S]*?<\/title>/gi, '');
+
+  // Strip the base index.html's hardcoded hreflang (it points to the homepage),
+  // so each page keeps only its own self-referencing hreflang from the head block.
+  baseHtml = baseHtml.replace(/\s*<link[^>]*rel="alternate"[^>]*hreflang=[^>]*>/gi, '');
 
   // The base index.html injects a GENERIC site-wide FAQPage on every page — that
   // is an anti-pattern (irrelevant FAQ on every URL, and a duplicate on pages
@@ -1295,13 +2773,44 @@ function injectMeta(baseHtml, route) {
     `$1\n\n${headBlock}\n\n  $3`,
   );
 
-  // Inject unique body content into <div id="root">...</div>
-  // Use a non-greedy match to handle any existing content (from previous prerender runs).
-  // React's createRoot().render() will CLEAR this and re-render on mount, so it's safe.
-  // Matches: <div id="root">...</div> with any content inside (greedy nesting).
+  // Option A (CWV/CLS fix): instead of putting the SEO body INSIDE #root (where React
+  // wipes it on mount → massive layout shift), we put a stable boot SKELETON in #root
+  // (matches the app's fixed 80px header + content area → near-zero CLS when React takes
+  // over) and move the crawlable SEO content into a visually-hidden sibling (#prerender-seo).
+  // Non-JS crawlers still read the SEO content; React removes the hidden block on mount.
+  const bootSkeleton =
+    '<div id="boot-skeleton" aria-hidden="true">' +
+    '<div class="bs-nav"><div class="bs-logo"></div></div>' +
+    '<div class="bs-main">' +
+    '<div class="bs-blk bs-title"></div>' +
+    '<div class="bs-blk bs-line w90"></div>' +
+    '<div class="bs-blk bs-line w80"></div>' +
+    '<div class="bs-blk bs-line w70"></div>' +
+    '<div class="bs-blk bs-card"></div>' +
+    '</div></div>';
+  const seoBlock =
+    '<div id="prerender-seo" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">' +
+    bodyContent + '</div>';
+
+  if (ssrBody) {
+    // TRUE SSR path: ship the real server-rendered app inside #root so the client
+    // HYDRATES it (no re-render, content visible from the first byte). Mark the
+    // document so main.tsx chooses hydrateRoot over createRoot. The per-route SEO
+    // <head> is still produced by buildHeadBlock above, so we DON'T need the
+    // hidden #prerender-seo fallback or the boot skeleton anymore.
+    baseHtml = baseHtml.replace(/<html(\s|>)/i, '<html data-ssr="true"$1');
+    baseHtml = baseHtml.replace(
+      /<div\s+id="root"[\s\S]*?<\/div>/i,
+      () => `<div id="root">${ssrBody}</div>`,
+    );
+    return baseHtml;
+  }
+
+  // Fallback (no SSR body): boot skeleton in #root + hidden crawlable SEO sibling.
+  // Function replacer avoids `$`-sequence interpretation in bodyContent.
   baseHtml = baseHtml.replace(
     /<div\s+id="root"[\s\S]*?<\/div>/i,
-    `<div id="root">${bodyContent}</div>`,
+    () => `<div id="root">${bootSkeleton}</div>\n  ${seoBlock}`,
   );
 
   return baseHtml;
@@ -1325,16 +2834,72 @@ async function main() {
     process.exit(1);
   }
 
+  // ── Optional TRUE SSR ──────────────────────────────────────────────────────
+  // When SSR_PRERENDER=1, render each route's REAL app HTML via entry-server.tsx
+  // (React 19 prerender → resolves lazy routes) and hydrate on the client. Falls
+  // back per-route to the boot-skeleton path if a render throws, so the build is
+  // never blocked. SSR_LIMIT=N renders only the first N routes (for fast testing).
+  // SSR auto-enables when the compiled bundle exists (so `npm run build` does it
+  // with no fragile cross-platform env vars). Scope: an allowlist of routes —
+  // default just the homepage `/` (the LCP-critical landing page), verified to
+  // hydrate cleanly. Override with SSR_ROUTES="/,/x" or SSR_LIMIT=N for testing.
+  const SSR_BUNDLE = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+  const SSR = process.env.SSR_PRERENDER === '1' || existsSync(SSR_BUNDLE);
+  const SSR_LIMIT = process.env.SSR_LIMIT ? parseInt(process.env.SSR_LIMIT, 10) : null;
+  // Allowlist: homepage only for now. The homepage hydrates cleanly; broader
+  // content/hub pages currently throw a hydration mismatch (React #418) and must
+  // have that root-caused before they're added here (else the LCP benefit erodes
+  // and the console fills with errors). Override/expand via SSR_ROUTES="/,/x".
+  const DEFAULT_SSR_ROUTES = ['/'];
+  const SSR_ROUTES = new Set(
+    process.env.SSR_ROUTES
+      ? process.env.SSR_ROUTES.split(',').map((s) => s.trim()).filter(Boolean)
+      : DEFAULT_SSR_ROUTES,
+  );
+  let render = null;
+  let ssrOk = 0;
+  let ssrFail = 0;
+  if (SSR) {
+    // Import the COMPILED SSR bundle (dist-ssr/entry-server.js), NOT vite's dev
+    // ssrLoadModule — the dev module loader degrades after a few hundred sequential
+    // renders (it started baking Suspense fallbacks into later routes). The compiled
+    // bundle resolves React.lazy via real chunks and renders all 3,900+ routes
+    // consistently. Build it first: `vite build --ssr src/entry-server.tsx --outDir dist-ssr`.
+    const { pathToFileURL } = await import('node:url');
+    const entryPath = path.join(ROOT, 'dist-ssr', 'entry-server.js');
+    try {
+      ({ render } = await import(pathToFileURL(entryPath).href));
+    } catch (e) {
+      console.error(`❌ SSR bundle not found at ${entryPath}. Run \`vite build --ssr src/entry-server.tsx --outDir dist-ssr\` first.`);
+      throw e;
+    }
+    console.log('🔧 SSR mode ON — rendering real app HTML from compiled bundle.');
+  }
+
   let written = 0;
   let skipped = 0;
+  let i = 0;
 
   for (const route of ROUTES) {
+    i++;
     // Convert "/some-path" → "dist/some-path/index.html"
     const routeDir = path.join(DIST, ...route.path.split('/').filter(Boolean));
     const outFile = path.join(routeDir, 'index.html');
 
     try {
-      const injected = injectMeta(baseHtml, route);
+      let ssrBody;
+      const ssrThisRoute = SSR_LIMIT != null ? i <= SSR_LIMIT : SSR_ROUTES.has(route.path);
+      if (render && ssrThisRoute) {
+        try {
+          const { body } = await render(route.path);
+          if (body && body.length > 200) { ssrBody = body; ssrOk++; }
+          else ssrFail++;
+        } catch (e) {
+          ssrFail++;
+          if (ssrFail <= 5) console.warn(`   ⚠️  SSR render failed for ${route.path}: ${String(e).split('\n')[0].slice(0, 80)}`);
+        }
+      }
+      const injected = injectMeta(baseHtml, route, ssrBody);
       await fs.mkdir(routeDir, { recursive: true });
       await fs.writeFile(outFile, injected, 'utf8');
       written++;
@@ -1343,6 +2908,8 @@ async function main() {
       skipped++;
     }
   }
+
+  if (SSR) console.log(`   SSR bodies: ${ssrOk} rendered, ${ssrFail} fell back to skeleton.`);
 
   console.log(`✅ Pre-render complete: ${written} routes written, ${skipped} skipped.`);
   console.log(`   Routes: ${ROUTES.map(r => r.path).join(', ')}`);

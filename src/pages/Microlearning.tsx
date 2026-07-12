@@ -18,6 +18,7 @@ import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { cn } from '../lib/utils';
 import { MICROLEARNING_MODULES, type MicroModule } from '../data/microlearning/modules';
+import { usePathname } from '../lib/isomorphic';
 
 const SITE = 'https://syllab.in';
 
@@ -28,7 +29,7 @@ function parsePath(pathname: string): { slug?: string } {
 
 export default function Microlearning() {
   const [ready, setReady] = useState(false);
-  const [path, setPath] = useState(() => (typeof window !== 'undefined' ? window.location.pathname : '/micro'));
+  const [path, setPath] = useState(usePathname());
 
   useEffect(() => {
     setReady(true);

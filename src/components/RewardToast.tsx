@@ -6,7 +6,10 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+// framer-motion removed — this component is mounted globally in App, so keeping
+// it framer-free is what lets the vendor-motion chunk stay off the entry/critical
+// path. Enter animation is pure CSS (.reward-toast-in); toasts auto-dismiss via
+// the existing 3.8s timeout (no exit animation needed).
 
 interface Toast { id: number; kind: 'xp' | 'badge'; title: string; sub?: string; emoji: string; }
 
@@ -41,28 +44,22 @@ export default function RewardToast() {
 
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[90] flex flex-col items-center gap-2 pointer-events-none">
-      <AnimatePresence>
-        {toasts.map(t => (
-          <motion.div
-            key={t.id}
-            initial={{ opacity: 0, y: 24, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-            className={`flex items-center gap-3 rounded-2xl px-4 py-2.5 shadow-2xl text-white ${
-              t.kind === 'badge'
-                ? 'bg-gradient-to-r from-amber-500 to-yellow-500'
-                : 'bg-gradient-to-r from-violet-600 to-indigo-600'
-            }`}
-          >
-            <span className="text-2xl">{t.emoji}</span>
-            <div className="leading-tight">
-              <p className="text-sm font-black">{t.title}</p>
-              {t.sub && <p className="text-[11px] font-bold text-white/80">{t.sub}</p>}
-            </div>
-          </motion.div>
-        ))}
-      </AnimatePresence>
+      {toasts.map(t => (
+        <div
+          key={t.id}
+          className={`reward-toast-in flex items-center gap-3 rounded-2xl px-4 py-2.5 shadow-2xl text-white ${
+            t.kind === 'badge'
+              ? 'bg-gradient-to-r from-amber-500 to-yellow-500'
+              : 'bg-gradient-to-r from-violet-600 to-indigo-600'
+          }`}
+        >
+          <span className="text-2xl">{t.emoji}</span>
+          <div className="leading-tight">
+            <p className="text-sm font-black">{t.title}</p>
+            {t.sub && <p className="text-[11px] font-bold text-white/80">{t.sub}</p>}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

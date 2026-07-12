@@ -13,6 +13,7 @@ import React, {
 } from 'react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { motion, AnimatePresence } from 'motion/react';
+import { usePathname, useHydrated } from '../lib/isomorphic';
 import { recordLearningActivity } from '../lib/progressTracker';
 import {
   BookOpen,
@@ -1124,46 +1125,6 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
   );
 }
 
-/* ─── Project Idea view ─────────────────────────────────────────────────────── */
-function ProjectIdeaView({ lang }: { lang: LanguageConfig }) {
-  const pi = lang.projectIdea;
-  if (!pi) return (
-    <div className="rounded-2xl bg-slate-50 p-8 text-center text-slate-400 font-bold">Project idea coming soon for {lang.name}!</div>
-  );
-  return (
-    <div className="space-y-5 pb-12">
-      <div className={cn('rounded-2xl p-6 text-white', lang.bgClass)}>
-        <p className="text-[10px] font-black uppercase tracking-widest text-white/70 mb-2">🛠️ Simple Project Idea</p>
-        <h2 className="text-2xl font-black">{pi.title}</h2>
-        <p className="mt-2 text-sm font-medium text-white/80">{pi.description}</p>
-        <div className="mt-3 flex items-center gap-3">
-          <span className={cn('rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-widest', pi.difficulty === 'Beginner' ? 'bg-emerald-400/30 text-white' : 'bg-amber-400/30 text-white')}>
-            {pi.difficulty}
-          </span>
-          <span className="rounded-full bg-white/20 px-3 py-1 text-[9px] font-black uppercase tracking-widest text-white">{pi.techStack}</span>
-        </div>
-      </div>
-      <div className="rounded-2xl bg-white shadow p-6">
-        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">📋 Step-by-Step Plan</p>
-        <ol className="space-y-3">
-          {pi.steps.map((step, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <span className={cn('flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-black text-white', lang.bgClass)}>
-                {i + 1}
-              </span>
-              <p className="text-sm font-medium leading-relaxed text-slate-700 mt-1">{step}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-      <div className="rounded-2xl bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 p-5">
-        <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 mb-2">💡 Pro Tip</p>
-        <p className="text-sm font-medium text-slate-700">Build this project, upload it to GitHub, and add it to your resume or LinkedIn. Recruiters love seeing real projects more than certificates!</p>
-      </div>
-    </div>
-  );
-}
-
 /* ─── Language selector grid ────────────────────────────────────────────────── */
 function LanguageGrid({
   active,
@@ -1256,19 +1217,27 @@ interface SkillsLabProps {
 }
 
 export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabProps) {
+  // SSR-safe: usePathname() yields the request URL on the server and
+  // window.location.pathname on the client — same value per route, so the
+  // deep-linked language matches across hydration (no mismatch).
+  const ssrPathname = usePathname();
   const [activeLangId, setActiveLangId] = useState<string>(() => {
     // Honor a deep link like /coding/<lang>[/<topic>] so visitors landing from
     // Google (or sharing a link) open the right language instead of the default.
-    if (typeof window !== 'undefined') {
-      const seg = window.location.pathname.split('/').filter(Boolean); // ['coding','python',...]
-      if (seg[0] === 'coding' && seg[1] && LANGUAGES.some((l) => l.id === seg[1])) return seg[1];
-    }
+    const seg = ssrPathname.split('/').filter(Boolean); // ['coding','python',...]
+    if (seg[0] === 'coding' && seg[1] && LANGUAGES.some((l) => l.id === seg[1])) return seg[1];
     return 'python';
   });
   const [activeTopicId, setActiveTopicId] = useState<string>('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'topic' | 'career' | 'challenges' | 'projects'>('topic');
-  const [completed, setCompleted] = useState<Record<string, string[]>>(loadCompleted);
+  // SSR-safe: empty on server + first client render (matches), then load saved
+  // progress after hydration so completed badges don't cause a hydration mismatch.
+  const [completed, setCompleted] = useState<Record<string, string[]>>({});
+  const hydratedForCompleted = useHydrated();
+  useEffect(() => {
+    if (hydratedForCompleted) setCompleted(loadCompleted());
+  }, [hydratedForCompleted]);
   const [pointsToast, setPointsToast] = useState<{ pts: number; topic: string } | null>(null);
   const [topicsLoading, setTopicsLoading] = useState(false);
   // Bumped when a language finishes loading so the topics memo re-reads the cache

@@ -80,7 +80,7 @@ describe('API Layer', () => {
     });
 
     it('should reject with timeout when fetch is aborted', async () => {
-      let abortController: AbortController | null = null;
+      let abortController: AbortController | null;
       const mockFetch = vi.fn((url: string, opts: RequestInit) => {
         abortController = opts.signal as any;
         // Simulate timeout by aborting after a delay

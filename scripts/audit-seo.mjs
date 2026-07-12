@@ -87,7 +87,14 @@ async function main() {
     }
     await walk(distDir);
 
-    const missing = [...sitemapPaths].filter((p) => !prerendered.has(p));
+    // Static files served directly by Hosting (e.g. /posters/x.html) aren't
+    // prerendered SPA routes — they're valid as long as the physical file exists in dist/.
+    const missing = [];
+    for (const p of sitemapPaths) {
+      if (prerendered.has(p)) continue;
+      if (p.endsWith('.html') && (await exists(path.join(distDir, p)))) continue;
+      missing.push(p);
+    }
     if (missing.length) {
       fails.push(`${missing.length} sitemap URL(s) have NO prerendered page (soft-404 for crawlers): ${missing.slice(0, 8).join(', ')}${missing.length > 8 ? ' …' : ''}`);
     }

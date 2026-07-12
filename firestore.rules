@@ -235,6 +235,30 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // ---------- SHARED IMPORTANT-QUESTION ANSWERS (cache-first) ----------
+    // One doc per chapter = "10_science_chap-id" holding items: { qi: {q,a} }.
+    // Read: PUBLIC (so every visitor sees answers free). Write: any signed-in
+    // user, validated as a map (the first student to generate populates it).
+    match /importantAnswers/{docId} {
+      allow read: if true;
+      allow create, update: if request.auth != null
+          && request.resource.data.items is map;
+      allow delete: if false;
+    }
+
+    // ---------- SHARED DAILY HOMEWORK SETS (cache-first AI tuition teacher) ----------
+    // Deterministic per (class, board, subject, level, date). The first student
+    // each day generates the set; everyone else reads it free. Doc id looks like
+    // "class-10_cbse_maths_standard_2026-06-15".
+    match /homeworkSets/{setId} {
+      allow read: if true;
+      allow create, update: if request.auth != null
+          && request.resource.data.questions is list
+          && request.resource.data.questions.size() >= 1
+          && request.resource.data.questions.size() <= 20;
+      allow delete: if false;
+    }
+
     // ---------- PARENT LINKS ----------
     match /parents/{parentUid} {
       allow read, write: if request.auth != null && request.auth.uid == parentUid;
@@ -350,6 +374,16 @@ service cloud.firestore {
             && request.resource.data.name.size() <= 24;
         allow delete: if true; // leaving a room removes your own presence doc
       }
+    }
+
+    // Public FCM token registration for push reminders. Tokens are not secret;
+    // clients register their own device token (write-only) and can never read the
+    // collection — a trusted backend reads it server-side to send reminders.
+    match /pushTokens/{token} {
+      allow read: if false;
+      allow write: if request.resource.data.token is string
+                   && request.resource.data.token.size() > 0
+                   && request.resource.data.token.size() < 500;
     }
 
     // ---------- DEFAULT DENY ----------

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useHydrated, readStorage } from '../lib/isomorphic';
 import { Activity, ArrowRight, ClipboardList, Flame, Gift, PlayCircle, Trophy, Zap, Target } from 'lucide-react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { collection, doc, getDoc, onSnapshot, query, where } from 'firebase/firestore';
@@ -63,7 +64,13 @@ function SpinWheel() {
   const [totalRot, setTotalRot] = useState(0);
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState<(typeof SPIN_REWARDS)[0] | null>(null);
-  const [spunToday, setSpunToday] = useState(() => localStorage.getItem(SPIN_LS) === new Date().toDateString());
+  // SSR-safe: default false on server + first client render, then read localStorage
+  // after hydration so the markup matches and there's no hydration mismatch.
+  const [spunToday, setSpunToday] = useState(false);
+  const hydrated = useHydrated();
+  useEffect(() => {
+    if (hydrated) setSpunToday(readStorage(SPIN_LS, '') === new Date().toDateString());
+  }, [hydrated]);
   const rotRef = useRef(0);
   const spin = () => {
     if (spinning || spunToday) return;

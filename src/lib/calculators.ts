@@ -52,4 +52,36 @@ export function classesToReachTarget(attended: number, total: number, target: nu
   return Math.max(0, x);
 }
 
+/**
+ * Marks you must score in an upcoming exam to reach a target overall %.
+ * `scoredSoFar`/`maxSoFar` = marks already earned and their max; `finalMax` = max
+ * of the upcoming exam. Returns 0 if the target is already locked in, or -1 if it
+ * is impossible (you'd need more than `finalMax`).
+ */
+export function marksNeededForTarget(
+  scoredSoFar: number, maxSoFar: number, finalMax: number, targetPct: number,
+): number {
+  if (finalMax <= 0 || maxSoFar < 0 || targetPct <= 0 || targetPct > 100) return 0;
+  const needed = (targetPct / 100) * (maxSoFar + finalMax) - scoredSoFar;
+  if (needed <= 0) return 0;            // already there
+  if (needed > finalMax) return -1;     // not achievable in one exam
+  return round2(needed);
+}
+
+/**
+ * Semester GPA (SGPA) from a list of (gradePoints, credits) rows.
+ * SGPA = Σ(gradePoints × credits) / Σ(credits). Ignores rows with ≤0 credits.
+ * Returns 0 when there are no valid credits.
+ */
+export function semesterGpa(rows: { points: number; credits: number }[]): number {
+  let totalPoints = 0, totalCredits = 0;
+  for (const r of rows) {
+    if (!(r.credits > 0) || Number.isNaN(r.points)) continue;
+    totalPoints += r.points * r.credits;
+    totalCredits += r.credits;
+  }
+  if (totalCredits <= 0) return 0;
+  return round2(totalPoints / totalCredits);
+}
+
 function round2(n: number): number { return Math.round(n * 100) / 100; }
