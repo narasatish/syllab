@@ -15,6 +15,7 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
+import { CONCEPT_FAQ } from './concept-faq.mjs';
 import { getBlogArticles } from './blogArticles.mjs';
 import { getNcertChapters } from './ncertChapters.mjs';
 import { getStateBoardChapters } from './stateBoardChapters.mjs';
@@ -318,6 +319,12 @@ function buildUrls({ languages, topicsByLang }) {
   // Physical files are emitted to dist/web-stories/ by generate-prerender.mjs.
   urls.push({ loc: '/web-stories', priority: 0.7, changefreq: 'weekly' });
   for (const x of getVisualLessons(ROOT)) urls.push({ loc: `/web-stories/${x.slug}.html`, priority: 0.6, changefreq: 'monthly' });
+  // Concept-explainer Web Stories (generated for every concept that has FAQs).
+  // Enrich with CONCEPT_FAQ exactly as generate-prerender.mjs does, so the sitemap
+  // set matches the generated files precisely (no soft-404, no drift).
+  for (const c of getConcepts(ROOT).map((x) => (CONCEPT_FAQ[x.slug] ? { ...x, faqs: CONCEPT_FAQ[x.slug] } : x))) {
+    if (Array.isArray(c.faqs) && c.faqs.length) urls.push({ loc: `/web-stories/concept-${c.slug}.html`, priority: 0.5, changefreq: 'monthly' });
+  }
   // Shareable Science Memory Tricks cheat-sheet (emitted to dist/posters/).
   urls.push({ loc: '/posters/science-memory-tricks.html', priority: 0.6, changefreq: 'monthly' });
 

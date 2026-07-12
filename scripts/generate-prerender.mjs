@@ -1580,8 +1580,10 @@ let CONCEPT_TO_VISUAL = {};
 }
 // Generate AMP Web Stories (Google Discover channel) from the full lesson data.
 try {
-  const { generateWebStories } = await import('./webStories.mjs');
+  const { generateWebStories, generateConceptStories } = await import('./webStories.mjs');
   await generateWebStories(ROOT, VISUAL_LESSONS_FULL);
+  // Also generate Web Stories from the concept explainers (more Discover surface).
+  await generateConceptStories(ROOT, getConcepts(ROOT).map((x) => (CONCEPT_FAQ[x.slug] ? { ...x, faqs: CONCEPT_FAQ[x.slug] } : x)));
 } catch (e) { console.warn('⚠️  Web Stories generation error:', e?.message || e); }
 // Shareable "Science Memory Tricks" cheat-sheet (printable linkable asset).
 try {

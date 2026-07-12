@@ -182,3 +182,54 @@ export async function generateWebStories(ROOT, lessons) {
   console.log(`📱 Web Stories: ${withMemory.length} AMP stories + posters + hub written to dist/web-stories/.`);
   return withMemory.length;
 }
+
+/** Build an AMP Web Story from a concept explainer (title + intro + FAQs). */
+export function buildConceptStoryHtml(c) {
+  const url = `${SITE}/web-stories/concept-${c.slug}.html`;
+  const subject = c.subject || 'Concept';
+  const pages = [];
+  pages.push(page('cover', subject,
+    `<span class="pill">${esc(subject)}${c.classLevel ? ` · ${esc(c.classLevel)}` : ''}</span>` +
+    `<h1>${esc(c.title)}</h1><p>${esc(String(c.intro || '')).slice(0, 150)}</p><p class="brand" style="margin-top:.8em">syllab.in · free</p>`,
+    'cover'));
+  (Array.isArray(c.faqs) ? c.faqs : []).slice(0, 3).forEach((f, i) => {
+    pages.push(page(`faq${i}`, subject, `<p class="kicker">❓ Quick answer</p><p class="q">${esc(f.q)}</p><p class="a">${esc(f.a)}</p>`));
+  });
+  const cta = `<amp-story-page id="cta">${gridLayer(subject, `<p class="kicker">Learn it fully — free</p><h2>Read the full ${esc(c.title)} explainer on Syllab</h2><p class="brand">syllab.in</p>`)}` +
+    `<amp-story-page-outlink layout="nodisplay"><a href="${SITE}/concepts/${c.slug}">Open the full explainer</a></amp-story-page-outlink></amp-story-page>`;
+  pages.push(cta);
+
+  return `<!doctype html><html amp lang="en"><head>
+<meta charset="utf-8">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+<title>${esc(c.title)} — Explained (Visual Story) | Syllab.in</title>
+<link rel="canonical" href="${url}">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="description" content="${esc(String(c.intro || '')).slice(0, 150)}">
+${AMP_BOILERPLATE}
+<style amp-custom>${STORY_CSS}</style>
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: `${c.title} — Explained`, description: String(c.intro || '').slice(0, 150), image: [`${SITE}/web-stories/posters/concept-${c.slug}.png`], author: { '@type': 'Organization', name: 'Syllab.in' }, publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/web-stories/logo.png` } }, mainEntityOfPage: url })}</script>
+</head><body>
+<amp-story standalone title="${esc(c.title)}" publisher="Syllab.in" publisher-logo-src="${SITE}/web-stories/logo.png" poster-portrait-src="${SITE}/web-stories/posters/concept-${c.slug}.png">
+${pages.join('\n')}
+</amp-story></body></html>`;
+}
+
+/** Generate concept-based AMP stories (needs concepts with at least one FAQ). */
+export async function generateConceptStories(ROOT, concepts) {
+  const usable = (concepts || []).filter((c) => c && c.slug && c.title && Array.isArray(c.faqs) && c.faqs.length);
+  if (!usable.length) { console.warn('⚠️  Concept Web Stories skipped (no concept FAQ data).'); return 0; }
+  let Resvg;
+  try { ({ Resvg } = await import('@resvg/resvg-js')); }
+  catch { console.warn('⚠️  Concept Web Stories skipped: @resvg/resvg-js not installed.'); return 0; }
+  const outDir = path.join(ROOT, 'dist', 'web-stories');
+  const posterDir = path.join(outDir, 'posters');
+  mkdirSync(posterDir, { recursive: true });
+  for (const c of usable) {
+    writeFileSync(path.join(outDir, `concept-${c.slug}.html`), buildConceptStoryHtml(c));
+    writeFileSync(path.join(posterDir, `concept-${c.slug}.png`), new Resvg(posterSvg({ title: c.title, subject: c.subject || 'Concept', classLevel: c.classLevel || '' }), { fitTo: { mode: 'width', value: 640 } }).render().asPng());
+  }
+  console.log(`📱 Concept Web Stories: ${usable.length} AMP stories + posters written to dist/web-stories/.`);
+  return usable.length;
+}
