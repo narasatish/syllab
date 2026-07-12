@@ -214,6 +214,12 @@ const ROUTES = [
     keywords: 'data mining for students, data mining tutorial free, machine learning basics, Python data analysis, predictive analytics learning',
   },
   {
+    path: '/coding/dsa',
+    title: 'Free DSA Course — Data Structures & Algorithms for Placements | Syllab.in',
+    description: 'Learn Data Structures & Algorithms free — arrays, hashing, linked lists, stacks, queues, recursion, sorting, searching, trees, heaps, graphs and dynamic programming, with Python examples and practice. The #1 skill for coding interviews.',
+    keywords: 'DSA course free, data structures and algorithms tutorial, DSA for placements, DSA in Python, LeetCode preparation free, arrays linked list tree graph dynamic programming, coding interview preparation India, competitive programming basics',
+  },
+  {
     path: '/english',
     title: 'English — Free AI Speaking, Grammar & Vocabulary Practice | Syllab.in',
     description: 'Practice English daily with AI speaking coach, grammar challenges, reading passages, NCERT story guides, vocabulary builder, and IELTS prep — all free for Indian students.',

@@ -533,6 +533,37 @@ export const LANGUAGES: LanguageConfig[] = [
       techStack: 'Internet research, spreadsheet, learning about PC hardware',
     },
   },
+  {
+    id: 'dsa',
+    name: 'DSA (Data Structures & Algorithms)',
+    emoji: '🧩',
+    color: '#6366f1',
+    bgClass: 'bg-indigo-600',
+    textClass: 'text-indigo-600',
+    borderClass: 'border-indigo-600',
+    editorMode: 'feedback',
+    description: 'The #1 skill for coding interviews and placements — arrays, hashing, linked lists, stacks, queues, recursion, sorting, searching, trees, heaps, graphs and dynamic programming, with Python examples and hands-on practice.',
+    careerGuide: {
+      roles: ['Software Engineer', 'SDE', 'Backend Developer', 'Competitive Programmer', 'Data Engineer'],
+      avgSalary: '₹6–40 LPA',
+      topCompanies: ['Google', 'Amazon', 'Microsoft', 'Adobe', 'Flipkart', 'Atlassian'],
+      nextSkills: ['System Design', 'Advanced DP & Graphs', 'Competitive Programming (Codeforces)', 'A core language (Python / Java / C++)'],
+      tip: 'DSA is what every product company tests in interviews — strong DSA plus a project portfolio beats a fancy degree for landing a high-paying SDE role.',
+    },
+    projectIdea: {
+      title: 'Build a mini "LeetCode" progress tracker',
+      description: 'Track the DSA problems you solve, by topic and difficulty, and visualise your progress and weakest areas.',
+      steps: [
+        'List topics (arrays, trees, DP...) with a target count for each',
+        'Store solved problems (name, topic, difficulty, date) in a list or JSON file',
+        'Compute progress per topic and overall',
+        'Surface your weakest topic so you know what to practise next',
+        'Add a daily streak counter to stay consistent',
+      ],
+      difficulty: 'Intermediate',
+      techStack: 'Python (or any language), lists/dicts, simple file storage',
+    },
+  },
 ];
 
 // ─── Dynamic topic loaders ────────────────────────────────────────────────────
@@ -558,6 +589,7 @@ const LANGUAGE_LOADERS: Record<string, () => Promise<{ default: TutorialTopic[] 
   'cloud-computing': () => import('./cloud-computing').then(m => ({ default: m.cloudComputingTopics })),
   'data-mining': () => import('./data-mining').then(m => ({ default: m.dataMiningTopics })),
   'computer-basics': () => import('./computer-basics').then(m => ({ default: m.computerBasicsTopics })),
+  dsa: () => import('./dsa').then(m => ({ default: m.dsaTopics })),
 };
 
 // ─── In-memory cache for loaded topics ─────────────────────────────────────────
