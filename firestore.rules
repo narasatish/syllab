@@ -376,6 +376,16 @@ service cloud.firestore {
       }
     }
 
+    // Public FCM token registration for push reminders. Tokens are not secret;
+    // clients register their own device token (write-only) and can never read the
+    // collection — a trusted backend reads it server-side to send reminders.
+    match /pushTokens/{token} {
+      allow read: if false;
+      allow write: if request.resource.data.token is string
+                   && request.resource.data.token.size() > 0
+                   && request.resource.data.token.size() < 500;
+    }
+
     // ---------- DEFAULT DENY ----------
     match /{document=**} {
       allow read, write: if false;

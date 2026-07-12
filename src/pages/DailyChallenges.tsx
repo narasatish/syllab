@@ -5,6 +5,7 @@ import { User as FirebaseUser } from 'firebase/auth';
 import { collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
 import SEO from '../components/SEO';
 import HubNav, { HubNavItem } from '../components/HubNav';
+import PushReminderOptIn from '../components/PushReminderOptIn';
 import { cn } from '../lib/utils';
 import { db } from '../lib/firebase';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
@@ -495,6 +496,8 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
       />
 
       <HubNav items={quizHubItems} active="daily" label="Quiz Hub" />
+
+      <PushReminderOptIn currentUser={currentUser} />
 
       <section className="rounded-[2rem] bg-slate-900 p-6 text-white shadow-2xl sm:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
