@@ -494,11 +494,41 @@ for (let c = 1; c <= 12; c++) {
 // ─── College pages (/colleges, /colleges/:state, /colleges/:state/:slug) ─────
 const { states: COLLEGE_STATES_M, colleges: COLLEGES_M } = getCollegesManifest(ROOT);
 
+// ── (H) Data study: Top engineering colleges by NIRF 2024 (crawlable, linkable asset,
+//    computed from the verified college directory — no fabricated numbers) ──────────
+const toLPA = (v) => {
+  const s = String(v ?? '');
+  const cr = s.match(/([\d.]+)\s*Cr/i); if (cr) return parseFloat(cr[1]) * 100;
+  const lpa = s.match(/([\d.]+)\s*LPA/i); if (lpa) return parseFloat(lpa[1]);
+  const n = Number(s.replace(/[^0-9.]/g, ''));
+  if (!Number.isFinite(n) || n <= 0) return null;
+  return n > 1000 ? n / 100000 : n; // raw rupees → LPA, else assume already LPA
+};
+const rankedColleges = COLLEGES_M
+  .filter((c) => Number.isFinite(Number(c.nirf)) && Number(c.nirf) > 0)
+  .sort((a, b) => Number(a.nirf) - Number(b.nirf))
+  .slice(0, 30);
+const _iitCount = rankedColleges.filter((c) => c.type === 'IIT').length;
+const _pkgs = rankedColleges.map((c) => toLPA(c.placementAvg)).filter((n) => n && n < 200);
+const _avgPkg = _pkgs.length ? (_pkgs.reduce((a, b) => a + b, 0) / _pkgs.length).toFixed(1) : null;
+const _studyRows = rankedColleges.map((c, i) => `<tr><td>${i + 1}</td><td><a href="/colleges/${c.stateSlug}/${c.slug}">${esc(c.name)}</a></td><td>${esc(c.city || '')}</td><td>${esc(c.type)}</td><td>#${c.nirf}</td><td>${esc(c.placementAvg || '—')}</td></tr>`).join('');
+const collegesDataStudy = `
+  <h2>Data Study: Top ${rankedColleges.length} Engineering Colleges in India by NIRF 2024</h2>
+  <p class="speakable">Compiled from Syllab's directory of ${COLLEGES_M.length}+ engineering colleges. The ranking uses official NIRF 2024 Engineering ranks; fees and placement figures are indicative and should be verified on each college's official website.</p>
+  <ul>
+    <li><strong>${_iitCount} of the top ${rankedColleges.length}</strong> engineering colleges in India are IITs.</li>
+    ${_avgPkg ? `<li>The average placement package across these top colleges is about <strong>₹${_avgPkg} LPA</strong> (indicative).</li>` : ''}
+    <li>Admission to the top ranks is via <a href="/mock-tests/jee-advanced">JEE Advanced</a> (IITs) and <a href="/mock-tests/jee-main">JEE Main</a> (NITs/IIITs).</li>
+  </ul>
+  <table><thead><tr><th>#</th><th>College</th><th>City</th><th>Type</th><th>NIRF 2024</th><th>Avg. package (indicative)</th></tr></thead><tbody>${_studyRows}</tbody></table>
+  <p>Browse the full directory by state below, or try the free <a href="/college-predictor">college predictor</a> and <a href="/medical-colleges">medical colleges</a>.</p>`;
+
 ROUTES.push({
   path: '/colleges',
   title: 'Top Engineering Colleges in India 2026 — Fees, NIRF Rank, Cutoffs & Admission | Syllab.in',
   description: 'Browse top engineering colleges across India by state — IITs, NITs and the best government & private colleges in Tamil Nadu, Karnataka, Maharashtra, Telangana, Andhra Pradesh, Delhi-NCR & West Bengal. Compare fees, NIRF rank, cutoffs, placements and the full admission process. Free.',
-  keywords: 'top engineering colleges India 2026, best engineering colleges by state, engineering college fees, NIRF ranking engineering, college cutoff 2026, engineering admission process, IIT NIT cutoff, college predictor India',
+  keywords: 'top engineering colleges India 2026, best engineering colleges by state, engineering college fees, NIRF ranking engineering 2024, top colleges by placement, college cutoff 2026, engineering admission process, IIT NIT cutoff, college predictor India',
+  bodyHtml: collegesDataStudy,
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Top Engineering Colleges in India', url: `${SITE}/colleges` },
 });
 

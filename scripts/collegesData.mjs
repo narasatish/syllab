@@ -10,6 +10,11 @@ function field(line, key) {
   const m = line.match(new RegExp(`${key}: '([^']*)'`));
   return m ? m[1] : '';
 }
+// Unquoted numeric field (e.g. `nirf: 12,`); returns null for `nirf: null` or absent.
+function numField(line, key) {
+  const m = line.match(new RegExp(`${key}:\\s*(\\d+)`));
+  return m ? Number(m[1]) : null;
+}
 
 export function getCollegesManifest(root) {
   const txt = readFileSync(path.join(root, 'src', 'data', 'colleges.ts'), 'utf8');
@@ -28,6 +33,8 @@ export function getCollegesManifest(root) {
         shortName: field(line, 'shortName') || field(line, 'name'),
         city: field(line, 'city'),
         stateName: field(line, 'state'),
+        type: field(line, 'type'),
+        nirf: numField(line, 'nirf'),
         feesPerYear: field(line, 'feesPerYear'),
         cutoff: field(line, 'cutoff'),
         placementAvg: field(line, 'placementAvg'),
