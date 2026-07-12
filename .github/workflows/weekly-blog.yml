@@ -30,6 +30,8 @@ jobs:
     # if: ${{ secrets.GEMINI_API_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: redesign-ui        # bot commits to the active working branch, not main
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -50,7 +52,7 @@ jobs:
             git add src/data/autoBlogs.json
             COUNT=$(node -e "console.log(require('./src/data/autoBlogs.json').length)")
             git commit -m "chore(blogs): weekly auto-generation — $COUNT blogs [skip ci]"
-            git push
+            git pull --rebase origin redesign-ui && git push
             echo "Committed. Blog count: $COUNT articles."
           else
             echo "No changes to blogs this run."

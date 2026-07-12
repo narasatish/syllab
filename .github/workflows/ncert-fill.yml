@@ -26,6 +26,8 @@ jobs:
     if: ${{ secrets.GEMINI_API_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: redesign-ui        # bot commits to the active working branch, not main
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -50,7 +52,7 @@ jobs:
             git add public/data/ncert-solutions.json
             COUNT=$(node -e "console.log(Object.keys(require('./public/data/ncert-solutions.json')).length)")
             git commit -m "chore(ncert): daily auto-fill — bank now $COUNT chapters [skip ci]"
-            git push
+            git pull --rebase origin redesign-ui && git push
             echo "Committed. Bank now $COUNT chapters."
           else
             echo "No new chapters this run (free-tier quota likely reached)."

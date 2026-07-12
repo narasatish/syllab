@@ -45,6 +45,8 @@ jobs:
       contents: write   # to commit the dedup registry back
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: redesign-ui        # bot commits to the active working branch, not main
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -87,4 +89,4 @@ jobs:
           git config user.email "bot@syllab.in"
           git add -f .instagram-bot-output/posted-registry.json .instagram-bot-output/plan-*.json 2>/dev/null || true
           git commit -m "chore(ig): update dedup registry [skip ci]" || echo "nothing to commit"
-          git push || echo "push skipped"
+          git pull --rebase origin redesign-ui && git push || echo "push skipped"
