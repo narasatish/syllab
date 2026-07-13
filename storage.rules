@@ -1,0 +1,21 @@
+rules_version = '2';
+
+// Syllab Cloud Storage security rules.
+//
+// The web client does NOT use Cloud Storage for uploads or downloads — all
+// user data lives in Firestore (see firestore.rules). This bucket is therefore
+// locked down completely: no client read or write is permitted. Only the
+// Firebase Admin SDK (trusted server code with a service account) can access
+// objects, and it bypasses these rules by design.
+//
+// If a future feature needs client uploads (e.g. profile avatars), add a
+// narrowly-scoped path here — e.g. allow a signed-in user to write only under
+// /avatars/{their-own-uid}/... with a size + content-type check — instead of
+// loosening this default-deny.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
