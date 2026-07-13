@@ -10,6 +10,17 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+    // A parent is "linked" to a child once the child's user doc has
+    // parentId == the parent's uid (set during the parent-linking flow). Used to
+    // scope reads of a child's learning data to the owner AND their linked parent
+    // only — instead of any signed-in user. Uses .get('parentId','') so it is
+    // safe when the field or the user doc is absent.
+    function isLinkedParent(childUid) {
+      return request.auth != null
+          && exists(/databases/$(database)/documents/users/$(childUid))
+          && get(/databases/$(database)/documents/users/$(childUid)).data.get('parentId', '') == request.auth.uid;
+    }
+
     // ---------- USERS ----------
     match /users/{userId} {
       function isOwner() {
@@ -68,7 +79,7 @@ service cloud.firestore {
       function isOwner() {
         return request.auth != null && request.auth.uid == userId;
       }
-      allow read: if request.auth != null;
+      allow read: if isOwner() || isLinkedParent(userId);
       allow create, update: if isOwner() && request.resource.data.size() < 200;
       allow delete: if false;
     }
@@ -85,7 +96,8 @@ service cloud.firestore {
           && request.resource.data.title is string
           && request.resource.data.title.size() <= 200
           && request.resource.data.createdAt == request.time;
-      allow read: if request.auth != null;
+      allow read: if request.auth != null
+          && (resource.data.uid == request.auth.uid || isLinkedParent(resource.data.uid));
       allow update, delete: if false;
     }
 
@@ -99,7 +111,8 @@ service cloud.firestore {
           && request.resource.data.totalMinutes is number
           && request.resource.data.totalMinutes >= 0
           && request.resource.data.totalMinutes <= 10080;
-      allow read: if request.auth != null;
+      allow read: if request.auth != null
+          && (resource.data.uid == request.auth.uid || isLinkedParent(resource.data.uid));
       allow delete: if false;
     }
 
@@ -108,7 +121,8 @@ service cloud.firestore {
     match /userActivities/{docId} {
       allow create: if request.auth != null
           && request.resource.data.userId == request.auth.uid;
-      allow read: if request.auth != null;
+      allow read: if request.auth != null
+          && (resource.data.userId == request.auth.uid || isLinkedParent(resource.data.userId));
       allow update, delete: if false;
     }
 
@@ -310,7 +324,8 @@ service cloud.firestore {
           && request.resource.data.score is number
           && request.resource.data.total is number
           && request.resource.data.completedAt == request.time;
-      allow read: if request.auth != null;
+      allow read: if request.auth != null
+          && (resource.data.userId == request.auth.uid || isLinkedParent(resource.data.userId));
       allow update, delete: if false;
     }
 
