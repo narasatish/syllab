@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 import {
   browserLocalPersistence,
   createUserWithEmailAndPassword,
@@ -63,6 +64,22 @@ if (isBrowser) {
     if (!v) console.error(`Missing Firebase env var for: ${k} (set VITE_FIREBASE_*)`);
   }
   app = initializeApp(firebaseConfig);
+  // App Check — bot/abuse protection. Completely inert until
+  // VITE_FIREBASE_APPCHECK_KEY (a reCAPTCHA v3 site key) is set AND the site is
+  // registered in Firebase console → App Check. Safe rollout: ship this code,
+  // add the key, verify tokens arrive in the console (monitor mode), THEN turn
+  // on enforcement per API. Enforcing before tokens flow would block all access.
+  const appCheckKey = import.meta.env.VITE_FIREBASE_APPCHECK_KEY;
+  if (appCheckKey) {
+    try {
+      initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(appCheckKey),
+        isTokenAutoRefreshEnabled: true,
+      });
+    } catch (e) {
+      console.error('App Check init failed', e);
+    }
+  }
   auth = getAuth(app);
   db = firebaseDatabaseId ? getFirestore(app, firebaseDatabaseId) : getFirestore(app);
   googleProvider = new GoogleAuthProvider();
