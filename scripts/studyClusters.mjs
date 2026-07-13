@@ -144,9 +144,20 @@ export function getTimelines(root) {
     const body = ts.slice(start);
     const out = [];
     const re = /slug:\s*'([^']+)',\s*\n\s*title:\s*'([^']+)',\s*\n\s*subject:\s*'([^']+)',\s*\n\s*classLevel:\s*'([^']+)',\s*\n\s*intro:\s*'([^']*)'/g;
+    const heads = [];
     let m;
     while ((m = re.exec(body)) !== null) {
-      out.push({ slug: m[1], title: m[2], subject: m[3], classLevel: m[4], intro: m[5].slice(0, 155) });
+      heads.push({ index: m.index, slug: m[1], title: m[2], subject: m[3], classLevel: m[4], intro: m[5] });
+    }
+    const evRe = /\{\s*year:\s*'([^']*)',\s*title:\s*'([^']*)',\s*detail:\s*'([^']*)'\s*\}/g;
+    for (let i = 0; i < heads.length; i++) {
+      const h = heads[i];
+      const block = body.slice(h.index, i + 1 < heads.length ? heads[i + 1].index : undefined);
+      const why = (block.match(/whyItMatters:\s*'([^']*)'/) || [])[1] || '';
+      const events = [];
+      let e;
+      while ((e = evRe.exec(block)) !== null) events.push({ year: e[1], title: e[2], detail: e[3] });
+      out.push({ slug: h.slug, title: h.title, subject: h.subject, classLevel: h.classLevel, intro: h.intro.slice(0, 155), whyItMatters: why, events });
     }
     return out;
   } catch { return []; }

@@ -1725,6 +1725,19 @@ function visualBody(x, sibs, base) {
   const conceptLink = cSlug ? `<p><a href="/concepts/${cSlug}">📖 Read the full explanation of ${esc(x.title)} →</a></p>` : '';
   return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p>${why}${steps}${notes}${hook}${real}${recall}${conceptLink}${relBlock(sibs, base, `More Visual Lessons`)}${aiCta}`;
 }
+// History timelines — render the full ordered event list so the page has real,
+// crawlable content (the SPA shows the same events interactively).
+function timelineBody(x, sibs, base) {
+  const events = x.events || [];
+  const why = x.whyItMatters ? `<p><strong>Why it matters:</strong> ${esc(x.whyItMatters)}</p>` : '';
+  const span = events.length ? `${esc(events[0].year)} – ${esc(events[events.length - 1].year)}` : '';
+  const table = events.length ? `<h2>${esc(x.title)} — Timeline of Key Events</h2>
+    <table><thead><tr><th>Year</th><th>Event</th></tr></thead><tbody>
+    ${events.map((e) => `<tr><td><strong>${esc(e.year)}</strong></td><td><strong>${esc(e.title)}.</strong> ${esc(e.detail)}</td></tr>`).join('')}
+    </tbody></table>` : '';
+  const recap = events.length ? `<h2>Quick Recap — Dates to Remember</h2><ul>${events.map((e) => `<li><strong>${esc(e.year)}:</strong> ${esc(e.title)}</li>`).join('')}</ul>` : '';
+  return `<p class="speakable"><strong>${esc(x.title)}${x.classLevel ? ` (${esc(x.classLevel)})` : ''}:</strong> ${esc(x.intro)}${span ? ` This interactive timeline covers ${events.length} key events from ${span}.` : ''}</p>${why}${table}${recap}${relBlock(sibs, base, `More History Timelines`)}${aiCta}`;
+}
 // Load FULL visual lessons from the compiled SSR bundle so the prerender can
 // render memoryHook/realLifeExample/cruxNotes/recall (the regex-based
 // getVisualLessons only extracts slug/title/subject/classLevel/intro). Falls
@@ -1767,7 +1780,7 @@ const STUDY_CLUSTERS = [
   { base: '/solved-examples', name: 'Solved Numerical Examples', kw: 'solved examples, numerical problems with solutions, step by step', data: getSolvedExamples(ROOT), label: (x) => `${x.chapter} Solved Examples (${x.classLevel} ${x.subject})`, body: solvedBody },
   { base: '/lab-practicals', name: 'Lab Practicals & Viva', kw: 'lab practical, science experiment procedure, viva questions, CBSE practical', data: getLabPracticals(ROOT), label: (x) => `${x.title} (${x.classLevel} ${x.subject} Practical)`, body: labBody },
   { base: '/visual-learning', name: 'Visual Learning — Interactive Diagrams', kw: 'animated diagrams, interactive diagrams, step by step science diagrams, water cycle photosynthesis heart', data: VISUAL_LESSONS_FULL.map((x) => (x.recall && x.recall.length ? { ...x, faqs: x.recall } : x)), label: (x) => `${x.title} — Interactive Diagram`, body: visualBody },
-  { base: '/timelines', name: 'History Timelines', kw: 'history timeline, indian freedom struggle timeline, mughal empire timeline, important dates history', data: getTimelines(ROOT), label: (x) => `${x.title} — Interactive Timeline` },
+  { base: '/timelines', name: 'History Timelines', kw: 'history timeline, indian freedom struggle timeline, mughal empire timeline, important dates history', data: getTimelines(ROOT), label: (x) => `${x.title} — Interactive Timeline`, body: timelineBody },
   { base: '/what-to-study', name: 'What to Study — Marks Weightage', kw: 'important chapters by marks, cbse weightage, what to study for boards, marks distribution', data: getWhatToStudy(ROOT), label: (x) => `Most Important Chapters — ${x.title}` },
   { base: '/pyqs', name: 'Previous Year Questions (PYQ)', kw: 'previous year questions, pyq chapter wise, board questions with solutions, important questions', data: getPyqs(ROOT), label: (x) => `${x.chapter} — Previous Year Questions (${x.classLevel} ${x.subject})`, body: pyqBody },
 ];
