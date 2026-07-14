@@ -17,6 +17,7 @@ import {
   EyeOff,
   Home,
   LogIn,
+  Layers,
   LogOut,
   Menu,
   Calculator,
@@ -143,6 +144,7 @@ const StudyRoomPage = React.lazy(() => import('./pages/StudyRoom'));
 const CalculatorsPage = React.lazy(() => import('./pages/Calculators'));
 const StudyPlannerPage = React.lazy(() => import('./pages/StudyPlanner'));
 const CutoffsPage = React.lazy(() => import('./pages/Cutoffs'));
+const FlashcardsPage = React.lazy(() => import('./pages/Flashcards'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
@@ -235,6 +237,7 @@ const TAB_TO_PATH: Record<string, string> = {
   calculators: '/calculators',
   study_planner: '/study-planner',
   cutoffs: '/cutoffs',
+  flashcards: '/flashcards',
   worksheets: '/worksheets',
   important_questions: '/important-questions',
   english_grammar: '/english-grammar',
@@ -292,7 +295,7 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'Free Tools', ids: ['calculators', 'study_planner', 'cutoffs', 'career'] },
+  { heading: 'Free Tools', ids: ['calculators', 'study_planner', 'flashcards', 'cutoffs', 'career'] },
   { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
@@ -384,6 +387,12 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Download 100+ free printable worksheets for Pre-KG to Class 2: letters & tracing, phonics, sight words, reading, maths, shapes and more — print or save as PDF. Free, no signup.',
     keywords: 'free printable worksheets, alphabet tracing worksheets pdf, phonics worksheets, sight words worksheet, reading comprehension worksheets kids, addition subtraction worksheets, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, colors worksheet, science worksheets kindergarten, social emotional worksheets, kindergarten worksheets free download India, pre-kg worksheets pdf',
     url: 'https://syllab.in/worksheets',
+  },
+  flashcards: {
+    title: 'Free Flashcards with Spaced Repetition | Syllab.in',
+    description: 'Make free flashcards and study smarter with spaced repetition (SM-2). Create your own decks, flip cards, and let the app schedule each card for the perfect time to review. Saved on your device. For CBSE, JEE & NEET.',
+    keywords: 'flashcards free, spaced repetition app, flashcard maker, study flashcards online, Anki alternative free, active recall, revision flashcards CBSE JEE NEET',
+    url: 'https://syllab.in/flashcards',
   },
   cutoffs: {
     title: 'Engineering College Cutoffs 2026 — JEE Main, NEET & State Exams | Syllab.in',
@@ -1398,6 +1407,7 @@ export default function App() {
     { id: 'calculators',       label: 'Calculators',      icon: Calculator },
     { id: 'study_planner',     label: 'Study Planner',    icon: CalendarDays },
     { id: 'cutoffs',           label: 'College Cutoffs',  icon: Target },
+    { id: 'flashcards',        label: 'Flashcards',       icon: Layers },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
@@ -1787,6 +1797,7 @@ export default function App() {
                   {activeTab === 'calculators' ? <CalculatorsPage /> : null}
                   {activeTab === 'study_planner' ? <StudyPlannerPage /> : null}
                   {activeTab === 'cutoffs' ? <CutoffsPage /> : null}
+                  {activeTab === 'flashcards' ? <FlashcardsPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
@@ -1981,6 +1992,7 @@ export default function App() {
               <li><button onClick={() => navigate('calculators')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
               <li><button onClick={() => navigate('study_planner')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Planner</button></li>
               <li><button onClick={() => navigate('cutoffs')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">College Cutoffs</button></li>
+              <li><button onClick={() => navigate('flashcards')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Flashcards</button></li>
               <li><button onClick={() => navigate('progress')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Dashboard</button></li>
               <li><button onClick={() => navigate('learning_lab')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Tutor</button></li>
               <li><button onClick={() => setTutorOpen(true)} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>

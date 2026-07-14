@@ -1956,6 +1956,26 @@ ROUTES.push({
 }
 
 ROUTES.push({
+  path: '/flashcards',
+  title: 'Free Flashcards with Spaced Repetition | Syllab.in',
+  description: 'Make free flashcards and study smarter with spaced repetition (SM-2). Create your own decks, flip cards, and let the app schedule each card for the perfect time to review. Saved on your device. For CBSE, JEE & NEET.',
+  keywords: 'flashcards free, spaced repetition app, flashcard maker, study flashcards online, Anki alternative free, active recall, revision flashcards CBSE JEE NEET',
+  bodyHtml: `
+    <p class="speakable">Make free <strong>flashcards</strong> and study smarter with <strong>spaced repetition</strong>. Create your own decks, flip each card, and rate how well you knew it — the app then schedules every card for the ideal day to review it again. Everything is saved on your own device; no sign-up.</p>
+    <h2>Why spaced-repetition flashcards work</h2>
+    <p>Flashcards use <strong>active recall</strong> — retrieving an answer from memory builds far stronger recall than re-reading notes. <strong>Spaced repetition</strong> then shows each card at growing intervals (1 day, 6 days, then longer), reviewing weak cards more often and easy ones less. It is the most efficient way to memorise formulas, definitions, dates and vocabulary for CBSE boards, JEE and NEET.</p>
+    <h2>How to use it</h2>
+    <p>Add cards with a question on the front and the answer on the back, tap “Study now”, reveal each answer, then rate it <em>Again</em>, <em>Hard</em>, <em>Good</em> or <em>Easy</em>. The proven SM-2 scheduler picks the next review date. Pair your decks with the free <a href="/study-planner">study planner</a> and <a href="/mock-tests">mock tests</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Flashcards', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/flashcards`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'What is spaced repetition?', acceptedAnswer: { '@type': 'Answer', text: 'Spaced repetition is a study technique that shows you each flashcard at increasing time intervals — soon after learning, then after a few days, then longer — so you review weak cards often and strong cards rarely. It is the most efficient way to move facts into long-term memory.' } },
+      { '@type': 'Question', name: 'Are the flashcards free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — Syllab flashcards are 100% free, need no sign-up, and your decks are saved on your own device. The scheduler uses the proven SM-2 spaced-repetition algorithm.' } },
+    ] },
+  ],
+});
+
+ROUTES.push({
   path: '/study-planner',
   title: 'Free Study Planner & Revision Timetable Generator | Syllab.in',
   description: 'Make a free, personalized study timetable in seconds. Enter your exam date, subjects and study hours — get a day-by-day revision plan (learn → revise → mock test) you can save or print. For CBSE, JEE & NEET students.',
