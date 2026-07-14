@@ -2040,6 +2040,25 @@ ROUTES.push({
 });
 
 ROUTES.push({
+  path: '/marks-tracker',
+  title: 'Free Marks & Percentage Tracker for Students | Syllab.in',
+  description: 'Track your marks across subjects and see your overall percentage, CBSE grade, strongest and weakest subject instantly — plus the marks you still need in upcoming exams to hit your target. Free, saved on your device.',
+  keywords: 'marks tracker, percentage tracker, GPA tracker, overall percentage calculator, marks needed for target, subject-wise marks, exam marks calculator, CBSE percentage tracker',
+  bodyHtml: `
+    <p class="speakable">A free <strong>marks &amp; percentage tracker</strong>: enter the marks you scored in each subject out of its maximum and instantly see your overall percentage, CBSE grade, and which subjects are your strongest and weakest — so you know exactly where to focus.</p>
+    <h2>How the marks tracker works</h2>
+    <p>Add a row per subject with your score and the maximum marks. The tracker sums them into an overall percentage, assigns the CBSE 9-point grade, and highlights your weakest subject. Enter the marks still to be assessed and a target percentage, and it tells you the exact score you need in the remaining exams to reach your goal. Your data is saved on your device — free, no sign-up.</p>
+    <p>Pair it with the free <a href="/calculators">calculators</a> and the <a href="/study-planner">study planner</a> for a complete revision routine.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Marks Tracker', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/marks-tracker`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'How do I calculate my overall percentage across subjects?', acceptedAnswer: { '@type': 'Answer', text: 'Add up the marks you scored in every subject and divide by the total maximum marks, then multiply by 100. The free Syllab marks tracker does it automatically and also shows your CBSE grade and weakest subject.' } },
+      { '@type': 'Question', name: 'Is the marks tracker free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — it is 100% free, runs in your browser, needs no sign-up, and saves your subjects on your device.' } },
+    ] },
+  ],
+});
+
+ROUTES.push({
   path: '/pomodoro',
   title: 'Free Pomodoro Timer for Studying — Focus Timer | Syllab.in',
   description: 'Free online Pomodoro timer to study with focus. 25-minute focus sessions with short and long breaks, session counter and a gentle chime. Customisable, saved on your device, no signup. Beat procrastination.',

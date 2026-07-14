@@ -194,6 +194,8 @@ function buildUrls({ languages, topicsByLang }) {
   urls.push({ loc: '/periodic-table', priority: 0.8, changefreq: 'monthly' });
   // Pomodoro study timer.
   urls.push({ loc: '/pomodoro', priority: 0.8, changefreq: 'monthly' });
+  // Marks / percentage tracker.
+  urls.push({ loc: '/marks-tracker', priority: 0.8, changefreq: 'monthly' });
 
   // Free printable worksheets.
   urls.push({ loc: '/worksheets', priority: 0.8, changefreq: 'weekly' });
