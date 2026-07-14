@@ -178,6 +178,8 @@ function buildUrls({ languages, topicsByLang }) {
   urls.push({ loc: '/science-for-kids', priority: 0.8, changefreq: 'monthly' });
   urls.push({ loc: '/english-for-kids', priority: 0.8, changefreq: 'monthly' });
 
+  // Free student tools hub.
+  urls.push({ loc: '/tools', priority: 0.9, changefreq: 'monthly' });
   // Free student calculators.
   urls.push({ loc: '/calculators', priority: 0.8, changefreq: 'monthly' });
   // Free study planner / revision-timetable generator.

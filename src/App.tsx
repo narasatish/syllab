@@ -18,6 +18,7 @@ import {
   Home,
   LogIn,
   Atom,
+  Wrench,
   Layers,
   LogOut,
   Menu,
@@ -152,6 +153,7 @@ const UnitConverterPage = React.lazy(() => import('./pages/UnitConverter'));
 const PeriodicTablePage = React.lazy(() => import('./pages/PeriodicTable'));
 const PomodoroPage = React.lazy(() => import('./pages/Pomodoro'));
 const MarksTrackerPage = React.lazy(() => import('./pages/MarksTracker'));
+const ToolsHubPage = React.lazy(() => import('./pages/ToolsHub'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
@@ -250,6 +252,7 @@ const TAB_TO_PATH: Record<string, string> = {
   periodic_table: '/periodic-table',
   pomodoro: '/pomodoro',
   marks_tracker: '/marks-tracker',
+  tools_hub: '/tools',
   worksheets: '/worksheets',
   important_questions: '/important-questions',
   english_grammar: '/english-grammar',
@@ -307,7 +310,7 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'Free Tools', ids: ['calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
+  { heading: 'Free Tools', ids: ['tools_hub', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
   { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
@@ -399,6 +402,12 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Download 100+ free printable worksheets for Pre-KG to Class 2: letters & tracing, phonics, sight words, reading, maths, shapes and more — print or save as PDF. Free, no signup.',
     keywords: 'free printable worksheets, alphabet tracing worksheets pdf, phonics worksheets, sight words worksheet, reading comprehension worksheets kids, addition subtraction worksheets, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, colors worksheet, science worksheets kindergarten, social emotional worksheets, kindergarten worksheets free download India, pre-kg worksheets pdf',
     url: 'https://syllab.in/worksheets',
+  },
+  tools_hub: {
+    title: 'Free Student Tools — Calculators, Timers, Flashcards & More | Syllab.in',
+    description: '10 free tools for students in one place: percentage & CGPA calculators, unit converter, interactive periodic table, Pomodoro timer, marks tracker, study planner, spaced-repetition flashcards, AI answer evaluator and college predictors. No signup.',
+    keywords: 'free student tools, study tools online, student calculators, pomodoro timer, flashcards, study planner, periodic table, unit converter, marks tracker, college predictor, tools for CBSE JEE NEET students',
+    url: 'https://syllab.in/tools',
   },
   marks_tracker: {
     title: 'Free Marks & Percentage Tracker for Students | Syllab.in',
@@ -1446,6 +1455,7 @@ export default function App() {
     { id: 'full_forms',        label: 'Full Forms',          icon: BookOpen },
     { id: 'ai_hub',            label: 'AI for Students',  icon: Sparkles },
     { id: 'career',            label: 'Career & Colleges', icon: Building2 },
+    { id: 'tools_hub',         label: 'All Free Tools',   icon: Wrench },
     { id: 'calculators',       label: 'Calculators',      icon: Calculator },
     { id: 'study_planner',     label: 'Study Planner',    icon: CalendarDays },
     { id: 'cutoffs',           label: 'College Cutoffs',  icon: Target },
@@ -1850,6 +1860,7 @@ export default function App() {
                   {activeTab === 'periodic_table' ? <PeriodicTablePage /> : null}
                   {activeTab === 'pomodoro' ? <PomodoroPage /> : null}
                   {activeTab === 'marks_tracker' ? <MarksTrackerPage /> : null}
+                  {activeTab === 'tools_hub' ? <ToolsHubPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
@@ -2041,6 +2052,7 @@ export default function App() {
               <li><button onClick={() => navigate('arena')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
               <li><button onClick={() => navigate('daily')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>
               <li><button onClick={() => navigate('mock_tests')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
+              <li><button onClick={() => navigate('tools_hub')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">All Free Tools</button></li>
               <li><button onClick={() => navigate('calculators')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
               <li><button onClick={() => navigate('study_planner')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Planner</button></li>
               <li><button onClick={() => navigate('cutoffs')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">College Cutoffs</button></li>

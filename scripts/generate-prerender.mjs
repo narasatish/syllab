@@ -2039,6 +2039,34 @@ ROUTES.push({
   ],
 });
 
+// Free student tools hub — links every tool (crawlable internal-link asset).
+{
+  const hubTools = [
+    ['/calculators', '🧮', 'Student Calculators', 'Percentage, CGPA, attendance, SGPA, CBSE grade, CUET score & education-loan EMI.'],
+    ['/unit-converter', '📐', 'Unit Converter', 'Length, mass, temperature, speed, energy, pressure, volume, area, time & data.'],
+    ['/periodic-table', '⚛️', 'Periodic Table', 'All 118 elements — atomic mass, group, period, state & electron configuration.'],
+    ['/pomodoro', '⏳', 'Pomodoro Timer', 'Focused 25-minute study sprints with breaks and a session counter.'],
+    ['/marks-tracker', '📊', 'Marks Tracker', 'Overall percentage, CBSE grade, weakest subject and target planner.'],
+    ['/study-planner', '🗓️', 'Study Planner', 'A day-by-day revision timetable from your exam date and subjects.'],
+    ['/flashcards', '🃏', 'Flashcards', 'Spaced-repetition revision decks (SM-2) you make yourself.'],
+    ['/answer-evaluator', '✍️', 'AI Answer Evaluator', 'Examiner-style score and feedback on your written answers.'],
+    ['/cutoffs', '🎯', 'College Cutoffs', 'Indicative closing cutoffs for top engineering colleges by exam.'],
+    ['/career-predictor', '🔮', 'Career & College Predictor', 'JEE/NEET rank & college predictor and a career interest quiz.'],
+  ];
+  ROUTES.push({
+    path: '/tools',
+    title: 'Free Student Tools — Calculators, Timers, Flashcards & More | Syllab.in',
+    description: '10 free tools for students in one place: percentage & CGPA calculators, unit converter, interactive periodic table, Pomodoro timer, marks tracker, study planner, spaced-repetition flashcards, AI answer evaluator and college predictors. No signup.',
+    keywords: 'free student tools, study tools online, student calculators, pomodoro timer, flashcards, study planner, periodic table, unit converter, marks tracker, college predictor, tools for CBSE JEE NEET students',
+    bodyHtml: `
+      <p class="speakable">Every Syllab <strong>free student tool</strong> in one place — calculators, converters, timers, flashcards, trackers and predictors. Everything runs in your browser, works on mobile and needs no sign-up.</p>
+      <h2>All free tools</h2>
+      <ul>${hubTools.map(([href, emoji, name, desc]) => `<li>${emoji} <a href="${href}"><strong>${esc(name)}</strong></a> — ${esc(desc)}</li>`).join('')}</ul>
+      <p>Built for CBSE, NCERT, state boards, JEE and NEET students. Prefer guided learning? Explore free <a href="/syllabus">chapter lessons</a>, <a href="/mock-tests">mock tests</a> and <a href="/coding">coding courses</a>.</p>`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free Student Tools', url: `${SITE}/tools`, inLanguage: 'en-IN', isAccessibleForFree: true },
+  });
+}
+
 ROUTES.push({
   path: '/marks-tracker',
   title: 'Free Marks & Percentage Tracker for Students | Syllab.in',
