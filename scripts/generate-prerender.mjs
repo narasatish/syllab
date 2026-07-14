@@ -1956,6 +1956,37 @@ ROUTES.push({
 }
 
 ROUTES.push({
+  path: '/unit-converter',
+  title: 'Free Unit Converter — Length, Mass, Temperature, Speed & More | Syllab.in',
+  description: 'Free online unit converter for students: length, mass, time, area, volume, speed, energy, pressure, temperature (°C/°F/K) and digital storage. Instant, accurate, no signup — for physics, chemistry & maths.',
+  keywords: 'unit converter, unit conversion, cm to inches, kg to pounds, celsius to fahrenheit, km/h to m/s, litre to ml, unit converter for physics, metric conversion India',
+  bodyHtml: `
+    <p class="speakable">A free, accurate <strong>unit converter</strong> for students — convert length, mass, temperature, speed, energy, pressure, area, volume, time and digital storage instantly in your browser. Perfect for physics and chemistry numericals, lab work and everyday maths.</p>
+    <h2>Common conversions</h2>
+    <table><thead><tr><th>From</th><th>To</th></tr></thead><tbody>
+      <tr><td>1 inch</td><td>2.54 cm</td></tr>
+      <tr><td>1 foot</td><td>30.48 cm</td></tr>
+      <tr><td>1 mile</td><td>1.609 km</td></tr>
+      <tr><td>1 pound (lb)</td><td>0.4536 kg</td></tr>
+      <tr><td>0 °C</td><td>32 °F = 273.15 K</td></tr>
+      <tr><td>100 °C</td><td>212 °F</td></tr>
+      <tr><td>1 m/s</td><td>3.6 km/h</td></tr>
+      <tr><td>1 kcal</td><td>4.184 kJ</td></tr>
+      <tr><td>1 atm</td><td>101325 Pa = 1.01325 bar</td></tr>
+      <tr><td>1 GB</td><td>1024 MB</td></tr>
+    </tbody></table>
+    <h2>How to convert units</h2>
+    <p>To convert between units, multiply by the exact conversion factor. For temperature, use °F = °C × 9⁄5 + 32 and K = °C + 273.15. The converter above does it instantly for ten categories — free, no sign-up. Need marks maths too? Try the free <a href="/calculators">student calculators</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Unit Converter', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/unit-converter`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'How do I convert Celsius to Fahrenheit?', acceptedAnswer: { '@type': 'Answer', text: 'Use °F = °C × 9/5 + 32. For example, 100 °C = 100 × 9/5 + 32 = 212 °F. The free Syllab unit converter does it instantly, along with Kelvin.' } },
+      { '@type': 'Question', name: 'Is the unit converter free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — it is 100% free, runs in your browser, and needs no sign-up. It covers length, mass, temperature, speed, energy, pressure, area, volume, time and digital storage.' } },
+    ] },
+  ],
+});
+
+ROUTES.push({
   path: '/answer-evaluator',
   title: 'Free AI Answer Checker & Evaluator | Syllab.in',
   description: 'Paste any exam question and your answer — our free AI examiner scores it out of your chosen marks and shows what you did well, what\'s missing, and the key points a full-marks answer needs. For CBSE boards, JEE & NEET.',

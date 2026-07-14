@@ -188,6 +188,8 @@ function buildUrls({ languages, topicsByLang }) {
   urls.push({ loc: '/flashcards', priority: 0.8, changefreq: 'monthly' });
   // AI answer evaluator.
   urls.push({ loc: '/answer-evaluator', priority: 0.8, changefreq: 'monthly' });
+  // Unit converter.
+  urls.push({ loc: '/unit-converter', priority: 0.8, changefreq: 'monthly' });
 
   // Free printable worksheets.
   urls.push({ loc: '/worksheets', priority: 0.8, changefreq: 'weekly' });
