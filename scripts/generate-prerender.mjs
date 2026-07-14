@@ -2040,6 +2040,25 @@ ROUTES.push({
 });
 
 ROUTES.push({
+  path: '/pomodoro',
+  title: 'Free Pomodoro Timer for Studying — Focus Timer | Syllab.in',
+  description: 'Free online Pomodoro timer to study with focus. 25-minute focus sessions with short and long breaks, session counter and a gentle chime. Customisable, saved on your device, no signup. Beat procrastination.',
+  keywords: 'pomodoro timer, study timer, focus timer, pomodoro technique, 25 minute timer, online timer for studying, productivity timer free, beat procrastination',
+  bodyHtml: `
+    <p class="speakable">A free online <strong>Pomodoro timer</strong> to help you study with focus. Work in 25-minute focus sprints separated by short 5-minute breaks, with a longer 15-minute break after every four sprints — a simple, proven way to beat procrastination and study for longer without burning out.</p>
+    <h2>How the Pomodoro technique works</h2>
+    <p>Set the timer, work with full focus until it rings, then take a short break. After four focus sessions, take a longer break. Working against a ticking timer makes it far easier to start and blocks distractions. Adjust the focus and break lengths to suit you — the timer remembers your settings on your device.</p>
+    <p>Pair it with the free <a href="/study-planner">study planner</a> and <a href="/flashcards">flashcards</a> for a complete study routine. Free, no sign-up.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Pomodoro Timer', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/pomodoro`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'What is the Pomodoro technique?', acceptedAnswer: { '@type': 'Answer', text: 'The Pomodoro technique is a study method where you work in focused 25-minute sessions separated by 5-minute breaks, with a longer break after every four sessions. It helps you start tasks, avoid distractions and study for longer without burning out.' } },
+      { '@type': 'Question', name: 'Is the Pomodoro timer free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — it is 100% free, runs in your browser, needs no sign-up, and remembers your custom durations on your device.' } },
+    ] },
+  ],
+});
+
+ROUTES.push({
   path: '/flashcards',
   title: 'Free Flashcards with Spaced Repetition | Syllab.in',
   description: 'Make free flashcards and study smarter with spaced repetition (SM-2). Create your own decks, flip cards, and let the app schedule each card for the perfect time to review. Saved on your device. For CBSE, JEE & NEET.',
