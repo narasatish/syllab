@@ -19,6 +19,7 @@ import {
   LogIn,
   LogOut,
   Menu,
+  Calculator,
   Sparkles,
   Target,
   Timer,
@@ -291,7 +292,8 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'career', 'updates'] },
+  { heading: 'Free Tools', ids: ['calculators', 'study_planner', 'cutoffs', 'career'] },
+  { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
 
@@ -1393,6 +1395,9 @@ export default function App() {
     { id: 'full_forms',        label: 'Full Forms',          icon: BookOpen },
     { id: 'ai_hub',            label: 'AI for Students',  icon: Sparkles },
     { id: 'career',            label: 'Career & Colleges', icon: Building2 },
+    { id: 'calculators',       label: 'Calculators',      icon: Calculator },
+    { id: 'study_planner',     label: 'Study Planner',    icon: CalendarDays },
+    { id: 'cutoffs',           label: 'College Cutoffs',  icon: Target },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
