@@ -180,6 +180,10 @@ function buildUrls({ languages, topicsByLang }) {
 
   // Free student calculators.
   urls.push({ loc: '/calculators', priority: 0.8, changefreq: 'monthly' });
+  // Free study planner / revision-timetable generator.
+  urls.push({ loc: '/study-planner', priority: 0.8, changefreq: 'monthly' });
+  // Engineering college cutoff explorer.
+  urls.push({ loc: '/cutoffs', priority: 0.8, changefreq: 'monthly' });
 
   // Free printable worksheets.
   urls.push({ loc: '/worksheets', priority: 0.8, changefreq: 'weekly' });

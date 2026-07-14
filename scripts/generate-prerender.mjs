@@ -1926,6 +1926,56 @@ ROUTES.push({
   ],
 });
 
+// Engineering cutoff explorer — static tables per major exam from the verified
+// directory (no invented numbers; same data as the college pages).
+{
+  const cutoffTable = (examName) => {
+    const rows = COLLEGES_M
+      .filter((c) => (c.exams || []).includes(examName))
+      .sort((a, b) => (a.nirf == null ? Infinity : a.nirf) - (b.nirf == null ? Infinity : b.nirf))
+      .slice(0, 40);
+    if (!rows.length) return '';
+    return `<h2>${esc(examName)} — Indicative College Cutoffs (2026)</h2>
+      <table><thead><tr><th>College</th><th>NIRF</th><th>Indicative cutoff</th><th>Avg package</th></tr></thead><tbody>
+      ${rows.map((c) => `<tr><td><a href="/colleges/${c.stateSlug}/${c.slug}">${esc(c.shortName)}</a> <span>(${esc(c.city)})</span></td><td>${c.nirf ? '#' + c.nirf : '—'}</td><td>${esc(c.cutoff || '—')}</td><td>${esc(c.placementAvg || '—')}</td></tr>`).join('')}
+      </tbody></table>`;
+  };
+  const examsForPrerender = ['JEE Main', 'JEE Advanced', 'MHT-CET', 'KCET', 'WBJEE'];
+  const tables = examsForPrerender.map(cutoffTable).filter(Boolean).join('\n');
+  ROUTES.push({
+    path: '/cutoffs',
+    title: 'Engineering College Cutoffs 2026 — JEE Main, NEET & State Exams | Syllab.in',
+    description: 'Browse indicative closing cutoffs for top engineering colleges by exam — JEE Main, JEE Advanced, BITSAT, MHT-CET, KCET, WBJEE, EAPCET and more. Compare cutoff, NIRF rank and average package in one table. Free.',
+    keywords: 'engineering college cutoff 2026, JEE Main cutoff colleges, JEE Advanced cutoff, NIT cutoff, MHT-CET cutoff, KCET cutoff, WBJEE cutoff, closing rank engineering colleges, college cutoff list India',
+    bodyHtml: `
+      <p class="speakable">Compare <strong>indicative closing cutoffs</strong> for top engineering colleges by admission exam. Pick your exam to see each college's cutoff, NIRF rank and average placement package in one place. All figures are indicative (2024) — always confirm on the official counselling website (JoSAA/CSAB for NITs &amp; IIITs, or your state authority).</p>
+      ${tables}
+      <p><a href="/career-predictor">Free rank &amp; college predictor →</a> · <a href="/colleges">All engineering colleges by state →</a></p>`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Engineering College Cutoffs', url: `${SITE}/cutoffs`, inLanguage: 'en-IN', isAccessibleForFree: true },
+  });
+}
+
+ROUTES.push({
+  path: '/study-planner',
+  title: 'Free Study Planner & Revision Timetable Generator | Syllab.in',
+  description: 'Make a free, personalized study timetable in seconds. Enter your exam date, subjects and study hours — get a day-by-day revision plan (learn → revise → mock test) you can save or print. For CBSE, JEE & NEET students.',
+  keywords: 'study planner, revision timetable generator, study timetable maker free, exam study plan, board exam timetable, JEE NEET study plan, how to make a study schedule, daily study routine',
+  bodyHtml: `
+    <p class="speakable">Build a free, personalized <strong>study timetable</strong> in seconds. Enter your exam date, the subjects you need to cover and how many hours a day you can study — and get a day-by-day revision plan you can save on your device or print as a PDF.</p>
+    <h2>How the study planner works</h2>
+    <p>The planner splits the time until your exam into three phases: a <strong>learn phase</strong> that spreads every subject evenly across the days, a <strong>revise phase</strong> in the final quarter that cycles quickly through all subjects, and a <strong>mock-test day</strong> right before the exam. It works for CBSE board exams, JEE, NEET and college semesters alike.</p>
+    <h2>Why a study timetable helps</h2>
+    <p>A written plan removes daily decision fatigue, guarantees every subject gets covered before the exam, and builds in revision and mock practice — the two things students most often run out of time for. Pair your plan with free <a href="/mock-tests">mock tests</a> and <a href="/pyqs">previous-year questions</a>.</p>
+    <p><a href="/calculators">Free student calculators →</a> · <a href="/mock-tests">Free mock tests →</a></p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Study Planner', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/study-planner`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'How do I make a study timetable for board exams?', acceptedAnswer: { '@type': 'Answer', text: 'Enter your exam date, your subjects and how many hours a day you can study. The free Syllab study planner builds a day-by-day plan that spreads subjects evenly, adds a revision phase near the end, and finishes with a mock-test day.' } },
+      { '@type': 'Question', name: 'Is the study planner free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — it is 100% free, needs no sign-up, runs entirely in your browser, and your plan is saved on your own device. You can print it or save it as a PDF.' } },
+    ] },
+  ],
+});
+
 ROUTES.push({
   path: '/calculators',
   title: 'Free Student Calculators — Percentage, CGPA & Attendance | Syllab.in',

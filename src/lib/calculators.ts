@@ -84,4 +84,57 @@ export function semesterGpa(rows: { points: number; credits: number }[]): number
   return round2(totalPoints / totalCredits);
 }
 
+/**
+ * Education-loan / EMI. Standard reducing-balance formula:
+ * EMI = P·r·(1+r)^n / ((1+r)^n − 1), r = monthly rate, n = months.
+ * Returns rounded rupee figures. r = 0 handled (interest-free).
+ */
+export function emiPlan(principal: number, annualRatePct: number, years: number): {
+  emi: number; totalPayment: number; totalInterest: number; months: number;
+} {
+  const months = Math.round(years * 12);
+  if (principal <= 0 || months <= 0 || annualRatePct < 0) return { emi: 0, totalPayment: 0, totalInterest: 0, months: Math.max(0, months) };
+  const r = annualRatePct / 12 / 100;
+  let emiExact: number;
+  if (r === 0) emiExact = principal / months;
+  else { const pow = Math.pow(1 + r, months); emiExact = (principal * r * pow) / (pow - 1); }
+  // Report totals from the rounded EMI so the displayed figures reconcile for
+  // the user (EMI × months = total payment, exactly).
+  const emi = Math.round(emiExact);
+  const totalPayment = emi * months;
+  return { emi, totalPayment, totalInterest: totalPayment - principal, months };
+}
+
+/**
+ * CUET (UG) style scoring: +5 for a correct answer, −1 for a wrong one,
+ * 0 for unattempted. `totalQuestions` sets the max (×5); if omitted, max is
+ * derived from attempted (correct + wrong).
+ */
+export function cuetScore(correct: number, wrong: number, totalQuestions = 0): {
+  score: number; max: number; percentage: number;
+} {
+  const c = Math.max(0, Math.floor(correct || 0));
+  const w = Math.max(0, Math.floor(wrong || 0));
+  const score = 5 * c - 1 * w;
+  const max = (totalQuestions > 0 ? totalQuestions : c + w) * 5;
+  const percentage = max > 0 ? round2((score / max) * 100) : 0;
+  return { score, max, percentage };
+}
+
+/**
+ * CBSE absolute grade + grade point from a subject mark (out of 100).
+ * A1≥91, A2≥81, B1≥71, B2≥61, C1≥51, C2≥41, D≥33, else E (fail).
+ */
+export function cbseGrade(marks: number): { grade: string; point: number } {
+  const m = Number.isFinite(marks) ? marks : 0;
+  if (m >= 91) return { grade: 'A1', point: 10 };
+  if (m >= 81) return { grade: 'A2', point: 9 };
+  if (m >= 71) return { grade: 'B1', point: 8 };
+  if (m >= 61) return { grade: 'B2', point: 7 };
+  if (m >= 51) return { grade: 'C1', point: 6 };
+  if (m >= 41) return { grade: 'C2', point: 5 };
+  if (m >= 33) return { grade: 'D', point: 4 };
+  return { grade: 'E', point: 0 };
+}
+
 function round2(n: number): number { return Math.round(n * 100) / 100; }

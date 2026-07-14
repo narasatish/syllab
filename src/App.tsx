@@ -140,6 +140,8 @@ const DoubtSolverPage = React.lazy(() => import('./pages/Scan'));
 const MicrolearningPage = React.lazy(() => import('./pages/Microlearning'));
 const StudyRoomPage = React.lazy(() => import('./pages/StudyRoom'));
 const CalculatorsPage = React.lazy(() => import('./pages/Calculators'));
+const StudyPlannerPage = React.lazy(() => import('./pages/StudyPlanner'));
+const CutoffsPage = React.lazy(() => import('./pages/Cutoffs'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
@@ -230,6 +232,8 @@ const TAB_TO_PATH: Record<string, string> = {
   microlearning: '/micro',
   study_room: '/study-room',
   calculators: '/calculators',
+  study_planner: '/study-planner',
+  cutoffs: '/cutoffs',
   worksheets: '/worksheets',
   important_questions: '/important-questions',
   english_grammar: '/english-grammar',
@@ -379,10 +383,22 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     keywords: 'free printable worksheets, alphabet tracing worksheets pdf, phonics worksheets, sight words worksheet, reading comprehension worksheets kids, addition subtraction worksheets, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, colors worksheet, science worksheets kindergarten, social emotional worksheets, kindergarten worksheets free download India, pre-kg worksheets pdf',
     url: 'https://syllab.in/worksheets',
   },
+  cutoffs: {
+    title: 'Engineering College Cutoffs 2026 — JEE Main, NEET & State Exams | Syllab.in',
+    description: 'Browse indicative closing cutoffs for top engineering colleges by exam — JEE Main, JEE Advanced, BITSAT, MHT-CET, KCET, WBJEE, EAPCET and more. Compare cutoff, NIRF rank and average package in one table. Free.',
+    keywords: 'engineering college cutoff 2026, JEE Main cutoff colleges, JEE Advanced cutoff, NIT cutoff, MHT-CET cutoff, KCET cutoff, WBJEE cutoff, closing rank engineering colleges, college cutoff list India',
+    url: 'https://syllab.in/cutoffs',
+  },
+  study_planner: {
+    title: 'Free Study Planner & Revision Timetable Generator | Syllab.in',
+    description: 'Make a free, personalized study timetable in seconds. Enter your exam date, subjects and study hours — get a day-by-day revision plan (learn → revise → mock test) you can save or print. For CBSE, JEE & NEET students.',
+    keywords: 'study planner, revision timetable generator, study timetable maker free, exam study plan, board exam timetable, JEE NEET study plan, how to make a study schedule, daily study routine',
+    url: 'https://syllab.in/study-planner',
+  },
   calculators: {
     title: 'Free Percentage, CGPA & Attendance Calculators for CBSE Students | Syllab.in',
-    description: 'Free online calculators for Indian students: marks-to-percentage, CGPA to percentage (CBSE 9.5 rule) and back, and an attendance "can I bunk?" calculator. Instant, no signup.',
-    keywords: 'percentage calculator, CGPA to percentage calculator, CBSE CGPA calculator, attendance calculator, can I bunk calculator, marks percentage calculator India, student calculators free',
+    description: 'Free online calculators for Indian students: marks-to-percentage, CGPA to percentage (CBSE 9.5 rule) and back, attendance "can I bunk?", SGPA, CBSE grade, CUET score and education-loan EMI. Instant, no signup.',
+    keywords: 'percentage calculator, CGPA to percentage calculator, CBSE CGPA calculator, attendance calculator, can I bunk calculator, marks percentage calculator India, student calculators free, education loan EMI calculator, CUET score calculator, CBSE grade calculator',
     url: 'https://syllab.in/calculators',
   },
   study_room: {
@@ -1764,6 +1780,8 @@ export default function App() {
                   {activeTab === 'microlearning' ? <MicrolearningPage /> : null}
                   {activeTab === 'study_room' ? <StudyRoomPage onExit={() => navigate('home')} userUid={currentUser?.uid} userName={currentUser?.displayName || currentUser?.email?.split('@')[0] || null} /> : null}
                   {activeTab === 'calculators' ? <CalculatorsPage /> : null}
+                  {activeTab === 'study_planner' ? <StudyPlannerPage /> : null}
+                  {activeTab === 'cutoffs' ? <CutoffsPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
@@ -1956,6 +1974,8 @@ export default function App() {
               <li><button onClick={() => navigate('daily')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>
               <li><button onClick={() => navigate('mock_tests')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
               <li><button onClick={() => navigate('calculators')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
+              <li><button onClick={() => navigate('study_planner')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Planner</button></li>
+              <li><button onClick={() => navigate('cutoffs')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">College Cutoffs</button></li>
               <li><button onClick={() => navigate('progress')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Dashboard</button></li>
               <li><button onClick={() => navigate('learning_lab')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Tutor</button></li>
               <li><button onClick={() => setTutorOpen(true)} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>

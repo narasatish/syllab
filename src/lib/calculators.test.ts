@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   percentage, cgpaToPercentage, percentageToCgpa,
   attendancePercent, classesYouCanSkip, classesToReachTarget,
-  marksNeededForTarget, semesterGpa,
+  marksNeededForTarget, semesterGpa, emiPlan, cuetScore, cbseGrade,
 } from './calculators';
 
 describe('percentage', () => {
@@ -86,5 +86,47 @@ describe('semesterGpa', () => {
   });
   it('returns 0 with no valid credits', () => {
     expect(semesterGpa([])).toBe(0);
+  });
+});
+
+describe('emiPlan (education loan)', () => {
+  it('computes EMI with the standard reducing-balance formula', () => {
+    // ₹10,00,000 at 10% for 10 years → EMI ≈ ₹13,215
+    const r = emiPlan(1000000, 10, 10);
+    expect(r.months).toBe(120);
+    expect(r.emi).toBeGreaterThan(13100);
+    expect(r.emi).toBeLessThan(13300);
+    expect(r.totalPayment).toBe(r.emi * 120);
+    expect(r.totalInterest).toBe(r.totalPayment - 1000000);
+  });
+  it('handles a 0% (interest-free) loan', () => {
+    const r = emiPlan(120000, 0, 1);
+    expect(r.emi).toBe(10000);
+    expect(r.totalInterest).toBe(0);
+  });
+  it('guards invalid inputs', () => {
+    expect(emiPlan(0, 10, 5).emi).toBe(0);
+    expect(emiPlan(100000, 10, 0).emi).toBe(0);
+  });
+});
+
+describe('cuetScore', () => {
+  it('applies +5 correct / −1 wrong', () => {
+    const r = cuetScore(30, 5, 40);
+    expect(r.score).toBe(30 * 5 - 5); // 145
+    expect(r.max).toBe(200);
+    expect(r.percentage).toBe(72.5);
+  });
+  it('derives max from attempted when total omitted', () => {
+    expect(cuetScore(10, 0).max).toBe(50);
+  });
+});
+
+describe('cbseGrade', () => {
+  it('maps marks to the 9-point grade', () => {
+    expect(cbseGrade(95)).toEqual({ grade: 'A1', point: 10 });
+    expect(cbseGrade(85)).toEqual({ grade: 'A2', point: 9 });
+    expect(cbseGrade(33)).toEqual({ grade: 'D', point: 4 });
+    expect(cbseGrade(20)).toEqual({ grade: 'E', point: 0 });
   });
 });
