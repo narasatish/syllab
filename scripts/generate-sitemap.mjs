@@ -190,6 +190,8 @@ function buildUrls({ languages, topicsByLang }) {
   urls.push({ loc: '/answer-evaluator', priority: 0.8, changefreq: 'monthly' });
   // Unit converter.
   urls.push({ loc: '/unit-converter', priority: 0.8, changefreq: 'monthly' });
+  // Interactive periodic table.
+  urls.push({ loc: '/periodic-table', priority: 0.8, changefreq: 'monthly' });
 
   // Free printable worksheets.
   urls.push({ loc: '/worksheets', priority: 0.8, changefreq: 'weekly' });

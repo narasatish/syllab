@@ -1955,6 +1955,39 @@ ROUTES.push({
   });
 }
 
+// Interactive periodic table — parse the element data (one object per line) so
+// the prerendered page carries a full, crawlable 118-element table.
+{
+  let elements = [];
+  try {
+    const src = readFileSync(path.join(ROOT, 'src', 'data', 'periodicTable.ts'), 'utf8');
+    const re = /\{\s*z:\s*(\d+),\s*symbol:\s*'([^']+)',\s*name:\s*'([^']+)',\s*mass:\s*'([^']+)',\s*category:\s*'([^']+)',\s*group:\s*([0-9]+|null),\s*period:\s*(\d+)/g;
+    let m;
+    while ((m = re.exec(src)) !== null) {
+      elements.push({ z: +m[1], symbol: m[2], name: m[3], mass: m[4], category: m[5].replace(/-/g, ' '), group: m[6] === 'null' ? '—' : m[6], period: +m[7] });
+    }
+  } catch { /* leave empty */ }
+  const rows = elements.map((e) => `<tr><td>${e.z}</td><td><strong>${esc(e.symbol)}</strong></td><td>${esc(e.name)}</td><td>${esc(e.mass)}</td><td>${esc(e.category)}</td><td>${e.group}</td><td>${e.period}</td></tr>`).join('');
+  ROUTES.push({
+    path: '/periodic-table',
+    title: 'Interactive Periodic Table of Elements (2026) — Free | Syllab.in',
+    description: 'Free interactive periodic table with all 118 elements — tap any element for its atomic number, symbol, atomic mass, category, group, period, electron configuration and state. For CBSE, NCERT chemistry, JEE & NEET.',
+    keywords: 'periodic table, interactive periodic table, periodic table of elements, 118 elements, atomic mass, electron configuration, periodic table for JEE NEET, chemistry periodic table free',
+    bodyHtml: `
+      <p class="speakable">A free <strong>interactive periodic table</strong> with all ${elements.length || 118} chemical elements. The table arranges elements by increasing atomic number into 18 vertical groups and 7 horizontal periods; elements in the same group share similar chemical properties. Tap any element to see its atomic mass, category, group, period, state and electron configuration — for CBSE/NCERT chemistry, JEE and NEET.</p>
+      <h2>All 118 elements</h2>
+      <table><thead><tr><th>Z</th><th>Symbol</th><th>Name</th><th>Atomic mass</th><th>Category</th><th>Group</th><th>Period</th></tr></thead><tbody>${rows}</tbody></table>
+      <p>The lanthanides (elements 57–71) and actinides (89–103) make up the f-block shown as two separate rows. Make revision cards for tricky symbols with the free <a href="/flashcards">flashcards tool</a>, or convert units with the free <a href="/unit-converter">unit converter</a>.</p>`,
+    jsonLd: [
+      { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Interactive Periodic Table', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/periodic-table`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+      { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+        { '@type': 'Question', name: 'How many elements are in the periodic table?', acceptedAnswer: { '@type': 'Answer', text: 'There are 118 confirmed chemical elements, from hydrogen (atomic number 1) to oganesson (atomic number 118). The free Syllab interactive periodic table lets you tap any element to see its atomic mass, group, period, state and electron configuration.' } },
+        { '@type': 'Question', name: 'Is the interactive periodic table free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — it is 100% free, works in your browser, and needs no sign-up.' } },
+      ] },
+    ],
+  });
+}
+
 ROUTES.push({
   path: '/unit-converter',
   title: 'Free Unit Converter — Length, Mass, Temperature, Speed & More | Syllab.in',

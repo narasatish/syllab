@@ -17,6 +17,7 @@ import {
   EyeOff,
   Home,
   LogIn,
+  Atom,
   Layers,
   LogOut,
   Menu,
@@ -148,6 +149,7 @@ const CutoffsPage = React.lazy(() => import('./pages/Cutoffs'));
 const FlashcardsPage = React.lazy(() => import('./pages/Flashcards'));
 const AnswerEvaluatorPage = React.lazy(() => import('./pages/AnswerEvaluator'));
 const UnitConverterPage = React.lazy(() => import('./pages/UnitConverter'));
+const PeriodicTablePage = React.lazy(() => import('./pages/PeriodicTable'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
@@ -243,6 +245,7 @@ const TAB_TO_PATH: Record<string, string> = {
   flashcards: '/flashcards',
   answer_evaluator: '/answer-evaluator',
   unit_converter: '/unit-converter',
+  periodic_table: '/periodic-table',
   worksheets: '/worksheets',
   important_questions: '/important-questions',
   english_grammar: '/english-grammar',
@@ -300,7 +303,7 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'Free Tools', ids: ['calculators', 'unit_converter', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
+  { heading: 'Free Tools', ids: ['calculators', 'unit_converter', 'periodic_table', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
   { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
@@ -392,6 +395,12 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Download 100+ free printable worksheets for Pre-KG to Class 2: letters & tracing, phonics, sight words, reading, maths, shapes and more — print or save as PDF. Free, no signup.',
     keywords: 'free printable worksheets, alphabet tracing worksheets pdf, phonics worksheets, sight words worksheet, reading comprehension worksheets kids, addition subtraction worksheets, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, colors worksheet, science worksheets kindergarten, social emotional worksheets, kindergarten worksheets free download India, pre-kg worksheets pdf',
     url: 'https://syllab.in/worksheets',
+  },
+  periodic_table: {
+    title: 'Interactive Periodic Table of Elements (2026) — Free | Syllab.in',
+    description: 'Free interactive periodic table with all 118 elements — tap any element for its atomic number, symbol, atomic mass, category, group, period, electron configuration and state. For CBSE, NCERT chemistry, JEE & NEET.',
+    keywords: 'periodic table, interactive periodic table, periodic table of elements, 118 elements, atomic mass, electron configuration, periodic table for JEE NEET, chemistry periodic table free',
+    url: 'https://syllab.in/periodic-table',
   },
   unit_converter: {
     title: 'Free Unit Converter — Length, Mass, Temperature, Speed & More | Syllab.in',
@@ -1427,6 +1436,7 @@ export default function App() {
     { id: 'flashcards',        label: 'Flashcards',       icon: Layers },
     { id: 'answer_evaluator',  label: 'AI Answer Checker', icon: Sparkles },
     { id: 'unit_converter',    label: 'Unit Converter',   icon: Ruler },
+    { id: 'periodic_table',    label: 'Periodic Table',   icon: Atom },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
@@ -1819,6 +1829,7 @@ export default function App() {
                   {activeTab === 'flashcards' ? <FlashcardsPage /> : null}
                   {activeTab === 'answer_evaluator' ? <AnswerEvaluatorPage /> : null}
                   {activeTab === 'unit_converter' ? <UnitConverterPage /> : null}
+                  {activeTab === 'periodic_table' ? <PeriodicTablePage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
@@ -2016,6 +2027,7 @@ export default function App() {
               <li><button onClick={() => navigate('flashcards')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Flashcards</button></li>
               <li><button onClick={() => navigate('answer_evaluator')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Answer Checker</button></li>
               <li><button onClick={() => navigate('unit_converter')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Unit Converter</button></li>
+              <li><button onClick={() => navigate('periodic_table')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Periodic Table</button></li>
               <li><button onClick={() => navigate('progress')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Dashboard</button></li>
               <li><button onClick={() => navigate('learning_lab')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Tutor</button></li>
               <li><button onClick={() => setTutorOpen(true)} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
