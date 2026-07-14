@@ -119,6 +119,9 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
   const [selectedMock, setSelectedMock] = React.useState<MockTestMeta | null>(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
+  // Distinct from `error`: a logged-out user tapping "Start" isn't an error —
+  // show a friendly sign-in prompt (blue) instead of a scary red banner.
+  const [needLogin, setNeedLogin] = React.useState(false);
   // Olympiad exam state
   const [olympiadExam, setOlympiadExam] = React.useState<{ poolId: string; title: string; questions: OlympiadQuestion[] } | null>(null);
   const [olympiadAnswers, setOlympiadAnswers] = React.useState<Record<number, number>>({});
@@ -476,12 +479,13 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
     // Privacy + result-tracking gate: must sign in before taking any mock.
     // Browsing the list above is fine; starting the timer requires an account.
     if (!currentUser) {
-      setError('Please sign in or sign up — your mock test result needs to be saved to your account.');
+      setNeedLogin(true);
       // Bubble up to App to open the login modal
       window.dispatchEvent(new CustomEvent('syllab:require-login'));
       return;
     }
     setError(null);
+    setNeedLogin(false);
     setLoading(true);
     try {
       const loadedPaper = await loadMockTest(meta);
@@ -733,6 +737,23 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
             </div>
           )}
         </section>
+
+        {needLogin && (
+          <section className="rounded-[2rem] border border-sky-200 bg-sky-50 p-6 shadow-xl shadow-sky-200/40">
+            <div className="flex gap-4">
+              <div className="flex-1">
+                <h3 className="text-sm font-black text-sky-900">Sign in to start your mock 🔐</h3>
+                <p className="mt-1 text-sm font-medium text-sky-700">It’s free and takes a few seconds — signing in lets us save your score, timing and analysis to your account.</p>
+                <button type="button" onClick={() => window.dispatchEvent(new CustomEvent('syllab:require-login'))} className="mt-3 rounded-xl bg-sky-600 px-4 py-2 text-xs font-black text-white hover:bg-sky-700 transition-colors">
+                  Sign in / Sign up
+                </button>
+              </div>
+              <button type="button" onClick={() => setNeedLogin(false)} aria-label="Dismiss" className="flex-shrink-0 text-sky-600 hover:text-sky-700">
+                <X size={20} />
+              </button>
+            </div>
+          </section>
+        )}
 
         {error && (
           <section className="rounded-[2rem] border border-rose-200 bg-rose-50 p-6 shadow-xl shadow-rose-200/40">
