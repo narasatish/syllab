@@ -127,6 +127,33 @@ export async function askTutor(prompt: string, history: ChatTurn[] = [], timeout
   }
 }
 
+/**
+ * AI answer evaluator — grades a student's written answer against the question
+ * (and optional max marks) the way an Indian board / competitive-exam examiner
+ * would. Reuses the /api/tutor backend via askTutor and returns the AI's
+ * formatted feedback text (score, strengths, gaps, model points, verdict).
+ */
+export async function evaluateAnswer(question: string, answer: string, maxMarks?: number): Promise<string> {
+  const marks = maxMarks && maxMarks > 0 ? maxMarks : null;
+  const prompt = [
+    'You are a strict but encouraging examiner for Indian school and competitive exams (CBSE/NCERT, JEE, NEET).',
+    'Evaluate the student\'s answer to the question below and give actionable feedback.',
+    '',
+    `Question: ${question.trim()}`,
+    marks ? `Maximum marks: ${marks}` : 'Maximum marks: (use a sensible total such as 5)',
+    `Student's answer: ${answer.trim()}`,
+    '',
+    'Reply in exactly this markdown structure and nothing else:',
+    `**Score:** X out of ${marks || 5}`,
+    '**What you did well:** 2–3 short bullet points.',
+    '**What is missing or wrong:** 2–3 short bullet points.',
+    '**Key points a full-marks answer needs:** a concise bullet list.',
+    '**Verdict:** one encouraging sentence with the single most important next step.',
+    'Be specific, mark strictly but fairly, and keep it concise.',
+  ].join('\n');
+  return askTutor(prompt, [], 75_000);
+}
+
 /* ───────────── Practice Arena ───────────── */
 
 export interface GenerateQuestionsArgs {

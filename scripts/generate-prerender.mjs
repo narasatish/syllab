@@ -1956,6 +1956,26 @@ ROUTES.push({
 }
 
 ROUTES.push({
+  path: '/answer-evaluator',
+  title: 'Free AI Answer Checker & Evaluator | Syllab.in',
+  description: 'Paste any exam question and your answer — our free AI examiner scores it out of your chosen marks and shows what you did well, what\'s missing, and the key points a full-marks answer needs. For CBSE boards, JEE & NEET.',
+  keywords: 'AI answer checker, answer evaluator free, AI exam answer grader, check my answer, board exam answer feedback, model answer checker, AI marking, evaluate my answer online',
+  bodyHtml: `
+    <p class="speakable">Paste any exam <strong>question</strong> and your written <strong>answer</strong>, and our free AI examiner grades it the way a teacher would — a score out of your chosen marks, what you did well, what is missing or wrong, and the exact points a full-marks answer needs.</p>
+    <h2>How the AI answer checker helps</h2>
+    <p>Writing practice only improves you if someone tells you what to fix. The evaluator gives instant, examiner-style feedback on theory answers, definitions, derivations and long-form responses for CBSE boards, JEE and NEET — so you can rewrite and improve before the real exam.</p>
+    <h2>How to use it</h2>
+    <p>Type or paste the question, optionally set the maximum marks, paste your answer, and tap “Evaluate my answer”. Treat the AI feedback as a study aid and guidance, not the final board score. It is free and needs no sign-up. Pair it with free <a href="/pyqs">previous-year questions</a>, <a href="/mock-tests">mock tests</a> and the <a href="/study-planner">study planner</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab AI Answer Evaluator', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/answer-evaluator`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Can AI check my exam answer?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — paste the question and your answer into the free Syllab AI answer evaluator and it returns a score, what you did well, what is missing, and the key points a full-marks answer needs. It is a study aid, so treat the feedback as guidance rather than an official board score.' } },
+      { '@type': 'Question', name: 'Is the AI answer checker free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, it is 100% free and needs no sign-up.' } },
+    ] },
+  ],
+});
+
+ROUTES.push({
   path: '/flashcards',
   title: 'Free Flashcards with Spaced Repetition | Syllab.in',
   description: 'Make free flashcards and study smarter with spaced repetition (SM-2). Create your own decks, flip cards, and let the app schedule each card for the perfect time to review. Saved on your device. For CBSE, JEE & NEET.',
