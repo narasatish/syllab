@@ -1,7 +1,7 @@
 # Syllab.in — project memory (keep this short; details in docs/SESSION-STATE.md)
 
 Free AI learning platform for Indian students (CBSE/NCERT Class 1–12, JEE/NEET).
-React 19 + Vite 6 + TS + Tailwind v4 SPA · Firebase Hosting (project `gen-lang-client-0838820295`) · live at https://syllab.in · currently **v260**.
+React 19 + Vite 6 + TS + Tailwind v4 SPA · Firebase Hosting (project `gen-lang-client-0838820295`) · live at https://syllab.in · currently **v261**.
 
 ## Hard rules
 - **Deploy needs my explicit go-ahead each time.** Bump `CACHE_VERSION` in `public/sw.js` on EVERY deploy (`syllab-vNNN-date-slug`).

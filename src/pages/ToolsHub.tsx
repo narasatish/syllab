@@ -4,11 +4,64 @@
  * discover the tools than the Explore dropdown. Cards are real crawlable links
  * that navigate within the SPA.
  */
+import { useEffect, useState } from 'react';
 import PageHero from '../components/PageHero';
 import SEO from '../components/SEO';
 import { TOOLS } from '../data/toolsRegistry';
+import { loadStats, streak, totals, lastDays, todayISO } from '../lib/toolStats';
 
 const SITE = 'https://syllab.in';
+
+/**
+ * On-device study streak, built from work actually done in the tools (completed
+ * Pomodoro focus sessions + flashcard reviews). Renders nothing until there is
+ * something to show, so first-time visitors just see the tools.
+ */
+function StudyStreak() {
+  const [data, setData] = useState(() => ({} as ReturnType<typeof loadStats>));
+  useEffect(() => {
+    const read = () => setData(loadStats());
+    read();
+    window.addEventListener('syllab:tool-stats-updated', read);
+    return () => window.removeEventListener('syllab:tool-stats-updated', read);
+  }, []);
+
+  const today = todayISO();
+  const days = lastDays(data, today, 7);
+  const t = totals(data);
+  const s = streak(data, today);
+  if (t.focus + t.flashcard === 0) return null;
+
+  const max = Math.max(1, ...days.map((d) => d.count));
+  return (
+    <div className="mb-6 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-emerald-50/50 dark:from-primary/15 dark:to-slate-800 p-4">
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-5">
+          <div className="text-center">
+            <div className="text-2xl font-black text-primary">🔥 {s}</div>
+            <div className="text-[10px] font-bold uppercase tracking-wide text-slate-400">day streak</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-black text-slate-800 dark:text-slate-100">{t.focus}</div>
+            <div className="text-[10px] font-bold uppercase tracking-wide text-slate-400">focus sessions</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-black text-slate-800 dark:text-slate-100">{t.flashcard}</div>
+            <div className="text-[10px] font-bold uppercase tracking-wide text-slate-400">cards reviewed</div>
+          </div>
+        </div>
+        {/* last-7-days sparkline */}
+        <div className="flex items-end gap-1" aria-label="Activity over the last 7 days">
+          {days.map((d) => (
+            <div key={d.date} title={`${d.date}: ${d.count}`} className="w-3 rounded-sm bg-primary/70"
+              style={{ height: `${Math.max(4, Math.round((d.count / max) * 32))}px`, opacity: d.count ? 1 : 0.25 }} />
+          ))}
+        </div>
+      </div>
+      <p className="mt-2 text-[11px] text-slate-400">Tracked on this device from your Pomodoro sessions and flashcard reviews — nothing is uploaded.</p>
+    </div>
+  );
+}
 
 export default function ToolsHub({ navigate }: { navigate?: (path: string) => void }) {
   const go = (path: string) => {
@@ -29,6 +82,8 @@ export default function ToolsHub({ navigate }: { navigate?: (path: string) => vo
         jsonLd={{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free Student Tools', url: `${SITE}/tools`, inLanguage: 'en-IN', isAccessibleForFree: true }}
       />
       <PageHero emoji="🧰" title="Free Student Tools" subtitle="Every Syllab study tool in one place — calculators, timers, flashcards, converters and predictors. 100% free, no signup." className="mb-8" />
+
+      <StudyStreak />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {TOOLS.map((t) => (

@@ -10,6 +10,7 @@ import PageHero from '../components/PageHero';
 import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { scheduleCard, dueCards, newCard, type Deck, type Card, type Grade } from '../lib/flashcards';
+import { recordStat } from '../lib/toolStats';
 
 const SITE = 'https://syllab.in';
 const STORE_KEY = 'syllab_flashcards_v1';
@@ -70,6 +71,7 @@ export default function Flashcards() {
   const startStudy = () => { if (!active) return; setQueue(dueCards(active.cards, todayISO()).map((c) => c.id)); setFlipped(false); setStudying(true); };
   const grade = (g: Grade) => {
     if (!current) return;
+    recordStat('flashcard'); // counts toward the study streak on /tools
     updateActive((d) => ({ ...d, cards: d.cards.map((c) => (c.id === current.id ? scheduleCard(c, g, todayISO()) : c)) }));
     // 'again' pushes the card to the back of this session's queue; others drop it.
     setQueue((q) => (g === 'again' ? [...q.slice(1), q[0]] : q.slice(1)));

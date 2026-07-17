@@ -10,6 +10,7 @@ import PageHero from '../components/PageHero';
 import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { DEFAULT_SETTINGS, PHASE_LABEL, nextPhase, phaseMinutes, mmss, type Phase, type PomodoroSettings } from '../lib/pomodoro';
+import { recordStat } from '../lib/toolStats';
 
 const SITE = 'https://syllab.in';
 const STORE_KEY = 'syllab_pomodoro_settings_v1';
@@ -46,6 +47,9 @@ export default function Pomodoro() {
 
   const advance = useCallback(() => {
     chime();
+    // Record OUTSIDE the setPhase updater: recordStat increments on-device
+    // counters and is not idempotent, so it must not run twice under StrictMode.
+    if (phase === 'focus') recordStat('focus');
     setPhase((p) => {
       const doneFocus = p === 'focus' ? completedFocus + 1 : completedFocus;
       if (p === 'focus') setCompletedFocus(doneFocus);
@@ -54,7 +58,7 @@ export default function Pomodoro() {
       return np;
     });
     setRunning(false);
-  }, [completedFocus, settings]);
+  }, [completedFocus, settings, phase]);
 
   // Ticking.
   useEffect(() => {
