@@ -24,8 +24,12 @@ export default function ToolRelated({ current, count = 3 }: { current: string; c
       </div>
       <div className="grid gap-3 sm:grid-cols-3">
         {items.map((t) => (
+          // min-w-0 is required on the grid item itself: grid/flex children default
+          // to min-width:auto, so the nowrap `truncate` text below gives them a large
+          // min-content width and they refuse to shrink into their track (they then
+          // overflow and get clipped on narrow screens).
           <a key={t.path} href={t.path} onClick={(e) => { e.preventDefault(); go(t.path); }}
-            className="group flex items-center gap-3 rounded-xl border border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 hover:border-primary/40 hover:shadow-sm transition">
+            className="group flex min-w-0 items-center gap-3 rounded-xl border border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 hover:border-primary/40 hover:shadow-sm transition">
             <span className="text-2xl">{t.emoji}</span>
             <span className="min-w-0">
               <span className="block text-sm font-black text-slate-800 dark:text-slate-100 group-hover:text-primary transition-colors truncate">{t.title}</span>
