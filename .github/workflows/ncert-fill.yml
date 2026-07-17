@@ -23,20 +23,37 @@ concurrency:
 jobs:
   fill:
     runs-on: ubuntu-latest
-    if: ${{ secrets.GEMINI_API_KEY != '' }}
+    # NOTE: the `secrets` context is NOT available in a job-level `if:` — using it there
+    # makes the whole workflow file invalid ("Unrecognized named-value: 'secrets'"), which
+    # is why every run failed. Secrets ARE allowed in `env`, so the guard lives in a step.
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
     steps:
+      - name: Is Gemini configured?
+        id: guard
+        run: |
+          if [ -n "$GEMINI_API_KEY" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "GEMINI_API_KEY not set — skipping (this is not a failure)."
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.guard.outputs.run == 'true'
         with:
           ref: redesign-ui        # bot commits to the active working branch, not main
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.run == 'true'
         with:
           node-version: 20
       - name: Install deps
+        if: steps.guard.outputs.run == 'true'
         run: npm install --no-audit --no-fund
 
       - name: Generate NCERT solutions (rotating class)
+        if: steps.guard.outputs.run == 'true'
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ALLOW_PAID_GEMINI: '1'
         run: |
           # Rotate the class by day-of-week so coverage spreads across 6-12.
@@ -45,6 +62,7 @@ jobs:
           node node_modules/tsx/dist/cli.mjs scripts/generate-ncert-solutions.ts --class "$CLASS" || true
 
       - name: Commit if changed
+        if: steps.guard.outputs.run == 'true'
         run: |
           if [ -n "$(git status --porcelain public/data/ncert-solutions.json)" ]; then
             git config user.name "syllab-bot"

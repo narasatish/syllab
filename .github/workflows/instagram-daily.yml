@@ -40,20 +40,38 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    if: ${{ secrets.IG_ACCESS_TOKEN != '' || github.event_name == 'workflow_dispatch' }}
+    # NOTE: the `secrets` context is NOT available in a job-level `if:` — using it there
+    # makes the whole workflow file invalid ("Unrecognized named-value: 'secrets'"), which
+    # is why every run failed. Secrets ARE allowed in `env`, so the guard lives in a step.
     permissions:
       contents: write   # to commit the dedup registry back
+    env:
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
     steps:
+      - name: Is Instagram configured?
+        id: guard
+        run: |
+          if [ -n "$IG_ACCESS_TOKEN" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "IG_ACCESS_TOKEN not set — skipping (this is not a failure)."
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.guard.outputs.run == 'true'
         with:
           ref: redesign-ui        # bot commits to the active working branch, not main
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.run == 'true'
         with:
           node-version: 20
       - name: Install deps
+        if: steps.guard.outputs.run == 'true'
         run: npm install --no-audit --no-fund
 
       - name: Compute slot from trigger time
+        if: steps.guard.outputs.run == 'true'
         id: slot
         run: |
           H=$(date -u +%H); M=$(date -u +%M)
@@ -69,9 +87,9 @@ jobs:
           echo "Resolved slot='$SLOT' for ${H}:${M} UTC"
 
       - name: Run Instagram pipeline
+        if: steps.guard.outputs.run == 'true'
         env:
           IG_BUSINESS_ACCOUNT_ID: ${{ secrets.IG_BUSINESS_ACCOUNT_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
@@ -83,7 +101,7 @@ jobs:
           fi
 
       - name: Persist dedup registry + day plan
-        if: ${{ env.DRY_RUN != 'true' }}
+        if: steps.guard.outputs.run == 'true' && env.DRY_RUN != 'true'
         run: |
           git config user.name "syllab-ig-bot"
           git config user.email "bot@syllab.in"
