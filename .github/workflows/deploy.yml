@@ -47,6 +47,11 @@ jobs:
           VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
           VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          # App Check (reCAPTCHA v3 site key). Until this secret exists the value is empty and
+          # src/lib/firebase.ts skips initializeAppCheck — i.e. inert, exactly as today. Setting
+          # it turns App Check ON in the built client; you must ALSO enable enforcement in
+          # Firebase Console → App Check for it to actually block anything.
+          VITE_FIREBASE_APPCHECK_KEY: ${{ secrets.VITE_FIREBASE_APPCHECK_KEY }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
           VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
           VITE_FIREBASE_AUTH_ENABLED: ${{ secrets.VITE_FIREBASE_AUTH_ENABLED }}

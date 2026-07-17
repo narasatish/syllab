@@ -382,12 +382,29 @@ service cloud.firestore {
       allow delete: if false;
 
       // Members: ephemeral presence docs (name + heartbeat), validated + capped.
+      //
+      // AUTH NOTE: this feature deliberately supports signed-out guests
+      // (CoStudyPanel: `memberId = userUid || guestId`), so we cannot require
+      // request.auth here without breaking guest join. Consequence: identity isn't
+      // verifiable, so someone who knows a room code could still overwrite/delete
+      // another member's presence doc. The proper fix is Firebase Anonymous Auth —
+      // give guests a real uid, then require memberId == request.auth.uid.
+      //
+      // What we DO enforce below: an exact field whitelist + size/range caps, so this
+      // subcollection can never be abused as free arbitrary storage (quota burn).
       match /members/{memberId} {
         allow read: if true;
-        allow create, update: if request.resource.data.name is string
+        allow create, update: if request.resource.data.keys().hasOnly(['name', 'goal', 'minutes', 'joinedAt', 'lastSeen'])
+            && request.resource.data.name is string
             && request.resource.data.name.size() > 0
-            && request.resource.data.name.size() <= 24;
-        allow delete: if true; // leaving a room removes your own presence doc
+            && request.resource.data.name.size() <= 24
+            && (!('goal' in request.resource.data)
+                || (request.resource.data.goal is string && request.resource.data.goal.size() <= 80))
+            && (!('minutes' in request.resource.data)
+                || (request.resource.data.minutes is number
+                    && request.resource.data.minutes >= 0
+                    && request.resource.data.minutes <= 1440));
+        allow delete: if true; // leaving a room removes your presence doc (see AUTH NOTE)
       }
     }
 
