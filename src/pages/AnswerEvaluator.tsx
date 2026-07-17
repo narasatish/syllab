@@ -7,6 +7,7 @@
 import { useState } from 'react';
 import { Sparkles, Loader2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import AnswerMarkdown from '../components/AnswerMarkdown';
 import { evaluateAnswer } from '../lib/api';
@@ -90,6 +91,8 @@ export default function AnswerEvaluator() {
           <p>It is free and needs no sign-up. Pair it with free <a href="/pyqs" className="font-bold text-primary hover:underline">previous-year questions</a>, <a href="/mock-tests" className="font-bold text-primary hover:underline">mock tests</a> and the <a href="/study-planner" className="font-bold text-primary hover:underline">study planner</a>.</p>
         </section>
       )}
+
+      <ToolRelated current="/answer-evaluator" />
     </div>
   );
 }

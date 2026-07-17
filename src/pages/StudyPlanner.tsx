@@ -6,6 +6,7 @@
 import { useMemo, useState, useEffect } from 'react';
 import { CalendarClock, Plus, Trash2, Printer, RotateCcw } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { buildStudyPlan, type PlanDay } from '../lib/studyPlanner';
 
@@ -157,6 +158,8 @@ export default function StudyPlanner() {
           <p>It works for CBSE board exams, JEE, NEET and college semesters alike. Your plan is saved on your device, and you can print it or save it as a PDF to stick on your wall. 100% free, no sign-up.</p>
         </section>
       )}
+
+      <ToolRelated current="/study-planner" />
     </div>
   );
 }

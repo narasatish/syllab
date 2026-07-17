@@ -7,6 +7,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Play, Pause, RotateCcw, SkipForward } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { DEFAULT_SETTINGS, PHASE_LABEL, nextPhase, phaseMinutes, mmss, type Phase, type PomodoroSettings } from '../lib/pomodoro';
 
@@ -141,6 +142,8 @@ export default function Pomodoro() {
         <p>The Pomodoro technique breaks study into focused 25-minute sprints separated by short 5-minute breaks, with a longer 15-minute break after every four sprints. Working against a ticking timer makes it far easier to start, blocks distractions, and prevents burnout — one of the simplest ways to beat procrastination and study for longer.</p>
         <p>Adjust the focus and break lengths to suit you, and the timer remembers your settings on this device. Pair it with the free <a href="/study-planner" className="font-bold text-primary hover:underline">study planner</a> and <a href="/flashcards" className="font-bold text-primary hover:underline">flashcards</a> for a complete study routine. Free, no sign-up.</p>
       </section>
+
+      <ToolRelated current="/pomodoro" />
     </div>
   );
 }

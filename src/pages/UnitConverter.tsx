@@ -6,6 +6,7 @@
 import { useMemo, useState } from 'react';
 import { ArrowLeftRight, Copy, Check } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { CATEGORIES, convert, fmt } from '../lib/unitConverter';
 
@@ -98,6 +99,8 @@ export default function UnitConverter() {
         <p>Convert between metric and imperial units across ten categories — length (cm, m, km, inch, foot, mile), mass (g, kg, pound, ounce), temperature (Celsius, Fahrenheit, Kelvin), speed (m/s, km/h, mph), energy (joule, calorie, kWh), pressure (Pa, atm, bar, psi), area, volume, time and digital storage. Perfect for physics and chemistry numericals, lab work and everyday maths.</p>
         <p>Every conversion uses exact factors (for example 1 inch = 2.54 cm, 1 pound = 0.45359237 kg, and °F = °C × 9⁄5 + 32). It runs entirely in your browser — free, instant, no sign-up. Need marks maths too? Try the free <a href="/calculators" className="font-bold text-primary hover:underline">student calculators</a>.</p>
       </section>
+
+      <ToolRelated current="/unit-converter" />
     </div>
   );
 }

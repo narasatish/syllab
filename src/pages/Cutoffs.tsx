@@ -8,6 +8,7 @@
 import { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { COLLEGES, stateSlugForCollege } from '../data/colleges';
 
@@ -108,6 +109,8 @@ export default function Cutoffs() {
         <p>A “cutoff” is the closing rank or score at which admission to a branch closed in the last round of counselling. A lower closing rank means a more competitive college/branch. Cutoffs shift every year with the number of applicants, seats and difficulty, so always treat them as indicative and confirm on the official counselling website (JoSAA/CSAB for NITs &amp; IIITs, or your state authority).</p>
         <p>Want a personalized estimate? Try the free <a href="/career-predictor" className="font-bold text-primary hover:underline">rank &amp; college predictor</a>, or browse <a href="/colleges" className="font-bold text-primary hover:underline">all colleges by state</a>.</p>
       </section>
+
+      <ToolRelated current="/cutoffs" />
     </div>
   );
 }

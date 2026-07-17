@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Plus, Trash2, RotateCcw } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { summarise, marksToTarget, type Subject } from '../lib/marksTracker';
 import { percentage } from '../lib/calculators';
@@ -124,6 +125,8 @@ export default function MarksTracker() {
         <p>Enter the marks you scored in each subject out of its maximum and instantly see your overall percentage, CBSE grade, and which subject is your strongest and weakest — so you know exactly where to put your effort. Add the marks still to be assessed and a target percentage, and the tracker tells you the exact score you need to get there.</p>
         <p>Everything is saved on your device — free, no sign-up. Pair it with the free <a href="/calculators" className="font-bold text-primary hover:underline">calculators</a> and the <a href="/study-planner" className="font-bold text-primary hover:underline">study planner</a>.</p>
       </section>
+
+      <ToolRelated current="/marks-tracker" />
     </div>
   );
 }

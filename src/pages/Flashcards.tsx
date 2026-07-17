@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Plus, Trash2, RotateCcw, Layers, GraduationCap } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { scheduleCard, dueCards, newCard, type Deck, type Card, type Grade } from '../lib/flashcards';
 
@@ -195,6 +196,8 @@ export default function Flashcards() {
           <p>Rate each card <em>Again</em>, <em>Hard</em>, <em>Good</em> or <em>Easy</em> and the scheduler (based on the proven SM-2 algorithm) picks the best day to show it next. Your decks are saved on this device — free, no sign-up. Pair them with the free <a href="/study-planner" className="font-bold text-primary hover:underline">study planner</a> and <a href="/mock-tests" className="font-bold text-primary hover:underline">mock tests</a>.</p>
         </section>
       )}
+
+      <ToolRelated current="/flashcards" />
     </div>
   );
 }

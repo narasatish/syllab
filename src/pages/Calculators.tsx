@@ -5,6 +5,7 @@
 import { useState } from 'react';
 import { Percent, GraduationCap, CalendarCheck, Target, Plus, Trash2, CalendarClock, Landmark, ClipboardList, Award, Copy, Check } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import {
   percentage, cgpaToPercentage, percentageToCgpa,
   attendancePercent, classesYouCanSkip, classesToReachTarget,
@@ -356,6 +357,8 @@ export default function Calculators() {
         <p><strong className="text-slate-800">CBSE grade:</strong> converts a subject mark (out of 100) to the CBSE 9-point grade and grade point — A1 (91–100, 10 points) down to E (below 33). Handy for reading your report card at a glance.</p>
         <p className="text-xs text-slate-400">All tools run entirely in your browser. No login, no ads, nothing stored — free for every Indian student. Tap “Copy / share result” on any calculator to save or send your answer.</p>
       </section>
+
+      <ToolRelated current="/calculators" />
     </div>
   );
 }

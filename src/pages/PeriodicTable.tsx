@@ -7,6 +7,7 @@
 import { useMemo, useState } from 'react';
 import { X, Search } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
 import { ELEMENTS, type Element } from '../data/periodicTable';
 
@@ -116,6 +117,8 @@ export default function PeriodicTable() {
         <p>The periodic table arranges all 118 known chemical elements by increasing atomic number into 18 vertical <strong>groups</strong> and 7 horizontal <strong>periods</strong>. Elements in the same group share similar chemical properties because they have the same number of valence electrons. Tap any element above to see its atomic mass, category, group, period, state at room temperature and electron configuration — everything you need for CBSE/NCERT chemistry, JEE and NEET.</p>
         <p>The two rows below the main table are the <strong>lanthanides</strong> (elements 57–71) and <strong>actinides</strong> (89–103), the f-block. Colours group elements into families — alkali metals, alkaline earth metals, transition metals, metalloids, nonmetals, halogens (a reactive nonmetal family) and noble gases. Free, no sign-up. Make revision cards for tricky symbols with the free <a href="/flashcards" className="font-bold text-primary hover:underline">flashcards tool</a>.</p>
       </section>
+
+      <ToolRelated current="/periodic-table" />
     </div>
   );
 }
