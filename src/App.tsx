@@ -37,6 +37,7 @@ import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { cn } from './lib/utils';
 import SEO from './components/SEO';
 import InstallPrompt from './components/InstallPrompt';
+import OfflineBanner from './components/OfflineBanner';
 import ColdStartBanner from './components/ColdStartBanner';
 import DraggableFab from './components/DraggableFab';
 // Lazy — PomodoroTimer is an opt-in focus widget that uses framer-motion. Loading
@@ -2198,6 +2199,7 @@ export default function App() {
       </footer>
       ) : null}
       <InstallPrompt />
+      <OfflineBanner />
     </div>
     </MotionConfig>
   );
