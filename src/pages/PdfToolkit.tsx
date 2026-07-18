@@ -12,7 +12,7 @@
  * via getTextContent() works and is what we ship.
  */
 import { useCallback, useRef, useState } from 'react';
-import { UploadCloud, Download, Loader2, ShieldCheck, FileText } from 'lucide-react';
+import { UploadCloud, Download, Loader2, ShieldCheck, FileText, Eraser } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
@@ -20,7 +20,7 @@ import { MAX_PDF_BYTES, parsePageRanges, formatBytes } from '../lib/fileTools';
 
 const SITE = 'https://syllab.in';
 
-type Mode = 'merge' | 'split' | 'rotate' | 'delete' | 'img2pdf' | 'watermark' | 'numbers' | 'flatten' | 'totext';
+type Mode = 'merge' | 'split' | 'rotate' | 'delete' | 'img2pdf' | 'watermark' | 'numbers' | 'flatten' | 'totext' | 'sign';
 const MODES: { id: Mode; label: string; multi?: boolean; images?: boolean }[] = [
   { id: 'merge', label: 'Merge', multi: true },
   { id: 'split', label: 'Split' },
@@ -29,9 +29,52 @@ const MODES: { id: Mode; label: string; multi?: boolean; images?: boolean }[] = 
   { id: 'img2pdf', label: 'Images → PDF', multi: true, images: true },
   { id: 'watermark', label: 'Watermark' },
   { id: 'numbers', label: 'Page numbers' },
+  { id: 'sign', label: 'Sign' },
   { id: 'flatten', label: 'Flatten form' },
   { id: 'totext', label: 'PDF → Text' },
 ];
+
+type SigPos = 'left' | 'center' | 'right';
+
+/** A canvas the user draws a signature on with pointer events (works on touch). */
+function SignaturePad({ canvasRef, onChange }: { canvasRef: React.RefObject<HTMLCanvasElement | null>; onChange: (hasSig: boolean) => void }) {
+  const drawing = useRef(false);
+  const last = useRef<{ x: number; y: number } | null>(null);
+
+  const pos = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current!;
+    const rect = canvas.getBoundingClientRect();
+    return { x: (e.clientX - rect.left) * (canvas.width / rect.width), y: (e.clientY - rect.top) * (canvas.height / rect.height) };
+  };
+  const start = (e: React.PointerEvent<HTMLCanvasElement>) => { drawing.current = true; last.current = pos(e); e.currentTarget.setPointerCapture(e.pointerId); };
+  const move = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (!drawing.current) return;
+    const ctx = canvasRef.current!.getContext('2d')!;
+    const p = pos(e);
+    ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 2.4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(last.current!.x, last.current!.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+    last.current = p; onChange(true);
+  };
+  const end = () => { drawing.current = false; last.current = null; };
+
+  const clear = () => {
+    const canvas = canvasRef.current;
+    if (canvas) canvas.getContext('2d')!.clearRect(0, 0, canvas.width, canvas.height);
+    onChange(false);
+  };
+
+  return (
+    <div>
+      <span className="text-[11px] font-bold text-slate-500">Draw your signature</span>
+      <div className="mt-1 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-600 bg-white">
+        <canvas ref={canvasRef} width={480} height={160}
+          onPointerDown={start} onPointerMove={move} onPointerUp={end} onPointerLeave={end}
+          style={{ touchAction: 'none', width: '100%', height: 'auto', display: 'block', cursor: 'crosshair' }} />
+      </div>
+      <button type="button" onClick={clear} className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-black text-slate-500 hover:text-slate-700"><Eraser size={12} /> Clear</button>
+    </div>
+  );
+}
 
 interface Output { url: string; name: string; size: number; text?: string }
 
@@ -44,7 +87,11 @@ export default function PdfToolkit() {
   const [ranges, setRanges] = useState('1-3,5');
   const [angle, setAngle] = useState<90 | 180 | 270>(90);
   const [wmText, setWmText] = useState('CONFIDENTIAL');
+  const [signPos, setSignPos] = useState<SigPos>('right');
+  const [signPage, setSignPage] = useState(''); // blank = last page
+  const [hasSig, setHasSig] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
+  const sigCanvas = useRef<HTMLCanvasElement | null>(null);
 
   const cfg = MODES.find((m) => m.id === mode)!;
 
@@ -142,6 +189,26 @@ export default function PdfToolkit() {
           const label = `${i + 1} / ${pages.length}`;
           pg.drawText(label, { x: width / 2 - font.widthOfTextAtSize(label, 10) / 2, y: 18, size: 10, font, color: rgb(0.35, 0.35, 0.35) });
         });
+      } else if (mode === 'sign') {
+        const canvas = sigCanvas.current;
+        if (!canvas || !hasSig) throw new Error('Please draw your signature in the box first.');
+        outDoc = await PDFDocument.load(await files[0].arrayBuffer());
+        // IMPORTANT: decode the data URL with atob → Uint8Array. fetch() on a
+        // data: URL can hang and freeze the tool (verified) — never fetch here.
+        const b64 = canvas.toDataURL('image/png').split(',')[1] || '';
+        const bin = atob(b64);
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        const png = await outDoc.embedPng(bytes);
+        const pages = outDoc.getPages();
+        const idx = Math.min(Math.max(1, parseInt(signPage, 10) || pages.length), pages.length) - 1;
+        const page = pages[idx];
+        const { width } = page.getSize();
+        const sigW = Math.min(160, width - 48);
+        const sigH = (png.height / png.width) * sigW;
+        const margin = 28;
+        const x = signPos === 'center' ? (width - sigW) / 2 : signPos === 'right' ? width - sigW - margin : margin;
+        page.drawImage(png, { x, y: margin, width: sigW, height: sigH });
       } else { // flatten
         outDoc = await PDFDocument.load(await files[0].arrayBuffer());
         const form = outDoc.getForm();
@@ -165,9 +232,9 @@ export default function PdfToolkit() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
       <SEO
-        title="Free PDF Tools — Merge, Split, Watermark, PDF to Text | Syllab.in"
-        description="Free private PDF tools that work 100% in your browser — your files never leave your device. Merge, split, rotate, delete pages, images to PDF, add a watermark, add page numbers, flatten forms and extract text. No upload, no signup."
-        keywords="free pdf tools, merge pdf, split pdf, watermark pdf, add page numbers pdf, pdf to text, flatten pdf, images to pdf, rotate pdf, delete pdf pages, ilovepdf free alternative, private pdf editor"
+        title="Free PDF Tools — Merge, Split, Sign, Watermark, PDF to Text | Syllab.in"
+        description="Free private PDF tools that work 100% in your browser — your files never leave your device. Merge, split, rotate, delete pages, images to PDF, add a watermark, add page numbers, sign a PDF, flatten forms and extract text. No upload, no signup."
+        keywords="free pdf tools, merge pdf, split pdf, sign pdf free, add signature to pdf, e-sign pdf online, watermark pdf, add page numbers pdf, pdf to text, flatten pdf, images to pdf, rotate pdf, delete pdf pages, ilovepdf free alternative, private pdf editor"
         url={`${SITE}/pdf-tools`}
         jsonLd={[
           { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab PDF Toolkit', applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url: `${SITE}/pdf-tools`, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
@@ -183,7 +250,7 @@ export default function PdfToolkit() {
 
       <div className="flex flex-wrap gap-2">
         {MODES.map((m) => (
-          <button key={m.id} type="button" onClick={() => { setMode(m.id); setFiles([]); reset(); }}
+          <button key={m.id} type="button" onClick={() => { setMode(m.id); setFiles([]); setHasSig(false); reset(); }}
             className={`rounded-full px-3.5 py-1.5 text-xs font-black transition ${mode === m.id ? 'bg-primary text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'}`}>
             {m.label}
           </button>
@@ -218,6 +285,20 @@ export default function PdfToolkit() {
             <label className="block"><span className="text-[11px] font-bold text-slate-500">Watermark text</span>
               <input value={wmText} onChange={(e) => setWmText(e.target.value)} maxLength={40} placeholder="CONFIDENTIAL" className={`mt-1 w-56 ${inputCls}`} /></label>
           )}
+          {mode === 'sign' && (
+            <div className="w-full space-y-3">
+              <SignaturePad canvasRef={sigCanvas} onChange={setHasSig} />
+              <div className="flex flex-wrap items-end gap-3">
+                <div><span className="text-[11px] font-bold text-slate-500">Position</span>
+                  <div className="mt-1 flex gap-2">{(['left', 'center', 'right'] as SigPos[]).map((p) => (
+                    <button key={p} type="button" onClick={() => setSignPos(p)} className={`rounded-lg px-3 py-1.5 text-xs font-black capitalize ${signPos === p ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600'}`}>{p}</button>
+                  ))}</div>
+                </div>
+                <label className="block"><span className="text-[11px] font-bold text-slate-500">Page (blank = last)</span>
+                  <input type="number" min={1} value={signPage} onChange={(e) => setSignPage(e.target.value)} placeholder="last" className={`mt-1 w-28 ${inputCls}`} /></label>
+              </div>
+            </div>
+          )}
         </div>
 
         {files.length > 0 && (
@@ -243,7 +324,7 @@ export default function PdfToolkit() {
 
       <section className="mt-8 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
         <h2 className="text-lg font-black text-slate-900 dark:text-slate-100">Private PDF tools that never upload your files</h2>
-        <p>Unlike iLovePDF or SmallPDF, these tools never upload your documents. <strong>Merge, split, rotate, delete pages, turn images into a PDF, add a watermark or page numbers, flatten a filled form and extract text</strong> — all run entirely in your browser with pdf-lib and pdf.js, so your files stay private on your device.</p>
+        <p>Unlike iLovePDF or SmallPDF, these tools never upload your documents. <strong>Merge, split, rotate, delete pages, turn images into a PDF, add a watermark or page numbers, sign a PDF, flatten a filled form and extract text</strong> — all run entirely in your browser with pdf-lib and pdf.js, so your files stay private on your device.</p>
         <p>100% free, no sign-up, no watermark added by us. Working with photos? Try the free <a href="/image-tools" className="font-bold text-primary hover:underline">Image Tools</a> — also fully private.</p>
       </section>
 

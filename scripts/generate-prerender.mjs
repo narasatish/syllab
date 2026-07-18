@@ -2099,6 +2099,80 @@ ROUTES.push({
     ] },
   ],
 });
+ROUTES.push({
+  path: '/compare',
+  title: 'Compare Text & Documents Online — Free Diff Checker | Syllab.in',
+  description: 'Free online tool to compare two texts or documents and highlight the differences. Paste text or load a PDF, Word (DOCX) or TXT file — everything runs privately in your browser, nothing is uploaded.',
+  keywords: 'compare text online, text diff, diff checker, compare two documents, compare pdf free, compare word documents, find differences between two texts, online diff tool',
+  bodyHtml: `
+    <p class="speakable"><strong>A private diff checker for text, PDF and Word files.</strong> Paste two versions, or load a PDF, DOCX or TXT file into each side, and this tool highlights every added and removed line — all in your browser, nothing uploaded.</p>
+    <h2>What you can do</h2>
+    <ul>
+      <li><strong>Compare two texts</strong> — paste an original and a changed version to spot every edit.</li>
+      <li><strong>Compare documents</strong> — load a <strong>PDF</strong> (text extracted with pdf.js), a <strong>Word DOCX</strong> (via mammoth) or a <strong>TXT</strong> file.</li>
+      <li><strong>Colour-coded result</strong> — additions in green, removals in red, with an added/removed count.</li>
+    </ul>
+    <p>100% free, no sign-up, nothing uploaded. Need to edit a PDF? Use the free <a href="/pdf-tools">PDF Tools</a>, jot ideas in the <a href="/notes">Notepad</a>, or browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Compare (Diff Checker)', applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url: `${SITE}/compare`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'HowTo', name: 'How to compare two documents for free', step: [
+      { '@type': 'HowToStep', name: 'Add the first version', text: 'Paste text or load a PDF, DOCX or TXT file into the Original box.' },
+      { '@type': 'HowToStep', name: 'Add the second version', text: 'Paste or load the changed version into the Changed box.' },
+      { '@type': 'HowToStep', name: 'Compare', text: 'Click Compare to see every added and removed line, colour-coded — all privately in your browser.' },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Are my documents uploaded when I compare them?', acceptedAnswer: { '@type': 'Answer', text: 'No. Both texts are compared entirely in your browser — PDF and DOCX text is extracted locally with pdf.js and mammoth. Your files never leave your device.' } },
+      { '@type': 'Question', name: 'Can I compare a PDF with a Word document?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Load a PDF on one side and a DOCX (or paste text) on the other; the tool extracts the plain text from each and highlights the differences.' } },
+    ] },
+  ],
+});
+ROUTES.push({
+  path: '/notes',
+  title: 'Free Online Notepad That Saves — Private Notes App | Syllab.in',
+  description: 'A free online notepad that saves automatically in your browser. Write rich-text notes with bold, headings and lists, keep multiple notes, and they stay after you reload — no signup, nothing uploaded, works offline.',
+  keywords: 'free online notepad, notepad that saves, notes app browser, save notes online, online notepad, rich text notepad, private notes, notepad no login',
+  bodyHtml: `
+    <p class="speakable"><strong>A free online notepad that actually saves.</strong> Type rich-text notes and they auto-save to your browser — still here when you come back, even offline. No login, nothing uploaded.</p>
+    <h2>What you can do</h2>
+    <ul>
+      <li><strong>Rich text</strong> — bold, italic, underline, headings and bullet or numbered lists.</li>
+      <li><strong>Many notes</strong> — keep a sidebar of notes and switch between them.</li>
+      <li><strong>Auto-save</strong> — every keystroke is saved to your browser and survives a reload.</li>
+      <li><strong>Private &amp; offline</strong> — notes stay on your device; clearing browser data removes them.</li>
+    </ul>
+    <p>100% free, no sign-up. Comparing two drafts? Use the free <a href="/compare">Compare</a> tool, turn a note into a PDF with <a href="/pdf-tools">PDF Tools</a>, or browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Notepad', applicationCategory: 'Productivity', operatingSystem: 'Web', url: `${SITE}/notes`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Do my notes get saved?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every note auto-saves to your browser as you type and stays after you reload or close the tab. Notes are stored on your device only — nothing is uploaded.' } },
+      { '@type': 'Question', name: 'Is this notepad private?', acceptedAnswer: { '@type': 'Answer', text: 'Completely. Notes never leave your browser and there is no account or upload. Clearing your browser data will remove them, so copy anything important elsewhere too.' } },
+    ] },
+  ],
+});
+ROUTES.push({
+  path: '/everyday',
+  title: 'Everyday Calculators — Unit Converter, Percentage, Age, BMI | Syllab.in',
+  description: 'Free everyday calculators in one place: unit converter (length, weight, temperature, data, speed, area), percentage calculator, age calculator, date difference, BMI and a lorem ipsum generator. No signup.',
+  keywords: 'unit converter, percentage calculator, age calculator, date difference calculator, bmi calculator, lorem ipsum generator, everyday calculators, online calculator free',
+  bodyHtml: `
+    <p class="speakable"><strong>Six everyday calculators in one free page.</strong> Convert units, work out percentages, calculate your exact age, count days between dates, find your BMI, and generate lorem ipsum — all free and in your browser.</p>
+    <h2>What you can do</h2>
+    <ul>
+      <li><strong>Unit converter</strong> — length, weight, temperature, digital data, speed and area.</li>
+      <li><strong>Percentage calculator</strong> — A% of B, A is what % of B, and % change.</li>
+      <li><strong>Age calculator</strong> — exact years, months and days from a date of birth.</li>
+      <li><strong>Date difference</strong> — days and weeks between two dates.</li>
+      <li><strong>BMI calculator</strong> — from weight (kg) and height (cm), with the category band.</li>
+      <li><strong>Lorem ipsum</strong> — placeholder words, sentences or paragraphs.</li>
+    </ul>
+    <p>100% free, no sign-up. For exam maths like CGPA and attendance, see the <a href="/calculators">Student Calculators</a>, or browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Everyday Tools', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', url: `${SITE}/everyday`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'What can these everyday calculators do?', acceptedAnswer: { '@type': 'Answer', text: 'Convert units (length, weight, temperature, data, speed, area), work out percentages three ways, calculate exact age from a date of birth, find the number of days between two dates, compute BMI, and generate lorem ipsum placeholder text — all free and in your browser.' } },
+    ] },
+  ],
+});
 
 // Free student tools hub — links every tool (crawlable internal-link asset).
 {
@@ -2113,8 +2187,11 @@ ROUTES.push({
     ['/answer-evaluator', '✍️', 'AI Answer Evaluator', 'Examiner-style score and feedback on your written answers.'],
     ['/cutoffs', '🎯', 'College Cutoffs', 'Indicative closing cutoffs for top engineering colleges by exam.'],
     ['/career-predictor', '🔮', 'Career & College Predictor', 'JEE/NEET rank & college predictor and a career interest quiz.'],
-    ['/pdf-tools', '📄', 'PDF Tools', 'Merge, split, watermark, page numbers, images→PDF & PDF→text — private, in your browser.'],
+    ['/pdf-tools', '📄', 'PDF Tools', 'Merge, split, watermark, page numbers, sign, images→PDF & PDF→text — private, in your browser.'],
     ['/image-tools', '🖼️', 'Image Tools', 'Compress, resize, convert, rotate, flip, crop & HEIC→JPG — private, in your browser.'],
+    ['/compare', '🔍', 'Compare Text & Docs', 'Diff two texts or documents (PDF/DOCX/TXT) and highlight what changed — private.'],
+    ['/notes', '📝', 'Notepad', 'A private rich-text notepad that auto-saves in your browser — multiple notes, offline.'],
+    ['/everyday', '🧰', 'Everyday Tools', 'Unit converter, percentage, age, date difference, BMI & lorem ipsum — six in one.'],
   ];
   ROUTES.push({
     path: '/tools',

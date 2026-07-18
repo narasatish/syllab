@@ -21,6 +21,9 @@ import {
   Wrench,
   FileText,
   Image,
+  GitCompare,
+  NotebookPen,
+  SlidersHorizontal,
   Layers,
   LogOut,
   Menu,
@@ -159,6 +162,9 @@ const MarksTrackerPage = React.lazy(() => import('./pages/MarksTracker'));
 const ToolsHubPage = React.lazy(() => import('./pages/ToolsHub'));
 const PdfToolkitPage = React.lazy(() => import('./pages/PdfToolkit'));
 const ImageToolkitPage = React.lazy(() => import('./pages/ImageToolkit'));
+const ComparePage = React.lazy(() => import('./pages/ComparePage'));
+const NotesPage = React.lazy(() => import('./pages/NotesPage'));
+const EverydayToolsPage = React.lazy(() => import('./pages/EverydayToolsPage'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
@@ -260,6 +266,9 @@ const TAB_TO_PATH: Record<string, string> = {
   tools_hub: '/tools',
   pdf_tools: '/pdf-tools',
   image_tools: '/image-tools',
+  compare_tool: '/compare',
+  notes_tool: '/notes',
+  everyday_tools: '/everyday',
   worksheets: '/worksheets',
   important_questions: '/important-questions',
   english_grammar: '/english-grammar',
@@ -317,7 +326,7 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'Free Tools', ids: ['tools_hub', 'pdf_tools', 'image_tools', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
+  { heading: 'Free Tools', ids: ['tools_hub', 'pdf_tools', 'image_tools', 'compare_tool', 'notes_tool', 'everyday_tools', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
   { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
@@ -421,6 +430,24 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Free private image tools that work 100% in your browser — your files never leave your device. Compress, resize, convert (JPG/PNG/WebP), rotate, flip, crop and convert HEIC to JPG. No upload, no signup, no watermark.',
     keywords: 'compress image, resize image, convert image, jpg to png, png to webp, heic to jpg, rotate image, flip image, crop image, free image tools, image compressor online free, private image tools',
     url: 'https://syllab.in/image-tools',
+  },
+  compare_tool: {
+    title: 'Compare Text & Documents Online — Free Diff Checker | Syllab.in',
+    description: 'Free online tool to compare two texts or documents and highlight the differences. Paste text or load a PDF, Word (DOCX) or TXT file — everything runs privately in your browser, nothing is uploaded.',
+    keywords: 'compare text online, text diff, diff checker, compare two documents, compare pdf free, compare word documents, find differences between two texts, online diff tool',
+    url: 'https://syllab.in/compare',
+  },
+  notes_tool: {
+    title: 'Free Online Notepad That Saves — Private Notes App | Syllab.in',
+    description: 'A free online notepad that saves automatically in your browser. Write rich-text notes with bold, headings and lists, keep multiple notes, and they stay after you reload — no signup, nothing uploaded, works offline.',
+    keywords: 'free online notepad, notepad that saves, notes app browser, save notes online, online notepad, rich text notepad, private notes, notepad no login',
+    url: 'https://syllab.in/notes',
+  },
+  everyday_tools: {
+    title: 'Everyday Calculators — Unit Converter, Percentage, Age, BMI | Syllab.in',
+    description: 'Free everyday calculators in one place: unit converter (length, weight, temperature, data, speed, area), percentage calculator, age calculator, date difference, BMI and a lorem ipsum generator. No signup.',
+    keywords: 'unit converter, percentage calculator, age calculator, date difference calculator, bmi calculator, lorem ipsum generator, everyday calculators, online calculator free',
+    url: 'https://syllab.in/everyday',
   },
   tools_hub: {
     title: 'Free Student Tools — Calculators, Timers, Flashcards & More | Syllab.in',
@@ -1486,6 +1513,9 @@ export default function App() {
     { id: 'marks_tracker',     label: 'Marks Tracker',    icon: ChartNoAxesCombined },
     { id: 'pdf_tools',         label: 'PDF Tools',        icon: FileText },
     { id: 'image_tools',       label: 'Image Tools',      icon: Image },
+    { id: 'compare_tool',      label: 'Compare',          icon: GitCompare },
+    { id: 'notes_tool',        label: 'Notepad',          icon: NotebookPen },
+    { id: 'everyday_tools',    label: 'Everyday Tools',   icon: SlidersHorizontal },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
@@ -1884,6 +1914,9 @@ export default function App() {
                   {activeTab === 'tools_hub' ? <ToolsHubPage /> : null}
                   {activeTab === 'pdf_tools' ? <PdfToolkitPage /> : null}
                   {activeTab === 'image_tools' ? <ImageToolkitPage /> : null}
+                  {activeTab === 'compare_tool' ? <ComparePage /> : null}
+                  {activeTab === 'notes_tool' ? <NotesPage /> : null}
+                  {activeTab === 'everyday_tools' ? <EverydayToolsPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
@@ -2078,6 +2111,9 @@ export default function App() {
               <li><button onClick={() => navigate('tools_hub')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">All Free Tools</button></li>
               <li><button onClick={() => navigate('pdf_tools')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">PDF Tools</button></li>
               <li><button onClick={() => navigate('image_tools')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Image Tools</button></li>
+              <li><button onClick={() => navigate('compare_tool')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Compare</button></li>
+              <li><button onClick={() => navigate('notes_tool')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Notepad</button></li>
+              <li><button onClick={() => navigate('everyday_tools')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Everyday Tools</button></li>
               <li><button onClick={() => navigate('calculators')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
               <li><button onClick={() => navigate('study_planner')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Planner</button></li>
               <li><button onClick={() => navigate('cutoffs')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">College Cutoffs</button></li>
