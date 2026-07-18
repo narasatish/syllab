@@ -19,6 +19,8 @@ import {
   LogIn,
   Atom,
   Wrench,
+  FileText,
+  Image,
   Layers,
   LogOut,
   Menu,
@@ -155,6 +157,8 @@ const PeriodicTablePage = React.lazy(() => import('./pages/PeriodicTable'));
 const PomodoroPage = React.lazy(() => import('./pages/Pomodoro'));
 const MarksTrackerPage = React.lazy(() => import('./pages/MarksTracker'));
 const ToolsHubPage = React.lazy(() => import('./pages/ToolsHub'));
+const PdfToolkitPage = React.lazy(() => import('./pages/PdfToolkit'));
+const ImageToolkitPage = React.lazy(() => import('./pages/ImageToolkit'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
@@ -254,6 +258,8 @@ const TAB_TO_PATH: Record<string, string> = {
   pomodoro: '/pomodoro',
   marks_tracker: '/marks-tracker',
   tools_hub: '/tools',
+  pdf_tools: '/pdf-tools',
+  image_tools: '/image-tools',
   worksheets: '/worksheets',
   important_questions: '/important-questions',
   english_grammar: '/english-grammar',
@@ -311,7 +317,7 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'Free Tools', ids: ['tools_hub', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
+  { heading: 'Free Tools', ids: ['tools_hub', 'pdf_tools', 'image_tools', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
   { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
@@ -403,6 +409,18 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Download 100+ free printable worksheets for Pre-KG to Class 2: letters & tracing, phonics, sight words, reading, maths, shapes and more — print or save as PDF. Free, no signup.',
     keywords: 'free printable worksheets, alphabet tracing worksheets pdf, phonics worksheets, sight words worksheet, reading comprehension worksheets kids, addition subtraction worksheets, number tracing worksheet, counting worksheets preschool, shapes worksheet kids, colors worksheet, science worksheets kindergarten, social emotional worksheets, kindergarten worksheets free download India, pre-kg worksheets pdf',
     url: 'https://syllab.in/worksheets',
+  },
+  pdf_tools: {
+    title: 'Free PDF Tools — Merge, Split, Watermark, PDF to Text | Syllab.in',
+    description: 'Free private PDF tools that work 100% in your browser — your files never leave your device. Merge, split, rotate, delete pages, images to PDF, add a watermark, add page numbers, flatten forms and extract text. No upload, no signup.',
+    keywords: 'free pdf tools, merge pdf, split pdf, watermark pdf, add page numbers pdf, pdf to text, flatten pdf, images to pdf, rotate pdf, delete pdf pages, ilovepdf free alternative, private pdf editor',
+    url: 'https://syllab.in/pdf-tools',
+  },
+  image_tools: {
+    title: 'Free Image Tools — Compress, Resize, Convert, HEIC to JPG | Syllab.in',
+    description: 'Free private image tools that work 100% in your browser — your files never leave your device. Compress, resize, convert (JPG/PNG/WebP), rotate, flip, crop and convert HEIC to JPG. No upload, no signup, no watermark.',
+    keywords: 'compress image, resize image, convert image, jpg to png, png to webp, heic to jpg, rotate image, flip image, crop image, free image tools, image compressor online free, private image tools',
+    url: 'https://syllab.in/image-tools',
   },
   tools_hub: {
     title: 'Free Student Tools — Calculators, Timers, Flashcards & More | Syllab.in',
@@ -1466,6 +1484,8 @@ export default function App() {
     { id: 'periodic_table',    label: 'Periodic Table',   icon: Atom },
     { id: 'pomodoro',          label: 'Pomodoro Timer',   icon: Timer },
     { id: 'marks_tracker',     label: 'Marks Tracker',    icon: ChartNoAxesCombined },
+    { id: 'pdf_tools',         label: 'PDF Tools',        icon: FileText },
+    { id: 'image_tools',       label: 'Image Tools',      icon: Image },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
@@ -1862,6 +1882,8 @@ export default function App() {
                   {activeTab === 'pomodoro' ? <PomodoroPage /> : null}
                   {activeTab === 'marks_tracker' ? <MarksTrackerPage /> : null}
                   {activeTab === 'tools_hub' ? <ToolsHubPage /> : null}
+                  {activeTab === 'pdf_tools' ? <PdfToolkitPage /> : null}
+                  {activeTab === 'image_tools' ? <ImageToolkitPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
@@ -2054,6 +2076,8 @@ export default function App() {
               <li><button onClick={() => navigate('daily')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>
               <li><button onClick={() => navigate('mock_tests')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
               <li><button onClick={() => navigate('tools_hub')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">All Free Tools</button></li>
+              <li><button onClick={() => navigate('pdf_tools')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">PDF Tools</button></li>
+              <li><button onClick={() => navigate('image_tools')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Image Tools</button></li>
               <li><button onClick={() => navigate('calculators')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
               <li><button onClick={() => navigate('study_planner')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Planner</button></li>
               <li><button onClick={() => navigate('cutoffs')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">College Cutoffs</button></li>

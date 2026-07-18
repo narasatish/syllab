@@ -2039,6 +2039,67 @@ ROUTES.push({
   ],
 });
 
+// Private, client-side File Tools (PDF + Image) — lead with the privacy angle.
+ROUTES.push({
+  path: '/pdf-tools',
+  title: 'Free PDF Tools — Merge, Split, Watermark, PDF to Text | Syllab.in',
+  description: 'Free private PDF tools that work 100% in your browser — your files never leave your device. Merge, split, rotate, delete pages, images to PDF, add a watermark, add page numbers, flatten forms and extract text. No upload, no signup.',
+  keywords: 'free pdf tools, merge pdf, split pdf, watermark pdf, add page numbers pdf, pdf to text, flatten pdf, images to pdf, rotate pdf, delete pdf pages, ilovepdf free alternative, private pdf editor',
+  bodyHtml: `
+    <p class="speakable"><strong>Private, free PDF tools that never upload your files.</strong> Unlike iLovePDF or SmallPDF, every tool here runs entirely in your browser (using pdf-lib and pdf.js) — your documents stay on your device and are never sent to a server.</p>
+    <h2>What you can do</h2>
+    <ul>
+      <li><strong>Merge PDF</strong> — combine several PDFs into one, in your chosen order.</li>
+      <li><strong>Split PDF</strong> — pull out page ranges like 1-3,5,8- into a new PDF.</li>
+      <li><strong>Rotate</strong> and <strong>delete pages</strong>.</li>
+      <li><strong>Images → PDF</strong> — turn JPG/PNG photos into a single PDF.</li>
+      <li><strong>Watermark</strong> and <strong>page numbers</strong>.</li>
+      <li><strong>Flatten</strong> a filled PDF form, and <strong>PDF → Text</strong> extraction.</li>
+    </ul>
+    <p>100% free, no sign-up, no watermark added by us. Working with photos too? Use the free <a href="/image-tools">Image Tools</a>, or browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab PDF Toolkit', applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url: `${SITE}/pdf-tools`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'HowTo', name: 'How to merge PDF files for free', step: [
+      { '@type': 'HowToStep', name: 'Open the Merge tool', text: 'Go to syllab.in/pdf-tools and select the Merge tool.' },
+      { '@type': 'HowToStep', name: 'Choose your PDFs', text: 'Pick two or more PDF files in the order you want them combined.' },
+      { '@type': 'HowToStep', name: 'Download', text: 'Click Merge and download the combined PDF — it is created privately in your browser.' },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Are my PDFs uploaded to a server?', acceptedAnswer: { '@type': 'Answer', text: 'No. Every PDF tool here runs entirely in your browser using pdf-lib and pdf.js — your files never leave your device and are never uploaded, unlike iLovePDF or SmallPDF.' } },
+      { '@type': 'Question', name: 'Is it really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — 100% free, no sign-up, no watermark added by us, and no file-size paywall.' } },
+    ] },
+  ],
+});
+ROUTES.push({
+  path: '/image-tools',
+  title: 'Free Image Tools — Compress, Resize, Convert, HEIC to JPG | Syllab.in',
+  description: 'Free private image tools that work 100% in your browser — your files never leave your device. Compress, resize, convert (JPG/PNG/WebP), rotate, flip, crop and convert HEIC to JPG. No upload, no signup, no watermark.',
+  keywords: 'compress image, resize image, convert image, jpg to png, png to webp, heic to jpg, rotate image, flip image, crop image, free image tools, image compressor online free, private image tools',
+  bodyHtml: `
+    <p class="speakable"><strong>Private, free image tools that never upload your photos.</strong> Every operation runs in your browser with the canvas API, so your images stay on your device.</p>
+    <h2>What you can do</h2>
+    <ul>
+      <li><strong>Compress</strong> a photo to fit a form's size limit (adjustable quality, optional max width).</li>
+      <li><strong>Resize</strong> to exact pixels (keep-aspect, never upscales).</li>
+      <li><strong>Convert</strong> between JPG, PNG and WebP.</li>
+      <li><strong>Rotate</strong>, <strong>flip</strong> and <strong>crop</strong> to 1:1, 4:5, 16:9, 4:3 or 3:2.</li>
+      <li><strong>HEIC → JPG</strong> — turn an iPhone HEIC photo into a JPG any website accepts.</li>
+    </ul>
+    <p>100% free, no sign-up, no watermark. Need PDFs too? Use the free <a href="/pdf-tools">PDF Tools</a>, or browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Image Toolkit', applicationCategory: 'MultimediaApplication', operatingSystem: 'Web', url: `${SITE}/image-tools`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'HowTo', name: 'How to convert HEIC to JPG for free', step: [
+      { '@type': 'HowToStep', name: 'Open the HEIC to JPG tool', text: 'Go to syllab.in/image-tools and select HEIC → JPG.' },
+      { '@type': 'HowToStep', name: 'Choose your HEIC photo', text: 'Pick a .heic or .heif photo, usually from an iPhone.' },
+      { '@type': 'HowToStep', name: 'Download the JPG', text: 'The photo is converted privately in your browser — download the JPG.' },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Are my images uploaded to a server?', acceptedAnswer: { '@type': 'Answer', text: 'No. Every image tool runs entirely in your browser using the canvas API — your photos never leave your device and are never uploaded.' } },
+      { '@type': 'Question', name: 'How do I compress an image for a form upload?', acceptedAnswer: { '@type': 'Answer', text: 'Open the Compress tool, choose your image, lower the quality (and optionally set a max width), then download the smaller file — all privately in your browser.' } },
+    ] },
+  ],
+});
+
 // Free student tools hub — links every tool (crawlable internal-link asset).
 {
   const hubTools = [
@@ -2052,6 +2113,8 @@ ROUTES.push({
     ['/answer-evaluator', '✍️', 'AI Answer Evaluator', 'Examiner-style score and feedback on your written answers.'],
     ['/cutoffs', '🎯', 'College Cutoffs', 'Indicative closing cutoffs for top engineering colleges by exam.'],
     ['/career-predictor', '🔮', 'Career & College Predictor', 'JEE/NEET rank & college predictor and a career interest quiz.'],
+    ['/pdf-tools', '📄', 'PDF Tools', 'Merge, split, watermark, page numbers, images→PDF & PDF→text — private, in your browser.'],
+    ['/image-tools', '🖼️', 'Image Tools', 'Compress, resize, convert, rotate, flip, crop & HEIC→JPG — private, in your browser.'],
   ];
   ROUTES.push({
     path: '/tools',

@@ -16,6 +16,8 @@ export const TOOLS: ToolEntry[] = [
   { path: '/answer-evaluator', emoji: '✍️', title: 'AI Answer Evaluator', desc: 'Paste a question & your answer for an examiner-style score, gaps and full-marks points.' },
   { path: '/cutoffs', emoji: '🎯', title: 'College Cutoffs', desc: 'Browse indicative closing cutoffs for top engineering colleges, filtered by exam.' },
   { path: '/career-predictor', emoji: '🔮', title: 'Career & College Predictor', desc: 'JEE/NEET rank & college predictor with category support, plus a career interest quiz.' },
+  { path: '/pdf-tools', emoji: '📄', title: 'PDF Tools', desc: 'Merge, split, rotate, watermark, page numbers, images→PDF & PDF→text. Private — files never leave your browser.' },
+  { path: '/image-tools', emoji: '🖼️', title: 'Image Tools', desc: 'Compress, resize, convert (JPG/PNG/WebP), rotate, flip, crop & HEIC→JPG. 100% in your browser.' },
 ];
 
 /** Pick up to `n` tools other than `currentPath`, starting after it (wraps). */

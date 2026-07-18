@@ -180,6 +180,9 @@ function buildUrls({ languages, topicsByLang }) {
 
   // Free student tools hub.
   urls.push({ loc: '/tools', priority: 0.9, changefreq: 'monthly' });
+  // Private, client-side File Tools (PDF + Image).
+  urls.push({ loc: '/pdf-tools', priority: 0.8, changefreq: 'monthly' });
+  urls.push({ loc: '/image-tools', priority: 0.8, changefreq: 'monthly' });
   // Free student calculators.
   urls.push({ loc: '/calculators', priority: 0.8, changefreq: 'monthly' });
   // Free study planner / revision-timetable generator.
