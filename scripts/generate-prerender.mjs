@@ -2174,6 +2174,92 @@ ROUTES.push({
   ],
 });
 
+ROUTES.push({
+  path: '/roman-numerals',
+  title: 'Roman Numeral Converter — Number ⇄ Roman (1–3999) Free | Syllab.in',
+  description: 'Free two-way Roman numeral converter. Convert any number from 1 to 3999 into Roman numerals and Roman numerals back into numbers, live as you type, with validation.',
+  keywords: 'roman numeral converter, number to roman numerals, roman numerals to number, roman numeral translator, convert roman numerals, 1 to 3999 roman numerals',
+  bodyHtml: `
+    <p class="speakable"><strong>A free two-way Roman numeral converter.</strong> Turn any number from 1 to 3999 into Roman numerals, and Roman numerals back into numbers — live as you type, with validation that rejects impossible forms.</p>
+    <h2>The seven Roman numerals</h2>
+    <ul>
+      <li><strong>I</strong> = 1, <strong>V</strong> = 5, <strong>X</strong> = 10, <strong>L</strong> = 50, <strong>C</strong> = 100, <strong>D</strong> = 500, <strong>M</strong> = 1000.</li>
+      <li>A smaller value before a larger one is subtracted: IV = 4, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900.</li>
+      <li>Otherwise values add up: MMXXIV = 2024. Standard Roman numerals run from 1 to 3999.</li>
+    </ul>
+    <p>100% free, in your browser. Browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Roman Numeral Converter', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', url: `${SITE}/roman-numerals`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'What is 2024 in Roman numerals?', acceptedAnswer: { '@type': 'Answer', text: '2024 in Roman numerals is MMXXIV — MM (2000) + XX (20) + IV (4).' } },
+      { '@type': 'Question', name: 'What is the largest number in Roman numerals?', acceptedAnswer: { '@type': 'Answer', text: 'Standard Roman numerals go up to 3999 (MMMCMXCIX). Larger numbers need a bar (vinculum) notation not used here.' } },
+    ] },
+  ],
+});
+ROUTES.push({
+  path: '/contrast-checker',
+  title: 'Colour Contrast Checker (WCAG) — Free AA / AAA Test | Syllab.in',
+  description: 'Free WCAG colour contrast checker. Pick a text and background colour to see the contrast ratio and whether it passes WCAG AA and AAA for normal and large text, with a live preview.',
+  keywords: 'color contrast checker, wcag contrast checker, contrast ratio calculator, aa aaa contrast, accessibility contrast, text background contrast, colour contrast checker',
+  bodyHtml: `
+    <p class="speakable"><strong>A free WCAG colour contrast checker.</strong> Pick a text and background colour to get the exact contrast ratio and see whether it passes WCAG AA and AAA — with a live preview.</p>
+    <h2>WCAG contrast thresholds</h2>
+    <ul>
+      <li><strong>AA normal text</strong> — at least 4.5:1.</li>
+      <li><strong>AA large text</strong> (18px bold or 24px+) — at least 3:1.</li>
+      <li><strong>AAA</strong> (enhanced) — at least 7:1.</li>
+    </ul>
+    <p>The ratio ranges from 1:1 (identical) to 21:1 (black on white). 100% free, in your browser. Browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Colour Contrast Checker', applicationCategory: 'DeveloperApplication', operatingSystem: 'Web', url: `${SITE}/contrast-checker`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'What contrast ratio does WCAG AA require?', acceptedAnswer: { '@type': 'Answer', text: 'WCAG AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. AAA requires 7:1.' } },
+    ] },
+  ],
+});
+ROUTES.push({
+  path: '/timestamp',
+  title: 'Unix Timestamp Converter — Epoch to Date & Back (Free) | Syllab.in',
+  description: 'Free Unix timestamp / epoch converter. Convert an epoch (seconds or milliseconds, auto-detected) to a human-readable UTC and ISO 8601 date, or a date back to epoch. Includes a Now button.',
+  keywords: 'unix timestamp converter, epoch converter, epoch to date, timestamp to date, unix time, epoch time, iso 8601 converter, current unix timestamp',
+  bodyHtml: `
+    <p class="speakable"><strong>A free Unix timestamp (epoch) converter.</strong> Convert an epoch to a readable UTC and ISO 8601 date, or a date back to epoch seconds and milliseconds. Seconds vs milliseconds is auto-detected.</p>
+    <h2>About Unix time</h2>
+    <ul>
+      <li>A Unix timestamp is the number of seconds since <strong>1 January 1970 UTC</strong>.</li>
+      <li><strong>10-digit</strong> values are seconds; <strong>13-digit</strong> values are milliseconds.</li>
+      <li>Output is shown in ISO 8601 and a readable UTC string; a Now button fills the current epoch.</li>
+    </ul>
+    <p>100% free, in your browser. Browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Unix Timestamp Converter', applicationCategory: 'DeveloperApplication', operatingSystem: 'Web', url: `${SITE}/timestamp`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'What is a Unix timestamp?', acceptedAnswer: { '@type': 'Answer', text: 'A Unix timestamp (epoch) is the number of seconds since 1 January 1970 UTC. Millisecond timestamps have 13 digits instead of 10.' } },
+    ] },
+  ],
+});
+ROUTES.push({
+  path: '/csv-to-json',
+  title: 'CSV to JSON Converter — Free & Private (In Your Browser) | Syllab.in',
+  description: 'Free CSV to JSON converter that runs entirely in your browser — nothing uploaded. Paste CSV and get pretty-printed JSON, with quote-aware parsing that handles commas inside quoted fields.',
+  keywords: 'csv to json, csv to json converter, convert csv to json, csv json online, csv parser, csv to json free, spreadsheet to json',
+  bodyHtml: `
+    <p class="speakable"><strong>A free, private CSV to JSON converter.</strong> Paste CSV and get pretty-printed JSON — the first row becomes the keys and each row an object. Nothing is uploaded.</p>
+    <h2>How it works</h2>
+    <ul>
+      <li>The <strong>first row</strong> supplies the JSON keys; each following row becomes an object.</li>
+      <li><strong>Quote-aware</strong> — commas inside "quoted, fields" and escaped "" quotes are handled correctly.</li>
+      <li>Copy the JSON with one click. Everything runs in your browser.</li>
+    </ul>
+    <p>100% free, private. Browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab CSV to JSON Converter', applicationCategory: 'DeveloperApplication', operatingSystem: 'Web', url: `${SITE}/csv-to-json`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Is my CSV uploaded when I convert it?', acceptedAnswer: { '@type': 'Answer', text: 'No. The CSV is parsed entirely in your browser and never uploaded to a server — it stays private on your device.' } },
+    ] },
+  ],
+});
+
 // Free student tools hub — links every tool (crawlable internal-link asset).
 {
   const hubTools = [
@@ -2192,6 +2278,10 @@ ROUTES.push({
     ['/compare', '🔍', 'Compare Text & Docs', 'Diff two texts or documents (PDF/DOCX/TXT) and highlight what changed — private.'],
     ['/notes', '📝', 'Notepad', 'A private rich-text notepad that auto-saves in your browser — multiple notes, offline.'],
     ['/everyday', '🧰', 'Everyday Tools', 'Unit converter, percentage, age, date difference, BMI & lorem ipsum — six in one.'],
+    ['/roman-numerals', 'Ⅹ', 'Roman Numerals', 'Convert numbers to Roman numerals and back (1–3999), live, with validation.'],
+    ['/contrast-checker', '🎨', 'Contrast Checker', 'WCAG colour contrast ratio with AA/AAA pass-fail and a live preview.'],
+    ['/timestamp', '🕑', 'Timestamp Converter', 'Unix epoch ⇄ human date (seconds/ms auto-detected), ISO 8601 + UTC.'],
+    ['/csv-to-json', '🔀', 'CSV → JSON', 'Paste CSV, get clean JSON — quote-aware, private, copy in one click.'],
   ];
   ROUTES.push({
     path: '/tools',

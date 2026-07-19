@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v268-2026-07-18-compare-notes-everyday-sign';
+const CACHE_VERSION = 'syllab-v269-2026-07-18-roman-contrast-timestamp-csv';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

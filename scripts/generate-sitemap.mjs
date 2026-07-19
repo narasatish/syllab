@@ -186,6 +186,10 @@ function buildUrls({ languages, topicsByLang }) {
   urls.push({ loc: '/compare', priority: 0.8, changefreq: 'monthly' });
   urls.push({ loc: '/notes', priority: 0.8, changefreq: 'monthly' });
   urls.push({ loc: '/everyday', priority: 0.8, changefreq: 'monthly' });
+  urls.push({ loc: '/roman-numerals', priority: 0.7, changefreq: 'monthly' });
+  urls.push({ loc: '/contrast-checker', priority: 0.7, changefreq: 'monthly' });
+  urls.push({ loc: '/timestamp', priority: 0.7, changefreq: 'monthly' });
+  urls.push({ loc: '/csv-to-json', priority: 0.7, changefreq: 'monthly' });
   // Free student calculators.
   urls.push({ loc: '/calculators', priority: 0.8, changefreq: 'monthly' });
   // Free study planner / revision-timetable generator.

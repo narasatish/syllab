@@ -24,6 +24,10 @@ import {
   GitCompare,
   NotebookPen,
   SlidersHorizontal,
+  Hash,
+  Contrast,
+  Clock,
+  Braces,
   Layers,
   LogOut,
   Menu,
@@ -165,6 +169,10 @@ const ImageToolkitPage = React.lazy(() => import('./pages/ImageToolkit'));
 const ComparePage = React.lazy(() => import('./pages/ComparePage'));
 const NotesPage = React.lazy(() => import('./pages/NotesPage'));
 const EverydayToolsPage = React.lazy(() => import('./pages/EverydayToolsPage'));
+const RomanNumeralsPage = React.lazy(() => import('./pages/RomanNumeralsPage'));
+const ContrastCheckerPage = React.lazy(() => import('./pages/ContrastCheckerPage'));
+const TimestampPage = React.lazy(() => import('./pages/TimestampPage'));
+const CsvToJsonPage = React.lazy(() => import('./pages/CsvToJsonPage'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
@@ -269,6 +277,10 @@ const TAB_TO_PATH: Record<string, string> = {
   compare_tool: '/compare',
   notes_tool: '/notes',
   everyday_tools: '/everyday',
+  roman_numerals: '/roman-numerals',
+  contrast_checker: '/contrast-checker',
+  timestamp_tool: '/timestamp',
+  csv_to_json: '/csv-to-json',
   worksheets: '/worksheets',
   important_questions: '/important-questions',
   english_grammar: '/english-grammar',
@@ -326,7 +338,7 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'Free Tools', ids: ['tools_hub', 'pdf_tools', 'image_tools', 'compare_tool', 'notes_tool', 'everyday_tools', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
+  { heading: 'Free Tools', ids: ['tools_hub', 'pdf_tools', 'image_tools', 'compare_tool', 'notes_tool', 'everyday_tools', 'roman_numerals', 'contrast_checker', 'timestamp_tool', 'csv_to_json', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
   { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
@@ -448,6 +460,30 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Free everyday calculators in one place: unit converter (length, weight, temperature, data, speed, area), percentage calculator, age calculator, date difference, BMI and a lorem ipsum generator. No signup.',
     keywords: 'unit converter, percentage calculator, age calculator, date difference calculator, bmi calculator, lorem ipsum generator, everyday calculators, online calculator free',
     url: 'https://syllab.in/everyday',
+  },
+  roman_numerals: {
+    title: 'Roman Numeral Converter — Number ⇄ Roman (1–3999) Free | Syllab.in',
+    description: 'Free two-way Roman numeral converter. Convert any number from 1 to 3999 into Roman numerals and Roman numerals back into numbers, live as you type, with validation.',
+    keywords: 'roman numeral converter, number to roman numerals, roman numerals to number, roman numeral translator, convert roman numerals, 1 to 3999 roman numerals',
+    url: 'https://syllab.in/roman-numerals',
+  },
+  contrast_checker: {
+    title: 'Colour Contrast Checker (WCAG) — Free AA / AAA Test | Syllab.in',
+    description: 'Free WCAG colour contrast checker. Pick a text and background colour to see the contrast ratio and whether it passes WCAG AA and AAA for normal and large text, with a live preview.',
+    keywords: 'color contrast checker, wcag contrast checker, contrast ratio calculator, aa aaa contrast, accessibility contrast, text background contrast, colour contrast checker',
+    url: 'https://syllab.in/contrast-checker',
+  },
+  timestamp_tool: {
+    title: 'Unix Timestamp Converter — Epoch to Date & Back (Free) | Syllab.in',
+    description: 'Free Unix timestamp / epoch converter. Convert an epoch (seconds or milliseconds, auto-detected) to a human-readable UTC and ISO 8601 date, or a date back to epoch. Includes a Now button.',
+    keywords: 'unix timestamp converter, epoch converter, epoch to date, timestamp to date, unix time, epoch time, iso 8601 converter, current unix timestamp',
+    url: 'https://syllab.in/timestamp',
+  },
+  csv_to_json: {
+    title: 'CSV to JSON Converter — Free & Private (In Your Browser) | Syllab.in',
+    description: 'Free CSV to JSON converter that runs entirely in your browser — nothing uploaded. Paste CSV and get pretty-printed JSON, with quote-aware parsing that handles commas inside quoted fields.',
+    keywords: 'csv to json, csv to json converter, convert csv to json, csv json online, csv parser, csv to json free, spreadsheet to json',
+    url: 'https://syllab.in/csv-to-json',
   },
   tools_hub: {
     title: 'Free Student Tools — Calculators, Timers, Flashcards & More | Syllab.in',
@@ -1516,6 +1552,10 @@ export default function App() {
     { id: 'compare_tool',      label: 'Compare',          icon: GitCompare },
     { id: 'notes_tool',        label: 'Notepad',          icon: NotebookPen },
     { id: 'everyday_tools',    label: 'Everyday Tools',   icon: SlidersHorizontal },
+    { id: 'roman_numerals',    label: 'Roman Numerals',   icon: Hash },
+    { id: 'contrast_checker',  label: 'Contrast Checker', icon: Contrast },
+    { id: 'timestamp_tool',    label: 'Timestamp',        icon: Clock },
+    { id: 'csv_to_json',       label: 'CSV → JSON',       icon: Braces },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
@@ -1917,6 +1957,10 @@ export default function App() {
                   {activeTab === 'compare_tool' ? <ComparePage /> : null}
                   {activeTab === 'notes_tool' ? <NotesPage /> : null}
                   {activeTab === 'everyday_tools' ? <EverydayToolsPage /> : null}
+                  {activeTab === 'roman_numerals' ? <RomanNumeralsPage /> : null}
+                  {activeTab === 'contrast_checker' ? <ContrastCheckerPage /> : null}
+                  {activeTab === 'timestamp_tool' ? <TimestampPage /> : null}
+                  {activeTab === 'csv_to_json' ? <CsvToJsonPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
@@ -2114,6 +2158,10 @@ export default function App() {
               <li><button onClick={() => navigate('compare_tool')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Compare</button></li>
               <li><button onClick={() => navigate('notes_tool')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Notepad</button></li>
               <li><button onClick={() => navigate('everyday_tools')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Everyday Tools</button></li>
+              <li><button onClick={() => navigate('roman_numerals')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Roman Numerals</button></li>
+              <li><button onClick={() => navigate('contrast_checker')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Contrast Checker</button></li>
+              <li><button onClick={() => navigate('timestamp_tool')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Timestamp Converter</button></li>
+              <li><button onClick={() => navigate('csv_to_json')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">CSV → JSON</button></li>
               <li><button onClick={() => navigate('calculators')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
               <li><button onClick={() => navigate('study_planner')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Planner</button></li>
               <li><button onClick={() => navigate('cutoffs')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">College Cutoffs</button></li>

@@ -21,6 +21,10 @@ export const TOOLS: ToolEntry[] = [
   { path: '/compare', emoji: '🔍', title: 'Compare Text & Docs', desc: 'Diff two texts or documents (PDF/DOCX/TXT) and highlight what changed. Private — nothing uploaded.' },
   { path: '/notes', emoji: '📝', title: 'Notepad', desc: 'A private rich-text notepad that auto-saves in your browser. Multiple notes, formatting, offline.' },
   { path: '/everyday', emoji: '🧰', title: 'Everyday Tools', desc: 'Unit converter, percentage, age, date difference, BMI & lorem ipsum — six calculators in one.' },
+  { path: '/roman-numerals', emoji: 'Ⅹ', title: 'Roman Numerals', desc: 'Convert numbers to Roman numerals and back (1–3999), live, with validation.' },
+  { path: '/contrast-checker', emoji: '🎨', title: 'Contrast Checker', desc: 'WCAG colour contrast ratio with AA/AAA pass-fail and a live preview.' },
+  { path: '/timestamp', emoji: '🕑', title: 'Timestamp Converter', desc: 'Unix epoch ⇄ human date (seconds/ms auto-detected), ISO 8601 + UTC, with a Now button.' },
+  { path: '/csv-to-json', emoji: '🔀', title: 'CSV → JSON', desc: 'Paste CSV, get clean JSON — quote-aware, private, copy in one click.' },
 ];
 
 /** Pick up to `n` tools other than `currentPath`, starting after it (wraps). */
