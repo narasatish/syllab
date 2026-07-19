@@ -28,6 +28,9 @@ import {
   Contrast,
   Clock,
   Braces,
+  ScanText,
+  Type,
+  Volume2,
   Layers,
   LogOut,
   Menu,
@@ -173,6 +176,9 @@ const RomanNumeralsPage = React.lazy(() => import('./pages/RomanNumeralsPage'));
 const ContrastCheckerPage = React.lazy(() => import('./pages/ContrastCheckerPage'));
 const TimestampPage = React.lazy(() => import('./pages/TimestampPage'));
 const CsvToJsonPage = React.lazy(() => import('./pages/CsvToJsonPage'));
+const ImageToTextPage = React.lazy(() => import('./pages/ImageToTextPage'));
+const WordCounterPage = React.lazy(() => import('./pages/WordCounterPage'));
+const TextToSpeechPage = React.lazy(() => import('./pages/TextToSpeechPage'));
 const WorksheetsPage = React.lazy(() => import('./pages/Worksheets'));
 const StoryLessonsLandingPage = React.lazy(() => import('./pages/StoryLessonsLanding'));
 
@@ -281,6 +287,9 @@ const TAB_TO_PATH: Record<string, string> = {
   contrast_checker: '/contrast-checker',
   timestamp_tool: '/timestamp',
   csv_to_json: '/csv-to-json',
+  image_to_text: '/image-to-text',
+  word_counter: '/word-counter',
+  text_to_speech: '/text-to-speech',
   worksheets: '/worksheets',
   important_questions: '/important-questions',
   english_grammar: '/english-grammar',
@@ -338,7 +347,7 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'Free Tools', ids: ['tools_hub', 'pdf_tools', 'image_tools', 'compare_tool', 'notes_tool', 'everyday_tools', 'roman_numerals', 'contrast_checker', 'timestamp_tool', 'csv_to_json', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
+  { heading: 'Free Tools', ids: ['tools_hub', 'pdf_tools', 'image_tools', 'compare_tool', 'notes_tool', 'everyday_tools', 'roman_numerals', 'contrast_checker', 'timestamp_tool', 'csv_to_json', 'image_to_text', 'word_counter', 'text_to_speech', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
   { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
@@ -484,6 +493,24 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Free CSV to JSON converter that runs entirely in your browser — nothing uploaded. Paste CSV and get pretty-printed JSON, with quote-aware parsing that handles commas inside quoted fields.',
     keywords: 'csv to json, csv to json converter, convert csv to json, csv json online, csv parser, csv to json free, spreadsheet to json',
     url: 'https://syllab.in/csv-to-json',
+  },
+  image_to_text: {
+    title: 'Image to Text (OCR) — Free & Private, In Your Browser | Syllab.in',
+    description: 'Free image to text converter (OCR). Extract text from a photo, screenshot or scanned page instantly — everything runs in your browser with Tesseract, so your image is never uploaded. Copy or download the text.',
+    keywords: 'image to text, photo to text, jpg to text, ocr online free, extract text from image, picture to text, screenshot to text, scanned document to text, handwriting to text',
+    url: 'https://syllab.in/image-to-text',
+  },
+  word_counter: {
+    title: 'Word Counter — Free Words & Character Count Online | Syllab.in',
+    description: 'Free online word counter and character counter. Paste your essay or assignment to instantly see word count, characters (with and without spaces), sentences, paragraphs and reading time.',
+    keywords: 'word counter, character counter, word count online, count words, essay word count, character count, reading time calculator, free word counter',
+    url: 'https://syllab.in/word-counter',
+  },
+  text_to_speech: {
+    title: 'Text to Speech — Free Online Voice Reader | Syllab.in',
+    description: 'Free text-to-speech reader. Paste any text or your notes and have them read aloud in a natural voice — choose the voice, speed and pitch. Runs in your browser, nothing uploaded.',
+    keywords: 'text to speech, tts, read text aloud, text to speech online free, voice reader, read notes aloud, text to voice',
+    url: 'https://syllab.in/text-to-speech',
   },
   tools_hub: {
     title: 'Free Student Tools — Calculators, Timers, Flashcards & More | Syllab.in',
@@ -1556,6 +1583,9 @@ export default function App() {
     { id: 'contrast_checker',  label: 'Contrast Checker', icon: Contrast },
     { id: 'timestamp_tool',    label: 'Timestamp',        icon: Clock },
     { id: 'csv_to_json',       label: 'CSV → JSON',       icon: Braces },
+    { id: 'image_to_text',     label: 'Image to Text',    icon: ScanText },
+    { id: 'word_counter',      label: 'Word Counter',     icon: Type },
+    { id: 'text_to_speech',    label: 'Text to Speech',   icon: Volume2 },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
@@ -1961,6 +1991,9 @@ export default function App() {
                   {activeTab === 'contrast_checker' ? <ContrastCheckerPage /> : null}
                   {activeTab === 'timestamp_tool' ? <TimestampPage /> : null}
                   {activeTab === 'csv_to_json' ? <CsvToJsonPage /> : null}
+                  {activeTab === 'image_to_text' ? <ImageToTextPage /> : null}
+                  {activeTab === 'word_counter' ? <WordCounterPage /> : null}
+                  {activeTab === 'text_to_speech' ? <TextToSpeechPage /> : null}
                   {activeTab === 'worksheets' ? <WorksheetsPage /> : null}
                   {activeTab === 'story_lessons' ? <StoryLessonsLandingPage setTab={navigate} /> : null}
                   {activeTab === 'gk_questions' ? <GkQuestionsPage setTab={navigate} /> : null}
@@ -2162,6 +2195,9 @@ export default function App() {
               <li><button onClick={() => navigate('contrast_checker')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Contrast Checker</button></li>
               <li><button onClick={() => navigate('timestamp_tool')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Timestamp Converter</button></li>
               <li><button onClick={() => navigate('csv_to_json')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">CSV → JSON</button></li>
+              <li><button onClick={() => navigate('image_to_text')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Image to Text (OCR)</button></li>
+              <li><button onClick={() => navigate('word_counter')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Word Counter</button></li>
+              <li><button onClick={() => navigate('text_to_speech')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Text to Speech</button></li>
               <li><button onClick={() => navigate('calculators')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Free Calculators</button></li>
               <li><button onClick={() => navigate('study_planner')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Planner</button></li>
               <li><button onClick={() => navigate('cutoffs')} className="text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors">College Cutoffs</button></li>

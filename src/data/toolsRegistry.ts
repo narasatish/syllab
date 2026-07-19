@@ -25,6 +25,9 @@ export const TOOLS: ToolEntry[] = [
   { path: '/contrast-checker', emoji: '🎨', title: 'Contrast Checker', desc: 'WCAG colour contrast ratio with AA/AAA pass-fail and a live preview.' },
   { path: '/timestamp', emoji: '🕑', title: 'Timestamp Converter', desc: 'Unix epoch ⇄ human date (seconds/ms auto-detected), ISO 8601 + UTC, with a Now button.' },
   { path: '/csv-to-json', emoji: '🔀', title: 'CSV → JSON', desc: 'Paste CSV, get clean JSON — quote-aware, private, copy in one click.' },
+  { path: '/image-to-text', emoji: '🔎', title: 'Image to Text (OCR)', desc: 'Extract text from a photo, screenshot or scan — 100% in your browser, never uploaded.' },
+  { path: '/word-counter', emoji: '🔢', title: 'Word Counter', desc: 'Live word & character count, sentences, paragraphs and reading time for essays.' },
+  { path: '/text-to-speech', emoji: '🔊', title: 'Text to Speech', desc: 'Have your notes read aloud — pick a voice, speed & pitch. Free, in your browser.' },
 ];
 
 /** Pick up to `n` tools other than `currentPath`, starting after it (wraps). */

@@ -2260,6 +2260,76 @@ ROUTES.push({
   ],
 });
 
+ROUTES.push({
+  path: '/image-to-text',
+  title: 'Image to Text (OCR) — Free & Private, In Your Browser | Syllab.in',
+  description: 'Free image to text converter (OCR). Extract text from a photo, screenshot or scanned page instantly — everything runs in your browser with Tesseract, so your image is never uploaded. Copy or download the text.',
+  keywords: 'image to text, photo to text, jpg to text, ocr online free, extract text from image, picture to text, screenshot to text, scanned document to text, handwriting to text',
+  bodyHtml: `
+    <p class="speakable"><strong>A free, private image-to-text (OCR) tool.</strong> Extract the text from a photo, screenshot or scanned page right in your browser with Tesseract OCR — your image is never uploaded.</p>
+    <h2>What you can do</h2>
+    <ul>
+      <li><strong>Photo to text</strong> — read printed text from a picture of notes, a book page or a worksheet.</li>
+      <li><strong>Screenshot to text</strong> — pull the words out of a screenshot.</li>
+      <li><strong>Copy or download</strong> the extracted text as a .txt file.</li>
+      <li><strong>100% private</strong> — the OCR engine and language data load once, then work offline; nothing is uploaded.</li>
+    </ul>
+    <p>Clear, high-contrast printed text works best. 100% free. Count the result with the <a href="/word-counter">Word Counter</a>, listen with <a href="/text-to-speech">Text-to-Speech</a>, or browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Image to Text (OCR)', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', url: `${SITE}/image-to-text`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'HowTo', name: 'How to extract text from an image for free', step: [
+      { '@type': 'HowToStep', name: 'Choose an image', text: 'Open syllab.in/image-to-text and select a photo or screenshot with text.' },
+      { '@type': 'HowToStep', name: 'Extract text', text: 'Click Extract text — the OCR runs privately in your browser.' },
+      { '@type': 'HowToStep', name: 'Copy or download', text: 'Copy the extracted text or download it as a .txt file.' },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Is my image uploaded when I extract text?', acceptedAnswer: { '@type': 'Answer', text: 'No. OCR runs entirely in your browser using Tesseract (WebAssembly). Your image never leaves your device.' } },
+    ] },
+  ],
+});
+ROUTES.push({
+  path: '/word-counter',
+  title: 'Word Counter — Free Words & Character Count Online | Syllab.in',
+  description: 'Free online word counter and character counter. Paste your essay or assignment to instantly see word count, characters (with and without spaces), sentences, paragraphs and reading time.',
+  keywords: 'word counter, character counter, word count online, count words, essay word count, character count, reading time calculator, free word counter',
+  bodyHtml: `
+    <p class="speakable"><strong>A fast, private word and character counter.</strong> Paste your essay or assignment to see the word count, character count, sentences, paragraphs and reading time — live, in your browser.</p>
+    <h2>What it counts</h2>
+    <ul>
+      <li><strong>Words</strong> and <strong>characters</strong> (with and without spaces).</li>
+      <li><strong>Sentences, paragraphs and lines.</strong></li>
+      <li><strong>Reading time</strong> (~200 words/min) and <strong>speaking time</strong> (~130 words/min).</li>
+    </ul>
+    <p>Perfect for hitting essay word limits. Nothing is uploaded. 100% free. Listen to your text with <a href="/text-to-speech">Text-to-Speech</a>, or browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Word Counter', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', url: `${SITE}/word-counter`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'How is reading time calculated?', acceptedAnswer: { '@type': 'Answer', text: 'Reading time assumes an average of about 200 words per minute; speaking time assumes about 130 words per minute.' } },
+    ] },
+  ],
+});
+ROUTES.push({
+  path: '/text-to-speech',
+  title: 'Text to Speech — Free Online Voice Reader | Syllab.in',
+  description: 'Free text-to-speech reader. Paste any text or your notes and have them read aloud in a natural voice — choose the voice, speed and pitch. Runs in your browser, nothing uploaded.',
+  keywords: 'text to speech, tts, read text aloud, text to speech online free, voice reader, read notes aloud, text to voice',
+  bodyHtml: `
+    <p class="speakable"><strong>A free text-to-speech reader.</strong> Paste any text or your notes and have them read aloud with your browser's built-in voices — choose the voice, speed and pitch. Nothing is uploaded.</p>
+    <h2>Why students use it</h2>
+    <ul>
+      <li><strong>Revise by listening</strong> — hear your notes while walking or resting your eyes.</li>
+      <li><strong>Accessibility</strong> — a natural voice reads any pasted text aloud.</li>
+      <li><strong>Adjustable</strong> — pick the voice and set the speed and pitch; play, pause and stop.</li>
+    </ul>
+    <p>Uses your device's built-in voices, so it works offline and privately. 100% free. Turn a photo of notes into text with <a href="/image-to-text">Image to Text</a>, or browse <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Text to Speech', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', url: `${SITE}/text-to-speech`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Is text-to-speech free and private?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. It uses your browser\\u2019s built-in voices, so your text is never uploaded and it works offline.' } },
+    ] },
+  ],
+});
+
 // Free student tools hub — links every tool (crawlable internal-link asset).
 {
   const hubTools = [
@@ -2282,6 +2352,9 @@ ROUTES.push({
     ['/contrast-checker', '🎨', 'Contrast Checker', 'WCAG colour contrast ratio with AA/AAA pass-fail and a live preview.'],
     ['/timestamp', '🕑', 'Timestamp Converter', 'Unix epoch ⇄ human date (seconds/ms auto-detected), ISO 8601 + UTC.'],
     ['/csv-to-json', '🔀', 'CSV → JSON', 'Paste CSV, get clean JSON — quote-aware, private, copy in one click.'],
+    ['/image-to-text', '🔎', 'Image to Text (OCR)', 'Extract text from a photo, screenshot or scan — 100% in your browser, never uploaded.'],
+    ['/word-counter', '🔢', 'Word Counter', 'Live word & character count, sentences, paragraphs and reading time.'],
+    ['/text-to-speech', '🔊', 'Text to Speech', 'Have your notes read aloud — pick a voice, speed & pitch. Free, in your browser.'],
   ];
   ROUTES.push({
     path: '/tools',

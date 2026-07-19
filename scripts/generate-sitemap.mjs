@@ -190,6 +190,9 @@ function buildUrls({ languages, topicsByLang }) {
   urls.push({ loc: '/contrast-checker', priority: 0.7, changefreq: 'monthly' });
   urls.push({ loc: '/timestamp', priority: 0.7, changefreq: 'monthly' });
   urls.push({ loc: '/csv-to-json', priority: 0.7, changefreq: 'monthly' });
+  urls.push({ loc: '/image-to-text', priority: 0.8, changefreq: 'monthly' });
+  urls.push({ loc: '/word-counter', priority: 0.8, changefreq: 'monthly' });
+  urls.push({ loc: '/text-to-speech', priority: 0.7, changefreq: 'monthly' });
   // Free student calculators.
   urls.push({ loc: '/calculators', priority: 0.8, changefreq: 'monthly' });
   // Free study planner / revision-timetable generator.
