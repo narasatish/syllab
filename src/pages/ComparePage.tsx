@@ -2,18 +2,44 @@
  * ComparePage.tsx — free, 100% private text & document comparison. Paste text or
  * load a PDF / DOCX / TXT into either side; extraction runs in the browser
  * (pdf.js getTextContent — reliable, NOT canvas render; mammoth for DOCX; the
- * File API for TXT), all lazy-loaded. The diff itself is a pure LCS line diff
- * (src/lib/textDiff). Files never leave the device. Indexable SEO page.
+ * File API for TXT), all lazy-loaded. The diff itself is a pure LCS diff
+ * (src/lib/textDiff): line-level, and word-level within changed lines so you see
+ * exactly which words changed. Files never leave the device. Indexable SEO page.
  */
 import { useMemo, useRef, useState } from 'react';
 import { UploadCloud, ShieldCheck, ArrowLeftRight, Loader2, Trash2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
-import { diffLines, diffStats, type DiffSegment } from '../lib/textDiff';
+import { diffLines, diffWords, diffStats, type DiffSegment } from '../lib/textDiff';
 import { formatBytes, MAX_PDF_BYTES } from '../lib/fileTools';
 
 const SITE = 'https://syllab.in';
+
+/**
+ * A display row: an unchanged/added/removed line, or a "changed" line where a
+ * deletion and the addition that replaced it are shown as ONE line with the
+ * exact changed words highlighted inline (word-level diff).
+ */
+type Row = { kind: 'same' | 'del' | 'add'; text: string } | { kind: 'changed'; words: DiffSegment[] };
+
+/** Turn a line diff into rows, pairing each replaced line with its replacement for a word-level diff. */
+function buildRows(segs: DiffSegment[]): Row[] {
+  const rows: Row[] = [];
+  let i = 0;
+  while (i < segs.length) {
+    if (segs[i].type === 'same') { rows.push({ kind: 'same', text: segs[i].text }); i++; continue; }
+    const dels: string[] = [];
+    while (i < segs.length && segs[i].type === 'del') { dels.push(segs[i].text); i++; }
+    const adds: string[] = [];
+    while (i < segs.length && segs[i].type === 'add') { adds.push(segs[i].text); i++; }
+    const pairs = Math.min(dels.length, adds.length);
+    for (let k = 0; k < pairs; k++) rows.push({ kind: 'changed', words: diffWords(dels[k], adds[k]) });
+    for (let k = pairs; k < dels.length; k++) rows.push({ kind: 'del', text: dels[k] });
+    for (let k = pairs; k < adds.length; k++) rows.push({ kind: 'add', text: adds[k] });
+  }
+  return rows;
+}
 
 /** Extract plain text from a loaded file, in-browser. Heavy libs are lazy-loaded. */
 async function extractText(file: File): Promise<string> {
@@ -111,23 +137,24 @@ export default function ComparePage() {
   const clearAll = () => { setA(''); setB(''); setNameA(''); setNameB(''); setResult(null); setError(''); };
 
   const stats = useMemo(() => (result ? diffStats(result) : null), [result]);
+  const rows = useMemo(() => (result ? buildRows(result) : []), [result]);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <SEO
         title="Compare Text & Documents Online — Free Diff Checker | Syllab.in"
-        description="Free online tool to compare two texts or documents and highlight the differences. Paste text or load a PDF, Word (DOCX) or TXT file — everything runs privately in your browser, nothing is uploaded. See exactly what was added and removed."
-        keywords="compare text online, text diff, diff checker, compare two documents, compare pdf free, compare word documents, find differences between two texts, online diff tool"
+        description="Free online tool to compare two texts or documents and highlight the differences word by word. Paste text or load a PDF, Word (DOCX) or TXT file — everything runs privately in your browser, nothing is uploaded. See exactly what was added and removed."
+        keywords="compare text online, text diff, diff checker, compare two documents, compare pdf free, compare word documents, find differences between two texts, online diff tool, word level diff"
         url={`${SITE}/compare`}
         jsonLd={[
           { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Compare (Diff Checker)', applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url: `${SITE}/compare`, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
           { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
             { '@type': 'Question', name: 'Are my documents uploaded when I compare them?', acceptedAnswer: { '@type': 'Answer', text: 'No. Both texts are compared entirely in your browser — PDF and DOCX text is extracted locally with pdf.js and mammoth. Your files never leave your device and are never uploaded.' } },
-            { '@type': 'Question', name: 'Can I compare a PDF with a Word document?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Load a PDF on one side and a DOCX (or paste text) on the other. The tool extracts the plain text from each and highlights every added and removed line.' } },
+            { '@type': 'Question', name: 'Can I compare a PDF with a Word document?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Load a PDF on one side and a DOCX (or paste text) on the other. The tool extracts the plain text from each and highlights every added and removed line, down to the exact changed words.' } },
           ] },
         ]}
       />
-      <PageHero emoji="🔍" title="Compare Text & Documents" subtitle="Paste text or load a PDF, Word or TXT file on each side and see exactly what changed." className="mb-3" />
+      <PageHero emoji="🔍" title="Compare Text & Documents" subtitle="Paste text or load a PDF, Word or TXT file on each side and see exactly what changed — word by word." className="mb-3" />
 
       <p className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 px-3 py-1 text-xs font-black text-emerald-700 dark:text-emerald-300"><ShieldCheck size={13} /> Private — your files never leave your browser</p>
 
@@ -153,21 +180,37 @@ export default function ComparePage() {
           <div className="flex flex-wrap items-center gap-3 bg-slate-50 dark:bg-slate-800 px-4 py-2.5 text-xs font-black">
             {stats.identical
               ? <span className="text-emerald-600">✓ The two texts are identical</span>
-              : <><span className="text-emerald-600">+{stats.added} added</span><span className="text-rose-500">−{stats.removed} removed</span><span className="text-slate-400">{stats.same} unchanged</span></>}
+              : <><span className="text-emerald-600">+{stats.added} added</span><span className="text-rose-500">&minus;{stats.removed} removed</span><span className="text-slate-400">{stats.same} unchanged</span><span className="text-amber-500">changed words highlighted</span></>}
           </div>
           <div className="max-h-[28rem] overflow-auto bg-white dark:bg-slate-900">
             <pre className="m-0 p-0 font-mono text-[12.5px] leading-relaxed">
-              {result.map((seg, i) => (
-                <div key={i}
-                  className={
-                    seg.type === 'add' ? 'whitespace-pre-wrap break-words bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 px-3'
-                      : seg.type === 'del' ? 'whitespace-pre-wrap break-words bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 px-3'
-                        : 'whitespace-pre-wrap break-words text-slate-600 dark:text-slate-300 px-3'
-                  }>
-                  <span className="select-none text-slate-400">{seg.type === 'add' ? '+ ' : seg.type === 'del' ? '− ' : '  '}</span>
-                  {seg.text || ' '}
-                </div>
-              ))}
+              {rows.map((row, i) => {
+                if (row.kind === 'changed') {
+                  return (
+                    <div key={i} className="whitespace-pre-wrap break-words bg-amber-50 dark:bg-amber-950/30 px-3">
+                      <span className="select-none text-amber-500">&plusmn; </span>
+                      {row.words.map((w, k) => (
+                        <span key={k} className={
+                          w.type === 'del' ? 'rounded bg-rose-200/70 text-rose-800 line-through dark:bg-rose-900/50 dark:text-rose-200'
+                            : w.type === 'add' ? 'rounded bg-emerald-200/70 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200'
+                              : 'text-slate-600 dark:text-slate-300'
+                        }>{w.text}</span>
+                      ))}
+                    </div>
+                  );
+                }
+                return (
+                  <div key={i}
+                    className={
+                      row.kind === 'add' ? 'whitespace-pre-wrap break-words bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 px-3'
+                        : row.kind === 'del' ? 'whitespace-pre-wrap break-words bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 px-3'
+                          : 'whitespace-pre-wrap break-words text-slate-600 dark:text-slate-300 px-3'
+                    }>
+                    <span className="select-none text-slate-400">{row.kind === 'add' ? '+ ' : row.kind === 'del' ? '− ' : '  '}</span>
+                    {row.text || ' '}
+                  </div>
+                );
+              })}
             </pre>
           </div>
         </div>
@@ -175,7 +218,7 @@ export default function ComparePage() {
 
       <section className="mt-8 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
         <h2 className="text-lg font-black text-slate-900 dark:text-slate-100">A private diff checker for text, PDF and Word files</h2>
-        <p>Paste two versions of an essay, answer or contract — or load a <strong>PDF, Word (DOCX) or TXT</strong> file into each side — and this tool highlights every <strong>added</strong> and <strong>removed</strong> line. The text from PDFs and Word documents is extracted right in your browser (with pdf.js and mammoth), so nothing is ever uploaded.</p>
+        <p>Paste two versions of an essay, answer or contract — or load a <strong>PDF, Word (DOCX) or TXT</strong> file into each side — and this tool highlights every <strong>added</strong> and <strong>removed</strong> line, and within a changed line it highlights the <strong>exact words</strong> that changed. The text from PDFs and Word documents is extracted right in your browser (with pdf.js and mammoth), so nothing is ever uploaded.</p>
         <p>100% free, no sign-up. Need to edit a PDF instead? Try the free <a href="/pdf-tools" className="font-bold text-primary hover:underline">PDF Tools</a>, or jot ideas in the private <a href="/notes" className="font-bold text-primary hover:underline">Notepad</a>.</p>
       </section>
 

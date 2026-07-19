@@ -1,8 +1,9 @@
 /**
- * textDiff.ts — pure, framework-free line diff for the Compare tool.
- * Classic LCS (longest-common-subsequence) dynamic-programming diff: split both
- * sides on newlines, build the LCS table, then backtrack to emit a list of
- * {type:'same'|'add'|'del', text} segments. No dependencies, fully unit-tested.
+ * textDiff.ts — pure, framework-free diff for the Compare tool.
+ * Classic LCS (longest-common-subsequence) dynamic-programming diff: it works on
+ * any array of tokens, so the same core powers a line diff (diffLines) and an
+ * intra-line word diff (diffWords) used to highlight exactly which words changed
+ * in a modified line. No dependencies, fully unit-tested.
  */
 
 export type DiffType = 'same' | 'add' | 'del';
@@ -10,24 +11,15 @@ export interface DiffSegment { type: DiffType; text: string }
 
 /**
  * Guard against pathological inputs: the LCS table is n*m cells, so two very
- * large files would allocate gigabytes and freeze the tab. Above this many
- * cells we bail with a friendly error instead.
+ * large inputs would allocate gigabytes and freeze the tab. Above this many
+ * cells we bail (diffLines throws; diffWords falls back to a whole-line change).
  */
 export const MAX_DIFF_CELLS = 4_000_000;
 
-/**
- * Diff two blocks of text line by line. Throws if the inputs are too large to
- * compare (see MAX_DIFF_CELLS).
- */
-export function diffLines(a: string, b: string): DiffSegment[] {
-  const A = String(a ?? '').split('\n');
-  const B = String(b ?? '').split('\n');
+/** Generic LCS diff over two token arrays, returned in reading order. */
+function lcsDiff(A: string[], B: string[]): DiffSegment[] {
   const n = A.length;
   const m = B.length;
-
-  if (n * m > MAX_DIFF_CELLS) {
-    throw new Error('These documents are too large to compare line by line. Please compare smaller sections.');
-  }
 
   // dp[i][j] = length of the LCS of A[i..] and B[j..].
   const dp: number[][] = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
@@ -37,7 +29,6 @@ export function diffLines(a: string, b: string): DiffSegment[] {
     }
   }
 
-  // Backtrack from the top-left to build the diff in reading order.
   const out: DiffSegment[] = [];
   let i = 0;
   let j = 0;
@@ -49,6 +40,34 @@ export function diffLines(a: string, b: string): DiffSegment[] {
   while (i < n) { out.push({ type: 'del', text: A[i] }); i++; }
   while (j < m) { out.push({ type: 'add', text: B[j] }); j++; }
   return out;
+}
+
+/** Diff two blocks of text line by line. Throws if the inputs are too large. */
+export function diffLines(a: string, b: string): DiffSegment[] {
+  const A = String(a ?? '').split('\n');
+  const B = String(b ?? '').split('\n');
+  if (A.length * B.length > MAX_DIFF_CELLS) {
+    throw new Error('These documents are too large to compare line by line. Please compare smaller sections.');
+  }
+  return lcsDiff(A, B);
+}
+
+/** Split into word + whitespace tokens so a diff can be reassembled with spacing intact. */
+function tokenizeWords(s: string): string[] {
+  return String(s ?? '').match(/\s+|[^\s]+/g) || [];
+}
+
+/**
+ * Word-level diff of two single lines — highlights exactly which words changed
+ * within a modified line. Whitespace is preserved as its own token, so joining
+ * the segments reproduces the original text. Falls back to a whole-line del+add
+ * on pathologically large inputs.
+ */
+export function diffWords(a: string, b: string): DiffSegment[] {
+  const A = tokenizeWords(a);
+  const B = tokenizeWords(b);
+  if (A.length * B.length > MAX_DIFF_CELLS) return [{ type: 'del', text: a }, { type: 'add', text: b }];
+  return lcsDiff(A, B);
 }
 
 export interface DiffStats { added: number; removed: number; same: number; identical: boolean }

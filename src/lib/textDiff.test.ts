@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { diffLines, diffStats, MAX_DIFF_CELLS } from './textDiff';
+import { diffLines, diffWords, diffStats, MAX_DIFF_CELLS } from './textDiff';
 
 describe('diffLines', () => {
   it('marks identical text as all-same', () => {
@@ -55,6 +55,34 @@ describe('diffLines', () => {
     const a = Array.from({ length: 1000 }, (_, i) => `l${i}`).join('\n');
     expect(1001 * 1001).toBeLessThan(MAX_DIFF_CELLS);
     expect(() => diffLines(a, a)).not.toThrow();
+  });
+});
+
+describe('diffWords', () => {
+  it('highlights only the changed word', () => {
+    const d = diffWords('the quick brown fox', 'the quick red fox');
+    expect(d.filter((s) => s.type === 'del').map((s) => s.text)).toEqual(['brown']);
+    expect(d.filter((s) => s.type === 'add').map((s) => s.text)).toEqual(['red']);
+  });
+
+  it('reassembles the NEW text from same+add segments (spacing preserved)', () => {
+    const d = diffWords('the quick brown fox', 'the quick red fox');
+    expect(d.filter((s) => s.type !== 'del').map((s) => s.text).join('')).toBe('the quick red fox');
+  });
+
+  it('reassembles the OLD text from same+del segments', () => {
+    const d = diffWords('a b c', 'a x c');
+    expect(d.filter((s) => s.type !== 'add').map((s) => s.text).join('')).toBe('a b c');
+  });
+
+  it('is all-same for identical lines', () => {
+    expect(diffWords('hello world', 'hello world').every((s) => s.type === 'same')).toBe(true);
+  });
+
+  it('handles a pure word insertion', () => {
+    const d = diffWords('read the book', 'read the whole book');
+    expect(d.filter((s) => s.type === 'add').map((s) => s.text.trim()).filter(Boolean)).toEqual(['whole']);
+    expect(d.some((s) => s.type === 'del')).toBe(false);
   });
 });
 

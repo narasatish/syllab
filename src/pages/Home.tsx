@@ -24,6 +24,7 @@ import { getStreak } from '../lib/gamification';
 // (the hero/LCP element paints without waiting for this JS to parse/execute).
 const HomeFeatureGrid = React.lazy(() => import('../components/HomeFeatureGrid'));
 const HomeInteractiveDemo = React.lazy(() => import('../components/HomeInteractiveDemo'));
+const HomeToolsShowcase = React.lazy(() => import('../components/HomeToolsShowcase'));
 import WhatsNew from '../components/WhatsNew';
 
 interface HomePageProps {
@@ -461,6 +462,9 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
 
         {/* ── SEE IT IN ACTION — interactive demo carousel ─────────────────── */}
         <HomeInteractiveDemo onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+
+        {/* ── FREE TOOLS SHOWCASE — spotlight the 22+ tools (registry-driven) ── */}
+        <HomeToolsShowcase />
       </React.Suspense>
 
       {/* ── FREE TOOLS & EXTRAS — internal-link hub (discovery + SEO) ──────────── */}
