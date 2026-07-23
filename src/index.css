@@ -155,6 +155,25 @@
     select {
       font-size: 16px !important;
     }
+
+    /* ── Mobile tap targets ──
+       Footer link lists stack tightly, so neighbouring links sit only a pixel or
+       two apart and are easy to mis-tap (a wrapped link can be as short as 15px).
+       A 40px floor fixes all of them at once instead of touching 80 call sites.
+       Header icon buttons get the same floor. Desktop layout is untouched.
+       The sr-only "Skip to main content" link is excluded — it is deliberately
+       collapsed until focused, and must stay that way. */
+    footer li > a:not(.sr-only),
+    footer li > button,
+    header button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+    }
+    header button {
+      justify-content: center;
+      min-width: 40px;
+    }
   }
 
   /* Form inputs */
