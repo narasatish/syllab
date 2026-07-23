@@ -1,0 +1,80 @@
+name: AI budget watch
+
+# Watches the Gemini key ladder on syllab-backend and fails (→ GitHub emails you)
+# if paid spend starts climbing or the free-tier key silently stops being used.
+#
+# Costs nothing: it hits /api/ai/health WITHOUT ?probe=1, so no model call is
+# made — the endpoint only reports configuration + budget state.
+#
+# Tune the alert threshold with the SPEND_ALERT_INR env below.
+
+on:
+  schedule:
+    - cron: '30 3 * * *' # 09:00 IST daily
+  workflow_dispatch: {} # allow a manual run from the Actions tab
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    env:
+      HEALTH_URL: https://syllab-backend.onrender.com/api/ai/health
+      SPEND_ALERT_INR: '25' # early warning, well under the ₹200 hard cap
+
+    steps:
+      - name: Check AI key ladder + budget
+        run: |
+          set -euo pipefail
+
+          # Render free tier cold-starts, so retry a few times before believing it's down.
+          body=""
+          for attempt in 1 2 3 4 5; do
+            if body=$(curl -sS -m 90 "$HEALTH_URL"); then
+              if echo "$body" | jq -e '.ai' >/dev/null 2>&1; then break; fi
+            fi
+            echo "attempt $attempt: backend not ready yet, waiting..."
+            body=""
+            sleep 20
+          done
+
+          if [ -z "$body" ]; then
+            echo "::error::Could not reach $HEALTH_URL after 5 attempts (backend down?)"
+            exit 1
+          fi
+
+          echo "$body" | jq '{ok, ai}'
+
+          spent=$(echo "$body"      | jq -r '.ai.spentInr // 0')
+          budget=$(echo "$body"     | jq -r '.ai.budgetInr // 0')
+          freeFirst=$(echo "$body"  | jq -r '.ai.freeFirstActive // false')
+          freeKey=$(echo "$body"    | jq -r '.ai.freeKeyPresent // false')
+          disabled=$(echo "$body"   | jq -r '.ai.aiDisabled // false')
+          order=$(echo "$body"      | jq -r '.ai.providers | join(" -> ")')
+
+          echo "providers : $order"
+          echo "spent     : ₹$spent of ₹$budget"
+          echo "freeFirst : $freeFirst (free key present: $freeKey)"
+
+          fail=0
+
+          # 1. The silent regression: free key stopped loading, so EVERY request
+          #    is now billing paid credits even though nothing looks broken.
+          if [ "$freeFirst" != "true" ] || [ "$freeKey" != "true" ]; then
+            echo "::error::Free-tier key is NOT primary (providers: $order). Every request is now spending PAID credits. Check GEMINI_API_KEY_FREE on Render."
+            fail=1
+          fi
+
+          # 2. Paid spend climbing — free tier is overflowing into paid more than expected.
+          over=$(awk -v s="$spent" -v t="$SPEND_ALERT_INR" 'BEGIN{print (s>t)?1:0}')
+          if [ "$over" = "1" ]; then
+            echo "::error::Paid spend ₹$spent has passed the ₹$SPEND_ALERT_INR alert threshold (hard cap ₹$budget). Free-tier overflow is becoming routine."
+            fail=1
+          fi
+
+          # 3. Kill switch left on — AI is silently degraded for students.
+          if [ "$disabled" = "true" ]; then
+            echo "::error::AI_DISABLED is ON — live generation is turned off."
+            fail=1
+          fi
+
+          if [ "$fail" = "1" ]; then exit 1; fi
+          echo "✅ All good: free-first active, ₹$spent spent, AI enabled."
