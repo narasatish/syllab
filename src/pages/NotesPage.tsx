@@ -163,7 +163,7 @@ export default function NotesPage() {
       <div className="flex flex-col gap-4 md:flex-row">
         {/* Sidebar */}
         <aside className="md:w-56 md:flex-shrink-0">
-          <button type="button" onClick={addNote} className="mb-2 inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-sm font-black text-white shadow hover:opacity-90 transition">
+          <button type="button" onClick={addNote} className="mb-2 inline-flex min-h-[44px] w-full items-center justify-center gap-1.5 rounded-xl bg-primary px-4 text-sm font-black text-white shadow hover:opacity-90 transition">
             <Plus size={15} /> New note
           </button>
           <ul className="space-y-1.5 md:max-h-[30rem] md:overflow-auto">
@@ -172,11 +172,11 @@ export default function NotesPage() {
               return (
                 <li key={n.id}>
                   <div className={`group flex items-center gap-1 rounded-xl border px-3 py-2 transition ${n.id === activeId ? 'border-primary/40 bg-primary/5' : 'border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-200'}`}>
-                    <button type="button" onClick={() => setActiveId(n.id)} className="min-w-0 flex-1 text-left">
+                    <button type="button" onClick={() => setActiveId(n.id)} className="min-h-[44px] min-w-0 flex-1 py-1 text-left">
                       <span className="block truncate text-sm font-black text-slate-800 dark:text-slate-100">{title}</span>
                       <span className="block truncate text-[11px] text-slate-400">{previewText(n.body, 46) || 'Empty'}</span>
                     </button>
-                    <button type="button" onClick={() => removeNote(n.id)} aria-label="Delete note" className="rounded-lg p-1 text-slate-300 hover:bg-rose-50 hover:text-rose-500"><Trash2 size={14} /></button>
+                    <button type="button" onClick={() => removeNote(n.id)} aria-label="Delete note" className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-lg text-slate-300 hover:bg-rose-50 hover:text-rose-500"><Trash2 size={15} /></button>
                   </div>
                 </li>
               );
@@ -194,7 +194,7 @@ export default function NotesPage() {
               // onMouseDown + preventDefault so the editor keeps its selection.
               <button key={label} type="button" title={label} aria-label={label}
                 onMouseDown={(e) => { e.preventDefault(); exec(cmd, arg); }}
-                className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary transition">
+                className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary transition">
                 <Icon size={16} />
               </button>
             ))}

@@ -203,7 +203,7 @@ export default function ImageToolkit() {
       <div className="flex flex-wrap gap-2">
         {MODES.map((m) => (
           <button key={m.id} type="button" onClick={() => { setMode(m.id); reset(); }}
-            className={`rounded-full px-3.5 py-1.5 text-xs font-black transition ${mode === m.id ? 'bg-primary text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'}`}>
+            className={`inline-flex min-h-[40px] items-center rounded-full px-4 text-xs font-black transition ${mode === m.id ? 'bg-primary text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'}`}>
             {m.label}
           </button>
         ))}

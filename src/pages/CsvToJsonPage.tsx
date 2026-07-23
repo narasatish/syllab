@@ -53,7 +53,7 @@ export default function CsvToJsonPage() {
         <div className="flex min-w-0 flex-col">
           <div className="mb-1.5 flex items-center justify-between">
             <span className="text-[11px] font-black uppercase tracking-wide text-slate-500">JSON out {count ? `· ${count} row${count === 1 ? '' : 's'}` : ''}</span>
-            <button type="button" onClick={copy} disabled={!json} className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 px-2.5 py-1.5 text-[11px] font-black text-slate-600 dark:text-slate-200 hover:bg-slate-200 disabled:opacity-40">
+            <button type="button" onClick={copy} disabled={!json} className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 px-3.5 text-[11px] font-black text-slate-600 dark:text-slate-200 hover:bg-slate-200 disabled:opacity-40">
               {copied ? <><Check size={13} /> Copied</> : <><Copy size={13} /> Copy</>}
             </button>
           </div>

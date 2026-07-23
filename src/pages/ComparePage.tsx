@@ -84,7 +84,7 @@ function Side({ label, value, onChange, onLoad, fileName, busy }: SideProps) {
       <div className="mb-1.5 flex items-center justify-between gap-2">
         <span className="text-[11px] font-black uppercase tracking-wide text-slate-500">{label}</span>
         <button type="button" onClick={() => input.current?.click()} disabled={busy}
-          className="inline-flex items-center gap-1 rounded-lg bg-slate-100 dark:bg-slate-700 px-2.5 py-1 text-[11px] font-black text-slate-600 dark:text-slate-200 hover:bg-slate-200 disabled:opacity-50">
+          className="inline-flex min-h-[40px] items-center gap-1 rounded-lg bg-slate-100 dark:bg-slate-700 px-3.5 text-[11px] font-black text-slate-600 dark:text-slate-200 hover:bg-slate-200 disabled:opacity-50">
           {busy ? <Loader2 size={12} className="animate-spin" /> : <UploadCloud size={12} />} Load file
         </button>
         <input ref={input} type="file" accept=".txt,.md,.pdf,.docx,application/pdf,text/plain" className="hidden"

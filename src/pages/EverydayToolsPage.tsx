@@ -56,7 +56,7 @@ function UnitConverter() {
       <div className="flex flex-wrap gap-2">
         {CATEGORIES.map((c) => (
           <button key={c} type="button" onClick={() => setCategory(c)}
-            className={`rounded-full px-3 py-1 text-xs font-black capitalize transition ${category === c ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>{c}</button>
+            className={`inline-flex min-h-[40px] items-center rounded-full px-4 text-xs font-black capitalize transition ${category === c ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>{c}</button>
         ))}
       </div>
       <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto_1fr] sm:items-end">
@@ -93,7 +93,7 @@ function Percentage() {
     <div>
       <div className="flex flex-wrap gap-2">
         {modes.map((m) => (
-          <button key={m.id} type="button" onClick={() => setMode(m.id)} className={`rounded-full px-3 py-1 text-xs font-black transition ${mode === m.id ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>{m.label}</button>
+          <button key={m.id} type="button" onClick={() => setMode(m.id)} className={`inline-flex min-h-[40px] items-center rounded-full px-4 text-xs font-black transition ${mode === m.id ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>{m.label}</button>
         ))}
       </div>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -189,7 +189,7 @@ function Lorem() {
       <div className="flex flex-wrap items-end gap-3">
         <div className="flex gap-2">
           {(['words', 'sentences', 'paragraphs'] as const).map((k) => (
-            <button key={k} type="button" onClick={() => setKind(k)} className={`rounded-full px-3 py-1 text-xs font-black capitalize transition ${kind === k ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>{k}</button>
+            <button key={k} type="button" onClick={() => setKind(k)} className={`inline-flex min-h-[40px] items-center rounded-full px-4 text-xs font-black capitalize transition ${kind === k ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>{k}</button>
           ))}
         </div>
         <label className="block"><span className="text-[11px] font-bold text-slate-500">How many (1–200)</span>
@@ -224,7 +224,7 @@ export default function EverydayToolsPage() {
       <div className="flex flex-wrap gap-2">
         {TABS.map((t) => (
           <button key={t.id} type="button" onClick={() => setTab(t.id)}
-            className={`rounded-full px-3.5 py-1.5 text-xs font-black transition ${tab === t.id ? 'bg-primary text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'}`}>{t.label}</button>
+            className={`inline-flex min-h-[40px] items-center rounded-full px-4 text-xs font-black transition ${tab === t.id ? 'bg-primary text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'}`}>{t.label}</button>
         ))}
       </div>
 
