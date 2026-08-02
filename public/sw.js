@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v274-2026-07-22-seo-dedupe-softnotfound';
+const CACHE_VERSION = 'syllab-v275-2026-07-22-seo-regression-gate';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

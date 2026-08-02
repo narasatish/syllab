@@ -23,6 +23,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://syllab.in';
 const MIN_URLS = 100; // sitemap should always have at least this many
+// How many built pages to open and check head tags on. Sampled evenly across all
+// prerendered routes so every page template is covered without reading ~4,250
+// files on every build. Raise for a stricter (slower) gate.
+const HEAD_SAMPLE_SIZE = 300;
 
 const fails = [];
 const warns = [];
@@ -106,7 +110,60 @@ async function main() {
     if (orphans.length) {
       warns.push(`${orphans.length} prerendered page(s) not in sitemap (ok if intentional): ${orphans.slice(0, 8).join(', ')}${orphans.length > 8 ? ' …' : ''}`);
     }
-    console.log(`SEO audit: ${sitemapPaths.size} sitemap URLs, ${prerendered.size} prerendered pages.`);
+    // ── Head-tag regression gate ────────────────────────────────────────────
+    // Every bug below actually shipped to production once. These assertions run
+    // on the BUILT HTML so a refactor cannot silently undo the fixes:
+    //   • duplicate title/description/canonical (react-helmet-async + React 19
+    //     both emitted head tags → 2 titles, 3 descriptions, 2 canonicals)
+    //   • self-only hreflang clusters (en-IN + en + x-default all → same URL)
+    //   • JSON-LD HTML-escaped into &quot; (JSX children instead of
+    //     dangerouslySetInnerHTML) — silently invalid structured data
+    //   • missing canonical / OG tags
+    // Sampled across a spread of routes (not all ~4,250) to keep the build fast
+    // while still covering every page template.
+    const sample = [...prerendered].sort();
+    const step = Math.max(1, Math.floor(sample.length / HEAD_SAMPLE_SIZE));
+    const toCheck = sample.filter((_, i) => i % step === 0).slice(0, HEAD_SAMPLE_SIZE);
+    const dupes = { title: [], description: [], canonical: [] };
+    const noCanonical = [];
+    const noOg = [];
+    const badLd = [];
+    const selfHreflang = [];
+
+    for (const p of toCheck) {
+      const file = path.join(distDir, p === '/' ? '' : p, 'index.html');
+      let html;
+      try { html = await fs.readFile(file, 'utf8'); } catch { continue; }
+      const head = html.slice(0, html.indexOf('</head>') + 1 || html.length);
+
+      const count = (re) => (head.match(re) || []).length;
+      const nTitle = count(/<title[\s>]/gi);
+      const nDesc = count(/<meta[^>]+name="description"/gi);
+      const nCanon = count(/<link[^>]+rel="canonical"/gi);
+      if (nTitle !== 1) dupes.title.push(`${p} (${nTitle})`);
+      if (nDesc !== 1) dupes.description.push(`${p} (${nDesc})`);
+      if (nCanon !== 1) dupes.canonical.push(`${p} (${nCanon})`);
+      if (nCanon === 0) noCanonical.push(p);
+      if (!/<meta[^>]+property="og:title"/i.test(head)) noOg.push(p);
+      if (/&quot;@context&quot;|&quot;@type&quot;/.test(head)) badLd.push(p);
+
+      // hreflang must point somewhere OTHER than this page; a cluster whose every
+      // href is the page itself is meaningless and auditors flag the repeated href.
+      const hrefs = [...head.matchAll(/<link[^>]+rel="alternate"[^>]+hreflang="[^"]*"[^>]+href="([^"]+)"/gi)].map((m) => m[1]);
+      if (hrefs.length > 0 && new Set(hrefs).size === 1) selfHreflang.push(p);
+    }
+
+    const dupMsg = (kind, list) => {
+      if (list.length) fails.push(`${list.length}/${toCheck.length} sampled page(s) do not have exactly ONE <${kind}>: ${list.slice(0, 5).join(', ')}${list.length > 5 ? ' …' : ''}`);
+    };
+    dupMsg('title', dupes.title);
+    dupMsg('meta name="description"', dupes.description);
+    dupMsg('link rel="canonical"', dupes.canonical);
+    if (noOg.length) fails.push(`${noOg.length} sampled page(s) missing og:title: ${noOg.slice(0, 5).join(', ')}`);
+    if (badLd.length) fails.push(`${badLd.length} page(s) have HTML-escaped JSON-LD (use dangerouslySetInnerHTML): ${badLd.slice(0, 5).join(', ')}`);
+    if (selfHreflang.length) fails.push(`${selfHreflang.length} page(s) have a self-only hreflang cluster (every href is the page itself): ${selfHreflang.slice(0, 5).join(', ')}`);
+
+    console.log(`SEO audit: ${sitemapPaths.size} sitemap URLs, ${prerendered.size} prerendered pages, ${toCheck.length} head-tag samples.`);
   } else {
     console.log(`SEO audit: ${sitemapPaths.size} sitemap URLs (prerender check skipped — no dist/ yet).`);
   }
