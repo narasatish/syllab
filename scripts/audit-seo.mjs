@@ -87,12 +87,16 @@ async function main() {
     }
     await walk(distDir);
 
-    // Static files served directly by Hosting (e.g. /posters/x.html) aren't
-    // prerendered SPA routes — they're valid as long as the physical file exists in dist/.
+    // Static files served directly by Hosting (e.g. posters, web stories) aren't
+    // prerendered SPA routes — they're valid as long as the physical file exists
+    // in dist/. Hosting runs cleanUrls, so the sitemap lists them WITHOUT the
+    // .html extension (listing the .html form would make every such URL a 301 in
+    // the sitemap); accept the extensionless form when dist/<path>.html exists.
     const missing = [];
     for (const p of sitemapPaths) {
       if (prerendered.has(p)) continue;
       if (p.endsWith('.html') && (await exists(path.join(distDir, p)))) continue;
+      if (!p.endsWith('.html') && (await exists(path.join(distDir, `${p}.html`)))) continue;
       missing.push(p);
     }
     if (missing.length) {

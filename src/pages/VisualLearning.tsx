@@ -192,7 +192,7 @@ export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab:
       </div>
       <div className="mt-8 flex flex-wrap items-center gap-3 rounded-2xl bg-emerald-50 p-4 text-sm font-semibold text-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-200">
         <Sparkles size={18} /> <span className="flex-1">More animated lessons are added regularly — bookmark this page!</span>
-        <a href="/posters/science-memory-tricks.html" className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-black text-white transition-opacity hover:opacity-90">🧠 Memory Tricks cheat-sheet</a>
+        <a href="/posters/science-memory-tricks" className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-black text-white transition-opacity hover:opacity-90">🧠 Memory Tricks cheat-sheet</a>
         <a href="/web-stories" className="rounded-xl bg-primary px-4 py-2 text-sm font-black text-white transition-opacity hover:opacity-90">📱 View as Web Stories</a>
       </div>
     </div>

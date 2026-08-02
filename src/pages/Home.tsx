@@ -492,7 +492,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             </button>
           ))}
           <a href="/web-stories" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">📱 Web Stories</a>
-          <a href="/posters/science-memory-tricks.html" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">🧠 Memory Tricks Cheat-sheet</a>
+          <a href="/posters/science-memory-tricks" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">🧠 Memory Tricks Cheat-sheet</a>
         </div>
       </section>
 

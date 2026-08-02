@@ -3183,17 +3183,17 @@ function buildHeadBlock(route) {
     `  <link rel="canonical" href="${canonical}" />`,
     // Per-route language alternates (e.g. an English page that has a /hi/ version);
     // falls back to self-referencing en-IN/en/x-default.
+    // Only emit hreflang where a genuine translated alternate exists. Pointing
+    // en-IN + en + x-default at the SAME url adds nothing (Google ignores a
+    // self-only cluster) and auditors flag it as "repeatable href values".
+    // Pages without a translation just rely on <html lang> + canonical.
     ...(route.hreflangAlt && route.hreflangAlt.length
       ? [
           `  <link rel="alternate" hreflang="en-IN" href="${canonical}" />`,
           ...route.hreflangAlt.map((a) => `  <link rel="alternate" hreflang="${a.lang}" href="${a.href}" />`),
           `  <link rel="alternate" hreflang="x-default" href="${canonical}" />`,
         ]
-      : [
-          `  <link rel="alternate" hreflang="en-IN" href="${canonical}" />`,
-          `  <link rel="alternate" hreflang="en" href="${canonical}" />`,
-          `  <link rel="alternate" hreflang="x-default" href="${canonical}" />`,
-        ]),
+      : []),
     `  <link rel="alternate" type="application/rss+xml" title="Syllab.in Blog — Free Exam Prep & Study Updates" href="${SITE}/feed.xml" />`,
     `  <meta property="og:title" content="${esc(route.title)}" />`,
     `  <meta property="og:description" content="${esc(route.description)}" />`,
@@ -3212,6 +3212,18 @@ function buildHeadBlock(route) {
     `  <meta name="twitter:image" content="${ogImg}" />`,
     `  <meta name="twitter:image:alt" content="${esc(route.title)}" />`,
   ];
+
+  // ── Mark every head tag above as Helmet-managed (data-rh="true") ──
+  // react-helmet-async only ADOPTS pre-existing tags that carry this marker.
+  // Without it, Helmet does not recognise our prerendered tags on hydration and
+  // APPENDS its own copies — the page then has two <meta name="description">,
+  // which SEO auditors flag as a critical duplicate-metadata error.
+  // With the marker, Helmet replaces these tags in place, so exactly one of each
+  // survives. Applied to meta/link/title only (never to the JSON-LD below, which
+  // Helmet does not manage here).
+  for (let i = 0; i < lines.length; i++) {
+    lines[i] = lines[i].replace(/^(\s*<(?:meta|link|title))(\s|>)/, '$1 data-rh="true"$2');
+  }
 
   if (route.jsonLd) {
     lines.push(

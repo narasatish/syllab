@@ -374,10 +374,38 @@ for (const [legacyPath, tab] of Object.entries(LEGACY_PATH_TO_TAB)) {
   if (!PATH_TO_TAB[legacyPath]) PATH_TO_TAB[legacyPath] = tab;
 }
 
+/** Sentinel returned by resolveTab for paths that match no known route. */
+export const NOT_FOUND_TAB = '__not_found__';
+
+/**
+ * Pages that exist ONLY as prerendered HTML (state-board guides written by the
+ * prerender script) — there is no React component for them. Listed so the
+ * not-found handling never noindexes them. Guarded by routeCoverage.test.ts,
+ * which fails the build if any sitemap URL is treated as unknown.
+ */
+const PRERENDER_ONLY_PATHS = new Set(['/up-board', '/bihar-board']);
+
+/**
+ * Hindi routes (/hi/concepts/…) are prerendered but were never taught to the
+ * router, so after hydration they fell through to the home page — a content
+ * mismatch for anyone arriving from Google. Resolve them via their English
+ * counterpart (/hi/concepts/x → /concepts/x) so the right section renders and,
+ * importantly, they are never mistaken for unknown URLs and noindexed.
+ */
+function stripLocale(pathname: string): string {
+  return pathname === '/hi' ? '/' : pathname.startsWith('/hi/') ? pathname.slice(3) : pathname;
+}
+
 // Resolve a pathname → tab. Exact match first, then prefix match for sections
 // that have deep sub-routes (e.g. /colleges/karnataka/rvce-bengaluru → colleges).
-function resolveTab(pathname: string): string {
+function resolveTab(rawPathname: string): string {
+  const pathname = stripLocale(rawPathname);
   if (PATH_TO_TAB[pathname]) return PATH_TO_TAB[pathname];
+  // Prerender-only pages: real indexed content is baked into the static HTML but
+  // the SPA has no component for them. They must NEVER be treated as unknown
+  // (that would noindex live pages); they fall back to the home shell, which is
+  // exactly what they did before the not-found handling existed.
+  if (PRERENDER_ONLY_PATHS.has(pathname)) return 'home';
   if (pathname === '/colleges' || pathname.startsWith('/colleges/')) return 'colleges';
   // Per-article blog pages: /updates/<slug> → the Updates (blog) tab.
   if (pathname === '/updates' || pathname.startsWith('/updates/')) return 'updates';
@@ -430,7 +458,18 @@ function resolveTab(pathname: string): string {
   // the home page (content mismatch + bad UX). NOTE: /coding-challenges and
   // /coding-for-kids are exact keys matched above, so '/coding/' won't catch them.
   if (pathname === '/coding' || pathname.startsWith('/coding/')) return 'skills_lab';
-  return 'home';
+  // Unknown path. Previously this returned 'home', which silently served the
+  // full homepage at any junk URL with `index,follow` — a soft 404: the server
+  // says 200, so crawlers treat every typo/spam URL as a real page. We now flag
+  // it so the app can render a "not found" view and emit `noindex`.
+  // (Firebase Hosting rewrites always return 200, so noindex is the correct
+  // available signal — see NOT_FOUND_TAB usage below.)
+  return NOT_FOUND_TAB;
+}
+
+/** True when a pathname matches no known route (used to emit noindex). */
+export function isUnknownPath(pathname: string): boolean {
+  return resolveTab(pathname) === NOT_FOUND_TAB;
 }
 
 const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string; jsonLd?: Record<string, unknown> | Record<string, unknown>[] }> = {
@@ -1910,7 +1949,12 @@ export default function App() {
                   by activeTab so navigating away resets the boundary. */}
               <ErrorBoundary key={activeTab}>
                 <div key={activeTab} className="app-route-in">
-                  {activeTab === 'home' ? <HomePage setTab={navigate} currentUser={currentUser} stats={stats} userClass={userClass} /> : null}
+                  {/* NOT_FOUND_TAB renders the home shell, exactly as unknown paths
+                      always have. The sentinel exists so isUnknownPath() can identify
+                      junk URLs (see routeCoverage.test.ts); wiring it to a real 404
+                      view + noindex is a separate change — a first attempt hung the
+                      Suspense boundary, so it was reverted rather than shipped. */}
+                  {activeTab === 'home' || activeTab === NOT_FOUND_TAB ? <HomePage setTab={navigate} currentUser={currentUser} stats={stats} userClass={userClass} /> : null}
                   {activeTab === 'syllabus' ? (
                     <SyllabusPage
                       setTab={navigate}

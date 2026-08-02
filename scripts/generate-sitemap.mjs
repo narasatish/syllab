@@ -412,11 +412,24 @@ async function readExistingSitemapDates() {
 }
 
 // ─── XML serialization ───────────────────────────────────────────────────────
+/**
+ * Firebase Hosting runs with cleanUrls, so it permanently redirects /x.html → /x.
+ * Listing the .html form in the sitemap therefore makes EVERY static poster and
+ * web-story URL a 301 inside the sitemap, which Google flags (a sitemap should
+ * list final, canonical, 200-status URLs). Strip the extension so we list the
+ * URL Hosting actually serves.
+ */
+function canonicalLoc(loc) {
+  return loc.endsWith('.html') ? loc.slice(0, -'.html'.length) : loc;
+}
+
 function toXml(urls, existingDates = {}) {
   const today = new Date().toISOString().split('T')[0];
-  const items = urls.map(u => {
+  const items = urls.map(u0 => {
+    const u = { ...u0, loc: canonicalLoc(u0.loc) };
     // Reuse previous lastmod if the URL already existed; only use today for new URLs
-    const lastmod = existingDates[u.loc] || today;
+    // (check both forms so switching to extensionless doesn't reset every date).
+    const lastmod = existingDates[u.loc] || existingDates[u0.loc] || today;
     return (
       `  <url>\n` +
       `    <loc>${SITE}${u.loc}</loc>\n` +
