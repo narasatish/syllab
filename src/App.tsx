@@ -170,6 +170,7 @@ const ToolsHubPage = React.lazy(() => import('./pages/ToolsHub'));
 const PdfToolkitPage = React.lazy(() => import('./pages/PdfToolkit'));
 const ImageToolkitPage = React.lazy(() => import('./pages/ImageToolkit'));
 const ComparePage = React.lazy(() => import('./pages/ComparePage'));
+const QuestionPaperGeneratorPage = React.lazy(() => import('./pages/QuestionPaperGenerator'));
 const NotesPage = React.lazy(() => import('./pages/NotesPage'));
 const EverydayToolsPage = React.lazy(() => import('./pages/EverydayToolsPage'));
 const RomanNumeralsPage = React.lazy(() => import('./pages/RomanNumeralsPage'));
@@ -281,6 +282,7 @@ const TAB_TO_PATH: Record<string, string> = {
   pdf_tools: '/pdf-tools',
   image_tools: '/image-tools',
   compare_tool: '/compare',
+  question_paper: '/question-paper-generator',
   notes_tool: '/notes',
   everyday_tools: '/everyday',
   roman_numerals: '/roman-numerals',
@@ -347,7 +349,7 @@ const MORE_NAV_GROUPS: { heading: string; ids: string[] }[] = [
   { heading: 'Quick Reference', ids: ['differences', 'glossary', 'full_forms', 'maths_tables'] },
   { heading: 'English', ids: ['english_writing', 'english_literature'] },
   { heading: 'General Knowledge', ids: ['general_knowledge'] },
-  { heading: 'Free Tools', ids: ['tools_hub', 'pdf_tools', 'image_tools', 'compare_tool', 'notes_tool', 'everyday_tools', 'roman_numerals', 'contrast_checker', 'timestamp_tool', 'csv_to_json', 'image_to_text', 'word_counter', 'text_to_speech', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
+  { heading: 'Free Tools', ids: ['tools_hub', 'question_paper', 'pdf_tools', 'image_tools', 'compare_tool', 'notes_tool', 'everyday_tools', 'roman_numerals', 'contrast_checker', 'timestamp_tool', 'csv_to_json', 'image_to_text', 'word_counter', 'text_to_speech', 'calculators', 'unit_converter', 'periodic_table', 'pomodoro', 'marks_tracker', 'study_planner', 'flashcards', 'answer_evaluator', 'cutoffs', 'career'] },
   { heading: 'More', ids: ['quiz_duel', 'ai_hub', 'updates'] },
 ];
 const MORE_NAV_IDS = MORE_NAV_GROUPS.flatMap((g) => g.ids);
@@ -490,6 +492,12 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Free private image tools that work 100% in your browser — your files never leave your device. Compress, resize, convert (JPG/PNG/WebP), rotate, flip, crop and convert HEIC to JPG. No upload, no signup, no watermark.',
     keywords: 'compress image, resize image, convert image, jpg to png, png to webp, heic to jpg, rotate image, flip image, crop image, free image tools, image compressor online free, private image tools',
     url: 'https://syllab.in/image-tools',
+  },
+  question_paper: {
+    title: 'Free Question Paper Generator — Printable MCQ Practice Papers | Syllab.in',
+    description: 'Make a printable MCQ practice paper in seconds. Pick a class, subject and chapters, choose how many questions, and print or save as PDF with an answer key. Free, no signup.',
+    keywords: 'question paper generator, mcq paper generator, practice paper maker, printable question paper, cbse mcq practice paper, test paper generator for teachers, worksheet generator',
+    url: 'https://syllab.in/question-paper-generator',
   },
   compare_tool: {
     title: 'Compare Text & Documents Online — Free Diff Checker | Syllab.in',
@@ -1615,6 +1623,7 @@ export default function App() {
     { id: 'marks_tracker',     label: 'Marks Tracker',    icon: ChartNoAxesCombined },
     { id: 'pdf_tools',         label: 'PDF Tools',        icon: FileText },
     { id: 'image_tools',       label: 'Image Tools',      icon: Image },
+    { id: 'question_paper',    label: 'Question Paper',   icon: FileText },
     { id: 'compare_tool',      label: 'Compare',          icon: GitCompare },
     { id: 'notes_tool',        label: 'Notepad',          icon: NotebookPen },
     { id: 'everyday_tools',    label: 'Everyday Tools',   icon: SlidersHorizontal },
@@ -2028,6 +2037,7 @@ export default function App() {
                   {activeTab === 'tools_hub' ? <ToolsHubPage /> : null}
                   {activeTab === 'pdf_tools' ? <PdfToolkitPage /> : null}
                   {activeTab === 'image_tools' ? <ImageToolkitPage /> : null}
+                  {activeTab === 'question_paper' ? <QuestionPaperGeneratorPage /> : null}
                   {activeTab === 'compare_tool' ? <ComparePage /> : null}
                   {activeTab === 'notes_tool' ? <NotesPage /> : null}
                   {activeTab === 'everyday_tools' ? <EverydayToolsPage /> : null}

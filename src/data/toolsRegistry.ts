@@ -18,6 +18,7 @@ export const TOOLS: ToolEntry[] = [
   { path: '/career-predictor', emoji: '🔮', title: 'Career & College Predictor', desc: 'JEE/NEET rank & college predictor with category support, plus a career interest quiz.' },
   { path: '/pdf-tools', emoji: '📄', title: 'PDF Tools', desc: 'Merge, split, rotate, watermark, page numbers, images→PDF & PDF→text. Private — files never leave your browser.' },
   { path: '/image-tools', emoji: '🖼️', title: 'Image Tools', desc: 'Compress, resize, convert (JPG/PNG/WebP), rotate, flip, crop & HEIC→JPG. 100% in your browser.' },
+  { path: '/question-paper-generator', emoji: '📝', title: 'Question Paper Generator', desc: 'Pick chapters, generate a printable MCQ practice paper with an answer key. Free for teachers & parents.' },
   { path: '/compare', emoji: '🔍', title: 'Compare Text & Docs', desc: 'Diff two texts or documents (PDF/DOCX/TXT) and highlight what changed. Private — nothing uploaded.' },
   { path: '/notes', emoji: '📝', title: 'Notepad', desc: 'A private rich-text notepad that auto-saves in your browser. Multiple notes, formatting, offline.' },
   { path: '/everyday', emoji: '🧰', title: 'Everyday Tools', desc: 'Unit converter, percentage, age, date difference, BMI & lorem ipsum — six calculators in one.' },

@@ -183,6 +183,7 @@ function buildUrls({ languages, topicsByLang }) {
   // Private, client-side File Tools (PDF + Image).
   urls.push({ loc: '/pdf-tools', priority: 0.8, changefreq: 'monthly' });
   urls.push({ loc: '/image-tools', priority: 0.8, changefreq: 'monthly' });
+  urls.push({ loc: '/question-paper-generator', priority: 0.8, changefreq: 'monthly' });
   urls.push({ loc: '/compare', priority: 0.8, changefreq: 'monthly' });
   urls.push({ loc: '/notes', priority: 0.8, changefreq: 'monthly' });
   urls.push({ loc: '/everyday', priority: 0.8, changefreq: 'monthly' });

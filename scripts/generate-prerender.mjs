@@ -2140,6 +2140,30 @@ ROUTES.push({
   ],
 });
 ROUTES.push({
+  path: '/question-paper-generator',
+  title: 'Free Question Paper Generator — Printable MCQ Practice Papers | Syllab.in',
+  description: 'Make a printable MCQ practice paper in seconds. Pick a class, subject and chapters, choose how many questions, and print or save as PDF with an answer key. Free for teachers, parents and students — no signup.',
+  keywords: 'question paper generator, mcq paper generator, practice paper maker, printable question paper, cbse mcq practice paper, test paper generator for teachers, worksheet generator',
+  bodyHtml: `
+    <p class="speakable"><strong>Generate a printable MCQ practice paper in seconds.</strong> Choose a class, subject and the chapters you have covered, set how many questions you want, and print the paper or save it as a PDF — with an answer key. Free, no signup.</p>
+    <h2>How it works</h2>
+    <ul>
+      <li><strong>Pick class &amp; subject</strong>, then tick the chapters you have taught or studied.</li>
+      <li><strong>Set the question count</strong> — questions are spread evenly across the chapters you select.</li>
+      <li><strong>Print or save as PDF</strong> straight from your browser, and reveal the answer key when you need it.</li>
+      <li><strong>Shuffle</strong> regenerates a fresh paper from the same chapters — handy for a retest or a second section.</li>
+    </ul>
+    <p>Every question comes from Syllab’s chapter-wise MCQ bank mapped to NCERT/CBSE chapters — nothing is auto-invented. This tool makes <strong>multiple-choice</strong> papers; for board-pattern long-answer practice use the free <a href="/sample-papers">sample papers</a> and <a href="/pyqs">previous-year questions</a>, or browse <a href="/mcqs">chapter-wise MCQs</a> and <a href="/tools">all free tools</a>.</p>`,
+  jsonLd: [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Question Paper Generator', applicationCategory: 'EducationalApplication', operatingSystem: 'Web', url: `${SITE}/question-paper-generator`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+      { '@type': 'Question', name: 'Is the question paper generator free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — completely free, with no signup. Build a paper, print it or save it as a PDF from your browser.' } },
+      { '@type': 'Question', name: 'Where do the questions come from?', acceptedAnswer: { '@type': 'Answer', text: 'Every question comes from Syllab’s chapter-wise MCQ bank, mapped to NCERT/CBSE chapters. This tool generates multiple-choice practice papers; it does not generate long-answer board-pattern questions.' } },
+      { '@type': 'Question', name: 'Can teachers use it for class tests?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Select the chapters you have taught, set the number of questions, print the paper for the class and use the answer key to mark it.' } },
+    ] },
+  ],
+});
+ROUTES.push({
   path: '/compare',
   title: 'Compare Text & Documents Online — Free Diff Checker | Syllab.in',
   description: 'Free online tool to compare two texts or documents and highlight the differences. Paste text or load a PDF, Word (DOCX) or TXT file — everything runs privately in your browser, nothing is uploaded.',
@@ -2385,6 +2409,7 @@ ROUTES.push({
     ['/career-predictor', '🔮', 'Career & College Predictor', 'JEE/NEET rank & college predictor and a career interest quiz.'],
     ['/pdf-tools', '📄', 'PDF Tools', 'Merge, split, watermark, page numbers, sign, images→PDF & PDF→text — private, in your browser.'],
     ['/image-tools', '🖼️', 'Image Tools', 'Compress, resize, convert, rotate, flip, crop & HEIC→JPG — private, in your browser.'],
+    ['/question-paper-generator', '📝', 'Question Paper Generator', 'Pick chapters, generate a printable MCQ practice paper with an answer key — free for teachers.'],
     ['/compare', '🔍', 'Compare Text & Docs', 'Diff two texts or documents (PDF/DOCX/TXT) and highlight what changed — private.'],
     ['/notes', '📝', 'Notepad', 'A private rich-text notepad that auto-saves in your browser — multiple notes, offline.'],
     ['/everyday', '🧰', 'Everyday Tools', 'Unit converter, percentage, age, date difference, BMI & lorem ipsum — six in one.'],
