@@ -11,7 +11,7 @@ export const TOOLS: ToolEntry[] = [
   { path: '/periodic-table', emoji: '⚛️', title: 'Periodic Table', desc: 'All 118 elements — tap any for atomic mass, group, period, state & electron configuration.' },
   { path: '/pomodoro', emoji: '⏳', title: 'Pomodoro Timer', desc: 'Study in focused 25-minute sprints with breaks, a session counter and a gentle chime.' },
   { path: '/marks-tracker', emoji: '📊', title: 'Marks Tracker', desc: 'Overall percentage, CBSE grade, strongest & weakest subject, and marks needed to hit a target.' },
-  { path: '/study-planner', emoji: '🗓️', title: 'Study Planner', desc: 'A day-by-day revision timetable from your exam date, subjects and hours — save or print it.' },
+  { path: '/study-planner', emoji: '🗓️', title: 'Study Planner & Syllabus Tracker', desc: 'Tick chapters off as you finish them, see % covered per subject, and get a timetable built from what is left.' },
   { path: '/flashcards', emoji: '🃏', title: 'Flashcards', desc: 'Make your own decks and revise with spaced repetition (SM-2) — the smart way to memorise.' },
   { path: '/answer-evaluator', emoji: '✍️', title: 'AI Answer Evaluator', desc: 'Paste a question & your answer for an examiner-style score, gaps and full-marks points.' },
   { path: '/cutoffs', emoji: '🎯', title: 'College Cutoffs', desc: 'Browse indicative closing cutoffs for top engineering colleges, filtered by exam.' },

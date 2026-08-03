@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v281-2026-08-03-mcq-explanations-subject-normalise';
+const CACHE_VERSION = 'syllab-v282-2026-08-03-syllabus-tracker';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

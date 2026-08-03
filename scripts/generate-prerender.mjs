@@ -2402,7 +2402,7 @@ ROUTES.push({
     ['/periodic-table', '⚛️', 'Periodic Table', 'All 118 elements — atomic mass, group, period, state & electron configuration.'],
     ['/pomodoro', '⏳', 'Pomodoro Timer', 'Focused 25-minute study sprints with breaks and a session counter.'],
     ['/marks-tracker', '📊', 'Marks Tracker', 'Overall percentage, CBSE grade, weakest subject and target planner.'],
-    ['/study-planner', '🗓️', 'Study Planner', 'A day-by-day revision timetable from your exam date and subjects.'],
+    ['/study-planner', '🗓️', 'Study Planner & Syllabus Tracker', 'Tick chapters off as you finish them and get a timetable built from what is left.'],
     ['/flashcards', '🃏', 'Flashcards', 'Spaced-repetition revision decks (SM-2) you make yourself.'],
     ['/answer-evaluator', '✍️', 'AI Answer Evaluator', 'Examiner-style score and feedback on your written answers.'],
     ['/cutoffs', '🎯', 'College Cutoffs', 'Indicative closing cutoffs for top engineering colleges by exam.'],
@@ -2495,13 +2495,15 @@ ROUTES.push({
 
 ROUTES.push({
   path: '/study-planner',
-  title: 'Free Study Planner & Revision Timetable Generator | Syllab.in',
-  description: 'Make a free, personalized study timetable in seconds. Enter your exam date, subjects and study hours — get a day-by-day revision plan (learn → revise → mock test) you can save or print. For CBSE, JEE & NEET students.',
-  keywords: 'study planner, revision timetable generator, study timetable maker free, exam study plan, board exam timetable, JEE NEET study plan, how to make a study schedule, daily study routine',
+  title: 'Free Study Planner & CBSE Syllabus Tracker (Chapter-wise) | Syllab.in',
+  description: 'Tick off chapters as you finish them and get a free day-by-day timetable built from the syllabus you have LEFT — not a generic schedule. Chapter-wise tracking for CBSE Class 1–12, plus learn → revise → mock phases you can print.',
+  keywords: 'syllabus tracker, cbse syllabus tracker, chapter wise syllabus tracker class 10, syllabus completion tracker, study planner, revision timetable generator, study timetable maker free, exam study plan, board exam timetable, JEE NEET study plan',
   bodyHtml: `
-    <p class="speakable">Build a free, personalized <strong>study timetable</strong> in seconds. Enter your exam date, the subjects you need to cover and how many hours a day you can study — and get a day-by-day revision plan you can save on your device or print as a PDF.</p>
+    <p class="speakable">Track your <strong>syllabus chapter by chapter</strong> and build a free <strong>study timetable</strong> around what is actually left. Tick chapters off as you finish them, see a completion percentage for every subject, and get a day-by-day plan you can save on your device or print as a PDF.</p>
+    <h2>Syllabus tracker: plan around what's actually left</h2>
+    <p>Pick your class and subjects to load the real NCERT chapter list, then tick each chapter as you complete it. You get a live completion percentage per subject — so it is obvious at a glance when Physics is 80% done while Chemistry is still at 30%. The timetable is then built from the chapters you have <strong>not</strong> covered, naming each one on the day it is scheduled and alternating between subjects so no subject is left until the final week. Once the syllabus is complete the whole plan becomes revision and mock tests.</p>
     <h2>How the study planner works</h2>
-    <p>The planner splits the time until your exam into three phases: a <strong>learn phase</strong> that spreads every subject evenly across the days, a <strong>revise phase</strong> in the final quarter that cycles quickly through all subjects, and a <strong>mock-test day</strong> right before the exam. It works for CBSE board exams, JEE, NEET and college semesters alike.</p>
+    <p>The planner splits the time until your exam into three phases: a <strong>learn phase</strong> that spreads every subject evenly across the days, a <strong>revise phase</strong> in the final quarter that cycles quickly through all subjects, and a <strong>mock-test day</strong> right before the exam. It works for CBSE board exams, JEE, NEET and college semesters alike. Prefer something quicker? The <strong>Quick plan</strong> mode still takes just a list of subject names.</p>
     <h2>Why a study timetable helps</h2>
     <p>A written plan removes daily decision fatigue, guarantees every subject gets covered before the exam, and builds in revision and mock practice — the two things students most often run out of time for. Pair your plan with free <a href="/mock-tests">mock tests</a> and <a href="/pyqs">previous-year questions</a>.</p>
     <p><a href="/calculators">Free student calculators →</a> · <a href="/mock-tests">Free mock tests →</a></p>`,
