@@ -783,7 +783,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   {
     "slug": "class-10-maths-real-numbers-mcq",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Real Numbers",
     "intro": "Real numbers include all rational and irrational numbers, and understanding their properties is essential for higher mathematics. This chapter covers the Euclidean algorithm, prime factorization, and rational and irrational numbers.",
     "mcqs": [
@@ -912,7 +912,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   {
     "slug": "class-10-maths-polynomials-mcq",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Polynomials",
     "intro": "Polynomials are algebraic expressions with multiple terms consisting of variables and constants. Understanding polynomial operations and theorems like the remainder and factor theorems is essential for solving equations.",
     "mcqs": [
@@ -1041,7 +1041,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   {
     "slug": "class-10-maths-quadratic-equations-mcq",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Quadratic Equations",
     "intro": "Quadratic equations are polynomial equations of degree 2 and have numerous applications in physics and engineering. Solving them involves factorization, completing the square, or using the quadratic formula.",
     "mcqs": [
@@ -1170,7 +1170,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   {
     "slug": "class-10-maths-triangles-mcq",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Triangles",
     "intro": "Triangles are fundamental geometric shapes, and understanding their properties like similarity, congruence, and the Pythagorean theorem is essential for geometry. This chapter covers triangle theorems and their applications.",
     "mcqs": [
@@ -1299,7 +1299,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   {
     "slug": "class-10-maths-trigonometry-mcq",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Trigonometry",
     "intro": "Trigonometry is the study of relationships between sides and angles in triangles and has numerous applications in navigation, surveying, and engineering. Understanding trigonometric ratios is essential for solving problems.",
     "mcqs": [
@@ -1428,7 +1428,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   {
     "slug": "class-10-maths-probability-mcq",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Probability",
     "intro": "Probability is the mathematical study of uncertainty and randomness, with applications in statistics, finance, and science. Understanding basic probability concepts helps in making informed decisions.",
     "mcqs": [
@@ -5660,7 +5660,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   {
     "slug": "class-10-sst-money-credit-case",
     "classLevel": "10",
-    "subject": "Social Studies",
+    "subject": "Social Science",
     "chapter": "Money and Credit (Case Study)",
     "intro": "CBSE case-based questions on money, credit systems, banking, and financial inclusion. Real-world scenarios involving loans, interest rates, and economic decisions.",
     "mcqs": [

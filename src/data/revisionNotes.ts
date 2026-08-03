@@ -917,7 +917,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-real-numbers",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Real Numbers",
     "intro": "This chapter explores the properties of real numbers including rational and irrational numbers, Euclids algorithm, and the Fundamental Theorem of Arithmetic. Students learn about prime factorization and HCF-LCM relationships.",
     "sections": [
@@ -986,7 +986,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-polynomials",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Polynomials",
     "intro": "This chapter covers polynomial expressions, their degrees, roots, and factorization methods. Students learn about zeros of polynomials, factor theorem, and division algorithm for polynomials.",
     "sections": [
@@ -1055,7 +1055,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-pair-of-linear-equations-in-two-variables",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Pair of Linear Equations in Two Variables",
     "intro": "This chapter focuses on systems of two linear equations with two variables. Students learn graphical and algebraic methods to solve them and understand consistency of systems.",
     "sections": [
@@ -1126,7 +1126,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-quadratic-equations",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Quadratic Equations",
     "intro": "This chapter explores quadratic equations of the form ax^2 + bx + c = 0. Students learn solution methods including factorization and quadratic formula, and applications involving word problems.",
     "sections": [
@@ -1196,7 +1196,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-arithmetic-progressions",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Arithmetic Progressions",
     "intro": "This chapter covers arithmetic progressions where consecutive terms have constant difference. Students learn formulas for nth term, sum of n terms, and applications in various problems.",
     "sections": [
@@ -1265,7 +1265,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-triangles",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Triangles",
     "intro": "This chapter focuses on properties of triangles including congruence, similarity, and the Pythagoras theorem. Students learn criteria for triangle congruence and similarity with applications.",
     "sections": [
@@ -1336,7 +1336,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-coordinate-geometry",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Coordinate Geometry",
     "intro": "This chapter applies algebra to geometry using coordinate axes. Students learn distance formula, section formula, and area calculation using coordinates.",
     "sections": [
@@ -1405,7 +1405,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-trigonometry",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Trigonometry",
     "intro": "This chapter covers trigonometric ratios in right triangles and their applications. Students learn six main ratios, values at special angles, and trigonometric identities.",
     "sections": [
@@ -1476,7 +1476,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-circles",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Circles",
     "intro": "This chapter explores properties of circles including tangents, chords, and angles subtended by arcs. Students learn about circle theorems and tangent-chord relationships.",
     "sections": [
@@ -1545,7 +1545,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-surface-areas-and-volumes",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Surface Areas and Volumes",
     "intro": "This chapter covers surface area and volume formulas for 3D shapes like cubes, cylinders, cones, and spheres. Students learn applications in real-world problems and combinations of shapes.",
     "sections": [
@@ -1614,7 +1614,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-statistics",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Statistics",
     "intro": "This chapter covers methods to collect, organize, and analyze data using statistical measures. Students learn mean, median, mode, and graphical representations of data.",
     "sections": [
@@ -1682,7 +1682,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-probability",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Probability",
     "intro": "This chapter introduces probability theory and calculating chances of events. Students learn about sample space, outcomes, and theoretical vs experimental probability.",
     "sections": [
@@ -2518,7 +2518,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-9-maths-number-systems",
     "classLevel": "Class 9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Number Systems",
     "intro": "This chapter covers rational and irrational numbers, their properties, and operations. Students learn about number line and decimal representation of numbers.",
     "sections": [
@@ -2587,7 +2587,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-9-maths-polynomials",
     "classLevel": "Class 9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Polynomials",
     "intro": "This chapter covers polynomial expressions, their classification, and factorization. Students learn about zeros, factor theorem, and algebraic identities.",
     "sections": [
@@ -2657,7 +2657,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-9-maths-linear-equations-in-two-variables",
     "classLevel": "Class 9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Linear Equations in Two Variables",
     "intro": "This chapter covers linear equations with two variables and their graphical representations. Students learn to plot graphs and find solutions.",
     "sections": [
@@ -2727,7 +2727,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-9-maths-lines-and-angles",
     "classLevel": "Class 9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Lines and Angles",
     "intro": "This chapter covers basic geometry of lines and angles including angle types, parallel lines, and angle relationships. Students learn about angle properties and geometric proofs.",
     "sections": [
@@ -2799,7 +2799,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-9-maths-triangles",
     "classLevel": "Class 9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Triangles",
     "intro": "This chapter covers triangle properties, congruence criteria, and angle bisectors. Students learn to prove triangle congruence and understand angle-side relationships.",
     "sections": [
@@ -4817,7 +4817,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-8-maths-rational-numbers",
     "classLevel": "8",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Rational Numbers",
     "intro": "Rational numbers are numbers that can be expressed as the ratio of two integers. They form an important part of the number system and have properties similar to integers.",
     "sections": [
@@ -4904,7 +4904,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-8-maths-squares-and-square-roots",
     "classLevel": "8",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Squares and Square Roots",
     "intro": "Squares are products of a number with itself, and square roots are the inverse operation. Understanding these concepts is essential for algebra and geometry.",
     "sections": [
@@ -4991,7 +4991,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-8-maths-mensuration",
     "classLevel": "8",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Mensuration",
     "intro": "Mensuration deals with the measurement of lengths, areas, and volumes of geometric figures. These concepts are applied in construction, engineering, and daily life.",
     "sections": [
@@ -5080,7 +5080,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-8-maths-exponents-and-powers",
     "classLevel": "8",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Exponents and Powers",
     "intro": "Exponents and powers provide a compact way to express repeated multiplication. They are fundamental to algebra, science, and technology.",
     "sections": [
@@ -5167,7 +5167,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-9-maths-herons-formula",
     "classLevel": "9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Heron's Formula",
     "intro": "Heron's Formula provides a method to calculate the area of a triangle when all three side lengths are known. This formula is particularly useful when the height is difficult to measure.",
     "sections": [
@@ -5254,7 +5254,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-9-sst-climate",
     "classLevel": "9",
-    "subject": "Social Studies",
+    "subject": "Social Science",
     "chapter": "Climate",
     "intro": "Climate refers to the long-term patterns of weather in a region, determined by temperature, precipitation, wind patterns, and humidity. Different climates support different ecosystems and lifestyles.",
     "sections": [
@@ -5341,7 +5341,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-9-sst-constitutional-design",
     "classLevel": "9",
-    "subject": "Social Studies",
+    "subject": "Social Science",
     "chapter": "Constitutional Design",
     "intro": "India's Constitution is the supreme law that governs the country, outlining the structure of government, rights of citizens, and principles for democratic functioning.",
     "sections": [
@@ -5428,7 +5428,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-areas-related-to-circles",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Areas Related to Circles",
     "intro": "This chapter deals with calculating areas of circles, sectors, and segments. These concepts are essential in geometry and have practical applications in design and engineering.",
     "sections": [
@@ -5602,7 +5602,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-sst-nationalism-in-europe",
     "classLevel": "10",
-    "subject": "Social Studies",
+    "subject": "Social Science",
     "chapter": "Nationalism in Europe",
     "intro": "Nationalism emerged in 19th century Europe as a powerful force leading to unification of Italy and Germany and contributing to World War I. Nationalism shaped modern European history.",
     "sections": [
@@ -5689,7 +5689,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-sst-agriculture",
     "classLevel": "10",
-    "subject": "Social Studies",
+    "subject": "Social Science",
     "chapter": "Agriculture",
     "intro": "Agriculture is the practice of farming for food and raw materials production. Understanding agricultural practices, crop types, and farming methods is important for food security and economic development.",
     "sections": [
@@ -8784,7 +8784,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-pair-linear-equations",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Pair of Linear Equations in Two Variables",
     "intro": "Pairs of linear equations can be solved using multiple methods to find values of two unknowns. Understanding graphical and algebraic methods helps solve real-world problems.",
     "sections": [
@@ -8861,7 +8861,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-introduction-trigonometry",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Introduction to Trigonometry",
     "intro": "Trigonometry studies relationships between angles and sides of triangles. Sine, cosine, and tangent ratios are fundamental tools for solving problems involving angles and distances.",
     "sections": [
@@ -8942,7 +8942,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   {
     "slug": "class-10-maths-surface-areas-volumes",
     "classLevel": "10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Surface Areas and Volumes",
     "intro": "Surface area and volume are measurements of 3D shapes essential for solving practical problems. Understanding formulas for various shapes enables calculating space and material requirements.",
     "sections": [

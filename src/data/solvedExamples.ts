@@ -133,7 +133,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-10-maths-quadratic-equations-solved-examples",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Quadratic Equations",
     "intro": "Quadratic equations are polynomial equations of degree 2. They can be solved using factorization, completing the square, or the quadratic formula. Understanding these methods helps solve real-world problems involving projectile motion and optimization.",
     "examples": [
@@ -192,7 +192,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-10-maths-trigonometry-solved-examples",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Trigonometry",
     "intro": "Trigonometry deals with the relationships between sides and angles in triangles. The trigonometric ratios sine, cosine, and tangent are fundamental tools for solving problems involving heights, distances, and angles of elevation and depression.",
     "examples": [
@@ -256,7 +256,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-10-maths-arithmetic-progressions-solved-examples",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Arithmetic Progressions",
     "intro": "An arithmetic progression is a sequence where consecutive terms have a constant difference. Learning to find the nth term, sum of terms, and solve problems involving arithmetic progressions is important for understanding patterns and series.",
     "examples": [
@@ -315,7 +315,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-10-maths-surface-areas-and-volumes-solved-examples",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Surface Areas and Volumes",
     "intro": "Surface area is the total area of all faces of a 3D shape, while volume is the amount of space it occupies. These concepts are essential for calculating materials needed for construction and understanding capacity of containers.",
     "examples": [
@@ -610,7 +610,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-10-maths-coordinate-geometry-solved-examples",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Coordinate Geometry",
     "intro": "Coordinate geometry combines algebra and geometry using a coordinate system. It helps find distances between points, slopes of lines, and equations of lines using algebraic methods.",
     "examples": [
@@ -669,7 +669,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-10-maths-probability-solved-examples",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Probability",
     "intro": "Probability measures the likelihood of an event happening. It ranges from 0 (impossible) to 1 (certain). Understanding probability helps make informed decisions and analyze chances in everyday situations.",
     "examples": [
@@ -728,7 +728,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-9-maths-polynomials-solved-examples",
     "classLevel": "Class 9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Polynomials",
     "intro": "Polynomials are algebraic expressions with variables and coefficients. Understanding polynomial operations, factorization, and the remainder theorem helps solve equations and simplify expressions.",
     "examples": [
@@ -787,7 +787,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-9-maths-number-systems-solved-examples",
     "classLevel": "Class 9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Number Systems",
     "intro": "Number systems include natural numbers, whole numbers, integers, rational numbers, and irrational numbers. Understanding their properties and operations is fundamental for all higher mathematics.",
     "examples": [
@@ -1286,7 +1286,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-11-maths-sets-functions-solved-examples",
     "classLevel": "Class 11",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Sets and Functions",
     "intro": "Sets and functions are fundamental concepts in mathematics. These examples cover set operations, Venn diagrams, domain and range of functions, and composite functions.",
     "examples": [
@@ -1341,7 +1341,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-11-maths-trigonometric-functions-solved-examples",
     "classLevel": "Class 11",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Trigonometric Functions",
     "intro": "Trigonometric functions relate angles to ratios of sides in triangles and describe periodic phenomena. These examples cover conversions between angle measures, trigonometric identities, and solving trigonometric equations.",
     "examples": [
@@ -1396,7 +1396,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-12-maths-matrices-determinants-solved-examples",
     "classLevel": "Class 12",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Matrices and Determinants",
     "intro": "Matrices and determinants are powerful tools for solving systems of linear equations and performing transformations. These examples demonstrate matrix operations, determinant calculation, and finding inverse matrices.",
     "examples": [
@@ -1451,7 +1451,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-12-maths-probability-solved-examples",
     "classLevel": "Class 12",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Probability",
     "intro": "Probability measures the likelihood of an event occurring. These examples cover basic probability rules, conditional probability, binomial distribution, and expected value calculations.",
     "examples": [
@@ -2826,7 +2826,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-10-sst-nationalism-in-india-pyq",
     "classLevel": "Class 10",
-    "subject": "Social Studies",
+    "subject": "Social Science",
     "chapter": "Nationalism in India - Previous Year Questions",
     "intro": "The struggle for Indian independence involved various movements and key figures. These questions test understanding of events, causes, and impacts of nationalism.",
     "examples": [
@@ -2886,7 +2886,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   {
     "slug": "class-10-sst-sectors-indian-economy-pyq",
     "classLevel": "Class 10",
-    "subject": "Social Studies",
+    "subject": "Social Science",
     "chapter": "Sectors of Indian Economy - Previous Year Questions",
     "intro": "The Indian economy is divided into primary, secondary, and tertiary sectors. These questions test understanding of economic structure, employment, and development issues.",
     "examples": [

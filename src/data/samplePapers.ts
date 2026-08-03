@@ -23,7 +23,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   {
     "slug": "class-10-maths",
     "classLevel": "Class 10",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 10 Maths Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper follows the latest CBSE Class 10 Maths exam pattern with 40 questions spread across four sections. Practice this paper to master all chapters and boost your board exam score.",
@@ -549,7 +549,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   {
     "slug": "class-9-maths",
     "classLevel": "Class 9",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 9 Maths Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper covers all chapters of Class 9 Maths with questions on number systems, polynomials, geometry, and statistics. Solve this to strengthen your foundation for Class 10.",
@@ -1060,7 +1060,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   {
     "slug": "class-12-maths",
     "classLevel": "Class 12",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 12 Maths Sample Paper 2026 (with Solutions)",
     "intro": "This advanced sample paper covers calculus, algebra, and statistics with focus on board exam patterns. Practice this comprehensive paper to secure high marks in the final exam.",
@@ -1576,7 +1576,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   {
     "slug": "class-11-maths",
     "classLevel": "Class 11",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 11 Maths Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper covers complex numbers, sequences, trigonometry, and basic calculus concepts for Class 11. Practice this to build a strong foundation for advanced mathematics.",

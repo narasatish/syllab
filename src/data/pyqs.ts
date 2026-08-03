@@ -4303,7 +4303,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
   {
     "slug": "class-11-maths-complex-numbers",
     "classLevel": "Class 11",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Complex Numbers",
     "exam": "CBSE",
     "intro": "Complex numbers extend real numbers to solve equations with no real solutions. Master operations, moduli, and arguments.",
@@ -4365,7 +4365,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
   {
     "slug": "class-11-maths-permutations-combinations",
     "classLevel": "Class 11",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Permutations and Combinations",
     "exam": "CBSE",
     "intro": "Permutations and combinations count arrangements and selections. Master factorials, nPr, nCr, and their applications.",
@@ -4427,7 +4427,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
   {
     "slug": "class-11-maths-straight-lines",
     "classLevel": "Class 11",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Straight Lines",
     "exam": "CBSE",
     "intro": "Straight lines are fundamental in coordinate geometry. Master equations, slopes, and distances for problem solving.",
@@ -4489,7 +4489,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
   {
     "slug": "class-11-maths-conic-sections",
     "classLevel": "Class 11",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Conic Sections",
     "exam": "CBSE",
     "intro": "Conic sections include circles, parabolas, ellipses, and hyperbolas. Master their equations and properties.",
@@ -4675,7 +4675,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
   {
     "slug": "class-12-maths-3d-geometry",
     "classLevel": "Class 12",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Three Dimensional Geometry",
     "exam": "CBSE",
     "intro": "3D geometry extends coordinate systems to three dimensions. Master lines, planes, and distance formulas for problem solving.",
@@ -6783,7 +6783,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
   {
     "slug": "class-11-maths-sequences-and-series",
     "classLevel": "Class 11",
-    "subject": "Maths",
+    "subject": "Mathematics",
     "chapter": "Sequences and Series",
     "exam": "CBSE Board",
     "intro": "Sequences and Series involve patterns of numbers. Learn arithmetic, geometric, and special sequences to solve problems about sums and patterns.",

@@ -1599,7 +1599,7 @@ function pyqBody(x, sibs, base) {
   return `<p class="speakable">${esc(x.intro)}</p><h2>${esc(x.chapter)} — Previous Year Questions with Solutions</h2>${qs}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} ${esc(x.subject)} PYQs`)}${aiCta}`;
 }
 function mcqBody(x, sibs, base) {
-  const qs = (x.mcqs || []).map((m, i) => { const opts = (m.options || []).map((o, j) => `<li>${esc(o)}${j === m.correct ? ' ✓ (correct)' : ''}</li>`).join(''); return `<div class="qa"><h3>Q${i + 1}. ${esc(m.q)}</h3><ol type="A">${opts}</ol>${m.exp ? `<p><strong>Explanation:</strong> ${esc(m.exp)}</p>` : ''}</div>`; }).join('');
+  const qs = (x.mcqs || []).map((m, i) => { const opts = (m.options || []).map((o, j) => `<li>${esc(o)}${j === m.correct ? ' ✓ (correct)' : ''}</li>`).join(''); return `<div class="qa"><h3>Q${i + 1}. ${esc(m.q)}</h3><ol type="A">${opts}</ol>${m.explanation ? `<p><strong>Explanation:</strong> ${esc(m.explanation)}</p>` : ''}</div>`; }).join('');
   return `<p class="speakable">${esc(x.intro)}</p><h2>${esc(x.chapter)} MCQs with Answers &amp; Explanations</h2>${qs}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} ${esc(x.subject)} MCQs`)}${aiCta}`;
 }
 function solvedBody(x, sibs, base) {
