@@ -16,7 +16,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
 import { CONCEPT_FAQ } from './concept-faq.mjs';
-import { getBlogArticles } from './blogArticles.mjs';
+import { getBlogArticles, isThinArticle } from './blogArticles.mjs';
 import { getNcertChapters } from './ncertChapters.mjs';
 import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getMedicalManifest } from './medicalColleges.mjs';
@@ -381,6 +381,9 @@ function buildUrls({ languages, topicsByLang }) {
   // Blog: the canonical /updates page + each article as its own indexable URL.
   urls.push({ loc: '/updates', priority: 0.7, changefreq: 'daily' });
   for (const a of getBlogArticles()) {
+    // Thin auto-posts are noindex (see blogArticles.THIN_WORD_MIN) — a sitemap
+    // must only list indexable URLs, so they are skipped here too.
+    if (isThinArticle(a)) continue;
     urls.push({ loc: `/updates/${a.slug}`, priority: 0.6, changefreq: 'weekly' });
   }
 

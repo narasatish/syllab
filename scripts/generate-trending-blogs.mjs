@@ -1441,6 +1441,18 @@ function generateBlogs() {
   // season), then drop out automatically next month. Because blogs render inside
   // /blog & /updates (not separate URLs), rotating them out creates no 404s.
   const active = BLOG_TEMPLATES.filter(t => !t.timely || (t.months || []).includes(month));
+
+  // Honest reading time: words / 220wpm, floor of 1 minute. Markdown syntax is
+  // stripped so formatting characters don't inflate the count.
+  function readTimeFor(md) {
+    const words = String(md || '')
+      .replace(/```[\s\S]*?```/g, ' ')
+      .replace(/[#*_>`|\-]+/g, ' ')
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean).length;
+    return `${Math.max(1, Math.round(words / 220))} min read`;
+  }
   const evergreenCount = active.filter(t => !t.timely).length;
   const timelyCount = active.length - evergreenCount;
   console.log(`Blog mix this month: ${evergreenCount} evergreen + ${timelyCount} timely = ${active.length} posts.`);
@@ -1452,7 +1464,11 @@ function generateBlogs() {
       title: template.title,
       description: template.description,
       date: postDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-      readTime: template.readTime,
+      // Derived from the ACTUAL text, never the hand-written template value.
+      // Every one of the hardcoded readTimes overstated the real length by 2x or
+      // more (a 69-word post claimed "4 min read"), which is fabricated metadata
+      // shown to students and to search engines.
+      readTime: readTimeFor(template.content),
       category: template.category,
       content: template.content,
     };

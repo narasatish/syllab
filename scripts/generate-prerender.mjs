@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
 import { ownershipLabel, recognitionLabel, eligibility as collegeEligibility, coursesOffered, documentsRequired, typicalFacilities, scholarships as collegeScholarships, newsLinks as collegeNewsLinks, comparisonSet } from './collegeEnrich.mjs';
 import { getMedicalManifest } from './medicalColleges.mjs';
-import { getBlogArticles } from './blogArticles.mjs';
+import { getBlogArticles, isThinArticle } from './blogArticles.mjs';
 import { getNcertChapters } from './ncertChapters.mjs';
 import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
@@ -2485,6 +2485,11 @@ for (const a of getBlogArticles()) {
     path: `/updates/${a.slug}`,
     title: `${a.title} | Syllab.in`,
     description: desc,
+    // Thin auto-posts (< THIN_WORD_MIN words) ship `noindex, follow`: still
+    // readable and still passing link equity, but kept out of the index so ~48
+    // near-empty posts don't drag the quality signal for the other ~4,000 real
+    // pages. buildHeadBlock() maps `noindex` to 'noindex,follow'.
+    noindex: isThinArticle(a),
     keywords: `${a.title}, Syllab blog, free study guide India, CBSE JEE NEET tips, Indian students`,
     jsonLd: {
       '@context': 'https://schema.org',
