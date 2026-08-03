@@ -19,11 +19,28 @@ import { SYLLABUS } from '../src/data/syllabus';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.resolve(__dirname, '..', 'public', 'data', 'ncert-solutions.json');
-const KEY = process.env.GEMINI_API_KEY;
-if (!KEY) { console.error('Set GEMINI_API_KEY'); process.exit(1); }
-if (process.env.ALLOW_PAID_GEMINI !== '1') {
-  console.error('\n⛔ Disabled to prevent surprise charges. Run on a FREE-TIER key with ALLOW_PAID_GEMINI=1.\n');
-  process.exit(1);
+// Free-first, matching syllab-backend/aiService.js: GEMINI_API_KEY_FREE is a key
+// from an AI Studio project with NO billing linked; GEMINI_API_KEY is the paid
+// one. A bulk run like this must never land on the paid key by accident, so the
+// free key is used when present and the paid key needs an explicit opt-in.
+const FREE_KEY = process.env.GEMINI_API_KEY_FREE;
+const PAID_KEY = process.env.GEMINI_API_KEY;
+const KEY = FREE_KEY || PAID_KEY;
+if (!KEY) { console.error('Set GEMINI_API_KEY_FREE (preferred) or GEMINI_API_KEY'); process.exit(1); }
+if (!FREE_KEY) {
+  if (process.env.ALLOW_PAID_GEMINI !== '1') {
+    console.error(`
+⛔ No GEMINI_API_KEY_FREE set — this would bill every call to the PAID key.
+
+   Add a free-tier key (AI Studio project with no billing linked) as
+   GEMINI_API_KEY_FREE in .env, or, to knowingly spend, re-run with
+   ALLOW_PAID_GEMINI=1.
+`);
+    process.exit(1);
+  }
+  console.warn('⚠️  Running on the PAID Gemini key (ALLOW_PAID_GEMINI=1) — this will cost money.');
+} else {
+  console.log('🆓 Using GEMINI_API_KEY_FREE — free tier, ₹0.');
 }
 
 const args = Object.fromEntries(process.argv.slice(2).flatMap((a, i, arr) =>
@@ -33,7 +50,11 @@ const CONC = Math.max(1, parseInt((args.concurrency as string) || '2', 10));
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 50);
 
 // Unique academic chapters (collapse cross-board duplicates by class+subject+slug).
-const ACADEMIC = new Set(['Science', 'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Social Science']);
+const ACADEMIC = new Set([
+  'Science', 'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Social Science',
+  // Commerce stream (Class 11–12)
+  'Accountancy', 'Business Studies', 'Economics',
+]);
 const seen = new Set<string>();
 let chapters = SYLLABUS.filter((ch) => {
   if (!ACADEMIC.has(ch.subject)) return false;

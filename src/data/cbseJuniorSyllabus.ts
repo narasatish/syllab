@@ -29,6 +29,26 @@ const STOP_WORDS = new Set([
 ]);
 
 const subjectOverview: Record<Subject, { explanation: string; example: string; examInsight: string }> = {
+  // Commerce is a Class 11-12 stream — these keep the Record exhaustive so
+  // adding a Subject stays a compile error until every map is considered.
+  Accountancy: {
+    explanation:
+      "An NCERT accountancy chapter built on the double-entry system, worked through journal, ledger and final accounts.",
+    example: "Recording a credit sale in the journal and posting it to both the sales and debtor ledger accounts.",
+    examInsight: "Format and working notes carry marks — an answer with the right total but the wrong format still loses them.",
+  },
+  "Business Studies": {
+    explanation:
+      "An NCERT business studies chapter covering management and business concepts through named points and Indian examples.",
+    example: "Explaining why a firm chooses a divisional structure when it sells several distinct product lines.",
+    examInsight: "Answer with the exact number of points the question asks for, each named and then explained in a line.",
+  },
+  Economics: {
+    explanation:
+      "An NCERT economics chapter combining numerical tools with policy reasoning about the Indian economy.",
+    example: "Using the value added method to compute GDP and checking it against the expenditure method.",
+    examInsight: "Label every curve and axis — a correct diagram earns marks independently of the written answer.",
+  },
   Mathematics: {
     explanation:
       "A CBSE NCERT mathematics chapter focused on patterns, reasoning, problem solving, and daily-life applications.",
@@ -101,6 +121,9 @@ const toSlug = (value: string) =>
     .replace(/^-|-$/g, "");
 
 const subjectSlug: Record<Subject, string> = {
+  Accountancy: "acc",
+  "Business Studies": "bst",
+  Economics: "eco",
   Mathematics: "math",
   Science: "sci",
   English: "eng",

@@ -38,6 +38,9 @@ const subjectSummary: Record<Subject, string> = {
   "Social Science": "Social Science connects History, Geography, Civics and Economics — events, causes and effects, India's land and people, how democracy and the economy work — explained with maps, timelines and real Indian examples.",
   "The World Around Us": "This subject connects students to environment, society, health, places, materials, and inquiry.",
   "Financial Literacy": "Money, saving, banking, stocks, currencies, commodities and markets — taught with real-life examples from basics to advanced.",
+  Accountancy: "Accountancy is a rule-based subject: every chapter builds on the double-entry system, so journal, ledger and trial balance have to be solid before partnership and company accounts make sense. Marks come from correct format and working notes, not just the final figure.",
+  "Business Studies": "Business Studies is theory-heavy but scoring — answers are graded on named points with a short explanation each, so learning the exact terminology (and how many points a question wants) matters more than length.",
+  Economics: "Economics splits into a numerical half (statistics, national income, cost and revenue curves) and a written half (Indian economic development, policy). Diagrams and correctly labelled curves carry marks on their own.",
 };
 
 const senior = (seed: SeniorSeed): Chapter => ({
@@ -448,4 +451,114 @@ const SENIOR_SYLLABUS: Chapter[] = [
   ].map(([id, title]) => senior({ id, classLevel: "12", subject: "Mathematics", title, difficulty: "Hard" })),
 ];
 
-export const SYLLABUS: Chapter[] = [...JUNIOR_SYLLABUS, ...SENIOR_SYLLABUS, ...FINANCIAL_LITERACY, ...STATE_BOARD_SYLLABUS];
+/**
+ * Commerce stream, Class 11–12 (CBSE/NCERT): Accountancy, Business Studies and
+ * Economics. Chapter names follow the NCERT textbooks; where a subject is split
+ * across two books (Economics) the book is reflected in the chapter title so the
+ * generated slugs stay unique and match how students actually search
+ * ("class 12 macroeconomics national income").
+ */
+const commerce = (
+  classLevel: ClassLevel,
+  subject: Subject,
+  prefix: string,
+  rows: [string, string[]][],
+): Chapter[] =>
+  rows.map(([title, topics], i) =>
+    senior({ id: `${prefix}-${i + 1}`, classLevel, subject, title, topics }));
+
+const COMMERCE_SYLLABUS: Chapter[] = [
+  // ── Accountancy ────────────────────────────────────────────────────────────
+  ...commerce("11", "Accountancy", "11-acc", [
+    ["Introduction to Accounting", ["Meaning and Objectives", "Users of Accounting Information", "Qualitative Characteristics", "Branches of Accounting"]],
+    ["Theory Base of Accounting", ["Accounting Principles", "Going Concern and Accrual", "Accounting Standards", "Basis of Accounting"]],
+    ["Recording of Transactions - I", ["Accounting Equation", "Rules of Debit and Credit", "Journal Entries", "Ledger Posting"]],
+    ["Recording of Transactions - II", ["Cash Book", "Purchases and Sales Book", "Subsidiary Books", "Journal Proper"]],
+    ["Bank Reconciliation Statement", ["Causes of Difference", "Favourable and Overdraft Balance", "Preparing the BRS", "Adjusted Cash Book"]],
+    ["Trial Balance and Rectification of Errors", ["Objectives of Trial Balance", "Types of Errors", "Suspense Account", "Rectifying Entries"]],
+    ["Depreciation, Provisions and Reserves", ["Straight Line Method", "Written Down Value Method", "Asset Disposal", "Provisions vs Reserves"]],
+    ["Bills of Exchange", ["Promissory Note", "Term and Due Date", "Discounting and Endorsement", "Dishonour and Renewal"]],
+    ["Financial Statements - I", ["Trading Account", "Profit and Loss Account", "Balance Sheet", "Gross and Net Profit"]],
+    ["Financial Statements - II", ["Closing Stock", "Outstanding and Prepaid Items", "Depreciation Adjustment", "Bad Debts and Provisions"]],
+    ["Accounts from Incomplete Records", ["Single Entry System", "Statement of Affairs", "Profit by Capital Comparison", "Conversion Method"]],
+    ["Applications of Computers in Accounting", ["Components of a Computer System", "Accounting Information System", "Database Basics", "Automation Benefits"]],
+  ]),
+  ...commerce("12", "Accountancy", "12-acc", [
+    ["Accounting for Partnership: Basic Concepts", ["Partnership Deed", "Profit and Loss Appropriation Account", "Fixed vs Fluctuating Capital", "Interest on Capital and Drawings"]],
+    ["Goodwill: Nature and Valuation", ["Average Profit Method", "Super Profit Method", "Capitalisation Method", "Factors Affecting Goodwill"]],
+    ["Reconstitution of a Partnership Firm - Change in Profit Sharing Ratio", ["Sacrificing and Gaining Ratio", "Revaluation Account", "Reserves and Accumulated Profits", "Adjustment of Capitals"]],
+    ["Reconstitution of a Partnership Firm - Admission of a Partner", ["New Profit Sharing Ratio", "Treatment of Goodwill", "Revaluation of Assets and Liabilities", "Adjustment of Capital Accounts"]],
+    ["Reconstitution of a Partnership Firm - Retirement and Death of a Partner", ["Gaining Ratio", "Amount Due to Retiring Partner", "Deceased Partner's Executor Account", "Loan Account Treatment"]],
+    ["Dissolution of Partnership Firm", ["Realisation Account", "Settlement of Accounts", "Order of Payment", "Partner's Capital and Cash Account"]],
+    ["Accounting for Share Capital", ["Issue of Shares at Par and Premium", "Calls in Arrears and Advance", "Forfeiture and Reissue", "Private Placement and ESOP"]],
+    ["Issue and Redemption of Debentures", ["Types of Debentures", "Issue for Consideration Other than Cash", "Interest on Debentures", "Redemption Methods"]],
+    ["Financial Statements of a Company", ["Schedule III Format", "Balance Sheet of a Company", "Statement of Profit and Loss", "Notes to Accounts"]],
+    ["Analysis of Financial Statements", ["Comparative Statements", "Common Size Statements", "Tools of Analysis", "Limitations of Analysis"]],
+    ["Accounting Ratios", ["Liquidity Ratios", "Solvency Ratios", "Activity or Turnover Ratios", "Profitability Ratios"]],
+    ["Cash Flow Statement", ["Operating Activities", "Investing Activities", "Financing Activities", "Cash and Cash Equivalents"]],
+  ]),
+
+  // ── Business Studies ───────────────────────────────────────────────────────
+  ...commerce("11", "Business Studies", "11-bst", [
+    ["Business, Trade and Commerce", ["Economic and Non-economic Activities", "Industry and Commerce", "Business Risk", "Objectives of Business"]],
+    ["Forms of Business Organisation", ["Sole Proprietorship", "Partnership and Types of Partners", "Hindu Undivided Family Business", "Cooperative Society and Company"]],
+    ["Public, Private and Global Enterprises", ["Departmental Undertaking", "Statutory Corporation", "Government Company", "Multinational Corporations and Joint Ventures"]],
+    ["Business Services", ["Banking and Types of Accounts", "Insurance and Its Principles", "Transportation and Warehousing", "Communication Services"]],
+    ["Emerging Modes of Business", ["e-Business vs Traditional Business", "Online Transaction Process", "Business Process Outsourcing", "Security and Safety of e-Transactions"]],
+    ["Social Responsibility of Business and Business Ethics", ["Arguments For and Against", "Responsibility Towards Stakeholders", "Business and Environment Protection", "Elements of Business Ethics"]],
+    ["Formation of a Company", ["Promotion Stage", "Incorporation and Documents", "Memorandum and Articles of Association", "Capital Subscription and Prospectus"]],
+    ["Sources of Business Finance", ["Owners Funds vs Borrowed Funds", "Retained Earnings and Trade Credit", "Debentures and Public Deposits", "International Sources of Finance"]],
+    ["Small Business and Entrepreneurship Development", ["Classification of Enterprises", "Role of Small Business in India", "Government Support to MSMEs", "Entrepreneurship Development Process"]],
+    ["Internal Trade", ["Wholesale and Retail Trade", "Types of Retailers", "Departmental Stores and Chain Stores", "Role of Chambers of Commerce"]],
+    ["International Business", ["Export and Import Procedure", "Modes of Entry", "Export Documents", "WTO and International Trade Institutions"]],
+  ]),
+  ...commerce("12", "Business Studies", "12-bst", [
+    ["Nature and Significance of Management", ["Management as Science, Art and Profession", "Levels of Management", "Functions of Management", "Coordination as the Essence"]],
+    ["Principles of Management", ["Nature and Significance of Principles", "Fayol's 14 Principles", "Taylor's Scientific Management", "Techniques of Scientific Management"]],
+    ["Business Environment", ["Dimensions of Business Environment", "Importance of Environment Scanning", "Economic Reforms of 1991", "Impact of Liberalisation on Business"]],
+    ["Planning", ["Features and Importance of Planning", "Limitations of Planning", "Planning Process", "Types of Plans"]],
+    ["Organising", ["Organising Process", "Functional and Divisional Structure", "Formal and Informal Organisation", "Delegation and Decentralisation"]],
+    ["Staffing", ["Staffing Process", "Recruitment Sources", "Selection Process", "Training and Development Methods"]],
+    ["Directing", ["Elements of Directing", "Maslow's Hierarchy of Needs", "Leadership Styles", "Communication and Its Barriers"]],
+    ["Controlling", ["Importance and Limitations", "Controlling Process", "Relationship Between Planning and Controlling", "Techniques of Controlling"]],
+    ["Financial Management", ["Objectives and Financial Decisions", "Capital Structure and Financial Leverage", "Fixed and Working Capital", "Financial Planning"]],
+    ["Financial Markets", ["Money Market vs Capital Market", "Primary and Secondary Market", "Functions of Stock Exchange", "SEBI and Its Objectives"]],
+    ["Marketing Management", ["Marketing Mix and 4 Ps", "Product, Branding and Labelling", "Pricing and Physical Distribution", "Promotion Mix and Advertising"]],
+    ["Consumer Protection", ["Importance of Consumer Protection", "Consumer Rights and Responsibilities", "Consumer Protection Act", "Redressal Machinery"]],
+  ]),
+
+  // ── Economics (split across two NCERT books per class) ──────────────────────
+  ...commerce("11", "Economics", "11-eco", [
+    ["Introduction to Statistics for Economics", ["Meaning and Scope of Statistics", "Statistics in Economics", "Consumption, Production and Distribution", "Limitations of Statistics"]],
+    ["Collection of Data", ["Primary and Secondary Data", "Census vs Sample Survey", "Sampling and Non-sampling Errors", "Census of India and NSSO"]],
+    ["Organisation of Data", ["Raw Data and Classification", "Variables: Discrete and Continuous", "Frequency Distribution", "Class Intervals and Limits"]],
+    ["Presentation of Data", ["Tabular Presentation", "Bar Diagrams and Pie Charts", "Histogram and Frequency Polygon", "Ogive and Time Series Graphs"]],
+    ["Measures of Central Tendency", ["Arithmetic Mean", "Median and Quartiles", "Mode", "Relationship Between Mean, Median and Mode"]],
+    ["Correlation", ["Types of Correlation", "Scatter Diagram", "Karl Pearson's Coefficient", "Spearman's Rank Correlation"]],
+    ["Index Numbers", ["Construction of Index Numbers", "Laspeyres and Paasche Index", "Consumer Price Index", "Wholesale Price Index and Inflation"]],
+    ["Indian Economy on the Eve of Independence", ["State of Agriculture", "Industrial Sector under Colonial Rule", "Foreign Trade and Drain of Wealth", "Demographic Condition"]],
+    ["Indian Economy 1950-1990", ["Goals of Five Year Plans", "Agriculture and Green Revolution", "Industrial Licensing Policy", "Trade Policy: Import Substitution"]],
+    ["Liberalisation, Privatisation and Globalisation: An Appraisal", ["Background of 1991 Crisis", "Liberalisation Measures", "Privatisation and Disinvestment", "Globalisation and WTO"]],
+    ["Human Capital Formation in India", ["Human Capital vs Human Development", "Sources of Human Capital", "Education and Health Sector", "Problems of Human Capital Formation"]],
+    ["Rural Development", ["Credit and Marketing in Rural Areas", "Agricultural Diversification", "Organic Farming", "Role of Cooperatives"]],
+    ["Employment: Growth, Informalisation and Other Issues", ["Worker-Population Ratio", "Self-employed and Casual Workers", "Formal and Informal Sector", "Unemployment and Government Schemes"]],
+    ["Environment and Sustainable Development", ["Functions of Environment", "Land and Water Degradation", "Global Warming and Ozone Depletion", "Strategies for Sustainable Development"]],
+    ["Comparative Development Experiences of India and Its Neighbours", ["Developmental Path of India, China and Pakistan", "Demographic Indicators", "Sectoral Contribution to GDP", "Human Development Indicators"]],
+  ]),
+  ...commerce("12", "Economics", "12-eco", [
+    ["Introduction to Microeconomics", ["Central Problems of an Economy", "Production Possibility Frontier", "Opportunity Cost", "Positive and Normative Economics"]],
+    ["Theory of Consumer Behaviour", ["Utility and Marginal Utility", "Budget Line and Budget Set", "Indifference Curve Analysis", "Consumer Equilibrium"]],
+    ["Production and Costs", ["Production Function", "Total, Average and Marginal Product", "Law of Variable Proportions", "Short Run and Long Run Costs"]],
+    ["The Theory of the Firm under Perfect Competition", ["Features of Perfect Competition", "Revenue Concepts", "Profit Maximisation Condition", "Supply Curve of a Firm"]],
+    ["Market Equilibrium", ["Equilibrium Price and Quantity", "Shifts in Demand and Supply", "Effect of Price Ceiling and Price Floor", "Market Equilibrium with Free Entry"]],
+    ["Non-competitive Markets", ["Monopoly and Its Features", "Monopolistic Competition", "Oligopoly", "Comparison of Market Forms"]],
+    ["Introduction to Macroeconomics", ["Emergence of Macroeconomics", "Macroeconomic Agents", "Circular Flow of Income", "Capitalist Economy Features"]],
+    ["National Income Accounting", ["GDP, GNP, NNP and NDP", "Value Added Method", "Income Method", "Expenditure Method and Real vs Nominal GDP"]],
+    ["Money and Banking", ["Functions and Supply of Money", "Commercial Banks and Credit Creation", "Money Multiplier", "RBI and Instruments of Monetary Policy"]],
+    ["Determination of Income and Employment", ["Aggregate Demand and Supply", "Consumption and Saving Function", "Investment Multiplier", "Excess Demand and Deficient Demand"]],
+    ["Government Budget and the Economy", ["Objectives of the Budget", "Revenue and Capital Receipts", "Revenue and Capital Expenditure", "Fiscal, Revenue and Primary Deficit"]],
+    ["Open Economy Macroeconomics", ["Balance of Payments", "Current and Capital Account", "Foreign Exchange Rate", "Fixed and Flexible Exchange Rate Systems"]],
+  ]),
+];
+
+export const SYLLABUS: Chapter[] = [...JUNIOR_SYLLABUS, ...SENIOR_SYLLABUS, ...COMMERCE_SYLLABUS, ...FINANCIAL_LITERACY, ...STATE_BOARD_SYLLABUS];

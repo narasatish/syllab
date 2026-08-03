@@ -7,7 +7,11 @@ export type Subject =
   | "English"
   | "Social Science"
   | "The World Around Us"
-  | "Financial Literacy";
+  | "Financial Literacy"
+  // Commerce stream (Class 11–12)
+  | "Accountancy"
+  | "Business Studies"
+  | "Economics";
 export type ClassLevel = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12";
 export type Difficulty = "easy" | "medium" | "hard" | "mixed";
 
