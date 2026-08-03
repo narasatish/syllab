@@ -22,7 +22,10 @@ export default defineConfig({
         if (context.hostType !== 'html') return deps;
         // Don't preload heavy chunks that aren't needed for first paint/LCP — they
         // load on demand when their feature mounts. Improves mobile Core Web Vitals.
-        const SKIP = ['vendor-charts', 'vendor-pdf', 'vendor-markdown', 'vendor-motion', 'vendor-firebase'];
+        // NOTE: no 'vendor-charts' here — recharts/d3 have no manual chunk (see
+        // manualChunks below), so that name no longer exists. Listing a chunk
+        // that isn't emitted is harmless but misleading.
+        const SKIP = ['vendor-pdf', 'vendor-markdown', 'vendor-motion', 'vendor-firebase'];
         return deps.filter((dep) => !SKIP.some((s) => dep.includes(s)));
       },
     },
@@ -57,7 +60,12 @@ export default defineConfig({
           if (id.includes('/src/data/miniProjects') || id.includes('\\src\\data\\miniProjects')) return 'data-projects';
           if (!id.includes('node_modules')) return undefined;
           if (id.includes('firebase')) return 'vendor-firebase';
-          if (id.includes('recharts') || id.includes('d3-')) return 'vendor-charts';
+          // recharts/d3 deliberately have NO manual chunk. Forcing them into a
+          // named 'vendor-charts' chunk made Rollup emit it as a STATIC import of
+          // the entry and of ~100 page chunks (0 dynamic importers) — ~90KB in the
+          // critical path on every page — even though recharts sits behind two
+          // React.lazy boundaries (App -> ProgressPage -> Analytics). Left
+          // unassigned, Rollup keeps them inside the lazy Analytics chunk.
           if (id.includes('pdfjs-dist')) return 'vendor-pdf';
           if (id.includes('react-markdown') || id.includes('remark-') || id.includes('rehype-') || id.includes('micromark')) return 'vendor-markdown';
           if (id.includes('framer-motion') || id.includes('motion')) return 'vendor-motion';
