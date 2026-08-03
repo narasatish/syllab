@@ -547,6 +547,45 @@ const CLASS_SUBJECTS = {
   12: ['Physics', 'Chemistry', 'Mathematics', 'Biology', 'English', 'Accountancy', 'Business Studies'],
 };
 
+// Chapters grouped by class, so each /class-N hub can link straight into its own
+// NCERT-solution chapter pages. Before this the class hubs linked only to generic
+// section landings (23 links, none deeper than a hub) — so they were a dead end:
+// no authority reached the ~300 chapter pages that actually target long-tail
+// queries, and a student landing on /class-10 had no route to Class 10 content.
+const CHAPTERS_BY_CLASS = {};
+for (const ch of getNcertChapters()) {
+  (CHAPTERS_BY_CLASS[ch.classLevel] ||= {});
+  (CHAPTERS_BY_CLASS[ch.classLevel][ch.subject] ||= []).push(ch);
+}
+
+/** Crawlable per-subject chapter lists for a class hub. Empty string when we have no chapters. */
+function classChapterMesh(c) {
+  const bySubject = CHAPTERS_BY_CLASS[String(c)];
+  if (!bySubject) return '';
+  const subjects = Object.keys(bySubject).sort();
+  let html = `<h2>Class ${c} chapter-wise NCERT solutions</h2>`;
+  html += `<p>Every Class ${c} chapter below has step-by-step NCERT solutions, free and without signup. Pick a subject and jump straight to the chapter you are studying.</p>`;
+  for (const subj of subjects) {
+    const list = bySubject[subj];
+    html += `<h3>Class ${c} ${esc(subj)}</h3><ul>`;
+    for (const ch of list) {
+      html += `<li><a href="/ncert-solutions/class-${ch.classLevel}/${ch.subjSlug}/${ch.chapSlug}">${esc(ch.title)} — NCERT Solutions</a></li>`;
+    }
+    html += `</ul>`;
+  }
+  // Related study formats for the same class (hubs, not per-chapter, to stay honest
+  // about what exists).
+  html += `<h2>More free Class ${c} resources</h2><ul>`;
+  html += `<li><a href="/ncert-solutions">All NCERT solutions</a> — every class and subject.</li>`;
+  html += `<li><a href="/revision-notes">Revision notes</a> — quick last-minute recaps.</li>`;
+  html += `<li><a href="/mcqs">Chapter-wise MCQs</a> — practice with instant answers.</li>`;
+  html += `<li><a href="/sample-papers">Sample papers</a> and <a href="/pyqs">previous-year questions</a>.</li>`;
+  if (c >= 9) html += `<li><a href="/formula-sheets">Formula sheets</a> — printable, subject-wise.</li>`;
+  if (c === 10 || c === 12) html += `<li><a href="/mock-tests">Board &amp; entrance mock tests</a> — full-length, timed.</li>`;
+  html += `</ul>`;
+  return html;
+}
+
 for (let c = 1; c <= 12; c++) {
   const isBoard = c === 10 || c === 12;
   const isJeeNeet = c === 11 || c === 12;
@@ -559,6 +598,7 @@ for (let c = 1; c <= 12; c++) {
     title: `Class ${c} NCERT Syllabus${isBoard ? ', Board Exam Guide' : ''} | Syllab.in`,
     description: `Class ${c} CBSE NCERT complete study guide covering ${subjects}. Free practice questions, chapter notes${examSuffix} — all free on Syllab.in.`,
     keywords: `Class ${c} NCERT, Class ${c} CBSE, Class ${c} syllabus, free NCERT notes Class ${c}, CBSE chapter-wise notes Class ${c}${boardKeywords}${jeeNeetKeywords}`,
+    bodyHtml: classChapterMesh(c),
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Course',
