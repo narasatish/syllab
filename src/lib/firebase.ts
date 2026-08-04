@@ -91,20 +91,10 @@ if (isBrowser) {
 // NOTE: `rank: 'Beginner'` remains the initial default for back-compat with
 // existing production users. The firestore.rules allow both 'Beginner' and
 // the progression names ('Initiate' → 'Grandmaster').
-export const DEFAULT_USER_STATS: UserStats = {
-  score: 0,
-  xp: 0,
-  rank: 'Beginner',
-  streak: 0,
-  level: 1,
-  badges: [],
-};
-
-export const DEFAULT_USER_PROGRESS: UserProgress = {
-  completedChapters: [],
-  lastChapter: '',
-  conceptProgress: {},
-};
+// Moved to lib/userDefaults so App.tsx can seed state without pulling the SDK.
+// Re-exported here so existing importers keep working.
+import { DEFAULT_USER_STATS, DEFAULT_USER_PROGRESS } from './userDefaults';
+export { DEFAULT_USER_STATS, DEFAULT_USER_PROGRESS };
 
 export const mapError = (code?: string) => {
   switch (code) {

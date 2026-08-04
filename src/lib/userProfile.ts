@@ -109,14 +109,10 @@ export async function getCloudRole(uid: string): Promise<'student' | 'parent' | 
 }
 
 /** Read cached role from localStorage (fallback only). */
-export function getStoredRole(): 'student' | 'parent' | null {
-  try { return localStorage.getItem('syllab_user_role') as 'student' | 'parent' | null; } catch { return null; }
-}
-
-/** Write role to localStorage. */
-export function setStoredRole(role: 'student' | 'parent'): void {
-  try { localStorage.setItem('syllab_user_role', role); } catch { /* ignore */ }
-}
+// Firebase-free (localStorage only) — moved to lib/userDefaults so App.tsx can
+// read the role on first paint without pulling firestore. Re-exported for
+// existing importers.
+export { getStoredRole, setStoredRole } from './userDefaults';
 
 export async function sendParentRequest(
   childUid: string,

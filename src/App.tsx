@@ -45,7 +45,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { AVATAR_REWARDS, isAvatarUnlocked } from './data/avatarRewards';
-import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import type { User as FirebaseUser } from 'firebase/auth';
 import { cn } from './lib/utils';
 import SEO from './components/SEO';
 import InstallPrompt from './components/InstallPrompt';
@@ -58,26 +58,21 @@ import DraggableFab from './components/DraggableFab';
 const PomodoroTimer = React.lazy(() => import('./components/PomodoroTimer'));
 import DarkModeToggle from './components/DarkModeToggle';
 import { FIREBASE_AUTH_ENABLED, FIRESTORE_FEATURES_ENABLED } from './lib/cloudFeatures';
+// The Firebase SDK (app + app-check + auth + firestore) is ~519 KB — over a
+// third of what the browser had to download before it could paint anything, for
+// every visitor including the ~97% who arrive from search and never sign in.
+// It is now loaded on demand: `fb()` / `profile()` resolve to the real modules
+// the first time auth starts or a signed-in action runs. Both are cached by the
+// module system, so repeat calls are free.
+const fb = () => import('./lib/firebase');
+const profile = () => import('./lib/userProfile');
 import {
-  auth,
   DEFAULT_USER_PROGRESS,
   DEFAULT_USER_STATS,
-  getUserProgress,
-  getUserStats,
-  logout,
-  resetPassword,
-  saveUserProgress,
-  saveUserStats,
-  sendWelcomeEmail,
-  signInWithEmail,
-  signInWithGoogle,
-  signUpWithEmail,
-  subscribeToNewsletter,
-  syncUserEmail,
-  tryEnsureUserDocuments,
-} from './lib/firebase';
+  getStoredRole,
+  setStoredRole,
+} from './lib/userDefaults';
 import { AuthFormState, UserProgress, UserStats } from './types';
-import { getCloudRole, getExtendedProfile, getStoredRole, saveUserRole, setStoredRole } from './lib/userProfile';
 import { initGamification, syncXpMirror } from './lib/gamification';
 import RewardToast from './components/RewardToast';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -1013,7 +1008,7 @@ function LoginModal({
   const handleRoleSelect = async (role: 'student' | 'parent') => {
     setStoredRole(role);
     if (pendingUid) {
-      saveUserRole(pendingUid, role).catch(() => {/* non-critical */});
+      void profile().then((m) => m.saveUserRole(pendingUid, role)).catch(() => {/* non-critical */});
     }
     onAuthComplete?.(role);
     onClose();
@@ -1044,14 +1039,14 @@ function LoginModal({
 
     try {
       if (mode === 'signup') {
-        const user = await signUpWithEmail(form.email, form.password);
+        const user = await (await fb()).signUpWithEmail(form.email, form.password);
         // Send welcome email (fire-and-forget, non-fatal)
-        sendWelcomeEmail(user.email || form.email, user.displayName || form.email.split('@')[0]);
+        void fb().then((m) => m.sendWelcomeEmail(user.email || form.email, user.displayName || form.email.split('@')[0]));
         // New user — ask them their role before closing
         setPendingUid(user.uid);
         setAuthStep('role');
       } else {
-        await signInWithEmail(form.email, form.password);
+        await (await fb()).signInWithEmail(form.email, form.password);
         // Existing user — bounce them away from /profile to the home page
         onExistingLogin?.();
         onClose();
@@ -1080,9 +1075,9 @@ function LoginModal({
     setError(null);
 
     try {
-      const user = await signInWithGoogle();
+      const user = await (await fb()).signInWithGoogle();
       // Check Firestore first (cloud-first) — localStorage is only a fast-path cache
-      const cloudRole = await getCloudRole(user.uid);
+      const cloudRole = await (await profile()).getCloudRole(user.uid);
       if (cloudRole) {
         // Sync to localStorage so next check is fast
         setStoredRole(cloudRole);
@@ -1091,7 +1086,7 @@ function LoginModal({
         onClose();
       } else {
         // New Google user — send welcome email + show role picker
-        sendWelcomeEmail(user.email || '', user.displayName || '');
+        void fb().then((m) => m.sendWelcomeEmail(user.email || '', user.displayName || ''));
         setPendingUid(user.uid);
         setAuthStep('role');
       }
@@ -1111,7 +1106,7 @@ function LoginModal({
     setLoading(true);
     setError(null);
     try {
-      await resetPassword(form.email);
+      await (await fb()).resetPassword(form.email);
       setError('success:Check your email for the password reset link!');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to send reset link');
@@ -1400,7 +1395,21 @@ export default function App() {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+    // Deferred to idle so the SDK download never competes with first paint.
+    // A logged-out visitor is the correct starting state, and a returning user
+    // sees the signed-in UI a beat later instead of everyone waiting on 519 KB.
+    let unsubscribe: (() => void) | undefined;
+    let cancelled = false;
+
+    const startAuth = async () => {
+      const [{ onAuthStateChanged }, firebase, userProfile] = await Promise.all([
+        import('firebase/auth'), fb(), profile(),
+      ]);
+      if (cancelled) return;
+      const { auth, syncUserEmail, tryEnsureUserDocuments, getUserStats, getUserProgress } = firebase;
+      const { getExtendedProfile } = userProfile;
+
+      unsubscribe = onAuthStateChanged(auth, async (user) => {
       try {
         if (user) {
           setCurrentUser(user);
@@ -1461,9 +1470,24 @@ export default function App() {
           setAppError('Signed in, but cloud account data could not be loaded. Check Firestore rules/env.');
         }
       }
-    });
+      });
+    };
 
-    return () => unsubscribe();
+    // requestIdleCallback where supported, otherwise a short timeout — either
+    // way the SDK starts downloading after the page is painted and interactive.
+    const ric = (window as unknown as {
+      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
+    }).requestIdleCallback;
+    const handle = ric
+      ? ric(() => { void startAuth(); }, { timeout: 2000 })
+      : window.setTimeout(() => { void startAuth(); }, 200);
+
+    return () => {
+      cancelled = true;
+      const cic = (window as unknown as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
+      if (ric && cic) cic(handle); else clearTimeout(handle);
+      unsubscribe?.();
+    };
   }, []);
 
 
@@ -1536,6 +1560,7 @@ export default function App() {
     }
 
     try {
+      const { saveUserStats, saveUserProgress } = await fb();
       await Promise.all([
         saveUserStats(currentUser.uid, nextStats),
         saveUserProgress(currentUser.uid, nextProgress),
@@ -1563,7 +1588,7 @@ export default function App() {
     }
 
     try {
-      await saveUserStats(currentUser.uid, nextStats);
+      await (await fb()).saveUserStats(currentUser.uid, nextStats);
     } catch (error) {
       console.error('Failed to save XP reward.', error);
       setAppError('XP could not be saved. Please try again.');
@@ -1798,7 +1823,7 @@ export default function App() {
                             </button>
                           )}
                           <div className="my-1.5 border-t border-slate-100" />
-                          <button type="button" onClick={() => void logout()} className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-black text-rose-600 hover:bg-rose-50 transition-colors">
+                          <button type="button" onClick={() => void fb().then((m) => m.logout())} className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-black text-rose-600 hover:bg-rose-50 transition-colors">
                             <LogOut size={15} /> Sign Out
                           </button>
                         </div>
@@ -1855,7 +1880,7 @@ export default function App() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => { void logout(); setMobileMenuOpen(false); }}
+                    onClick={() => { void fb().then((m) => m.logout()); setMobileMenuOpen(false); }}
                     className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-2 text-[11px] font-black text-rose-600"
                   >
                     Sign Out
@@ -2356,7 +2381,7 @@ export default function App() {
                   e.preventDefault();
                   if (!newsletterEmail.trim()) return;
                   setNewsletterStatus('loading');
-                  const result = await subscribeToNewsletter(
+                  const result = await (await fb()).subscribeToNewsletter(
                     newsletterEmail.trim(),
                     userClass || undefined,
                     userRole || undefined,
