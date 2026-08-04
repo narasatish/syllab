@@ -64,11 +64,13 @@ const QUORA_QUESTIONS = [
 
 // ─── Gemini (optional) ───────────────────────────────────────────────────────
 async function gemini(prompt) {
-  const key = process.env.GEMINI_API_KEY;
+  // Free key first; the paid key still needs an explicit opt-in.
+  const freeKey = process.env.GEMINI_API_KEY_FREE;
+  const key = freeKey || process.env.GEMINI_API_KEY;
   if (!key) return null;
   // Cost guard: skip the paid Gemini call by default → fall back to free
   // rotating templates. Set ALLOW_PAID_GEMINI=1 (on a free-tier key) to enable.
-  if (process.env.ALLOW_PAID_GEMINI !== '1') return null;
+  if (!freeKey && process.env.ALLOW_PAID_GEMINI !== '1') return null;
   try {
     const res = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,

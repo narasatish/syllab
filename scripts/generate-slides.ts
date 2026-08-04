@@ -24,7 +24,11 @@ import { execSync } from 'child_process';
 import { SYLLABUS } from '../src/data/syllabus';
 import { pickSlideImage } from '../src/lib/lessonImages';
 
-const GEMINI_KEY = process.env.GEMINI_API_KEY;
+const FREE_KEY = process.env.GEMINI_API_KEY_FREE;
+// Free-tier first: GEMINI_API_KEY is the PAID key (see syllab-backend/aiService.js),
+// so ALLOW_PAID_GEMINI=1 on its own used to mean 'spend money' even though it was
+// documented as the way to run this for free.
+const GEMINI_KEY = FREE_KEY || process.env.GEMINI_API_KEY;
 const SUBJECT_EMOJI: Record<string, string> = {
   Physics: '⚛️', Chemistry: '🧪', Biology: '🌿', Science: '🔬',
   Mathematics: '🔢', English: '📖', 'The World Around Us': '🌍',
@@ -32,7 +36,7 @@ const SUBJECT_EMOJI: Record<string, string> = {
 };
 if (!GEMINI_KEY) { console.error('Missing GEMINI_API_KEY in .env.local'); process.exit(1); }
 // Cost guard: calls Gemini + Imagen (paid on a billed key). Disabled by default.
-if (process.env.ALLOW_PAID_GEMINI !== '1') {
+if (!FREE_KEY && process.env.ALLOW_PAID_GEMINI !== '1') {
   console.error('\n⛔ generate-slides is disabled to prevent surprise charges.\n   It calls Gemini + Imagen (costs money on a paid key — Imagen especially).\n   Decks are already generated — you likely do NOT need to run this.\n   To run intentionally on a FREE-TIER key: set ALLOW_PAID_GEMINI=1\n');
   process.exit(1);
 }

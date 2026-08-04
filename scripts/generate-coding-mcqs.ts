@@ -14,10 +14,14 @@ import { LANGUAGES, TOPICS_BY_LANGUAGE } from '../src/data/tutorials/index';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.resolve(__dirname, '..', 'public', 'data', 'coding-mcqs.json');
-const KEY = process.env.GEMINI_API_KEY;
+const FREE_KEY = process.env.GEMINI_API_KEY_FREE;
+// Free-tier first: GEMINI_API_KEY is the PAID key (see syllab-backend/aiService.js),
+// so ALLOW_PAID_GEMINI=1 on its own used to mean 'spend money' even though it was
+// documented as the way to run this for free.
+const KEY = FREE_KEY || process.env.GEMINI_API_KEY;
 if (!KEY) { console.error('Set GEMINI_API_KEY'); process.exit(1); }
 // Cost guard: calls the Gemini API (paid on a billed key). Disabled by default.
-if (process.env.ALLOW_PAID_GEMINI !== '1') {
+if (!FREE_KEY && process.env.ALLOW_PAID_GEMINI !== '1') {
   console.error('\n⛔ generate-coding-mcqs is disabled to prevent surprise charges.\n   Coding MCQs are already generated — you likely do NOT need to run this.\n   To run intentionally on a FREE-TIER key: set ALLOW_PAID_GEMINI=1\n');
   process.exit(1);
 }

@@ -32,11 +32,15 @@ const args = Object.fromEntries(
 const PER = parseInt((args.per as string) || '15', 10);
 const wantAll = !!args.all;
 const limit = args.limit ? parseInt(args.limit as string, 10) : Infinity;
-const KEY = process.env.GEMINI_API_KEY;
+const FREE_KEY = process.env.GEMINI_API_KEY_FREE;
+// Free-tier first: GEMINI_API_KEY is the PAID key (see syllab-backend/aiService.js),
+// so ALLOW_PAID_GEMINI=1 on its own used to mean 'spend money' even though it was
+// documented as the way to run this for free.
+const KEY = FREE_KEY || process.env.GEMINI_API_KEY;
 if (!KEY) { console.error('Set GEMINI_API_KEY'); process.exit(1); }
 // Cost guard: this calls the Gemini API and can incur charges on a PAID-tier key.
 // Disabled unless explicitly allowed. Prefer a FREE-TIER key (no billing linked).
-if (process.env.ALLOW_PAID_GEMINI !== '1') {
+if (!FREE_KEY && process.env.ALLOW_PAID_GEMINI !== '1') {
   console.error('\n⛔ generate-mcqs is disabled to prevent surprise charges.\n   It calls the Gemini API (costs money on a paid key).\n   Content is already generated — you likely do NOT need to run this.\n   To run intentionally on a FREE-TIER key: set ALLOW_PAID_GEMINI=1\n');
   process.exit(1);
 }
