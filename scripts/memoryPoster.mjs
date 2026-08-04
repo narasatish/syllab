@@ -24,7 +24,10 @@ export function buildMemoryPosterHtml(lessons) {
     ...Object.keys(groups).filter((s) => !SUBJECT_ORDER.includes(s)),
   ];
   const total = withHook.length;
-  const url = `${SITE}/posters/science-memory-tricks.html`;
+  // Clean URL, no .html: Firebase Hosting cleanUrls 301s /x.html -> /x, and the
+  // sitemap lists the clean form. A canonical pointing at the .html URL aims the
+  // canonical at a redirect, which contradicts the sitemap.
+  const url = `${SITE}/posters/science-memory-tricks`;
 
   const cards = orderedSubjects.map((sub) => `
     <section class="grp">

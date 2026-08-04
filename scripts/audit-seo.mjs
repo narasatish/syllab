@@ -163,6 +163,30 @@ async function main() {
     if (badLd.length) fails.push(`${badLd.length} page(s) have HTML-escaped JSON-LD (use dangerouslySetInnerHTML): ${badLd.slice(0, 5).join(', ')}`);
     if (selfHreflang.length) fails.push(`${selfHreflang.length} page(s) have a self-only hreflang cluster (every href is the page itself): ${selfHreflang.slice(0, 5).join(', ')}`);
 
+    // Canonicals must not point at a URL that redirects. Firebase Hosting
+    // `cleanUrls` 301s /x.html -> /x, and the sitemap lists the clean form — so a
+    // canonical ending in .html aims the canonical at a redirect and contradicts
+    // the sitemap. This walks EVERY built page rather than the head-tag sample,
+    // because the pages that had this (183 web stories + 9 posters) are
+    // standalone files the sample never reaches.
+    const redirectCanonicals = [];
+    async function scanCanonicals(dir) {
+      for (const e of await fs.readdir(dir, { withFileTypes: true })) {
+        const fp = path.join(dir, e.name);
+        if (e.isDirectory()) { await scanCanonicals(fp); continue; }
+        if (!e.name.endsWith('.html')) continue;
+        const head = (await fs.readFile(fp, 'utf8')).slice(0, 8000);
+        const m = head.match(/<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i);
+        if (m && m[1].endsWith('.html')) {
+          redirectCanonicals.push(`${path.relative(distDir, fp).replace(/\\/g, '/')} → ${m[1]}`);
+        }
+      }
+    }
+    await scanCanonicals(distDir);
+    if (redirectCanonicals.length) {
+      fails.push(`${redirectCanonicals.length} page(s) have a canonical pointing at a .html URL, which cleanUrls 301-redirects: ${redirectCanonicals.slice(0, 5).join(', ')}${redirectCanonicals.length > 5 ? ' …' : ''}`);
+    }
+
     console.log(`SEO audit: ${sitemapPaths.size} sitemap URLs, ${prerendered.size} prerendered pages, ${toCheck.length} head-tag samples.`);
   } else {
     console.log(`SEO audit: ${sitemapPaths.size} sitemap URLs (prerender check skipped — no dist/ yet).`);

@@ -55,7 +55,10 @@ function page(id, subject, inner, extraClass = '') {
 
 /** Build one valid AMP Web Story from a lesson (with memory content). */
 export function buildStoryHtml(l) {
-  const url = `${SITE}/web-stories/${l.slug}.html`;
+  // Clean URL, no .html: Firebase Hosting cleanUrls 301s /x.html -> /x, and the
+  // sitemap lists the clean form. A canonical pointing at the .html URL aims the
+  // canonical at a redirect, which contradicts the sitemap.
+  const url = `${SITE}/web-stories/${l.slug}`;
   const pages = [];
   pages.push(page('cover', l.subject,
     `<span class="pill">${esc(l.subject)} · ${esc(l.classLevel)}</span>` +
@@ -185,7 +188,10 @@ export async function generateWebStories(ROOT, lessons) {
 
 /** Build an AMP Web Story from a concept explainer (title + intro + FAQs). */
 export function buildConceptStoryHtml(c) {
-  const url = `${SITE}/web-stories/concept-${c.slug}.html`;
+  // Clean URL, no .html: Firebase Hosting cleanUrls 301s /x.html -> /x, and the
+  // sitemap lists the clean form. A canonical pointing at the .html URL aims the
+  // canonical at a redirect, which contradicts the sitemap.
+  const url = `${SITE}/web-stories/concept-${c.slug}`;
   const subject = c.subject || 'Concept';
   const pages = [];
   pages.push(page('cover', subject,

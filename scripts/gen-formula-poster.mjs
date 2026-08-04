@@ -32,7 +32,10 @@ function buildPoster({ slug, label, level }) {
   const sheet = ALL_SHEETS.find((s) => s.slug === slug);
   if (!sheet) { console.warn(`⚠️  poster skipped — sheet not found: ${slug}`); return null; }
   const total = sheet.sections.reduce((n, s) => n + s.formulas.length, 0);
-  const url = `https://syllab.in/posters/${slug}-formulas.html`;
+  // Clean URL, no .html: Firebase Hosting cleanUrls 301s /x.html -> /x, and the
+  // sitemap lists the clean form. A canonical pointing at the .html URL aims the
+  // canonical at a redirect, which contradicts the sitemap.
+  const url = `https://syllab.in/posters/${slug}-formulas`;
   const jeeNeet = level === 'Class 11' || level === 'Class 12' ? ', JEE & NEET' : '';
 
   const sectionsHtml = sheet.sections.map((sec) => `
