@@ -3465,11 +3465,30 @@ async function main() {
   const SSR_BUNDLE = path.join(ROOT, 'dist-ssr', 'entry-server.js');
   const SSR = process.env.SSR_PRERENDER === '1' || existsSync(SSR_BUNDLE);
   const SSR_LIMIT = process.env.SSR_LIMIT ? parseInt(process.env.SSR_LIMIT, 10) : null;
-  // Allowlist: homepage only for now. The homepage hydrates cleanly; broader
-  // content/hub pages currently throw a hydration mismatch (React #418) and must
-  // have that root-caused before they're added here (else the LCP benefit erodes
-  // and the console fills with errors). Override/expand via SSR_ROUTES="/,/x".
-  const DEFAULT_SSR_ROUTES = ['/'];
+  // DISABLED (2026-08-04) — SSR is off for every route until the postponed-
+  // boundary bug below is fixed.
+  //
+  // `prerender()` from react-dom/static is documented here as resolving all
+  // Suspense/React.lazy boundaries, but it was POSTPONING the homepage's route
+  // boundary instead: the shipped HTML contained `<!--$~-->` + `<template
+  // id="B:0">` around the loading spinner. A postponed boundary in a prelude can
+  // only be finished by a server-side resume() — the client cannot resolve it.
+  // So the browser hydrated, sat on the fallback forever, never rendered the
+  // lazy Home component, and therefore never even requested Home-*.js.
+  //
+  // Confirmed in REAL Chrome (not just the headless harness) on a fresh load
+  // with no service worker: <main> contained 17 characters, the spinner was
+  // stuck, and only 6 JS files loaded — no Home chunk. Every visitor landing on
+  // syllab.in saw a spinner. Crawlers still got content (it sits in the hidden
+  // S:0/S:1 divs), which is why GSC never flagged it.
+  //
+  // With SSR off, `/` falls back to the static prerendered body + normal client
+  // render, which is what shipped for months before SSR was switched on.
+  //
+  // To re-enable: fix the postponement (e.g. renderToReadableStream + await
+  // allReady, or root-cause what suspends), verify <main> renders real content
+  // in a real browser, then restore ['/'] here.
+  const DEFAULT_SSR_ROUTES = [];
   const SSR_ROUTES = new Set(
     process.env.SSR_ROUTES
       ? process.env.SSR_ROUTES.split(',').map((s) => s.trim()).filter(Boolean)
