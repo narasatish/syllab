@@ -49,25 +49,16 @@ const ROUTES = [
     title: 'Syllab.in — Free AI Learning for CBSE, NCERT, JEE & NEET | Class 1–12',
     description: 'India\'s free AI learning platform for Class 1–12. NCERT chapters, MCQ practice, JEE/NEET/EAMCET mock tests, coding, daily GK, AI tutor, career & college predictor — free for every Indian student.',
     keywords: 'free learning app India, AI tutor free India, NCERT solutions free, CBSE notes free Class 1-12, JEE preparation free 2026, NEET preparation free, EAMCET mock test, career predictor free, free education India',
-    jsonLd: [
-      {
-        '@context': 'https://schema.org', '@type': 'SoftwareApplication',
-        name: 'Syllab.in', operatingSystem: 'Web', applicationCategory: 'EducationApplication',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }, isAccessibleForFree: true,
-        description: 'Free AI-powered learning platform for Class 1–12 CBSE Indian students',
-        // NO aggregateRating — fabricated review counts violate Google's
-        // structured-data policy (manual-penalty risk). Add only with real data.
-      },
-      {
-        '@context': 'https://schema.org', '@type': 'EducationalOrganization',
-        name: 'Syllab.in', url: SITE,
-        description: 'Free AI education platform for Indian students Class 1-12',
-      },
-      {
-        '@context': 'https://schema.org', '@type': 'WebSite', name: 'Syllab.in', url: SITE,
-        potentialAction: { '@type': 'SearchAction', target: `${SITE}/syllabus?q={search_term_string}`, 'query-input': 'required name=search_term_string' },
-      },
-    ],
+    // SoftwareApplication / EducationalOrganization / WebSite are NOT declared
+    // here. index.html already ships richer versions of all three (logo, sameAs,
+    // contactPoint, screenshot), and they now survive only on the home page —
+    // declaring them again here produced duplicate, conflicting entities on the
+    // single most important URL on the site (2× SoftwareApplication,
+    // 2× EducationalOrganization, 3× WebSite).
+    //
+    // NB: no aggregateRating anywhere — fabricated review counts violate Google's
+    // structured-data policy (manual-penalty risk). Add only with real data.
+    jsonLd: [],
   },
   {
     path: '/syllabus',
@@ -3377,11 +3368,19 @@ function injectMeta(baseHtml, route, ssrBody) {
   // is an anti-pattern (irrelevant FAQ on every URL, and a duplicate on pages
   // that declare their own FAQ). Keep the generic FAQ only on the home page;
   // every other page carries only its own page-specific FAQ (if any).
+  // Same reasoning for the site-wide ENTITY blocks the base shell injects
+  // (EducationalOrganization, WebSite+SearchAction, SoftwareApplication): they
+  // describe the site/app, not the page, and Google's guidance puts them on the
+  // page they are about. Shipping them on all ~4,250 URLs is structured-data
+  // noise — a chapter page is not a SoftwareApplication, and the sitelinks
+  // SearchAction only means anything on the home page.
   if (route.path !== '/') {
-    baseHtml = baseHtml.replace(
-      /\s*<script type="application\/ld\+json">(?:(?!<\/script>)[\s\S])*?"@type":\s*"FAQPage"(?:(?!<\/script>)[\s\S])*?<\/script>/,
-      '',
-    );
+    for (const type of ['FAQPage', 'EducationalOrganization', 'WebSite', 'SoftwareApplication']) {
+      baseHtml = baseHtml.replace(
+        new RegExp(`\\s*<script type="application/ld\\+json">(?:(?!</script>)[\\s\\S])*?"@type":\\s*"${type}"(?:(?!</script>)[\\s\\S])*?</script>`),
+        '',
+      );
+    }
   }
 
   // Replace from <title> through </title> and all following meta/link tags

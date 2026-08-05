@@ -17,7 +17,6 @@ import {
   GraduationCap,
 } from 'lucide-react';
 import SEO from '../components/SEO';
-import StructuredData from '../seo/StructuredData';
 import StudyNudge from '../components/StudyNudge';
 import { getStreak } from '../lib/gamification';
 // Below-the-fold — lazy so they don't sit on the homepage's critical render path
@@ -57,27 +56,11 @@ const HOME_SCHEMA = [
       ],
     },
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Syllab.in',
-    url: 'https://syllab.in',
-    applicationCategory: 'EducationalApplication',
-    operatingSystem: 'Android, iOS, Web',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-    description: 'Free AI learning app for Indian students. CBSE NCERT chapters, mock tests, daily challenges, formula bank, diagram lab, skills lab and AI tutor.',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Syllab.in',
-    url: 'https://syllab.in',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: { '@type': 'EntryPoint', urlTemplate: 'https://syllab.in/syllabus?q={search_term_string}' },
-      'query-input': 'required name=search_term_string',
-    },
-  },
+  // NOTE: SoftwareApplication and WebSite+SearchAction are NOT declared here, for
+  // the same reason as the FAQPage below — index.html already ships richer
+  // versions (logo, sameAs, contactPoint, screenshot) and they now survive only
+  // on the home page. Declaring them again here gave the site's most important
+  // URL duplicate, conflicting entities.
   // NOTE: FAQPage schema intentionally lives ONCE in index.html (static, crawlable
   // without JS). It was removed from here to avoid duplicate FAQPage blocks on the
   // home page (GSC flagged conflicting FAQ structured data).
@@ -153,16 +136,6 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         image="https://syllab.in/og-image.svg"
         jsonLd={HOME_SCHEMA}
       />
-      <StructuredData
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: 'Syllab',
-          url: 'https://syllab.in',
-          description: 'AI-powered learning platform for Indian students, Class 1–12. NCERT-aligned, free.',
-        }}
-      />
-
       {/* Retention: keep-your-streak nudge when nothing's been done today */}
       {streakAtRisk > 0 && (
         <div className="px-4 pt-4">
