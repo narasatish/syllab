@@ -6,7 +6,7 @@ they do.
 
 ---
 
-# CURRENT — v286, deployed and live
+# CURRENT — v288, deployed and live
 
 Everything from v280 up is verified live on https://syllab.in. The live SW
 version string is the fastest sanity check:

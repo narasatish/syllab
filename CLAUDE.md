@@ -4,9 +4,9 @@ Free AI learning platform for Indian students (CBSE/NCERT Class 1–12, JEE/NEET
 React 19 + Vite 6 + TS + Tailwind v4 SPA · Firebase Hosting (project `gen-lang-client-0838820295`) · live at https://syllab.in · currently **v288**.
 
 > **Resuming a session? Read `docs/SESSION-STATE.md` FIRST.** It has the current
-> blocker (no `GEMINI_API_KEY_FREE` — blocks two finished features from producing
-> any content), what shipped in v280–v286, the corrected GSC read, and the
-> verification commands.
+> v288 homepage incident (SSR disabled — do NOT re-enable without a real-browser
+> check), the current blocker (no `GEMINI_API_KEY_FREE`), what shipped in
+> v280–v288, the corrected GSC read, and the verification commands.
 
 ## Hard rules
 - **Deploy needs my explicit go-ahead each time.** Bump `CACHE_VERSION` in `public/sw.js` on EVERY deploy (`syllab-vNNN-date-slug`).
