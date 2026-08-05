@@ -1,4 +1,4 @@
-# Session state — as of v286 (2026-08-04)
+# Session state — as of v288 (2026-08-04)
 
 Handoff memory. Read once when resuming work. Newest section first; older history
 is kept below because it still explains why parts of the codebase look the way
@@ -14,6 +14,43 @@ version string is the fastest sanity check:
 ```bash
 curl -sS https://syllab.in/sw.js | grep -oP "syllab-v[0-9]+[^']*" | head -1
 ```
+
+## 🔴 v288 — the homepage was serving a permanent spinner to every visitor
+
+Found 2026-08-04 while auditing something else. **Every user landing on
+syllab.in got a loading spinner that never resolved.** In real Chrome, fresh
+load, no service worker: `<main>` held 17 characters and only 6 JS files loaded
+— the lazy Home chunk was never requested.
+
+Cause: `src/entry-server.tsx` uses `prerender()` from `react-dom/static`, which
+its own comment claims resolves every Suspense/React.lazy boundary. It was
+POSTPONING the homepage route boundary instead — shipped HTML carried
+`<!--$~-->` + `<template id="B:0">` around the spinner, with the real content
+parked in hidden `<div id="S:0"/"S:1">`. **A postponed boundary in a prelude can
+only be finished by a server-side `resume()`; the client cannot resolve it.** So
+React hydrated, sat on the fallback forever, and never rendered the lazy child.
+
+Crawlers were unaffected — the content is present in those hidden divs — which
+is exactly why GSC never flagged it and why it survived so long. Do not trust
+"GSC looks fine" as evidence that users can see a page.
+
+Fix (v288, `aba7a4f`): `DEFAULT_SSR_ROUTES = []` in generate-prerender.mjs —
+SSR off for every route. `/` falls back to the static prerendered body + normal
+client render. Verified live in real Chrome: `<main>` 17 → 9,529 chars, spinner
+gone, h1 = "Learn smarter with AI by your side", Home chunk fetched, 16 JS files.
+
+**Re-enabling SSR:** fix the postponement first (`renderToReadableStream` +
+await `allReady`, or root-cause what suspends), then confirm `<main>` renders
+real content IN A REAL BROWSER before restoring `['/']`. The LCP gain is not
+worth shipping a blank homepage.
+
+Two lessons worth keeping:
+- **Grepping built HTML is not verification.** The markup looked fine — 1 `<h1>`,
+  1 canonical, valid JSON-LD, "SEO audit passed". Only loading the page in a
+  real browser exposed it.
+- **The headless preview harness is not a real browser** (it reports no paint
+  timing at all), but here it was right and I nearly dismissed it as an artifact.
+  Confirm in real Chrome rather than assuming either way.
 
 ## ⛔ THE ONE BLOCKER — read this first
 
@@ -86,6 +123,8 @@ taxonomy first.
 | v284 | `62e416d` | Firebase SDK off the critical path (LCP) |
 | v285 | `b142505` | MCQ bank generator + free-key-first across all Gemini scripts |
 | v286 | `dae2c70` | 192 canonicals pointing at redirecting URLs |
+| v287 | `6e75adc` | site-wide JSON-LD scoped to the home page + HSTS includeSubDomains |
+| v288 | `aba7a4f` | **homepage spinner fix — SSR disabled** (see top of file) |
 
 Detail worth carrying forward:
 
