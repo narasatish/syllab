@@ -38,23 +38,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The focal length of a plane mirror is:",
         "options": [
-          "Zero",
-          "Infinite",
           "Equal to its radius of curvature",
-          "Half its radius"
+          "Half its radius",
+          "Infinite",
+          "Zero"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "A plane mirror has an infinite focal length because its radius of curvature is infinite, so it does not converge or diverge light rays."
       },
       {
         "q": "When light travels from a denser to a rarer medium, it bends:",
         "options": [
           "Towards the normal",
-          "Away from the normal",
           "Parallel to the normal",
-          "At right angles to the normal"
+          "At right angles to the normal",
+          "Away from the normal"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "When light travels from a denser to a rarer medium, it bends away from the normal because the speed of light increases in the rarer medium."
       },
       {
@@ -71,12 +71,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "A convex lens forms a real, inverted and diminished image when the object is:",
         "options": [
-          "At infinity",
-          "At the focal point",
           "Between focal point and center",
-          "Beyond the center of curvature"
+          "At infinity",
+          "Beyond the center of curvature",
+          "At the focal point"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "When the object is at infinity from a convex lens, the image is formed at the focal point and is real, inverted, and highly diminished."
       },
       {
@@ -93,23 +93,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which mirror is used in a car headlight?",
         "options": [
-          "Plane mirror",
-          "Concave mirror",
+          "Cylindrical mirror",
           "Convex mirror",
-          "Cylindrical mirror"
+          "Plane mirror",
+          "Concave mirror"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A concave mirror is used in car headlights because it converges light rays from the bulb to produce a parallel beam of light ahead."
       },
       {
         "q": "If a convex lens of focal length 10 cm is used as a magnifying glass, where should the object be placed?",
         "options": [
-          "At the focal point",
           "Between the focal point and the center",
           "At the center of curvature",
-          "Beyond the center of curvature"
+          "Beyond the center of curvature",
+          "At the focal point"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "For a magnifying glass, the object should be placed between the focal point and the lens to get a virtual, upright, and magnified image."
       },
       {
@@ -156,34 +156,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "According to Ohm's law, V = IR. What does R represent?",
         "options": [
-          "Reactance",
-          "Resistance",
           "Resonance",
-          "Refraction"
+          "Refraction",
+          "Reactance",
+          "Resistance"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "R represents resistance, which is the opposition offered by a conductor to the flow of electric current through it."
       },
       {
         "q": "When resistors are connected in series, the total resistance is:",
         "options": [
-          "Less than the smallest resistance",
           "Equal to the sum of individual resistances",
+          "Less than the smallest resistance",
           "Less than the largest resistance",
           "Equal to the reciprocal of the sum"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "In a series circuit, the total resistance equals the sum of all individual resistances: R_total = R1 + R2 + R3 + ..."
       },
       {
         "q": "The equivalent resistance of three 6-ohm resistors connected in parallel is:",
         "options": [
-          "18 ohms",
           "6 ohms",
           "2 ohms",
-          "0.5 ohms"
+          "0.5 ohms",
+          "18 ohms"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "For resistors in parallel: 1/R_eq = 1/6 + 1/6 + 1/6 = 3/6, so R_eq = 2 ohms."
       },
       {
@@ -200,34 +200,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the power consumed by a 100-watt bulb operated for 10 hours?",
         "options": [
-          "100 watt-hours",
-          "1000 watt-hours",
           "10 watt-hours",
-          "1 kilowatt"
+          "1 kilowatt",
+          "1000 watt-hours",
+          "100 watt-hours"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Energy consumed = Power x Time = 100 W x 10 h = 1000 watt-hours or 1 kilowatt-hour."
       },
       {
         "q": "The SI unit of electrical energy is:",
         "options": [
           "Watt",
+          "Coulomb",
           "Volt",
-          "Joule",
-          "Coulomb"
+          "Joule"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The SI unit of electrical energy is Joule, which equals one watt-second of power consumption."
       },
       {
         "q": "Which of the following materials is a good conductor of electricity?",
         "options": [
-          "Rubber",
-          "Glass",
           "Copper",
-          "Plastic"
+          "Plastic",
+          "Glass",
+          "Rubber"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Copper is an excellent conductor of electricity due to its abundant free electrons, while rubber, glass, and plastic are insulators."
       },
       {
@@ -274,34 +274,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the pH of a neutral solution?",
         "options": [
-          "0",
-          "7",
           "14",
-          "1"
+          "0",
+          "1",
+          "7"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A neutral solution has a pH of 7, meaning it has an equal concentration of hydrogen and hydroxide ions."
       },
       {
         "q": "Which of the following is a strong acid?",
         "options": [
-          "Acetic acid",
-          "Carbonic acid",
           "Hydrochloric acid",
-          "Phosphorous acid"
+          "Acetic acid",
+          "Phosphorous acid",
+          "Carbonic acid"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Hydrochloric acid (HCl) is a strong acid that completely ionizes in water, while acetic acid and carbonic acid are weak acids."
       },
       {
         "q": "The pH of an acidic solution is:",
         "options": [
-          "Greater than 7",
           "Equal to 7",
           "Less than 7",
-          "Between 7 and 14"
+          "Between 7 and 14",
+          "Greater than 7"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "An acidic solution has a pH less than 7, indicating a higher concentration of hydrogen ions than hydroxide ions."
       },
       {
@@ -318,12 +318,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The salt formed from the reaction of HCl and NaOH is:",
         "options": [
-          "Sodium chloride",
           "Sodium hydroxide",
           "Hydrochloric sodium",
-          "Chlorine oxide"
+          "Chlorine oxide",
+          "Sodium chloride"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "The reaction HCl + NaOH produces NaCl (sodium chloride) and water in a neutralization reaction."
       },
       {
@@ -340,12 +340,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The pH of a solution is -log of:",
         "options": [
-          "Hydroxide ion concentration",
           "Hydrogen ion concentration",
-          "Salt concentration",
-          "Water concentration"
+          "Hydroxide ion concentration",
+          "Water concentration",
+          "Salt concentration"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "pH is defined as the negative logarithm of hydrogen ion concentration: pH = -log[H+]."
       },
       {
@@ -373,12 +373,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following salts hydrolyzes to form an acidic solution?",
         "options": [
-          "NaCl",
+          "Na2CO3",
           "KNO3",
-          "FeCl3",
-          "Na2CO3"
+          "NaCl",
+          "FeCl3"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "FeCl3 hydrolyzes to form acidic solution due to the hydrolysis of Fe3+ ions, producing H+ ions."
       }
     ],
@@ -403,12 +403,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is not a life process?",
         "options": [
-          "Respiration",
+          "Crystallization",
           "Photosynthesis",
           "Digestion",
-          "Crystallization"
+          "Respiration"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "Crystallization is a physical process, not a life process. Life processes are biological activities that sustain life."
       },
       {
@@ -436,23 +436,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The process of breaking down food into simple molecules to release energy is:",
         "options": [
-          "Photosynthesis",
-          "Respiration",
           "Digestion",
-          "Transpiration"
+          "Transpiration",
+          "Photosynthesis",
+          "Respiration"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Respiration is the process of breaking down glucose to release energy in the form of ATP for cellular activities."
       },
       {
         "q": "Which type of respiration does not require oxygen?",
         "options": [
-          "Aerobic respiration",
           "Anaerobic respiration",
           "Both require oxygen",
-          "Photosynthesis"
+          "Photosynthesis",
+          "Aerobic respiration"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Anaerobic respiration occurs without oxygen and is used by organisms like bacteria and yeast under oxygen-limited conditions."
       },
       {
@@ -480,34 +480,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The rate of transpiration increases with:",
         "options": [
-          "Decrease in temperature",
+          "Decrease in light",
           "Increase in humidity",
-          "Increase in temperature",
-          "Decrease in light"
+          "Decrease in temperature",
+          "Increase in temperature"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Transpiration increases with higher temperature, lower humidity, more light, and increased air movement."
       },
       {
         "q": "Bile is produced by the:",
         "options": [
-          "Pancreas",
           "Liver",
+          "Small intestine",
           "Stomach",
-          "Small intestine"
+          "Pancreas"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Bile is produced by the liver and stored in the gallbladder to help emulsify fats during digestion."
       },
       {
         "q": "The final products of aerobic respiration in plants and animals are:",
         "options": [
-          "Ethanol and CO2",
-          "Lactate and CO2",
+          "Glucose and O2",
           "CO2 and H2O",
-          "Glucose and O2"
+          "Ethanol and CO2",
+          "Lactate and CO2"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Aerobic respiration produces carbon dioxide and water as final products in both plants and animals."
       }
     ],
@@ -532,12 +532,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The simplest organic compound is:",
         "options": [
-          "Ethane",
-          "Methane",
           "Ethene",
-          "Ethyne"
+          "Ethyne",
+          "Methane",
+          "Ethane"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Methane (CH4) is the simplest organic compound, consisting of one carbon atom bonded to four hydrogen atoms."
       },
       {
@@ -554,12 +554,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is a saturated hydrocarbon?",
         "options": [
+          "Ethane",
           "Ethene",
           "Ethyne",
-          "Ethane",
           "Benzene"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Ethane (C2H6) is a saturated hydrocarbon containing only single bonds, while ethene and ethyne contain double and triple bonds."
       },
       {
@@ -587,45 +587,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The process of burning hydrocarbons to produce carbon dioxide and water is called:",
         "options": [
-          "Combustion",
-          "Oxidation",
           "Dehydration",
-          "Hydrogenation"
+          "Oxidation",
+          "Hydrogenation",
+          "Combustion"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Combustion is the reaction of hydrocarbons with oxygen to produce CO2 and H2O, releasing energy as heat and light."
       },
       {
         "q": "Which functional group is present in alcohols?",
         "options": [
-          "-CHO",
           "-OH",
-          "-COOH",
-          "-CO"
+          "-CHO",
+          "-CO",
+          "-COOH"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Alcohols contain the hydroxyl functional group (-OH) attached to a carbon atom."
       },
       {
         "q": "Denaturation of proteins occurs due to:",
         "options": [
-          "Increase in pH only",
-          "Increase in temperature only",
+          "Decrease in light",
           "Change in pH and temperature",
-          "Decrease in light"
+          "Increase in pH only",
+          "Increase in temperature only"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Proteins denature when exposed to extreme pH or high temperatures, causing loss of their three-dimensional structure."
       },
       {
         "q": "The chemical formula of benzene is:",
         "options": [
-          "C5H10",
-          "C6H6",
           "C7H8",
-          "C8H10"
+          "C8H10",
+          "C6H6",
+          "C5H10"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Benzene has the molecular formula C6H6 and contains a six-membered ring with alternating double bonds."
       },
       {
@@ -661,23 +661,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is a physical property of metals?",
         "options": [
-          "Non-malleable",
-          "Poor electrical conductivity",
           "High melting point",
+          "Poor electrical conductivity",
+          "Non-malleable",
           "Non-ductile"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Metals generally have high melting points, are malleable, ductile, and are good conductors of electricity and heat."
       },
       {
         "q": "Which of the following is a non-metal?",
         "options": [
           "Iron",
-          "Aluminum",
           "Oxygen",
+          "Aluminum",
           "Copper"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Oxygen is a non-metal that is a gas at room temperature, while iron, aluminum, and copper are metals."
       },
       {
@@ -694,12 +694,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which metal does not react with dilute acids?",
         "options": [
-          "Iron",
           "Zinc",
-          "Copper",
-          "Aluminum"
+          "Aluminum",
+          "Iron",
+          "Copper"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Copper is less reactive than hydrogen and does not react with dilute acids, unlike iron, zinc, and aluminum."
       },
       {
@@ -716,12 +716,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following non-metals is a liquid at room temperature?",
         "options": [
-          "Oxygen",
           "Nitrogen",
           "Bromine",
+          "Oxygen",
           "Chlorine"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Bromine is the only non-metal that is liquid at room temperature, while oxygen and nitrogen are gases, and chlorine is also a gas."
       },
       {
@@ -738,12 +738,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following metals forms an amphoteric oxide?",
         "options": [
+          "Sodium",
           "Calcium",
           "Magnesium",
-          "Aluminum",
-          "Sodium"
+          "Aluminum"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Aluminum forms amphoteric oxide (Al2O3) that reacts with both acids and bases."
       },
       {
@@ -761,11 +761,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which of the following is an alloy?",
         "options": [
           "Iron",
-          "Copper",
           "Brass",
-          "Aluminum"
+          "Aluminum",
+          "Copper"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Brass is an alloy of copper and zinc, while iron, copper, and aluminum are pure metals."
       }
     ],
@@ -790,45 +790,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The HCF of two numbers is 12 and their LCM is 180. If one number is 36, what is the other?",
         "options": [
-          "60",
           "72",
-          "84",
-          "96"
+          "96",
+          "60",
+          "84"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Using HCF x LCM = Product of two numbers: 12 x 180 = 36 x other, so other = 2160/36 = 60."
       },
       {
         "q": "Which of the following is an irrational number?",
         "options": [
+          "2.4",
           "0.375",
           "0.5",
-          "sqrt(2)",
-          "2.4"
+          "sqrt(2)"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "sqrt(2) is irrational because it cannot be expressed as a ratio of two integers, unlike the others which are rational."
       },
       {
         "q": "The decimal expansion of a rational number is:",
         "options": [
-          "Non-terminating and non-repeating",
           "Terminating or non-terminating repeating",
-          "Always non-terminating",
-          "Always terminating"
+          "Always terminating",
+          "Non-terminating and non-repeating",
+          "Always non-terminating"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Rational numbers have either terminating decimals or non-terminating repeating decimals."
       },
       {
         "q": "If a = 2^3 x 3^2 x 5 and b = 2^2 x 3 x 5^2, then LCM(a,b) is:",
         "options": [
-          "2^3 x 3^2 x 5",
           "2^2 x 3 x 5",
           "2^3 x 3^2 x 5^2",
+          "2^3 x 3^2 x 5",
           "2^2 x 3^2 x 5^2"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "LCM is found by taking the highest power of each prime factor: 2^3 x 3^2 x 5^2."
       },
       {
@@ -846,55 +846,55 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The sum of two rational numbers is always:",
         "options": [
           "Irrational",
-          "Rational",
+          "Sometimes rational",
           "Neither rational nor irrational",
-          "Sometimes rational"
+          "Rational"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The sum of two rational numbers is always rational because the set of rational numbers is closed under addition."
       },
       {
         "q": "sqrt(2) + sqrt(3) is:",
         "options": [
-          "Rational",
           "Irrational",
           "Neither",
+          "Rational",
           "Can be rational or irrational"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The sum of two irrational numbers can be irrational. In this case, sqrt(2) + sqrt(3) is irrational."
       },
       {
         "q": "If p and q are primes and p divides q, then:",
         "options": [
-          "p = q",
           "p > q",
+          "p = q",
           "p < q",
           "p divides q"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "If a prime p divides another prime q, then p must equal q because primes have no other divisors."
       },
       {
         "q": "The HCF of 36 and 48 is:",
         "options": [
+          "36",
           "12",
           "24",
-          "6",
-          "36"
+          "6"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The HCF of 36 and 48 is 12. Wait, let me recalculate: 36 = 2^2 x 3^2, 48 = 2^4 x 3, so HCF = 2^2 x 3 = 12. The answer is option 0, not option 1."
       },
       {
         "q": "The product of a non-zero rational and an irrational number is:",
         "options": [
           "Rational",
-          "Irrational",
           "Neither",
-          "Zero"
+          "Zero",
+          "Irrational"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The product of a non-zero rational and an irrational number is always irrational."
       }
     ],
@@ -931,44 +931,44 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The degree of the polynomial 4x^3 - 5x^2 + 2x - 1 is:",
         "options": [
           "1",
-          "2",
           "3",
-          "4"
+          "4",
+          "2"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The degree of a polynomial is the highest power of the variable, which is 3 in this case."
       },
       {
         "q": "If the sum of zeros of the polynomial x^2 - 5x + 6 is s, then s is:",
         "options": [
           "3",
+          "6",
           "5",
-          "-5",
-          "6"
+          "-5"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "For a quadratic ax^2 + bx + c, sum of zeros = -b/a = -(-5)/1 = 5."
       },
       {
         "q": "The product of zeros of the polynomial 2x^2 - 8x + 6 is:",
         "options": [
-          "3",
+          "-4",
           "-3",
           "4",
-          "-4"
+          "3"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "For a quadratic ax^2 + bx + c, product of zeros = c/a = 6/2 = 3."
       },
       {
         "q": "When p(x) = x^3 - 2x^2 + x - 1 is divided by (x - 1), the remainder is:",
         "options": [
-          "0",
-          "-1",
           "-3",
-          "-2"
+          "-1",
+          "-2",
+          "0"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "By remainder theorem, remainder = p(1) = 1 - 2 + 1 - 1 = -1. Wait, let me recalculate: p(1) = 1 - 2 + 1 - 1 = -1, not -3."
       },
       {
@@ -986,11 +986,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The number of zeros of a cubic polynomial is at most:",
         "options": [
           "1",
-          "2",
           "3",
-          "4"
+          "4",
+          "2"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "A polynomial of degree n has at most n zeros. A cubic polynomial has degree 3, so it has at most 3 zeros."
       },
       {
@@ -1007,12 +1007,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The zeros of the polynomial (x - 3)(x + 2)(x - 1) are:",
         "options": [
-          "3, -2, 1",
-          "-3, 2, -1",
+          "-3, -2, -1",
           "3, 2, 1",
-          "-3, -2, -1"
+          "-3, 2, -1",
+          "3, -2, 1"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "The zeros are the values of x that make the polynomial equal to 0, which are 3, -2, and 1."
       },
       {
@@ -1048,23 +1048,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The quadratic equation 2x^2 - 8x + 6 = 0 has roots:",
         "options": [
-          "1, 3",
-          "2, 3",
           "-1, -3",
-          "1, -3"
+          "1, 3",
+          "1, -3",
+          "2, 3"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Using the quadratic formula or factorization: 2x^2 - 8x + 6 = 2(x - 1)(x - 3) = 0, so roots are 1 and 3."
       },
       {
         "q": "The discriminant of x^2 - 5x + 6 = 0 is:",
         "options": [
-          "1",
           "25",
-          "-24",
-          "24"
+          "1",
+          "24",
+          "-24"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "Discriminant = b^2 - 4ac = (-5)^2 - 4(1)(6) = 25 - 24 = 1. Wait, this should be 1, not 24."
       },
       {
@@ -1072,10 +1072,10 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "Real and equal",
           "Real and distinct",
-          "Complex and conjugates",
-          "No roots exist"
+          "No roots exist",
+          "Complex and conjugates"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "When the discriminant is negative, the roots are complex conjugates (non-real) and distinct from each other."
       },
       {
@@ -1092,67 +1092,67 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The product of roots of x^2 - 7x + 12 = 0 is:",
         "options": [
-          "7",
-          "-7",
+          "-12",
           "12",
-          "-12"
+          "-7",
+          "7"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Product of roots = c/a = 12/1 = 12 for the quadratic equation ax^2 + bx + c = 0."
       },
       {
         "q": "The quadratic equation with roots 2 and -3 is:",
         "options": [
-          "x^2 + x - 6 = 0",
-          "x^2 - x + 6 = 0",
+          "x^2 + x + 6 = 0",
           "x^2 - x - 6 = 0",
-          "x^2 + x + 6 = 0"
+          "x^2 + x - 6 = 0",
+          "x^2 - x + 6 = 0"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "If roots are 2 and -3, then equation is (x - 2)(x + 3) = 0, which gives x^2 + x - 6 = 0."
       },
       {
         "q": "A quadratic equation has equal roots when its discriminant is:",
         "options": [
-          "Positive",
+          "Undefined",
           "Negative",
-          "Zero",
-          "Undefined"
+          "Positive",
+          "Zero"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "A quadratic equation has real and equal roots when the discriminant equals zero."
       },
       {
         "q": "The value of k for which x^2 - 4x + k = 0 has equal roots is:",
         "options": [
-          "2",
           "4",
+          "16",
           "8",
-          "16"
+          "2"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "For equal roots, discriminant = 0. So (-4)^2 - 4(1)(k) = 0, which gives 16 - 4k = 0, so k = 4."
       },
       {
         "q": "The nature of roots of x^2 + x + 1 = 0 is:",
         "options": [
-          "Real and distinct",
-          "Real and equal",
+          "Real and unequal",
           "Complex conjugates",
-          "Real and unequal"
+          "Real and equal",
+          "Real and distinct"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Discriminant = 1 - 4 = -3, which is negative, so roots are complex conjugates."
       },
       {
         "q": "If the roots of ax^2 + bx + c = 0 are p and q, then the equation with roots 1/p and 1/q is:",
         "options": [
+          "bx^2 + ax + c = 0",
           "ax^2 + bx + c = 0",
           "cx^2 + bx + a = 0",
-          "bx^2 + ax + c = 0",
           "c + bx + ax^2 = 0"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "If p and q are roots of ax^2 + bx + c = 0, then 1/p and 1/q are roots of cx^2 + bx + a = 0."
       }
     ],
@@ -1177,67 +1177,67 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "If two triangles are similar, then their corresponding angles are:",
         "options": [
-          "Proportional",
-          "Equal",
           "Supplementary",
-          "Complementary"
+          "Proportional",
+          "Complementary",
+          "Equal"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "If two triangles are similar, their corresponding angles are equal and corresponding sides are proportional."
       },
       {
         "q": "The basic proportionality theorem states that if a line is drawn parallel to one side of a triangle, then it divides the other two sides:",
         "options": [
-          "Equally",
           "Proportionally",
+          "Equally",
           "In ratio 1:1",
           "At their midpoints"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The basic proportionality theorem (Thales' theorem) states that a line parallel to one side divides the other two sides proportionally."
       },
       {
         "q": "If in triangle ABC, AB = 3 cm, BC = 4 cm, and AC = 5 cm, then triangle ABC is:",
         "options": [
-          "Acute-angled",
-          "Obtuse-angled",
+          "Equilateral",
           "Right-angled",
-          "Equilateral"
+          "Obtuse-angled",
+          "Acute-angled"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Since 3^2 + 4^2 = 9 + 16 = 25 = 5^2, triangle ABC is right-angled at B."
       },
       {
         "q": "The area of a triangle with sides a, b, and c is given by:",
         "options": [
-          "sqrt(s(s-a)(s-b)(s-c))",
-          "(1/2) x base x height",
           "a x b x c",
-          "sqrt(a^2 + b^2 - 2ab cosC)"
+          "sqrt(a^2 + b^2 - 2ab cosC)",
+          "sqrt(s(s-a)(s-b)(s-c))",
+          "(1/2) x base x height"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Heron's formula gives the area of a triangle as sqrt(s(s-a)(s-b)(s-c)) where s = (a+b+c)/2."
       },
       {
         "q": "If triangle ABC is similar to triangle PQR, and AB:PQ = 2:3, then the ratio of their areas is:",
         "options": [
           "2:3",
-          "4:9",
           "8:27",
-          "6:9"
+          "6:9",
+          "4:9"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The ratio of areas of similar triangles is the square of the ratio of corresponding sides: (2/3)^2 = 4/9."
       },
       {
         "q": "Two triangles are congruent if:",
         "options": [
-          "They have the same area",
-          "Their corresponding angles are equal",
           "SSS, SAS, ASA, or AAS conditions are satisfied",
-          "They are similar"
+          "They are similar",
+          "Their corresponding angles are equal",
+          "They have the same area"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Two triangles are congruent if they satisfy any of the congruence criteria: SSS, SAS, ASA, AAS, or RHS."
       },
       {
@@ -1255,33 +1255,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The angle bisector theorem states that the angle bisector divides the opposite side in the ratio of:",
         "options": [
           "1:1",
+          "The altitudes",
           "The adjacent sides",
-          "The other two angles",
-          "The altitudes"
+          "The other two angles"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The angle bisector theorem states that the angle bisector divides the opposite side in the ratio of the adjacent sides."
       },
       {
         "q": "If the altitude from vertex A to side BC of triangle ABC is 6 cm and BC = 8 cm, the area is:",
         "options": [
-          "24 cm^2",
           "48 cm^2",
           "12 cm^2",
-          "36 cm^2"
+          "36 cm^2",
+          "24 cm^2"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Area of triangle = (1/2) x base x height = (1/2) x 8 x 6 = 24 cm^2."
       },
       {
         "q": "If triangle ABC has sides 6 cm, 8 cm, and 10 cm, then the radius of its circumcircle is:",
         "options": [
-          "3 cm",
           "5 cm",
-          "4 cm",
-          "6 cm"
+          "3 cm",
+          "6 cm",
+          "4 cm"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "For a right-angled triangle, the circumradius = hypotenuse/2 = 10/2 = 5 cm."
       }
     ],
@@ -1317,78 +1317,78 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "If sin A = 3/5 and angle A is acute, then cos A =",
         "options": [
-          "4/5",
-          "3/4",
           "5/4",
+          "3/4",
+          "4/5",
           "5/3"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Using sin^2 A + cos^2 A = 1: (3/5)^2 + cos^2 A = 1, so cos^2 A = 16/25, thus cos A = 4/5."
       },
       {
         "q": "The value of sin 0 degrees is:",
         "options": [
-          "0",
-          "1",
+          "-1",
           "1/2",
-          "-1"
+          "1",
+          "0"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "sin 0 = 0, which is a standard trigonometric value."
       },
       {
         "q": "tan A = cot A when A =",
         "options": [
-          "30 degrees",
           "45 degrees",
           "60 degrees",
+          "30 degrees",
           "90 degrees"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "tan A = cot A when tan A = 1/tan A, which means tan^2 A = 1, so A = 45 degrees."
       },
       {
         "q": "If sin A = cos B and A and B are acute angles, then A + B =",
         "options": [
-          "90 degrees",
           "180 degrees",
+          "90 degrees",
           "45 degrees",
           "60 degrees"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "If sin A = cos B, then A and B are complementary angles, so A + B = 90 degrees."
       },
       {
         "q": "The value of sec 60 degrees is:",
         "options": [
           "sqrt(2)",
+          "sqrt(3)/2",
           "2",
-          "2/sqrt(3)",
-          "sqrt(3)/2"
+          "2/sqrt(3)"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "sec 60 = 1/cos 60 = 1/(1/2) = 2."
       },
       {
         "q": "If tan A = 1/sqrt(3), then A =",
         "options": [
-          "30 degrees",
-          "45 degrees",
+          "90 degrees",
           "60 degrees",
-          "90 degrees"
+          "45 degrees",
+          "30 degrees"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "tan 30 = 1/sqrt(3), so A = 30 degrees."
       },
       {
         "q": "sin^2 A + cos^2 A =",
         "options": [
-          "0",
           "1",
+          "0",
           "2",
           "-1"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "sin^2 A + cos^2 A = 1 is the fundamental trigonometric identity."
       },
       {
@@ -1405,12 +1405,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The angle of elevation from a point on the ground to the top of a 20 m building is 30 degrees. The distance from the point to the base of the building is:",
         "options": [
-          "10 m",
-          "20sqrt(3) m",
+          "10sqrt(3) m",
           "40/sqrt(3) m",
-          "10sqrt(3) m"
+          "20sqrt(3) m",
+          "10 m"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Distance = 20 / tan 30 = 20 / (1/sqrt(3)) = 20sqrt(3) m."
       }
     ],
@@ -1435,12 +1435,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The probability of an impossible event is:",
         "options": [
-          "0",
-          "1",
+          "Between 0 and 1",
           "0.5",
-          "Between 0 and 1"
+          "1",
+          "0"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "The probability of an impossible event is 0, as it can never occur."
       },
       {
@@ -1458,11 +1458,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A dice is rolled. The probability of getting a prime number is:",
         "options": [
           "1/6",
-          "1/3",
           "1/2",
-          "2/3"
+          "2/3",
+          "1/3"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Prime numbers on a dice are 2, 3, 5. So probability = 3/6 = 1/2."
       },
       {
@@ -1480,22 +1480,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "From a standard deck of 52 cards, the probability of drawing a red card is:",
         "options": [
           "1/52",
+          "1/4",
           "1/26",
-          "1/2",
-          "1/4"
+          "1/2"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "There are 26 red cards (13 hearts and 13 diamonds) in a deck of 52, so probability = 26/52 = 1/2."
       },
       {
         "q": "The probability of an event plus the probability of its complement equals:",
         "options": [
-          "0",
-          "1/2",
           "1",
-          "2"
+          "1/2",
+          "2",
+          "0"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "P(A) + P(A complement) = 1 for any event A."
       },
       {
@@ -1512,34 +1512,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Two dice are rolled. The probability of getting a sum of 7 is:",
         "options": [
-          "1/6",
-          "1/12",
           "1/18",
-          "1/36"
+          "1/36",
+          "1/6",
+          "1/12"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Favorable outcomes for sum 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) = 6 outcomes. Total = 36. Probability = 6/36 = 1/6."
       },
       {
         "q": "The probability of getting a number greater than 3 when rolling a dice is:",
         "options": [
-          "1/2",
           "1/3",
           "1/6",
-          "2/3"
+          "2/3",
+          "1/2"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Numbers greater than 3 on a dice are 4, 5, 6. So probability = 3/6 = 1/2."
       },
       {
         "q": "If P(A) = 0.2 and P(B) = 0.5, and P(A or B) = 0.6, then events A and B are:",
         "options": [
-          "Mutually exclusive",
           "Independent",
           "Dependent",
+          "Mutually exclusive",
           "Cannot be determined"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Using P(A or B) = P(A) + P(B) - P(A and B): 0.6 = 0.2 + 0.5 - P(A and B), so P(A and B) = 0.1 = 0.2 x 0.5, confirming independence."
       }
     ],
@@ -1564,45 +1564,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The Indian National Congress was founded in:",
         "options": [
-          "1885",
-          "1905",
           "1920",
-          "1947"
+          "1885",
+          "1947",
+          "1905"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "The Indian National Congress was founded on December 28, 1885, to represent the interests of Indians."
       },
       {
         "q": "Who is known as the Father of the Indian Nation?",
         "options": [
+          "Vallabhbhai Patel",
           "Jawaharlal Nehru",
           "Mohandas Karamchand Gandhi",
-          "Subhas Chandra Bose",
-          "Vallabhbhai Patel"
+          "Subhas Chandra Bose"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Mahatma Gandhi is known as the Father of the Indian Nation for his leadership in the independence movement."
       },
       {
         "q": "The Non-Cooperation Movement was launched by Gandhi in:",
         "options": [
-          "1915",
-          "1920",
+          "1942",
           "1930",
-          "1942"
+          "1915",
+          "1920"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The Non-Cooperation Movement started on September 5, 1920, asking Indians to boycott British goods and institutions."
       },
       {
         "q": "The Salt March took place in:",
         "options": [
-          "1920",
           "1930",
           "1942",
-          "1945"
+          "1945",
+          "1920"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The Salt March or Dandi March occurred in 1930 as a protest against the British salt monopoly."
       },
       {
@@ -1630,34 +1630,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Who is known for the concept of Swaraj (self-rule)?",
         "options": [
+          "Swami Vivekananda",
           "Ramakrishna Paramahamsa",
-          "Mohandas Gandhi",
           "Sri Aurobindo",
-          "Swami Vivekananda"
+          "Mohandas Gandhi"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Mohandas Gandhi popularized the concept of Swaraj, which means self-rule and self-reliance."
       },
       {
         "q": "The Cabinet Mission Plan came to India in:",
         "options": [
-          "1942",
-          "1944",
           "1946",
-          "1948"
+          "1948",
+          "1942",
+          "1944"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "The Cabinet Mission Plan arrived in India in March 1946 to discuss the terms of Indian independence."
       },
       {
         "q": "India achieved independence on:",
         "options": [
+          "December 31, 1949",
           "August 15, 1947",
           "January 26, 1950",
-          "December 31, 1949",
           "August 15, 1948"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "India became independent on August 15, 1947, marking the end of British rule."
       },
       {
@@ -1694,22 +1694,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Resources that can be replenished after use are called:",
         "options": [
           "Non-renewable resources",
-          "Renewable resources",
           "Exhaustible resources",
-          "Fossil fuels"
+          "Fossil fuels",
+          "Renewable resources"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Renewable resources are those that can be replenished naturally, such as forests, water, and sunlight."
       },
       {
         "q": "Which of the following is a non-renewable resource?",
         "options": [
-          "Solar energy",
-          "Wind energy",
           "Coal",
-          "Water"
+          "Water",
+          "Wind energy",
+          "Solar energy"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Coal is a fossil fuel and non-renewable resource that took millions of years to form and cannot be quickly replenished."
       },
       {
@@ -1737,34 +1737,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The practice of cultivation on steep slopes with terraces is called:",
         "options": [
-          "Contour ploughing",
-          "Terrace farming",
+          "Shift cultivation",
           "Strip cropping",
-          "Shift cultivation"
+          "Terrace farming",
+          "Contour ploughing"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Terrace farming involves creating horizontal steps on steep slopes to prevent soil erosion and conserve water."
       },
       {
         "q": "Which mineral is used in the production of cement?",
         "options": [
+          "Magnetite",
           "Bauxite",
-          "Limestone",
           "Chromite",
-          "Magnetite"
+          "Limestone"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Limestone (calcium carbonate) is the primary mineral used in cement production."
       },
       {
         "q": "The process of removing salt from water to make it usable is called:",
         "options": [
-          "Distillation",
           "Desalination",
+          "Distillation",
           "Filtration",
           "Evaporation"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Desalination is the process of removing salt and minerals from seawater or brackish water."
       },
       {
@@ -1794,10 +1794,10 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "Deforestation",
           "Desertification",
-          "Leaching",
-          "Salinization"
+          "Salinization",
+          "Leaching"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Leaching is the process where water-soluble nutrients are washed away from the soil, degrading its fertility."
       }
     ],
@@ -1822,67 +1822,67 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The principle of power sharing among different organs of government is called:",
         "options": [
-          "Federalism",
           "Separation of powers",
           "Democracy",
-          "Decentralization"
+          "Decentralization",
+          "Federalism"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Separation of powers divides government authority among the executive, legislative, and judicial branches."
       },
       {
         "q": "Which of the following is an example of power sharing between different tiers of government?",
         "options": [
-          "Union and State governments",
           "Central government only",
-          "Local bodies only",
-          "Military rule"
+          "Union and State governments",
+          "Military rule",
+          "Local bodies only"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "India practices federalism with power sharing between the Union government, State governments, and local bodies."
       },
       {
         "q": "The Indian Constitution is based on which system of government?",
         "options": [
           "Presidential",
-          "Parliamentary",
           "Monarchical",
+          "Parliamentary",
           "Authoritarian"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "India is a parliamentary democracy where the Prime Minister is the head of government."
       },
       {
         "q": "Who is the head of state in India?",
         "options": [
           "Prime Minister",
-          "President",
           "Chief Minister",
-          "Speaker of Lok Sabha"
+          "Speaker of Lok Sabha",
+          "President"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The President is the head of state in India, while the Prime Minister is the head of government."
       },
       {
         "q": "The Lok Sabha is the:",
         "options": [
-          "Upper House of Parliament",
           "Lower House of Parliament",
           "State Assembly",
+          "Upper House of Parliament",
           "Municipal Council"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The Lok Sabha is the lower house of the Indian Parliament with 545 elected members."
       },
       {
         "q": "The power to make laws is vested in:",
         "options": [
           "Executive",
-          "Judiciary",
           "Legislature",
+          "Judiciary",
           "Military"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The Legislature has the power to make laws, which in India includes the Parliament at the Union level."
       },
       {
@@ -1900,33 +1900,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "India is a:",
         "options": [
           "Unitary state",
-          "Federal state",
           "Confederal state",
-          "Monarchy"
+          "Monarchy",
+          "Federal state"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "India is a federal state where power is shared between the Union and the States."
       },
       {
         "q": "The Rajya Sabha is the:",
         "options": [
-          "Lower House of Parliament",
           "Upper House of Parliament",
           "State Assembly",
+          "Lower House of Parliament",
           "Election Commission"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The Rajya Sabha is the upper house of the Indian Parliament with members representing states."
       },
       {
         "q": "Which body is responsible for advising the President on matters of state?",
         "options": [
-          "Lok Sabha",
-          "Rajya Sabha",
+          "Supreme Court",
           "Council of Ministers",
-          "Supreme Court"
+          "Lok Sabha",
+          "Rajya Sabha"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The Council of Ministers, headed by the Prime Minister, advises the President on governance matters."
       }
     ],
@@ -1951,89 +1951,89 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which sector includes agriculture and mining?",
         "options": [
-          "Primary sector",
-          "Secondary sector",
           "Tertiary sector",
+          "Secondary sector",
+          "Primary sector",
           "Quaternary sector"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "The primary sector includes all extractive and agricultural activities like farming, fishing, mining, and forestry."
       },
       {
         "q": "Manufacturing and construction fall under which sector?",
         "options": [
-          "Primary sector",
-          "Secondary sector",
           "Tertiary sector",
-          "All sectors"
+          "All sectors",
+          "Primary sector",
+          "Secondary sector"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The secondary sector includes manufacturing, construction, and all activities that transform raw materials."
       },
       {
         "q": "Which of the following is a tertiary sector activity?",
         "options": [
-          "Farming",
-          "Textiles",
           "Banking",
+          "Textiles",
+          "Farming",
           "Mining"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "The tertiary sector includes services like banking, education, healthcare, transport, and communication."
       },
       {
         "q": "The contribution of agriculture to India's GDP is approximately:",
         "options": [
-          "50%",
-          "30%",
+          "5%",
           "15%",
-          "5%"
+          "30%",
+          "50%"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Agriculture contributes around 15-18% to India's GDP, though it employs over 50% of the workforce."
       },
       {
         "q": "Which state is known as the textile hub of India?",
         "options": [
-          "Gujarat",
-          "Maharashtra",
+          "Andhra Pradesh",
           "Tamil Nadu",
-          "Andhra Pradesh"
+          "Gujarat",
+          "Maharashtra"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Gujarat is known for its textile industry, particularly cotton and synthetic fabrics."
       },
       {
         "q": "The tertiary sector is also known as:",
         "options": [
-          "Agricultural sector",
-          "Service sector",
           "Manufacturing sector",
-          "Mining sector"
+          "Agricultural sector",
+          "Mining sector",
+          "Service sector"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The tertiary sector is commonly called the service sector as it provides various services to consumers."
       },
       {
         "q": "Which of the following best describes the primary sector?",
         "options": [
-          "Produces goods through transformation",
           "Extracts resources from nature",
+          "Produces goods through transformation",
           "Provides services",
           "Manufactures products"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The primary sector extracts or harvests products from the earth, like agriculture, fishing, and mining."
       },
       {
         "q": "Information technology in India is primarily part of the:",
         "options": [
           "Primary sector",
-          "Secondary sector",
           "Tertiary sector",
+          "Secondary sector",
           "Quaternary sector"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "IT is a service activity and falls under the tertiary sector of the Indian economy."
       },
       {
@@ -2051,11 +2051,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The organized sector in India refers to:",
         "options": [
           "All sectors combined",
-          "Registered and regulated industries",
           "Unregistered activities",
-          "Agricultural activities"
+          "Agricultural activities",
+          "Registered and regulated industries"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The organized sector includes registered, regulated, and formal economic activities with legal recognition."
       }
     ],
@@ -2080,34 +2080,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is a property of solids?",
         "options": [
-          "No definite shape or volume",
           "Definite shape and volume",
-          "Takes the shape of container",
-          "No intermolecular forces"
+          "No intermolecular forces",
+          "No definite shape or volume",
+          "Takes the shape of container"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Solids have a definite shape and volume due to strong intermolecular forces and arranged particles."
       },
       {
         "q": "The change of state from liquid to gas is called:",
         "options": [
-          "Melting",
           "Freezing",
           "Evaporation",
-          "Condensation"
+          "Condensation",
+          "Melting"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Evaporation is the process where a liquid changes into gas state at the surface."
       },
       {
         "q": "The temperature at which a solid melts into a liquid is:",
         "options": [
+          "Freezing point",
           "Boiling point",
           "Melting point",
-          "Freezing point",
           "Critical point"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The melting point is the specific temperature at which a solid turns into a liquid state."
       },
       {
@@ -2124,56 +2124,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following shows the correct order of particles spacing?",
         "options": [
-          "Solid > Liquid > Gas",
-          "Gas > Solid > Liquid",
           "Gas > Liquid > Solid",
-          "All are equal"
+          "Gas > Solid > Liquid",
+          "All are equal",
+          "Solid > Liquid > Gas"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Particles in gas have the maximum space between them, followed by liquid, then solid with minimum space."
       },
       {
         "q": "The SI unit of temperature is:",
         "options": [
-          "Celsius",
           "Fahrenheit",
           "Kelvin",
+          "Celsius",
           "Rankine"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Kelvin is the SI unit of temperature, where absolute zero is 0 K or -273.15 degrees Celsius."
       },
       {
         "q": "Evaporation occurs at:",
         "options": [
-          "Boiling point only",
-          "Any temperature below boiling point",
           "Only at room temperature",
-          "Only when heated"
+          "Only when heated",
+          "Any temperature below boiling point",
+          "Boiling point only"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Evaporation can occur at any temperature below the boiling point, not just at boiling point."
       },
       {
         "q": "The process of conversion of gas to liquid is:",
         "options": [
           "Evaporation",
-          "Condensation",
+          "Melting",
           "Deposition",
-          "Melting"
+          "Condensation"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Condensation is the change of state from gas to liquid, opposite of evaporation."
       },
       {
         "q": "Which state of matter has particles that are closely packed and can vibrate?",
         "options": [
-          "Gas",
-          "Liquid",
           "Solid",
-          "Plasma"
+          "Plasma",
+          "Liquid",
+          "Gas"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Solids have closely packed particles that can only vibrate in fixed positions due to strong forces."
       },
       {
@@ -2210,110 +2210,110 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Who proposed the Dalton's atomic theory?",
         "options": [
           "Rutherford",
+          "Bohr",
           "John Dalton",
-          "Thomson",
-          "Bohr"
+          "Thomson"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "John Dalton proposed the atomic theory in 1808, stating that matter consists of tiny indivisible particles called atoms."
       },
       {
         "q": "The mass number of an atom is equal to:",
         "options": [
           "Number of protons",
+          "Number of electrons + neutrons",
           "Number of electrons",
-          "Number of protons + neutrons",
-          "Number of electrons + neutrons"
+          "Number of protons + neutrons"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The mass number is the sum of protons and neutrons, which constitute most of the atom's mass."
       },
       {
         "q": "Which of the following is the correct electronic configuration of Oxygen (O)?",
         "options": [
-          "2, 4",
           "2, 6",
           "2, 8",
+          "2, 4",
           "8, 2"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Oxygen has atomic number 8, so its electronic configuration is 2, 6 (2 electrons in first shell, 6 in second)."
       },
       {
         "q": "The molecular mass of CO2 is approximately:",
         "options": [
-          "28",
           "32",
           "44",
-          "64"
+          "64",
+          "28"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Molecular mass of CO2 = 12 + (16 x 2) = 12 + 32 = 44 g/mol."
       },
       {
         "q": "An ion with a positive charge is called:",
         "options": [
-          "Anion",
-          "Cation",
           "Radical",
-          "Atom"
+          "Atom",
+          "Cation",
+          "Anion"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "A cation is an ion with a positive charge, formed when an atom loses electrons."
       },
       {
         "q": "The atomic mass unit is defined as:",
         "options": [
-          "1/12 of carbon-12 mass",
-          "Mass of proton",
           "Mass of electron",
-          "1/16 of oxygen mass"
+          "Mass of proton",
+          "1/16 of oxygen mass",
+          "1/12 of carbon-12 mass"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "One atomic mass unit (u) is defined as 1/12 of the mass of a carbon-12 atom."
       },
       {
         "q": "The formula for common salt is:",
         "options": [
-          "Na2Cl",
           "NaCl",
-          "Na2Cl2",
-          "NaCl2"
+          "NaCl2",
+          "Na2Cl",
+          "Na2Cl2"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The formula for sodium chloride (common salt) is NaCl, with one sodium and one chloride ion."
       },
       {
         "q": "Which of the following is a diatomic molecule?",
         "options": [
-          "O3",
-          "P4",
+          "S8",
           "H2",
-          "S8"
+          "O3",
+          "P4"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "H2 (hydrogen) is a diatomic molecule consisting of two hydrogen atoms bonded together."
       },
       {
         "q": "The valency of oxygen in most compounds is:",
         "options": [
-          "1",
-          "2",
           "3",
-          "4"
+          "4",
+          "2",
+          "1"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Oxygen has a valency of 2 in most compounds because it needs 2 more electrons to complete its octet."
       },
       {
         "q": "The molar mass of H2SO4 is approximately:",
         "options": [
+          "102",
           "96",
-          "98",
           "100",
-          "102"
+          "98"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Molar mass of H2SO4 = (2 x 1) + 32 + (4 x 16) = 2 + 32 + 64 = 98 g/mol."
       }
     ],
@@ -2338,12 +2338,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Who discovered the cell?",
         "options": [
-          "Louis Pasteur",
           "Robert Hooke",
           "Antonie van Leeuwenhoek",
-          "Schleiden"
+          "Schleiden",
+          "Louis Pasteur"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Robert Hooke discovered the cell in 1665 while observing a thin slice of cork under a microscope."
       },
       {
@@ -2371,34 +2371,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The powerhouse of the cell is the:",
         "options": [
-          "Nucleus",
+          "Ribosome",
           "Chloroplast",
-          "Mitochondria",
-          "Ribosome"
+          "Nucleus",
+          "Mitochondria"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Mitochondria are the powerhouse of the cell, producing ATP through aerobic respiration."
       },
       {
         "q": "The control center of the cell is:",
         "options": [
-          "Mitochondria",
           "Nucleus",
-          "Chloroplast",
-          "Endoplasmic reticulum"
+          "Mitochondria",
+          "Endoplasmic reticulum",
+          "Chloroplast"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The nucleus is the control center containing DNA and controlling all cellular activities."
       },
       {
         "q": "Prokaryotic cells lack:",
         "options": [
-          "Cell membrane",
           "Cytoplasm",
           "Nucleus",
+          "Cell membrane",
           "Ribosomes"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Prokaryotic cells do not have a membrane-bound nucleus, unlike eukaryotic cells."
       },
       {
@@ -2415,34 +2415,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The cell wall in plant cells is made of:",
         "options": [
+          "Carbohydrates",
           "Proteins",
           "Lipids",
-          "Cellulose",
-          "Carbohydrates"
+          "Cellulose"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The cell wall in plant cells is made of cellulose, which provides structural support."
       },
       {
         "q": "Which organelle modifies and packages proteins?",
         "options": [
-          "Rough endoplasmic reticulum",
           "Golgi apparatus",
-          "Lysosome",
-          "Chloroplast"
+          "Chloroplast",
+          "Rough endoplasmic reticulum",
+          "Lysosome"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The Golgi apparatus modifies, packages, and ships proteins to their destinations."
       },
       {
         "q": "Lysosomes are known as the suicide sacs of the cell because they:",
         "options": [
-          "Store energy",
           "Synthesize proteins",
           "Contain digestive enzymes that can destroy the cell",
+          "Store energy",
           "Transport materials"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Lysosomes contain powerful digestive enzymes that can break down cellular components if released."
       }
     ],
@@ -2478,34 +2478,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The slope of a distance-time graph represents:",
         "options": [
+          "Distance",
           "Acceleration",
-          "Speed",
           "Displacement",
-          "Distance"
+          "Speed"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The slope of a distance-time graph gives the speed of the object."
       },
       {
         "q": "If a car travels 100 m east and then 50 m west, its displacement is:",
         "options": [
-          "150 m west",
-          "150 m east",
           "50 m east",
+          "150 m east",
+          "150 m west",
           "50 m west"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Displacement is the straight-line distance with direction from initial to final position: 100 - 50 = 50 m east."
       },
       {
         "q": "Acceleration is the rate of change of:",
         "options": [
-          "Distance",
           "Displacement",
           "Velocity",
-          "Speed"
+          "Speed",
+          "Distance"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Acceleration is defined as the rate of change of velocity with respect to time."
       },
       {
@@ -2522,56 +2522,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Newton's first law of motion states that:",
         "options": [
+          "Objects fall with constant acceleration",
           "F = ma",
-          "An object in motion stays in motion unless acted upon by a force",
           "Action and reaction are equal",
-          "Objects fall with constant acceleration"
+          "An object in motion stays in motion unless acted upon by a force"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Newton's first law states that objects at rest remain at rest and objects in motion remain in motion unless external force acts."
       },
       {
         "q": "Newton's second law can be expressed as:",
         "options": [
-          "a = F/m",
-          "v = u + at",
           "F = ma",
-          "s = ut + 1/2 at^2"
+          "s = ut + 1/2 at^2",
+          "a = F/m",
+          "v = u + at"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Newton's second law states that Force equals mass times acceleration: F = ma."
       },
       {
         "q": "An object is said to be in uniform motion when it:",
         "options": [
+          "Is at rest",
           "Travels equal distances in equal times",
-          "Has constant acceleration",
           "Travels in a circle",
-          "Is at rest"
+          "Has constant acceleration"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Uniform motion occurs when an object travels equal distances in equal time intervals."
       },
       {
         "q": "The SI unit of acceleration is:",
         "options": [
           "m/s",
+          "cm/s^2",
           "m/s^2",
-          "km/h",
-          "cm/s^2"
+          "km/h"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The SI unit of acceleration is meter per second squared (m/s^2)."
       },
       {
         "q": "If an object starts from rest and accelerates at 2 m/s^2 for 5 seconds, its final velocity is:",
         "options": [
-          "2 m/s",
           "5 m/s",
-          "10 m/s",
-          "25 m/s"
+          "2 m/s",
+          "25 m/s",
+          "10 m/s"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Using v = u + at: v = 0 + (2 x 5) = 10 m/s."
       }
     ],
@@ -2596,100 +2596,100 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Newton's law of universal gravitation states that the gravitational force between two objects is:",
         "options": [
-          "Directly proportional to the sum of their masses",
           "Inversely proportional to the square of distance between them",
-          "Independent of their masses",
-          "Directly proportional to the distance between them"
+          "Directly proportional to the distance between them",
+          "Directly proportional to the sum of their masses",
+          "Independent of their masses"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The gravitational force is directly proportional to the product of masses and inversely proportional to the square of distance: F = GMm/r^2."
       },
       {
         "q": "The gravitational constant G is approximately:",
         "options": [
+          "10^-11 N/kg",
           "6.67 x 10^-11 N m^2/kg^2",
           "9.8 m/s^2",
-          "10^-11 N/kg",
           "6.67 x 10^11 N m^2/kg^2"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "The gravitational constant G equals 6.67 x 10^-11 N m^2/kg^2."
       },
       {
         "q": "The weight of an object is:",
         "options": [
-          "The amount of matter in the object",
-          "The gravitational force exerted on the object",
           "The same everywhere",
-          "Independent of mass"
+          "Independent of mass",
+          "The gravitational force exerted on the object",
+          "The amount of matter in the object"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Weight is the force of gravity acting on an object and equals mass times gravitational acceleration (W = mg)."
       },
       {
         "q": "Acceleration due to gravity at Earth's surface is approximately:",
         "options": [
           "6.67 m/s^2",
-          "9.8 m/s^2",
           "10 m/s^2",
-          "15 m/s^2"
+          "15 m/s^2",
+          "9.8 m/s^2"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The acceleration due to gravity near Earth's surface is approximately 9.8 m/s^2 or 10 m/s^2."
       },
       {
         "q": "If the mass of an object is doubled, its weight becomes:",
         "options": [
-          "Same",
-          "Half",
           "Double",
-          "Quarter"
+          "Quarter",
+          "Half",
+          "Same"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Weight = mg, so if mass doubles, weight also doubles (assuming g remains constant)."
       },
       {
         "q": "An astronaut weighs 100 N on Earth. On the Moon, where g = 1.6 m/s^2, the astronaut's weight would be approximately:",
         "options": [
-          "100 N",
           "16 N",
           "60 N",
+          "100 N",
           "1000 N"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Weight on Moon = (100 N) x (1.6 / 9.8) ≈ 16 N. Wait, let me recalculate: If astronaut weighs 100 N on Earth, mass = 100/9.8 ≈ 10.2 kg. On Moon: W = 10.2 x 1.6 ≈ 16 N."
       },
       {
         "q": "The orbital velocity of a satellite depends on:",
         "options": [
-          "Its mass",
-          "The radius of orbit",
           "Both mass and radius of orbit",
-          "Only the planet's mass and radius of orbit"
+          "The radius of orbit",
+          "Only the planet's mass and radius of orbit",
+          "Its mass"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "Orbital velocity depends on the mass of the central body and the orbital radius, not on the satellite's mass."
       },
       {
         "q": "Free fall is a motion where:",
         "options": [
-          "Only gravitational force acts",
+          "Velocity is constant",
           "No force acts",
           "Resistance is maximum",
-          "Velocity is constant"
+          "Only gravitational force acts"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Free fall is motion under gravity alone, where only the gravitational force acts on the object."
       },
       {
         "q": "If the distance between two objects is doubled, the gravitational force becomes:",
         "options": [
-          "Double",
-          "Half",
           "One-fourth",
+          "Half",
+          "Double",
           "Four times"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Since F ∝ 1/r^2, doubling distance makes force 1/4 of the original."
       },
       {
@@ -2726,110 +2726,110 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The French Revolution began in the year:",
         "options": [
           "1776",
-          "1789",
           "1799",
+          "1789",
           "1804"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The French Revolution began in 1789 with the storming of the Bastille on July 14."
       },
       {
         "q": "The Declaration of the Rights of Man and of the Citizen was adopted in:",
         "options": [
           "1788",
-          "1789",
           "1790",
-          "1791"
+          "1791",
+          "1789"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "This declaration was adopted on August 26, 1789, affirming the rights and freedoms of all people."
       },
       {
         "q": "The Storming of the Bastille occurred on:",
         "options": [
-          "June 14",
           "July 14",
+          "September 14",
           "August 14",
-          "September 14"
+          "June 14"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The Bastille was stormed on July 14, 1789, which is now celebrated as Bastille Day in France."
       },
       {
         "q": "Who was the King of France during the Revolution?",
         "options": [
-          "Louis XIV",
           "Louis XV",
           "Louis XVI",
+          "Louis XIV",
           "Napoleon"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "King Louis XVI ruled France during the revolution and was executed on January 21, 1793."
       },
       {
         "q": "The National Assembly declared feudalism abolished in:",
         "options": [
+          "1790",
           "1788",
           "1789",
-          "1790",
           "1791"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "On August 4, 1789, the National Assembly abolished feudalism and all feudal privileges."
       },
       {
         "q": "The three estates in pre-revolutionary France were:",
         "options": [
-          "Noble, Clergy, Merchants",
+          "Army, Navy, Civilians",
           "Aristocracy, Commons, King",
-          "Clergy, Nobles, Commoners",
-          "Army, Navy, Civilians"
+          "Noble, Clergy, Merchants",
+          "Clergy, Nobles, Commoners"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The three estates were: First Estate (Clergy), Second Estate (Nobles), and Third Estate (Commoners)."
       },
       {
         "q": "The Civil Constitution of the Clergy aimed to:",
         "options": [
-          "Increase Church power",
           "Place Church under state control",
+          "Increase Church power",
           "End all religious practices",
           "Strengthen the monarchy"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "This 1790 document placed the Catholic Church under state authority rather than papal control."
       },
       {
         "q": "Marie Antoinette was the wife of King:",
         "options": [
           "Louis XIV",
-          "Louis XV",
           "Louis XVI",
+          "Louis XV",
           "Napoleon"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Marie Antoinette was married to King Louis XVI and was executed in 1793."
       },
       {
         "q": "The Reign of Terror in France refers to:",
         "options": [
           "War with Austria",
-          "1793-1794 period of mass executions",
           "Economic collapse",
+          "1793-1794 period of mass executions",
           "Military defeat"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The Reign of Terror (1793-1794) was a period of extreme violence and mass executions under Robespierre."
       },
       {
         "q": "The French Revolution most directly influenced:",
         "options": [
+          "Asian politics",
           "Only France",
-          "European and American democratic movements",
           "Ancient Rome",
-          "Asian politics"
+          "European and American democratic movements"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The revolution's ideals of liberty and democracy influenced democratic movements throughout the world."
       }
     ],
@@ -2854,89 +2854,89 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The Nazi Party was led by:",
         "options": [
-          "Benito Mussolini",
           "Adolf Hitler",
+          "Joseph Goebbels",
           "Hermann Goering",
-          "Joseph Goebbels"
+          "Benito Mussolini"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Adolf Hitler founded and led the Nazi Party, becoming Fuhrer of Germany in 1934."
       },
       {
         "q": "Hitler became Chancellor of Germany in:",
         "options": [
-          "1930",
-          "1932",
+          "1935",
           "1933",
-          "1935"
+          "1932",
+          "1930"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Adolf Hitler was appointed Chancellor of Germany on January 30, 1933."
       },
       {
         "q": "The Nazi ideology was based on:",
         "options": [
           "Democracy and equality",
+          "Religious tolerance",
           "Racial superiority and totalitarianism",
-          "Communism",
-          "Religious tolerance"
+          "Communism"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Nazism promoted the concept of Aryan racial superiority and established a totalitarian dictatorship."
       },
       {
         "q": "The Holocaust refers to:",
         "options": [
           "German economic policy",
-          "Systematic genocide of European Jews",
+          "World War II",
           "A natural disaster",
-          "World War II"
+          "Systematic genocide of European Jews"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The Holocaust was the systematic murder of six million Jews and millions of others by Nazi Germany."
       },
       {
         "q": "The Munich Agreement of 1938 allowed Germany to:",
         "options": [
-          "Annex Poland",
           "Annex Czechoslovakia",
           "Annex Austria",
+          "Annex Poland",
           "Invade France"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The Munich Agreement allowed Germany to annex the Sudetenland region of Czechoslovakia."
       },
       {
         "q": "World War II began when Germany invaded:",
         "options": [
-          "France",
           "Britain",
           "Poland",
+          "France",
           "Austria"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Nazi Germany invaded Poland on September 1, 1939, which triggered the start of World War II."
       },
       {
         "q": "The Nazi party controlled all aspects of German society through:",
         "options": [
+          "Military force alone",
           "Democratic elections",
           "Totalitarian control and propaganda",
-          "Military force alone",
           "Economic incentives"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The Nazis established total control through a police state, propaganda, and suppression of opposition."
       },
       {
         "q": "The Nuremberg Trials were held to:",
         "options": [
-          "Celebrate Nazi victories",
-          "Try Nazi leaders for war crimes",
           "Plan post-war recovery",
-          "Establish new government"
+          "Celebrate Nazi victories",
+          "Establish new government",
+          "Try Nazi leaders for war crimes"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The Nuremberg Trials (1945-1946) prosecuted Nazi leaders for crimes against humanity and war crimes."
       },
       {
@@ -2983,45 +2983,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The Northern Plains of India are formed by the rivers:",
         "options": [
+          "Narmada and Tapti",
           "Godavari and Krishna",
           "Indus, Ganges, and Brahmaputra",
-          "Mahanadi and Tungabhadra",
-          "Narmada and Tapti"
+          "Mahanadi and Tungabhadra"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The vast Northern Plains are formed by alluvial deposits from the Indus, Ganges, and Brahmaputra rivers."
       },
       {
         "q": "The highest peak in India is:",
         "options": [
-          "Kangchenjunga",
           "Kanchenjunga",
           "Kanchenjunga",
-          "Mount Everest"
+          "Mount Everest",
+          "Kangchenjunga"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Kangchenjunga (8,586 m) is the highest peak wholly in Indian territory, located in the Sikkim Himalaya."
       },
       {
         "q": "The Western Ghats are primarily located in:",
         "options": [
+          "Southern and Western India",
           "Northern India",
           "Central India",
-          "Southern and Western India",
           "Eastern India"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "The Western Ghats run parallel to the western coast from Gujarat to Kerala in southern and western India."
       },
       {
         "q": "The Deccan Plateau is characterized by:",
         "options": [
-          "Mountains and valleys",
-          "Dense forests",
+          "Marshy lands",
           "Dry plateau with table-top elevation",
-          "Marshy lands"
+          "Mountains and valleys",
+          "Dense forests"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The Deccan Plateau is an elevated region with table-top topography located south of the Narmada river."
       },
       {
@@ -3049,45 +3049,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The Thar Desert is located in:",
         "options": [
-          "Rajasthan",
+          "Rajasthan and Punjab",
           "Gujarat",
           "Haryana",
-          "Rajasthan and Punjab"
+          "Rajasthan"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "The Thar (Great Indian) Desert is primarily located in Rajasthan, extending into Gujarat and Punjab."
       },
       {
         "q": "The Eastern Ghats are located in:",
         "options": [
-          "Karnataka",
           "Andhra Pradesh and Odisha",
           "Tamil Nadu",
+          "Karnataka",
           "Kerala"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The Eastern Ghats run parallel to the eastern coast through Andhra Pradesh and Odisha."
       },
       {
         "q": "The Malwa Plateau is known for:",
         "options": [
           "Tropical forests",
-          "Dense population",
           "Black soil suitable for farming",
+          "Dense population",
           "Tea plantations"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The Malwa Plateau in central India is known for its black soil, which is fertile and suitable for agriculture."
       },
       {
         "q": "The Western Ghats receive more rainfall than the Eastern Ghats because:",
         "options": [
-          "They are closer to the sea",
-          "They block the monsoon winds",
           "They are higher in elevation",
-          "They face the southwest monsoon winds directly"
+          "They are closer to the sea",
+          "They face the southwest monsoon winds directly",
+          "They block the monsoon winds"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "The Western Ghats face the southwest monsoon winds directly and thus receive more rainfall than the Eastern Ghats."
       }
     ],
@@ -3113,110 +3113,110 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is the unit of heredity called?",
         "options": [
           "Chromosome",
-          "Gene",
+          "Nucleus",
           "Allele",
-          "Nucleus"
+          "Gene"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A gene is the unit of heredity that carries information for specific traits and is passed from parents to offspring."
       },
       {
         "q": "Who is known as the father of genetics?",
         "options": [
-          "Charles Darwin",
           "Gregor Mendel",
-          "Louis Pasteur",
-          "Robert Hooke"
+          "Robert Hooke",
+          "Charles Darwin",
+          "Louis Pasteur"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Gregor Mendel conducted experiments on pea plants and established the fundamental laws of inheritance."
       },
       {
         "q": "In Mendel's monohybrid cross, what was the phenotypic ratio in F2 generation?",
         "options": [
-          "1:1",
           "1:2:1",
           "3:1",
+          "1:1",
           "9:3:3:1"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The 3:1 ratio appeared in the F2 generation showing that the dominant trait appeared three times more often than the recessive."
       },
       {
         "q": "What are alleles?",
         "options": [
+          "Recessive genes only",
           "Different genes on same chromosome",
           "Different forms of the same gene",
-          "Recessive genes only",
           "Dominant genes only"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Alleles are alternate forms of a gene that code for different versions of the same trait."
       },
       {
         "q": "Which of the following is a dominant trait in humans?",
         "options": [
-          "Red hair",
           "Blue eyes",
-          "Rolling tongue",
-          "Attached earlobes"
+          "Attached earlobes",
+          "Red hair",
+          "Rolling tongue"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The ability to roll the tongue is a dominant trait, requiring only one dominant allele for expression."
       },
       {
         "q": "What is a homozygous genotype?",
         "options": [
-          "Aa",
           "AA or aa",
-          "Aa or Bb",
-          "Different alleles"
+          "Aa",
+          "Different alleles",
+          "Aa or Bb"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Homozygous means both alleles are the same, either AA (homozygous dominant) or aa (homozygous recessive)."
       },
       {
         "q": "In a test cross, what is the ratio obtained when a homozygous dominant is crossed with homozygous recessive?",
         "options": [
-          "1:1",
-          "3:1",
           "1:2:1",
-          "All dominant"
+          "All dominant",
+          "1:1",
+          "3:1"
         ],
-        "correct": 3,
+        "correct": 1,
         "explanation": "A test cross with a homozygous recessive produces all dominant offspring in the F1 generation."
       },
       {
         "q": "Which chromosome pair determines the sex in humans?",
         "options": [
           "Chromosome 1",
+          "Chromosome 5",
           "Chromosome 23",
-          "Chromosome 10",
-          "Chromosome 5"
+          "Chromosome 10"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Chromosome 23 is the sex chromosome pair (XX for females, XY for males) that determines biological sex."
       },
       {
         "q": "What is a variation in biology?",
         "options": [
-          "Mutation in genes",
-          "Differences between individuals of same species",
           "Change in environment",
-          "Disease in organism"
+          "Disease in organism",
+          "Mutation in genes",
+          "Differences between individuals of same species"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Variation refers to the differences in traits among individuals of the same species due to genetic and environmental factors."
       },
       {
         "q": "Which process leads to evolution according to Darwin?",
         "options": [
-          "Adaptation",
           "Natural selection",
           "Mutation",
+          "Adaptation",
           "Genetic drift"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Natural selection is the mechanism Darwin proposed where organisms with favorable traits survive and reproduce more successfully."
       }
     ],
@@ -3241,12 +3241,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which part of the eye acts as a lens?",
         "options": [
-          "Cornea",
           "Iris",
           "Lens",
+          "Cornea",
           "Retina"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The lens changes shape to focus light rays on the retina, enabling clear vision at different distances."
       },
       {
@@ -3263,23 +3263,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which part of the eye is sensitive to light?",
         "options": [
-          "Cornea",
           "Lens",
-          "Retina",
-          "Sclera"
+          "Sclera",
+          "Cornea",
+          "Retina"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The retina contains photoreceptor cells (rods and cones) that detect light and convert it to electrical signals."
       },
       {
         "q": "What does the ciliary muscle control?",
         "options": [
-          "Iris opening",
           "Lens shape",
           "Pupil dilation",
-          "Tear production"
+          "Tear production",
+          "Iris opening"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Ciliary muscles change the shape of the lens for accommodation, allowing the eye to focus on objects at different distances."
       },
       {
@@ -3297,33 +3297,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which type of lens is used to correct myopia?",
         "options": [
           "Convex lens",
+          "No lens",
           "Concave lens",
-          "Cylindrical lens",
-          "No lens"
+          "Cylindrical lens"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Concave lenses diverge light rays to correct myopia by moving the focal point back onto the retina."
       },
       {
         "q": "What is the normal near point of the human eye?",
         "options": [
-          "10 cm",
           "15 cm",
-          "25 cm",
-          "50 cm"
+          "10 cm",
+          "50 cm",
+          "25 cm"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The near point is 25 cm, the closest distance at which the eye can focus clearly without strain."
       },
       {
         "q": "Which colour of light has the longest wavelength in visible spectrum?",
         "options": [
-          "Violet",
+          "Red",
           "Green",
-          "Blue",
-          "Red"
+          "Violet",
+          "Blue"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "Red light has the longest wavelength (approximately 700 nm) in the visible spectrum."
       },
       {
@@ -3341,11 +3341,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Who discovered the spectrum of white light using a prism?",
         "options": [
           "Galileo",
-          "Isaac Newton",
           "Huygens",
+          "Isaac Newton",
           "Young"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Isaac Newton demonstrated that white light is composed of different colors using a glass prism."
       }
     ],
@@ -3371,66 +3371,66 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which scientist demonstrated the magnetic effect of electric current?",
         "options": [
           "Faraday",
-          "Oersted",
+          "Ampere",
           "Coulomb",
-          "Ampere"
+          "Oersted"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Hans Christian Oersted discovered that an electric current flowing through a wire produces a magnetic field around it."
       },
       {
         "q": "What is a solenoid?",
         "options": [
-          "A coil with two terminals",
           "A long coil of wire with many turns",
           "A straight wire",
+          "A coil with two terminals",
           "A magnet"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "A solenoid is a long coil of insulated wire wound in tightly packed, uniform turns that acts like a magnetic dipole."
       },
       {
         "q": "What is the direction of magnetic field around a current-carrying wire according to the right-hand rule?",
         "options": [
-          "Along the wire",
-          "Perpendicular to the wire",
+          "Downward only",
           "Circular around the wire",
-          "Downward only"
+          "Along the wire",
+          "Perpendicular to the wire"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The right-hand rule states that if you curl your fingers in the direction of the magnetic field, the thumb points in the direction of current."
       },
       {
         "q": "What is an electromagnet?",
         "options": [
           "A permanent magnet",
+          "A magnet without poles",
           "A magnet made by passing electric current through a coil",
-          "A magnet found in nature",
-          "A magnet without poles"
+          "A magnet found in nature"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "An electromagnet is created by passing electric current through a coil of wire, making it magnetic only when current flows."
       },
       {
         "q": "Which device uses electromagnetic induction to produce electric current?",
         "options": [
-          "Motor",
-          "Generator",
           "Transformer",
-          "Solenoid"
+          "Solenoid",
+          "Motor",
+          "Generator"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A generator converts mechanical energy into electrical energy using electromagnetic induction."
       },
       {
         "q": "What is Faraday's law of electromagnetic induction?",
         "options": [
-          "Current is proportional to voltage",
           "Induced EMF is proportional to rate of change of magnetic flux",
           "Force is proportional to current",
-          "Resistance is constant"
+          "Resistance is constant",
+          "Current is proportional to voltage"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Faraday's law states that the induced electromotive force (EMF) in a circuit is proportional to the rate of change of magnetic flux."
       },
       {
@@ -3447,34 +3447,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the function of a transformer?",
         "options": [
-          "Convert AC to DC",
-          "Change voltage and current of AC",
+          "Produce light",
           "Store electrical energy",
-          "Produce light"
+          "Change voltage and current of AC",
+          "Convert AC to DC"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "A transformer changes the voltage and current of alternating current in a circuit using electromagnetic induction."
       },
       {
         "q": "In a DC motor, what is the function of the split ring commutator?",
         "options": [
           "Reduce friction",
+          "Increase voltage",
           "Produce magnetic field",
-          "Reverse current direction periodically",
-          "Increase voltage"
+          "Reverse current direction periodically"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The commutator reverses the current direction in the coil every half rotation, ensuring continuous rotation in the same direction."
       },
       {
         "q": "What is the unit of magnetic flux?",
         "options": [
-          "Tesla",
           "Weber",
+          "Tesla",
           "Ampere",
           "Volt"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The weber (Wb) is the SI unit of magnetic flux, equivalent to tesla-square meter."
       }
     ],
@@ -3499,23 +3499,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is an ecosystem?",
         "options": [
-          "Only plants in an area",
-          "Only animals in an area",
+          "Only soil",
           "Living organisms and their physical environment in an area",
-          "Only soil"
+          "Only plants in an area",
+          "Only animals in an area"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "An ecosystem includes all living organisms (biotic) and non-living things (abiotic) in an area, along with their interactions."
       },
       {
         "q": "What are producers in an ecosystem?",
         "options": [
           "Animals that eat plants",
+          "Humans",
           "Green plants that make their own food",
-          "Organisms that decompose",
-          "Humans"
+          "Organisms that decompose"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Producers are autotrophs, mainly green plants, that produce food through photosynthesis using sunlight."
       },
       {
@@ -3523,87 +3523,87 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "Herbivores",
           "Carnivores",
-          "Organisms that break down dead organic matter",
-          "Parasites"
+          "Parasites",
+          "Organisms that break down dead organic matter"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Decomposers like bacteria and fungi break down dead organic matter and release nutrients back into the soil."
       },
       {
         "q": "What is a food chain?",
         "options": [
-          "A chain of restaurants",
           "A sequence showing energy transfer from producers to consumers",
-          "A line of animals",
-          "A type of food"
+          "A chain of restaurants",
+          "A type of food",
+          "A line of animals"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "A food chain is a linear sequence showing the transfer of energy from producers through various levels of consumers."
       },
       {
         "q": "What percentage of energy is transferred from one trophic level to the next?",
         "options": [
-          "50%",
-          "25%",
+          "100%",
           "10%",
-          "100%"
+          "50%",
+          "25%"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Approximately 10% of energy is transferred from one trophic level to the next, with the rest lost as heat and in metabolism."
       },
       {
         "q": "What is biomagnification?",
         "options": [
+          "Increase in food chain length",
           "Increase in organism size",
           "Accumulation of toxic substances in higher trophic levels",
-          "Growth of biomass",
-          "Increase in food chain length"
+          "Growth of biomass"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Biomagnification is the accumulation of harmful substances like pesticides in organisms at higher trophic levels in greater concentrations."
       },
       {
         "q": "What is the main cause of ozone layer depletion?",
         "options": [
-          "Carbon dioxide",
-          "Chlorofluorocarbons (CFCs)",
+          "Methane",
           "Nitrogen oxides",
-          "Methane"
+          "Carbon dioxide",
+          "Chlorofluorocarbons (CFCs)"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "CFCs are chlorine-containing compounds that break down ozone molecules in the stratosphere, creating the ozone hole."
       },
       {
         "q": "What is the greenhouse effect?",
         "options": [
-          "Growing plants in a greenhouse",
           "Trapping of heat in the atmosphere by gases",
           "Depletion of ozone",
-          "Acid rain"
+          "Acid rain",
+          "Growing plants in a greenhouse"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The greenhouse effect is the warming of Earth's atmosphere due to infrared radiation being trapped by gases like CO2 and methane."
       },
       {
         "q": "Which gas is primarily responsible for global warming?",
         "options": [
-          "Oxygen",
           "Nitrogen",
           "Carbon dioxide",
+          "Oxygen",
           "Argon"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Carbon dioxide is the major greenhouse gas contributing to global warming, released mainly by burning fossil fuels."
       },
       {
         "q": "What is waste management?",
         "options": [
+          "Burning waste",
           "Throwing waste away",
           "Minimize waste and dispose responsibly through reduce, reuse, recycle",
-          "Burning waste",
           "Burying waste"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Waste management involves reducing waste generation, reusing materials, and recycling to minimize environmental impact."
       }
     ],
@@ -3629,22 +3629,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What are the two main modes of reproduction?",
         "options": [
           "Binary and unary",
-          "Asexual and sexual",
+          "Vegetative and gametic",
           "Mitotic and meiotic",
-          "Vegetative and gametic"
+          "Asexual and sexual"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Asexual reproduction involves one parent and produces genetically identical offspring, while sexual reproduction involves two parents and produces genetically diverse offspring."
       },
       {
         "q": "Which type of reproduction produces genetically identical offspring?",
         "options": [
-          "Sexual reproduction",
           "Asexual reproduction",
-          "Fertilization",
-          "Pollination"
+          "Sexual reproduction",
+          "Pollination",
+          "Fertilization"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Asexual reproduction produces clones because only one parent is involved and no genetic recombination occurs."
       },
       {
@@ -3661,34 +3661,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is fragmentation?",
         "options": [
-          "Breaking of organism into fragments that develop into new organisms",
-          "A type of sexual reproduction",
           "Formation of seeds",
-          "Pollination"
+          "Pollination",
+          "Breaking of organism into fragments that develop into new organisms",
+          "A type of sexual reproduction"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Fragmentation is asexual reproduction where an organism breaks into pieces, each developing into a complete new organism."
       },
       {
         "q": "What are gametes?",
         "options": [
-          "Any type of cell",
-          "Sex cells (sperm and egg) that fuse during fertilization",
+          "Mitochondria",
           "Body cells",
-          "Mitochondria"
+          "Any type of cell",
+          "Sex cells (sperm and egg) that fuse during fertilization"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Gametes are specialized reproductive cells with half the chromosome number, produced by meiosis for sexual reproduction."
       },
       {
         "q": "What is the process of pollen grain landing on the stigma called?",
         "options": [
-          "Fertilization",
-          "Germination",
           "Pollination",
-          "Seed formation"
+          "Germination",
+          "Seed formation",
+          "Fertilization"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Pollination is the transfer of pollen from the anther to the stigma, essential for plant sexual reproduction."
       },
       {
@@ -3705,34 +3705,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the male gametophyte in plants?",
         "options": [
+          "Seed",
           "Ovule",
           "Pollen grain",
-          "Seed",
           "Flower"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The pollen grain is the male gametophyte that contains male gametes needed for plant fertilization."
       },
       {
         "q": "What happens after fertilization in flowers?",
         "options": [
-          "Flower withers",
-          "Ovule develops into seed and ovary becomes fruit",
+          "Leaves fall",
           "Plant dies",
-          "Leaves fall"
+          "Flower withers",
+          "Ovule develops into seed and ovary becomes fruit"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "After fertilization, the ovule develops into a seed containing the embryo, and the ovary develops into a fruit."
       },
       {
         "q": "What is a zygote?",
         "options": [
-          "A sperm cell",
-          "An egg cell",
           "The diploid cell formed by fusion of sperm and egg",
-          "A pollen grain"
+          "A sperm cell",
+          "A pollen grain",
+          "An egg cell"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "A zygote is the diploid cell resulting from fertilization, containing genetic material from both parents."
       }
     ],
@@ -3768,34 +3768,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the distance formula between two points (x1, y1) and (x2, y2)?",
         "options": [
-          "√((x2-x1)^2 + (y2-y1)^2)",
-          "(x2-x1) + (y2-y1)",
           "√((x2-x1) + (y2-y1))",
-          "(x2-x1) * (y2-y1)"
+          "(x2-x1) * (y2-y1)",
+          "√((x2-x1)^2 + (y2-y1)^2)",
+          "(x2-x1) + (y2-y1)"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "The distance formula is d = √((x2-x1)^2 + (y2-y1)^2), derived from the Pythagorean theorem."
       },
       {
         "q": "What is the midpoint of the line segment joining (2, 3) and (4, 5)?",
         "options": [
-          "(3, 4)",
-          "(2, 4)",
+          "(6, 8)",
           "(4, 3)",
-          "(6, 8)"
+          "(2, 4)",
+          "(3, 4)"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Midpoint = ((2+4)/2, (3+5)/2) = (3, 4). The midpoint formula is ((x1+x2)/2, (y1+y2)/2)."
       },
       {
         "q": "What is the slope of a line passing through (0, 0) and (2, 4)?",
         "options": [
-          "1",
           "2",
-          "0.5",
-          "4"
+          "4",
+          "1",
+          "0.5"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Slope m = (y2-y1)/(x2-x1) = (4-0)/(2-0) = 4/2 = 2."
       },
       {
@@ -3813,22 +3813,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is the equation of a line in slope-intercept form?",
         "options": [
           "ax + by + c = 0",
-          "y = mx + c",
           "x/a + y/b = 1",
+          "y = mx + c",
           "(y-y1) = m(x-x1)"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The slope-intercept form is y = mx + c, where m is slope and c is y-intercept."
       },
       {
         "q": "What does the y-intercept represent?",
         "options": [
-          "The slope of the line",
-          "The point where the line crosses the y-axis",
           "The distance from origin",
-          "The angle of the line"
+          "The slope of the line",
+          "The angle of the line",
+          "The point where the line crosses the y-axis"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The y-intercept is the point where a line crosses the y-axis, which occurs when x = 0."
       },
       {
@@ -3856,12 +3856,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the distance from point (3, 4) to the origin?",
         "options": [
-          "5",
-          "7",
+          "4",
           "3",
-          "4"
+          "5",
+          "7"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Distance = √((3-0)^2 + (4-0)^2) = √(9 + 16) = √25 = 5."
       }
     ],
@@ -3887,11 +3887,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is the common difference in the sequence 3, 7, 11, 15, ...?",
         "options": [
           "3",
-          "4",
+          "11",
           "7",
-          "11"
+          "4"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Common difference d = 7 - 3 = 4. Each term increases by 4."
       },
       {
@@ -3908,89 +3908,89 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the 5th term of AP: 2, 5, 8, 11, ...?",
         "options": [
+          "16",
           "14",
           "15",
-          "16",
           "17"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "d = 3, a5 = 2 + (5-1)*3 = 2 + 12 = 14."
       },
       {
         "q": "What is the sum of first n terms of an AP?",
         "options": [
-          "Sn = n/2 * (2a1 + (n-1)d)",
-          "Sn = n * a1",
+          "Sn = (a1 + an)",
           "Sn = n * d",
-          "Sn = (a1 + an)"
+          "Sn = n/2 * (2a1 + (n-1)d)",
+          "Sn = n * a1"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Sum formula: Sn = n/2 * (2a1 + (n-1)d) or Sn = n/2 * (a1 + an)."
       },
       {
         "q": "How many terms are there in AP: 2, 5, 8, ..., 29?",
         "options": [
+          "11",
           "8",
-          "9",
           "10",
-          "11"
+          "9"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "an = 29, a1 = 2, d = 3. 29 = 2 + (n-1)*3, so n = 10. Wait, check: 2 + 9*3 = 29. So n = 10. Let me verify: (29-2)/3 + 1 = 27/3 + 1 = 9 + 1 = 10. Actually 10 terms, not 9. Let me recalculate: 2 + (n-1)*3 = 29, (n-1)*3 = 27, n-1 = 9, n = 10. Hmm, answer should be 10, but checking options...actually the answer is 10 which corresponds to option index 2. Let me recount: from 2, 5, 8, 11, 14, 17, 20, 23, 26, 29 = 10 terms. So correct answer is index 2 (value 10)."
       },
       {
         "q": "What is the sum of first 10 natural numbers?",
         "options": [
-          "45",
           "55",
-          "50",
-          "60"
+          "60",
+          "45",
+          "50"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Natural numbers form AP: 1, 2, 3, ..., 10. S10 = 10/2 * (1 + 10) = 5 * 11 = 55."
       },
       {
         "q": "If a1 = 5 and d = 2, what is a3?",
         "options": [
-          "7",
           "8",
           "9",
+          "7",
           "10"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "a3 = 5 + (3-1)*2 = 5 + 4 = 9."
       },
       {
         "q": "Is 0 part of the AP: -5, -3, -1, 1, 3, ...?",
         "options": [
-          "Yes, it is the 4th term",
-          "No, 0 is not in this sequence",
           "Yes, it is the 3rd term",
-          "Cannot be determined"
+          "Cannot be determined",
+          "Yes, it is the 4th term",
+          "No, 0 is not in this sequence"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "d = 2, checking: -5 + (n-1)*2 = 0, (n-1)*2 = 5, n-1 = 2.5. Since n is not integer, 0 is not a term. Wait let me check: -5, -3, -1, 1... d=2. -5+(n-1)2=0 gives n=3.5, not integer. So 0 is NOT part. But I said index 0 which is 'Yes'. Let me reconsider the sequence and indices more carefully. Looking at the options: index 0 is 'Yes its 4th term', index 1 is 'No'. If 0 is not in sequence, answer should be index 1."
       },
       {
         "q": "What is the arithmetic mean of 5 and 15?",
         "options": [
-          "10",
-          "8",
           "12",
-          "20"
+          "20",
+          "8",
+          "10"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Arithmetic mean = (5 + 15)/2 = 20/2 = 10."
       },
       {
         "q": "If the sum of first n terms is 2n^2 + n, what is d?",
         "options": [
+          "3",
           "1",
           "2",
-          "3",
           "4"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "For n=1: S1 = 2(1)^2 + 1 = 3, so a1 = 3. For n=2: S2 = 2(4) + 2 = 10, so a2 = 10 - 3 = 7. Therefore d = 7 - 3 = 4. Wait, let me check with formula: Sn = 2n^2 + n, so Sn - S(n-1) = 2n^2 + n - 2(n-1)^2 - (n-1) = 2n^2 + n - 2(n^2 - 2n + 1) - n + 1 = 2n^2 + n - 2n^2 + 4n - 2 - n + 1 = 4n - 1. So an = 4n - 1. a1 = 3, a2 = 7, d = 4."
       }
     ],
@@ -4026,34 +4026,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "How many tangents can be drawn from an external point to a circle?",
         "options": [
-          "1",
-          "2",
           "3",
-          "Infinite"
+          "Infinite",
+          "2",
+          "1"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Exactly 2 tangents can be drawn from an external point to a circle, and they are equal in length."
       },
       {
         "q": "What is a secant to a circle?",
         "options": [
           "A line touching circle at one point",
-          "A line intersecting circle at two points",
+          "A line inside circle",
           "A line parallel to radius",
-          "A line inside circle"
+          "A line intersecting circle at two points"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A secant is a line that intersects a circle at two distinct points."
       },
       {
         "q": "What is the angle subtended by a diameter at any point on the circle?",
         "options": [
-          "45 degrees",
-          "60 degrees",
           "90 degrees",
-          "180 degrees"
+          "45 degrees",
+          "180 degrees",
+          "60 degrees"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "By Thales' theorem, angle subtended by diameter at any point on the circle is 90 degrees."
       },
       {
@@ -4070,34 +4070,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the power of a point theorem?",
         "options": [
+          "Tangent equals chord",
           "Two chords intersect",
           "If two chords intersect inside circle, then PA*PB = PC*PD",
-          "Tangent equals chord",
           "Radius equals diameter"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "If two chords AB and CD intersect at point P inside a circle, then PA*PB = PC*PD."
       },
       {
         "q": "What is the circumference of a circle with radius r?",
         "options": [
-          "πr^2",
-          "2πr",
+          "πd",
           "πr",
-          "πd"
+          "πr^2",
+          "2πr"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The circumference formula is C = 2πr, where r is the radius."
       },
       {
         "q": "What is the area of a circle with radius r?",
         "options": [
-          "2πr",
           "πr^2",
-          "πr",
-          "πr^2/2"
+          "2πr",
+          "πr^2/2",
+          "πr"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The area of a circle is A = πr^2."
       },
       {
@@ -4114,12 +4114,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the angle between a tangent and a chord at point of contact?",
         "options": [
-          "Equals inscribed angle in alternate segment",
+          "Random",
           "Equals 90 degrees",
-          "Equals central angle",
-          "Random"
+          "Equals inscribed angle in alternate segment",
+          "Equals central angle"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "By the alternate segment theorem, the angle between tangent and chord equals the inscribed angle in the alternate segment."
       }
     ],
@@ -4144,23 +4144,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the curved surface area of a cylinder with radius r and height h?",
         "options": [
+          "πrh",
           "2πr^2",
-          "2πrh",
           "πr^2h",
-          "πrh"
+          "2πrh"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The curved (lateral) surface area of a cylinder is 2πrh."
       },
       {
         "q": "What is the total surface area of a cube with side a?",
         "options": [
-          "a^3",
           "6a^2",
-          "4a^2",
-          "12a"
+          "12a",
+          "a^3",
+          "4a^2"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "A cube has 6 faces, each with area a^2, so total surface area = 6a^2."
       },
       {
@@ -4177,34 +4177,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the curved surface area of a cone with radius r and slant height l?",
         "options": [
-          "πr^2",
-          "πrl",
           "2πrl",
-          "πrl + πr^2"
+          "πrl + πr^2",
+          "πrl",
+          "πr^2"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The curved surface area of a cone is πrl, where l is slant height."
       },
       {
         "q": "What is the relationship between radius, height, and slant height of a cone?",
         "options": [
-          "l = r + h",
-          "l^2 = r^2 + h^2",
+          "l = r*h",
           "l^2 = r^2 - h^2",
-          "l = r*h"
+          "l = r + h",
+          "l^2 = r^2 + h^2"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "By Pythagorean theorem: l^2 = r^2 + h^2, where l is slant height."
       },
       {
         "q": "What is the volume of a rectangular prism (cuboid) with length l, width w, and height h?",
         "options": [
-          "l + w + h",
           "l*w*h",
-          "2(lw + wh + lh)",
-          "l^2 + w^2 + h^2"
+          "l^2 + w^2 + h^2",
+          "l + w + h",
+          "2(lw + wh + lh)"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The volume of a cuboid is V = l*w*h."
       },
       {
@@ -4221,34 +4221,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the volume of a cylinder with radius r and height h?",
         "options": [
-          "πr^2h",
-          "2πrh",
           "πrh^2",
-          "πr^2"
+          "πr^2",
+          "πr^2h",
+          "2πrh"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "The volume of a cylinder is V = πr^2h."
       },
       {
         "q": "What is the total surface area of a cylinder with radius r and height h?",
         "options": [
+          "πr^2h",
           "2πrh",
-          "2πr^2 + 2πrh",
           "2πr^2",
-          "πr^2h"
+          "2πr^2 + 2πrh"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Total surface area = 2 base areas + curved area = 2πr^2 + 2πrh."
       },
       {
         "q": "What is the volume of a cone with radius r and height h?",
         "options": [
-          "πr^2h",
           "(1/3)πr^2h",
           "(2/3)πr^2h",
+          "πr^2h",
           "πrh"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The volume of a cone is V = (1/3)πr^2h."
       }
     ],
@@ -4273,12 +4273,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What are the three states of matter?",
         "options": [
+          "Visible, invisible, transparent",
           "Solid, liquid, gas",
-          "Solid, liquid, plasma",
           "Hot, cold, warm",
-          "Visible, invisible, transparent"
+          "Solid, liquid, plasma"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Matter exists in three states: solid (fixed shape and volume), liquid (fixed volume, takes container shape), gas (no fixed shape or volume)."
       },
       {
@@ -4295,23 +4295,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the process of conversion of solid to liquid called?",
         "options": [
-          "Evaporation",
-          "Melting",
           "Sublimation",
-          "Condensation"
+          "Evaporation",
+          "Condensation",
+          "Melting"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Melting is the change of state from solid to liquid when temperature increases."
       },
       {
         "q": "What is the process of conversion of liquid to gas called?",
         "options": [
-          "Melting",
-          "Freezing",
           "Evaporation",
+          "Freezing",
+          "Melting",
           "Deposition"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Evaporation is the process of conversion of liquid to gas at the surface, which occurs at any temperature."
       },
       {
@@ -4339,45 +4339,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the freezing point of water?",
         "options": [
-          "0 degrees Celsius",
           "100 degrees Celsius",
+          "4 degrees Celsius",
           "-10 degrees Celsius",
-          "4 degrees Celsius"
+          "0 degrees Celsius"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Water freezes at 0 degrees Celsius at standard atmospheric pressure."
       },
       {
         "q": "What is the boiling point of water?",
         "options": [
-          "0 degrees Celsius",
-          "50 degrees Celsius",
           "100 degrees Celsius",
-          "200 degrees Celsius"
+          "0 degrees Celsius",
+          "200 degrees Celsius",
+          "50 degrees Celsius"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Water boils at 100 degrees Celsius at standard atmospheric pressure."
       },
       {
         "q": "What is density?",
         "options": [
-          "Weight of object",
           "Volume of object",
           "Mass per unit volume",
-          "Area of object"
+          "Area of object",
+          "Weight of object"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Density is the mass per unit volume, expressed as d = m/v."
       },
       {
         "q": "Why does ice float on water?",
         "options": [
           "Ice is lighter",
-          "Ice has lower density than water",
           "Water pushes ice up",
+          "Ice has lower density than water",
           "Ice takes less space"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Ice has lower density than liquid water (ice expands when water freezes), so it floats."
       }
     ],
@@ -4403,22 +4403,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is the cell?",
         "options": [
           "Part of atom",
-          "Basic unit of life",
           "Part of tissue",
-          "Part of organ"
+          "Part of organ",
+          "Basic unit of life"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The cell is the basic structural and functional unit of all living organisms."
       },
       {
         "q": "Who discovered the cell?",
         "options": [
-          "Antoine Lavoisier",
           "Robert Hooke",
-          "Louis Pasteur",
-          "Isaac Newton"
+          "Antoine Lavoisier",
+          "Isaac Newton",
+          "Louis Pasteur"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Robert Hooke discovered the cell in 1665 while observing cork tissue under a microscope."
       },
       {
@@ -4446,23 +4446,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the powerhouse of the cell?",
         "options": [
+          "Chloroplast",
           "Nucleus",
           "Ribosome",
-          "Mitochondria",
-          "Chloroplast"
+          "Mitochondria"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Mitochondria is the powerhouse of the cell, producing ATP energy through respiration."
       },
       {
         "q": "Which organelle is responsible for photosynthesis?",
         "options": [
-          "Mitochondria",
-          "Ribosome",
           "Chloroplast",
-          "Nucleus"
+          "Ribosome",
+          "Nucleus",
+          "Mitochondria"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Chloroplasts are present in plant cells and perform photosynthesis to produce food and oxygen."
       },
       {
@@ -4479,34 +4479,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is cytoplasm?",
         "options": [
-          "Genetic material",
-          "Thick fluid inside cell containing organelles",
           "Outside cell boundary",
-          "Part of nucleus"
+          "Part of nucleus",
+          "Thick fluid inside cell containing organelles",
+          "Genetic material"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Cytoplasm is the jelly-like substance filling the cell, containing all organelles except the nucleus."
       },
       {
         "q": "Which is true of plant cells but not animal cells?",
         "options": [
+          "Mitochondria",
           "Cell membrane",
           "Nucleus",
-          "Cell wall and chloroplasts",
-          "Mitochondria"
+          "Cell wall and chloroplasts"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Plant cells have cell walls (outside membrane) and chloroplasts, which animal cells lack."
       },
       {
         "q": "What are ribosomes?",
         "options": [
-          "Storage organelles",
           "Sites of protein synthesis",
           "Energy producers",
+          "Storage organelles",
           "Genetic material"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Ribosomes are organelles where proteins are synthesized following instructions from DNA."
       }
     ],
@@ -4543,11 +4543,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "When was the Indian National Congress founded?",
         "options": [
           "1857",
+          "1920",
           "1885",
-          "1905",
-          "1920"
+          "1905"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The Indian National Congress was established in 1885, becoming the main platform for nationalist movements."
       },
       {
@@ -4555,87 +4555,87 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "Dadabhai Naoroji",
           "Surendranath Banerjee",
-          "Womesh Chandra Banerjee",
-          "Ashutosh Mukherjee"
+          "Ashutosh Mukherjee",
+          "Womesh Chandra Banerjee"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Womesh Chandra Banerjee was the first president of the Indian National Congress."
       },
       {
         "q": "What is Swaraj?",
         "options": [
-          "British rule",
           "Self-rule or independence",
+          "Social reform",
           "Equality",
-          "Social reform"
+          "British rule"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Swaraj means self-rule or independence, and became the main goal of Indian nationalists."
       },
       {
         "q": "Who gave the call for Quit India Movement?",
         "options": [
           "Jawaharlal Nehru",
-          "Subhas Chandra Bose",
           "Mahatma Gandhi",
-          "Sardar Vallabhbhai Patel"
+          "Sardar Vallabhbhai Patel",
+          "Subhas Chandra Bose"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Mahatma Gandhi gave the call for Quit India Movement on August 8, 1942."
       },
       {
         "q": "What was the Salt March?",
         "options": [
+          "Trade expedition",
           "Military movement",
           "Protest against salt tax by walking to the sea",
-          "Religious procession",
-          "Trade expedition"
+          "Religious procession"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The Salt March in 1930 was a non-violent protest led by Gandhi against the British salt monopoly."
       },
       {
         "q": "Who was known as Lokmanya Tilak?",
         "options": [
-          "A freedom fighter",
-          "Bal Gangadhar Tilak, a nationalist leader",
+          "A social reformer",
           "A British official",
-          "A social reformer"
+          "A freedom fighter",
+          "Bal Gangadhar Tilak, a nationalist leader"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Bal Gangadhar Tilak was called Lokmanya (people's leader) and championed Swaraj and Swadeshi movements."
       },
       {
         "q": "What does Swadeshi mean?",
         "options": [
-          "Independence",
           "Support for indigenous goods and rejection of foreign goods",
+          "Independence",
           "Self-government",
           "National pride"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Swadeshi promotes using Indian goods and rejecting British/foreign products, part of nationalist economic strategy."
       },
       {
         "q": "When did India gain independence?",
         "options": [
           "1930",
-          "1942",
           "1947",
-          "1950"
+          "1950",
+          "1942"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "India gained independence on August 15, 1947, ending British colonial rule."
       },
       {
         "q": "Who was the first Prime Minister of independent India?",
         "options": [
           "Mahatma Gandhi",
+          "Dr. Rajendra Prasad",
           "Jawaharlal Nehru",
-          "Sardar Vallabhbhai Patel",
-          "Dr. Rajendra Prasad"
+          "Sardar Vallabhbhai Patel"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Jawaharlal Nehru became the first Prime Minister of independent India."
       }
     ],
@@ -4660,23 +4660,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is federalism?",
         "options": [
-          "Rule by a single dictator",
-          "Division of power between central and regional governments",
           "Power concentrated at center",
-          "Direct democracy"
+          "Rule by a single dictator",
+          "Direct democracy",
+          "Division of power between central and regional governments"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Federalism is a system where power is constitutionally divided between a central government and state/provincial governments."
       },
       {
         "q": "What are the two lists that define powers in Indian federalism?",
         "options": [
-          "National and state lists",
           "Union, state, and concurrent lists",
           "Central and regional lists",
-          "Federal and local lists"
+          "Federal and local lists",
+          "National and state lists"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The Union List, State List, and Concurrent List define powers of the central government, state governments, and shared powers respectively."
       },
       {
@@ -4694,33 +4694,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which subjects are in the State List?",
         "options": [
           "Defense and foreign policy",
-          "Police, education, agriculture, local governance",
           "Currency and taxation",
+          "Police, education, agriculture, local governance",
           "Communication and trade"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The State List includes subjects like police, education, agriculture, and local governance that state governments control."
       },
       {
         "q": "What is the Concurrent List?",
         "options": [
-          "Subjects only under central control",
-          "Subjects shared between Union and State governments",
+          "Emergency powers",
           "List of all laws",
-          "Emergency powers"
+          "Subjects only under central control",
+          "Subjects shared between Union and State governments"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The Concurrent List contains subjects where both central and state governments can make laws."
       },
       {
         "q": "How many Union Territories does India have?",
         "options": [
-          "5",
-          "8",
           "9",
-          "15"
+          "5",
+          "15",
+          "8"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "As of recent reorganization, India has 8 Union Territories administered directly by the central government."
       },
       {
@@ -4738,33 +4738,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "How does federalism support democracy in India?",
         "options": [
           "By concentrating power",
+          "By limiting voting rights",
           "By dividing power and allowing local participation in governance",
-          "By centralizing decisions",
-          "By limiting voting rights"
+          "By centralizing decisions"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Federalism divides power between center and states, allowing more people to participate in governance and representing diverse regions."
       },
       {
         "q": "What is the significance of the 73rd Amendment to the Constitution?",
         "options": [
-          "Increased presidential powers",
-          "Gave more powers to Panchayats (village councils)",
           "Abolished states",
-          "Changed the capital"
+          "Changed the capital",
+          "Increased presidential powers",
+          "Gave more powers to Panchayats (village councils)"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The 73rd Amendment provided constitutional status to Panchayati Raj, empowering local governance at village level."
       },
       {
         "q": "What is a Coalition Government?",
         "options": [
-          "Rule by a single party",
           "Government formed by alliance of multiple parties",
-          "Government by military",
-          "Temporary government"
+          "Temporary government",
+          "Rule by a single party",
+          "Government by military"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "A coalition government is formed when no single party wins majority, and multiple parties ally to form government."
       }
     ],
@@ -4800,34 +4800,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is barter?",
         "options": [
-          "Direct exchange of goods for money",
-          "Direct exchange of goods for goods",
+          "Tax payment",
           "Government trade",
-          "Tax payment"
+          "Direct exchange of goods for goods",
+          "Direct exchange of goods for money"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Barter is direct exchange of goods and services without using money as medium."
       },
       {
         "q": "What is credit?",
         "options": [
-          "Borrowing money with interest",
-          "Lending or borrowing money with promise of repayment",
           "Saving money",
-          "Investing money"
+          "Borrowing money with interest",
+          "Investing money",
+          "Lending or borrowing money with promise of repayment"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Credit is an arrangement where one party lends money to another with agreement for repayment, usually with interest."
       },
       {
         "q": "What is the role of banks in credit creation?",
         "options": [
-          "Only keep deposits safe",
           "Create money by lending out deposits",
-          "Tax collection",
-          "Government administration"
+          "Government administration",
+          "Only keep deposits safe",
+          "Tax collection"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Banks create credit by lending deposits to borrowers, expanding money supply in the economy."
       },
       {
@@ -4845,33 +4845,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is interest?",
         "options": [
           "Tax on loans",
-          "Fee charged by lender on borrowed money",
           "Government subsidy",
+          "Fee charged by lender on borrowed money",
           "Bank fee"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Interest is the cost of borrowing money, typically expressed as a percentage of the principal."
       },
       {
         "q": "What is the Reserve Bank of India (RBI)?",
         "options": [
+          "Private institution",
           "Commercial bank",
-          "Central bank of India controlling money supply and credit",
           "Government department",
-          "Private institution"
+          "Central bank of India controlling money supply and credit"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The RBI is India's central bank responsible for monetary policy, credit control, and currency management."
       },
       {
         "q": "What is inflation?",
         "options": [
-          "Increase in value of money",
           "Sustained increase in price levels reducing purchasing power",
           "Currency expansion",
+          "Increase in value of money",
           "Wage increase"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Inflation is a sustained rise in general price levels, reducing the purchasing power of money."
       },
       {
@@ -4888,12 +4888,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the difference between formal and informal credit?",
         "options": [
+          "Formal is for government only",
           "Same thing",
           "Formal is through banks/institutions, informal is through money-lenders and friends",
-          "Informal has no interest",
-          "Formal is for government only"
+          "Informal has no interest"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Formal credit comes from regulated institutions like banks, while informal credit comes from money-lenders, friends, and family."
       }
     ],
@@ -4919,88 +4919,88 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A doctor uses a concave mirror to examine a patient's teeth. The mirror produces a magnified virtual image. What is the object distance if the focal length is 2 cm?",
         "options": [
           "1 cm",
-          "Between 0 and 2 cm",
           "Exactly 2 cm",
-          "Greater than 2 cm"
+          "Greater than 2 cm",
+          "Between 0 and 2 cm"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "For a concave mirror to produce a magnified virtual image, the object must be placed between the pole and focal length (0 < u < f). When u < f, the mirror acts like a magnifying glass."
       },
       {
         "q": "A student shines a laser pointer at an angle of 30 degrees to the normal on a glass surface (refractive index 1.5). The light refracts into the glass. What is the approximate angle of refraction?",
         "options": [
-          "15 degrees",
           "19 degrees",
-          "30 degrees",
-          "45 degrees"
+          "45 degrees",
+          "15 degrees",
+          "30 degrees"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Using Snell's law: n1 sin(i) = n2 sin(r). So 1 * sin(30) = 1.5 * sin(r), giving sin(r) = 0.333, r = 19.47 degrees approximately."
       },
       {
         "q": "A photographer wants to capture a wide field of view using a convex lens. Which property of the convex lens allows this?",
         "options": [
+          "It produces only virtual images",
           "It converges light rays",
           "It diverges light rays",
-          "It produces only virtual images",
           "It has infinite focal length"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Convex lenses converge light rays and are used in cameras and telescopes to capture images over a wide angle depending on focal length."
       },
       {
         "q": "When white light passes through a prism, it splits into colors. Which color bends the least when exiting the prism?",
         "options": [
+          "Blue",
           "Violet",
           "Red",
-          "Blue",
           "Green"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Red light has the longest wavelength and bends the least (lowest refractive index). Violet bends the most. This is why rainbows show red on the outer edge."
       },
       {
         "q": "A swimming pool appears shallower than it actually is due to refraction. At what angle of incidence does total internal reflection occur for light traveling from water (n=1.33) to air?",
         "options": [
-          "30 degrees",
           "42 degrees",
-          "49 degrees",
-          "60 degrees"
+          "30 degrees",
+          "60 degrees",
+          "49 degrees"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Critical angle: sin(c) = n2/n1 = 1/1.33. c = arcsin(0.752) = 48.75 degrees, approximately 49 degrees."
       },
       {
         "q": "A convex mirror is used as a rear-view mirror in vehicles. Why is a convex mirror preferred over a plane mirror?",
         "options": [
-          "It produces real images",
           "It provides a wider field of view",
+          "It reduces light intensity",
           "It magnifies distant objects",
-          "It reduces light intensity"
+          "It produces real images"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Convex mirrors diverge light and produce diminished virtual images, but cover a much wider field of view compared to a plane mirror of the same size."
       },
       {
         "q": "A lens maker's formula relates focal length to radii of curvature. If both surfaces of a symmetric convex lens have radius 10 cm and the refractive index is 1.5, what is the focal length?",
         "options": [
-          "5 cm",
-          "10 cm",
           "15 cm",
-          "20 cm"
+          "5 cm",
+          "20 cm",
+          "10 cm"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "1/f = (n-1)(1/R1 - 1/R2) = (1.5-1)(1/10 - 1/(-10)) = 0.5 * 0.2 = 0.1, so f = 10 cm. Wait, let me recalculate: (1/10 + 1/10) = 0.2, so f = 5 cm."
       },
       {
         "q": "A concave mirror with focal length 15 cm forms a real, inverted image at the center of curvature. Where is the object placed?",
         "options": [
           "At the focal point",
-          "At the center of curvature",
           "Between F and C",
+          "At the center of curvature",
           "Beyond C"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "When an object is placed at the center of curvature (u = R = 2f), a real, inverted image of the same size is formed at the center of curvature."
       }
     ],
@@ -5025,23 +5025,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "A house has a 5 A fuse and operates at 230 V. A resident connects a 1000 W heater, 500 W oven, and 100 W light simultaneously. Will the fuse blow? (Calculate power consumed)",
         "options": [
-          "No, total 1100 W is safe",
-          "Yes, total 1600 W exceeds fuse capacity",
           "No, fuses only regulate current",
-          "Cannot determine without resistance values"
+          "No, total 1100 W is safe",
+          "Cannot determine without resistance values",
+          "Yes, total 1600 W exceeds fuse capacity"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Total power = 1000 + 500 + 100 = 1600 W. Current I = P/V = 1600/230 = 6.96 A. This exceeds the 5 A fuse rating (which allows 5*230 = 1150 W maximum), so the fuse will blow."
       },
       {
         "q": "Three resistors of 6 ohms, 6 ohms, and 12 ohms are connected in a circuit. Two 6-ohm resistors are in parallel, then this combination is in series with the 12-ohm resistor. What is the total resistance?",
         "options": [
-          "3 ohms",
           "9 ohms",
+          "3 ohms",
           "15 ohms",
           "24 ohms"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Two 6-ohm resistors in parallel: 1/Rp = 1/6 + 1/6 = 2/6, so Rp = 3 ohms. Total = 3 + 12 = 15 ohms. Wait, let me recheck: 1/Rp = 1/6 + 1/6 = 1/3, Rp = 3 ohms. Total = 3 + 12 = 15 ohms."
       },
       {
@@ -5058,56 +5058,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "An ammeter has a low resistance (nearly zero) while a voltmeter has high resistance. Why must an ammeter be connected in series and a voltmeter in parallel?",
         "options": [
-          "To prevent voltage drops across ammeter",
-          "To ensure accurate measurement of current and voltage respectively",
+          "There is no specific reason",
           "To avoid damaging the instruments",
-          "There is no specific reason"
+          "To ensure accurate measurement of current and voltage respectively",
+          "To prevent voltage drops across ammeter"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "An ammeter in series measures current without affecting the circuit (low resistance means minimal voltage drop). A voltmeter in parallel measures potential difference across components without drawing significant current (high resistance prevents circuit loading)."
       },
       {
         "q": "A circuit has a 12 V battery, a switch, a 4-ohm resistor, and an ammeter. When the switch is closed, the ammeter reads 2.5 A. What is the internal resistance of the battery?",
         "options": [
+          "2.0 ohms",
           "0.4 ohms",
-          "0.8 ohms",
           "1.6 ohms",
-          "2.0 ohms"
+          "0.8 ohms"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Using V = I(R + r): 12 = 2.5(4 + r), so 12 = 10 + 2.5r, giving 2.5r = 2, r = 0.8 ohms."
       },
       {
         "q": "A light bulb rated 60 W, 120 V is used in a 240 V circuit with an appropriate series resistor for protection. What is the power consumed by the series resistor?",
         "options": [
+          "90 W",
           "20 W",
           "30 W",
-          "60 W",
-          "90 W"
+          "60 W"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "At rated conditions, the bulb draws I = 60/120 = 0.5 A. In 240 V circuit with same current: V_bulb = 120 V, V_resistor = 240 - 120 = 120 V. Power in resistor = I^2 * R = 0.5^2 * 240 = 0.25 * 240 = 60 W. Wait, P = V*I = 120 * 0.5 = 60 W, but this doesn't match. Let me recalculate: If current is 0.5 A through the series resistor with 120 V drop, P = 120 * 0.5 = 60 W. Hmm, but 60+60=120, not accounting for full power delivery. Actually for a 60W bulb: Rb = V^2/P = 120^2/60 = 240 ohms. At 240V, current = 240/(240+R_series). For same power at 120V drop across bulb: I = 0.5A is needed. So R_series = 120/0.5 = 240 ohms. Power = 0.5^2 * 240 = 60W. But this exceeds bulb's rating. Correct approach: bulb rated 60W at 120V means Rb = 14400/60 = 240 ohms. To use in 240V: current must be limited to 120/240 = 0.5A. Rs = (240-120)/0.5 = 240 ohms. Power in Rs = 0.5^2 * 240 = 60W. But we want same power in bulb 60W. This creates issue. Actually the bulb will get 120V and 0.5A, so 60W. Resistor: 120V, 0.5A = 60W. Total 120W. But wait - let me reconsider: actual current would be I = 240/(240+240) = 0.5A. Bulb gets 120V, power = 0.5^2 * 240 = 60W correct. Resistor: same current 0.5A through 240 ohms = 60W. Answer is actually 60W not 90W. Let me verify once more: if we want 120V across bulb and 120V across resistor for equal drop at 0.5A, that's 60W each. Total 120W delivered from 240V source. 240V * 0.5A = 120W total. Yes! But none of the options exactly fit this reasoning. At face value: P_r = (240-120)^2 / R_s = 120^2/240 = 60W approximately. Checking option: answer should be 60W so option index 2."
       },
       {
         "q": "In a parallel circuit with three identical bulbs rated 100 W each at 230 V, if one bulb burns out, what happens to the brightness of the remaining bulbs?",
         "options": [
           "Increases",
-          "Decreases",
           "Remains same",
-          "Becomes zero"
+          "Becomes zero",
+          "Decreases"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "In a parallel circuit, each bulb receives the full voltage (230 V) independently. If one bulb burns out, the voltage across others remains 230 V and their current remains the same, so brightness is unchanged."
       },
       {
         "q": "A heating element of resistance 10 ohms carries a current of 2 A for 5 minutes. How much heat is produced?",
         "options": [
-          "100 J",
           "1000 J",
           "6000 J",
-          "12000 J"
+          "12000 J",
+          "100 J"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "Heat Q = I^2 * R * t = 2^2 * 10 * 300 = 4 * 10 * 300 = 12000 J."
       }
     ],
@@ -5133,22 +5133,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A person has low hemoglobin levels (anemia) and feels fatigued. Which life process is primarily affected and why?",
         "options": [
           "Digestion, because nutrients cannot be broken down",
-          "Respiration, because oxygen transport is reduced",
+          "Photosynthesis, because energy production is low",
           "Excretion, because waste removal is incomplete",
-          "Photosynthesis, because energy production is low"
+          "Respiration, because oxygen transport is reduced"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Hemoglobin in red blood cells transports oxygen. Low hemoglobin reduces oxygen carrying capacity, affecting aerobic respiration and energy production, leading to fatigue."
       },
       {
         "q": "A vegetarian diet lacks vitamin B12 naturally. Which digestive organ needs to produce an intrinsic factor to enable B12 absorption?",
         "options": [
-          "Small intestine",
           "Stomach",
-          "Pancreas",
-          "Liver"
+          "Liver",
+          "Small intestine",
+          "Pancreas"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The stomach produces intrinsic factor, a protein necessary for vitamin B12 absorption in the small intestine. Without it, B12 deficiency develops."
       },
       {
@@ -5166,33 +5166,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A patient receives an injection of epinephrine (adrenaline) which increases heart rate and blood pressure. Which body system coordinates this response?",
         "options": [
           "Digestive system",
+          "Integumentary system",
           "Nervous and endocrine systems",
-          "Skeletal system",
-          "Integumentary system"
+          "Skeletal system"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The nervous system triggers epinephrine release from the adrenal gland (endocrine system), which circulates to increase heart rate and blood pressure during fight-or-flight response."
       },
       {
         "q": "A person with gallstones may experience pain during fat digestion. Why is the gallbladder important in this process?",
         "options": [
+          "It absorbs vitamins",
           "It produces bile",
-          "It stores and concentrates bile for fat emulsification",
           "It breaks down large lipid molecules",
-          "It absorbs vitamins"
+          "It stores and concentrates bile for fat emulsification"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The gallbladder stores and concentrates bile produced by the liver. During fat digestion, it releases bile to emulsify fats, making them easier to digest."
       },
       {
         "q": "A child has a deficiency in amylase enzyme. Which food group would be difficult to digest?",
         "options": [
-          "Proteins",
           "Carbohydrates",
           "Fats",
-          "Vitamins"
+          "Vitamins",
+          "Proteins"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Amylase breaks down carbohydrates (starch) into simpler sugars. Without sufficient amylase, carbohydrate digestion is impaired."
       },
       {
@@ -5239,45 +5239,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "A farmer has acidic soil (pH 5) and needs to raise it to neutral (pH 7) for optimal crop growth. Which substance should be added?",
         "options": [
-          "Hydrochloric acid",
-          "Lime (CaCO3) or caustic soda",
           "Ammonium nitrate",
-          "Sulfuric acid"
+          "Sulfuric acid",
+          "Hydrochloric acid",
+          "Lime (CaCO3) or caustic soda"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Basic substances like lime (CaCO3) or NaOH neutralize excess H+ ions in acidic soil, raising pH toward neutral. Acids would worsen the condition."
       },
       {
         "q": "A person suffers from heartburn due to excess HCl in the stomach. Which type of medicine would relieve the symptoms?",
         "options": [
-          "Antibiotic",
           "Antacid (e.g., MgO or Al(OH)3)",
           "Laxative",
-          "Diuretic"
+          "Diuretic",
+          "Antibiotic"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Antacids are weak bases that neutralize excess stomach acid. MgO and Al(OH)3 are common antacids that react with HCl to form salt and water."
       },
       {
         "q": "In the neutralization reaction HCl + NaOH -> NaCl + H2O, what is the molar ratio when 100 mL of 1 M HCl reacts with NaOH solution?",
         "options": [
-          "1:1, requiring 100 mL of 1 M NaOH",
           "1:2, requiring 200 mL of 1 M NaOH",
-          "2:1, requiring 50 mL of 1 M NaOH",
-          "Cannot determine without knowing concentration"
+          "1:1, requiring 100 mL of 1 M NaOH",
+          "Cannot determine without knowing concentration",
+          "2:1, requiring 50 mL of 1 M NaOH"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "HCl and NaOH react in 1:1 molar ratio. Moles of HCl = 0.1 L * 1 M = 0.1 mol. For complete neutralization, 0.1 mol NaOH is needed, which is 100 mL of 1 M solution."
       },
       {
         "q": "A solution has a pH of 3. What is the concentration of H+ ions and is the solution acidic or basic?",
         "options": [
-          "10^-3 M, acidic",
           "10^-7 M, neutral",
           "10^-11 M, basic",
+          "10^-3 M, acidic",
           "10^-3 M, basic"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "pH = -log[H+]. If pH = 3, then [H+] = 10^-3 M = 0.001 M. Since pH < 7, the solution is acidic."
       },
       {
@@ -5285,21 +5285,21 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "pH is between 1-6, acidic",
           "pH is between 7-8, weakly basic",
-          "pH is between 8-14, basic",
-          "pH is exactly 7, neutral"
+          "pH is exactly 7, neutral",
+          "pH is between 8-14, basic"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Universal indicator turns blue in basic (alkaline) solutions with pH between 8-14. A blue color indicates a pH in this range."
       },
       {
         "q": "Milk of magnesia (Mg(OH)2) is a weak base used as an antacid and laxative. Why is it considered weak?",
         "options": [
-          "It has low density",
           "It only partially dissolves in water and partially ionizes",
+          "It has a low molecular weight",
           "It cannot neutralize acids",
-          "It has a low molecular weight"
+          "It has low density"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Weak bases partially ionize in water and have low solubility. Mg(OH)2 dissolves only slightly, providing limited OH- ions but sufficient for gentle antacid action."
       },
       {
@@ -5316,12 +5316,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Sodium carbonate (Na2CO3) solution is basic even though it contains no OH- ions directly. Why?",
         "options": [
-          "Sodium ions make it basic",
-          "Carbonate ions hydrolyze to form OH- ions",
           "Water molecules dissociate more in salt solutions",
-          "Carbon dioxide escapes, leaving a basic residue"
+          "Carbon dioxide escapes, leaving a basic residue",
+          "Carbonate ions hydrolyze to form OH- ions",
+          "Sodium ions make it basic"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Carbonate ions (CO3^2-) are weak bases. They react with water: CO3^2- + H2O <-> HCO3^- + OH-, producing hydroxide ions and making the solution basic."
       }
     ],
@@ -5347,22 +5347,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A boy stands 30 meters from the base of a tree and observes that the angle of elevation to the top is 45 degrees. What is the height of the tree?",
         "options": [
           "15 m",
-          "30 m",
           "30 sqrt(2) m",
-          "60 m"
+          "60 m",
+          "30 m"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Using tan(45) = height/distance, we have 1 = h/30, so h = 30 m. At 45 degrees, height equals horizontal distance."
       },
       {
         "q": "From the top of a building 80 meters tall, the angle of depression to a car on the ground is 30 degrees. How far is the car from the base of the building?",
         "options": [
+          "80 sqrt(3) m",
           "40 m",
           "40 sqrt(3) m",
-          "80 sqrt(3) m",
           "160 m"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "tan(30) = height/distance, so 1/sqrt(3) = 80/d, giving d = 80*sqrt(3) meters."
       },
       {
@@ -5390,45 +5390,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "An aeroplane at height 2000 meters observes the angle of depression to two buildings on opposite sides of a road at 30 degrees and 45 degrees respectively. If both angles are measured from the plane, what is the distance between the buildings?",
         "options": [
-          "2000 m",
+          "4000 m",
           "2000 + 2000 sqrt(3) m",
-          "2000 sqrt(3) + 2000 m",
-          "4000 m"
+          "2000 m",
+          "2000 sqrt(3) + 2000 m"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Distance to 30-degree building: d1 = 2000/tan(30) = 2000*sqrt(3). Distance to 45-degree building: d2 = 2000/tan(45) = 2000. Total = 2000*sqrt(3) + 2000 m."
       },
       {
         "q": "In a right triangle, sin(A) = 3/5. What is cos(A)?",
         "options": [
-          "3/4",
           "4/5",
           "4/3",
-          "5/4"
+          "5/4",
+          "3/4"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "If sin(A) = 3/5, then opposite = 3 and hypotenuse = 5. Using Pythagoras: adjacent = sqrt(25-9) = 4. So cos(A) = 4/5."
       },
       {
         "q": "A boy on top of a cliff 50 meters high observes a boat at angle of depression 45 degrees. Later, the boat comes closer and the angle of depression becomes 60 degrees. How far did the boat travel?",
         "options": [
-          "50(sqrt(3) - 1) m",
           "50 m",
-          "50 sqrt(3) m",
-          "100 m"
+          "50(sqrt(3) - 1) m",
+          "100 m",
+          "50 sqrt(3) m"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "At 45 degrees: distance from cliff = 50/tan(45) = 50 m. At 60 degrees: distance = 50/tan(60) = 50/sqrt(3) m. Distance traveled = 50 - 50/sqrt(3) = 50(1 - 1/sqrt(3)) = 50(sqrt(3) - 1)/sqrt(3). Actually, 50 - 50/sqrt(3) = 50(sqrt(3) - 1)/sqrt(3) = 50(sqrt(3) - 1)/sqrt(3) * sqrt(3)/sqrt(3) = 50(3 - sqrt(3))/3. Hmm, this doesn't match. Let me recalculate: 50 - 50*sqrt(3)/3 = 50(1 - sqrt(3)/3) = 50(3-sqrt(3))/3. Or approximating: 50(1.732-1) = 50*0.732 which is roughly 50(sqrt(3)-1). The cleanest form is 50(sqrt(3)-1)."
       },
       {
         "q": "Two poles of heights 10 m and 20 m are 15 m apart. What is the angle of elevation from the top of the shorter pole to the top of the taller pole?",
         "options": [
           "30 degrees",
+          "60 degrees",
           "tan^-1(2/3)",
-          "45 degrees",
-          "60 degrees"
+          "45 degrees"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The vertical difference is 20-10 = 10 m. Horizontal distance is 15 m. tan(angle) = 10/15 = 2/3. angle = tan^-1(2/3)."
       }
     ],
@@ -5454,55 +5454,55 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "In a cricket tournament, the probability that Team A wins the next match is 0.6 and Team B wins is 0.4. If they play 3 matches, what is the probability that Team A wins at least 2 matches?",
         "options": [
           "0.216",
+          "0.352",
           "0.432",
-          "0.648",
-          "0.352"
+          "0.648"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "P(at least 2 wins) = P(exactly 2) + P(exactly 3). P(exactly 2) = C(3,2) * 0.6^2 * 0.4 = 3 * 0.36 * 0.4 = 0.432. P(exactly 3) = 0.6^3 = 0.216. Total = 0.432 + 0.216 = 0.648."
       },
       {
         "q": "A card is drawn from a standard deck of 52 cards. What is the probability of getting a red card or a face card?",
         "options": [
-          "15/52",
-          "26/52",
+          "38/52",
           "35/52",
-          "38/52"
+          "26/52",
+          "15/52"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "Red cards = 26. Face cards = 12. Red face cards = 6 (overlap). Using inclusion-exclusion: P = (26 + 12 - 6)/52 = 32/52 = 8/13. Wait, that's 32/52, not 38. Let me reconsider: total face cards in deck = 12 (4 suits * 3 ranks). Red face cards = 6. P(red OR face) = (26 + 12 - 6)/52 = 32/52. Hmm, this doesn't match 38/52. Actually, let me recount: hearts and diamonds are red (13+13=26). Face cards (J,Q,K) = 4*3 = 12. Red face cards: 2 suits * 3 = 6. Using P(A or B) = P(A) + P(B) - P(A and B) = 26/52 + 12/52 - 6/52 = 32/52 = 8/13. This is not 38/52. Let me check if the question means something else. Actually 38/52 doesn't simplify nicely. The answer should be 32/52, but let me see if 38 is a typo. If we included all 13 ranks of red (instead of 26): that's 26. Plus 12 face cards (6 are red, already counted). So P(red or face) = 26 + 12 - 6 = 32. So answer is 32/52, but that's option index... 32 is not in the list. Checking 38: maybe the question intended diamonds (13) + face cards excluding red face cards? 13 + 12 - 6 = 19, not 38. Or hearts (13) + all face cards? 13 + 12 = 25, not 38. Actually, re-reading: red cards OR face card. That's (26 red) OR (12 face). With 6 overlap. So 26 + 12 - 6 = 32. The answer 32/52 is closest to option 3 (35/52) but not exact. Let me assume the correct answer is option 3 with explanation: cards that are red OR face: All 26 red cards + 6 non-red face cards (J,Q,K of clubs and spades) = 32. But 32/52 simplifies to 8/13, not matching the options. I'll mark this as index 3, but note the calculation gives 32/52."
       },
       {
         "q": "A die is rolled twice. What is the probability of getting a sum of 7?",
         "options": [
+          "5/36",
           "1/6",
           "1/12",
-          "1/8",
-          "5/36"
+          "1/8"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Favorable outcomes for sum 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) = 6 outcomes. Total outcomes = 36. P = 6/36 = 1/6."
       },
       {
         "q": "In a bag, there are 5 red balls, 3 blue balls, and 2 green balls. If two balls are drawn without replacement, what is the probability that both are red?",
         "options": [
-          "25/90",
+          "5/45",
           "10/90",
-          "20/90",
-          "5/45"
+          "25/90",
+          "20/90"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "P(both red) = (5/10) * (4/9) = 20/90 = 2/9. Wait, that's 20/90, not 25/90. Let me recompute: 5 red out of 10 total. First ball red: 5/10. After removing one red, 4 red out of 9 remain. Second ball red: 4/9. P = 5/10 * 4/9 = 20/90. But the option says 25/90. Let me verify: 5*4 = 20, so 20/90. 20/90 = 2/9. None of the options match 20/90 exactly except when reduced. Actually 25/90 is wrong based on calculation. Assuming typo and correct answer is 20/90 which might be listed differently or there's an error. I'll mark option 0 as the closest intended answer."
       },
       {
         "q": "A quality control inspector finds that 2% of products are defective. If a sample of 100 products is checked, what is the expected number of defective products?",
         "options": [
           "1",
-          "2",
+          "10",
           "5",
-          "10"
+          "2"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Expected value E = n * p = 100 * 0.02 = 2. This is the mean of a binomial distribution."
       },
       {
@@ -5520,22 +5520,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "In a lottery, the probability of winning the jackpot is 1/1000000. If 10 million tickets are sold, what is the expected number of jackpot winners?",
         "options": [
           "0.01",
-          "1",
           "10",
+          "1",
           "100"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Expected winners = total tickets * probability = 10,000,000 * (1/1,000,000) = 10."
       },
       {
         "q": "A student has a 70% chance of passing Math and 80% chance of passing English. Assuming independence, what is the probability of failing both subjects?",
         "options": [
-          "0.06",
-          "0.10",
           "0.14",
+          "0.10",
+          "0.06",
           "0.20"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "P(fail Math) = 0.3, P(fail English) = 0.2. P(fail both) = 0.3 * 0.2 = 0.06."
       }
     ],
@@ -5561,11 +5561,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A surveyor maps a triangular plot with vertices at A(0,0), B(6,0), and C(3,4). What is the area of this plot?",
         "options": [
           "6 sq units",
-          "12 sq units",
+          "24 sq units",
           "18 sq units",
-          "24 sq units"
+          "12 sq units"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Using the formula: Area = 0.5 * |x1(y2-y3) + x2(y3-y1) + x3(y1-y2)| = 0.5 * |0(0-4) + 6(4-0) + 3(0-0)| = 0.5 * 24 = 12 sq units."
       },
       {
@@ -5593,34 +5593,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "If a line has slope 2 and passes through the point (3,7), what is the equation of the line in the form y = mx + c?",
         "options": [
-          "y = 2x + 1",
-          "y = 2x + 3",
           "y = 2x + 7",
+          "y = 2x + 3",
+          "y = 2x + 1",
           "y = 3x + 1"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Using y = mx + c with m=2: 7 = 2(3) + c, so c = 1. Equation: y = 2x + 1."
       },
       {
         "q": "Points P(1,1), Q(4,4), and R(7,7) are collinear. This means what?",
         "options": [
-          "They form a right angle",
-          "They lie on the same straight line",
           "They form an equilateral triangle",
-          "They are at equal distances from origin"
+          "They form a right angle",
+          "They are at equal distances from origin",
+          "They lie on the same straight line"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Collinear means the points lie on the same straight line. Slope PQ = (4-1)/(4-1) = 1. Slope QR = (7-4)/(7-4) = 1. Equal slopes confirm collinearity."
       },
       {
         "q": "A rectangle has vertices at (0,0), (5,0), (5,3), and (0,3). What is its perimeter?",
         "options": [
-          "8 units",
-          "15 units",
           "16 units",
-          "20 units"
+          "15 units",
+          "20 units",
+          "8 units"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Length = 5, Width = 3. Perimeter = 2(5+3) = 16 units."
       },
       {
@@ -5637,12 +5637,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following lines is parallel to y = 3x + 2?",
         "options": [
-          "y = 3x - 5",
-          "y = 2x + 3",
           "y = -3x + 2",
-          "y = (1/3)x + 2"
+          "y = (1/3)x + 2",
+          "y = 3x - 5",
+          "y = 2x + 3"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Parallel lines have the same slope. y = 3x - 5 has slope 3, same as y = 3x + 2. All other options have different slopes."
       }
     ],
@@ -5668,22 +5668,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A farmer borrows Rs 50,000 from a cooperative bank at 8% annual interest for 3 years. How much simple interest will he pay?",
         "options": [
           "Rs 10,000",
-          "Rs 12,000",
           "Rs 14,000",
-          "Rs 15,000"
+          "Rs 15,000",
+          "Rs 12,000"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Simple Interest = (Principal * Rate * Time) / 100 = (50000 * 8 * 3) / 100 = 12000. Total amount = 50000 + 12000 = 62000."
       },
       {
         "q": "A self-help group of women receives a loan from a bank to start a microfinance business. Which of the following is NOT a benefit of formal credit over informal credit?",
         "options": [
-          "Lower interest rates",
           "No collateral required in group lending",
+          "Secure terms and conditions",
           "Written loan agreements",
-          "Secure terms and conditions"
+          "Lower interest rates"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Formal credit typically requires collateral or group guarantees. The advantage of group lending is shared responsibility, not absence of collateral. Other options are clear benefits of formal credit (documented terms, lower rates through regulations, security)."
       },
       {
@@ -5700,12 +5700,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Why do banks charge different interest rates for deposits and loans?",
         "options": [
-          "To confuse customers",
-          "Deposits are riskless and loans involve risk",
+          "Government mandates different rates",
           "Banks need profit margin",
-          "Government mandates different rates"
+          "Deposits are riskless and loans involve risk",
+          "To confuse customers"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Banks offer lower rates on deposits (safer, guaranteed return) and charge higher rates on loans (they bear the risk of non-repayment). The difference is their profit margin."
       },
       {
@@ -5722,12 +5722,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "An RBI monetary policy decision increases the repo rate (central bank lending rate). What is the likely effect on bank lending rates to customers?",
         "options": [
-          "Lending rates decrease",
           "Lending rates increase",
-          "Lending rates remain unchanged",
-          "Lending rates become negative"
+          "Lending rates decrease",
+          "Lending rates become negative",
+          "Lending rates remain unchanged"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "When the repo rate increases, the cost of borrowing for banks increases. Banks pass this cost to customers by raising lending rates. This is a contractionary monetary policy tool."
       },
       {
@@ -5745,11 +5745,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A bank implements financial inclusion by opening accounts with zero minimum balance. This policy benefits whom most?",
         "options": [
           "Only wealthy customers",
-          "Low-income and rural populations",
           "Only student account holders",
+          "Low-income and rural populations",
           "Businesses exclusively"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Zero-balance accounts remove barriers for poor and rural populations to access formal banking, enabling savings, credit access, and financial security without upfront capital."
       }
     ],
@@ -5774,78 +5774,78 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "An object travels 20m in the first 2 seconds, 30m in the next 3 seconds, and 40m in the final 5 seconds. What is the average velocity for the entire journey?",
         "options": [
+          "7.5 m/s",
           "5 m/s",
           "6 m/s",
-          "6.67 m/s",
-          "7.5 m/s"
+          "6.67 m/s"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Total distance = 20 + 30 + 40 = 90 m. Total time = 2 + 3 + 5 = 10 s. Average velocity = 90/10 = 9 m/s. Wait, that's not in options. Let me recalculate: 90/10 = 9, not 6.67. Checking: if the answer is 6.67, then 6.67 * 10 = 66.7, not 90. There may be an error. But assuming the question is correct and looking for average speed: Total distance 90m, total time 10s, average = 9m/s. Since 9m/s is not listed, the closest is 7.5. But mathematically it should be 9. Let me assume there's a typo in distances or I misread. If distances were 10, 20, 30 total 60m in 10s = 6m/s (option 1). If 60, 40 m total in 9 s = about 6.67m/s. So answer is likely index 2."
       },
       {
         "q": "A car accelerates uniformly from rest. In the first second, it covers 2m. How far will it cover in the second second?",
         "options": [
-          "2 m",
-          "4 m",
           "6 m",
-          "8 m"
+          "4 m",
+          "8 m",
+          "2 m"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "For uniform acceleration from rest: s = 0.5*a*t^2. In 1st second (t=1): 2 = 0.5*a*1, so a = 4 m/s^2. Distance in 2nd second = distance in 2s minus distance in 1s = 0.5*4*4 - 0.5*4*1 = 8 - 2 = 6m."
       },
       {
         "q": "A ball is thrown vertically upward with initial velocity 30 m/s. Taking g = 10 m/s^2, what is the maximum height reached?",
         "options": [
-          "45 m",
-          "60 m",
+          "90 m",
           "75 m",
-          "90 m"
+          "45 m",
+          "60 m"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "At maximum height, v = 0. Using v^2 = u^2 - 2*g*h: 0 = 900 - 2*10*h, so h = 45m. Wait, 900/20 = 45, not 75. Let me recheck: 30^2 = 900, 2*10 = 20, 900/20 = 45m. So answer should be index 0 (45m), not 2."
       },
       {
         "q": "An object moving in a circle at constant speed has constant velocity. Is this true or false?",
         "options": [
+          "True, if the radius is constant",
           "True, speed and velocity are the same",
           "False, velocity changes due to change in direction",
-          "True, if the radius is constant",
           "False, speed increases continuously"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Velocity is a vector (has direction). In circular motion at constant speed, direction constantly changes, so velocity changes. Speed is scalar and remains constant, but velocity does not."
       },
       {
         "q": "The position-time graph of an object is a straight line. What does this indicate?",
         "options": [
           "The object is accelerating",
-          "The object is moving at constant velocity",
+          "The object is decelerating",
           "The object is at rest",
-          "The object is decelerating"
+          "The object is moving at constant velocity"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A straight line on a position-time graph indicates constant slope, which means constant velocity. If the line is horizontal, the object is at rest (zero velocity). If slanted, constant non-zero velocity."
       },
       {
         "q": "Two objects A and B start from rest. A travels with uniform acceleration 2 m/s^2 and B with 3 m/s^2 for 5 seconds. Which statement is true?",
         "options": [
-          "A travels more distance",
           "B travels more distance",
-          "Both travel equal distance",
-          "Cannot determine from given info"
+          "Cannot determine from given info",
+          "A travels more distance",
+          "Both travel equal distance"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Distance A = 0.5*2*25 = 25m. Distance B = 0.5*3*25 = 37.5m. B travels more distance because its acceleration is greater."
       },
       {
         "q": "A train moving at 20 m/s applies brakes and comes to rest in 10 seconds. What is its deceleration?",
         "options": [
+          "10 m/s^2",
           "2 m/s^2",
           "20 m/s^2",
-          "0.5 m/s^2",
-          "10 m/s^2"
+          "0.5 m/s^2"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Using v = u - at: 0 = 20 - a*10, so a = 2 m/s^2."
       },
       {
@@ -5881,23 +5881,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the largest prime number less than 100 that when divided by 7 leaves a remainder of 3?",
         "options": [
-          "73",
-          "79",
           "83",
-          "97"
+          "97",
+          "79",
+          "73"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Check: 73/7 = 10 R 3 (73 = 10*7 + 3). Is 73 prime? Yes. 79/7 = 11 R 2, not 3. 83/7 = 11 R 6, not 3. 97/7 = 13 R 6, not 3. So 73 is correct."
       },
       {
         "q": "If p and q are prime numbers and p^2 + q^2 = 100, what are the values of p and q?",
         "options": [
-          "p=2, q=2",
-          "p=3, q=5",
           "p=5, q=5",
-          "p=6, q=8"
+          "p=6, q=8",
+          "p=2, q=2",
+          "p=3, q=5"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Check: 5^2 + 5^2 = 25 + 25 = 50, not 100. Hmm, that's wrong. Let me try other options: 2^2 + 2^2 = 8, not 100. 3^2 + 5^2 = 9 + 25 = 34, not 100. Let me think: p^2 + q^2 = 100. Trying 6: but 6 is not prime. Trying 10: but 10 = 100 is just one square. Actually, what two primes squared sum to 100? 2^2=4, so other is 96, sqrt(96) = not integer. 3^2=9, so other is 91, sqrt(91) not integer. 5^2=25, so other is 75, sqrt(75) not integer. 7^2=49, so other is 51, sqrt(51) not integer. Hmm. Let me reconsider: 10^2 = 100, so we need smaller. Actually, there's no solution with prime numbers only. Given the options, none is correct mathematically. Assuming typo and 5^2 + 5^2 was meant to be something else, or the question differs. With given options, the answer should be 2 (p=5, q=5 at 50) or checking if question is p*q instead: 5*5=25, not matching. I'll mark answer as index 2 by elimination."
       },
       {
@@ -5915,11 +5915,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Express 0.3333... (repeating) as a fraction in lowest terms.",
         "options": [
           "1/2",
-          "1/3",
           "2/3",
+          "1/3",
           "3/10"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Let x = 0.3333. Then 10x = 3.3333. Subtracting: 9x = 3, so x = 3/9 = 1/3."
       },
       {
@@ -5936,34 +5936,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "If 2^a * 3^b * 5^c = 360, what is a + b + c?",
         "options": [
-          "3",
-          "4",
           "5",
+          "4",
+          "3",
           "6"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "360 = 2^3 * 3^2 * 5^1. So a=3, b=2, c=1. a+b+c = 6. Wait, let me verify: 8*9*5 = 360. Yes. So answer is 6, which is index 3."
       },
       {
         "q": "What is the GCD of 84 and 126?",
         "options": [
-          "6",
           "12",
+          "42",
           "21",
-          "42"
+          "6"
         ],
-        "correct": 3,
+        "correct": 1,
         "explanation": "Using Euclidean algorithm: 126 = 84*1 + 42, 84 = 42*2 + 0. GCD = 42."
       },
       {
         "q": "The LCM of two numbers is 60 and their GCD is 5. If one number is 20, what is the other number?",
         "options": [
-          "12",
           "15",
           "25",
+          "12",
           "30"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Using LCM * GCD = product of numbers: 60 * 5 = 20 * x, so 300 = 20x, x = 15. Wait that's index 1. Let me verify: GCD(20,15) = 5, LCM(20,15) = 60. Yes! So answer is 15, index 1."
       }
     ],
@@ -5988,67 +5988,67 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "An atom has 6 protons. Its atomic number is 6. How many electrons does it have in a neutral state?",
         "options": [
-          "3",
-          "6",
           "12",
-          "Cannot determine"
+          "3",
+          "Cannot determine",
+          "6"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "In a neutral atom, the number of electrons equals the number of protons. Atomic number = protons = 6, so electrons = 6."
       },
       {
         "q": "What is the correct formula for the compound formed between calcium and chlorine?",
         "options": [
-          "CaCl",
-          "Ca2Cl",
           "CaCl2",
-          "Ca2Cl2"
+          "Ca2Cl2",
+          "Ca2Cl",
+          "CaCl"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Calcium (Ca) is in Group 2 with valency +2. Chlorine (Cl) is in Group 17 with valency -1. Formula: CaCl2."
       },
       {
         "q": "If the atomic mass of Oxygen is 16 and that of Carbon is 12, what is the molecular mass of CO2?",
         "options": [
-          "24",
-          "28",
           "32",
-          "44"
+          "44",
+          "28",
+          "24"
         ],
-        "correct": 3,
+        "correct": 1,
         "explanation": "Molecular mass of CO2 = 12 + 2*16 = 12 + 32 = 44."
       },
       {
         "q": "An element has atomic number 7. To which group does it belong?",
         "options": [
-          "Group 15",
-          "Group 16",
+          "Group 18",
           "Group 17",
-          "Group 18"
+          "Group 15",
+          "Group 16"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Atomic number 7 is Nitrogen. Its electronic configuration is 2,5, placing it in Group 15 (5 valence electrons)."
       },
       {
         "q": "Which of these represents an ionic compound?",
         "options": [
-          "H2",
           "CO2",
-          "NaCl",
-          "CH4"
+          "H2",
+          "CH4",
+          "NaCl"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "NaCl is formed between Na (metal) and Cl (nonmetal) through ionic bonding with electron transfer. Others are covalent or elemental."
       },
       {
         "q": "A compound contains 2 hydrogen atoms and 1 sulfur atom. What is its formula?",
         "options": [
-          "HS",
           "H2S",
-          "H2S2",
-          "S2H2"
+          "HS",
+          "S2H2",
+          "H2S2"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The formula directly lists the atoms: 2 hydrogen and 1 sulfur = H2S."
       },
       {
@@ -6066,11 +6066,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "An atom becomes a positive ion by losing electrons. How many electrons did it lose if it went from 18 electrons to 16?",
         "options": [
           "1",
-          "2",
           "3",
+          "2",
           "4"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "18 - 16 = 2 electrons lost, forming a 2+ ion."
       }
     ],
@@ -6117,56 +6117,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "A satellite orbits Earth at radius r with speed v. To achieve a stable orbit, what must be true?",
         "options": [
+          "They are independent",
           "Gravitational force provides centripetal force",
           "Gravitational force exceeds centripetal force",
-          "Centripetal force is zero",
-          "They are independent"
+          "Centripetal force is zero"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "For stable orbit, gravitational attraction provides exactly the centripetal force needed: G*M*m/r^2 = m*v^2/r."
       },
       {
         "q": "If the mass of Earth doubled while its radius remained the same, how would g change?",
         "options": [
-          "Become g/2",
-          "Become 2g",
           "Become g/4",
-          "Remain g"
+          "Remain g",
+          "Become 2g",
+          "Become g/2"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "g = G*M/r^2. If M doubles: g_new = G*2M/r^2 = 2*g."
       },
       {
         "q": "An object is dropped from the top of a building on Earth (g=10 m/s^2). After 2 seconds, how far has it fallen?",
         "options": [
-          "10 m",
           "20 m",
-          "30 m",
-          "40 m"
+          "10 m",
+          "40 m",
+          "30 m"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Distance s = 0.5*g*t^2 = 0.5*10*4 = 20m. Wait, 0.5*10*2^2 = 5*4 = 20. So answer should be 20m (index 1), not 30. Let me recalculate carefully: s = (1/2)*10*2^2 = 5*4 = 20 m."
       },
       {
         "q": "The escape velocity from Earth is 11.2 km/s. What is the escape velocity from a planet with double Earth's mass and double its radius?",
         "options": [
-          "5.6 km/s",
           "11.2 km/s",
+          "5.6 km/s",
           "22.4 km/s",
           "7.9 km/s"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "v_escape = sqrt(2*G*M/r). If M doubles and r doubles: v_escape_new = sqrt(2*G*2M/2r) = sqrt(2*G*M/r) = v_escape (unchanged)."
       },
       {
         "q": "A planet has density 2 times that of Earth and radius 1/2 times Earth's radius. How does its surface gravity compare to Earth's?",
         "options": [
-          "g/4",
           "g/2",
-          "g",
-          "2g"
+          "2g",
+          "g/4",
+          "g"
         ],
-        "correct": 3,
+        "correct": 1,
         "explanation": "g = G*M/r^2. Mass M = (4/3)*pi*r^3*density. M_planet = (4/3)*pi*(r/2)^3*2*density = (4/3)*pi*r^3*density/4 = M_earth/4. Wait, let me recalculate: M = (4/3)*pi*r^3*rho. If rho doubles and r halves: M_new = (4/3)*pi*(r/2)^3*2*rho = (4/3)*pi*r^3*rho*(1/8)*2 = M_earth/4. g_planet = G*M_earth/(4*(r/2)^2) = G*M_earth/(4*r^2/4) = G*M_earth/r^2 = g_earth. Hmm, that gives g, not 2g. Let me verify once more: g = G*(4/3)*pi*r^3*rho / r^2 = (4/3)*G*pi*r*rho. If rho -> 2*rho and r -> r/2: g_new = (4/3)*G*pi*(r/2)*(2*rho) = (4/3)*G*pi*r*rho = g_earth. So answer is 2 (g). But the option at index 3 is 2g. Let me check if I made an error. Actually, I think there's confusion. Let me use g = G*M/R^2 directly and substitute M = (4/3)*pi*R^3*rho. g = G*rho*(4/3)*pi*R. If rho->2*rho, R->R/2: g_new = G*2*rho*(4/3)*pi*R/2 = G*rho*(4/3)*pi*R = g_old. So no change. Answer should be index 2 (g)."
       },
       {
@@ -6203,66 +6203,66 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which organelle is called the powerhouse of the cell?",
         "options": [
           "Nucleus",
-          "Mitochondria",
           "Chloroplast",
-          "Ribosome"
+          "Ribosome",
+          "Mitochondria"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Mitochondria is called the powerhouse of the cell because it produces ATP through cellular respiration, providing energy for all cellular activities."
       },
       {
         "q": "What is the main function of the nucleus?",
         "options": [
-          "Energy production",
-          "Protein synthesis",
           "DNA storage and regulation of cellular activities",
-          "Photosynthesis"
+          "Photosynthesis",
+          "Protein synthesis",
+          "Energy production"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "The nucleus contains DNA and controls all cellular activities by regulating gene expression. It is the command center of the cell."
       },
       {
         "q": "Which of the following is found only in plant cells?",
         "options": [
-          "Mitochondria",
-          "Centrioles",
+          "Ribosomes",
           "Chloroplast",
-          "Ribosomes"
+          "Centrioles",
+          "Mitochondria"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Chloroplasts are found only in plant cells. They contain chlorophyll for photosynthesis. Animal cells lack chloroplasts."
       },
       {
         "q": "What does the cell membrane control?",
         "options": [
           "Photosynthesis",
-          "Movement of substances in and out of the cell",
           "DNA replication",
+          "Movement of substances in and out of the cell",
           "Protein storage"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The cell membrane is selectively permeable and controls the movement of substances into and out of the cell, protecting the cell from its environment."
       },
       {
         "q": "Which organelle is responsible for protein synthesis?",
         "options": [
           "Golgi apparatus",
-          "Ribosome",
+          "Smooth endoplasmic reticulum",
           "Rough endoplasmic reticulum",
-          "Smooth endoplasmic reticulum"
+          "Ribosome"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Ribosomes are sites of protein synthesis. They read mRNA and link amino acids together to form proteins in all cells."
       },
       {
         "q": "What is the main component of the cell wall in plant cells?",
         "options": [
-          "Protein",
-          "Lipid",
           "Cellulose",
-          "Starch"
+          "Lipid",
+          "Starch",
+          "Protein"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Cell walls in plant cells are composed primarily of cellulose. Cellulose provides structural support and rigidity to the plant cell."
       },
       {
@@ -6279,34 +6279,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the function of the rough endoplasmic reticulum?",
         "options": [
-          "Synthesis of lipids",
-          "Synthesis of proteins for secretion",
           "Storage of calcium",
-          "Detoxification"
+          "Detoxification",
+          "Synthesis of proteins for secretion",
+          "Synthesis of lipids"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The rough endoplasmic reticulum (RER) is studded with ribosomes and synthesizes proteins that are transported out of the cell for secretion."
       },
       {
         "q": "Which organelle is involved in the breakdown of harmful substances?",
         "options": [
-          "Ribosome",
-          "Lysosome",
           "Centrosome",
-          "Golgi apparatus"
+          "Golgi apparatus",
+          "Ribosome",
+          "Lysosome"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Lysosomes contain digestive enzymes that break down harmful substances, pathogens, and cellular waste. They are called suicide bags of the cell."
       },
       {
         "q": "What is the function of centrioles in animal cells?",
         "options": [
-          "Photosynthesis",
-          "Protein synthesis",
           "Help in cell division",
+          "Protein synthesis",
+          "Photosynthesis",
           "Storage of water"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Centrioles are found in animal cells and help organize the spindle fibers during cell division, assisting in the movement of chromosomes."
       }
     ],
@@ -6342,56 +6342,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of Newtons laws states that an object at rest will remain at rest unless acted upon by a force?",
         "options": [
-          "First law of motion",
+          "Law of gravitation",
           "Second law of motion",
-          "Third law of motion",
-          "Law of gravitation"
+          "First law of motion",
+          "Third law of motion"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Newtons First Law states that an object at rest stays at rest and an object in motion stays in motion unless acted upon by an unbalanced force. This is the law of inertia."
       },
       {
         "q": "What is friction?",
         "options": [
           "A force that aids motion",
-          "A force that opposes motion between surfaces in contact",
           "The tendency to remain in motion",
-          "The weight of an object"
+          "The weight of an object",
+          "A force that opposes motion between surfaces in contact"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Friction is the resistance between two surfaces in contact when one slides over the other. It always opposes motion and can be static or kinetic."
       },
       {
         "q": "How does friction affect the motion of objects?",
         "options": [
-          "Increases speed",
           "Decreases speed",
+          "Increases speed",
           "Has no effect",
           "Increases mass"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Friction opposes motion and causes objects to slow down or stop. It converts kinetic energy into heat energy."
       },
       {
         "q": "According to Newtons Second Law, what is the relationship between force, mass, and acceleration?",
         "options": [
-          "F = m / a",
-          "F = m + a",
+          "F = m - a",
           "F = m x a",
-          "F = m - a"
+          "F = m / a",
+          "F = m + a"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Newtons Second Law states F = ma, where Force equals mass multiplied by acceleration. Greater force produces greater acceleration."
       },
       {
         "q": "What is the SI unit of force?",
         "options": [
-          "Kilogram",
-          "Newton",
           "Meter per second",
-          "Joule"
+          "Joule",
+          "Newton",
+          "Kilogram"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The SI unit of force is Newton (N). One Newton is the force required to accelerate a one kilogram mass at one meter per second squared."
       },
       {
@@ -6399,21 +6399,21 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "F = ma",
           "Action equals reaction",
-          "For every action there is an equal and opposite reaction",
-          "Force causes acceleration"
+          "Force causes acceleration",
+          "For every action there is an equal and opposite reaction"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Newtons Third Law states that for every action, there is an equal and opposite reaction. Forces always occur in pairs."
       },
       {
         "q": "What is the difference between speed and velocity?",
         "options": [
-          "No difference",
-          "Speed has direction but velocity does not",
           "Velocity has direction but speed does not",
-          "Velocity is always greater"
+          "Velocity is always greater",
+          "Speed has direction but velocity does not",
+          "No difference"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Speed is the distance covered per unit time without direction (scalar). Velocity is displacement per unit time with direction (vector)."
       },
       {
@@ -6430,12 +6430,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is acceleration?",
         "options": [
-          "Speed of an object",
-          "Change in velocity per unit time",
           "Distance traveled",
-          "Time taken"
+          "Time taken",
+          "Change in velocity per unit time",
+          "Speed of an object"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Acceleration is the rate of change of velocity per unit time. It can be positive (speeding up), negative (slowing down), or change in direction."
       }
     ],
@@ -6460,23 +6460,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is sound?",
         "options": [
-          "Light waves",
-          "Mechanical waves that require a medium",
           "Electromagnetic radiation",
-          "Movement of particles"
+          "Movement of particles",
+          "Light waves",
+          "Mechanical waves that require a medium"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Sound is a mechanical wave that travels through a medium like air, water, or solids. It is produced by vibrating objects."
       },
       {
         "q": "Can sound travel in a vacuum?",
         "options": [
-          "Yes",
           "No",
           "Only at high speed",
-          "Only at low speed"
+          "Only at low speed",
+          "Yes"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Sound cannot travel in a vacuum because it requires a medium to propagate. Without molecules to vibrate, sound waves cannot be transmitted."
       },
       {
@@ -6493,67 +6493,67 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is frequency in sound waves?",
         "options": [
-          "Distance between waves",
-          "Number of vibrations per second",
           "Speed of sound",
-          "Loudness of sound"
+          "Loudness of sound",
+          "Number of vibrations per second",
+          "Distance between waves"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Frequency is the number of complete vibrations or oscillations per second, measured in Hertz (Hz). Higher frequency means higher pitch."
       },
       {
         "q": "What is wavelength?",
         "options": [
-          "Time taken for one vibration",
           "Frequency of the wave",
-          "Distance between two consecutive crests or troughs",
-          "Speed of the wave"
+          "Speed of the wave",
+          "Time taken for one vibration",
+          "Distance between two consecutive crests or troughs"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Wavelength is the distance between two consecutive crests (or troughs) of a wave. It is inversely related to frequency."
       },
       {
         "q": "How is pitch related to frequency?",
         "options": [
-          "Pitch decreases with frequency",
           "Pitch increases with frequency",
-          "No relationship",
-          "Pitch is independent of frequency"
+          "Pitch decreases with frequency",
+          "Pitch is independent of frequency",
+          "No relationship"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Pitch is the perception of frequency. Higher frequency sounds have higher pitch; lower frequency sounds have lower pitch."
       },
       {
         "q": "What is loudness related to?",
         "options": [
-          "Frequency",
           "Wavelength",
           "Amplitude of the wave",
+          "Frequency",
           "Speed of sound"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Loudness is determined by the amplitude of sound waves. Greater amplitude means louder sound, measured in decibels (dB)."
       },
       {
         "q": "What is echo?",
         "options": [
+          "High-pitched sound",
           "Duplication of sound",
           "Reflection of sound from a surface",
-          "Repetition of a word",
-          "High-pitched sound"
+          "Repetition of a word"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Echo is the reflection of sound from a surface back to the listener. It occurs when sound bounces off hard surfaces like walls or mountains."
       },
       {
         "q": "What is the range of human hearing?",
         "options": [
+          "100-50,000 Hz",
           "0-10 Hz",
           "10-20,000 Hz",
-          "20-20,000 Hz",
-          "100-50,000 Hz"
+          "20-20,000 Hz"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Human ears can typically hear sounds between 20 Hz and 20,000 Hz (20 kHz). Below 20 Hz are infrasonic waves; above 20,000 Hz are ultrasonic waves."
       },
       {
@@ -6600,34 +6600,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the speed of light in vacuum?",
         "options": [
+          "100,000 km/s",
           "340 m/s",
           "300,000 km/s",
-          "1000 m/s",
-          "100,000 km/s"
+          "1000 m/s"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The speed of light in vacuum is approximately 300,000 km/s or 3 x 10^8 m/s. This is the fastest speed in the universe."
       },
       {
         "q": "What is reflection of light?",
         "options": [
-          "Bending of light",
-          "Bouncing back of light from a surface",
+          "Passing through a material",
           "Absorption of light",
-          "Passing through a material"
+          "Bending of light",
+          "Bouncing back of light from a surface"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Reflection is the bouncing back of light when it hits a surface. The law of reflection states that the angle of incidence equals the angle of reflection."
       },
       {
         "q": "What is refraction of light?",
         "options": [
-          "Bouncing of light",
           "Bending of light when passing from one medium to another",
           "Absorption of light",
-          "Scattering of light"
+          "Scattering of light",
+          "Bouncing of light"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Refraction is the bending of light when it passes from one medium to another with different densities. It occurs due to change in light speed."
       },
       {
@@ -6644,34 +6644,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the function of the iris in the eye?",
         "options": [
+          "Detecting light",
           "Refracting light",
           "Controlling the amount of light entering the eye",
-          "Detecting light",
           "Transmitting signals"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The iris is the colored part of the eye that controls the size of the pupil, regulating the amount of light that enters the eye."
       },
       {
         "q": "What is the function of the retina?",
         "options": [
           "Refracting light",
+          "Adjusting lens shape",
           "Controlling light entry",
-          "Converting light into electrical signals",
-          "Adjusting lens shape"
+          "Converting light into electrical signals"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The retina is the light-sensitive tissue at the back of the eye containing photoreceptors that convert light into electrical signals sent to the brain."
       },
       {
         "q": "What colors make up white light?",
         "options": [
-          "Red and blue",
           "All colors of the visible spectrum",
           "Only primary colors",
-          "Only secondary colors"
+          "Only secondary colors",
+          "Red and blue"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "White light is composed of all colors of the visible spectrum: red, orange, yellow, green, blue, indigo, and violet (ROYGBIV)."
       },
       {
@@ -6688,12 +6688,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is a convex lens?",
         "options": [
-          "Thinner in center",
-          "Thicker in center and converges light",
           "Concave on both sides",
-          "Flat lens"
+          "Flat lens",
+          "Thicker in center and converges light",
+          "Thinner in center"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "A convex lens is thicker in the center and thinner at the edges. It converges light rays and is used in magnifying glasses and cameras."
       }
     ],
@@ -6718,67 +6718,67 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What are microorganisms?",
         "options": [
+          "Dead organisms",
           "Visible to naked eye",
-          "Organisms visible only under a microscope",
           "Large organisms",
-          "Dead organisms"
+          "Organisms visible only under a microscope"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Microorganisms are organisms so small they are visible only under a microscope. They include bacteria, viruses, fungi, and protozoans."
       },
       {
         "q": "What are bacteria?",
         "options": [
-          "Eukaryotic cells",
           "Prokaryotic cells without a nucleus",
           "Multicellular organisms",
-          "Viruses"
+          "Viruses",
+          "Eukaryotic cells"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Bacteria are prokaryotic microorganisms without a nucleus. They are single-celled and can be beneficial or harmful to humans."
       },
       {
         "q": "What are viruses made of?",
         "options": [
-          "Only protein",
           "DNA and cell wall",
           "DNA or RNA surrounded by protein coat",
+          "Only protein",
           "Cell membrane only"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Viruses consist of genetic material (DNA or RNA) surrounded by a protein coat called a capsid. They cannot reproduce on their own."
       },
       {
         "q": "How do viruses reproduce?",
         "options": [
+          "By photosynthesis",
           "By binary fission",
           "By infecting host cells and using host machinery",
-          "By photosynthesis",
           "Viruses do not reproduce"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Viruses cannot reproduce independently. They must infect host cells and use the host cells machinery to replicate their genetic material."
       },
       {
         "q": "What are fungi?",
         "options": [
-          "Prokaryotes",
-          "Eukaryotic organisms that feed on dead organic matter",
           "Viruses",
-          "Bacteria"
+          "Bacteria",
+          "Prokaryotes",
+          "Eukaryotic organisms that feed on dead organic matter"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Fungi are eukaryotic organisms including mushrooms, molds, and yeasts. They absorb nutrients by secreting enzymes on food and absorbing digested matter."
       },
       {
         "q": "How do infectious diseases spread?",
         "options": [
-          "Through air only",
           "Through air, water, food, and direct contact",
           "Only through touch",
-          "Only through water"
+          "Only through water",
+          "Through air only"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Infectious diseases spread through multiple routes: airborne (sneezing, coughing), water, contaminated food, direct contact, and vectors like insects."
       },
       {
@@ -6795,34 +6795,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is fermentation?",
         "options": [
+          "Growth of mold",
           "A harmful process",
           "Microbial breakdown of food producing useful products",
-          "Viral replication",
-          "Growth of mold"
+          "Viral replication"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Fermentation is microbial decomposition of organic matter. Bacteria and yeasts ferment sugars to produce useful products like yogurt, cheese, and bread."
       },
       {
         "q": "What is antibiotic resistance?",
         "options": [
           "Allergy to antibiotics",
-          "Ability of bacteria to survive antibiotic drugs",
           "Weakness of immune system",
-          "Viral infection"
+          "Viral infection",
+          "Ability of bacteria to survive antibiotic drugs"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Antibiotic resistance occurs when bacteria mutate and survive antibiotic treatment. Overuse of antibiotics accelerates this process."
       },
       {
         "q": "How can we prevent the spread of microorganisms?",
         "options": [
-          "Ignore hygiene",
           "Practice good hygiene, vaccination, proper food storage",
-          "Never wash hands",
-          "Avoid all contact"
+          "Avoid all contact",
+          "Ignore hygiene",
+          "Never wash hands"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Prevention involves: good personal hygiene, vaccination, proper food storage and cooking, safe water, sanitation, and avoiding contact with infected persons."
       }
     ],
@@ -6869,23 +6869,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the additive identity of rational numbers?",
         "options": [
+          "∞",
           "1",
-          "0",
           "-1",
-          "∞"
+          "0"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The additive identity is 0. Adding 0 to any rational number gives the same number. a + 0 = a for all rational a."
       },
       {
         "q": "What is the multiplicative identity of rational numbers?",
         "options": [
-          "0",
           "1",
-          "-1",
-          "∞"
+          "0",
+          "∞",
+          "-1"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The multiplicative identity is 1. Multiplying any rational number by 1 gives the same number. a × 1 = a for all rational a."
       },
       {
@@ -6902,23 +6902,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the multiplicative inverse of 2/5?",
         "options": [
-          "5/2",
+          "0",
           "-2/5",
-          "2/5",
-          "0"
+          "5/2",
+          "2/5"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "The multiplicative inverse of 2/5 is 5/2. Multiplying them gives one: (2/5) × (5/2) = 1."
       },
       {
         "q": "Simplify: 2/3 + 1/4",
         "options": [
           "3/7",
+          "3/12",
           "8/12",
-          "11/12",
-          "3/12"
+          "11/12"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "2/3 + 1/4: LCM of 3 and 4 is 12. So, (2×4)/(3×4) + (1×3)/(4×3) = 8/12 + 3/12 = 11/12."
       },
       {
@@ -6946,12 +6946,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the value of -2/3 ÷ 4/9?",
         "options": [
-          "-3/2",
-          "-8/27",
+          "8/27",
           "-6/4",
-          "8/27"
+          "-3/2",
+          "-8/27"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "(-2/3) ÷ (4/9) = (-2/3) × (9/4) = (-2×9)/(3×4) = -18/12 = -3/2."
       }
     ],
@@ -6976,78 +6976,78 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is a perfect square?",
         "options": [
-          "A number divisible by 2",
-          "The product of an integer with itself",
+          "A number greater than 100",
           "Any even number",
-          "A number greater than 100"
+          "A number divisible by 2",
+          "The product of an integer with itself"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A perfect square is a number obtained by multiplying an integer by itself. For example, 9 = 3 × 3, 16 = 4 × 4. Symbolically, n² is a perfect square."
       },
       {
         "q": "Which of the following is a perfect square?",
         "options": [
-          "50",
           "64",
           "80",
-          "90"
+          "90",
+          "50"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "64 = 8 × 8. So 64 is a perfect square. 50, 80, and 90 are not perfect squares."
       },
       {
         "q": "What is √49?",
         "options": [
-          "7",
           "49",
-          "24.5",
-          "14"
+          "7",
+          "14",
+          "24.5"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "√49 = 7 because 7 × 7 = 49. The square root finds the number that when multiplied by itself gives the radicand."
       },
       {
         "q": "What is the square of 12?",
         "options": [
+          "6",
           "24",
           "144",
-          "120",
-          "6"
+          "120"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "12² = 12 × 12 = 144. Squaring means multiplying a number by itself."
       },
       {
         "q": "Simplify √16 + √9",
         "options": [
-          "5",
-          "7",
           "25",
-          "12"
+          "12",
+          "5",
+          "7"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "√16 = 4 and √9 = 3. So √16 + √9 = 4 + 3 = 7."
       },
       {
         "q": "Is √50 a rational or irrational number?",
         "options": [
-          "Rational",
           "Irrational",
-          "Both",
-          "Neither"
+          "Rational",
+          "Neither",
+          "Both"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "√50 is irrational because 50 is not a perfect square. √50 = √(25×2) = 5√2, which cannot be expressed as p/q."
       },
       {
         "q": "What is the value of √(100/25)?",
         "options": [
+          "5",
           "2",
           "4",
-          "5",
           "10"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "√(100/25) = √100 / √25 = 10 / 5 = 2."
       },
       {
@@ -7064,23 +7064,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is (-8)²?",
         "options": [
-          "-64",
-          "64",
           "-16",
-          "16"
+          "16",
+          "-64",
+          "64"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "(-8)² = (-8) × (-8) = 64. The square of a negative number is always positive."
       },
       {
         "q": "What is the difference between √64 and ∛64?",
         "options": [
-          "Both are same",
           "√64 = 8, ∛64 = 4",
           "√64 = 4, ∛64 = 8",
-          "√64 is irrational"
+          "√64 is irrational",
+          "Both are same"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "√64 (square root) = 8 because 8² = 64. ∛64 (cube root) = 4 because 4³ = 64. They are different operations."
       }
     ],
@@ -7116,23 +7116,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the area of a triangle with base 8 cm and height 6 cm?",
         "options": [
-          "24 sq.cm",
-          "48 sq.cm",
           "14 sq.cm",
+          "48 sq.cm",
+          "24 sq.cm",
           "28 sq.cm"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Area of triangle = (1/2) × base × height = (1/2) × 8 × 6 = 24 sq.cm."
       },
       {
         "q": "What is the perimeter of a square with side 10 cm?",
         "options": [
-          "20 cm",
-          "40 cm",
           "100 cm",
-          "50 cm"
+          "50 cm",
+          "20 cm",
+          "40 cm"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Perimeter of square = 4 × side = 4 × 10 = 40 cm."
       },
       {
@@ -7160,56 +7160,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the volume of a cube with side 5 cm?",
         "options": [
-          "25 cu.cm",
-          "125 cu.cm",
           "75 cu.cm",
-          "150 cu.cm"
+          "150 cu.cm",
+          "125 cu.cm",
+          "25 cu.cm"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Volume of cube = side³ = 5³ = 125 cu.cm."
       },
       {
         "q": "What is the surface area of a cube with side 4 cm?",
         "options": [
-          "64 sq.cm",
-          "96 sq.cm",
           "48 sq.cm",
-          "128 sq.cm"
+          "128 sq.cm",
+          "64 sq.cm",
+          "96 sq.cm"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Surface area of cube = 6 × side² = 6 × 4² = 6 × 16 = 96 sq.cm."
       },
       {
         "q": "What is the circumference of a circle with radius 10 cm? (Use π = 3.14)",
         "options": [
-          "31.4 cm",
           "62.8 cm",
+          "31.4 cm",
           "314 cm",
           "157 cm"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Circumference = 2πr = 2 × 3.14 × 10 = 62.8 cm."
       },
       {
         "q": "What is the area of a trapezium with parallel sides 5 cm and 9 cm, and height 4 cm?",
         "options": [
+          "36 sq.cm",
           "28 sq.cm",
           "56 sq.cm",
-          "36 sq.cm",
           "42 sq.cm"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Area of trapezium = (1/2) × (sum of parallel sides) × height = (1/2) × (5 + 9) × 4 = (1/2) × 14 × 4 = 28 sq.cm."
       },
       {
         "q": "What is the volume of a cylinder with radius 3 cm and height 5 cm? (Use π = 3.14)",
         "options": [
-          "45.42 cu.cm",
-          "141.3 cu.cm",
+          "47.1 cu.cm",
           "282.6 cu.cm",
-          "47.1 cu.cm"
+          "141.3 cu.cm",
+          "45.42 cu.cm"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Volume of cylinder = πr²h = 3.14 × 3² × 5 = 3.14 × 9 × 5 = 141.3 cu.cm."
       }
     ],
@@ -7234,23 +7234,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is nutrition?",
         "options": [
-          "Physical exercise",
-          "Process of obtaining and utilizing food",
           "Gaining weight",
-          "Drinking water"
+          "Physical exercise",
+          "Drinking water",
+          "Process of obtaining and utilizing food"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Nutrition is the process by which organisms obtain nutrients from food and utilize them for growth, energy, and maintenance of body functions."
       },
       {
         "q": "What is the primary mode of nutrition in plants?",
         "options": [
-          "Holozoic",
-          "Saprophytic",
           "Autotrophic",
-          "Parasitic"
+          "Parasitic",
+          "Saprophytic",
+          "Holozoic"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Plants are autotrophic. They produce their own food through photosynthesis using sunlight, water, and CO2."
       },
       {
@@ -7268,33 +7268,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is the role of producers in a food chain?",
         "options": [
           "Consume energy",
+          "Store energy",
           "Produce food using sunlight",
-          "Decompose organic matter",
-          "Store energy"
+          "Decompose organic matter"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Producers (usually plants) capture solar energy and convert it into chemical energy through photosynthesis, forming the base of food chains."
       },
       {
         "q": "What is a herbivore?",
         "options": [
-          "Animal that eats meat",
-          "Animal that eats plants",
+          "Animal that eats fungi",
           "Animal that eats both",
-          "Animal that eats fungi"
+          "Animal that eats meat",
+          "Animal that eats plants"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A herbivore is an animal that feeds exclusively on plants. Examples: cow, deer, grasshopper."
       },
       {
         "q": "What are the main components of a balanced diet?",
         "options": [
-          "Only proteins",
           "Carbohydrates, proteins, fats, vitamins, minerals, water",
+          "Only fruits",
           "Only vegetables",
-          "Only fruits"
+          "Only proteins"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "A balanced diet includes: carbohydrates (energy), proteins (growth/repair), fats (energy/insulation), vitamins and minerals (health), and water (hydration)."
       },
       {
@@ -7312,33 +7312,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which organ produces digestive enzymes called pepsin?",
         "options": [
           "Liver",
-          "Stomach",
           "Pancreas",
+          "Stomach",
           "Small intestine"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The stomach produces pepsin, a protease enzyme that breaks down proteins. The stomach lining also secretes hydrochloric acid."
       },
       {
         "q": "Where is most nutrient absorption completed in the digestive system?",
         "options": [
-          "Mouth",
           "Stomach",
-          "Small intestine",
-          "Large intestine"
+          "Large intestine",
+          "Mouth",
+          "Small intestine"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Most nutrient absorption occurs in the small intestine. Its walls have villi and microvilli that increase surface area for absorption."
       },
       {
         "q": "What is the function of bile in digestion?",
         "options": [
-          "Digests protein",
           "Emulsifies fats for better digestion",
+          "Digests protein",
           "Digests carbohydrates",
           "Produces enzymes"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Bile, produced by the liver, emulsifies fats into smaller droplets, increasing surface area for fat-digesting enzymes in the small intestine."
       }
     ],
@@ -7374,34 +7374,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the SI unit of heat?",
         "options": [
-          "Degree Celsius",
-          "Joule",
+          "Kelvin",
           "Calorie",
-          "Kelvin"
+          "Joule",
+          "Degree Celsius"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The SI unit of heat is Joule (J). Calories are used in older measurements. 1 calorie ≈ 4.18 Joules."
       },
       {
         "q": "What are the three methods of heat transfer?",
         "options": [
-          "Conduction, convection, radiation",
           "Conduction, expansion, radiation",
           "Evaporation, condensation, sublimation",
-          "Melting, boiling, freezing"
+          "Melting, boiling, freezing",
+          "Conduction, convection, radiation"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "Heat transfers by: conduction (direct contact), convection (through fluids), and radiation (electromagnetic waves)."
       },
       {
         "q": "What is conduction of heat?",
         "options": [
-          "Transfer through fluids",
           "Transfer through direct contact",
           "Transfer by radiation",
-          "Heat generation"
+          "Heat generation",
+          "Transfer through fluids"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Conduction is heat transfer through direct contact between materials. Example: holding a hot cup and feeling warmth."
       },
       {
@@ -7418,34 +7418,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the normal body temperature of humans?",
         "options": [
-          "35.8°C",
-          "36.8°C",
           "37.8°C",
-          "38.8°C"
+          "38.8°C",
+          "36.8°C",
+          "35.8°C"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Normal human body temperature is approximately 36.8°C or 98.6°F. This varies slightly between individuals and throughout the day."
       },
       {
         "q": "What is thermal expansion?",
         "options": [
           "Cooling of objects",
-          "Increase in volume of objects due to heating",
           "Decrease in temperature",
-          "Change in shape only"
+          "Change in shape only",
+          "Increase in volume of objects due to heating"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Thermal expansion is the increase in volume of substances when heated. Most substances expand on heating; water has an exception."
       },
       {
         "q": "What are good conductors of heat?",
         "options": [
-          "Plastic, wood",
           "Metals like copper, aluminum",
+          "Plastic, wood",
           "Glass, rubber",
           "Cork, air"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Metals are good heat conductors because of free electrons that carry thermal energy. Copper and aluminum are excellent conductors."
       },
       {
@@ -7492,23 +7492,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is motion?",
         "options": [
-          "Standing still",
-          "Change in position with time",
           "Staying in one place",
-          "No movement"
+          "Standing still",
+          "No movement",
+          "Change in position with time"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Motion is the change in position of an object with respect to time. It is relative and depends on the reference point."
       },
       {
         "q": "What is speed?",
         "options": [
-          "Direction of motion",
           "Distance covered per unit time",
+          "Direction of motion",
           "Change in position",
           "Velocity with direction"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Speed is the distance covered per unit time. It is a scalar quantity and does not include direction."
       },
       {
@@ -7525,34 +7525,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the difference between distance and displacement?",
         "options": [
-          "Same thing",
-          "Distance is path length; displacement is straight-line change in position",
+          "Distance considers direction",
           "Displacement is longer",
-          "Distance considers direction"
+          "Distance is path length; displacement is straight-line change in position",
+          "Same thing"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Distance is the total path length traveled (scalar). Displacement is the straight-line change in position (vector) from start to end."
       },
       {
         "q": "What is uniform motion?",
         "options": [
-          "Changing speed",
-          "Constant speed in same direction",
+          "Accelerated motion",
           "No motion",
-          "Accelerated motion"
+          "Changing speed",
+          "Constant speed in same direction"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Uniform motion occurs when an object travels equal distances in equal times at constant speed and direction."
       },
       {
         "q": "What is non-uniform motion?",
         "options": [
-          "Constant speed",
           "Variable speed or direction",
+          "Constant speed",
           "No acceleration",
           "Motion in straight line"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Non-uniform motion is when speed or direction changes. Examples: car accelerating, object falling due to gravity."
       },
       {
@@ -7569,34 +7569,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is linear motion?",
         "options": [
-          "Motion in circular path",
-          "Motion in a straight line",
+          "Rotational motion",
           "Motion with acceleration",
-          "Rotational motion"
+          "Motion in a straight line",
+          "Motion in circular path"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Linear motion is movement along a straight path. Examples: car on a straight road, freely falling object."
       },
       {
         "q": "What is circular motion?",
         "options": [
-          "Motion in straight line",
-          "Motion in a circular path",
           "Random motion",
-          "Oscillatory motion"
+          "Oscillatory motion",
+          "Motion in straight line",
+          "Motion in a circular path"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Circular motion is movement along a circular path. Examples: planets orbiting the sun, car turning in a circular track."
       },
       {
         "q": "What is oscillatory motion?",
         "options": [
-          "Linear motion",
           "Motion that repeats in a fixed path",
-          "Random motion",
-          "Circular motion"
+          "Linear motion",
+          "Circular motion",
+          "Random motion"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Oscillatory motion is repetitive motion where an object moves back and forth about a fixed point. Examples: pendulum, vibrating string."
       }
     ],
@@ -7632,34 +7632,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is a derived unit?",
         "options": [
-          "Base unit",
-          "Unit obtained by combining base units",
           "Non-standard unit",
-          "Temporary unit"
+          "Temporary unit",
+          "Unit obtained by combining base units",
+          "Base unit"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Derived units are formed by combining base units. Examples: m/s (velocity), m² (area), kg·m/s² (force or Newton)."
       },
       {
         "q": "What is the SI unit of force?",
         "options": [
-          "Dyne",
-          "Newton",
           "Kilogram",
-          "Pascal"
+          "Pascal",
+          "Dyne",
+          "Newton"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The SI unit of force is Newton (N). 1 N = 1 kg·m/s². It is the force needed to accelerate 1 kg at 1 m/s²."
       },
       {
         "q": "How many meters are in 1 kilometer?",
         "options": [
-          "10 m",
-          "100 m",
           "1000 m",
-          "10,000 m"
+          "10,000 m",
+          "100 m",
+          "10 m"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "1 kilometer = 1000 meters. The prefix kilo- means 1000."
       },
       {
@@ -7676,56 +7676,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the SI unit of energy?",
         "options": [
+          "Watt",
           "Calorie",
           "Joule",
-          "Watt",
           "Pascal"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The SI unit of energy is Joule (J). 1 J = 1 kg·m²/s². Calories are used in older measurements."
       },
       {
         "q": "How many centimeters are in 1 inch?",
         "options": [
-          "2.54 cm",
-          "10 cm",
           "1 cm",
-          "25.4 cm"
+          "10 cm",
+          "25.4 cm",
+          "2.54 cm"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "1 inch = 2.54 centimeters. This conversion relates imperial and metric units."
       },
       {
         "q": "What is the significance of significant figures?",
         "options": [
-          "No importance",
           "Indicates precision of measurement",
-          "Used only in chemistry",
-          "Always equal to 3"
+          "No importance",
+          "Always equal to 3",
+          "Used only in chemistry"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Significant figures indicate the precision of a measurement. They include all certain digits plus one estimated digit."
       },
       {
         "q": "What is the SI unit of temperature?",
         "options": [
           "Degree Celsius",
-          "Degree Fahrenheit",
           "Kelvin",
+          "Degree Fahrenheit",
           "Rankine"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The SI unit of temperature is Kelvin (K). Although Celsius is commonly used, Kelvin is the SI unit for thermodynamic temperature."
       },
       {
         "q": "How do you convert Celsius to Kelvin?",
         "options": [
-          "Add 273.15",
           "Subtract 273.15",
-          "Multiply by 273.15",
-          "Divide by 273.15"
+          "Divide by 273.15",
+          "Add 273.15",
+          "Multiply by 273.15"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "K = °C + 273.15. Example: 0°C = 273.15 K. This conversion accounts for absolute zero at -273.15°C."
       }
     ],
@@ -7752,21 +7752,21 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "F = ma",
           "Objects move in straight lines",
-          "An object at rest stays at rest unless acted upon by force",
-          "Energy is conserved"
+          "Energy is conserved",
+          "An object at rest stays at rest unless acted upon by force"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Newtons First Law (Law of Inertia) states that an object at rest remains at rest and an object in motion remains in motion unless acted upon by an unbalanced external force."
       },
       {
         "q": "What is inertia?",
         "options": [
-          "Force on an object",
           "Property that resists change in motion",
-          "Acceleration of an object",
-          "Energy of motion"
+          "Energy of motion",
+          "Force on an object",
+          "Acceleration of an object"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Inertia is the property of matter that resists changes in its state of motion. More massive objects have greater inertia."
       },
       {
@@ -7783,34 +7783,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "If a 2 kg object experiences a force of 10 N, what is its acceleration?",
         "options": [
-          "5 m/s²",
-          "20 m/s²",
+          "0.2 m/s²",
           "2 m/s²",
-          "0.2 m/s²"
+          "5 m/s²",
+          "20 m/s²"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Using F = ma: 10 = 2 × a, therefore a = 5 m/s²."
       },
       {
         "q": "What does Newtons Third Law state?",
         "options": [
-          "F = ma",
-          "For every action, there is an equal and opposite reaction",
           "Objects fall due to gravity",
-          "Force equals momentum"
+          "F = ma",
+          "Force equals momentum",
+          "For every action, there is an equal and opposite reaction"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Newtons Third Law states that forces always occur in action-reaction pairs. If object A exerts force on object B, then B exerts equal opposite force on A."
       },
       {
         "q": "What is the normal force?",
         "options": [
-          "Weight of object",
           "Perpendicular contact force between surfaces",
           "Force due to gravity",
-          "Applied force"
+          "Applied force",
+          "Weight of object"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Normal force is the perpendicular contact force exerted by a surface on an object resting on it. It prevents objects from passing through surfaces."
       },
       {
@@ -7828,33 +7828,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "How do you find the net force on an object?",
         "options": [
           "Sum of all masses",
+          "Average of forces",
           "Vector sum of all forces",
-          "Largest force only",
-          "Average of forces"
+          "Largest force only"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Net force is the vector sum of all forces acting on an object. Forces in the same direction add; opposite forces subtract."
       },
       {
         "q": "What does friction force depend on?",
         "options": [
-          "Only the normal force",
-          "Normal force and coefficient of friction",
+          "Only velocity",
           "Only mass",
-          "Only velocity"
+          "Only the normal force",
+          "Normal force and coefficient of friction"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Friction force f = μN, where μ is the coefficient of friction and N is the normal force. Friction depends on both surface properties and normal force."
       },
       {
         "q": "What is an inertial frame of reference?",
         "options": [
-          "Any frame of reference",
-          "Frame with gravity",
           "Frame where Newtons laws apply",
-          "Rotating frame"
+          "Any frame of reference",
+          "Rotating frame",
+          "Frame with gravity"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "An inertial frame is a frame of reference where Newtons laws of motion are valid. It is either at rest or moving at constant velocity."
       }
     ],
@@ -7880,44 +7880,44 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is a mole?",
         "options": [
           "A small amount",
-          "Unit of mass",
           "Avogadro number of particles",
-          "One gram of substance"
+          "One gram of substance",
+          "Unit of mass"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "A mole is the SI unit of amount of substance. One mole contains Avogadro's number (6.02 × 10²³) of particles (atoms, molecules, or ions)."
       },
       {
         "q": "What is Avogadro's number?",
         "options": [
-          "6.02 × 10²³",
+          "1.67 × 10⁻²⁷",
           "3.14",
-          "9.81",
-          "1.67 × 10⁻²⁷"
+          "6.02 × 10²³",
+          "9.81"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Avogadro's number is 6.02 × 10²³. It is the number of particles in one mole of any substance."
       },
       {
         "q": "What is molar mass?",
         "options": [
+          "Density of substance",
           "Half of atomic mass",
-          "Mass of one mole of substance",
           "Number of particles",
-          "Density of substance"
+          "Mass of one mole of substance"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Molar mass is the mass of one mole of a substance in grams per mole (g/mol). It numerically equals the relative molecular mass."
       },
       {
         "q": "How many moles are in 32 g of oxygen gas (O₂)? (Atomic mass of O = 16)",
         "options": [
-          "0.5 moles",
           "1 mole",
-          "2 moles",
-          "32 moles"
+          "0.5 moles",
+          "32 moles",
+          "2 moles"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Molar mass of O₂ = 2 × 16 = 32 g/mol. Moles = mass / molar mass = 32 / 32 = 1 mole."
       },
       {
@@ -7934,56 +7934,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "How many atoms are in 2 moles of carbon?",
         "options": [
-          "6.02 × 10²³",
-          "2 × 6.02 × 10²³",
           "3 × 6.02 × 10²³",
-          "0.5 × 6.02 × 10²³"
+          "0.5 × 6.02 × 10²³",
+          "2 × 6.02 × 10²³",
+          "6.02 × 10²³"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Each mole contains 6.02 × 10²³ atoms. Therefore, 2 moles contain 2 × 6.02 × 10²³ = 1.204 × 10²⁴ atoms."
       },
       {
         "q": "What is the molar volume of a gas at STP?",
         "options": [
-          "11.2 L/mol",
-          "22.4 L/mol",
+          "5.6 L/mol",
           "44.8 L/mol",
-          "5.6 L/mol"
+          "11.2 L/mol",
+          "22.4 L/mol"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "At STP (Standard Temperature and Pressure: 0°C and 1 atm), one mole of any ideal gas occupies 22.4 liters."
       },
       {
         "q": "What is molecular mass?",
         "options": [
-          "Mass of one atom",
           "Sum of atomic masses in a molecule",
+          "Mass of one atom",
           "Mass of one mole",
           "Density of molecule"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Molecular mass is the sum of atomic masses of all atoms in a molecule. It is expressed in atomic mass units (u)."
       },
       {
         "q": "Calculate the number of molecules in 4.4 g of CO₂. (C = 12, O = 16)",
         "options": [
-          "6.02 × 10²³",
           "0.5 × 6.02 × 10²³",
           "2 × 6.02 × 10²³",
-          "0.1 × 6.02 × 10²³"
+          "0.1 × 6.02 × 10²³",
+          "6.02 × 10²³"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Molar mass of CO₂ = 12 + 32 = 44 g/mol. Moles = 4.4 / 44 = 0.1 mol. Molecules = 0.1 × 6.02 × 10²³."
       },
       {
         "q": "What is empirical formula?",
         "options": [
+          "Molecular structure",
           "Actual formula of compound",
           "Simplest whole number ratio of atoms",
-          "Number of atoms in molecule",
-          "Molecular structure"
+          "Number of atoms in molecule"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Empirical formula shows the simplest whole number ratio of atoms in a compound. Molecular formula shows the actual number of atoms."
       }
     ],
@@ -8009,22 +8009,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is electric charge?",
         "options": [
           "Force on an object",
-          "Property of matter that causes electromagnetic interaction",
+          "Type of radiation",
           "Energy of a system",
-          "Type of radiation"
+          "Property of matter that causes electromagnetic interaction"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Electric charge is a fundamental property of matter. It exists in two forms: positive and negative. Charges interact through electric forces."
       },
       {
         "q": "What is Coulombs Law?",
         "options": [
-          "F = ma",
           "F = kq₁q₂/r²",
-          "E = mc²",
-          "V = IR"
+          "V = IR",
+          "F = ma",
+          "E = mc²"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Coulombs Law states that the electric force between two charges is proportional to their product and inversely proportional to the square of distance: F = kq₁q₂/r²."
       },
       {
@@ -8041,34 +8041,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is an electric field?",
         "options": [
-          "Flow of charge",
-          "Region around a charge where force is exerted",
+          "Magnetic field",
           "Gravitational field",
-          "Magnetic field"
+          "Region around a charge where force is exerted",
+          "Flow of charge"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "An electric field is the region around a charge where another charge experiences an electric force. Electric field strength E = F/q."
       },
       {
         "q": "What is electric potential?",
         "options": [
-          "Electric field strength",
-          "Work done per unit charge to move charge",
           "Charge accumulation",
-          "Current flow"
+          "Current flow",
+          "Electric field strength",
+          "Work done per unit charge to move charge"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Electric potential is the work done per unit positive charge to move the charge from infinity to that point. Measured in Volts (V)."
       },
       {
         "q": "What is the electric field inside a conductor in electrostatic equilibrium?",
         "options": [
-          "Maximum",
           "Zero",
           "Constant",
+          "Maximum",
           "Undefined"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Inside a conductor in electrostatic equilibrium, the electric field is zero. Charges distribute on the surface only."
       },
       {
@@ -8086,33 +8086,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is Gauss Law?",
         "options": [
           "F = ma",
+          "P = VI",
           "Total electric flux through closed surface = q/ε₀",
-          "V = IR",
-          "P = VI"
+          "V = IR"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Gauss Law relates electric flux through a closed surface to the enclosed charge. It is one of Maxwells equations."
       },
       {
         "q": "What is electric potential energy?",
         "options": [
-          "Kinetic energy of charge",
-          "Work done to assemble charges configuration",
+          "Magnetic energy",
           "Energy dissipated",
-          "Magnetic energy"
+          "Kinetic energy of charge",
+          "Work done to assemble charges configuration"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Electric potential energy is the work needed to assemble a configuration of charges. It depends on relative positions of charges."
       },
       {
         "q": "What is the relationship between electric field and electric potential?",
         "options": [
-          "E = V/d",
           "E = -dV/dr",
-          "E = V×d",
-          "E = d/V"
+          "E = V/d",
+          "E = d/V",
+          "E = V×d"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Electric field is related to potential by E = -dV/dr. Field points in direction of decreasing potential."
       }
     ],
@@ -8148,34 +8148,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the main advantage of sexual reproduction over asexual reproduction?",
         "options": [
+          "Less energy required",
           "Faster reproduction",
           "Genetic variation and better adaptation",
-          "Less energy required",
           "Simpler process"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Sexual reproduction produces genetically diverse offspring through combination of genetic material from two parents, enhancing adaptation and survival chances."
       },
       {
         "q": "What is gametogenesis?",
         "options": [
           "Formation of zygote",
-          "Formation of gametes through meiosis",
           "Formation of embryo",
-          "Growth of organism"
+          "Growth of organism",
+          "Formation of gametes through meiosis"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Gametogenesis is the process of gamete (sperm and ovum) formation through meiosis. It results in haploid cells with half the chromosome number."
       },
       {
         "q": "How many chromosomes does a human ovum contain?",
         "options": [
-          "46",
           "23",
+          "24",
           "92",
-          "24"
+          "46"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "A human ovum is haploid and contains 23 chromosomes. When fertilized by a sperm (also 23), the zygote becomes diploid with 46 chromosomes."
       },
       {
@@ -8193,55 +8193,55 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is implantation?",
         "options": [
           "Formation of embryo",
-          "Embedding of blastocyst in uterine wall",
           "Development of placenta",
+          "Embedding of blastocyst in uterine wall",
           "Formation of zygote"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Implantation is the embedding of the blastocyst into the uterine wall, usually 6-8 days after fertilization. This marks the beginning of pregnancy."
       },
       {
         "q": "What is the function of the placenta?",
         "options": [
-          "Produce hormones only",
-          "Exchange of materials between fetus and mother",
           "Protect fetus from infection only",
-          "Store nutrients"
+          "Store nutrients",
+          "Produce hormones only",
+          "Exchange of materials between fetus and mother"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The placenta facilitates exchange of oxygen, nutrients, and waste between maternal and fetal blood without direct mixing."
       },
       {
         "q": "How long is the human gestation period?",
         "options": [
-          "6 months",
           "9 months (approximately 280 days)",
-          "12 months",
-          "3 months"
+          "3 months",
+          "6 months",
+          "12 months"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Human gestation period is approximately 280 days (about 9 months). It is divided into three trimesters."
       },
       {
         "q": "What is the secondary sex ratio at birth?",
         "options": [
-          "1:1 male to female",
-          "More females than males",
+          "Variable",
           "More males than females",
-          "Variable"
+          "1:1 male to female",
+          "More females than males"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The secondary sex ratio is approximately 105-106 males per 100 females. This reflects sex chromosome inheritance patterns."
       },
       {
         "q": "What is the role of the corpus luteum?",
         "options": [
           "Produce eggs",
-          "Produce progesterone to maintain pregnancy",
           "Release eggs",
+          "Produce progesterone to maintain pregnancy",
           "Store sperm"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The corpus luteum is formed after ovulation from the remnant of the ovarian follicle. It produces progesterone essential for maintaining pregnancy."
       }
     ],
@@ -8266,56 +8266,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the atomic mass unit (amu) approximately equal to?",
         "options": [
-          "1/12th of carbon-12 atom",
           "1/16th of oxygen atom",
+          "Mass of one proton",
           "Mass of one electron",
-          "Mass of one proton"
+          "1/12th of carbon-12 atom"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "The atomic mass unit is defined as 1/12th of the mass of a carbon-12 atom, making it the standard for measuring atomic masses."
       },
       {
         "q": "Which of the following has the smallest mass?",
         "options": [
-          "Proton",
-          "Neutron",
           "Electron",
-          "Alpha particle"
+          "Neutron",
+          "Alpha particle",
+          "Proton"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "An electron has a mass of approximately 9.11 × 10^-31 kg, which is much smaller than a proton or neutron."
       },
       {
         "q": "What is Avogadro's number?",
         "options": [
+          "6.02 × 10^21",
           "6.02 × 10^23",
           "6.02 × 10^22",
-          "6.02 × 10^24",
-          "6.02 × 10^21"
+          "6.02 × 10^24"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Avogadro's number (6.022 × 10^23) represents the number of particles in one mole of any substance."
       },
       {
         "q": "The molecular mass of CO2 is (C=12, O=16):",
         "options": [
+          "36",
           "28",
           "44",
-          "36",
           "32"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Molecular mass of CO2 = 12 + 16×2 = 12 + 32 = 44 u."
       },
       {
         "q": "How many atoms are present in one molecule of H2SO4?",
         "options": [
+          "8",
           "5",
           "6",
-          "7",
-          "8"
+          "7"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "H2SO4 contains 2 hydrogen atoms, 1 sulfur atom, and 4 oxygen atoms, totaling 7 atoms per molecule."
       },
       {
@@ -8354,23 +8354,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following has the highest molecular mass?",
         "options": [
-          "CO2",
-          "H2O",
           "NH3",
-          "CH4"
+          "CH4",
+          "H2O",
+          "CO2"
         ],
-        "correct": 0,
+        "correct": 3,
         "explanation": "CO2 has molecular mass 44, H2O has 18, NH3 has 17, CH4 has 16. So CO2 has the highest mass."
       },
       {
         "q": "The number of atoms in 2 moles of chlorine (Cl2) is:",
         "options": [
-          "6.022 × 10^23",
-          "12.044 × 10^23",
           "2.411 × 10^24",
-          "3.011 × 10^23"
+          "3.011 × 10^23",
+          "6.022 × 10^23",
+          "12.044 × 10^23"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "2 moles of Cl2 contains 2 × 2 = 4 moles of Cl atoms. Number of atoms = 4 × 6.022 × 10^23 = 2.409 × 10^24 ≈ 2.411 × 10^24."
       }
     ],
@@ -8407,55 +8407,55 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The charge on an electron is:",
         "options": [
           "Positive",
+          "Can be either positive or negative",
           "Negative",
-          "Neutral",
-          "Can be either positive or negative"
+          "Neutral"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "An electron carries a negative charge equal to -1.6 × 10^-19 coulombs."
       },
       {
         "q": "Which particles are present in the nucleus?",
         "options": [
-          "Only protons",
           "Only electrons",
-          "Protons and neutrons",
-          "Protons and electrons"
+          "Protons and electrons",
+          "Only protons",
+          "Protons and neutrons"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The nucleus contains protons (positively charged) and neutrons (neutral). Electrons orbit around the nucleus."
       },
       {
         "q": "An atom has 8 protons and 8 neutrons. What is its mass number?",
         "options": [
-          "8",
           "16",
           "4",
+          "8",
           "24"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Mass number = number of protons + number of neutrons = 8 + 8 = 16."
       },
       {
         "q": "Isotopes are atoms that have:",
         "options": [
-          "Same protons but different neutrons",
           "Same electrons but different protons",
-          "Same mass but different protons",
-          "Different electrons and protons"
+          "Same protons but different neutrons",
+          "Different electrons and protons",
+          "Same mass but different protons"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Isotopes are atoms of the same element (same number of protons) but with different numbers of neutrons."
       },
       {
         "q": "Bohr's model explains the stability of atoms by:",
         "options": [
-          "Electron orbits in fixed energy levels",
+          "Electrons closer to nucleus are more stable",
           "Nucleus repelling electrons",
-          "Electrons moving randomly",
-          "Electrons closer to nucleus are more stable"
+          "Electron orbits in fixed energy levels",
+          "Electrons moving randomly"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Bohr proposed that electrons occupy specific, quantized energy levels around the nucleus, and can jump between them by absorbing or emitting energy."
       },
       {
@@ -8472,12 +8472,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The symbol X has atomic number 17 and mass number 35. How many neutrons does it have?",
         "options": [
-          "17",
           "18",
           "35",
+          "17",
           "52"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Number of neutrons = mass number - atomic number = 35 - 17 = 18."
       },
       {
@@ -8494,12 +8494,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The nucleus accounts for most of the atom's:",
         "options": [
+          "Charge",
           "Volume",
           "Mass",
-          "Charge",
           "Electrons"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Although the nucleus is tiny, it contains nearly all of the atom's mass due to the mass of protons and neutrons."
       }
     ],
@@ -8525,22 +8525,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "What is a tissue?",
         "options": [
           "A single cell",
-          "A group of similar cells performing a common function",
+          "A type of cell membrane",
           "A group of different organs",
-          "A type of cell membrane"
+          "A group of similar cells performing a common function"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A tissue is a collection of similar cells that work together to perform one or more specific functions."
       },
       {
         "q": "Which of the following is an animal tissue?",
         "options": [
-          "Xylem",
-          "Phloem",
           "Epithelial tissue",
-          "Parenchyma"
+          "Parenchyma",
+          "Xylem",
+          "Phloem"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Epithelial tissue covers the body surface and lines body cavities. Xylem and phloem are plant tissues, and parenchyma is a plant tissue type."
       },
       {
@@ -8558,44 +8558,44 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which plant tissue transports water and minerals from roots to leaves?",
         "options": [
           "Phloem",
+          "Sclerenchyma",
           "Xylem",
-          "Parenchyma",
-          "Sclerenchyma"
+          "Parenchyma"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Xylem conducts water and dissolved mineral salts from the roots to the entire plant through a network of vessels and tracheids."
       },
       {
         "q": "Nerve tissue is composed of:",
         "options": [
           "Fibroblasts",
-          "Neurons and glial cells",
+          "Epithelial cells",
           "Muscle fibers",
-          "Epithelial cells"
+          "Neurons and glial cells"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Nerve tissue consists of neurons (which transmit electrical signals) and glial cells (which support neurons)."
       },
       {
         "q": "Which of the following is a function of connective tissue?",
         "options": [
-          "Conduction of nerve impulses",
           "Support, binding, and insulation of organs",
           "Absorption of nutrients",
-          "Gas exchange"
+          "Gas exchange",
+          "Conduction of nerve impulses"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Connective tissue provides structural support, binds tissues together, stores energy, and insulates the body."
       },
       {
         "q": "The tissue that forms the outer layer of skin is:",
         "options": [
-          "Muscular tissue",
-          "Nervous tissue",
+          "Connective tissue",
           "Epithelial tissue",
-          "Connective tissue"
+          "Muscular tissue",
+          "Nervous tissue"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The epidermis (outer layer of skin) is composed of epithelial tissue that protects the underlying structures."
       },
       {
@@ -8613,11 +8613,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The transport of food and other organic compounds in plants occurs through:",
         "options": [
           "Xylem",
-          "Phloem",
           "Cuticle",
-          "Epidermis"
+          "Epidermis",
+          "Phloem"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Phloem transports sugars and other organic products from the leaves to all other parts of the plant."
       },
       {
@@ -8653,12 +8653,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Who developed the system of binomial nomenclature?",
         "options": [
-          "Charles Darwin",
           "Carl Linnaeus",
-          "Jean-Baptiste Lamarck",
-          "Ernst Haeckel"
+          "Charles Darwin",
+          "Ernst Haeckel",
+          "Jean-Baptiste Lamarck"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Carl Linnaeus developed binomial nomenclature, a system of naming organisms using a two-part name: genus and species."
       },
       {
@@ -8675,78 +8675,78 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is the correct order of classification from largest to smallest group?",
         "options": [
-          "Kingdom, Phylum, Class, Order, Family, Genus, Species",
           "Kingdom, Order, Phylum, Class, Family, Genus, Species",
           "Species, Genus, Family, Order, Class, Phylum, Kingdom",
+          "Kingdom, Phylum, Class, Order, Family, Genus, Species",
           "Kingdom, Class, Phylum, Order, Family, Genus, Species"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "The correct hierarchy is Kingdom > Phylum > Class > Order > Family > Genus > Species (often remembered as KPCOFGS)."
       },
       {
         "q": "Which kingdom includes organisms that are multicellular and feed on dead organic matter?",
         "options": [
-          "Plantae",
           "Animalia",
-          "Fungi",
-          "Protista"
+          "Protista",
+          "Plantae",
+          "Fungi"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Fungi are multicellular (mostly) heterotrophs that secrete digestive enzymes and absorb nutrients from dead organic matter."
       },
       {
         "q": "Prokaryotes are organisms that lack:",
         "options": [
-          "Cell wall",
-          "Membrane",
           "Nucleus",
-          "Ribosomes"
+          "Ribosomes",
+          "Membrane",
+          "Cell wall"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Prokaryotes lack a membrane-bound nucleus. Bacteria and archaea are prokaryotes."
       },
       {
         "q": "Which of the following organisms is a eukaryote?",
         "options": [
           "Bacteria",
+          "Amoeba",
           "Cyanobacteria",
-          "Archaea",
-          "Amoeba"
+          "Archaea"
         ],
-        "correct": 3,
+        "correct": 1,
         "explanation": "Amoeba is a eukaryote (has a nucleus and membrane-bound organelles). Bacteria, cyanobacteria, and archaea are prokaryotes."
       },
       {
         "q": "The characteristic feature of members of Kingdom Plantae is that they are:",
         "options": [
-          "Autotrophic and have cell walls",
-          "Heterotrophic and move freely",
+          "Can produce their own food using chemosynthesis",
           "Lack cell walls",
-          "Can produce their own food using chemosynthesis"
+          "Autotrophic and have cell walls",
+          "Heterotrophic and move freely"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Plants are autotrophic (produce their own food through photosynthesis) and have rigid cell walls made of cellulose."
       },
       {
         "q": "Viruses are not considered living because they:",
         "options": [
           "Cannot move",
+          "Are too small",
           "Do not consume food",
-          "Cannot reproduce independently",
-          "Are too small"
+          "Cannot reproduce independently"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Viruses cannot reproduce without a host cell; they lack the machinery to synthesize proteins and reproduce independently, making them non-living."
       },
       {
         "q": "Which level of classification groups organisms that can interbreed and produce fertile offspring?",
         "options": [
-          "Genus",
-          "Family",
           "Species",
-          "Order"
+          "Genus",
+          "Order",
+          "Family"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "A species is defined as a group of organisms that can interbreed and produce fertile offspring."
       },
       {
@@ -8782,34 +8782,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is NOT a characteristic of a healthy person?",
         "options": [
+          "Good immunity",
           "Good physical fitness",
           "Mental stress and anxiety",
-          "Social well-being",
-          "Good immunity"
+          "Social well-being"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Health includes physical, mental, and social well-being. Mental stress and anxiety indicate poor mental health."
       },
       {
         "q": "Communicable diseases are transmitted through:",
         "options": [
-          "Genes only",
-          "Pathogens via direct or indirect contact",
           "Poor nutrition",
-          "Genetic defects"
+          "Genes only",
+          "Genetic defects",
+          "Pathogens via direct or indirect contact"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Communicable diseases are spread by disease-causing pathogens (bacteria, viruses, fungi, protozoans) through direct contact, air, water, or vectors."
       },
       {
         "q": "Which pathogen causes tuberculosis (TB)?",
         "options": [
-          "Virus",
           "Bacterium",
-          "Protozoan",
-          "Fungus"
+          "Virus",
+          "Fungus",
+          "Protozoan"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Tuberculosis is caused by Mycobacterium tuberculosis, a bacterium that primarily affects the lungs."
       },
       {
@@ -8827,22 +8827,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which of the following helps our body fight infections?",
         "options": [
           "Pathogens",
-          "Toxins",
           "White blood cells",
-          "Antibodies"
+          "Antibodies",
+          "Toxins"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "Antibodies are produced by the immune system to neutralize and destroy pathogens and their toxins."
       },
       {
         "q": "A disease spread by mosquitoes is:",
         "options": [
+          "Tetanus",
           "Tuberculosis",
           "Typhoid",
-          "Malaria",
-          "Tetanus"
+          "Malaria"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Malaria is transmitted by Anopheles mosquitoes carrying the Plasmodium parasite."
       },
       {
@@ -8881,12 +8881,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Personal hygiene includes:",
         "options": [
-          "Drinking contaminated water",
+          "Sharing toothbrushes",
           "Not washing hands",
-          "Regular bathing and clean clothes",
-          "Sharing toothbrushes"
+          "Drinking contaminated water",
+          "Regular bathing and clean clothes"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Good personal hygiene includes regular bathing, wearing clean clothes, and washing hands regularly, which prevents disease transmission."
       }
     ],
@@ -8911,23 +8911,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is a renewable resource?",
         "options": [
-          "Coal",
-          "Petroleum",
           "Forests",
-          "Natural gas"
+          "Petroleum",
+          "Natural gas",
+          "Coal"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Forests are renewable resources because they can be regenerated through natural growth and replanting, while coal and petroleum are non-renewable."
       },
       {
         "q": "The process by which water changes from liquid to gas is called:",
         "options": [
-          "Condensation",
           "Precipitation",
           "Evaporation",
-          "Sublimation"
+          "Sublimation",
+          "Condensation"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Evaporation is the conversion of water from liquid to vapor, which occurs when water absorbs heat energy from the sun."
       },
       {
@@ -8944,23 +8944,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The primary source of energy for all life on Earth is:",
         "options": [
+          "Nuclear energy",
           "Coal",
-          "The sun",
           "Geothermal energy",
-          "Nuclear energy"
+          "The sun"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The sun provides energy through radiation that drives photosynthesis, weather systems, and all biological processes."
       },
       {
         "q": "Which gas makes up approximately 78% of Earth's atmosphere?",
         "options": [
-          "Oxygen",
-          "Carbon dioxide",
           "Nitrogen",
+          "Carbon dioxide",
+          "Oxygen",
           "Argon"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Nitrogen comprises about 78% of Earth's atmosphere, while oxygen is about 21%, and other gases make up about 1%."
       },
       {
@@ -8977,45 +8977,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is NOT a component of soil?",
         "options": [
-          "Mineral particles",
-          "Organic matter",
           "Water",
-          "Atmospheric pressure"
+          "Mineral particles",
+          "Atmospheric pressure",
+          "Organic matter"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "Soil consists of mineral particles, organic matter (humus), water, and air. Atmospheric pressure is not a component of soil."
       },
       {
         "q": "The groundwater table refers to:",
         "options": [
+          "The atmosphere above ground",
           "The surface of the ocean",
-          "The level below which soil is saturated with water",
           "The depth of rivers",
-          "The atmosphere above ground"
+          "The level below which soil is saturated with water"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The groundwater table is the level below which the soil and rocks are saturated with water."
       },
       {
         "q": "Which process removes nitrogen from the atmosphere and converts it into a usable form?",
         "options": [
-          "Photosynthesis",
-          "Respiration",
           "Nitrogen fixation",
-          "Decomposition"
+          "Decomposition",
+          "Photosynthesis",
+          "Respiration"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Nitrogen fixation by bacteria (in soil or root nodules) converts atmospheric nitrogen (N2) into ammonia (NH3), which plants can use."
       },
       {
         "q": "Deforestation leads to all of the following EXCEPT:",
         "options": [
-          "Soil erosion",
-          "Loss of biodiversity",
+          "Increased atmospheric CO2",
           "Increased rainfall",
-          "Increased atmospheric CO2"
+          "Loss of biodiversity",
+          "Soil erosion"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Deforestation actually reduces rainfall (forests help regulate water cycles), causes soil erosion, loss of biodiversity, and increases atmospheric CO2."
       }
     ],
@@ -9040,78 +9040,78 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Who arranged the periodic table by atomic number?",
         "options": [
+          "Julius Lothar Meyer",
           "Dmitri Mendeleev",
           "Henry Moseley",
-          "John Newlands",
-          "Julius Lothar Meyer"
+          "John Newlands"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Henry Moseley discovered that atomic number (number of protons) is more fundamental than atomic mass for organizing elements."
       },
       {
         "q": "Elements in the same group of the periodic table have:",
         "options": [
-          "Same atomic number",
-          "Same number of valence electrons",
           "Same atomic mass",
-          "Same number of shells"
+          "Same number of shells",
+          "Same atomic number",
+          "Same number of valence electrons"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Elements in the same group (vertical column) have the same number of valence electrons, which determines their chemical properties."
       },
       {
         "q": "Which of the following is a property of metals?",
         "options": [
-          "Poor conductors of electricity",
-          "Brittle",
           "Good conductors of heat and electricity",
-          "Non-lustrous"
+          "Poor conductors of electricity",
+          "Non-lustrous",
+          "Brittle"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Metals are good conductors of heat and electricity, are malleable, ductile, and lustrous (shiny)."
       },
       {
         "q": "The element with atomic number 6 is:",
         "options": [
-          "Nitrogen",
-          "Oxygen",
+          "Boron",
           "Carbon",
-          "Boron"
+          "Nitrogen",
+          "Oxygen"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Carbon has 6 protons and is the foundation of all organic molecules."
       },
       {
         "q": "Across a period in the periodic table, atomic radius:",
         "options": [
-          "Increases",
-          "Decreases",
           "Remains constant",
-          "Increases then decreases"
+          "Increases then decreases",
+          "Decreases",
+          "Increases"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Atomic radius decreases across a period because the nuclear charge increases while electrons are added to the same shell."
       },
       {
         "q": "Which of the following is a halogen?",
         "options": [
-          "Oxygen",
+          "Helium",
           "Nitrogen",
-          "Fluorine",
-          "Helium"
+          "Oxygen",
+          "Fluorine"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Halogens are Group 17 elements; fluorine (F) is the most reactive halogen."
       },
       {
         "q": "Noble gases have a valence shell that is:",
         "options": [
-          "Half full",
           "Completely full",
-          "Empty",
-          "Has one electron"
+          "Half full",
+          "Has one electron",
+          "Empty"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Noble gases have a complete valence shell (8 electrons except He with 2), making them extremely stable and unreactive."
       },
       {
@@ -9128,23 +9128,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which element is a non-metal located in Group 15?",
         "options": [
-          "Phosphorus",
+          "Argon",
           "Sulfur",
-          "Chlorine",
-          "Argon"
+          "Phosphorus",
+          "Chlorine"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "Phosphorus (P) is a non-metal in Group 15 with 5 valence electrons."
       },
       {
         "q": "The first ionization energy is the energy required to:",
         "options": [
+          "Melt a solid",
           "Break a bond between atoms",
           "Add an electron to an atom",
-          "Remove one electron from an atom",
-          "Melt a solid"
+          "Remove one electron from an atom"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "First ionization energy is the energy needed to remove the most loosely bound electron from an isolated atom."
       }
     ],
@@ -9169,23 +9169,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the general formula for alkanes?",
         "options": [
-          "CnH2n",
           "CnH2n+2",
           "CnH2n-2",
+          "CnH2n",
           "CnHn"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The general formula for saturated hydrocarbons (alkanes) is CnH2n+2, where n is the number of carbon atoms."
       },
       {
         "q": "Methane (CH4) is classified as:",
         "options": [
-          "An alkene",
           "An alkyne",
           "An alkane",
-          "An alcohol"
+          "An alcohol",
+          "An alkene"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Methane is the simplest alkane with a single carbon-hydrogen bond and the formula CH4."
       },
       {
@@ -9203,33 +9203,33 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "The functional group in alcohols is:",
         "options": [
           "-CHO",
-          "-OH",
+          "-CO-",
           "-COOH",
-          "-CO-"
+          "-OH"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The hydroxyl group (-OH) is the functional group in alcohols, found in compounds like ethanol."
       },
       {
         "q": "Carboxylic acids contain the functional group:",
         "options": [
+          "-COOH",
           "-OH",
           "-CHO",
-          "-COOH",
           "-NH2"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "The carboxyl group (-COOH) is characteristic of carboxylic acids and is responsible for their acidic properties."
       },
       {
         "q": "Which compound can be used as a fuel?",
         "options": [
-          "Acetic acid",
-          "Ethanol",
           "Benzene",
-          "Both ethanol and benzene"
+          "Both ethanol and benzene",
+          "Acetic acid",
+          "Ethanol"
         ],
-        "correct": 3,
+        "correct": 1,
         "explanation": "Both ethanol and benzene can be used as fuels, though ethanol is more commonly used as a biofuel."
       },
       {
@@ -9246,34 +9246,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The reaction between an alcohol and a carboxylic acid produces:",
         "options": [
-          "Water",
           "An aldehyde",
-          "An ester",
-          "A ketone"
+          "Water",
+          "A ketone",
+          "An ester"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Esterification reaction between alcohols and carboxylic acids produces esters and water."
       },
       {
         "q": "Which of the following is the structure of benzene?",
         "options": [
-          "Straight chain with 6 carbons",
           "Hexagonal ring with alternating double bonds",
-          "Open chain with 6 carbons and one double bond",
-          "Three double-bonded carbons"
+          "Straight chain with 6 carbons",
+          "Three double-bonded carbons",
+          "Open chain with 6 carbons and one double bond"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Benzene is a hexagonal aromatic ring (C6H6) with delocalized pi electrons providing stability."
       },
       {
         "q": "The addition of hydrogen to unsaturated hydrocarbons is called:",
         "options": [
-          "Oxidation",
           "Dehydration",
           "Hydrogenation",
+          "Oxidation",
           "Esterification"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Hydrogenation adds hydrogen to unsaturated compounds (alkenes and alkynes), converting them to saturated compounds."
       }
     ],
@@ -9298,23 +9298,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Who proposed the theory of natural selection?",
         "options": [
+          "Gregor Mendel",
           "Jean-Baptiste Lamarck",
           "Charles Darwin",
-          "Gregor Mendel",
           "Alfred Russel Wallace"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Charles Darwin proposed the theory of natural selection to explain how species adapt and evolve over time."
       },
       {
         "q": "A gene is:",
         "options": [
+          "A cell nucleus",
           "A chromosome",
-          "A segment of DNA that codes for a protein or trait",
           "A protein",
-          "A cell nucleus"
+          "A segment of DNA that codes for a protein or trait"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "A gene is a specific segment of DNA that contains instructions for producing a particular protein or trait."
       },
       {
@@ -9342,12 +9342,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The process by which organisms adapt to their environment over generations is called:",
         "options": [
+          "Inheritance",
           "Mutation",
           "Natural selection",
-          "Variation",
-          "Inheritance"
+          "Variation"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Natural selection is the mechanism by which organisms with advantageous traits survive and reproduce more successfully."
       },
       {
@@ -9365,22 +9365,22 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "A dominant trait is one that:",
         "options": [
           "Always appears in offspring",
+          "Requires two copies of the allele",
           "Appears in both parents",
-          "Masks the recessive trait in heterozygotes",
-          "Requires two copies of the allele"
+          "Masks the recessive trait in heterozygotes"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "A dominant allele expresses its phenotype in both homozygous (AA) and heterozygous (Aa) conditions, masking the recessive allele."
       },
       {
         "q": "The variation in organisms is caused by:",
         "options": [
-          "Only mutation",
-          "Only environmental factors",
           "Both genetic variation and environmental factors",
-          "Only genetic factors"
+          "Only genetic factors",
+          "Only environmental factors",
+          "Only mutation"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Phenotypic variation results from both genetic differences (alleles) and environmental influences on development and physiology."
       },
       {
@@ -9427,100 +9427,100 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "An ecosystem includes:",
         "options": [
-          "Only living organisms",
+          "Only plants and animals",
           "Only non-living factors",
-          "Both living organisms and non-living factors",
-          "Only plants and animals"
+          "Only living organisms",
+          "Both living organisms and non-living factors"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "An ecosystem is a community of living organisms (biotic factors) interacting with physical components (abiotic factors like temperature, soil, water)."
       },
       {
         "q": "In a food chain, plants are called:",
         "options": [
+          "Producers",
           "Secondary consumers",
           "Tertiary consumers",
-          "Producers",
           "Decomposers"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Plants are producers because they convert solar energy into chemical energy through photosynthesis, forming the base of food chains."
       },
       {
         "q": "The percentage of energy transferred from one trophic level to the next is approximately:",
         "options": [
-          "90%",
           "50%",
           "10%",
+          "90%",
           "25%"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Only about 10% of energy is transferred to the next trophic level; the rest is lost as heat during respiration and other metabolic processes."
       },
       {
         "q": "Decomposers in an ecosystem include:",
         "options": [
-          "Plants",
           "Herbivores",
-          "Carnivores",
-          "Bacteria and fungi"
+          "Plants",
+          "Bacteria and fungi",
+          "Carnivores"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "Decomposers break down dead organic matter and return nutrients to the soil, playing a crucial role in nutrient cycling."
       },
       {
         "q": "The ozone layer is important because it:",
         "options": [
-          "Produces oxygen",
+          "Prevents greenhouse gases",
           "Traps heat in the atmosphere",
-          "Protects from ultraviolet radiation",
-          "Prevents greenhouse gases"
+          "Produces oxygen",
+          "Protects from ultraviolet radiation"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The ozone layer absorbs harmful ultraviolet (UV) radiation from the sun, protecting living organisms from UV damage."
       },
       {
         "q": "Which of the following is a biotic factor in an ecosystem?",
         "options": [
+          "Bacteria",
           "Temperature",
           "Sunlight",
-          "Bacteria",
           "Wind"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Bacteria are living organisms and thus biotic factors. Temperature, sunlight, and wind are abiotic (non-living) factors."
       },
       {
         "q": "The carbon cycle involves all of the following EXCEPT:",
         "options": [
-          "Photosynthesis",
           "Respiration",
-          "Combustion",
-          "Rainfall"
+          "Rainfall",
+          "Photosynthesis",
+          "Combustion"
         ],
-        "correct": 3,
+        "correct": 1,
         "explanation": "The carbon cycle involves photosynthesis (CO2 uptake), respiration (CO2 release), combustion, and decomposition. Rainfall is part of the water cycle."
       },
       {
         "q": "Invasive species in an ecosystem can cause:",
         "options": [
+          "Improved ecosystem balance",
           "Increased biodiversity",
           "Disruption of native species and food webs",
-          "Improved ecosystem balance",
           "More habitat for organisms"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Invasive species often outcompete native species, disrupt food webs, and reduce biodiversity."
       },
       {
         "q": "The primary source of nitrogen for plants is:",
         "options": [
-          "The atmosphere",
-          "Nitrogen-fixing bacteria in soil",
           "Rainwater",
-          "Decomposers"
+          "Decomposers",
+          "The atmosphere",
+          "Nitrogen-fixing bacteria in soil"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Although nitrogen is abundant in the atmosphere, plants cannot use it directly; nitrogen-fixing bacteria convert atmospheric N2 into usable forms."
       },
       {
@@ -9556,12 +9556,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is an irrational number?",
         "options": [
-          "0.5",
-          "0.333...",
           "√2",
-          "22/7"
+          "0.333...",
+          "22/7",
+          "0.5"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "√2 is irrational because it cannot be expressed as a ratio of two integers. Its decimal expansion is non-terminating and non-repeating."
       },
       {
@@ -9589,23 +9589,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is a prime number?",
         "options": [
-          "91",
+          "93",
           "87",
-          "97",
-          "93"
+          "91",
+          "97"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "97 is prime. 91 = 7×13, 87 = 3×29, and 93 = 3×31 are composite numbers."
       },
       {
         "q": "The decimal expansion of a rational number is always:",
         "options": [
-          "Non-terminating",
           "Terminating or non-terminating repeating",
           "Non-terminating and non-repeating",
+          "Non-terminating",
           "Terminating"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Rational numbers have either terminating decimals (like 1/4 = 0.25) or non-terminating repeating decimals (like 1/3 = 0.333...)."
       },
       {
@@ -9622,23 +9622,23 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The HCF of 15 and 25 is:",
         "options": [
-          "5",
           "75",
           "15",
+          "5",
           "25"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "15 = 3 × 5 and 25 = 5 × 5. The common factor is 5, so HCF = 5."
       },
       {
         "q": "If p/q is a rational number in lowest terms, then q must be:",
         "options": [
-          "A multiple of p",
           "Not equal to 1",
-          "Coprime to p",
-          "A perfect square"
+          "A perfect square",
+          "A multiple of p",
+          "Coprime to p"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "For a fraction p/q to be in lowest terms, HCF(p, q) = 1, meaning p and q are coprime (share no common factors)."
       },
       {
@@ -9685,34 +9685,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "A polynomial of degree 2 is called:",
         "options": [
+          "Quartic",
           "Linear",
           "Quadratic",
-          "Cubic",
-          "Quartic"
+          "Cubic"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "A quadratic polynomial has degree 2, with the general form ax² + bx + c where a ≠ 0."
       },
       {
         "q": "If (x - 2) is a factor of polynomial p(x), then p(2) equals:",
         "options": [
-          "2",
+          "-1",
           "1",
-          "0",
-          "-1"
+          "2",
+          "0"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "By the Factor Theorem, if (x - a) is a factor of p(x), then p(a) = 0."
       },
       {
         "q": "The zeros of the polynomial x² - 5x + 6 are:",
         "options": [
-          "1 and 6",
           "2 and 3",
           "-2 and -3",
+          "1 and 6",
           "5 and 6"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "x² - 5x + 6 = (x - 2)(x - 3), so the zeros are x = 2 and x = 3."
       },
       {
@@ -9731,21 +9731,21 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "0",
           "1",
-          "2",
-          "3"
+          "3",
+          "2"
         ],
-        "correct": 3,
+        "correct": 2,
         "explanation": "By the Remainder Theorem, the remainder = p(1) = 1 + 2 - 1 + 1 = 3."
       },
       {
         "q": "A cubic polynomial has at most ____ zeros.",
         "options": [
           "1",
+          "4",
           "2",
-          "3",
-          "4"
+          "3"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "A polynomial of degree n has at most n real zeros. A cubic (degree 3) polynomial has at most 3 zeros."
       },
       {
@@ -9774,11 +9774,11 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which polynomial has a zero at x = -1?",
         "options": [
           "x² + 1",
-          "x² - 1",
           "x² + x + 1",
+          "x² - 1",
           "x² - x + 1"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "If x = -1: (-1)² - 1 = 1 - 1 = 0. So x = -1 is a zero of x² - 1."
       },
       {
@@ -9814,12 +9814,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Two triangles are congruent if their corresponding sides and angles are:",
         "options": [
-          "Parallel",
           "Equal",
+          "Parallel",
           "Perpendicular",
           "Proportional"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Congruent triangles have exactly equal corresponding sides and angles, meaning they have the same shape and size."
       },
       {
@@ -9836,34 +9836,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "In a right-angled triangle, if the two legs are 3 and 4, the hypotenuse is:",
         "options": [
-          "5",
           "6",
           "7",
+          "5",
           "√25"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "By Pythagoras' theorem: c² = 3² + 4² = 9 + 16 = 25, so c = 5."
       },
       {
         "q": "Two triangles are similar if their corresponding angles are:",
         "options": [
-          "Supplementary",
-          "Equal",
           "Complementary",
-          "Proportional"
+          "Proportional",
+          "Supplementary",
+          "Equal"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Similar triangles have equal corresponding angles, causing their sides to be proportional."
       },
       {
         "q": "The sum of angles in any triangle is:",
         "options": [
-          "90°",
           "180°",
+          "90°",
           "270°",
           "360°"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The angle sum property states that the sum of all angles in a triangle is always 180°."
       },
       {
@@ -9880,45 +9880,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "In an isosceles triangle, the angles opposite the equal sides are:",
         "options": [
+          "Supplementary",
           "Different",
           "Equal",
-          "Supplementary",
           "Complementary"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "In an isosceles triangle, the base angles (opposite the equal sides) are equal."
       },
       {
         "q": "The Pythagorean theorem applies to:",
         "options": [
           "All triangles",
-          "Right-angled triangles only",
+          "Obtuse triangles",
           "Isosceles triangles",
-          "Obtuse triangles"
+          "Right-angled triangles only"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "The Pythagorean theorem (a² + b² = c²) applies specifically to right-angled triangles."
       },
       {
         "q": "If a triangle has sides 5, 12, and 13, it is:",
         "options": [
-          "Acute-angled",
           "Right-angled",
+          "Acute-angled",
           "Obtuse-angled",
           "Equilateral"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Since 5² + 12² = 25 + 144 = 169 = 13², this is a right-angled triangle (Pythagorean triple)."
       },
       {
         "q": "In a triangle, the sum of any two sides must be ____ the third side.",
         "options": [
-          "Less than",
           "Equal to",
           "Greater than",
-          "At most"
+          "At most",
+          "Less than"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The triangle inequality theorem states that the sum of any two sides must be greater than the third side."
       }
     ],
@@ -9943,34 +9943,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "A tangent to a circle is perpendicular to the radius at the point of:",
         "options": [
-          "Contact",
-          "Intersection",
+          "Tangency",
           "Origin",
-          "Tangency"
+          "Contact",
+          "Intersection"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "At the point of contact, a tangent is perpendicular to the radius of the circle."
       },
       {
         "q": "The angle subtended by an arc at the center is ____ the angle subtended at the circumference.",
         "options": [
-          "Equal to",
           "Half of",
-          "Twice",
-          "Four times"
+          "Four times",
+          "Equal to",
+          "Twice"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "The angle subtended at the center is twice the angle subtended by the same arc at any point on the circumference."
       },
       {
         "q": "A chord of a circle is:",
         "options": [
-          "A line through the center",
-          "A line touching the circle at one point",
           "A line segment joining two points on the circle",
-          "The longest line in the circle"
+          "A line touching the circle at one point",
+          "The longest line in the circle",
+          "A line through the center"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "A chord is a line segment with both endpoints on the circle. A diameter is a special chord passing through the center."
       },
       {
@@ -9987,45 +9987,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The circumference of a circle with radius r is:",
         "options": [
+          "4πr",
           "πr",
           "2πr",
-          "πr²",
-          "4πr"
+          "πr²"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Circumference = 2πr, where r is the radius."
       },
       {
         "q": "Two tangents drawn to a circle from an external point are:",
         "options": [
-          "Perpendicular",
           "Parallel",
-          "Equal in length",
-          "Intersecting at 90°"
+          "Perpendicular",
+          "Intersecting at 90°",
+          "Equal in length"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Tangents from an external point to a circle are equal in length and make equal angles with the line joining the point to the center."
       },
       {
         "q": "The area of a circle with radius 7 cm is (use π = 22/7):",
         "options": [
-          "44 cm²",
           "154 cm²",
-          "308 cm²",
-          "49 cm²"
+          "49 cm²",
+          "44 cm²",
+          "308 cm²"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Area = πr² = (22/7) × 7² = (22/7) × 49 = 22 × 7 = 154 cm²."
       },
       {
         "q": "A semicircle subtends an angle of ____ at any point on the circumference.",
         "options": [
-          "45°",
           "60°",
           "90°",
+          "45°",
           "180°"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "By Thales' theorem, any angle inscribed in a semicircle (subtended by the diameter) is 90°."
       },
       {
@@ -10042,12 +10042,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The angle in a semicircle is always:",
         "options": [
+          "Straight",
           "Acute",
-          "Right",
           "Obtuse",
-          "Straight"
+          "Right"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Any angle inscribed in a semicircle (with the diameter as one side) is always a right angle (90°)."
       }
     ],
@@ -10072,45 +10072,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "In a right triangle, sin(θ) is defined as:",
         "options": [
-          "Adjacent/Hypotenuse",
           "Opposite/Hypotenuse",
-          "Opposite/Adjacent",
-          "Hypotenuse/Opposite"
+          "Hypotenuse/Opposite",
+          "Adjacent/Hypotenuse",
+          "Opposite/Adjacent"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "sin(θ) = opposite/hypotenuse. It's abbreviated as the ratio of the side opposite to angle θ and the hypotenuse."
       },
       {
         "q": "What is the value of sin(90°)?",
         "options": [
           "0",
-          "0.5",
           "1",
+          "0.5",
           "√3/2"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "sin(90°) = 1 because at 90°, the opposite side equals the hypotenuse."
       },
       {
         "q": "tan(θ) equals:",
         "options": [
-          "sin(θ)/cos(θ)",
-          "cos(θ)/sin(θ)",
           "sin(θ) × cos(θ)",
-          "sin(θ) + cos(θ)"
+          "sin(θ) + cos(θ)",
+          "sin(θ)/cos(θ)",
+          "cos(θ)/sin(θ)"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "tan(θ) = sin(θ)/cos(θ) = opposite/adjacent."
       },
       {
         "q": "The value of cos(0°) is:",
         "options": [
           "0",
+          "√3/2",
           "0.5",
-          "1",
-          "√3/2"
+          "1"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "cos(0°) = 1 because at 0°, the adjacent side equals the hypotenuse."
       },
       {
@@ -10127,12 +10127,12 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "In a right triangle with angle 30°, if the hypotenuse is 10, the side opposite to 30° is:",
         "options": [
+          "10/√3",
           "5",
-          "5√3",
           "10",
-          "10/√3"
+          "5√3"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "sin(30°) = 1/2 = opposite/hypotenuse. So opposite = 10 × (1/2) = 5."
       },
       {
@@ -10151,21 +10151,21 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "0",
           "1/√2",
-          "1",
-          "√3"
+          "√3",
+          "1"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "tan(45°) = 1 because in a 45-45-90 triangle, the opposite and adjacent sides are equal."
       },
       {
         "q": "If sin(θ) = 3/5, then cos(θ) could be:",
         "options": [
-          "3/5",
           "4/5",
+          "2/5",
           "5/3",
-          "2/5"
+          "3/5"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "Using sin²(θ) + cos²(θ) = 1: (3/5)² + cos²(θ) = 1, so cos²(θ) = 1 - 9/25 = 16/25, thus cos(θ) = 4/5."
       },
       {
@@ -10201,45 +10201,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is a whole number but not a natural number?",
         "options": [
-          "1",
-          "0",
+          "2",
           "-1",
-          "2"
+          "0",
+          "1"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Whole numbers are {0, 1, 2, 3, ...}, while natural numbers are {1, 2, 3, ...}. Zero is a whole number but not a natural number."
       },
       {
         "q": "A rational number can be expressed as:",
         "options": [
-          "p × q",
           "p ÷ q where q = 0",
-          "p/q where p and q are integers and q ≠ 0",
-          "√(p/q)"
+          "p × q",
+          "√(p/q)",
+          "p/q where p and q are integers and q ≠ 0"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "By definition, a rational number is a number that can be expressed as p/q where p and q are integers and q ≠ 0."
       },
       {
         "q": "√9 is:",
         "options": [
-          "Irrational",
           "Rational",
           "Neither rational nor irrational",
+          "Irrational",
           "Not a real number"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "√9 = 3, which is an integer and therefore a rational number."
       },
       {
         "q": "Which of the following is an irrational number?",
         "options": [
           "√4",
-          "√9",
           "√10",
+          "√9",
           "√16"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "√10 cannot be expressed as a ratio of integers and has a non-terminating, non-repeating decimal expansion."
       },
       {
@@ -10256,56 +10256,56 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "On a number line, integers are:",
         "options": [
-          "Only positive numbers",
           "Only on one side of zero",
-          "Symmetrically placed about zero",
-          "Not equally spaced"
+          "Only positive numbers",
+          "Not equally spaced",
+          "Symmetrically placed about zero"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Integers {..., -2, -1, 0, 1, 2, ...} are symmetrically placed about zero and equally spaced on a number line."
       },
       {
         "q": "Which set of numbers is closed under subtraction?",
         "options": [
-          "Natural numbers",
-          "Whole numbers",
           "Integers",
-          "Rational numbers"
+          "Whole numbers",
+          "Rational numbers",
+          "Natural numbers"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "Integers are closed under subtraction; subtracting any two integers always gives an integer."
       },
       {
         "q": "The set {-2, -1, 0, 1, 2} represents:",
         "options": [
-          "Natural numbers",
           "Whole numbers",
           "Integers",
-          "Rational numbers"
+          "Rational numbers",
+          "Natural numbers"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "This set contains negative numbers, zero, and positive numbers, which together form a subset of integers."
       },
       {
         "q": "Which of the following is NOT a real number?",
         "options": [
-          "√-1",
           "√2",
           "0",
+          "√-1",
           "π"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "√-1 = i is an imaginary number, not a real number. Real numbers include rationals and irrationals but exclude imaginary numbers."
       },
       {
         "q": "The decimal expansion of 22/7 is:",
         "options": [
-          "3.14",
-          "3.142857142857...",
           "3.1̄4̄2̄8̄5̄7̄",
-          "Non-terminating and non-repeating"
+          "Non-terminating and non-repeating",
+          "3.14",
+          "3.142857142857..."
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "22/7 = 3.142857142857..., a non-terminating repeating decimal with period 142857."
       }
     ],
@@ -10330,89 +10330,89 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "A linear equation in two variables has the general form:",
         "options": [
-          "ax² + bx + c = 0",
           "ax + by + c = 0",
           "ax² + by² + c = 0",
+          "ax² + bx + c = 0",
           "ax/b + c/y = 0"
         ],
-        "correct": 1,
+        "correct": 0,
         "explanation": "The general form is ax + by + c = 0, where a and b are not both zero."
       },
       {
         "q": "The solution of a linear equation in two variables is:",
         "options": [
-          "A single point",
           "A straight line",
           "Ordered pair(s) that satisfy the equation",
+          "A single point",
           "Only integer pairs"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "The solution is any ordered pair (x, y) that satisfies the equation; graphically, these form a straight line."
       },
       {
         "q": "The equation of the x-axis is:",
         "options": [
+          "x + y = 0",
           "x = 0",
           "y = 0",
-          "x + y = 0",
           "x = y"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The x-axis has the equation y = 0, where all points have zero y-coordinate."
       },
       {
         "q": "The slope of the line 2x + 3y = 6 is:",
         "options": [
-          "2/3",
-          "-2/3",
           "3/2",
-          "-3/2"
+          "-3/2",
+          "2/3",
+          "-2/3"
         ],
-        "correct": 1,
+        "correct": 3,
         "explanation": "Rewriting as y = (-2/3)x + 2, the slope is -2/3 (coefficient of x in slope-intercept form)."
       },
       {
         "q": "Two equations 2x + 3y = 6 and 4x + 6y = 12 represent:",
         "options": [
+          "The same line",
           "Parallel lines",
           "Perpendicular lines",
-          "The same line",
           "Intersecting lines"
         ],
-        "correct": 2,
+        "correct": 0,
         "explanation": "The second equation is 2 times the first, so they represent the same line (infinitely many solutions)."
       },
       {
         "q": "If x + y = 5 and x - y = 1, then x = ?",
         "options": [
-          "1",
           "2",
           "3",
-          "4"
+          "4",
+          "1"
         ],
-        "correct": 2,
+        "correct": 1,
         "explanation": "Adding the equations: 2x = 6, so x = 3. (Check: 3 + y = 5 gives y = 2; 3 - 2 = 1 ✓)"
       },
       {
         "q": "The point of intersection of x = 2 and y = 3 is:",
         "options": [
-          "(2, 3)",
           "(3, 2)",
           "(0, 0)",
+          "(2, 3)",
           "(1, 1)"
         ],
-        "correct": 0,
+        "correct": 2,
         "explanation": "The line x = 2 (vertical) and y = 3 (horizontal) intersect at the point (2, 3)."
       },
       {
         "q": "Which ordered pair is a solution of 2x - 3y = 1?",
         "options": [
+          "(1, 1/3)",
           "(0, 0)",
           "(1, 1)",
-          "(2, 1)",
-          "(1, 1/3)"
+          "(2, 1)"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Checking (2, 1): 2(2) - 3(1) = 4 - 3 = 1 ✓"
       },
       {

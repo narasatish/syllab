@@ -118,6 +118,13 @@ function Detail({ paper, go, setTab }: { paper: SamplePaper; go: (to: string) =>
               <span className="text-xs font-bold text-slate-300">{s.marks} marks</span>
             </div>
             <p className="mb-3 text-xs font-semibold italic text-slate-500">{s.instructions}</p>
+            {s.passage && (
+              <div className="mb-4 rounded-xl border-l-4 border-primary bg-slate-50 p-4 dark:bg-slate-900">
+                {s.passage.split('\n\n').map((para, k) => (
+                  <p key={k} className="mb-2 text-sm leading-relaxed text-slate-700 last:mb-0 dark:text-slate-300">{para}</p>
+                ))}
+              </div>
+            )}
             <ol className="space-y-3">
               {s.questions.map((qq, j) => (
                 <li key={j} className="rounded-xl border border-slate-100 p-4 dark:border-slate-700">

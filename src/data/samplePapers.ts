@@ -4,7 +4,20 @@
  * Data is generated; answers must be accurate.
  */
 export interface SpQuestion { q: string; marks: number; answer: string; }
-export interface SpSection { name: string; marks: number; instructions: string; questions: SpQuestion[]; }
+export interface SpSection {
+  name: string;
+  marks: number;
+  instructions: string;
+  /**
+   * The unseen passage/extract a comprehension section is based on. REQUIRED
+   * whenever the instructions tell the student to "read the passage" — without
+   * it the questions are literally unanswerable, which is what shipped for
+   * months on 10 English/Hindi papers (Section A said "read the passage" and no
+   * passage existed). Guarded by samplePapers.test.ts.
+   */
+  passage?: string;
+  questions: SpQuestion[];
+}
 export interface SpFaq { q: string; a: string; }
 export interface SamplePaper {
   slug: string;
@@ -462,7 +475,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 1,
             "answer": "Destitute or impoverished"
           }
-        ]
+        ],
+        "passage": "A boy who reads is never entirely alone. Every book he opens hands him a vocabulary he did not have that morning, an imagination stretched a little wider than the room he sits in, and a stock of knowledge he will draw on for years without remembering where it came from. This is why reading matters so much to students: it expands vocabulary, improves imagination and increases knowledge, all at once and almost without effort.\n\nBut literature does something larger than instruct. A novel set in a village he has never visited teaches him how a stranger thinks. A poem about loss prepares him, quietly, for a grief that has not arrived yet. Literature shapes our understanding of society and of human nature — it lets a reader live, briefly, inside a life not his own, and return more capable of imagining other people.\n\nConsider the beggar in Premchand's stories, destitute and yet unwilling to surrender his dignity. A reader who has met such a character on the page recognises him differently on the street. That recognition is not sentimentality; it is the beginning of judgement. The habit of reading, begun early and kept up, is among the few habits that improve every other subject a student studies."
       },
       {
         "name": "Section B - Writing",
@@ -511,7 +525,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section D - Literature",
         "marks": 25,
-        "instructions": "Answer questions based on prescribed texts and poems.",
+        "instructions": "Answer questions based on prescribed texts and poems. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
             "q": "What is the theme of the novel/story studied? Explain with examples.",
@@ -524,7 +538,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "answer": "Character undergoes transformation through challenges, learning valuable life lessons."
           },
           {
-            "q": "What is the message conveyed by the poem studied? Explain with reference to the text.",
+            "q": "What is the message conveyed by a poem you have studied? Explain with reference to the text.",
             "marks": 4,
             "answer": "The poem conveys that nature teaches patience and perseverance through its cycles."
           }
@@ -844,7 +858,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 4,
             "answer": "Character made the decision because of concern for family welfare, as evidenced by specific passage reference."
           }
-        ]
+        ],
+        "passage": "Meera had been Kabir's closest friend since Class 3, and in eleven years she had never once broken a promise to him. So when the letter from the engineering college in Pune arrived — the seat he had worked towards for two years — she was the first person he told, and the only one who noticed that his voice did not lift.\n\nThe truth was that his father's small printing press had been struggling for months. Leaving for Pune would mean no one to manage the shop, and the family's only income would stop. Kabir had already decided. He would defer the seat by a year, work at the press, and reapply when things were steadier. \"They fed me for eighteen years,\" he said quietly. \"One year is not a sacrifice. It's arithmetic.\"\n\nMeera did not try to argue him out of it, which was itself a kind of loyalty. She knew that some decisions are challenging not because the right path is unclear, but because the right path costs something. What she did instead was crucial: she spent that year helping him keep his mathematics sharp, sitting with him in the back room of the press between customers.\n\nKabir has always said that the year taught him more than the degree eventually did. He learned to be truthful with customers about what the press could and could not deliver, and he learned that growing up is mostly the business of discovering what you are willing to give up for the people you love. A friendship that survives that discovery, he says, is the only kind worth keeping."
       },
       {
         "name": "Section B - Writing",
@@ -888,7 +903,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section D - Literature",
         "marks": 25,
-        "instructions": "Answer questions based on prescribed poems and stories.",
+        "instructions": "Answer questions based on prescribed poems and stories. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
             "q": "What is the message of the poem? Explain with reference to the text.",
@@ -2446,7 +2461,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
         "instructions": "Read the passage and answer all questions.",
         "questions": [
           {
-            "q": "ईश्वर के वास्तव रूप को समझना मनुष्य के लिए कठिन है। वह सर्वव्यापी है और सभी जीवों में निवास करता है। हमें अपने आसपास की प्रकृति में उसके दर्शन करने चाहिए। पेड़ों में, पक्षियों में, नदियों में उसी महान शक्ति का अस्तित्व है। जब हम प्रकृति से जुड़ते हैं, तो हमें आत्मिक शांति मिलती है। प्रश्न: ईश्वर को कहाँ खोजा जा सकता है?",
+            "q": "ईश्वर को कहाँ खोजा जा सकता है?",
             "marks": 3,
             "answer": "ईश्वर को प्रकृति में, पेड़ों में, पक्षियों में, नदियों में और सभी जीवों में खोजा जा सकता है। उसे सर्वव्यापी माना जाता है।"
           },
@@ -2470,7 +2485,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 3,
             "answer": "क्योंकि वह सर्वव्यापी है और सभी जीवों में व्याप्त है, जिसे सीधे समझना मनुष्य के लिए कठिन है।"
           }
-        ]
+        ],
+        "passage": "ईश्वर के वास्तविक रूप को समझना मनुष्य के लिए कठिन है। वह सर्वव्यापी है और सभी जीवों में निवास करता है। आँखों से न दिखाई देने वाली इस शक्ति को केवल बुद्धि से नहीं, अनुभव से जाना जाता है।\n\nहमें अपने आसपास की प्रकृति में उसके दर्शन करने चाहिए। पेड़ों में, पक्षियों में, नदियों में उसी महान शक्ति का अस्तित्व है। जो व्यक्ति सुबह उगते सूर्य को, बहती नदी को और खिलते फूल को ध्यान से देखता है, वह धीरे-धीरे इस सत्य के निकट पहुँचता है।\n\nजब हम प्रकृति से जुड़ते हैं, तो हमें आत्मिक शांति मिलती है। मन का शोर कम होता है और भीतर एक स्थिरता आती है। यही कारण है कि हमारे ऋषि-मुनि वनों में निवास करते थे। वे जानते थे कि प्रकृति की गोद ही सच्चा मंदिर है, जहाँ बिना किसी आडंबर के ईश्वर के दर्शन किए जा सकते हैं।"
       },
       {
         "name": "Section B: Grammar and Writing (35 marks)",
@@ -2507,7 +2523,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section C: Literature (30 marks)",
         "marks": 30,
-        "instructions": "Answer questions based on prescribed texts.",
+        "instructions": "Answer questions based on prescribed texts. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
             "q": "किसी एक कविता का सारांश 50 शब्दों में लिखो और उसका केंद्रीय संदेश बताओ। (8 marks)",
@@ -3075,7 +3091,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
         "instructions": "Read the passage and answer all questions.",
         "questions": [
           {
-            "q": "Artificial intelligence is reshaping industries from healthcare to finance. Machine learning algorithms analyze vast datasets, enabling unprecedented insights. Yet concerns about job displacement and ethical implications persist. This passage discusses: (a) Only benefits of AI (b) AI and its broader implications (c) Only job losses (d) Technology history",
+            "q": "This passage discusses: (a) Only benefits of AI (b) AI and its broader implications (c) Only job losses (d) Technology history",
             "marks": 4,
             "answer": "(b) AI and its broader implications"
           },
@@ -3099,7 +3115,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 4,
             "answer": "By acknowledging both transformative benefits and legitimate concerns, avoiding a one-sided perspective."
           }
-        ]
+        ],
+        "passage": "Artificial intelligence is reshaping industries from healthcare to finance. In hospitals, diagnostic models now flag patterns in scans that a tired human eye may miss on a long shift; in banking, fraud is intercepted in the seconds between a card being swiped and a transaction clearing. Machine learning algorithms analyse vast datasets, enabling unprecedented insights — conclusions no researcher could have reached by hand, drawn from volumes of data no team could read in a lifetime.\n\nYet concerns about job displacement and ethical implications persist, and they deserve to be taken seriously rather than dismissed as pessimism. Roles built on routine analysis are already thinning, and the workers affected are rarely the ones best placed to retrain. The ethical questions cut deeper still. An algorithm trained on biased historical data will reproduce that bias and lend it the false authority of mathematics. Systems that predict behaviour require personal information, placing privacy under steady pressure. And when an automated decision causes harm — a loan refused, a diagnosis missed — accountability becomes genuinely difficult to assign.\n\nNeither enthusiasm nor alarm is an adequate response on its own. The honest position holds both at once: that these tools are transforming what is possible, and that the transformation carries real costs which thoughtful regulation and design must address. Technology of this reach is neither a saviour nor a threat. It is an instrument, and what it becomes depends on the care with which it is built."
       },
       {
         "name": "Section B: Writing Skills",
@@ -3126,20 +3143,20 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section C: Literature and Appreciation",
         "marks": 30,
-        "instructions": "Answer with critical depth and textual support.",
+        "instructions": "Answer with critical depth and textual support. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
-            "q": "Analyze the narrative structure of your prescribed drama/novel. How does it contribute to meaning? (10 marks)",
+            "q": "Analyse the narrative structure of a drama or novel you have studied. How does it contribute to meaning?",
             "marks": 10,
             "answer": "Students should analyze: chronological/non-linear structure, flashbacks, parallel narratives, their purpose, how structure reveals themes, how it affects reader/audience understanding, textual examples."
           },
           {
-            "q": "Discuss the protagonist's moral journey or ethical dilemma in the prescribed text. (10 marks)",
+            "q": "Discuss the protagonist's moral journey or ethical dilemma in a text you have studied. (10 marks)",
             "marks": 10,
             "answer": "Students should: identify dilemma, trace protagonist's struggle, analyze choices made, consequences, growth or lack thereof, author's commentary on morality, relevance to contemporary readers."
           },
           {
-            "q": "Compare thematic concerns across two prescribed texts. How does each author address similar/different issues? (10 marks)",
+            "q": "Compare thematic concerns across two texts you have studied. How does each author address similar/different issues? (10 marks)",
             "marks": 10,
             "answer": "Students compare: identify theme in both texts, analyze how each author explores it, different perspectives/conclusions, textual evidence, significance of differences, what this reveals about the authors."
           }
@@ -5094,7 +5111,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 3,
             "answer": "Optimistic and encouraging, emphasizing the potential and importance of renewable energy transition"
           }
-        ]
+        ],
+        "passage": "PASSAGE 1\n\nThe forests, rivers and soil of a country are not an inheritance to be spent but a loan to be repaid. Protecting these natural resources, and preventing the degradation of the environment, is the only way to ensure that future generations inherit a land as liveable as the one we received.\n\nThe clearest warning is deforestation — the loss of trees from forest areas. Its effects compound one another: animals lose their habitat, unprotected topsoil is carried away as soil erosion, biodiversity is reduced as species vanish, and the greenhouse gases that trees once absorbed accumulate instead, driving climate change.\n\nNo single actor can reverse this. Environmental protection requires collective effort from government, industries and individuals together — laws that are enforced, industries that treat waste as their own responsibility, and citizens who change what they consume.\n\nPASSAGE 2\n\nIf the first problem is what we are losing, the second is what we could gain. Renewable energy comes from natural sources that replenish themselves, and it matters for four connected reasons: it is sustainable, it produces no emissions in use, it reduces our dependence on fossil fuels, and it helps combat climate change.\n\nSolar energy is the most abundant of these. The sunlight falling on the earth in a single hour carries more energy than humanity uses in a year, it is clean at the point of use, and it has become steadily more cost-effective as panel prices have fallen. It can be harnessed in many ways — vast solar farms, rooftop panels, water heaters, even lamps and pumps in villages far from any grid.\n\nWind energy contributes in much the same way. A turbine produces electricity without emissions, the wind that drives it is renewable, and every unit it generates further reduces dependence on fossil fuels.\n\nThe transition will not be effortless. But the direction is set, the technology improves each year, and there is real reason to believe the change can be made in time."
       },
       {
         "name": "Section B - Writing Skills",
@@ -5193,7 +5211,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section D - Literature",
         "marks": 10,
-        "instructions": "Answer questions based on the prescribed texts.",
+        "instructions": "Answer questions based on the prescribed texts. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
             "q": "Who is the protagonist of the story?",
@@ -5979,7 +5997,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 5,
             "answer": "The author provides examples of successful individual initiatives, community projects, and statistics showing measurable environmental improvements from grassroots efforts."
           }
-        ]
+        ],
+        "passage": "Environmental conservation is often described as a task for governments, but it begins far closer to home. It depends on individual and collective effort together — the household that separates its waste, the street that plants and waters trees, the school that stops buying plastic bottles. No law can do this work alone; laws set the direction, and people supply the effort.\n\nTechnological advances have provided us with tools to monitor and reduce pollution, making the problem far easier to act on than it was a generation ago. Cheap air-quality sensors now report readings street by street, so a city can see exactly where its worst air sits. Apps map collection routes for recyclers. Sewage treatment that once demanded vast plants can now be done at the scale of a single housing colony.\n\nCommunities matter most in waste management. A resident welfare association that organises a recycling programme, runs monthly clean-up drives and educates households about segregation achieves in a year what a municipal notice cannot achieve in ten.\n\nIt is fair to ask whether one person changes anything. The evidence says yes. A schoolgirl in Bengaluru whose petition ended single-use plastic in her school district; a colony in Pune that cut landfill waste by sixty per cent through composting; a fisherman in Kerala who has pulled tonnes of plastic from the sea in his nets. Individual initiatives grow into community projects, and community projects are what the statistics eventually record."
       },
       {
         "name": "Section B: Grammar and Vocabulary",
@@ -6028,7 +6047,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section D: Literature",
         "marks": 20,
-        "instructions": "Answer questions based on the prescribed texts and literary concepts.",
+        "instructions": "Answer questions based on the prescribed texts and literary concepts. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
             "q": "Discuss the character of the protagonist and his/her journey of transformation.",
@@ -6036,7 +6055,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "answer": "The protagonist undergoes significant character development from a timid and uncertain individual to a confident and determined person through various challenges and learning experiences throughout the narrative."
           },
           {
-            "q": "Explain the significance of the title of the prescribed novel.",
+            "q": "Explain the significance of the title of a novel you have studied.",
             "marks": 5,
             "answer": "The title symbolizes the central theme of the story, representing the protagonists quest for self-discovery and the breaking down of societal barriers that limit personal growth."
           },
@@ -6740,7 +6759,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 10,
             "answer": "The passage connects to climate change and resource depletion through its emphasis on sustainable practices and the finite nature of resources, showing relevance to current environmental crises."
           }
-        ]
+        ],
+        "passage": "The earth does not belong to us in the way a house belongs to its owner. It is better understood as a living organism whose health we share — when its rivers are poisoned, something in us is poisoned too. That metaphor is not decoration. It is the most accurate description we have of a relationship in which the damage we do returns to us.\n\nThe figures are not in dispute. India loses roughly 1.6 million hectares of tree cover a decade. Groundwater in more than half of the country's districts is falling faster than it is replenished. Twenty-one of the world's thirty most polluted cities lie within our borders. Statistics of this kind provide concrete evidence for what would otherwise remain an argument about feelings.\n\nAnd yet the response is usually framed as a choice: either governments must act, or individuals must. This is a false division. Individual and collective responsibility are equally important — regulation without public will is unenforceable, and public will without regulation is merely well-intentioned. Ask yourself which of the two you have been waiting for, and whether the waiting has produced anything.\n\nThese are not distant concerns. Climate change and resource depletion are the same problem viewed over different timescales, and sustainable practice is the only response that addresses both. The generation now in school will spend its working life inside the consequences of decisions being taken, or avoided, this decade."
       },
       {
         "name": "Section B: Writing Skills",
@@ -6789,10 +6809,10 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section D: Literature and Critical Reading",
         "marks": 20,
-        "instructions": "Answer questions on prescribed texts and literary analysis.",
+        "instructions": "Answer questions on prescribed texts and literary analysis. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
-            "q": "Analyze the character development of the protagonist in the prescribed novel.",
+            "q": "Analyse the character development of the protagonist in a novel you have studied.",
             "marks": 10,
             "answer": "The protagonist evolves from an introverted, self-doubting individual to a confident leader through experiences of adversity and moral learning. Key turning points include confronting personal fears and choosing integrity over convenience."
           },
@@ -6849,7 +6869,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 5,
             "answer": "The author adopts an academic yet accessible tone that builds trust. The conversational style makes complex ideas understandable without compromising rigor."
           }
-        ]
+        ],
+        "passage": "Begin with what is already happening. A radiologist in Chennai reviews scans alongside a model that flags anomalies she might overlook at the end of a long shift. A bank intercepts a fraudulent transaction in the moment between a card being swiped and the payment clearing. A farmer receives a sowing date calculated from satellite imagery and thirty years of local rainfall. None of this is speculative; all of it is in use today.\n\nFrom these examples a general principle emerges. Artificial intelligence is best understood not as an intelligence at all but as an instrument of pattern recognition operating at a scale no human institution can match. Its power and its danger have the same source. A system that finds patterns in historical data will faithfully reproduce the injustices recorded in that data, and will present them with the unearned authority of arithmetic. Where a human prejudice can be argued with, an algorithmic one is frequently invisible.\n\nWhat follows is practical rather than alarmed. AI is a transformative tool that requires ethical guardrails, and those guardrails are specific and buildable: auditable training data, a named human accountable for every automated decision affecting a person's livelihood, and a legal right to an explanation. Societies that build these now will keep the benefits. Those that wait will find the systems already load-bearing and far harder to correct."
       },
       {
         "name": "Section B: Advanced Writing Skills",
@@ -6901,12 +6922,12 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
         "instructions": "Demonstrate deep literary understanding and critical analysis.",
         "questions": [
           {
-            "q": "Compare the narrative techniques of two prescribed novels, discussing how they serve thematic purposes.",
+            "q": "Compare the narrative techniques of two novels you have studied, discussing how they serve thematic purposes.",
             "marks": 10,
             "answer": "Novel A uses first-person narrative creating intimate access to the protagonists psychology, reinforcing themes of self-discovery. Novel B employs third-person omniscient narration allowing broader perspective on societal impact, supporting its theme of individual versus society."
           },
           {
-            "q": "Analyze the use of symbolism in the prescribed poetry to discuss deeper meanings.",
+            "q": "Analyse the use of symbolism in a poem you have studied to discuss its deeper meanings.",
             "marks": 10,
             "answer": "Symbols such as light represent hope, darkness represents despair or ignorance, and journeys represent life paths. These recurring symbols create thematic cohesion and invite multiple interpretations."
           },
@@ -7082,7 +7103,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 5,
             "answer": "The tone is optimistic and encouraging, suggesting that technology and creativity are complementary forces that together can solve problems and improve human life."
           }
-        ]
+        ],
+        "passage": "There is an old fear that machines will one day make human imagination unnecessary. Watch a designer work with modern software, however, and the opposite seems true. The tools have not replaced her judgement; they have removed the drudgery that used to consume her afternoons, leaving her free to spend that time on the part only she can do — deciding what is worth making in the first place. Technology, in other words, enhances human creativity rather than replacing it.\n\nThis is why the innovations that succeed are almost never purely technical achievements. A breakthrough needs two things at once: the technological capability to build it, and the human imagination to see why anyone would want it. Capability without imagination produces clever products nobody uses. Imagination without capability produces beautiful ideas that never leave the notebook. Real innovation lives where the two meet.\n\nThe evidence is easy to find. The technology companies that endure are the ones that pair engineering strength with designers, writers and researchers who ask what people actually need. Equally, the creative professionals whose work reaches the widest audiences — film-makers, musicians, illustrators — are usually the ones who learned the new tools early and bent them to their own purposes rather than waiting to be told what the tools were for.\n\nThere is every reason to be optimistic. Technology and creativity are not rivals competing for the same ground; they are complementary forces, and the problems worth solving in the coming decades will need both of them working together."
       },
       {
         "name": "Section B: Writing Abilities",
@@ -7131,7 +7153,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section D: Literature and Comprehension",
         "marks": 20,
-        "instructions": "Answer questions on prescribed texts.",
+        "instructions": "Answer questions on prescribed texts. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
             "q": "Discuss the character of the protagonist and explain his/her motivations.",
@@ -7139,7 +7161,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "answer": "The protagonist is driven by personal ambition initially but undergoes transformation through experiences and relationships. Key motivations include desire for success, family loyalty, and eventually, personal integrity."
           },
           {
-            "q": "Analyze the theme of the prescribed novel and show how it is developed.",
+            "q": "Analyse the theme of a novel you have studied and show how it is developed.",
             "marks": 10,
             "answer": "The theme of resilience is developed through the protagonists journey facing repeated setbacks yet continuing to strive. The author uses conflicts, character interactions, and symbolic events to reinforce this central theme throughout the narrative."
           }
@@ -7621,7 +7643,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 2,
             "answer": "The tone is informative and encouraging, motivating readers to adopt sustainable practices."
           }
-        ]
+        ],
+        "passage": "Every choice we make at home leaves a mark on the planet. Scientists call the total effect of those choices our carbon footprint — the amount of greenhouse gas released because of the way we travel, eat, shop and use electricity. The encouraging news is that this footprint is not fixed. It shrinks the moment we begin living sustainably.\n\nTo live sustainably means to live in a way that does not use up natural resources faster than the earth can replace them — a way of living that could continue indefinitely without harming future generations. It does not demand dramatic sacrifice. It asks for steady, ordinary habits.\n\nConsider the rooftops of many Indian homes today. Solar panels installed there turn free sunlight into electricity, and every unit generated is a unit that did not have to be burned from coal or diesel. Solar power is a clear example of renewable energy — energy drawn from a source that refills itself — and the more we use it, the less we depend on fossil fuels.\n\nThere is a great deal an individual can do. Segregate waste and recycle paper, glass and metal. Switch to renewable energy where you can. Close the tap while brushing and repair leaking pipes to conserve water. Refuse single-use plastic bags, bottles and straws, and carry a cloth bag instead. None of these acts is difficult, and none of them is too small to matter.\n\nIf a hundred people in a colony make these changes, the saving is no longer small. That is the quiet power of sustainable living: it begins with one household and spreads."
       },
       {
         "name": "Section B - Grammar and Vocabulary",
@@ -7685,15 +7708,15 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       {
         "name": "Section D - Literature",
         "marks": 18,
-        "instructions": "Answer all 3 questions based on the prescribed texts. Each question carries 6 marks.",
+        "instructions": "Answer all 3 questions based on the prescribed texts. Each question carries 6 marks. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
-            "q": "Describe the character of the protagonist in the prescribed story. What are his/her key qualities?",
+            "q": "Describe the character of the protagonist in a story you have studied. What are his/her key qualities?",
             "marks": 6,
             "answer": "The protagonist is courageous, kind, and determined. He demonstrates resilience in facing challenges and shows compassion towards others. His loyalty to friends and moral values guide his actions throughout the narrative."
           },
           {
-            "q": "What is the central theme of the prescribed poem? Explain with examples from the text.",
+            "q": "What is the central theme of a poem you have studied? Explain with examples from the text.",
             "marks": 6,
             "answer": "The central theme is the power of nature and human connection. The poem illustrates how nature inspires wonder and brings people together, emphasizing harmony between humans and the environment."
           },
@@ -7760,7 +7783,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
             "marks": 2,
             "answer": "Good friends are valuable treasures in life, and we should nurture our friendships with care and sincerity."
           }
-        ]
+        ],
+        "passage": "Ravi had just moved to a new town and the first day at his new school felt very long. He sat alone at lunch, staring at his tiffin box, until a boy named Arjun slid onto the bench beside him and offered him half a guava. They talked about cricket until the bell rang.\n\nFriends matter because they carry a part of what we feel. When something wonderful happens, a friend doubles the joy by celebrating with us; when something goes wrong, a friend halves the sorrow simply by listening. Good friends also change us for the better — they correct us gently when we are wrong and encourage us when we doubt ourselves.\n\nAt the centre of every real friendship is trust. Trust is the foundation on which a friendship stands; without it, no friendship can be meaningful or last very long. A friend who keeps our secrets and tells us the truth, even when the truth is uncomfortable, is worth far more than a hundred cheerful companions who disappear the moment we need help.\n\nHow, then, should we treat our friends? With honesty, respect and kindness. We should be loyal and supportive, remember what matters to them, and forgive small mistakes. Good friends are valuable treasures in life, and like all treasures they must be looked after — nurtured with care and sincerity, year after year."
       },
       {
         "name": "Section B - Grammar and Vocabulary",
