@@ -39,7 +39,23 @@ export function getRevisionNotes(root) {
 export function getSamplePapers(root) {
   return readArray(root, 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = ')
     .filter((p) => p && p.slug && p.title)
-    .map((p) => ({ slug: p.slug, classLevel: p.classLevel, subject: p.subject, title: p.title, intro: String(p.intro || '').slice(0, 155) }));
+    // `intro` stays clipped for the meta description; the prerender needs the
+    // FULL paper (sections, passages, questions, answers) to emit a crawlable
+    // body. Before this it got only these five fields, so every
+    // /sample-papers/* page shipped a title and no content whatsoever.
+    .map((p) => ({
+      slug: p.slug,
+      classLevel: p.classLevel,
+      subject: p.subject,
+      title: p.title,
+      intro: String(p.intro || '').slice(0, 155),
+      introFull: String(p.intro || ''),
+      board: p.board || 'CBSE',
+      duration: p.duration || '',
+      totalMarks: p.totalMarks || 0,
+      sections: Array.isArray(p.sections) ? p.sections : [],
+      faqs: Array.isArray(p.faqs) ? p.faqs : [],
+    }));
 }
 
 export function getFormulaSheets(root) {

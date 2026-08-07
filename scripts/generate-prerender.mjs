@@ -1710,11 +1710,42 @@ ROUTES.push({
   keywords: 'CBSE sample papers, class 10 sample paper, class 9 sample paper, class 12 sample paper, model question paper, sample paper with solutions, practice paper',
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'CBSE Sample Papers', url: `${SITE}/sample-papers`, inLanguage: 'en-IN', isAccessibleForFree: true },
 });
+/**
+ * Crawlable body for a sample paper. These pages previously shipped title +
+ * description + BreadcrumbList and NOTHING else — a crawler saw no passage, no
+ * questions and no answers on the site's best-converting cluster. Now the whole
+ * paper is in the static HTML, including the unseen passages.
+ */
+function samplePaperBody(p) {
+  const secs = (p.sections || []).map((s) => {
+    const passage = s.passage
+      ? `<blockquote>${String(s.passage).split('\n\n').map((para) => `<p>${esc(para)}</p>`).join('')}</blockquote>`
+      : '';
+    const qs = (s.questions || []).map((q, i) =>
+      `<div class="qa"><h4>Q${i + 1}. ${esc(q.q)} <em>(${q.marks} mark${q.marks > 1 ? 's' : ''})</em></h4><p><strong>Answer:</strong> ${esc(q.answer)}</p></div>`).join('');
+    return `<h2>${esc(s.name)} — ${s.marks} marks</h2><p><em>${esc(s.instructions)}</em></p>${passage}${qs}`;
+  }).join('');
+  const faqs = (p.faqs || []).length
+    ? `<h2>FAQs</h2>${p.faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+  const meta = [
+    p.board && `<strong>Board:</strong> ${esc(String(p.board))}`,
+    p.classLevel && `<strong>Class:</strong> ${esc(String(p.classLevel))}`,
+    p.subject && `<strong>Subject:</strong> ${esc(String(p.subject))}`,
+    p.totalMarks && `<strong>Total:</strong> ${esc(String(p.totalMarks))} marks`,
+    p.duration && `<strong>Time:</strong> ${esc(String(p.duration))}`,
+  ].filter(Boolean).join(' · ');
+  return `<p class="speakable">${esc(String(p.introFull || p.intro || ''))}</p>
+    <p>${meta}</p>
+    ${secs}${faqs}
+    <p><a href="/sample-papers">All sample papers →</a> · <a href="/pyqs">Previous-year questions →</a> · <a href="/mcqs">Chapter-wise MCQs →</a></p>`;
+}
+
 for (const p of SAMPLE_DATA) {
   ROUTES.push({
     path: `/sample-papers/${p.slug}`,
     title: `${p.title} — Free PDF | Syllab.in`,
     description: p.intro,
+    bodyHtml: samplePaperBody(p),
     keywords: `${(p.classLevel||'').toLowerCase()} ${(p.subject||'').toLowerCase()} sample paper, cbse ${(p.subject||'').toLowerCase()} sample paper, ${(p.classLevel||'').toLowerCase()} model paper`,
     jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Sample Papers', item: `${SITE}/sample-papers` },

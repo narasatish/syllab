@@ -39,13 +39,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 10 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper follows the latest CBSE Class 10 Maths exam pattern with 40 questions spread across four sections. Practice this paper to master all chapters and boost your board exam score.",
+    "intro": "This sample paper follows the latest CBSE Class 10 Maths exam pattern with 40 questions spread across four sections. Practice this paper to master all chapters and boost your board exam score. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 35,
     "sections": [
       {
         "name": "Section A - MCQs",
-        "marks": 20,
+        "marks": 5,
         "instructions": "Answer all 20 multiple choice questions.",
         "questions": [
           {
@@ -77,8 +77,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Find the HCF of 210 and 55 using Euclidean algorithm.",
@@ -109,8 +109,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 24,
-        "instructions": "Answer all 8 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Solve the system: 2x + 3y = 8 and 3x + 2y = 7",
@@ -136,8 +136,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "marks": 8,
+        "instructions": "Answer all 2 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "A cone has height 12 cm and base radius 5 cm. Find its curved surface area and total surface area.",
@@ -173,13 +173,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 10 Science Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive science sample paper covers Physics, Chemistry, and Biology with questions from all major chapters. Use this to assess your preparation and familiarize yourself with the exam pattern.",
+    "intro": "This comprehensive science sample paper covers Physics, Chemistry, and Biology with questions from all major chapters. Use this to assess your preparation and familiarize yourself with the exam pattern. This is a shortened practice set: 17 questions worth 40 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 40,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 16,
+        "marks": 4,
         "instructions": "Answer all 16 multiple choice questions.",
         "questions": [
           {
@@ -206,8 +206,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 28,
-        "instructions": "Answer all 14 questions, each carrying 2 marks.",
+        "marks": 14,
+        "instructions": "Answer all 7 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "What is myopia? How can it be corrected?",
@@ -248,8 +248,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Explain the process of photosynthesis with a chemical equation.",
@@ -275,8 +275,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (5 marks)",
-        "marks": 18,
-        "instructions": "Answer all 3 questions, with internal choice; each carrying 5 marks.",
+        "marks": 10,
+        "instructions": "Answer all 2 questions, with internal choice; each carrying 5 marks.",
         "questions": [
           {
             "q": "Describe the structure and function of a neuron. OR Explain the process of fertilization in plants.",
@@ -312,13 +312,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Social Science",
     "board": "CBSE",
     "title": "CBSE Class 10 Social Science Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper integrates History, Geography, Political Science, and Economics covering key topics from the syllabus. Attempt this to gauge your understanding and improve answers on contemporary issues.",
+    "intro": "This sample paper integrates History, Geography, Political Science, and Economics covering key topics from the syllabus. Attempt this to gauge your understanding and improve answers on contemporary issues. This is a shortened practice set: 17 questions worth 40 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 40,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 16,
+        "marks": 4,
         "instructions": "Answer all 16 multiple choice questions.",
         "questions": [
           {
@@ -345,8 +345,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 28,
-        "instructions": "Answer all 14 questions, each carrying 2 marks.",
+        "marks": 14,
+        "instructions": "Answer all 7 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "What is democracy? Name any two features of democracy.",
@@ -387,8 +387,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Describe the main features of the Indian Constitution.",
@@ -414,8 +414,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (5 marks)",
-        "marks": 18,
-        "instructions": "Answer all 3 questions with internal choice; each carrying 5 marks.",
+        "marks": 10,
+        "instructions": "Answer all 2 questions with internal choice; each carrying 5 marks.",
         "questions": [
           {
             "q": "Explain the concept of national integration. What are its challenges in India? OR How is India addressing gender inequality in education and employment?",
@@ -451,13 +451,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "CBSE Class 10 English Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper covers Reading Comprehension, Writing, Grammar, and Literature based on the latest CBSE syllabus. Practice this to improve language skills and scoring in the board exam.",
+    "intro": "This sample paper covers Reading Comprehension, Writing, Grammar, and Literature based on the latest CBSE syllabus. Practice this to improve language skills and scoring in the board exam. This is a shortened practice set: 12 questions worth 36 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 36,
     "sections": [
       {
         "name": "Section A - Reading Comprehension",
-        "marks": 20,
+        "marks": 6,
         "instructions": "Read the given passages and answer the questions based on them.",
         "questions": [
           {
@@ -480,7 +480,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Writing",
-        "marks": 20,
+        "marks": 10,
         "instructions": "Complete the writing tasks as instructed.",
         "questions": [
           {
@@ -497,7 +497,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Grammar",
-        "marks": 15,
+        "marks": 7,
         "instructions": "Attempt all grammar questions.",
         "questions": [
           {
@@ -524,7 +524,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Literature",
-        "marks": 25,
+        "marks": 13,
         "instructions": "Answer questions based on prescribed texts and poems. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
@@ -566,13 +566,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 9 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper covers all chapters of Class 9 Maths with questions on number systems, polynomials, geometry, and statistics. Solve this to strengthen your foundation for Class 10.",
+    "intro": "This sample paper covers all chapters of Class 9 Maths with questions on number systems, polynomials, geometry, and statistics. Solve this to strengthen your foundation for Class 10. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 35,
     "sections": [
       {
         "name": "Section A - MCQs",
-        "marks": 20,
+        "marks": 5,
         "instructions": "Answer all 20 multiple choice questions.",
         "questions": [
           {
@@ -604,8 +604,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Simplify: (2^3 * 3^2) / (2^2 * 3)",
@@ -636,8 +636,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 24,
-        "instructions": "Answer all 8 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Express 0.37 as a fraction.",
@@ -663,8 +663,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "marks": 8,
+        "instructions": "Answer all 2 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Construct an angle of 75 degrees using compass and ruler.",
@@ -700,13 +700,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 9 Science Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive sample paper covers Physics, Chemistry, and Biology chapters for Class 9. Practice to understand concepts thoroughly and prepare effectively for your board exams.",
+    "intro": "This comprehensive sample paper covers Physics, Chemistry, and Biology chapters for Class 9. Practice to understand concepts thoroughly and prepare effectively for your board exams. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 35,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 20,
+        "marks": 5,
         "instructions": "Answer all 20 multiple choice questions.",
         "questions": [
           {
@@ -738,8 +738,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Define velocity and speed. How do they differ?",
@@ -770,8 +770,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 24,
-        "instructions": "Answer all 8 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Explain Newton's first law of motion with an example.",
@@ -797,8 +797,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "marks": 8,
+        "instructions": "Answer all 2 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Explain the water cycle. How is it important for life on Earth?",
@@ -834,13 +834,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "CBSE Class 9 English Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper integrates reading, writing, grammar, and literature covering all prescribed texts. Practice this paper to develop language proficiency and score well in the exam.",
+    "intro": "This sample paper integrates reading, writing, grammar, and literature covering all prescribed texts. Practice this paper to develop language proficiency and score well in the exam. This is a shortened practice set: 11 questions worth 42 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 42,
     "sections": [
       {
         "name": "Section A - Reading Comprehension",
-        "marks": 20,
+        "marks": 11,
         "instructions": "Read the passages and answer questions based on comprehension.",
         "questions": [
           {
@@ -863,7 +863,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Writing",
-        "marks": 20,
+        "marks": 10,
         "instructions": "Attempt the writing tasks as instructed.",
         "questions": [
           {
@@ -880,7 +880,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Grammar",
-        "marks": 15,
+        "marks": 7,
         "instructions": "Complete all grammar exercises.",
         "questions": [
           {
@@ -902,7 +902,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Literature",
-        "marks": 25,
+        "marks": 14,
         "instructions": "Answer questions based on prescribed poems and stories. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
         "questions": [
           {
@@ -944,13 +944,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Social Science",
     "board": "CBSE",
     "title": "CBSE Class 9 Social Science Sample Paper 2026 (with Solutions)",
-    "intro": "This integrated sample paper covers History, Geography, Political Science, and Economics for Class 9. Solve this to master concepts and prepare for your annual examination.",
+    "intro": "This integrated sample paper covers History, Geography, Political Science, and Economics for Class 9. Solve this to master concepts and prepare for your annual examination. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 35,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 20,
+        "marks": 5,
         "instructions": "Answer all 20 multiple choice questions.",
         "questions": [
           {
@@ -982,8 +982,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "What is socialism? Name any two socialist leaders.",
@@ -1014,8 +1014,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 24,
-        "instructions": "Answer all 8 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Explain the causes of the French Revolution.",
@@ -1041,8 +1041,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "marks": 8,
+        "instructions": "Answer all 2 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Describe the impact of Industrial Revolution on society and economy.",
@@ -1078,13 +1078,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 12 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This advanced sample paper covers calculus, algebra, and statistics with focus on board exam patterns. Practice this comprehensive paper to secure high marks in the final exam.",
+    "intro": "This advanced sample paper covers calculus, algebra, and statistics with focus on board exam patterns. Practice this comprehensive paper to secure high marks in the final exam. This is a shortened practice set: 15 questions worth 39 marks, following the 100-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 100,
+    "totalMarks": 39,
     "sections": [
       {
         "name": "Section A - MCQs",
-        "marks": 20,
+        "marks": 5,
         "instructions": "Answer all 20 multiple choice questions.",
         "questions": [
           {
@@ -1116,8 +1116,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Find the derivative of log(x) + x^3 with respect to x.",
@@ -1148,8 +1148,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (4 marks)",
-        "marks": 24,
-        "instructions": "Answer all 6 questions, each carrying 4 marks.",
+        "marks": 12,
+        "instructions": "Answer all 3 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Solve the system of linear equations using matrices: 2x + y = 5, x + 2y = 4",
@@ -1170,8 +1170,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (6 marks)",
-        "marks": 36,
-        "instructions": "Answer all 6 questions with internal choices; each carrying 6 marks.",
+        "marks": 12,
+        "instructions": "Answer all 2 questions with internal choices; each carrying 6 marks.",
         "questions": [
           {
             "q": "Solve the differential equation: dy/dx - 2y = e^(3x). OR Find the second derivative of sin(x^2) with respect to x.",
@@ -1207,13 +1207,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Physics",
     "board": "CBSE",
     "title": "CBSE Class 12 Physics Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive physics sample paper covers electromagnetism, optics, modern physics, and mechanics. Prepare thoroughly using this paper to excel in the board examination.",
+    "intro": "This comprehensive physics sample paper covers electromagnetism, optics, modern physics, and mechanics. Prepare thoroughly using this paper to excel in the board examination. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 34,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 16,
+        "marks": 4,
         "instructions": "Answer all 16 multiple choice questions.",
         "questions": [
           {
@@ -1240,8 +1240,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Define electric dipole moment. What is its SI unit?",
@@ -1272,8 +1272,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Derive the expression for electric field due to an infinite uniformly charged sheet.",
@@ -1299,8 +1299,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "marks": 8,
+        "instructions": "Answer all 2 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Derive Coulomb's law using Gauss's law.",
@@ -1336,13 +1336,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Chemistry",
     "board": "CBSE",
     "title": "CBSE Class 12 Chemistry Sample Paper 2026 (with Solutions)",
-    "intro": "This integrated chemistry sample paper covers organic, inorganic, and physical chemistry aligned with the board syllabus. Solve this to strengthen your chemistry concepts and exam readiness.",
+    "intro": "This integrated chemistry sample paper covers organic, inorganic, and physical chemistry aligned with the board syllabus. Solve this to strengthen your chemistry concepts and exam readiness. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 34,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 16,
+        "marks": 4,
         "instructions": "Answer all 16 multiple choice questions.",
         "questions": [
           {
@@ -1369,8 +1369,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "What is the oxidation state of nitrogen in HNO3 and NO2?",
@@ -1401,8 +1401,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Explain the structure of benzene and why it is stable.",
@@ -1428,8 +1428,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "marks": 8,
+        "instructions": "Answer all 2 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Explain the mechanism of SN2 reaction with an example.",
@@ -1465,13 +1465,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Biology",
     "board": "CBSE",
     "title": "CBSE Class 12 Biology Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive biology sample paper covers genetics, evolution, ecology, and human physiology aligned with the latest curriculum. Practice this to master all concepts for the board exam.",
+    "intro": "This comprehensive biology sample paper covers genetics, evolution, ecology, and human physiology aligned with the latest curriculum. Practice this to master all concepts for the board exam. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 34,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 16,
+        "marks": 4,
         "instructions": "Answer all 16 multiple choice questions.",
         "questions": [
           {
@@ -1498,8 +1498,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Define biodiversity. Why is it important?",
@@ -1530,8 +1530,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Explain the process of photosynthesis and its two main stages.",
@@ -1557,8 +1557,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "marks": 8,
+        "instructions": "Answer all 2 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Explain the genetic code and the process of translation.",
@@ -1594,13 +1594,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 11 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper covers complex numbers, sequences, trigonometry, and basic calculus concepts for Class 11. Practice this to build a strong foundation for advanced mathematics.",
+    "intro": "This sample paper covers complex numbers, sequences, trigonometry, and basic calculus concepts for Class 11. Practice this to build a strong foundation for advanced mathematics. This is a shortened practice set: 16 questions worth 43 marks, following the 100-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 100,
+    "totalMarks": 43,
     "sections": [
       {
         "name": "Section A - MCQs",
-        "marks": 20,
+        "marks": 5,
         "instructions": "Answer all 20 multiple choice questions.",
         "questions": [
           {
@@ -1632,8 +1632,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Find the modulus and argument of the complex number 1 + i.",
@@ -1664,8 +1664,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (4 marks)",
-        "marks": 24,
-        "instructions": "Answer all 6 questions, each carrying 4 marks.",
+        "marks": 16,
+        "instructions": "Answer all 4 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Solve: (2 + i)^2 and express in the form a + ib.",
@@ -1691,8 +1691,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (6 marks)",
-        "marks": 36,
-        "instructions": "Answer all 6 questions with internal choices; each carrying 6 marks.",
+        "marks": 12,
+        "instructions": "Answer all 2 questions with internal choices; each carrying 6 marks.",
         "questions": [
           {
             "q": "Derive the formula for the sum of n terms of a GP. OR Solve the inequality |x - 1| < 3 and represent on number line.",
@@ -1728,13 +1728,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Physics",
     "board": "CBSE",
     "title": "CBSE Class 11 Physics Sample Paper 2026 (with Solutions)",
-    "intro": "This foundational physics sample paper covers mechanics, thermodynamics, and waves for Class 11. Practice this to master core concepts essential for Class 12 and competitive exams.",
+    "intro": "This foundational physics sample paper covers mechanics, thermodynamics, and waves for Class 11. Practice this to master core concepts essential for Class 12 and competitive exams. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 34,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 16,
+        "marks": 4,
         "instructions": "Answer all 16 multiple choice questions.",
         "questions": [
           {
@@ -1761,8 +1761,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 20,
-        "instructions": "Answer all 10 questions, each carrying 2 marks.",
+        "marks": 10,
+        "instructions": "Answer all 5 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Define relative velocity. Give one example.",
@@ -1793,8 +1793,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions, each carrying 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Derive the equation of motion: v = u + at",
@@ -1820,8 +1820,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "marks": 8,
+        "instructions": "Answer all 2 questions, each carrying 4 marks.",
         "questions": [
           {
             "q": "Derive the centripetal force equation for circular motion.",
@@ -1859,7 +1859,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "title": "CBSE Class 10 Mathematics Sample Paper 2026 Set 2 (with Solutions)",
     "intro": "This sample paper follows the latest CBSE curriculum with a mix of arithmetic, algebra, geometry, and statistics. Solve all sections carefully to master key concepts for your board exam.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 110,
     "sections": [
       {
         "name": "Section A: Very Short Answer (1 mark each)",
@@ -1970,7 +1970,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B: Short Answer (2 marks each)",
-        "marks": 20,
+        "marks": 30,
         "instructions": "Answer any 10 questions from the 15 given, showing working.",
         "questions": [
           {
@@ -2052,7 +2052,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C: Long Answer (4 marks each)",
-        "marks": 40,
+        "marks": 60,
         "instructions": "Answer any 10 questions from the 15 given. Show full working and reasoning.",
         "questions": [
           {
@@ -2156,7 +2156,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "title": "CBSE Class 10 Science Sample Paper 2026 Set 2 (with Solutions)",
     "intro": "This sample paper covers Physics, Chemistry, and Biology topics from the CBSE curriculum. Test your understanding of fundamental concepts and their real-world applications.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 110,
     "sections": [
       {
         "name": "Section A: Multiple Choice (1 mark each)",
@@ -2267,7 +2267,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B: Short Answer (2 marks each)",
-        "marks": 20,
+        "marks": 30,
         "instructions": "Answer any 10 questions briefly.",
         "questions": [
           {
@@ -2349,7 +2349,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C: Long Answer (4 marks each)",
-        "marks": 40,
+        "marks": 60,
         "instructions": "Answer any 10 questions with detailed explanations.",
         "questions": [
           {
@@ -2451,9 +2451,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Hindi",
     "board": "CBSE",
     "title": "CBSE Class 10 Hindi Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper tests your Hindi language skills including reading comprehension, grammar, writing, and literature. Master both prose and poetry from the CBSE curriculum.",
+    "intro": "This sample paper tests your Hindi language skills including reading comprehension, grammar, writing, and literature. Master both prose and poetry from the CBSE curriculum. This is a shortened practice set: 14 questions worth 75 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 75,
     "sections": [
       {
         "name": "Section A: Reading Comprehension (15 marks)",
@@ -2490,7 +2490,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B: Grammar and Writing (35 marks)",
-        "marks": 35,
+        "marks": 30,
         "instructions": "Complete all grammar and writing exercises.",
         "questions": [
           {
@@ -2571,7 +2571,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "title": "CBSE Class 9 Mathematics Sample Paper 2026 Set 2 (with Solutions)",
     "intro": "This comprehensive sample paper tests your knowledge of Class 9 Maths including number systems, geometry, and statistics. Practice regularly to strengthen your foundation for higher classes.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 110,
     "sections": [
       {
         "name": "Section A: Multiple Choice",
@@ -2682,7 +2682,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B: Short Answer",
-        "marks": 20,
+        "marks": 30,
         "instructions": "Answer any 10 questions briefly with working.",
         "questions": [
           {
@@ -2764,7 +2764,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C: Long Answer",
-        "marks": 40,
+        "marks": 60,
         "instructions": "Answer any 10 questions with detailed working.",
         "questions": [
           {
@@ -2868,7 +2868,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "title": "CBSE Class 8 Mathematics Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper covers the fundamental concepts of Class 8 Maths including algebra, geometry, and data handling. Master the basics to build a strong foundation.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 100,
     "sections": [
       {
         "name": "Section A: Short Questions",
@@ -2979,7 +2979,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B: Long Answer Questions",
-        "marks": 40,
+        "marks": 60,
         "instructions": "Answer any 10 questions with detailed working.",
         "questions": [
           {
@@ -3184,9 +3184,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 10 Mathematics Sample Paper Set 3",
-    "intro": "This sample paper follows the latest CBSE Class 10 Mathematics curriculum with a balanced mix of algebra, geometry, trigonometry, and statistics. Practice real exam-pattern questions covering all chapters with detailed solutions.",
+    "intro": "This sample paper follows the latest CBSE Class 10 Mathematics curriculum with a balanced mix of algebra, geometry, trigonometry, and statistics. Practice real exam-pattern questions covering all chapters with detailed solutions. This is a shortened practice set: 41 questions worth 75 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 75,
     "sections": [
       {
         "name": "Section A - Very Short Answer",
@@ -3364,7 +3364,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer",
-        "marks": 36,
+        "marks": 31,
         "instructions": "Attempt all questions. Each question carries 3 or 4 marks.",
         "questions": [
           {
@@ -3436,9 +3436,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 10 Science Sample Paper Set 3",
-    "intro": "This comprehensive sample paper covers Physics, Chemistry, and Biology chapters with a balanced mix of theoretical and practical questions. Master all concepts with original CBSE-pattern problems and detailed answers.",
+    "intro": "This comprehensive sample paper covers Physics, Chemistry, and Biology chapters with a balanced mix of theoretical and practical questions. Master all concepts with original CBSE-pattern problems and detailed answers. This is a shortened practice set: 38 questions worth 74 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 74,
     "sections": [
       {
         "name": "Section A - Multiple Choice and Very Short Answer",
@@ -3549,7 +3549,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer",
-        "marks": 30,
+        "marks": 28,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -3616,7 +3616,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer",
-        "marks": 30,
+        "marks": 26,
         "instructions": "Attempt all questions. Each question carries 3 or 5 marks.",
         "questions": [
           {
@@ -3673,9 +3673,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 9 Science Sample Paper Set 2",
-    "intro": "This sample paper covers all key topics in Class 9 Science including motion, forces, matter, atoms, and life processes. Practice comprehensive questions designed to build conceptual understanding and exam readiness.",
+    "intro": "This sample paper covers all key topics in Class 9 Science including motion, forces, matter, atoms, and life processes. Practice comprehensive questions designed to build conceptual understanding and exam readiness. This is a shortened practice set: 38 questions worth 73 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 73,
     "sections": [
       {
         "name": "Section A - Objective Type Questions",
@@ -3786,7 +3786,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 30,
+        "marks": 27,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -3853,7 +3853,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 30,
+        "marks": 26,
         "instructions": "Attempt all questions. Each question carries 3 or 5 marks.",
         "questions": [
           {
@@ -3910,9 +3910,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Social Science",
     "board": "CBSE",
     "title": "CBSE Class 9 Social Science Sample Paper Set 2",
-    "intro": "Comprehensive sample paper covering History, Geography, Economics, and Civics for Class 9 students. Practice questions on Indian independence, natural resources, democracy, and global citizenship with complete solutions.",
+    "intro": "Comprehensive sample paper covering History, Geography, Economics, and Civics for Class 9 students. Practice questions on Indian independence, natural resources, democracy, and global citizenship with complete solutions. This is a shortened practice set: 38 questions worth 73 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 73,
     "sections": [
       {
         "name": "Section A - Objective Type Questions",
@@ -4023,7 +4023,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 30,
+        "marks": 27,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -4090,7 +4090,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 30,
+        "marks": 26,
         "instructions": "Attempt all questions. Each question carries 3 or 5 marks.",
         "questions": [
           {
@@ -4147,9 +4147,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Physics",
     "board": "CBSE",
     "title": "CBSE Class 12 Physics Sample Paper Set 2",
-    "intro": "Advanced physics sample paper covering electromagnetism, optics, modern physics, and nuclear physics. Solve comprehensive numerical and theoretical problems with detailed explanations.",
+    "intro": "Advanced physics sample paper covering electromagnetism, optics, modern physics, and nuclear physics. Solve comprehensive numerical and theoretical problems with detailed explanations. This is a shortened practice set: 27 questions worth 68 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 68,
     "sections": [
       {
         "name": "Section A - Multiple Choice Questions",
@@ -4200,7 +4200,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 34,
+        "marks": 27,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -4267,7 +4267,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 28,
+        "marks": 33,
         "instructions": "Attempt all questions. Each question carries 4 or 5 marks.",
         "questions": [
           {
@@ -4329,9 +4329,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Chemistry",
     "board": "CBSE",
     "title": "CBSE Class 12 Chemistry Sample Paper Set 2",
-    "intro": "Comprehensive chemistry sample paper covering organic, inorganic, and physical chemistry topics. Master reactions, mechanisms, and calculations with detailed solutions for Class 12 board exams.",
+    "intro": "Comprehensive chemistry sample paper covering organic, inorganic, and physical chemistry topics. Master reactions, mechanisms, and calculations with detailed solutions for Class 12 board exams. This is a shortened practice set: 27 questions worth 69 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 69,
     "sections": [
       {
         "name": "Section A - Objective Type Questions",
@@ -4382,7 +4382,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 34,
+        "marks": 28,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -4449,7 +4449,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 28,
+        "marks": 33,
         "instructions": "Attempt all questions. Each question carries 4 or 5 marks.",
         "questions": [
           {
@@ -4511,9 +4511,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Biology",
     "board": "CBSE",
     "title": "CBSE Class 12 Biology Sample Paper Set 2",
-    "intro": "Complete biology sample paper covering genetics, evolution, ecology, plant and animal physiology. Master concepts related to reproduction, biotechnology, and human welfare.",
+    "intro": "Complete biology sample paper covering genetics, evolution, ecology, plant and animal physiology. Master concepts related to reproduction, biotechnology, and human welfare. This is a shortened practice set: 26 questions worth 68 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 68,
     "sections": [
       {
         "name": "Section A - Objective Type Questions",
@@ -4559,7 +4559,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 35,
+        "marks": 28,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -4626,7 +4626,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 28,
+        "marks": 33,
         "instructions": "Attempt all questions. Each question carries 4 or 5 marks.",
         "questions": [
           {
@@ -4688,9 +4688,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Physics",
     "board": "CBSE",
     "title": "CBSE Class 11 Physics Sample Paper Set 2",
-    "intro": "Comprehensive physics sample paper covering mechanics, thermodynamics, waves, and gravitation. Practice conceptual questions and numerical problems with complete solutions.",
+    "intro": "Comprehensive physics sample paper covering mechanics, thermodynamics, waves, and gravitation. Practice conceptual questions and numerical problems with complete solutions. This is a shortened practice set: 27 questions worth 68 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 68,
     "sections": [
       {
         "name": "Section A - Objective Type Questions",
@@ -4741,7 +4741,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 34,
+        "marks": 27,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -4808,7 +4808,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 28,
+        "marks": 33,
         "instructions": "Attempt all questions. Each question carries 4 or 5 marks.",
         "questions": [
           {
@@ -4870,9 +4870,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Chemistry",
     "board": "CBSE",
     "title": "CBSE Class 11 Chemistry Sample Paper Set 2",
-    "intro": "Complete chemistry sample paper covering atomic structure, chemical bonding, states of matter, and thermodynamics. Master calculations and conceptual questions with step-by-step solutions.",
+    "intro": "Complete chemistry sample paper covering atomic structure, chemical bonding, states of matter, and thermodynamics. Master calculations and conceptual questions with step-by-step solutions. This is a shortened practice set: 27 questions worth 69 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 70,
+    "totalMarks": 69,
     "sections": [
       {
         "name": "Section A - Objective Type Questions",
@@ -4923,7 +4923,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 34,
+        "marks": 28,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -4990,7 +4990,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 28,
+        "marks": 33,
         "instructions": "Attempt all questions. Each question carries 4 or 5 marks.",
         "questions": [
           {
@@ -5052,13 +5052,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "CBSE Class 10 English Sample Paper Set 2",
-    "intro": "Comprehensive English sample paper covering reading, writing, grammar, and literature. Develop communication skills and language proficiency with diverse question types and complete solutions.",
+    "intro": "Comprehensive English sample paper covering reading, writing, grammar, and literature. Develop communication skills and language proficiency with diverse question types and complete solutions. This is a shortened practice set: 30 questions worth 75 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 75,
     "sections": [
       {
         "name": "Section A - Reading Comprehension",
-        "marks": 20,
+        "marks": 18,
         "instructions": "Read the passage carefully and answer all questions.",
         "questions": [
           {
@@ -5153,7 +5153,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Grammar and Language",
-        "marks": 20,
+        "marks": 17,
         "instructions": "Attempt all grammar and vocabulary questions.",
         "questions": [
           {
@@ -5257,9 +5257,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 9 Mathematics Sample Paper Set 3",
-    "intro": "Comprehensive mathematics sample paper covering number systems, algebra, geometry, and statistics. Strengthen problem-solving skills with diverse question types and detailed solutions.",
+    "intro": "Comprehensive mathematics sample paper covering number systems, algebra, geometry, and statistics. Strengthen problem-solving skills with diverse question types and detailed solutions. This is a shortened practice set: 39 questions worth 68 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 68,
     "sections": [
       {
         "name": "Section A - Very Short Answer Questions",
@@ -5370,7 +5370,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 30,
+        "marks": 25,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -5437,7 +5437,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 30,
+        "marks": 23,
         "instructions": "Attempt all questions. Each question carries 3 or 4 marks.",
         "questions": [
           {
@@ -5499,9 +5499,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 8 Mathematics Sample Paper Set 2",
-    "intro": "Engaging mathematics sample paper covering rational numbers, algebraic expressions, geometry, and data handling. Build strong fundamentals with practice problems and clear solutions.",
+    "intro": "Engaging mathematics sample paper covering rational numbers, algebraic expressions, geometry, and data handling. Build strong fundamentals with practice problems and clear solutions. This is a shortened practice set: 42 questions worth 77 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 77,
     "sections": [
       {
         "name": "Section A - Objective Type Questions",
@@ -5612,7 +5612,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 30,
+        "marks": 25,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -5679,7 +5679,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 30,
+        "marks": 32,
         "instructions": "Attempt all questions. Each question carries 3 or 4 marks.",
         "questions": [
           {
@@ -5756,9 +5756,9 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 7 Science Sample Paper Set 2",
-    "intro": "Interactive science sample paper covering nutrition, digestion, respiration, transportation, and life processes. Explore concepts about plants and animals with diagrams and clear explanations.",
+    "intro": "Interactive science sample paper covering nutrition, digestion, respiration, transportation, and life processes. Explore concepts about plants and animals with diagrams and clear explanations. This is a shortened practice set: 33 questions worth 70 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "2.5 hours",
-    "totalMarks": 80,
+    "totalMarks": 70,
     "sections": [
       {
         "name": "Section A - Multiple Choice Questions",
@@ -5844,7 +5844,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer Questions",
-        "marks": 35,
+        "marks": 27,
         "instructions": "Attempt all questions. Each question carries 2 or 3 marks.",
         "questions": [
           {
@@ -5911,7 +5911,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer Questions",
-        "marks": 30,
+        "marks": 28,
         "instructions": "Attempt all questions. Each question carries 4 or 5 marks.",
         "questions": [
           {
@@ -7440,13 +7440,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 7 Science Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper covers all major topics in Class 7 Science including nutrition, respiration, transportation, and physical phenomena. Practice this paper to strengthen your understanding of foundational science concepts.",
+    "intro": "This sample paper covers all major topics in Class 7 Science including nutrition, respiration, transportation, and physical phenomena. Practice this paper to strengthen your understanding of foundational science concepts. This is a shortened practice set: 23 questions worth 45 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 45,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 20,
+        "marks": 10,
         "instructions": "Answer all 20 multiple choice questions. Each question carries 1 mark.",
         "questions": [
           {
@@ -7503,8 +7503,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 30,
-        "instructions": "Answer all 15 questions, each carrying 2 marks.",
+        "marks": 16,
+        "instructions": "Answer all 8 questions, each carrying 2 marks.",
         "questions": [
           {
             "q": "Define nutrition. Name two types of nutrition.",
@@ -7550,8 +7550,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions, each carrying 3 marks.",
+        "marks": 9,
+        "instructions": "Answer all 3 questions, each carrying 3 marks.",
         "questions": [
           {
             "q": "Explain the process of photosynthesis with a chemical equation.",
@@ -7572,7 +7572,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (5 marks)",
-        "marks": 12,
+        "marks": 10,
         "instructions": "Answer all questions; each carrying 5 marks. Answer 2 out of 3 questions.",
         "questions": [
           {
@@ -7609,14 +7609,14 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "CBSE Class 7 English Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive English sample paper includes reading comprehension, grammar, writing, and literature sections. Master this paper to excel in all aspects of English language and literature.",
+    "intro": "This comprehensive English sample paper includes reading comprehension, grammar, writing, and literature sections. Master this paper to excel in all aspects of English language and literature. This is a shortened practice set: 17 questions worth 58 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 58,
     "sections": [
       {
         "name": "Section A - Reading Comprehension",
-        "marks": 20,
-        "instructions": "Read the passage and answer all 10 questions. Each question carries 2 marks.",
+        "marks": 10,
+        "instructions": "Read the passage and Answer all 5 questions. Each question carries 2 marks.",
         "questions": [
           {
             "q": "What is the main idea of the passage about sustainable living?",
@@ -7648,8 +7648,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Grammar and Vocabulary",
-        "marks": 24,
-        "instructions": "Answer all 12 questions. Each question carries 2 marks.",
+        "marks": 12,
+        "instructions": "Answer all 6 questions. Each question carries 2 marks.",
         "questions": [
           {
             "q": "Fill in the blank: She ___ her homework yesterday. (did/does/will do)",
@@ -7749,14 +7749,14 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "CBSE Class 6 English Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper introduces fundamental English language skills including reading, writing, grammar, and vocabulary at the junior secondary level. Practice this to build a strong foundation in English.",
+    "intro": "This sample paper introduces fundamental English language skills including reading, writing, grammar, and vocabulary at the junior secondary level. Practice this to build a strong foundation in English. This is a shortened practice set: 19 questions worth 62 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 62,
     "sections": [
       {
         "name": "Section A - Reading Comprehension",
-        "marks": 20,
-        "instructions": "Read the passage and answer all 10 questions. Each question carries 2 marks.",
+        "marks": 10,
+        "instructions": "Read the passage and Answer all 5 questions. Each question carries 2 marks.",
         "questions": [
           {
             "q": "What is the main topic of the passage?",
@@ -7788,8 +7788,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Grammar and Vocabulary",
-        "marks": 30,
-        "instructions": "Answer all 15 questions. Each question carries 2 marks.",
+        "marks": 16,
+        "instructions": "Answer all 8 questions. Each question carries 2 marks.",
         "questions": [
           {
             "q": "Complete the sentence: I ___ to school every day. (go/goes/went)",
@@ -7857,7 +7857,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Literature",
-        "marks": 12,
+        "marks": 18,
         "instructions": "Answer 2 out of 3 questions. Each question carries 6 marks.",
         "questions": [
           {
@@ -7899,13 +7899,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Social Science",
     "board": "CBSE",
     "title": "CBSE Class 6 Social Science Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper covers geography, history, and civics topics for Class 6 students. Practice this paper to understand early human societies, earth's features, and fundamental concepts of citizenship.",
+    "intro": "This sample paper covers geography, history, and civics topics for Class 6 students. Practice this paper to understand early human societies, earth's features, and fundamental concepts of citizenship. This is a shortened practice set: 25 questions worth 53 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 53,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 20,
+        "marks": 10,
         "instructions": "Answer all 20 multiple choice questions. Each carries 1 mark.",
         "questions": [
           {
@@ -7962,8 +7962,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 30,
-        "instructions": "Answer all 15 questions. Each carries 2 marks.",
+        "marks": 16,
+        "instructions": "Answer all 8 questions. Each carries 2 marks.",
         "questions": [
           {
             "q": "What are the three types of rocks?",
@@ -8009,8 +8009,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions. Each carries 3 marks.",
+        "marks": 15,
+        "instructions": "Answer all 5 questions. Each carries 3 marks.",
         "questions": [
           {
             "q": "Describe the water cycle and its importance.",
@@ -8078,13 +8078,13 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 8 Science Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive Class 8 Science paper covers biology, chemistry, and physics topics including reproduction, materials, and motion. Strengthen your understanding of scientific concepts through this practice paper.",
+    "intro": "This comprehensive Class 8 Science paper covers biology, chemistry, and physics topics including reproduction, materials, and motion. Strengthen your understanding of scientific concepts through this practice paper. This is a shortened practice set: 22 questions worth 50 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
-    "totalMarks": 80,
+    "totalMarks": 50,
     "sections": [
       {
         "name": "Section A - Multiple Choice",
-        "marks": 16,
+        "marks": 8,
         "instructions": "Answer all 16 multiple choice questions. Each carries 1 mark.",
         "questions": [
           {
@@ -8131,8 +8131,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section B - Short Answer (2 marks)",
-        "marks": 28,
-        "instructions": "Answer all 14 questions. Each carries 2 marks.",
+        "marks": 14,
+        "instructions": "Answer all 7 questions. Each carries 2 marks.",
         "questions": [
           {
             "q": "Define puberty and list two changes during puberty.",
@@ -8173,8 +8173,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section C - Long Answer (3 marks)",
-        "marks": 18,
-        "instructions": "Answer all 6 questions. Each carries 3 marks.",
+        "marks": 12,
+        "instructions": "Answer all 4 questions. Each carries 3 marks.",
         "questions": [
           {
             "q": "Describe the reproductive system in humans and the process of fertilization.",
@@ -8200,7 +8200,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
       },
       {
         "name": "Section D - Long Answer (5 marks)",
-        "marks": 18,
+        "marks": 16,
         "instructions": "Answer all 3 questions. Each carries 5 or 6 marks.",
         "questions": [
           {

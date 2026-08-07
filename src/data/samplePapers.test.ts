@@ -80,6 +80,30 @@ describe('sample papers — every question must be answerable', () => {
     }
   });
 
+  it('question marks add up to the section total', () => {
+    // 105 sections used to claim more marks than their questions carried, and 46
+    // told the student to "answer all 10 questions" above 5 — the papers are
+    // shortened practice sets and now say so instead of posing as full mocks.
+    const off = SAMPLE_PAPERS.flatMap((p) =>
+      p.sections
+        .filter((s) => s.questions.reduce((n, q) => n + q.marks, 0) !== s.marks)
+        .map((s) => `${p.slug} → ${s.name}`),
+    );
+    expect(off).toEqual([]);
+  });
+
+  it('instructions never claim more questions than the section contains', () => {
+    const lying = SAMPLE_PAPERS.flatMap((p) =>
+      p.sections.flatMap((s) => {
+        const m = /all (\d+) questions?/i.exec(s.instructions);
+        return m && Number(m[1]) !== s.questions.length
+          ? [`${p.slug} → ${s.name}: says ${m[1]}, has ${s.questions.length}`]
+          : [];
+      }),
+    );
+    expect(lying).toEqual([]);
+  });
+
   it('slugs are unique', () => {
     const slugs = SAMPLE_PAPERS.map((p) => p.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
