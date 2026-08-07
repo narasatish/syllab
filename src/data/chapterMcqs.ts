@@ -2994,9 +2994,9 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "The highest peak in India is:",
         "options": [
-          "Kanchenjunga",
-          "Kanchenjunga",
+          "Nanda Devi",
           "Mount Everest",
+          "K2",
           "Kangchenjunga"
         ],
         "correct": 3,
@@ -9872,7 +9872,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "2:3",
           "4:9",
           "8:27",
-          "2:3"
+          "9:4"
         ],
         "correct": 1,
         "explanation": "If linear scale factor is k, then area ratio = k². Here, area ratio = (2/3)² = 4/9."
