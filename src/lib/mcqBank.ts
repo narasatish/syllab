@@ -161,7 +161,18 @@ export function mergeChapter(
   return out;
 }
 
-/** Re-emit src/data/chapterMcqs.ts with its original header preserved. */
-export function serializeBank(header: string, chapters: readonly BankChapter[]): string {
-  return `${header}export const MCQ_CHAPTERS: McqChapter[] = ${JSON.stringify(chapters, null, 2)};\n`;
+/**
+ * Re-emit src/data/chapterMcqs.ts.
+ *
+ * `footer` matters more than it looks: the file declares MCQ_GROUPS and
+ * getMcqChapter AFTER the array, and the first version of this function dropped
+ * everything past the closing bracket. A generation run silently deleted both
+ * exports and only `tsc` caught it. Always pass back whatever followed the array.
+ */
+export function serializeBank(
+  header: string,
+  chapters: readonly BankChapter[],
+  footer = '',
+): string {
+  return `${header}export const MCQ_CHAPTERS: McqChapter[] = ${JSON.stringify(chapters, null, 2)};\n${footer}`;
 }

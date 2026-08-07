@@ -63,7 +63,7 @@ function assertKeyAllowed() {
 }
 
 // ── Bank IO ─────────────────────────────────────────────────────────────────
-async function readBank(): Promise<{ header: string; chapters: BankChapter[] }> {
+async function readBank(): Promise<{ header: string; chapters: BankChapter[]; footer: string }> {
   const src = await fs.readFile(BANK_FILE, 'utf8');
   const i = src.indexOf(MARKER);
   if (i < 0) throw new Error(`Could not find "${MARKER}" in ${BANK_FILE}`);
@@ -74,7 +74,10 @@ async function readBank(): Promise<{ header: string; chapters: BankChapter[] }> 
     else if (src[j] === ']' && --depth === 0) { end = j + 1; break; }
   }
   if (end < 0) throw new Error('Unbalanced MCQ_CHAPTERS array');
-  return { header: src.slice(0, i), chapters: JSON.parse(src.slice(start, end)) as BankChapter[] };
+  // Everything after the array (MCQ_GROUPS, getMcqChapter) must be carried
+  // through — dropping it silently broke the build once.
+  const afterArray = src.slice(end).replace(/^;?\r?\n/, '');
+  return { header: src.slice(0, i), chapters: JSON.parse(src.slice(start, end)) as BankChapter[], footer: afterArray };
 }
 
 // ── Generation ──────────────────────────────────────────────────────────────
@@ -132,7 +135,7 @@ Return ONLY a JSON array of objects: {"q": string, "options": [string,string,str
 
 // ── Main ────────────────────────────────────────────────────────────────────
 async function main() {
-  const { header, chapters } = await readBank();
+  const { header, chapters, footer } = await readBank();
   const gaps = findGaps(
     SYLLABUS.map((c) => ({ classLevel: c.classLevel, subject: c.subject, title: c.title })),
     chapters,
@@ -180,7 +183,7 @@ async function main() {
     added += mcqs.length;
     console.log(`+${mcqs.length}`);
     // Write after every chapter so an interrupted run keeps its progress.
-    await fs.writeFile(BANK_FILE, serializeBank(header, bank), 'utf8');
+    await fs.writeFile(BANK_FILE, serializeBank(header, bank, footer), 'utf8');
   }
 
   const after = bank.reduce((n, c) => n + c.mcqs.length, 0);

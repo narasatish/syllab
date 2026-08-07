@@ -178,6 +178,19 @@ describe('mergeChapter', () => {
 });
 
 describe('serializeBank', () => {
+  it('preserves the footer — MCQ_GROUPS/getMcqChapter live after the array', () => {
+    // A generation run once wrote header + array and dropped everything after it,
+    // deleting two exports. Only tsc caught it, after the data was already
+    // regenerated. This makes the loss impossible to miss.
+    const header = '/** hdr */\n';
+    const footer = 'export const MCQ_GROUPS = () => [];\nexport function getMcqChapter() { return undefined; }\n';
+    const out = serializeBank(header, [chapter('10', 'Science', 'Light', 1)], footer);
+    expect(out.startsWith(header)).toBe(true);
+    expect(out.endsWith(footer)).toBe(true);
+    expect(out).toContain('MCQ_GROUPS');
+    expect(out).toContain('getMcqChapter');
+  });
+
   it('round-trips through the parser the build uses', () => {
     const header = '/** header */\nexport interface McqChapter { slug: string }\n';
     const bank = [chapter('11', 'Accountancy', 'Bills of Exchange', 2)];

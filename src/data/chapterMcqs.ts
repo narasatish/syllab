@@ -10448,6 +10448,1446 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "a": "A system has no solution when the two equations represent parallel lines (same slope but different y-intercepts). In this case, the lines never intersect and there are no common ordered pairs satisfying both equations."
       }
     ]
+  },
+  {
+    "slug": "class-12-accountancy-accounting-for-partnership-basic-concepts",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Accounting for Partnership: Basic Concepts",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Accounting for Partnership: Basic Concepts. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "The Partnership Act, 1932, governs partnerships in India. Under this act, if the partnership deed is silent on the matter of interest on drawings, what is the prescribed rate of interest to be charged from partners?",
+        "options": [
+          "6% per annum",
+          "12% per annum",
+          "No interest is charged",
+          "As per the discretion of the managing partner"
+        ],
+        "correct": 2,
+        "explanation": "The Partnership Act, 1932, clearly states that if the partnership deed is silent on interest on drawings, no interest shall be charged from the partners."
+      },
+      {
+        "q": "What is the primary purpose of a Partnership Deed?",
+        "options": [
+          "To calculate the market value of the firm's assets",
+          "To prepare the annual financial statements",
+          "To record the daily transactions of the firm",
+          "To outline the terms and conditions of the partnership"
+        ],
+        "correct": 3,
+        "explanation": "A Partnership Deed is a written agreement that lays down the mutual rights, duties, and obligations of the partners, as well as the rules governing the partnership's operations."
+      },
+      {
+        "q": "P and Q are partners in a firm. P contributed ₹5,00,000 and Q contributed ₹3,00,000. They agreed to share profits and losses in the ratio of 3:2. However, they did not have a partnership deed. According to the Partnership Act, 1932, what will be the profit-sharing ratio?",
+        "options": [
+          "1:1",
+          "3:2",
+          "5:3",
+          "Cannot be determined"
+        ],
+        "correct": 0,
+        "explanation": "In the absence of a partnership deed, the profits and losses are to be shared equally among all partners, irrespective of their capital contributions."
+      },
+      {
+        "q": "If partners' capital accounts are maintained under the fixed capital method, where are adjustments like interest on capital, partner's salary, and drawings credited or debited?",
+        "options": [
+          "Partner's Capital Account",
+          "Partner's Current Account",
+          "Profit and Loss Account",
+          "Revaluation Account"
+        ],
+        "correct": 1,
+        "explanation": "Under the fixed capital method, all routine adjustments related to profits and drawings are made through the Partner's Current Account, while the Partner's Capital Account remains fixed, except for permanent additions or withdrawals of capital."
+      },
+      {
+        "q": "Which of the following accounts is prepared to ascertain the profit or loss of a partnership firm for a specific accounting period?",
+        "options": [
+          "Partner's Capital Account",
+          "Partner's Loan Account",
+          "Profit and Loss Appropriation Account",
+          "Fixed Asset Account"
+        ],
+        "correct": 2,
+        "explanation": "The Profit and Loss Appropriation Account is specifically prepared to distribute the net profit (or loss) earned by the firm among the partners after considering appropriations like interest on capital, salary, commission, and interest on drawings."
+      },
+      {
+        "q": "A partnership firm has a net profit of ₹1,50,000 before interest on partners' capital and salary. Partner A is entitled to a salary of ₹2,000 per month and interest on capital of ₹10,000. Partner B is entitled to interest on capital of ₹15,000. If the partnership deed does not mention the treatment of loss if appropriations exceed profits, what will be the treatment?",
+        "options": [
+          "The profit will be distributed in the fixed profit-sharing ratio.",
+          "The excess appropriation will be debited to the partners' capital accounts directly.",
+          "The excess appropriation will be ignored.",
+          "The excess appropriation will be treated as a loss and borne by partners in their profit-sharing ratio."
+        ],
+        "correct": 3,
+        "explanation": "If the total appropriations (like salary, interest on capital) exceed the net profit, the profit is first distributed as far as it goes, and any shortfall is treated as a loss and borne by the partners in their profit-sharing ratio."
+      },
+      {
+        "q": "In the case of fluctuating capital accounts, which of the following accounts will be debited/credited with interest on drawings?",
+        "options": [
+          "Partner's Capital Account",
+          "Partner's Current Account",
+          "Profit and Loss Appropriation Account",
+          "Cash Account"
+        ],
+        "correct": 0,
+        "explanation": "When fluctuating capital accounts are maintained, all transactions, including drawings, interest on drawings, salary, interest on capital, and profit/loss share, are recorded directly in the Partner's Capital Account."
+      },
+      {
+        "q": "Which of the following is NOT a feature of a partnership firm?",
+        "options": [
+          "Agreement between partners",
+          "Separate legal entity",
+          "Unlimited liability of partners",
+          "Mutual agency"
+        ],
+        "correct": 1,
+        "explanation": "A partnership firm does not have a separate legal entity distinct from its partners. The partners are personally liable for the debts of the firm."
+      },
+      {
+        "q": "Ramesh and Suresh are partners. Ramesh advanced a loan of ₹1,00,000 to the firm. The partnership deed is silent on the rate of interest on loans. What is the minimum rate of interest Ramesh is entitled to receive from the firm as per the Partnership Act, 1932?",
+        "options": [
+          "9% per annum",
+          "12% per annum",
+          "6% per annum",
+          "4% per annum"
+        ],
+        "correct": 2,
+        "explanation": "The Partnership Act, 1932, mandates that in the absence of a partnership deed specifying the rate of interest on loans, the lender partner is entitled to receive interest at a rate of 6% per annum."
+      },
+      {
+        "q": "Guaranteed profit given to a partner means:",
+        "options": [
+          "The total profit of the firm before appropriations.",
+          "The profit distributed among partners after all expenses.",
+          "The profit earned by the firm in the previous year.",
+          "A minimum profit assured to a partner by the other partners or the firm."
+        ],
+        "correct": 3,
+        "explanation": "A guaranteed profit ensures that a partner receives a minimum amount of profit, regardless of the firm's actual profitability. If the actual share is less, the deficiency is made up by the guaranteeing partners."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-goodwill-nature-and-valuation",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Goodwill: Nature and Valuation",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Goodwill: Nature and Valuation. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which of the following is an indirect expenditure that may need to be adjusted for while calculating average profits?",
+        "options": [
+          "Interest on partner's loan",
+          "Wages paid to workers",
+          "Rent of the factory",
+          "Cost of raw materials"
+        ],
+        "correct": 0,
+        "explanation": "Interest on partner's loan is an appropriation of profit, not a direct business expense. It is usually added back to profits to arrive at a figure that reflects the operational profitability before such appropriations."
+      },
+      {
+        "q": "Which of the following is NOT a type of goodwill?",
+        "options": [
+          "Concealed Goodwill",
+          "Inherited Goodwill",
+          "Self-generated Goodwill",
+          "Purchased Goodwill"
+        ],
+        "correct": 1,
+        "explanation": "Inherited goodwill is not a recognized type of goodwill in accounting. Goodwill is either purchased or self-generated."
+      },
+      {
+        "q": "The Capitalisation of Super Profit Method calculates goodwill as:",
+        "options": [
+          "Average Profit × (100 / Normal Rate of Return)",
+          "Super Profit × Number of Years of Purchase",
+          "(Super Profit / Normal Rate of Return) × 100",
+          "(Normal Profit / Super Profit) × 100"
+        ],
+        "correct": 2,
+        "explanation": "Under the Capitalisation of Super Profit Method, goodwill is calculated by capitalizing the super profit at the normal rate of return: Goodwill = (Super Profit / Normal Rate of Return) × 100."
+      },
+      {
+        "q": "When a new partner is admitted and goodwill is to be raised, the amount of goodwill credited to the old partners' Capital Accounts is based on:",
+        "options": [
+          "Their sacrificing ratio",
+          "Their initial capital contribution",
+          "Their gaining ratio",
+          "Their profit-sharing ratio"
+        ],
+        "correct": 3,
+        "explanation": "When goodwill is raised at its full value and then written off, it is distributed among the existing partners in their profit-sharing ratio, effectively compensating them for their past contributions to building that goodwill."
+      },
+      {
+        "q": "In the Annuity Method of goodwill valuation, the present value of future super profits is considered.",
+        "options": [
+          "True",
+          "False",
+          "Only if the super profit is consistent",
+          "Only if the business is old"
+        ],
+        "correct": 0,
+        "explanation": "The Annuity Method considers the time value of money by discounting future super profits to their present value, treating them as an annuity."
+      },
+      {
+        "q": "Which method of goodwill valuation is suitable when the business is expected to earn profits above the normal rate of return?",
+        "options": [
+          "Average Profit Method",
+          "Super Profit Method",
+          "Annuity Method",
+          "Capitalisation of Profits Method"
+        ],
+        "correct": 1,
+        "explanation": "The Super Profit Method is specifically designed to value goodwill when the business earns profits in excess of the normal rate of return."
+      },
+      {
+        "q": "Which factor does NOT influence the valuation of goodwill?",
+        "options": [
+          "Location of the business",
+          "Reputation of the business",
+          "Past losses of the business",
+          "Efficient management"
+        ],
+        "correct": 2,
+        "explanation": "While past losses are considered when calculating average profits, they do not directly influence the *concept* or *nature* of goodwill itself. Goodwill reflects future earning capacity. Location, reputation, and management are all factors that contribute to goodwill."
+      },
+      {
+        "q": "When goodwill is purchased, it is recorded in the books of accounts.",
+        "options": [
+          "Only at the time of dissolution",
+          "Only if its value is substantial",
+          "False",
+          "True"
+        ],
+        "correct": 3,
+        "explanation": "Purchased goodwill is an intangible asset that is recognized and recorded in the books of accounts as it has been acquired for a specific consideration."
+      },
+      {
+        "q": "Under the Average Profit Method, goodwill is calculated as:",
+        "options": [
+          "Average profit multiplied by the number of years of purchase",
+          "Total profit divided by the number of years of purchase",
+          "Future maintainable profit multiplied by the number of years of purchase",
+          "Super profit multiplied by the number of years of purchase"
+        ],
+        "correct": 0,
+        "explanation": "The formula for goodwill under the Average Profit Method is: Goodwill = Average Profit × Number of Years of Purchase."
+      },
+      {
+        "q": "Super profit is the difference between:",
+        "options": [
+          "Normal profit and Average profit",
+          "Actual profit and Normal profit",
+          "Actual profit and Average profit",
+          "Future profit and Normal profit"
+        ],
+        "correct": 1,
+        "explanation": "Super profit is defined as the excess of the actual or expected profits over the normal profits."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-reconstitution-of-a-partnership-firm-change-in-profit-shari",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Reconstitution of a Partnership Firm - Change in Profit Sharing Ratio",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Reconstitution of a Partnership Firm - Change in Profit Sharing Ratio. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "When there is a change in the profit sharing ratio, and the goodwill is already appearing in the books, it should be:",
+        "options": [
+          "Written off in the new profit sharing ratio",
+          "Distributed among partners in the sacrificing ratio",
+          "Written off in the old profit sharing ratio",
+          "Distributed among partners in the gaining ratio"
+        ],
+        "correct": 2,
+        "explanation": "Goodwill appearing in the books is an asset representing past efforts. It needs to be written off completely at the time of reconstitution, and this is done in the old profit sharing ratio among all partners."
+      },
+      {
+        "q": "If the profit sharing ratio changes from 1:1 to 2:1, the partner who was previously sharing equally and now has a higher share has:",
+        "options": [
+          "Suffered a loss",
+          "Remained neutral",
+          "Sacrificed",
+          "Gained"
+        ],
+        "correct": 3,
+        "explanation": "The partner's share has increased from 1/2 to 2/3. An increase in share indicates a gain."
+      },
+      {
+        "q": "If a partner's share increases from 1/4 to 1/3, their gaining ratio is calculated as:",
+        "options": [
+          "New share - Old share",
+          "Old share - New share",
+          "New share + Old share",
+          "New share / Old share"
+        ],
+        "correct": 0,
+        "explanation": "The gaining ratio signifies the extent to which a partner's share has increased. This is found by subtracting the old share from the new share."
+      },
+      {
+        "q": "When there is a change in the profit sharing ratio of existing partners, it leads to:",
+        "options": [
+          "Dissolution of the firm",
+          "Reconstitution of the partnership firm",
+          "Admission of a new partner",
+          "Retirement of a partner"
+        ],
+        "correct": 1,
+        "explanation": "A change in the profit sharing ratio among existing partners alters the terms of the partnership agreement without dissolving the firm or bringing in/taking out a partner. This is the definition of reconstitution."
+      },
+      {
+        "q": "If the partners decide to maintain the revalued value of assets and liabilities without affecting their capital accounts, then the adjustment for revaluation can be made through:",
+        "options": [
+          "Revaluation Account only",
+          "Partner's Capital Accounts",
+          "Gaining Partner's Capital Account and Sacrificing Partner's Capital Account",
+          "Cash or Bank Account"
+        ],
+        "correct": 2,
+        "explanation": "This is the most common method. The net effect of revaluation (profit or loss) is adjusted between the gaining and sacrificing partners through their capital accounts in their gaining and sacrificing ratios respectively."
+      },
+      {
+        "q": "The Revaluation Account is debited with:",
+        "options": [
+          "Increase in the value of assets and decrease in the value of liabilities",
+          "Profit on revaluation",
+          "Loss on revaluation",
+          "Decrease in the value of assets and increase in the value of liabilities"
+        ],
+        "correct": 3,
+        "explanation": "The Revaluation Account is debited for any decrease in the value of assets or any increase in the value of liabilities, as these represent a loss to the firm."
+      },
+      {
+        "q": "A partner who has given up a part of their share in favour of another partner is called a:",
+        "options": [
+          "Sacrificing partner",
+          "Gaining partner",
+          "Retiring partner",
+          "New partner"
+        ],
+        "correct": 0,
+        "explanation": "A sacrificing partner is one whose share in the partnership decreases due to the change in the profit sharing ratio. They give up a portion of their profit share."
+      },
+      {
+        "q": "Reserves and accumulated profits (like General Reserve, Profit and Loss Account balance) appearing in the balance sheet at the time of change in profit sharing ratio are:",
+        "options": [
+          "Distributed among partners in the new profit sharing ratio",
+          "Distributed among partners in the old profit sharing ratio",
+          "Transferred to the gaining partner's capital account",
+          "Transferred to the sacrificing partner's capital account"
+        ],
+        "correct": 1,
+        "explanation": "Reserves and accumulated profits are created out of past profits. At the time of reconstitution, these are distributed to the partners in their old profit sharing ratio before the change takes effect."
+      },
+      {
+        "q": "Unrecorded assets at the time of change in profit sharing ratio are:",
+        "options": [
+          "Credited to the Capital Accounts of partners in the old ratio",
+          "Debited to the Capital Accounts of partners in the new ratio",
+          "Credited to the Revaluation Account",
+          "Debited to the Revaluation Account"
+        ],
+        "correct": 2,
+        "explanation": "Unrecorded assets discovered or brought into account are credited to the Revaluation Account as they represent a gain to the partners."
+      },
+      {
+        "q": "In case of a change in profit sharing ratio, goodwill is adjusted by:",
+        "options": [
+          "Crediting both gaining and sacrificing partners",
+          "Debiting both gaining and sacrificing partners",
+          "Crediting the gaining partner and debiting the sacrificing partner",
+          "Debiting the gaining partner and crediting the sacrificing partner"
+        ],
+        "correct": 3,
+        "explanation": "The gaining partner has to compensate the sacrificing partner for the loss of future share. Therefore, the gaining partner's capital is debited, and the sacrificing partner's capital is credited."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-reconstitution-of-a-partnership-firm-admission-of-a-partner",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Reconstitution of a Partnership Firm - Admission of a Partner",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Reconstitution of a Partnership Firm - Admission of a Partner. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "If the existing partners decide to maintain their old profit-sharing ratio even after the admission of a new partner, how will the new partner's share be determined?",
+        "options": [
+          "The new partner's share will be a fixed percentage determined by the agreement.",
+          "The new partner's share will be determined by their capital contribution.",
+          "The new partner's share will be calculated as the difference between total profit and the sum of old partners' shares.",
+          "The new partner will receive an equal share of profit as each of the old partners."
+        ],
+        "correct": 0,
+        "explanation": "If the old partners' profit-sharing ratio remains unchanged, the new partner's share is explicitly stated in the admission agreement, typically as a fixed percentage or fraction of the total profit."
+      },
+      {
+        "q": "What is the primary purpose of revaluing assets and liabilities on the admission of a new partner?",
+        "options": [
+          "To increase the profit of the old partners.",
+          "To ascertain the true financial position of the firm at the time of admission.",
+          "To record the new partner's share of goodwill.",
+          "To reduce the overall capital of the firm."
+        ],
+        "correct": 1,
+        "explanation": "Revaluation of assets and liabilities is done to reflect their current market values, thereby ascertaining the true and fair financial position of the firm. This ensures that profits or losses arising from these changes are attributed to the partners (old or new) as per their respective profit-sharing ratios."
+      },
+      {
+        "q": "When a new partner is admitted, what happens to the reserves and accumulated profits (like General Reserve, Profit and Loss Account) appearing in the balance sheet of the old firm?",
+        "options": [
+          "They are adjusted in the capital accounts of the old partners in their sacrificing ratio.",
+          "They are written off to the Profit and Loss Adjustment Account.",
+          "They are distributed among the old partners in their old profit-sharing ratio.",
+          "They are carried forward to the new firm as they are."
+        ],
+        "correct": 2,
+        "explanation": "Reserves and accumulated profits are part of the undistributed profits of the old firm. Upon admission of a new partner, these are considered earned by the old partners and are therefore distributed among them in their old profit-sharing ratio before the new ratio takes effect."
+      },
+      {
+        "q": "The sacrificing ratio is the ratio in which:",
+        "options": [
+          "The remaining partners share profits after the retirement of a partner.",
+          "The firm's goodwill is valued.",
+          "The new partner shares profits with the old partners.",
+          "The old partners forego their share of profit in favour of the new partner."
+        ],
+        "correct": 3,
+        "explanation": "Sacrificing ratio is specifically calculated to distribute the goodwill brought in by the new partner. It represents the proportion by which the old partners reduce their claim on profits to accommodate the new partner."
+      },
+      {
+        "q": "Goodwill of the firm is to be raised and then written off. If the new partner does not bring their share of goodwill in cash, how is the goodwill accounted for?",
+        "options": [
+          "Debit New Partner's Capital Account, Credit Old Partners' Capital Accounts in their sacrificing ratio.",
+          "Debit Goodwill Account, Credit New Partner's Capital Account.",
+          "Debit New Partner's Capital Account, Credit Goodwill Account.",
+          "Debit Goodwill Account, Credit Old Partners' Capital Accounts in their new profit-sharing ratio."
+        ],
+        "correct": 0,
+        "explanation": "When the new partner's share of goodwill is not brought in cash, it is treated as a debt owed by the new partner to the old partners. The New Partner's Capital Account is debited (as it reduces their claim on the firm), and the Old Partners' Capital Accounts are credited in their sacrificing ratio, reflecting their entitlement to this goodwill."
+      },
+      {
+        "q": "When there is a change in the profit-sharing ratio due to the admission of a new partner, workmen's compensation reserve is treated as:",
+        "options": [
+          "A capital reserve to be carried forward.",
+          "A profit to be distributed among old partners in their old P.S.R.",
+          "A liability to be paid to workmen.",
+          "A profit to be distributed among all partners in their new P.S.R."
+        ],
+        "correct": 1,
+        "explanation": "Workmen's Compensation Reserve is created to meet future claims of workmen. Any unutilized portion of this reserve at the time of admission is considered an accumulated profit and is distributed among the old partners in their old profit-sharing ratio, as it was accumulated before the new partner joined."
+      },
+      {
+        "q": "Goodwill of the firm is to be raised. If the new partner brings in their share of goodwill in cash, what is the correct treatment?",
+        "options": [
+          "Debit Goodwill Account, Credit New Partner's Capital Account.",
+          "Debit New Partner's Capital Account, Credit Goodwill Account.",
+          "Debit Cash Account, Credit New Partner's Capital Account.",
+          "Debit Goodwill Account, Credit Old Partners' Capital Accounts in their sacrificing ratio."
+        ],
+        "correct": 2,
+        "explanation": "When the new partner brings in goodwill in cash, the Cash/Bank account is debited as cash is received. The New Partner's Capital account is credited as it represents their contribution towards goodwill and capital. The actual distribution of this goodwill to old partners happens in a subsequent step."
+      },
+      {
+        "q": "When a new partner is admitted, the profit-sharing ratio of the old partners is usually affected. Which of the following is generally required to calculate the new profit-sharing ratio?",
+        "options": [
+          "The total capital of the firm.",
+          "The goodwill brought in by the new partner.",
+          "The sacrificing ratio of the old partners.",
+          "The new partner's share of profit."
+        ],
+        "correct": 3,
+        "explanation": "The new profit-sharing ratio is determined by considering the existing ratio of old partners and the share of profit taken by the new partner. The sacrificing ratio is calculated after the new ratio is known. Capital and goodwill are related to capitalisation and valuation, not directly the new profit-sharing ratio calculation itself."
+      },
+      {
+        "q": "If an unrecorded asset is discovered at the time of admission, it will be:",
+        "options": [
+          "Debited to the Revaluation Account and credited to the Old Partners' Capital Accounts in their old P.S.R.",
+          "Debited to the Revaluation Account and credited to the New Partner's Capital Account.",
+          "Debited to the Revaluation Account and credited to the concerned Asset Account.",
+          "Debited to the Revaluation Account and credited to the General Reserve."
+        ],
+        "correct": 0,
+        "explanation": "An unrecorded asset represents a gain. This gain is credited to the Revaluation Account. The ultimate benefit of this gain goes to the partners at the time of admission, so it is distributed among the old partners in their old profit-sharing ratio."
+      },
+      {
+        "q": "If a part of the goodwill is withdrawn by the old partners, what is the entry to be passed?",
+        "options": [
+          "Debit Cash/Bank Account, Credit Old Partners' Capital Accounts.",
+          "Debit Old Partners' Capital Accounts, Credit Cash/Bank Account.",
+          "Debit Goodwill Account, Credit Old Partners' Capital Accounts.",
+          "Debit New Partner's Capital Account, Credit Old Partners' Capital Accounts."
+        ],
+        "correct": 1,
+        "explanation": "When old partners withdraw their share of goodwill, their capital accounts are debited (as their capital decreases) and the Cash/Bank account is credited (as cash is paid out to them)."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-reconstitution-of-a-partnership-firm-retirement-and-death-o",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Reconstitution of a Partnership Firm - Retirement and Death of a Partner",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Reconstitution of a Partnership Firm - Retirement and Death of a Partner. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "In case of death of a partner, profit or loss on revaluation of assets and liabilities is transferred to:",
+        "options": [
+          "Remaining partners' capital accounts in their new profit-sharing ratio",
+          "Deceased partner's executor's account",
+          "All partners' capital accounts in their old profit-sharing ratio",
+          "All partners' capital accounts in their new profit-sharing ratio"
+        ],
+        "correct": 2,
+        "explanation": "Similar to retirement, the profit or loss on revaluation relates to the firm's operations up to the point of the partner's death, and thus, it should be shared by all partners (including the deceased partner) in their old profit-sharing ratio."
+      },
+      {
+        "q": "The gain or loss on revaluation of assets and liabilities at the time of retirement of a partner is shared by:",
+        "options": [
+          "All partners in their new profit-sharing ratio",
+          "The retiring partner only",
+          "The remaining partners in their new profit-sharing ratio",
+          "All partners in their old profit-sharing ratio"
+        ],
+        "correct": 3,
+        "explanation": "The revaluation of assets and liabilities represents profits or losses arising from the change in value of assets and liabilities up to the point of retirement. These should be shared by all partners who were part of the firm during that period, i.e., in their old profit-sharing ratio."
+      },
+      {
+        "q": "If a retiring partner's share of profit is guaranteed at a minimum amount of Rs. 20,000, and the firm's profit for the year is Rs. 60,000, with the retiring partner's share being 1/4, what is the amount the retiring partner will receive?",
+        "options": [
+          "Rs. 20,000",
+          "Rs. 15,000",
+          "Rs. 5,000",
+          "Rs. 60,000"
+        ],
+        "correct": 0,
+        "explanation": "The retiring partner's share of profit is Rs. 60,000 * (1/4) = Rs. 15,000. However, since a minimum of Rs. 20,000 is guaranteed, the retiring partner will receive Rs. 20,000. The shortfall of Rs. 5,000 will be borne by the remaining partners."
+      },
+      {
+        "q": "If the retiring partner's share of profit is guaranteed by the remaining partners, and the firm incurs a loss after retirement, this loss will be borne by:",
+        "options": [
+          "The firm",
+          "The remaining partners in the ratio of their guarantees",
+          "The retiring partner",
+          "The remaining partners in their profit-sharing ratio"
+        ],
+        "correct": 1,
+        "explanation": "When a profit is guaranteed by remaining partners, any shortfall in the guaranteed amount (or loss in this case) is to be borne by the guaranteeing partners in the ratio of their guarantees, which is usually their new profit-sharing ratio unless stated otherwise."
+      },
+      {
+        "q": "Goodwill appearing in the old balance sheet at the time of a partner's retirement:",
+        "options": [
+          "Is transferred to the debit of the retiring partner's capital account",
+          "Is ignored",
+          "Is written off by debiting all partners' capital accounts in their old profit-sharing ratio",
+          "Is transferred to the credit of all partners' capital accounts"
+        ],
+        "correct": 2,
+        "explanation": "Existing goodwill is an unrecorded profit that has not yet been distributed. It is treated as an asset that needs to be written off before distributing profits or transferring balances. It is written off by debiting all partners' capital accounts in their old profit-sharing ratio."
+      },
+      {
+        "q": "On the death of a partner, the executor is paid:",
+        "options": [
+          "Only the share of profit till the date of death",
+          "Only the capital balance of the deceased partner",
+          "The entire profit of the firm for the current year",
+          "Capital balance, share of profit/loss till death, and share of any accumulated reserves"
+        ],
+        "correct": 3,
+        "explanation": "The executor is entitled to the deceased partner's capital balance, their share of profits or losses up to the date of death, their share of revaluation gain/loss, and their share of accumulated profits and reserves."
+      },
+      {
+        "q": "On the death of a partner, the balance of the deceased partner's current account is transferred to:",
+        "options": [
+          "His executor's account",
+          "The remaining partners' capital accounts",
+          "The revaluation account",
+          "The profit and loss appropriation account"
+        ],
+        "correct": 0,
+        "explanation": "Any balance in the deceased partner's current account (whether debit or credit) represents amounts due to or from the partner. This balance, along with other entitlements, is transferred to the executor's account to settle the deceased partner's final dues."
+      },
+      {
+        "q": "If the profit till the date of death is to be calculated on the basis of the previous year's profit, and the deceased partner's share is 1/4, with the previous year's profit being Rs. 80,000, and the death occurring on June 30th in a financial year starting April 1st, what is the deceased partner's share of profit for the period?",
+        "options": [
+          "Rs. 20,000",
+          "Rs. 10,000",
+          "Rs. 5,000",
+          "Rs. 80,000"
+        ],
+        "correct": 1,
+        "explanation": "Previous year's profit = Rs. 80,000. Deceased partner's share = 1/4. Period from April 1st to June 30th = 3 months (1/4th of the year). Share of profit = Rs. 80,000 * (1/4) * (3/12) = Rs. 5,000."
+      },
+      {
+        "q": "When a partner retires, the remaining partners can decide to adjust goodwill in their capital accounts. This adjustment is done in the ratio of:",
+        "options": [
+          "Their old profit-sharing ratio",
+          "Their new profit-sharing ratio",
+          "The gaining ratio",
+          "The sacrificing ratio"
+        ],
+        "correct": 2,
+        "explanation": "Goodwill adjustment on retirement (or death) when not fully written off is done by debiting the gaining partners and crediting the sacrificing partner. The gaining ratio is crucial for this adjustment."
+      },
+      {
+        "q": "When a partner retires, any accumulated unrecorded profit or loss is transferred to:",
+        "options": [
+          "All partners' capital accounts in their new profit-sharing ratio",
+          "Revaluation account",
+          "Retiring partner's capital account",
+          "All partners' capital accounts in their old profit-sharing ratio"
+        ],
+        "correct": 3,
+        "explanation": "Unrecorded profits or losses are adjustments that pertain to the period when all partners were active and therefore should be shared among all partners according to their existing profit-sharing ratio."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-dissolution-of-partnership-firm",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Dissolution of Partnership Firm",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Dissolution of Partnership Firm. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "A partner's loan will be settled:",
+        "options": [
+          "After all outsider's liabilities are paid",
+          "After the capital of partners is paid",
+          "Before any outsider's liability",
+          "Along with the capital of partners"
+        ],
+        "correct": 0,
+        "explanation": "According to the order of settlement of liabilities during dissolution, a partner's loan is considered a liability but is settled after all external liabilities and before the partners' capital."
+      },
+      {
+        "q": "Unrecorded investments of Rs. 50,000 were taken over by partner A for Rs. 60,000. In the realization account, this transaction will be recorded as:",
+        "options": [
+          "No entry will be made in realization account",
+          "A credit entry of Rs. 60,000",
+          "A credit entry of Rs. 50,000",
+          "A debit entry of Rs. 60,000"
+        ],
+        "correct": 1,
+        "explanation": "When a partner takes over an unrecorded asset, it is credited to the Realization Account at the agreed takeover price."
+      },
+      {
+        "q": "A firm's fixed assets of Rs. 2,00,000 are sold for Rs. 1,80,000. The loss on realization will be transferred to:",
+        "options": [
+          "Partner's Capital Accounts in their profit-sharing ratio",
+          "General Reserve",
+          "Realization Account",
+          "Profit and Loss Appropriation Account"
+        ],
+        "correct": 2,
+        "explanation": "Loss on realization of assets is debited to the Realization Account. The ultimate profit or loss on realization is then transferred to partners' capital accounts."
+      },
+      {
+        "q": "When a partnership firm is dissolved, the realization account is debited with:",
+        "options": [
+          "Assets at their agreed realizable values",
+          "Liabilities at their agreed payment values",
+          "Liabilities at their book values",
+          "Assets at their book values"
+        ],
+        "correct": 3,
+        "explanation": "The Realization Account is debited with all assets at their book values to transfer them out of the firm's books and prepare for their sale."
+      },
+      {
+        "q": "Which of the following is NOT a reason for the dissolution of a partnership firm?",
+        "options": [
+          "Admission of a new partner",
+          "Compulsory dissolution by court order",
+          "Expiry of the term of partnership",
+          "Insolvency of a partner"
+        ],
+        "correct": 0,
+        "explanation": "Admission of a new partner leads to reconstitution of the firm, not dissolution. Dissolution implies winding up of the business."
+      },
+      {
+        "q": "Which account is debited when goodwill of Rs. 30,000 appears in the balance sheet at the time of dissolution?",
+        "options": [
+          "Profit and Loss Account",
+          "Partner's Capital Accounts",
+          "Goodwill Account",
+          "Realization Account"
+        ],
+        "correct": 1,
+        "explanation": "Goodwill appearing in the balance sheet is an unvalued asset and is written off by debiting the Partner's Capital Accounts in their profit-sharing ratio."
+      },
+      {
+        "q": "At the time of dissolution, 'Workmen's Compensation Reserve' which is not claimed by any employee is transferred to:",
+        "options": [
+          "Profit and Loss Account",
+          "Realization Account",
+          "Partner's Capital Accounts",
+          "General Reserve Account"
+        ],
+        "correct": 2,
+        "explanation": "An unclaimed Workmen's Compensation Reserve is treated as a part of the divisible profits and is transferred to the Partner's Capital Accounts in their profit-sharing ratio."
+      },
+      {
+        "q": "In case of dissolution, expenses on realization paid by a partner is debited to:",
+        "options": [
+          "Partner's Capital Account",
+          "Profit and Loss Account",
+          "Cash Account",
+          "Realization Account"
+        ],
+        "correct": 3,
+        "explanation": "When a partner agrees to bear realization expenses, his capital account is credited with the amount paid to him. The actual payment of expenses by the firm is debited to the Realization Account. If the partner bears the expense, it means the firm saves that expense, hence credited to partner's capital. However, the question asks what is debited to Realization Account for the expense paid by the firm."
+      },
+      {
+        "q": "If a partner is paid a commission on realization of assets, it is credited to:",
+        "options": [
+          "Partner's Capital Account",
+          "Profit and Loss Appropriation Account",
+          "Realization Account",
+          "Cash Account"
+        ],
+        "correct": 0,
+        "explanation": "Commission paid to a partner for realizing assets is an expense for the firm and a gain for the partner. Hence, it is debited to Realization Account and credited to the Partner's Capital Account."
+      },
+      {
+        "q": "If an unrecorded liability of Rs. 20,000 is paid by the firm for Rs. 15,000, the difference of Rs. 5,000 will be:",
+        "options": [
+          "Debited to Realization Account",
+          "Credited to Realization Account",
+          "Ignored in Realization Account",
+          "Debited to Partner's Capital Account"
+        ],
+        "correct": 1,
+        "explanation": "The unrecorded liability is debited to Realization Account at its payment value (Rs. 15,000). The gain of Rs. 5,000 (because it was paid less than its assumed value) is credited to Realization Account."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-accounting-for-share-capital",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Accounting for Share Capital",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Accounting for Share Capital. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which study action is most useful before solving questions from \"Accounting for Share Capital\"?",
+        "options": [
+          "Skip directly to the answer key",
+          "Memorize only the chapter title",
+          "Read the key concepts and examples first",
+          "Avoid diagrams and formulas"
+        ],
+        "correct": 2,
+        "explanation": "Start by reviewing the core ideas of \"Accounting for Share Capital\", then solve examples and MCQs."
+      },
+      {
+        "q": "What should you do when a question from \"Accounting for Share Capital\" contains unfamiliar data?",
+        "options": [
+          "Stop attempting the question",
+          "Choose the longest option immediately",
+          "Ignore units and keywords",
+          "Identify given values and the concept being tested"
+        ],
+        "correct": 3,
+        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
+      },
+      {
+        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting for Share Capital\"?",
+        "options": [
+          "Mix concept review with timed practice",
+          "Only reread the heading",
+          "Practice unrelated chapters first",
+          "Avoid checking explanations"
+        ],
+        "correct": 0,
+        "explanation": "Combining revision and practice builds both understanding and exam speed."
+      },
+      {
+        "q": "Which study action is most useful before solving questions from \"Accounting for Share Capital\"?",
+        "options": [
+          "Skip directly to the answer key",
+          "Read the key concepts and examples first",
+          "Memorize only the chapter title",
+          "Avoid diagrams and formulas"
+        ],
+        "correct": 1,
+        "explanation": "Start by reviewing the core ideas of \"Accounting for Share Capital\", then solve examples and MCQs."
+      },
+      {
+        "q": "What should you do when a question from \"Accounting for Share Capital\" contains unfamiliar data?",
+        "options": [
+          "Choose the longest option immediately",
+          "Stop attempting the question",
+          "Identify given values and the concept being tested",
+          "Ignore units and keywords"
+        ],
+        "correct": 2,
+        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
+      },
+      {
+        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting for Share Capital\"?",
+        "options": [
+          "Only reread the heading",
+          "Avoid checking explanations",
+          "Practice unrelated chapters first",
+          "Mix concept review with timed practice"
+        ],
+        "correct": 3,
+        "explanation": "Combining revision and practice builds both understanding and exam speed."
+      },
+      {
+        "q": "Which study action is most useful before solving questions from \"Accounting for Share Capital\"?",
+        "options": [
+          "Read the key concepts and examples first",
+          "Skip directly to the answer key",
+          "Memorize only the chapter title",
+          "Avoid diagrams and formulas"
+        ],
+        "correct": 0,
+        "explanation": "Start by reviewing the core ideas of \"Accounting for Share Capital\", then solve examples and MCQs."
+      },
+      {
+        "q": "What should you do when a question from \"Accounting for Share Capital\" contains unfamiliar data?",
+        "options": [
+          "Stop attempting the question",
+          "Identify given values and the concept being tested",
+          "Choose the longest option immediately",
+          "Ignore units and keywords"
+        ],
+        "correct": 1,
+        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
+      },
+      {
+        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting for Share Capital\"?",
+        "options": [
+          "Practice unrelated chapters first",
+          "Avoid checking explanations",
+          "Mix concept review with timed practice",
+          "Only reread the heading"
+        ],
+        "correct": 2,
+        "explanation": "Combining revision and practice builds both understanding and exam speed."
+      },
+      {
+        "q": "Which study action is most useful before solving questions from \"Accounting for Share Capital\"?",
+        "options": [
+          "Skip directly to the answer key",
+          "Avoid diagrams and formulas",
+          "Memorize only the chapter title",
+          "Read the key concepts and examples first"
+        ],
+        "correct": 3,
+        "explanation": "Start by reviewing the core ideas of \"Accounting for Share Capital\", then solve examples and MCQs."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-issue-and-redemption-of-debentures",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Issue and Redemption of Debentures",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Issue and Redemption of Debentures. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "What is the primary purpose of the Debenture Redemption Reserve (DRR)?",
+        "options": [
+          "To ensure availability of funds for redemption",
+          "To reduce the company's tax liability",
+          "To increase the company's profits",
+          "To provide for future losses"
+        ],
+        "correct": 0,
+        "explanation": "The DRR is a statutory requirement under the Companies Act to ensure that a portion of the profits is set aside to meet the redemption of debentures, thereby protecting the interests of debenture holders."
+      },
+      {
+        "q": "Which of the following is NOT a method of redemption of debentures?",
+        "options": [
+          "Redemption by conversion into shares",
+          "Redemption by appropriation of profit",
+          "Redemption by issue of new debentures",
+          "Redemption by draw of lots"
+        ],
+        "correct": 1,
+        "explanation": "Redemption by appropriation of profit refers to setting aside profits for redemption, which is indirectly achieved through the Debenture Redemption Reserve (DRR). It's not a direct method of extinguishing the liability itself."
+      },
+      {
+        "q": "A company issued 500, 8% debentures of ₹1,000 each at a discount of 4%. The debentures are redeemable at a premium of 6%. The total loss on issue of debentures will be:",
+        "options": [
+          "₹20,000",
+          "₹30,000",
+          "₹50,000",
+          "₹60,000"
+        ],
+        "correct": 2,
+        "explanation": "Discount on issue = 4% of ₹5,00,000 = ₹20,000. Premium on redemption = 6% of ₹5,00,000 = ₹30,000. Total loss = ₹20,000 + ₹30,000 = ₹50,000."
+      },
+      {
+        "q": "When debentures are redeemed out of capital, the corresponding credit entry is usually made to:",
+        "options": [
+          "General Reserve",
+          "Statement of Profit and Loss",
+          "Debenture Holders Account",
+          "Debenture Redemption Reserve Account"
+        ],
+        "correct": 3,
+        "explanation": "When debentures are redeemed out of capital, the Debenture Redemption Reserve (DRR) or any other reserve created for this purpose is utilized. The debenture holders are paid, and their account is debited."
+      },
+      {
+        "q": "When debentures are issued at a discount and redeemable at par, the discount on issue of debentures is shown as:",
+        "options": [
+          "A loss on issue of debentures",
+          "A deduction from share capital",
+          "A capital profit",
+          "A revenue expenditure"
+        ],
+        "correct": 0,
+        "explanation": "Discount on issue of debentures is a capital loss as it relates to the cost of raising long-term finance. It is often debited to Securities Premium Account or Statement of Profit and Loss."
+      },
+      {
+        "q": "A company has ₹5,00,000, 10% debentures due for redemption. It decides to redeem these debentures by issuing new 12% debentures at par. The amount of new debentures to be issued will be:",
+        "options": [
+          "Cannot be determined",
+          "Exactly ₹5,00,000",
+          "Less than ₹5,00,000",
+          "More than ₹5,00,000"
+        ],
+        "correct": 1,
+        "explanation": "When debentures are redeemed by issuing new debentures at par, the nominal value of the old debentures is equal to the nominal value of the new debentures issued."
+      },
+      {
+        "q": "ABC Ltd. has 1,000, 10% debentures of ₹100 each, redeemable at a premium of 10%. The company has a sufficient balance in the Securities Premium Reserve. The entry to record the premium on redemption will involve a debit to:",
+        "options": [
+          "Debenture Redemption Reserve Account",
+          "Statement of Profit and Loss Account",
+          "Securities Premium Reserve Account",
+          "Debenture Holders Account"
+        ],
+        "correct": 2,
+        "explanation": "If Securities Premium Reserve is sufficient, the premium on redemption of debentures is debited to Securities Premium Reserve Account. Otherwise, it is debited to Statement of Profit and Loss."
+      },
+      {
+        "q": "Securities Premium Reserve can be used for writing off discount on issue of debentures, provided that:",
+        "options": [
+          "The debentures are redeemable within 12 months",
+          "The debentures are redeemable at a discount",
+          "The debentures are redeemable at a premium",
+          "The debentures are redeemable at par"
+        ],
+        "correct": 3,
+        "explanation": "Securities Premium can be used to write off the discount on issue of debentures. This is allowed when debentures are redeemable at par or at a premium."
+      },
+      {
+        "q": "If debentures are issued for a consideration other than cash, and they are redeemable at a premium, the premium on redemption is treated as:",
+        "options": [
+          "A capital loss",
+          "A prior period item",
+          "A revenue loss",
+          "A capital profit"
+        ],
+        "correct": 0,
+        "explanation": "Premium on redemption of debentures, like discount on issue, represents a capital loss as it is an additional cost incurred in raising long-term finance."
+      },
+      {
+        "q": "XYZ Ltd. issued 10,000, 9% debentures of ₹100 each at a premium of 5%. The debentures are redeemable at par. The amount to be transferred to Debenture Redemption Reserve (DRR) at the end of the first financial year would be:",
+        "options": [
+          "10% of ₹9,00,000",
+          "10% of ₹10,00,000",
+          "10% of ₹9,50,000",
+          "10% of ₹10,50,000"
+        ],
+        "correct": 1,
+        "explanation": "DRR is created out of profits and is equal to 10% of the nominal value of debentures outstanding. Nominal value of debentures is ₹100 * 10,000 = ₹10,00,000."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-financial-statements-of-a-company",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Financial Statements of a Company",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Financial Statements of a Company. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "If a company's 'Inventory Turnover Ratio' is very low, what does it generally indicate?",
+        "options": [
+          "High customer demand",
+          "Efficient inventory management",
+          "Poor sales or overstocking of inventory",
+          "Effective use of working capital"
+        ],
+        "correct": 2,
+        "explanation": "A low Inventory Turnover Ratio suggests that inventory is not selling quickly, which could be due to poor sales, overstocking, or inefficient inventory management."
+      },
+      {
+        "q": "Which of the following is considered a disclosure requirement under 'Contingent Liabilities' in a company's financial statements?",
+        "options": [
+          "Outstanding expenses",
+          "A provision for doubtful debts",
+          "Accrued income",
+          "A claim against the company not acknowledged by the company"
+        ],
+        "correct": 3,
+        "explanation": "A claim against the company not acknowledged by the company is a contingent liability and is disclosed in the notes to the financial statements, not recognized as a liability in the Balance Sheet."
+      },
+      {
+        "q": "In the context of Ratio Analysis, what does the 'Current Ratio' primarily measure?",
+        "options": [
+          "The company's ability to meet its short-term obligations",
+          "The company's profitability",
+          "The company's operational efficiency",
+          "The company's long-term solvency"
+        ],
+        "correct": 0,
+        "explanation": "The Current Ratio (Current Assets / Current Liabilities) is a liquidity ratio that assesses a company's ability to pay off its short-term debts using its short-term assets."
+      },
+      {
+        "q": "Under which activity would the purchase of machinery for the company's factory be classified in the Cash Flow Statement?",
+        "options": [
+          "Operating Activities",
+          "Investing Activities",
+          "Financing Activities",
+          "It is not disclosed in the Cash Flow Statement"
+        ],
+        "correct": 1,
+        "explanation": "The purchase of long-term assets like machinery is considered an investing activity, as it relates to the acquisition or disposal of long-term assets and investments."
+      },
+      {
+        "q": "A company has purchased its own shares. This transaction will be classified under which of the following heads in the Balance Sheet?",
+        "options": [
+          "Share Capital",
+          "Reserves and Surplus",
+          "Share Application Money Pending Allotment",
+          "None of the above"
+        ],
+        "correct": 3,
+        "explanation": "Purchase of own shares (Buy-back) is generally treated as a reduction from Shareholder's Funds. It is not Share Capital, Reserves and Surplus, or Share Application Money. It is often shown as a deduction from 'Equity' or disclosed in notes."
+      },
+      {
+        "q": "The 'Extraordinary Items' as per Accounting Standard (AS) 5 are events or transactions that are unusual in nature and occur infrequently. Where are these items presented in the Statement of Profit and Loss?",
+        "options": [
+          "As part of Revenue from Operations",
+          "As part of Other Income",
+          "Disclosed separately after Profit before Extraordinary Items and Tax",
+          "Not disclosed in the financial statements"
+        ],
+        "correct": 2,
+        "explanation": "Extraordinary items are disclosed separately in the Statement of Profit and Loss after profit/loss before tax and extraordinary items, to provide clarity on the company's core operating performance."
+      },
+      {
+        "q": "Which of the following items would be classified as a 'Cash Equivalent' for the purpose of preparing the Cash Flow Statement?",
+        "options": [
+          "Patents and copyrights",
+          "Buildings owned by the company",
+          "Shares of another company held for long-term investment",
+          "A 3-month fixed deposit with a bank"
+        ],
+        "correct": 3,
+        "explanation": "Cash equivalents are short-term, highly liquid investments that are readily convertible to known amounts of cash and which are subject to an insignificant risk of changes in value. A 3-month fixed deposit fits this description."
+      },
+      {
+        "q": "When preparing a Cash Flow Statement using the indirect method, what is the first step taken from the Statement of Profit and Loss?",
+        "options": [
+          "Start with Net Profit before tax and extraordinary items",
+          "Start with Net Sales",
+          "Start with Net Loss",
+          "Start with Gross Profit"
+        ],
+        "correct": 0,
+        "explanation": "The indirect method of preparing the Cash Flow Statement begins with the Net Profit (or Net Loss) before tax and extraordinary items, and then adjusts for non-cash items and changes in working capital."
+      },
+      {
+        "q": "Which of the following is NOT a component of a company's Statement of Profit and Loss as per Schedule III of the Companies Act, 2013?",
+        "options": [
+          "Other Income",
+          "Sales Returns",
+          "Depreciation",
+          "Revenue from Operations"
+        ],
+        "correct": 1,
+        "explanation": "Sales Returns is a deduction from Revenue from Operations and is not shown as a separate item in the main Statement of Profit and Loss. It is usually presented as a note or within the Revenue from Operations."
+      },
+      {
+        "q": "Which of the following is a mandatory disclosure in the Notes to Accounts as per Schedule III of the Companies Act, 2013 regarding employee benefits?",
+        "options": [
+          "Details of salaries paid to directors",
+          "Amount paid for employee welfare activities",
+          "Total amount paid to employees as wages and salaries",
+          "Total expenses incurred on staff training"
+        ],
+        "correct": 2,
+        "explanation": "Schedule III requires disclosure of the total amount paid to employees as wages and salaries, which includes the cost of all employees, whether deployed by the company or by third parties."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-analysis-of-financial-statements",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Analysis of Financial Statements",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Analysis of Financial Statements. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which analysis technique involves comparing items in the financial statement with a base year or base period amount, expressing each item as a percentage of the base year amount?",
+        "options": [
+          "Cash flow analysis",
+          "Ratio analysis",
+          "Common-size analysis",
+          "Trend analysis"
+        ],
+        "correct": 3,
+        "explanation": "Trend analysis, also known as time-series analysis, uses a base period for comparison to show the percentage change of various items over time."
+      },
+      {
+        "q": "A higher 'Times Interest Earned' ratio suggests:",
+        "options": [
+          "Lower risk for lenders",
+          "Higher risk for lenders",
+          "Lower profitability",
+          "Higher dividend payout"
+        ],
+        "correct": 0,
+        "explanation": "A higher 'Times Interest Earned' ratio indicates that the company's earnings are sufficiently high to cover its interest expenses, making it less risky for lenders."
+      },
+      {
+        "q": "Which of the following is NOT a limitation of financial statement analysis?",
+        "options": [
+          "Ignores the price level changes",
+          "Can be used for comparison only with past performance",
+          "Ignores qualitative factors",
+          "Provides historical information"
+        ],
+        "correct": 1,
+        "explanation": "Financial statement analysis can be used for comparison with industry averages and competitor performance, not just past performance."
+      },
+      {
+        "q": "Which of the following is a component of the Cash Flow from Operations Activity?",
+        "options": [
+          "Purchase of a new building",
+          "Payment of dividend",
+          "Sale of goods and services",
+          "Issuance of shares"
+        ],
+        "correct": 2,
+        "explanation": "Sale of goods and services is the primary revenue-generating activity of a business and thus forms part of cash flow from operations."
+      },
+      {
+        "q": "Which of the following ratios would best measure a company's ability to meet its short-term obligations?",
+        "options": [
+          "Gross Profit Ratio",
+          "Inventory Turnover Ratio",
+          "Return on Capital Employed",
+          "Current Ratio"
+        ],
+        "correct": 3,
+        "explanation": "The Current Ratio specifically compares current assets to current liabilities, indicating the ability to pay short-term debts."
+      },
+      {
+        "q": "The primary objective of comparative financial statements is to:",
+        "options": [
+          "Analyze trends and changes in financial performance over time",
+          "Determine the profitability of specific assets",
+          "Show the movement of cash during a period",
+          "Present a company's financial position at a single point in time"
+        ],
+        "correct": 0,
+        "explanation": "Comparative statements allow for the comparison of financial data across different periods, enabling the identification of trends and changes."
+      },
+      {
+        "q": "A company with a high Return on Equity (ROE) ratio is generally considered:",
+        "options": [
+          "Inefficient in using shareholder funds",
+          "Profitable for shareholders",
+          "Highly leveraged",
+          "Facing financial distress"
+        ],
+        "correct": 1,
+        "explanation": "A high ROE indicates that the company is generating good profits relative to the shareholders' investments."
+      },
+      {
+        "q": "If a company's Inventory Turnover Ratio is declining, it might suggest:",
+        "options": [
+          "Faster movement of goods",
+          "Improved sales performance",
+          "Ineffective inventory management",
+          "Increased demand for products"
+        ],
+        "correct": 2,
+        "explanation": "A declining Inventory Turnover Ratio means inventory is not being sold as quickly, indicating potential overstocking or slow sales."
+      },
+      {
+        "q": "If the Current Ratio is 2:1 and the Quick Ratio is 1.5:1, what can be inferred about the company's inventory?",
+        "options": [
+          "Inventory levels are high",
+          "Inventory levels are low",
+          "Inventory levels are negligible",
+          "Inventory is a significant component of current assets"
+        ],
+        "correct": 3,
+        "explanation": "The difference between the Current Ratio and Quick Ratio is primarily due to inventory. A significant difference suggests inventory is a substantial part of current assets."
+      },
+      {
+        "q": "A decrease in the Debt-Equity Ratio generally indicates:",
+        "options": [
+          "Decreased financial risk",
+          "Increased financial risk",
+          "Decreased operational efficiency",
+          "Increased profitability"
+        ],
+        "correct": 0,
+        "explanation": "A lower Debt-Equity Ratio means the company relies less on borrowed funds, thus reducing its financial risk."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-accounting-ratios",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Accounting Ratios",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Accounting Ratios. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which study action is most useful before solving questions from \"Accounting Ratios\"?",
+        "options": [
+          "Avoid diagrams and formulas",
+          "Read the key concepts and examples first",
+          "Memorize only the chapter title",
+          "Skip directly to the answer key"
+        ],
+        "correct": 1,
+        "explanation": "Start by reviewing the core ideas of \"Accounting Ratios\", then solve examples and MCQs."
+      },
+      {
+        "q": "What should you do when a question from \"Accounting Ratios\" contains unfamiliar data?",
+        "options": [
+          "Choose the longest option immediately",
+          "Ignore units and keywords",
+          "Identify given values and the concept being tested",
+          "Stop attempting the question"
+        ],
+        "correct": 2,
+        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
+      },
+      {
+        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting Ratios\"?",
+        "options": [
+          "Avoid checking explanations",
+          "Practice unrelated chapters first",
+          "Only reread the heading",
+          "Mix concept review with timed practice"
+        ],
+        "correct": 3,
+        "explanation": "Combining revision and practice builds both understanding and exam speed."
+      },
+      {
+        "q": "Which study action is most useful before solving questions from \"Accounting Ratios\"?",
+        "options": [
+          "Read the key concepts and examples first",
+          "Skip directly to the answer key",
+          "Memorize only the chapter title",
+          "Avoid diagrams and formulas"
+        ],
+        "correct": 0,
+        "explanation": "Start by reviewing the core ideas of \"Accounting Ratios\", then solve examples and MCQs."
+      },
+      {
+        "q": "What should you do when a question from \"Accounting Ratios\" contains unfamiliar data?",
+        "options": [
+          "Stop attempting the question",
+          "Identify given values and the concept being tested",
+          "Ignore units and keywords",
+          "Choose the longest option immediately"
+        ],
+        "correct": 1,
+        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
+      },
+      {
+        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting Ratios\"?",
+        "options": [
+          "Only reread the heading",
+          "Avoid checking explanations",
+          "Mix concept review with timed practice",
+          "Practice unrelated chapters first"
+        ],
+        "correct": 2,
+        "explanation": "Combining revision and practice builds both understanding and exam speed."
+      },
+      {
+        "q": "Which study action is most useful before solving questions from \"Accounting Ratios\"?",
+        "options": [
+          "Skip directly to the answer key",
+          "Avoid diagrams and formulas",
+          "Memorize only the chapter title",
+          "Read the key concepts and examples first"
+        ],
+        "correct": 3,
+        "explanation": "Start by reviewing the core ideas of \"Accounting Ratios\", then solve examples and MCQs."
+      },
+      {
+        "q": "What should you do when a question from \"Accounting Ratios\" contains unfamiliar data?",
+        "options": [
+          "Identify given values and the concept being tested",
+          "Choose the longest option immediately",
+          "Ignore units and keywords",
+          "Stop attempting the question"
+        ],
+        "correct": 0,
+        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
+      },
+      {
+        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting Ratios\"?",
+        "options": [
+          "Practice unrelated chapters first",
+          "Mix concept review with timed practice",
+          "Avoid checking explanations",
+          "Only reread the heading"
+        ],
+        "correct": 1,
+        "explanation": "Combining revision and practice builds both understanding and exam speed."
+      },
+      {
+        "q": "Which study action is most useful before solving questions from \"Accounting Ratios\"?",
+        "options": [
+          "Memorize only the chapter title",
+          "Avoid diagrams and formulas",
+          "Read the key concepts and examples first",
+          "Skip directly to the answer key"
+        ],
+        "correct": 2,
+        "explanation": "Start by reviewing the core ideas of \"Accounting Ratios\", then solve examples and MCQs."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-accountancy-cash-flow-statement",
+    "classLevel": "12",
+    "subject": "Accountancy",
+    "chapter": "Cash Flow Statement",
+    "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Cash Flow Statement. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "An increase in accounts payable would:",
+        "options": [
+          "Decrease cash flow from operations",
+          "Have no effect on cash flow from operations",
+          "Be treated as an investing activity",
+          "Increase cash flow from operations"
+        ],
+        "correct": 3,
+        "explanation": "An increase in accounts payable means the company has received goods or services but has not yet paid cash for them, thus increasing cash available in operations."
+      },
+      {
+        "q": "Which of the following activities is least likely to be classified under Cash Flow from Investing Activities?",
+        "options": [
+          "Repayment of long-term loan",
+          "Sale of investments",
+          "Purchase of machinery",
+          "Proceeds from sale of land"
+        ],
+        "correct": 0,
+        "explanation": "Repayment of long-term loan is a financing activity as it relates to the company's debt structure."
+      },
+      {
+        "q": "An increase in inventory is treated as a deduction from net profit while preparing the Cash Flow Statement under the indirect method because:",
+        "options": [
+          "It represents an increase in cash",
+          "It represents a decrease in cash",
+          "It is a non-cash item",
+          "It is an investing activity"
+        ],
+        "correct": 1,
+        "explanation": "An increase in inventory means cash has been used to acquire more goods, thus representing a decrease in cash available."
+      },
+      {
+        "q": "Redemption of preference shares is an example of:",
+        "options": [
+          "Operating Activity",
+          "Investing Activity",
+          "Financing Activity",
+          "None of the above"
+        ],
+        "correct": 2,
+        "explanation": "Redemption of preference shares involves returning capital to shareholders, which is a financing activity."
+      },
+      {
+        "q": "Which of the following would be classified as a Cash Flow from Operating Activities?",
+        "options": [
+          "Issuance of shares",
+          "Payment of dividend",
+          "Collection from debtors",
+          "Purchase of buildings"
+        ],
+        "correct": 2,
+        "explanation": "Collection from debtors relates to the primary revenue-generating activities of the business."
+      },
+      {
+        "q": "A company sells old machinery for ₹50,000. This transaction will result in:",
+        "options": [
+          "Cash inflow from operating activities",
+          "Cash outflow from financing activities",
+          "Cash outflow from investing activities",
+          "Cash inflow from investing activities"
+        ],
+        "correct": 3,
+        "explanation": "Sale of an asset like machinery is an investing activity, and the proceeds represent a cash inflow."
+      },
+      {
+        "q": "Under the indirect method, depreciation is:",
+        "options": [
+          "Added back to net profit",
+          "Deducted from net profit",
+          "Ignored",
+          "Shown as an investing activity"
+        ],
+        "correct": 0,
+        "explanation": "Depreciation is a non-cash expense. In the indirect method, it is added back to net profit because it was deducted to arrive at net profit but did not involve an outflow of cash."
+      },
+      {
+        "q": "Under the direct method of preparing the Cash Flow Statement, 'Cash received from customers' is:",
+        "options": [
+          "Not considered in operating activities",
+          "Calculated from sales revenue",
+          "Calculated from gross profit",
+          "The same as sales revenue"
+        ],
+        "correct": 1,
+        "explanation": "Under the direct method, cash receipts from customers are directly determined by adjusting sales revenue for changes in debtors and any prepaid revenue."
+      },
+      {
+        "q": "If a company repurchases its own shares, this would be considered:",
+        "options": [
+          "A cash outflow from operating activities",
+          "A cash inflow from investing activities",
+          "A cash outflow from financing activities",
+          "A cash inflow from financing activities"
+        ],
+        "correct": 2,
+        "explanation": "Repurchasing shares involves the company paying cash to its shareholders, which is a use of cash and a financing activity."
+      },
+      {
+        "q": "Which of the following is NOT a part of the Cash Flow Statement?",
+        "options": [
+          "Cash Flow from Operating Activities",
+          "Cash Flow from Investing Activities",
+          "Cash Flow from Financing Activities",
+          "Non-cash expenses adjustment"
+        ],
+        "correct": 3,
+        "explanation": "Non-cash expenses like depreciation are adjustments made *within* the calculation of cash flow from operating activities (indirect method), not a separate section of the statement itself."
+      }
+    ],
+    "faqs": []
   }
 ];
 export const MCQ_GROUPS = (): string[] => [...new Set(MCQ_CHAPTERS.map((m) => `${m.classLevel} ${m.subject}`))];
