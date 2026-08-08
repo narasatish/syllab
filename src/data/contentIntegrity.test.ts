@@ -63,6 +63,15 @@ describe('MCQ bank', () => {
     }
   });
 
+  it('no study-advice filler masquerading as a subject question', () => {
+    // When the model ran short for a chapter it padded with "What should you do
+    // when a question contains unfamiliar data?" — and the backend cache served
+    // that padding back on every re-run. Not subject knowledge; not allowed.
+    const FILLER = /what should you do when a question|what is the best way to revise|best way to prepare for|how should you (revise|approach|study)|which study habit/i;
+    const padding = all.filter(({ q }) => FILLER.test(q.q)).map(({ q }) => q.q.slice(0, 60));
+    expect(padding).toEqual([]);
+  });
+
   it('chapter slugs are unique', () => {
     const s = MCQ_CHAPTERS.map((c) => c.slug);
     expect(new Set(s).size).toBe(s.length);

@@ -50,6 +50,15 @@ interface ApiQuestion {
   explanation?: string;
 }
 
+/**
+ * Study-advice padding, not subject knowledge. When the model runs short of real
+ * questions for a chapter it fills the gap with things like "What should you do
+ * when a question contains unfamiliar data?" — and because the backend caches by
+ * chapter, re-running just serves the same padding back. It has to be rejected
+ * on the way IN, not cleaned up afterwards.
+ */
+const FILLER = /what should you do when a question|what is the best way to revise|best way to prepare for|how should you (revise|approach|study)|what is the most effective way to (study|revise|practice)|which study habit/i;
+
 async function readBank(): Promise<{ header: string; chapters: BankChapter[]; footer: string }> {
   const src = await fs.readFile(BANK_FILE, 'utf8');
   const i = src.indexOf(MARKER);
@@ -106,12 +115,13 @@ async function fetchBatch(gap: Gap, attempt = 1): Promise<BankMcq[]> {
     // Map the API shape onto the bank shape, then run the SAME validator the
     // direct-Gemini path uses — malformed questions are dropped, never repaired.
     const kept = raw
+      .filter((q) => !FILLER.test(String(q.question_text ?? '')))
       .map((q) => validateMcq({
         q: q.question_text, options: q.options,
         correct: q.correct_index, explanation: q.explanation,
       }))
       .filter((m): m is BankMcq => m !== null);
-    if (kept.length < raw.length) console.warn(`   ⚠ dropped ${raw.length - kept.length} invalid`);
+    if (kept.length < raw.length) console.warn(`   ⚠ dropped ${raw.length - kept.length} (invalid or study-advice filler)`);
     return kept;
   } catch (e) {
     if (attempt <= 3) { await new Promise((s) => setTimeout(s, 3000 * attempt)); return fetchBatch(gap, attempt + 1); }

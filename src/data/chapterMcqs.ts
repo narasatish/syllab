@@ -11186,105 +11186,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 2,
         "explanation": "Start by reviewing the core ideas of \"Accounting for Share Capital\", then solve examples and MCQs."
-      },
-      {
-        "q": "What should you do when a question from \"Accounting for Share Capital\" contains unfamiliar data?",
-        "options": [
-          "Stop attempting the question",
-          "Choose the longest option immediately",
-          "Ignore units and keywords",
-          "Identify given values and the concept being tested"
-        ],
-        "correct": 3,
-        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
-      },
-      {
-        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting for Share Capital\"?",
-        "options": [
-          "Mix concept review with timed practice",
-          "Only reread the heading",
-          "Practice unrelated chapters first",
-          "Avoid checking explanations"
-        ],
-        "correct": 0,
-        "explanation": "Combining revision and practice builds both understanding and exam speed."
-      },
-      {
-        "q": "Which study action is most useful before solving questions from \"Accounting for Share Capital\"?",
-        "options": [
-          "Skip directly to the answer key",
-          "Read the key concepts and examples first",
-          "Memorize only the chapter title",
-          "Avoid diagrams and formulas"
-        ],
-        "correct": 1,
-        "explanation": "Start by reviewing the core ideas of \"Accounting for Share Capital\", then solve examples and MCQs."
-      },
-      {
-        "q": "What should you do when a question from \"Accounting for Share Capital\" contains unfamiliar data?",
-        "options": [
-          "Choose the longest option immediately",
-          "Stop attempting the question",
-          "Identify given values and the concept being tested",
-          "Ignore units and keywords"
-        ],
-        "correct": 2,
-        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
-      },
-      {
-        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting for Share Capital\"?",
-        "options": [
-          "Only reread the heading",
-          "Avoid checking explanations",
-          "Practice unrelated chapters first",
-          "Mix concept review with timed practice"
-        ],
-        "correct": 3,
-        "explanation": "Combining revision and practice builds both understanding and exam speed."
-      },
-      {
-        "q": "Which study action is most useful before solving questions from \"Accounting for Share Capital\"?",
-        "options": [
-          "Read the key concepts and examples first",
-          "Skip directly to the answer key",
-          "Memorize only the chapter title",
-          "Avoid diagrams and formulas"
-        ],
-        "correct": 0,
-        "explanation": "Start by reviewing the core ideas of \"Accounting for Share Capital\", then solve examples and MCQs."
-      },
-      {
-        "q": "What should you do when a question from \"Accounting for Share Capital\" contains unfamiliar data?",
-        "options": [
-          "Stop attempting the question",
-          "Identify given values and the concept being tested",
-          "Choose the longest option immediately",
-          "Ignore units and keywords"
-        ],
-        "correct": 1,
-        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
-      },
-      {
-        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting for Share Capital\"?",
-        "options": [
-          "Practice unrelated chapters first",
-          "Avoid checking explanations",
-          "Mix concept review with timed practice",
-          "Only reread the heading"
-        ],
-        "correct": 2,
-        "explanation": "Combining revision and practice builds both understanding and exam speed."
-      },
-      {
-        "q": "Which study action is most useful before solving questions from \"Accounting for Share Capital\"?",
-        "options": [
-          "Skip directly to the answer key",
-          "Avoid diagrams and formulas",
-          "Memorize only the chapter title",
-          "Read the key concepts and examples first"
-        ],
-        "correct": 3,
-        "explanation": "Start by reviewing the core ideas of \"Accounting for Share Capital\", then solve examples and MCQs."
       }
     ],
     "faqs": []
@@ -11299,67 +11200,67 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "What is the primary purpose of the Debenture Redemption Reserve (DRR)?",
         "options": [
+          "To provide for future losses",
           "To ensure availability of funds for redemption",
-          "To reduce the company's tax liability",
           "To increase the company's profits",
-          "To provide for future losses"
+          "To reduce the company's tax liability"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "The DRR is a statutory requirement under the Companies Act to ensure that a portion of the profits is set aside to meet the redemption of debentures, thereby protecting the interests of debenture holders."
       },
       {
         "q": "Which of the following is NOT a method of redemption of debentures?",
         "options": [
-          "Redemption by conversion into shares",
-          "Redemption by appropriation of profit",
+          "Redemption by draw of lots",
           "Redemption by issue of new debentures",
-          "Redemption by draw of lots"
+          "Redemption by appropriation of profit",
+          "Redemption by conversion into shares"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Redemption by appropriation of profit refers to setting aside profits for redemption, which is indirectly achieved through the Debenture Redemption Reserve (DRR). It's not a direct method of extinguishing the liability itself."
       },
       {
         "q": "A company issued 500, 8% debentures of ₹1,000 each at a discount of 4%. The debentures are redeemable at a premium of 6%. The total loss on issue of debentures will be:",
         "options": [
           "₹20,000",
+          "₹60,000",
           "₹30,000",
-          "₹50,000",
-          "₹60,000"
+          "₹50,000"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Discount on issue = 4% of ₹5,00,000 = ₹20,000. Premium on redemption = 6% of ₹5,00,000 = ₹30,000. Total loss = ₹20,000 + ₹30,000 = ₹50,000."
       },
       {
         "q": "When debentures are redeemed out of capital, the corresponding credit entry is usually made to:",
         "options": [
-          "General Reserve",
-          "Statement of Profit and Loss",
+          "Debenture Redemption Reserve Account",
           "Debenture Holders Account",
-          "Debenture Redemption Reserve Account"
+          "General Reserve",
+          "Statement of Profit and Loss"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "When debentures are redeemed out of capital, the Debenture Redemption Reserve (DRR) or any other reserve created for this purpose is utilized. The debenture holders are paid, and their account is debited."
       },
       {
         "q": "When debentures are issued at a discount and redeemable at par, the discount on issue of debentures is shown as:",
         "options": [
-          "A loss on issue of debentures",
           "A deduction from share capital",
-          "A capital profit",
-          "A revenue expenditure"
+          "A loss on issue of debentures",
+          "A revenue expenditure",
+          "A capital profit"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Discount on issue of debentures is a capital loss as it relates to the cost of raising long-term finance. It is often debited to Securities Premium Account or Statement of Profit and Loss."
       },
       {
         "q": "A company has ₹5,00,000, 10% debentures due for redemption. It decides to redeem these debentures by issuing new 12% debentures at par. The amount of new debentures to be issued will be:",
         "options": [
+          "Less than ₹5,00,000",
           "Cannot be determined",
           "Exactly ₹5,00,000",
-          "Less than ₹5,00,000",
           "More than ₹5,00,000"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "When debentures are redeemed by issuing new debentures at par, the nominal value of the old debentures is equal to the nominal value of the new debentures issued."
       },
       {
@@ -11367,43 +11268,43 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "Debenture Redemption Reserve Account",
           "Statement of Profit and Loss Account",
-          "Securities Premium Reserve Account",
-          "Debenture Holders Account"
+          "Debenture Holders Account",
+          "Securities Premium Reserve Account"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "If Securities Premium Reserve is sufficient, the premium on redemption of debentures is debited to Securities Premium Reserve Account. Otherwise, it is debited to Statement of Profit and Loss."
       },
       {
         "q": "Securities Premium Reserve can be used for writing off discount on issue of debentures, provided that:",
         "options": [
-          "The debentures are redeemable within 12 months",
+          "The debentures are redeemable at par",
           "The debentures are redeemable at a discount",
           "The debentures are redeemable at a premium",
-          "The debentures are redeemable at par"
+          "The debentures are redeemable within 12 months"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "Securities Premium can be used to write off the discount on issue of debentures. This is allowed when debentures are redeemable at par or at a premium."
       },
       {
         "q": "If debentures are issued for a consideration other than cash, and they are redeemable at a premium, the premium on redemption is treated as:",
         "options": [
+          "A revenue loss",
           "A capital loss",
           "A prior period item",
-          "A revenue loss",
           "A capital profit"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Premium on redemption of debentures, like discount on issue, represents a capital loss as it is an additional cost incurred in raising long-term finance."
       },
       {
         "q": "XYZ Ltd. issued 10,000, 9% debentures of ₹100 each at a premium of 5%. The debentures are redeemable at par. The amount to be transferred to Debenture Redemption Reserve (DRR) at the end of the first financial year would be:",
         "options": [
           "10% of ₹9,00,000",
+          "10% of ₹10,50,000",
           "10% of ₹10,00,000",
-          "10% of ₹9,50,000",
-          "10% of ₹10,50,000"
+          "10% of ₹9,50,000"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "DRR is created out of profits and is equal to 10% of the nominal value of debentures outstanding. Nominal value of debentures is ₹100 * 10,000 = ₹10,00,000."
       }
     ],
@@ -11419,45 +11320,45 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "If a company's 'Inventory Turnover Ratio' is very low, what does it generally indicate?",
         "options": [
+          "Effective use of working capital",
           "High customer demand",
           "Efficient inventory management",
-          "Poor sales or overstocking of inventory",
-          "Effective use of working capital"
+          "Poor sales or overstocking of inventory"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "A low Inventory Turnover Ratio suggests that inventory is not selling quickly, which could be due to poor sales, overstocking, or inefficient inventory management."
       },
       {
         "q": "Which of the following is considered a disclosure requirement under 'Contingent Liabilities' in a company's financial statements?",
         "options": [
-          "Outstanding expenses",
+          "A claim against the company not acknowledged by the company",
           "A provision for doubtful debts",
-          "Accrued income",
-          "A claim against the company not acknowledged by the company"
+          "Outstanding expenses",
+          "Accrued income"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "A claim against the company not acknowledged by the company is a contingent liability and is disclosed in the notes to the financial statements, not recognized as a liability in the Balance Sheet."
       },
       {
         "q": "In the context of Ratio Analysis, what does the 'Current Ratio' primarily measure?",
         "options": [
+          "The company's long-term solvency",
           "The company's ability to meet its short-term obligations",
-          "The company's profitability",
           "The company's operational efficiency",
-          "The company's long-term solvency"
+          "The company's profitability"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "The Current Ratio (Current Assets / Current Liabilities) is a liquidity ratio that assesses a company's ability to pay off its short-term debts using its short-term assets."
       },
       {
         "q": "Under which activity would the purchase of machinery for the company's factory be classified in the Cash Flow Statement?",
         "options": [
           "Operating Activities",
-          "Investing Activities",
           "Financing Activities",
+          "Investing Activities",
           "It is not disclosed in the Cash Flow Statement"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "The purchase of long-term assets like machinery is considered an investing activity, as it relates to the acquisition or disposal of long-term assets and investments."
       },
       {
@@ -11476,54 +11377,54 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "options": [
           "As part of Revenue from Operations",
           "As part of Other Income",
-          "Disclosed separately after Profit before Extraordinary Items and Tax",
-          "Not disclosed in the financial statements"
+          "Not disclosed in the financial statements",
+          "Disclosed separately after Profit before Extraordinary Items and Tax"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Extraordinary items are disclosed separately in the Statement of Profit and Loss after profit/loss before tax and extraordinary items, to provide clarity on the company's core operating performance."
       },
       {
         "q": "Which of the following items would be classified as a 'Cash Equivalent' for the purpose of preparing the Cash Flow Statement?",
         "options": [
-          "Patents and copyrights",
+          "A 3-month fixed deposit with a bank",
           "Buildings owned by the company",
-          "Shares of another company held for long-term investment",
-          "A 3-month fixed deposit with a bank"
+          "Patents and copyrights",
+          "Shares of another company held for long-term investment"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "Cash equivalents are short-term, highly liquid investments that are readily convertible to known amounts of cash and which are subject to an insignificant risk of changes in value. A 3-month fixed deposit fits this description."
       },
       {
         "q": "When preparing a Cash Flow Statement using the indirect method, what is the first step taken from the Statement of Profit and Loss?",
         "options": [
-          "Start with Net Profit before tax and extraordinary items",
-          "Start with Net Sales",
           "Start with Net Loss",
-          "Start with Gross Profit"
+          "Start with Net Profit before tax and extraordinary items",
+          "Start with Gross Profit",
+          "Start with Net Sales"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "The indirect method of preparing the Cash Flow Statement begins with the Net Profit (or Net Loss) before tax and extraordinary items, and then adjusts for non-cash items and changes in working capital."
       },
       {
         "q": "Which of the following is NOT a component of a company's Statement of Profit and Loss as per Schedule III of the Companies Act, 2013?",
         "options": [
+          "Depreciation",
           "Other Income",
           "Sales Returns",
-          "Depreciation",
           "Revenue from Operations"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Sales Returns is a deduction from Revenue from Operations and is not shown as a separate item in the main Statement of Profit and Loss. It is usually presented as a note or within the Revenue from Operations."
       },
       {
         "q": "Which of the following is a mandatory disclosure in the Notes to Accounts as per Schedule III of the Companies Act, 2013 regarding employee benefits?",
         "options": [
-          "Details of salaries paid to directors",
+          "Total expenses incurred on staff training",
           "Amount paid for employee welfare activities",
-          "Total amount paid to employees as wages and salaries",
-          "Total expenses incurred on staff training"
+          "Details of salaries paid to directors",
+          "Total amount paid to employees as wages and salaries"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Schedule III requires disclosure of the total amount paid to employees as wages and salaries, which includes the cost of all employees, whether deployed by the company or by third parties."
       }
     ],
@@ -11539,111 +11440,111 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which analysis technique involves comparing items in the financial statement with a base year or base period amount, expressing each item as a percentage of the base year amount?",
         "options": [
-          "Cash flow analysis",
+          "Trend analysis",
           "Ratio analysis",
-          "Common-size analysis",
-          "Trend analysis"
+          "Cash flow analysis",
+          "Common-size analysis"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "Trend analysis, also known as time-series analysis, uses a base period for comparison to show the percentage change of various items over time."
       },
       {
         "q": "A higher 'Times Interest Earned' ratio suggests:",
         "options": [
-          "Lower risk for lenders",
-          "Higher risk for lenders",
           "Lower profitability",
-          "Higher dividend payout"
+          "Lower risk for lenders",
+          "Higher dividend payout",
+          "Higher risk for lenders"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "A higher 'Times Interest Earned' ratio indicates that the company's earnings are sufficiently high to cover its interest expenses, making it less risky for lenders."
       },
       {
         "q": "Which of the following is NOT a limitation of financial statement analysis?",
         "options": [
-          "Ignores the price level changes",
-          "Can be used for comparison only with past performance",
           "Ignores qualitative factors",
-          "Provides historical information"
+          "Provides historical information",
+          "Can be used for comparison only with past performance",
+          "Ignores the price level changes"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Financial statement analysis can be used for comparison with industry averages and competitor performance, not just past performance."
       },
       {
         "q": "Which of the following is a component of the Cash Flow from Operations Activity?",
         "options": [
-          "Purchase of a new building",
+          "Issuance of shares",
           "Payment of dividend",
-          "Sale of goods and services",
-          "Issuance of shares"
+          "Purchase of a new building",
+          "Sale of goods and services"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Sale of goods and services is the primary revenue-generating activity of a business and thus forms part of cash flow from operations."
       },
       {
         "q": "Which of the following ratios would best measure a company's ability to meet its short-term obligations?",
         "options": [
+          "Current Ratio",
           "Gross Profit Ratio",
           "Inventory Turnover Ratio",
-          "Return on Capital Employed",
-          "Current Ratio"
+          "Return on Capital Employed"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "The Current Ratio specifically compares current assets to current liabilities, indicating the ability to pay short-term debts."
       },
       {
         "q": "The primary objective of comparative financial statements is to:",
         "options": [
+          "Present a company's financial position at a single point in time",
           "Analyze trends and changes in financial performance over time",
-          "Determine the profitability of specific assets",
           "Show the movement of cash during a period",
-          "Present a company's financial position at a single point in time"
+          "Determine the profitability of specific assets"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Comparative statements allow for the comparison of financial data across different periods, enabling the identification of trends and changes."
       },
       {
         "q": "A company with a high Return on Equity (ROE) ratio is generally considered:",
         "options": [
+          "Facing financial distress",
           "Inefficient in using shareholder funds",
           "Profitable for shareholders",
-          "Highly leveraged",
-          "Facing financial distress"
+          "Highly leveraged"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "A high ROE indicates that the company is generating good profits relative to the shareholders' investments."
       },
       {
         "q": "If a company's Inventory Turnover Ratio is declining, it might suggest:",
         "options": [
-          "Faster movement of goods",
           "Improved sales performance",
-          "Ineffective inventory management",
-          "Increased demand for products"
+          "Faster movement of goods",
+          "Increased demand for products",
+          "Ineffective inventory management"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "A declining Inventory Turnover Ratio means inventory is not being sold as quickly, indicating potential overstocking or slow sales."
       },
       {
         "q": "If the Current Ratio is 2:1 and the Quick Ratio is 1.5:1, what can be inferred about the company's inventory?",
         "options": [
-          "Inventory levels are high",
-          "Inventory levels are low",
+          "Inventory is a significant component of current assets",
           "Inventory levels are negligible",
-          "Inventory is a significant component of current assets"
+          "Inventory levels are low",
+          "Inventory levels are high"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "The difference between the Current Ratio and Quick Ratio is primarily due to inventory. A significant difference suggests inventory is a substantial part of current assets."
       },
       {
         "q": "A decrease in the Debt-Equity Ratio generally indicates:",
         "options": [
+          "Increased profitability",
           "Decreased financial risk",
           "Increased financial risk",
-          "Decreased operational efficiency",
-          "Increased profitability"
+          "Decreased operational efficiency"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "A lower Debt-Equity Ratio means the company relies less on borrowed funds, thus reducing its financial risk."
       }
     ],
@@ -11660,111 +11561,111 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "q": "Which study action is most useful before solving questions from \"Accounting Ratios\"?",
         "options": [
           "Avoid diagrams and formulas",
+          "Skip directly to the answer key",
           "Read the key concepts and examples first",
-          "Memorize only the chapter title",
-          "Skip directly to the answer key"
+          "Memorize only the chapter title"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Start by reviewing the core ideas of \"Accounting Ratios\", then solve examples and MCQs."
       },
       {
-        "q": "What should you do when a question from \"Accounting Ratios\" contains unfamiliar data?",
+        "q": "Which of the following is a component of the Profitability Ratio?",
         "options": [
-          "Choose the longest option immediately",
-          "Ignore units and keywords",
-          "Identify given values and the concept being tested",
-          "Stop attempting the question"
-        ],
-        "correct": 2,
-        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
-      },
-      {
-        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting Ratios\"?",
-        "options": [
-          "Avoid checking explanations",
-          "Practice unrelated chapters first",
-          "Only reread the heading",
-          "Mix concept review with timed practice"
+          "Current Ratio",
+          "Debtors Turnover Ratio",
+          "Inventory Turnover Ratio",
+          "Operating Profit Ratio"
         ],
         "correct": 3,
-        "explanation": "Combining revision and practice builds both understanding and exam speed."
+        "explanation": "Operating Profit Ratio measures the operational efficiency of a business by relating operating profit to net sales, thus it is a profitability ratio."
       },
       {
-        "q": "Which study action is most useful before solving questions from \"Accounting Ratios\"?",
+        "q": "The primary objective of calculating the Current Ratio is to assess:",
         "options": [
-          "Read the key concepts and examples first",
-          "Skip directly to the answer key",
-          "Memorize only the chapter title",
-          "Avoid diagrams and formulas"
+          "The company's ability to meet its short-term liabilities.",
+          "The profitability of the company.",
+          "The long-term financial stability of the company.",
+          "The efficiency of inventory management."
         ],
         "correct": 0,
-        "explanation": "Start by reviewing the core ideas of \"Accounting Ratios\", then solve examples and MCQs."
+        "explanation": "The Current Ratio is a key liquidity ratio that helps stakeholders understand how well a company can cover its short-term debts using its short-term assets."
       },
       {
-        "q": "What should you do when a question from \"Accounting Ratios\" contains unfamiliar data?",
+        "q": "A higher Gross Profit Ratio generally implies:",
         "options": [
-          "Stop attempting the question",
-          "Identify given values and the concept being tested",
-          "Ignore units and keywords",
-          "Choose the longest option immediately"
+          "Lower sales revenue.",
+          "Greater pricing power or efficient production cost control.",
+          "Inefficient cost management of goods sold.",
+          "Higher operating expenses."
         ],
         "correct": 1,
-        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
+        "explanation": "A higher Gross Profit Ratio indicates that the company is effectively managing its cost of goods sold relative to its sales revenue, either through efficient production or strong pricing power."
       },
       {
-        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting Ratios\"?",
+        "q": "A company has a Debt-to-Equity Ratio of 1.2:1. This indicates:",
         "options": [
-          "Only reread the heading",
-          "Avoid checking explanations",
-          "Mix concept review with timed practice",
-          "Practice unrelated chapters first"
+          "The company has no long-term liabilities.",
+          "The company relies more on equity than debt for financing.",
+          "The company relies more on debt than equity for financing.",
+          "The company has a very low risk profile."
         ],
         "correct": 2,
-        "explanation": "Combining revision and practice builds both understanding and exam speed."
+        "explanation": "A Debt-to-Equity Ratio of 1.2:1 signifies that for every ₹1 of equity, the company has ₹1.2 of debt, indicating a greater reliance on debt financing."
       },
       {
-        "q": "Which study action is most useful before solving questions from \"Accounting Ratios\"?",
+        "q": "Inventory Turnover Ratio is calculated as:",
         "options": [
-          "Skip directly to the answer key",
-          "Avoid diagrams and formulas",
-          "Memorize only the chapter title",
-          "Read the key concepts and examples first"
+          "Gross Profit / Sales",
+          "Net Profit / Sales",
+          "Net Sales / Inventory",
+          "Cost of Goods Sold / Average Inventory"
         ],
         "correct": 3,
-        "explanation": "Start by reviewing the core ideas of \"Accounting Ratios\", then solve examples and MCQs."
+        "explanation": "The Inventory Turnover Ratio measures how many times a company's inventory is sold and replaced over a period. It is calculated as Cost of Goods Sold divided by Average Inventory."
       },
       {
-        "q": "What should you do when a question from \"Accounting Ratios\" contains unfamiliar data?",
+        "q": "If the Current Ratio is 2:1 and the Quick Ratio is 1.5:1, what can be inferred about the company's inventory?",
         "options": [
-          "Identify given values and the concept being tested",
-          "Choose the longest option immediately",
-          "Ignore units and keywords",
-          "Stop attempting the question"
+          "Inventory has decreased significantly.",
+          "Inventory levels are optimal.",
+          "Inventory has increased significantly.",
+          "Inventory is not a significant asset."
         ],
         "correct": 0,
-        "explanation": "Good problem solving starts by extracting the given data, target, and relevant concept."
+        "explanation": "A higher current ratio than quick ratio indicates the presence of inventory. A significant difference between the two suggests inventory is a substantial component. A quick ratio lower than the current ratio means that inventory is significant. If quick ratio is close to current ratio it means inventory is not significant. If quick ratio is higher than current ratio it means inventory is not significant and is having negative value which is not possible."
       },
       {
-        "q": "For Class 12 Accountancy, what is the best way to revise \"Accounting Ratios\"?",
+        "q": "Which ratio helps in evaluating the efficiency with which a company is utilizing its assets to generate sales?",
         "options": [
-          "Practice unrelated chapters first",
-          "Mix concept review with timed practice",
-          "Avoid checking explanations",
-          "Only reread the heading"
+          "Debt-to-Equity Ratio",
+          "Asset Turnover Ratio",
+          "Operating Profit Ratio",
+          "Inventory Turnover Ratio"
         ],
         "correct": 1,
-        "explanation": "Combining revision and practice builds both understanding and exam speed."
+        "explanation": "The Asset Turnover Ratio measures how effectively a company's assets are being used to generate revenue. A higher ratio generally indicates greater efficiency."
       },
       {
-        "q": "Which study action is most useful before solving questions from \"Accounting Ratios\"?",
+        "q": "Which of the following is NOT a solvency ratio?",
         "options": [
-          "Memorize only the chapter title",
-          "Avoid diagrams and formulas",
-          "Read the key concepts and examples first",
-          "Skip directly to the answer key"
+          "Debt-to-Equity Ratio",
+          "Interest Coverage Ratio",
+          "Current Ratio",
+          "Total Assets to Debt Ratio"
         ],
         "correct": 2,
-        "explanation": "Start by reviewing the core ideas of \"Accounting Ratios\", then solve examples and MCQs."
+        "explanation": "The Current Ratio is a liquidity ratio, assessing short-term solvency. The other options are solvency ratios, which measure a company's ability to meet its long-term obligations."
+      },
+      {
+        "q": "If a company's Net Profit Ratio is 5% and its Asset Turnover Ratio is 2 times, then its Return on Assets (ROA) would be:",
+        "options": [
+          "2.5%",
+          "20%",
+          "7%",
+          "10%"
+        ],
+        "correct": 3,
+        "explanation": "Return on Assets (ROA) = Net Profit Ratio × Asset Turnover Ratio = 5% × 2 = 10%."
       }
     ],
     "faqs": []
@@ -11779,34 +11680,34 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "An increase in accounts payable would:",
         "options": [
-          "Decrease cash flow from operations",
-          "Have no effect on cash flow from operations",
+          "Increase cash flow from operations",
           "Be treated as an investing activity",
-          "Increase cash flow from operations"
+          "Have no effect on cash flow from operations",
+          "Decrease cash flow from operations"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "An increase in accounts payable means the company has received goods or services but has not yet paid cash for them, thus increasing cash available in operations."
       },
       {
         "q": "Which of the following activities is least likely to be classified under Cash Flow from Investing Activities?",
         "options": [
-          "Repayment of long-term loan",
-          "Sale of investments",
           "Purchase of machinery",
-          "Proceeds from sale of land"
+          "Repayment of long-term loan",
+          "Proceeds from sale of land",
+          "Sale of investments"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Repayment of long-term loan is a financing activity as it relates to the company's debt structure."
       },
       {
         "q": "An increase in inventory is treated as a deduction from net profit while preparing the Cash Flow Statement under the indirect method because:",
         "options": [
+          "It is an investing activity",
           "It represents an increase in cash",
           "It represents a decrease in cash",
-          "It is a non-cash item",
-          "It is an investing activity"
+          "It is a non-cash item"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "An increase in inventory means cash has been used to acquire more goods, thus representing a decrease in cash available."
       },
       {
@@ -11823,68 +11724,2948 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following would be classified as a Cash Flow from Operating Activities?",
         "options": [
-          "Issuance of shares",
           "Payment of dividend",
-          "Collection from debtors",
-          "Purchase of buildings"
+          "Purchase of buildings",
+          "Issuance of shares",
+          "Collection from debtors"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Collection from debtors relates to the primary revenue-generating activities of the business."
       },
       {
         "q": "A company sells old machinery for ₹50,000. This transaction will result in:",
         "options": [
-          "Cash inflow from operating activities",
+          "Cash inflow from investing activities",
           "Cash outflow from financing activities",
-          "Cash outflow from investing activities",
-          "Cash inflow from investing activities"
+          "Cash inflow from operating activities",
+          "Cash outflow from investing activities"
         ],
-        "correct": 3,
+        "correct": 0,
         "explanation": "Sale of an asset like machinery is an investing activity, and the proceeds represent a cash inflow."
       },
       {
         "q": "Under the indirect method, depreciation is:",
         "options": [
-          "Added back to net profit",
           "Deducted from net profit",
-          "Ignored",
-          "Shown as an investing activity"
+          "Added back to net profit",
+          "Shown as an investing activity",
+          "Ignored"
         ],
-        "correct": 0,
+        "correct": 1,
         "explanation": "Depreciation is a non-cash expense. In the indirect method, it is added back to net profit because it was deducted to arrive at net profit but did not involve an outflow of cash."
       },
       {
         "q": "Under the direct method of preparing the Cash Flow Statement, 'Cash received from customers' is:",
         "options": [
           "Not considered in operating activities",
+          "The same as sales revenue",
           "Calculated from sales revenue",
-          "Calculated from gross profit",
-          "The same as sales revenue"
+          "Calculated from gross profit"
         ],
-        "correct": 1,
+        "correct": 2,
         "explanation": "Under the direct method, cash receipts from customers are directly determined by adjusting sales revenue for changes in debtors and any prepaid revenue."
       },
       {
         "q": "If a company repurchases its own shares, this would be considered:",
         "options": [
-          "A cash outflow from operating activities",
+          "A cash inflow from financing activities",
           "A cash inflow from investing activities",
-          "A cash outflow from financing activities",
-          "A cash inflow from financing activities"
+          "A cash outflow from operating activities",
+          "A cash outflow from financing activities"
         ],
-        "correct": 2,
+        "correct": 3,
         "explanation": "Repurchasing shares involves the company paying cash to its shareholders, which is a use of cash and a financing activity."
       },
       {
         "q": "Which of the following is NOT a part of the Cash Flow Statement?",
         "options": [
-          "Cash Flow from Operating Activities",
+          "Non-cash expenses adjustment",
           "Cash Flow from Investing Activities",
           "Cash Flow from Financing Activities",
-          "Non-cash expenses adjustment"
+          "Cash Flow from Operating Activities"
+        ],
+        "correct": 0,
+        "explanation": "Non-cash expenses like depreciation are adjustments made *within* the calculation of cash flow from operating activities (indirect method), not a separate section of the statement itself."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-nature-and-significance-of-management",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Nature and Significance of Management",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Nature and Significance of Management. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "When a manager analyzes past performance and takes corrective actions to ensure future performance aligns with standards, they are performing which management function?",
+        "options": [
+          "Staffing",
+          "Controlling",
+          "Organizing",
+          "Planning"
+        ],
+        "correct": 1,
+        "explanation": "Controlling involves setting performance standards, measuring actual performance, comparing it with standards, and taking corrective action if there are deviations. This process is crucial for ensuring that the organization achieves its goals."
+      },
+      {
+        "q": "The function of management that involves setting objectives and deciding the future course of action is:",
+        "options": [
+          "Organizing",
+          "Directing",
+          "Planning",
+          "Staffing"
+        ],
+        "correct": 2,
+        "explanation": "Planning is the fundamental function of management. It involves defining goals, establishing strategies, and outlining the tasks and schedules to achieve the goals. It is about 'what' to do and 'how' to do it."
+      },
+      {
+        "q": "Which aspect of management emphasizes the application of knowledge and skills to achieve desired results?",
+        "options": [
+          "Management as a System",
+          "Management as a Science",
+          "Management as a Profession",
+          "Management as an Art"
         ],
         "correct": 3,
-        "explanation": "Non-cash expenses like depreciation are adjustments made *within* the calculation of cash flow from operating activities (indirect method), not a separate section of the statement itself."
+        "explanation": "Management as an art focuses on the creative and skillful application of existing knowledge to solve practical problems and achieve goals. It's about the 'how' of management in practice."
+      },
+      {
+        "q": "Which of the following best describes the 'essence' of management?",
+        "options": [
+          "Coordinating all the activities to achieve the organizational goals.",
+          "Planning and organizing resources efficiently.",
+          "Maximizing profits for the shareholders.",
+          "Directing and controlling the work of others."
+        ],
+        "correct": 0,
+        "explanation": "Coordination is considered the essence of management because it integrates all the functions of management and ensures that all departments and individuals work in a harmonious direction towards achieving the common goals."
+      },
+      {
+        "q": "Management is a 'gains all-pervasive' activity because it is required in:",
+        "options": [
+          "All types of organizations, be it business or non-business.",
+          "All levels of management, from top to operational.",
+          "All countries and all types of economic systems.",
+          "All of the above."
+        ],
+        "correct": 3,
+        "explanation": "The characteristic of being 'all-pervasive' means that management principles and practices are applicable universally, regardless of the size, nature, or location of the organization, and across all hierarchical levels within it."
+      },
+      {
+        "q": "When a manager delegates authority, assigns responsibilities, and establishes an authority-responsibility relationship, they are performing the function of:",
+        "options": [
+          "Coordinating",
+          "Organizing",
+          "Staffing",
+          "Planning"
+        ],
+        "correct": 1,
+        "explanation": "Organizing involves defining roles, responsibilities, and authority relationships within the organization. Delegation of authority and creation of an organizational structure are key components of this function."
+      },
+      {
+        "q": "Which level of management is responsible for formulating overall organizational goals and strategies?",
+        "options": [
+          "Middle Management",
+          "Operational Management",
+          "Top Management",
+          "Supervisory Management"
+        ],
+        "correct": 2,
+        "explanation": "Top management, comprising of CEOs, Directors, and Senior Managers, is responsible for setting the long-term vision, mission, objectives, and strategies for the entire organization."
+      },
+      {
+        "q": "The function of management that involves placing the right person at the right job is:",
+        "options": [
+          "Directing",
+          "Controlling",
+          "Organizing",
+          "Staffing"
+        ],
+        "correct": 3,
+        "explanation": "Staffing deals with recruitment, selection, training, development, and performance appraisal of employees. Its core objective is to ensure that the organization has the right human resources for its operations."
+      },
+      {
+        "q": "Which of the following is NOT considered a characteristic of management as a discipline?",
+        "options": [
+          "It is an exact science.",
+          "It is an art.",
+          "It is a profession.",
+          "It is a social science."
+        ],
+        "correct": 0,
+        "explanation": "Management is generally considered a social science and an art due to its reliance on human behavior and practical application. It is not an exact science because its outcomes cannot be predicted with absolute certainty due to the human element involved."
+      },
+      {
+        "q": "Management is considered a profession because it has:",
+        "options": [
+          "A defined body of knowledge and a code of conduct.",
+          "A service motive above all other motives.",
+          "Entry restricted through formal education and examination.",
+          "All of the above."
+        ],
+        "correct": 3,
+        "explanation": "While management has a defined body of knowledge and a code of conduct, and a service motive is increasingly important, the most distinguishing features of a profession are often considered to be formal education, examination, and a restricted entry. However, in the context of NCERT, all these aspects are discussed as characteristics leading to management being considered a profession."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-principles-of-management",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Principles of Management",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Principles of Management. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "When employees are encouraged to participate in decision-making related to their work, which principle of management is being followed?",
+        "options": [
+          "Authority and Responsibility",
+          "Initiative",
+          "Discipline",
+          "Equity"
+        ],
+        "correct": 1,
+        "explanation": "The principle of Initiative encourages employees to take the first step in planning and executing a plan, which often involves their participation in decision-making."
+      },
+      {
+        "q": "Taylor's principle of 'Cooperation between the principle and men' emphasizes:",
+        "options": [
+          "Sharing profits with employees",
+          "Joint development of work methods",
+          "Eliminating conflict between management and workers",
+          "Promoting teamwork and harmony"
+        ],
+        "correct": 2,
+        "explanation": "This principle advocates for a cooperative attitude between management and workers, working together to achieve common goals and minimizing conflict."
+      },
+      {
+        "q": "Which of Taylor's scientific management principles focuses on developing a science for each element of a man's work, thereby replacing the old rule-of-thumb method?",
+        "options": [
+          "Harmony, not discord",
+          "Cooperation between the principle and men",
+          "Development of each and every person to his greatest efficiency and prosperity",
+          "Science, not the rule of thumb"
+        ],
+        "correct": 3,
+        "explanation": "This principle, 'Science, not the rule of thumb', is about using scientific methods to determine the best way to perform a job, replacing guesswork and tradition."
+      },
+      {
+        "q": "According to Fayol, 'Authority' is the right to give orders and the power to exact obedience. 'Responsibility' is the consequence of the exercise of authority. This is best represented by which principle?",
+        "options": [
+          "Authority and Responsibility",
+          "Order",
+          "Scalar Chain",
+          "Remuneration"
+        ],
+        "correct": 0,
+        "explanation": "The principle of Authority and Responsibility emphasizes that there must be a balance between the authority granted to a manager and the responsibility they hold."
+      },
+      {
+        "q": "The principle of 'Stability of Tenure of Personnel' aims to reduce:",
+        "options": [
+          "Employee absenteeism",
+          "Employee turnover",
+          "Production costs",
+          "Managerial conflicts"
+        ],
+        "correct": 1,
+        "explanation": "This principle suggests that employees should have reasonable security of tenure to reduce the costs and time associated with frequent hiring and training."
+      },
+      {
+        "q": "Fayol's principle of 'Equity' advocates for:",
+        "options": [
+          "Consistent application of rules for all",
+          "Equal pay for all employees",
+          "Fair and just treatment of all employees",
+          "Equal opportunities for promotion"
+        ],
+        "correct": 2,
+        "explanation": "Equity implies that managers should be fair and just in their dealings with all subordinates, without any discrimination based on gender, religion, caste, etc."
+      },
+      {
+        "q": "The principle of 'Division of Work' in management aims to achieve:",
+        "options": [
+          "Reduced workload for managers",
+          "Faster decision-making",
+          "Greater employee morale",
+          "Increased specialization and efficiency"
+        ],
+        "correct": 3,
+        "explanation": "By dividing work into small, manageable tasks, employees can become specialized, leading to increased efficiency and better quality of output."
+      },
+      {
+        "q": "Which principle of management suggests that there should be 'one head and one plan' for a group of activities having the same objective?",
+        "options": [
+          "Unity of Direction",
+          "Unity of Command",
+          "Discipline",
+          "Centralization"
+        ],
+        "correct": 0,
+        "explanation": "Unity of Direction ensures that all members of an organization work towards the same goals by having a single plan for a group of activities."
+      },
+      {
+        "q": "The principle of 'Scalar Chain' in management refers to:",
+        "options": [
+          "The hierarchy of command within a department",
+          "The chain of superiors from the highest to the lowest",
+          "The flow of authority from bottom to top",
+          "The lines of communication between different departments"
+        ],
+        "correct": 1,
+        "explanation": "Scalar Chain represents the formal lines of authority running from the highest to the lowest rank in an organization."
+      },
+      {
+        "q": "Which principle of management, advocated by Henri Fayol, emphasizes that each employee should receive orders and be answerable to only one superior?",
+        "options": [
+          "Subordination of Individual Interest to General Interest",
+          "Unity of Direction",
+          "Unity of Command",
+          "Esprit de Corps"
+        ],
+        "correct": 2,
+        "explanation": "Unity of Command states that an employee should have only one boss to avoid confusion and conflicting instructions."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-business-environment",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Business Environment",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Business Environment. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "The Indian government's policy on Foreign Direct Investment (FDI) is a part of its:",
+        "options": [
+          "Legal Environment",
+          "Economic Environment",
+          "Social Environment",
+          "Political Environment"
+        ],
+        "correct": 3,
+        "explanation": "Government policies, regulations, and political stability are key components of the political environment, influencing business decisions and operations, including FDI."
+      },
+      {
+        "q": "A business understanding the rising demand for organic food due to increasing health consciousness among urban Indians is analyzing its:",
+        "options": [
+          "Socio-cultural Environment",
+          "Natural Environment",
+          "Economic Environment",
+          "Technological Environment"
+        ],
+        "correct": 0,
+        "explanation": "Health consciousness and changing lifestyle preferences are part of the socio-cultural environment that influences consumer demand and market trends."
+      },
+      {
+        "q": "Which of the following is a key characteristic of the business environment?",
+        "options": [
+          "Static and unchanging",
+          "Complex and dynamic",
+          "Predictable and stable",
+          "Easily understandable by all"
+        ],
+        "correct": 1,
+        "explanation": "The business environment is constantly evolving due to various internal and external factors like technological advancements, political changes, and shifting consumer preferences, making it complex and dynamic."
+      },
+      {
+        "q": "The Reserve Bank of India's decision to increase the repo rate to control inflation impacts the business environment by:",
+        "options": [
+          "Boosting consumer spending",
+          "Reducing the overall demand for goods",
+          "Increasing the cost of borrowing for businesses",
+          "Encouraging more investment"
+        ],
+        "correct": 2,
+        "explanation": "An increase in the repo rate means banks will borrow from the RBI at a higher rate, which they will then pass on to businesses and consumers, making borrowing more expensive."
+      },
+      {
+        "q": "Globalization, as part of the business environment, leads to:",
+        "options": [
+          "Reduced competition and market access",
+          "Increased protectionism and trade barriers",
+          "Domination of domestic markets by local firms",
+          "Greater integration of economies and free flow of capital"
+        ],
+        "correct": 3,
+        "explanation": "Globalization signifies the interconnectedness of economies, allowing for the freer movement of goods, services, capital, and technology across national borders, thereby increasing integration and competition."
+      },
+      {
+        "q": "The establishment of new industrial policies by the government that aims to boost manufacturing is an example of:",
+        "options": [
+          "Government policy impacting business",
+          "Social trend",
+          "Technological change",
+          "Economic recession"
+        ],
+        "correct": 0,
+        "explanation": "Government industrial policies are direct interventions that shape the business landscape. This falls under the broader political and legal environment influencing business."
+      },
+      {
+        "q": "Which aspect of the business environment refers to the established norms, beliefs, and customs of a society?",
+        "options": [
+          "Legal Environment",
+          "Socio-cultural Environment",
+          "Political Environment",
+          "Technological Environment"
+        ],
+        "correct": 1,
+        "explanation": "The socio-cultural environment encompasses the shared values, attitudes, traditions, and lifestyles of people in a society, which can significantly influence consumer preferences and business practices."
+      },
+      {
+        "q": "The rapid adoption of smartphones and the internet by Indian consumers is an example of which environmental factor?",
+        "options": [
+          "Social",
+          "Legal",
+          "Technological",
+          "Economic"
+        ],
+        "correct": 2,
+        "explanation": "The availability and adoption of new technologies like smartphones and the internet directly fall under the technological environment, impacting how businesses operate and consumers behave."
+      },
+      {
+        "q": "The liberalization policies introduced in India in 1991 were primarily aimed at:",
+        "options": [
+          "Strengthening trade unions",
+          "Increasing the role of the public sector",
+          "Restricting foreign investment",
+          "Promoting competition and reducing government controls"
+        ],
+        "correct": 3,
+        "explanation": "The 1991 reforms focused on dismantling protectionist policies, reducing government intervention, opening up the economy to foreign competition and investment, and fostering a more market-oriented system."
+      },
+      {
+        "q": "Which of the following is NOT a component of the 'Economic Environment' in India?",
+        "options": [
+          "Consumer Protection Act",
+          "Interest Rate",
+          "Money Supply",
+          "Inflation Rate"
+        ],
+        "correct": 0,
+        "explanation": "The Consumer Protection Act is a legal/political factor that aims to protect consumer rights, not a direct economic indicator or policy. Inflation, interest rates, and money supply are all core economic elements."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-planning",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Planning",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Planning. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "The process of forecasting the future and making assumptions about the conditions under which plans will be executed is known as:",
+        "options": [
+          "Choosing an alternative",
+          "Developing premises",
+          "Evaluating alternatives",
+          "Setting objectives"
+        ],
+        "correct": 1,
+        "explanation": "Developing premises involves making assumptions about the future environment, internal and external, on which plans will be based."
+      },
+      {
+        "q": "When a manager considers the 'what', 'how', 'when', and 'who' of future action, which element of planning is being addressed?",
+        "options": [
+          "Strategies",
+          "Procedures",
+          "Action plans/Courses of action",
+          "Policies"
+        ],
+        "correct": 2,
+        "explanation": "Action plans or courses of action detail the specific steps, resources, and responsibilities required to achieve objectives."
+      },
+      {
+        "q": "A company decides that all customer complaints will be handled by the customer service department within 24 hours. This is an example of:",
+        "options": [
+          "A programme",
+          "A rule",
+          "A budget",
+          "A policy"
+        ],
+        "correct": 3,
+        "explanation": "A policy provides guidelines for decision-making and action, such as how customer complaints should be handled."
+      },
+      {
+        "q": "Which of the following is a single-use plan that details the specific steps to be taken to accomplish a particular objective, often within a specific timeframe?",
+        "options": [
+          "Programme",
+          "Policy",
+          "Strategy",
+          "Procedure"
+        ],
+        "correct": 0,
+        "explanation": "A programme is a single-use plan that outlines specific activities, resources, and timelines for a particular project or undertaking."
+      },
+      {
+        "q": "Which type of plan sets forth a sequence of established actions or steps to be followed in specific circumstances, ensuring uniformity and predictability?",
+        "options": [
+          "Policy",
+          "Procedure",
+          "Budget",
+          "Strategy"
+        ],
+        "correct": 1,
+        "explanation": "A procedure provides a defined sequence of steps to be followed for a particular task or situation, ensuring consistency."
+      },
+      {
+        "q": "A manager decides to increase production by 15% next quarter to meet anticipated demand. This is an example of which step in the planning process?",
+        "options": [
+          "Developing premises",
+          "Identifying alternative courses of action",
+          "Setting objectives",
+          "Evaluating alternatives"
+        ],
+        "correct": 2,
+        "explanation": "Setting objectives involves defining what the organization wants to achieve in the future, such as increasing production."
+      },
+      {
+        "q": "Which of the following is the primary function of management that sets the course of action for the future and involves setting objectives and formulating strategies?",
+        "options": [
+          "Organising",
+          "Staffing",
+          "Controlling",
+          "Planning"
+        ],
+        "correct": 3,
+        "explanation": "Planning involves setting objectives and formulating strategies to achieve them, thus setting the course of action for the future."
+      },
+      {
+        "q": "Which of the following is a statement of expected results or a quantifiable objective of an action?",
+        "options": [
+          "Objective",
+          "Alternative",
+          "Premise",
+          "Evaluation"
+        ],
+        "correct": 0,
+        "explanation": "An objective is a statement of desired future results that the organization aims to achieve."
+      },
+      {
+        "q": "The step in the planning process that involves creating a detailed outline of the steps and actions to be taken, considering the available resources and constraints, is known as:",
+        "options": [
+          "Developing premises",
+          "Developing action plans",
+          "Identifying alternative courses of action",
+          "Evaluating alternatives"
+        ],
+        "correct": 1,
+        "explanation": "Developing action plans translates the chosen course of action into a concrete set of steps, specifying 'how' the objective will be achieved."
+      },
+      {
+        "q": "Which type of plan is a broad blueprint of future action that involves major commitments of resources and is concerned with the long-term objectives of the organization?",
+        "options": [
+          "Rules",
+          "Procedures",
+          "Strategies",
+          "Policies"
+        ],
+        "correct": 2,
+        "explanation": "Strategies are broad plans that outline how an organization will achieve its long-term objectives and gain a competitive advantage."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-organising",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Organising",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Organising. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "The principle of 'unity of command' is violated in which of the following situations?",
+        "options": [
+          "A superior delegating tasks to a subordinate.",
+          "A subordinate receiving instructions from only one superior.",
+          "A manager overseeing a small number of subordinates.",
+          "A subordinate receiving instructions from multiple superiors."
+        ],
+        "correct": 3,
+        "explanation": "Unity of command states that each subordinate should receive instructions from and be accountable to only one superior. Receiving instructions from multiple superiors violates this principle."
+      },
+      {
+        "q": "An organisation follows a structure where employees report to two managers: one functional manager and one project manager. This is an example of:",
+        "options": [
+          "Matrix Structure",
+          "Line Structure",
+          "Divisional Structure",
+          "Functional Structure"
+        ],
+        "correct": 0,
+        "explanation": "A matrix structure combines functional and project structures, where employees report to multiple managers, usually a functional manager and a project manager."
+      },
+      {
+        "q": "Which of the following best describes the process of defining authority relationships between various positions in an organisation?",
+        "options": [
+          "Delegation of Authority",
+          "Organisational Structure",
+          "Span of Management",
+          "Centralisation"
+        ],
+        "correct": 1,
+        "explanation": "Organisational structure involves defining the relationships between various positions, including the lines of authority and reporting."
+      },
+      {
+        "q": "Which of the following is a key element of the organising function of management?",
+        "options": [
+          "Setting objectives",
+          "Motivating the employees",
+          "Defining roles and responsibilities",
+          "Controlling the performance"
+        ],
+        "correct": 2,
+        "explanation": "Defining roles and responsibilities, along with establishing authority relationships, is a fundamental aspect of the organising function."
+      },
+      {
+        "q": "When decision-making authority is retained at the top level of management, the organisation is said to be:",
+        "options": [
+          "Delegated",
+          "Departmentalised",
+          "Decentralised",
+          "Centralised"
+        ],
+        "correct": 3,
+        "explanation": "Centralisation means that decision-making power is concentrated at the top level of the organisation."
+      },
+      {
+        "q": "Which of the following is a disadvantage of a functional organisational structure?",
+        "options": [
+          "Lack of coordination between departments",
+          "Quick decision-making",
+          "Efficient use of resources",
+          "Focus on specialised skills"
+        ],
+        "correct": 0,
+        "explanation": "In a functional structure, departments can become isolated, leading to a lack of coordination between them."
+      },
+      {
+        "q": "The process of assigning responsibility and granting authority to a subordinate is known as:",
+        "options": [
+          "Coordination",
+          "Delegation",
+          "Authority",
+          "Decentralisation"
+        ],
+        "correct": 1,
+        "explanation": "Delegation is the process by which a superior entrusts responsibility and authority to a subordinate."
+      },
+      {
+        "q": "A manager is responsible for 20 subordinates. This statement relates to which of the following concepts?",
+        "options": [
+          "Organisational Chart",
+          "Centralisation",
+          "Span of Management",
+          "Departmentalisation"
+        ],
+        "correct": 2,
+        "explanation": "Span of management refers to the number of subordinates a manager can effectively supervise."
+      },
+      {
+        "q": "Which organisational structure is primarily concerned with grouping similar jobs together?",
+        "options": [
+          "Project Structure",
+          "Line and Staff Structure",
+          "Divisional Structure",
+          "Functional Structure"
+        ],
+        "correct": 3,
+        "explanation": "Functional structure groups jobs based on similar functions or related tasks performed within the organisation."
+      },
+      {
+        "q": "Which type of organisational structure is suitable for organisations with diverse product lines or operating in multiple geographical regions?",
+        "options": [
+          "Divisional Structure",
+          "Informal Structure",
+          "Matrix Structure",
+          "Functional Structure"
+        ],
+        "correct": 0,
+        "explanation": "Divisional structure is ideal for organisations with multiple product lines or geographical locations as it groups activities around these divisions."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-staffing",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Staffing",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Staffing. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "The step that involves choosing the most suitable candidate from the applicants is called:",
+        "options": [
+          "Recruitment",
+          "Selection",
+          "Training",
+          "Placement"
+        ],
+        "correct": 1,
+        "explanation": "Selection is the process of choosing the right person for the job from the available applicants, after recruitment has generated the pool."
+      },
+      {
+        "q": "The process of identifying and attracting a suitable pool of potential job candidates is known as:",
+        "options": [
+          "Induction",
+          "Selection",
+          "Recruitment",
+          "Placement"
+        ],
+        "correct": 2,
+        "explanation": "Recruitment is the process of stimulating people to apply for jobs in an organization. It's about creating a pool of applicants."
+      },
+      {
+        "q": "Which of the following is a method of training where employees learn by observing and imitating experienced workers?",
+        "options": [
+          "Internship",
+          "Coaching",
+          "Simulation",
+          "Apprenticeship"
+        ],
+        "correct": 3,
+        "explanation": "Apprenticeship is a form of on-the-job training where an apprentice learns a trade or skill through a combination of on-the-job experience and classroom instruction, often involving observation and imitation."
+      },
+      {
+        "q": "Which of the following is a method of external recruitment?",
+        "options": [
+          "Campus Recruitment",
+          "Promotion",
+          "Transfer",
+          "Job Rotation"
+        ],
+        "correct": 0,
+        "explanation": "Campus recruitment involves inviting candidates from educational institutions, which is an external source of recruitment."
+      },
+      {
+        "q": "The process of evaluating an employee's past performance and potential for future advancement is known as:",
+        "options": [
+          "Training",
+          "Performance Appraisal",
+          "Selection",
+          "Recruitment"
+        ],
+        "correct": 1,
+        "explanation": "Performance appraisal is a systematic process of evaluating an employee's job performance and their potential for development and promotion."
+      },
+      {
+        "q": "Employee Development focuses on:",
+        "options": [
+          "Minimizing recruitment costs",
+          "Improving performance in the current job only",
+          "Preparing employees for future jobs and responsibilities",
+          "Reducing employee turnover"
+        ],
+        "correct": 2,
+        "explanation": "Employee development is a broader concept than training; it aims to enhance an employee's overall capabilities and prepare them for future roles and career growth within the organization."
+      },
+      {
+        "q": "Internal sources of recruitment have the advantage of:",
+        "options": [
+          "Allowing for greater objectivity in selection",
+          "Bringing in fresh talent and new ideas",
+          "Creating a wider pool of candidates",
+          "Being cost-effective and quicker"
+        ],
+        "correct": 3,
+        "explanation": "Internal sources are generally more cost-effective and quicker as the candidates are already known to the organization, and their performance history is available."
+      },
+      {
+        "q": "Which of the following is NOT considered a step in the Staffing process?",
+        "options": [
+          "Marketing and Sales",
+          "Training and Development",
+          "Performance Appraisal",
+          "Remuneration"
+        ],
+        "correct": 0,
+        "explanation": "Marketing and Sales is a distinct function of business and not a step within the staffing process, which focuses on acquiring, developing, and retaining human resources."
+      },
+      {
+        "q": "A comprehensive introduction of a new employee to the organization's rules, policies, and culture is known as:",
+        "options": [
+          "Training",
+          "Orientation",
+          "Development",
+          "Placement"
+        ],
+        "correct": 1,
+        "explanation": "Orientation (often synonymous with induction) is the process of introducing a new employee to the organization's environment, its people, and its ways of working."
+      },
+      {
+        "q": "Which of the following aims to improve the knowledge and skills of employees for their current jobs?",
+        "options": [
+          "Selection",
+          "Development",
+          "Training",
+          "Recruitment"
+        ],
+        "correct": 2,
+        "explanation": "Training is specifically designed to impart specific skills and knowledge that an employee needs to perform their current job effectively."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-directing",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Directing",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Directing. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "The managerial function of directing is concerned with:",
+        "options": [
+          "Determining the future course of action.",
+          "Assigning duties and responsibilities.",
+          "Comparing actual performance with standards.",
+          "Inspiring, guiding, and influencing employees."
+        ],
+        "correct": 3,
+        "explanation": "Directing is the function where managers inspire, guide, and influence employees to work effectively towards achieving organizational objectives."
+      },
+      {
+        "q": "Which motivational technique focuses on providing employees with a sense of personal achievement, recognition, and responsibility?",
+        "options": [
+          "Job Enrichment",
+          "Job Rotation",
+          "Team Building",
+          "Financial Incentives"
+        ],
+        "correct": 0,
+        "explanation": "Job enrichment aims to enhance job satisfaction by providing employees with more autonomy, responsibility, and opportunities for growth."
+      },
+      {
+        "q": "Maslow's Hierarchy of Needs theory suggests that individuals are motivated by a series of needs in a specific order. Which of the following is the highest level of need according to this theory?",
+        "options": [
+          "Safety Needs",
+          "Self-Actualisation Needs",
+          "Esteem Needs",
+          "Love Needs"
+        ],
+        "correct": 1,
+        "explanation": "Self-actualisation represents the highest level of human needs, involving the desire to achieve one's full potential."
+      },
+      {
+        "q": "Which of the following is a barrier to effective communication in an organization?",
+        "options": [
+          "Clear and concise language",
+          "Open and honest feedback",
+          "Prejudice and assumptions",
+          "Active listening"
+        ],
+        "correct": 2,
+        "explanation": "Prejudices and assumptions can distort the message being communicated, leading to misunderstandings and ineffective communication."
+      },
+      {
+        "q": "The process of encouraging people to direct their will and effort towards achieving organizational goals is called:",
+        "options": [
+          "Leadership",
+          "Delegation",
+          "Co-ordination",
+          "Motivation"
+        ],
+        "correct": 3,
+        "explanation": "Motivation is the psychological process that arouses, directs, and maintains behaviour towards a goal."
+      },
+      {
+        "q": "Which of the following is NOT a key element of directing?",
+        "options": [
+          "Planning",
+          "Communication",
+          "Supervision",
+          "Motivation"
+        ],
+        "correct": 0,
+        "explanation": "Planning is a function of management that precedes directing. Directing encompasses supervision, motivation, and communication."
+      },
+      {
+        "q": "The process of guiding and instructing employees to perform their tasks efficiently and effectively is known as:",
+        "options": [
+          "Organising",
+          "Directing",
+          "Staffing",
+          "Controlling"
+        ],
+        "correct": 1,
+        "explanation": "Directing involves guiding, instructing, and leading employees to achieve organizational goals."
+      },
+      {
+        "q": "The principle of 'Unity of Command' states that:",
+        "options": [
+          "The span of control should be limited.",
+          "All employees should work towards a common goal.",
+          "An employee should receive orders from only one superior.",
+          "Each subordinate should be supervised by multiple superiors."
+        ],
+        "correct": 2,
+        "explanation": "The principle of Unity of Command, as proposed by Fayol, suggests that an employee should ideally receive instructions from only one boss to avoid confusion and conflicts."
+      },
+      {
+        "q": "Which leadership style is characterized by the leader making decisions without consulting subordinates?",
+        "options": [
+          "Participative",
+          "Laissez-faire",
+          "Democratic",
+          "Autocratic"
+        ],
+        "correct": 3,
+        "explanation": "An autocratic leader centralizes all decision-making authority and dictates policies and procedures."
+      },
+      {
+        "q": "Herzberg's Two-Factor Theory distinguishes between 'Hygiene Factors' and 'Motivators'. Which of the following is an example of a Motivator?",
+        "options": [
+          "Recognition",
+          "Salary",
+          "Working Conditions",
+          "Job Security"
+        ],
+        "correct": 0,
+        "explanation": "Recognition is considered a 'Motivator' by Herzberg, as it contributes to job satisfaction and motivation. Hygiene factors, like salary and working conditions, prevent dissatisfaction but do not necessarily motivate."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-controlling",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Controlling",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Controlling. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which technique of controlling focuses on comparing actual performance with the planned performance at various stages of the activity?",
+        "options": [
+          "Break-Even Analysis",
+          "Budgetary Control",
+          "Ratio Analysis",
+          "Management by Exception"
+        ],
+        "correct": 1,
+        "explanation": "Budgetary control involves comparing actual results with budgetary estimates, which are planned financial targets, at different points in time. This allows for timely identification of deviations."
+      },
+      {
+        "q": "When a manager only focuses on significant deviations from the planned performance, which controlling technique is being used?",
+        "options": [
+          "Standard Costing",
+          "Ratio Analysis",
+          "Management by Exception",
+          "Budgetary Control"
+        ],
+        "correct": 2,
+        "explanation": "Management by Exception is a technique where managers concentrate their attention only on those cases where performance deviates significantly from the set standards or plans."
+      },
+      {
+        "q": "Which of the following is the primary objective of controlling in management?",
+        "options": [
+          "To motivate employees to achieve targets.",
+          "To develop new strategies for the business.",
+          "To assign responsibility to employees.",
+          "To ensure that all activities are performed according to plans."
+        ],
+        "correct": 3,
+        "explanation": "Controlling aims to ensure that organizational activities align with the plans and standards set, thereby achieving the desired outcomes."
+      },
+      {
+        "q": "Controlling helps in achieving organizational goals by ensuring that:",
+        "options": [
+          "All resources are utilized efficiently and effectively.",
+          "Plans are formulated without any regard for their execution.",
+          "Employees work independently without supervision.",
+          "Managers make decisions without considering past performance."
+        ],
+        "correct": 0,
+        "explanation": "Effective controlling ensures that resources are used optimally, minimizing wastage and maximizing output, which directly contributes to achieving organizational goals."
+      },
+      {
+        "q": "When a company uses statistical methods and variance analysis to identify deviations in production cost from the standard cost, it is using which controlling technique?",
+        "options": [
+          "Financial Statement Analysis",
+          "Standard Costing",
+          "Management by Objectives (MBO)",
+          "Break-Even Analysis"
+        ],
+        "correct": 1,
+        "explanation": "Standard Costing involves predetermining costs for various activities and then comparing the actual costs incurred with these standard costs. Variance analysis helps in identifying and explaining the differences."
+      },
+      {
+        "q": "The process of controlling involves setting standards, measuring actual performance, comparing actual with standards, and then taking corrective action. Which of these steps helps in identifying the deviation from the desired outcome?",
+        "options": [
+          "Taking corrective action",
+          "Setting performance standards",
+          "Comparing actual performance with standards",
+          "Measuring actual performance"
+        ],
+        "correct": 2,
+        "explanation": "Comparing actual performance with the set standards is the step where deviations or differences between what was planned and what has actually been achieved are identified."
+      },
+      {
+        "q": "Which statement best describes the relationship between planning and controlling?",
+        "options": [
+          "Planning focuses on the future, while controlling focuses only on the past.",
+          "Controlling is independent of planning and can be done without it.",
+          "Controlling is a one-time activity, while planning is an ongoing process.",
+          "Planning is the basis for controlling, and controlling helps in refining future plans."
+        ],
+        "correct": 3,
+        "explanation": "Planning sets the goals and the path to achieve them, while controlling monitors progress against these plans and provides feedback for future planning. They are inseparable functions."
+      },
+      {
+        "q": "The step of 'taking corrective action' in the controlling process involves:",
+        "options": [
+          "Analyzing the reasons for deviations.",
+          "Rewriting the entire plan if deviations are significant.",
+          "Ignoring minor deviations and focusing on major ones.",
+          "Setting performance targets for employees."
+        ],
+        "correct": 0,
+        "explanation": "Before taking corrective action, it is crucial to analyze the causes of the deviation. This helps in implementing appropriate solutions and preventing recurrence."
+      },
+      {
+        "q": "Which ratio would be most useful for a company to assess its ability to meet its short-term obligations?",
+        "options": [
+          "Inventory Turnover Ratio",
+          "Current Ratio",
+          "Net Profit Ratio",
+          "Debt-Equity Ratio"
+        ],
+        "correct": 1,
+        "explanation": "The Current Ratio (Current Assets / Current Liabilities) is a liquidity ratio that measures a company's ability to pay off its short-term liabilities with its short-term assets."
+      },
+      {
+        "q": "Which of the following is a limitation of the controlling function?",
+        "options": [
+          "It is a backward-looking process.",
+          "It can be costly and time-consuming.",
+          "It can lead to employee resistance.",
+          "All of the above"
+        ],
+        "correct": 3,
+        "explanation": "Controlling can be expensive due to the need for measurement and analysis. It often looks back at past performance to assess deviations, and employees may resist being constantly monitored, leading to resistance."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-financial-management",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Financial Management",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Financial Management. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "A company decides to invest in a new plant and machinery. This is an example of which type of financial decision?",
+        "options": [
+          "Dividend Decision",
+          "Profitability Decision",
+          "Investment Decision",
+          "Financing Decision"
+        ],
+        "correct": 2,
+        "explanation": "Investment decisions involve the allocation of funds to long-term assets or projects that are expected to generate future returns."
+      },
+      {
+        "q": "Which of the following is a factor influencing the financing decision of a company?",
+        "options": [
+          "Cost of Financing",
+          "Risk Associated with Financing",
+          "Control Considerations",
+          "All of the above"
+        ],
+        "correct": 3,
+        "explanation": "All these factors are crucial for a firm when deciding on its financing mix. The cost of debt versus equity, the risk involved in leverage, and the desire to maintain control all play a significant role."
+      },
+      {
+        "q": "Which of the following is NOT a primary objective of financial management?",
+        "options": [
+          "Minimizing Cost of Capital",
+          "Ensuring Solvency",
+          "Wealth Maximization",
+          "Profit Maximization"
+        ],
+        "correct": 3,
+        "explanation": "While profit maximization is a short-term goal, wealth maximization is considered the primary objective of financial management as it encompasses long-term value creation and considers the time value of money and risk."
+      },
+      {
+        "q": "A company with a high debt-equity ratio is generally considered to have:",
+        "options": [
+          "High financial risk",
+          "Low operating risk",
+          "Low financial risk",
+          "High liquidity"
+        ],
+        "correct": 0,
+        "explanation": "A high debt-equity ratio indicates that the company relies heavily on borrowed funds, which increases its financial risk due to fixed interest payments and potential for bankruptcy if unable to meet its obligations."
+      },
+      {
+        "q": "The primary goal of dividend policy is to:",
+        "options": [
+          "Minimize the cost of equity",
+          "Maximize the total return to shareholders",
+          "Maximize retained earnings",
+          "Ensure the company's stock price is low"
+        ],
+        "correct": 1,
+        "explanation": "The dividend policy aims to balance the immediate returns to shareholders (through dividends) with future growth prospects (through retained earnings) to maximize overall shareholder value."
+      },
+      {
+        "q": "The process of determining the optimal amount of capital that a firm should raise from various sources is known as:",
+        "options": [
+          "Capital Budgeting",
+          "Dividend Policy Formulation",
+          "Capital Structure Decision",
+          "Working Capital Management"
+        ],
+        "correct": 2,
+        "explanation": "Capital structure decisions focus on the mix of debt and equity financing that a firm uses to fund its operations and growth."
+      },
+      {
+        "q": "The decision on how much of the profit should be distributed to shareholders as dividends and how much should be retained for future growth is known as:",
+        "options": [
+          "Financing Decision",
+          "Investment Decision",
+          "Working Capital Decision",
+          "Dividend Decision"
+        ],
+        "correct": 3,
+        "explanation": "Dividend decisions deal with the distribution of profits between shareholders and reinvestment in the business."
+      },
+      {
+        "q": "The decision related to the amount of funds to be raised and the proportion of different sources of finance is known as:",
+        "options": [
+          "Financing Decision",
+          "Liquidity Decision",
+          "Dividend Decision",
+          "Investment Decision"
+        ],
+        "correct": 0,
+        "explanation": "Financing decisions concern how a firm raises its finances, dealing with the proportion of debt and equity in the capital structure."
+      },
+      {
+        "q": "Which of the following is a characteristic of a sound working capital management?",
+        "options": [
+          "Delaying payments to suppliers",
+          "Ensuring sufficient liquidity for short-term obligations",
+          "Maintaining excessive inventory",
+          "Over-reliance on short-term debt"
+        ],
+        "correct": 1,
+        "explanation": "Effective working capital management aims to maintain a balance between liquidity and profitability, ensuring the firm can meet its short-term obligations without tying up excessive funds."
+      },
+      {
+        "q": "Which of the following is a measure of a firm's liquidity?",
+        "options": [
+          "Price-Earnings Ratio",
+          "Return on Investment",
+          "Current Ratio",
+          "Debt-Equity Ratio"
+        ],
+        "correct": 2,
+        "explanation": "The Current Ratio (Current Assets / Current Liabilities) is a key indicator of a firm's ability to meet its short-term obligations."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-financial-markets",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Financial Markets",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Financial Markets. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which of the following is a function of the money market?",
+        "options": [
+          "Facilitating long-term capital formation",
+          "Listing and trading of government securities with maturity over one year",
+          "Providing a platform for trading existing shares",
+          "Enabling efficient management of short-term deficits and surpluses"
+        ],
+        "correct": 3,
+        "explanation": "The money market helps institutions and individuals manage their short-term liquidity needs by providing a mechanism for borrowing and lending funds for short periods."
+      },
+      {
+        "q": "The market where securities are sold for the first time, directly by the issuer to the investors, is known as the:",
+        "options": [
+          "Primary Market",
+          "Capital Market",
+          "Money Market",
+          "Secondary Market"
+        ],
+        "correct": 0,
+        "explanation": "The primary market is where securities are created and issued for the first time to investors. The issuer raises capital directly from investors in this market."
+      },
+      {
+        "q": "A market where short-term debt instruments are traded is known as the:",
+        "options": [
+          "Primary Market",
+          "Money Market",
+          "Capital Market",
+          "Stock Market"
+        ],
+        "correct": 1,
+        "explanation": "The money market is a segment of the financial market where financial instruments with high liquidity and very short maturities (typically one year or less) are traded."
+      },
+      {
+        "q": "The term 'liquidity' in the context of financial markets refers to:",
+        "options": [
+          "The risk associated with a particular security",
+          "The profit earned from trading securities",
+          "The ease with which an asset can be converted into cash without significant loss of value",
+          "The rate of return on an investment"
+        ],
+        "correct": 2,
+        "explanation": "Liquidity is a measure of how quickly an asset can be bought or sold in the market at a price reflecting its true value. High liquidity means it can be converted to cash easily and quickly."
+      },
+      {
+        "q": "Which of the following is a characteristic of the capital market?",
+        "options": [
+          "High liquidity of instruments",
+          "Low risk associated with instruments",
+          "Short maturity period of instruments",
+          "Long-term investment horizon"
+        ],
+        "correct": 3,
+        "explanation": "The capital market deals with instruments that are typically used for long-term financing and investment, such as shares and debentures, which have longer maturity periods compared to money market instruments."
+      },
+      {
+        "q": "Which of the following is a primary function of a stock exchange?",
+        "options": [
+          "Providing liquidity and marketability to existing securities",
+          "Determining the creditworthiness of companies",
+          "Underwriting fresh capital issues",
+          "Facilitating the buying and selling of new issues"
+        ],
+        "correct": 0,
+        "explanation": "A stock exchange is the secondary market. Its primary function is to provide liquidity and marketability to securities that already exist, so an investor can convert holdings into cash quickly at a fair price. Issuing and underwriting NEW securities is the primary market, not the stock exchange."
+      },
+      {
+        "q": "Which of the following is NOT a type of capital market instrument?",
+        "options": [
+          "Bonds",
+          "Treasury Bills",
+          "Shares",
+          "Debentures"
+        ],
+        "correct": 1,
+        "explanation": "Treasury Bills are short-term debt instruments with a maturity of less than one year, and thus are part of the money market, not the capital market."
+      },
+      {
+        "q": "The primary role of SEBI (Securities and Exchange Board of India) in the financial markets is to:",
+        "options": [
+          "Provide loans to businesses",
+          "Determine interest rates for commercial banks",
+          "Regulate the stock exchanges and protect investor interests",
+          "Print new currency notes"
+        ],
+        "correct": 2,
+        "explanation": "SEBI is the regulatory body for the securities market in India, responsible for ensuring fair trade practices, investor protection, and the orderly development of the securities market."
+      },
+      {
+        "q": "An Initial Public Offering (IPO) is an example of a transaction in the:",
+        "options": [
+          "Money Market",
+          "Secondary Market",
+          "Derivatives Market",
+          "Primary Market"
+        ],
+        "correct": 3,
+        "explanation": "An IPO is the first time a private company offers its shares to the public, making it a primary market transaction."
+      },
+      {
+        "q": "When investors buy securities from other investors, and no new securities are created, this transaction takes place in the:",
+        "options": [
+          "Secondary Market",
+          "Commodity Market",
+          "Money Market",
+          "Primary Market"
+        ],
+        "correct": 0,
+        "explanation": "The secondary market is where existing securities are traded between investors. No new securities are issued by companies in this market."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-marketing-management",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Marketing Management",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Marketing Management. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "What is the primary objective of market segmentation?",
+        "options": [
+          "To increase the price of products",
+          "To identify and satisfy the needs of specific customer groups",
+          "To eliminate competition",
+          "To reduce advertising costs"
+        ],
+        "correct": 1,
+        "explanation": "Market segmentation divides a broad target market into subsets of consumers who have common needs or characteristics. The aim is to tailor marketing efforts to better meet the needs of these specific groups."
+      },
+      {
+        "q": "Branding is important for a marketer because it helps in:",
+        "options": [
+          "Reducing consumer choice",
+          "Increasing production costs",
+          "Differentiating the product from competitors",
+          "Simplifying distribution channels"
+        ],
+        "correct": 2,
+        "explanation": "Branding helps to create a unique identity for a product, making it distinguishable from competing products in the market and building customer loyalty."
+      },
+      {
+        "q": "A company sells its products through retailers and wholesalers to reach a large number of customers. This strategy relates to which element of the marketing mix?",
+        "options": [
+          "Product",
+          "Promotion",
+          "Price",
+          "Place"
+        ],
+        "correct": 3,
+        "explanation": "Place, also known as distribution, involves making the product available to the target customers. Selling through intermediaries like wholesalers and retailers is a key aspect of distribution."
+      },
+      {
+        "q": "The 'USP' in advertising stands for:",
+        "options": [
+          "Unique Selling Proposition",
+          "Universal Sales Plan",
+          "Unified Selling Principle",
+          "Ultimate Service Performance"
+        ],
+        "correct": 0,
+        "explanation": "USP refers to the unique selling proposition, which highlights what makes a product or service different and better than its competitors."
+      },
+      {
+        "q": "A company decides to sell its products directly to consumers through its own online store and physical outlets. This is an example of:",
+        "options": [
+          "Indirect Distribution",
+          "Direct Distribution",
+          "Intensive Distribution",
+          "Selective Distribution"
+        ],
+        "correct": 1,
+        "explanation": "Direct distribution involves selling the product directly from the producer to the consumer without any intermediaries. An online store and company-owned outlets are examples of this."
+      },
+      {
+        "q": "Which of the following is an example of a convenience product?",
+        "options": [
+          "A diamond necklace",
+          "A luxury car",
+          "A loaf of bread",
+          "A branded smartphone"
+        ],
+        "correct": 2,
+        "explanation": "Convenience products are items that consumers buy frequently, immediately, and with minimal comparison and buying effort. A loaf of bread is a common example."
+      },
+      {
+        "q": "Which of the following is NOT a component of the marketing mix?",
+        "options": [
+          "Product",
+          "Promotion",
+          "Price",
+          "Profit"
+        ],
+        "correct": 3,
+        "explanation": "The marketing mix, often referred to as the 4 Ps, includes Product, Price, Place, and Promotion. Profit is a result of successful marketing, not a component of the mix itself."
+      },
+      {
+        "q": "Which pricing strategy involves setting a high initial price for a new, innovative product?",
+        "options": [
+          "Skimming Pricing",
+          "Cost-Plus Pricing",
+          "Psychological Pricing",
+          "Penetration Pricing"
+        ],
+        "correct": 0,
+        "explanation": "Skimming pricing involves setting a high initial price for a new product to 'skim' maximum revenue layer by layer from the market segments willing to pay the high price."
+      },
+      {
+        "q": "Which of the following is a form of sales promotion?",
+        "options": [
+          "Television advertisements",
+          "Discount coupons",
+          "Newspaper articles",
+          "Public relations campaigns"
+        ],
+        "correct": 1,
+        "explanation": "Discount coupons are a short-term incentive used to encourage immediate purchase of a product or service, which is a characteristic of sales promotion."
+      },
+      {
+        "q": "What does the 'Product Life Cycle' concept describe?",
+        "options": [
+          "The duration of a marketing campaign",
+          "The lifespan of a brand name",
+          "The stages a product goes through from its introduction to its decline",
+          "The average age of a customer"
+        ],
+        "correct": 2,
+        "explanation": "The Product Life Cycle (PLC) describes the stages a product moves through from its introduction to the market, through growth and maturity, and finally to decline."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-business-studies-consumer-protection",
+    "classLevel": "12",
+    "subject": "Business Studies",
+    "chapter": "Consumer Protection",
+    "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Consumer Protection. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "A consumer can file a complaint in the District Consumer Disputes Redressal Forum if the value of goods or services paid as consideration does not exceed:",
+        "options": [
+          "₹10 Lakhs",
+          "₹5 Crores",
+          "₹1 Crore",
+          "₹50 Lakhs"
+        ],
+        "correct": 3,
+        "explanation": "As per the Consumer Protection Act, 2019, the pecuniary jurisdiction of the District Consumer Disputes Redressal Forum is up to ₹50 Lakhs. Previously it was ₹20 Lakhs."
+      },
+      {
+        "q": "Which of the following is a form of unfair trade practice?",
+        "options": [
+          "Advertising goods as genuine when they are not",
+          "Providing after-sales service",
+          "Selling goods at a competitive price",
+          "Offering discounts on bulk purchases"
+        ],
+        "correct": 0,
+        "explanation": "Advertising goods as genuine when they are not is a deceptive practice and falls under the definition of unfair trade practice, as it misleads the consumer."
+      },
+      {
+        "q": "What is the role of 'Jago Grahak Jago'?",
+        "options": [
+          "A forum for registering consumer complaints",
+          "A campaign to educate and empower consumers",
+          "A platform for businesses to showcase new products",
+          "A government regulatory body for product quality"
+        ],
+        "correct": 1,
+        "explanation": "'Jago Grahak Jago' is a well-known consumer awareness campaign launched by the Government of India to inform consumers about their rights and responsibilities."
+      },
+      {
+        "q": "What is the minimum age required for a person to be considered a 'consumer' under the Consumer Protection Act, 2019?",
+        "options": [
+          "16 years",
+          "21 years",
+          "There is no minimum age requirement.",
+          "18 years"
+        ],
+        "correct": 2,
+        "explanation": "The Consumer Protection Act, 2019, defines a consumer as a person who buys any goods or hires or avails any services for a consideration. The act does not specify a minimum age, but generally, a person must have the legal capacity to enter into a contract, which is typically 18 years. However, for the purpose of buying goods or services, even a minor can be considered a consumer if the purchase is made by their guardian."
+      },
+      {
+        "q": "Which of the following is NOT a characteristic of a consumer dispute?",
+        "options": [
+          "It involves a defect in goods.",
+          "It involves an unfair trade practice.",
+          "It involves a deficiency in service.",
+          "It always requires a legal background to file."
+        ],
+        "correct": 3,
+        "explanation": "Consumer disputes are designed to be accessible, and a legal background is not a prerequisite for filing a complaint. The process is simplified to empower ordinary consumers."
+      },
+      {
+        "q": "The Central Consumer Protection Authority (CCPA) was established under which act?",
+        "options": [
+          "Consumer Protection Act, 2019",
+          "Standards of Weights and Measures Act, 1976",
+          "Competition Act, 2002",
+          "Consumer Protection Act, 1986"
+        ],
+        "correct": 0,
+        "explanation": "The Central Consumer Protection Authority (CCPA) is a new body established under the Consumer Protection Act, 2019, to regulate matters relating to consumer rights, unfair trade practices, and misleading advertisements."
+      },
+      {
+        "q": "Which consumer forum has the power to order the removal of a defect or deficiency in goods or services?",
+        "options": [
+          "District Consumer Disputes Redressal Forum",
+          "State Consumer Disputes Redressal Commission",
+          "National Consumer Disputes Redressal Commission",
+          "All of the above"
+        ],
+        "correct": 3,
+        "explanation": "All three levels of consumer forums (District, State, and National) have the power to order the removal of a defect or deficiency in goods or services, and grant appropriate relief to the consumer."
+      },
+      {
+        "q": "If a consumer is not satisfied with the order of the District Forum, where can they appeal?",
+        "options": [
+          "To the Central Consumer Protection Authority",
+          "To the State Commission",
+          "Directly to the Supreme Court",
+          "To the National Commission"
+        ],
+        "correct": 1,
+        "explanation": "An appeal against the order of the District Consumer Disputes Redressal Forum can be filed before the State Consumer Disputes Redressal Commission within 45 days."
+      },
+      {
+        "q": "Which of the following is NOT a right of a consumer as per the Consumer Protection Act, 2019?",
+        "options": [
+          "Right to Safety",
+          "Right to Choose",
+          "Right to be Manipulated",
+          "Right to Seek Redressal"
+        ],
+        "correct": 2,
+        "explanation": "The Consumer Protection Act, 2019, clearly outlines the rights of consumers, and 'Right to be Manipulated' is not among them. Instead, consumers have the right to be protected against the marketing of goods and services which are hazardous to life and property."
+      },
+      {
+        "q": "The primary objective of the Consumer Protection Act, 2019 is to:",
+        "options": [
+          "Provide consumers with a wide variety of choices",
+          "Increase the profits of businesses",
+          "Promote monopolistic practices",
+          "Protect the interests and rights of consumers"
+        ],
+        "correct": 3,
+        "explanation": "The main aim of the Consumer Protection Act is to safeguard consumers from unfair trade practices, defective goods, and deficient services, thereby protecting their rights and interests."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-introduction-to-microeconomics",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Introduction to Microeconomics",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Introduction to Microeconomics. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "The problem of 'What to produce?' in economics addresses:",
+        "options": [
+          "Which goods and services should be produced and in what quantities.",
+          "For whom to produce the goods and services.",
+          "The role of government intervention in the economy.",
+          "How to combine factors of production efficiently."
+        ],
+        "correct": 0,
+        "explanation": "This fundamental question concerns the selection of goods and services to be produced from the available scarce resources."
+      },
+      {
+        "q": "A production possibility frontier (PPF) shows:",
+        "options": [
+          "The maximum profit a firm can earn.",
+          "All possible combinations of goods and services that can be produced with given resources and technology.",
+          "The relationship between price and quantity supplied.",
+          "The total demand for a particular good."
+        ],
+        "correct": 1,
+        "explanation": "The PPF illustrates the trade-offs between producing different combinations of goods and services given an economy's limited resources and technology."
+      },
+      {
+        "q": "Microeconomics primarily focuses on:",
+        "options": [
+          "The economy as a whole, including inflation and unemployment.",
+          "Government policies and their impact on national income.",
+          "The behavior of individual economic agents like households and firms.",
+          "International trade and balance of payments."
+        ],
+        "correct": 2,
+        "explanation": "Microeconomics analyzes the decisions and interactions of individual economic units."
+      },
+      {
+        "q": "In a mixed economy:",
+        "options": [
+          "There is no role for either the market or the government.",
+          "All economic decisions are made by the government.",
+          "All economic decisions are made by private individuals and firms.",
+          "Economic decisions are made by a combination of market forces and government intervention."
+        ],
+        "correct": 3,
+        "explanation": "A mixed economy blends elements of both market and command economies, allowing for private enterprise alongside government regulation and provision of certain goods and services."
+      },
+      {
+        "q": "Positive economics deals with:",
+        "options": [
+          "What is, what was, and what will be in the economy.",
+          "Subjective judgments about economic policies.",
+          "What ought to be in the economy.",
+          "Normative statements about economic fairness."
+        ],
+        "correct": 0,
+        "explanation": "Positive economics is concerned with objective analysis and factual statements about economic phenomena."
+      },
+      {
+        "q": "Which of the following is a characteristic of a command economy?",
+        "options": [
+          "Prices are determined by the forces of supply and demand.",
+          "Economic decisions are centrally planned by the government.",
+          "Decisions about production and distribution are made by individuals and firms.",
+          "Private ownership of the means of production."
+        ],
+        "correct": 1,
+        "explanation": "In a command economy, the government controls most of the economic activity, including what is produced and how it is distributed."
+      },
+      {
+        "q": "Opportunity cost is best defined as:",
+        "options": [
+          "The total cost of production.",
+          "The benefit gained from consumption.",
+          "The value of the next-best alternative forgone.",
+          "The monetary cost of a good or service."
+        ],
+        "correct": 2,
+        "explanation": "Opportunity cost represents the value of what you have to give up to choose one option over another."
+      },
+      {
+        "q": "Which of the following is an example of a normative economic statement?",
+        "options": [
+          "An increase in the price of petrol leads to a decrease in its consumption.",
+          "The unemployment rate in India was 5% last year.",
+          "The inflation rate is currently 7%.",
+          "The government should provide free education to all citizens."
+        ],
+        "correct": 3,
+        "explanation": "Normative statements express opinions or recommendations about what should be, rather than describing economic facts."
+      },
+      {
+        "q": "Which of the following is a factor of production?",
+        "options": [
+          "Land",
+          "Interest",
+          "Profit",
+          "Money"
+        ],
+        "correct": 0,
+        "explanation": "Land, labor, capital, and entrepreneurship are the four traditional factors of production."
+      },
+      {
+        "q": "Which of the following best describes the fundamental economic problem of scarcity?",
+        "options": [
+          "Unlimited wants and unlimited resources.",
+          "Unlimited wants and limited resources.",
+          "Limited wants and unlimited resources.",
+          "Limited wants and limited resources."
+        ],
+        "correct": 1,
+        "explanation": "Scarcity arises because human wants are virtually unlimited, while the resources available to satisfy them are finite."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-theory-of-consumer-behaviour",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Theory of Consumer Behaviour",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Theory of Consumer Behaviour. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which of the following is a characteristic of an indifference curve?",
+        "options": [
+          "Indifference curves slope upwards.",
+          "Indifference curves can intersect each other.",
+          "Indifference curves are convex to the origin.",
+          "Indifference curves are typically concave to the origin."
+        ],
+        "correct": 2,
+        "explanation": "Indifference curves are generally convex to the origin due to the principle of diminishing marginal rate of substitution, meaning consumers are willing to give up less of one good to obtain more of another as they have more of the latter."
+      },
+      {
+        "q": "Which of the following best describes a 'normal good' in economics?",
+        "options": [
+          "A good whose demand decreases as income increases.",
+          "A good whose demand increases as its price decreases.",
+          "A good whose demand is unaffected by changes in income.",
+          "A good whose demand increases as income increases."
+        ],
+        "correct": 3,
+        "explanation": "A normal good is characterized by a positive relationship between income and quantity demanded. As income rises, consumers tend to buy more of normal goods."
+      },
+      {
+        "q": "If the price of a good decreases, and the demand for that good also decreases, what type of good is it likely to be?",
+        "options": [
+          "An inferior good.",
+          "A substitute good.",
+          "A complementary good.",
+          "A normal good."
+        ],
+        "correct": 0,
+        "explanation": "An inferior good is one for which the quantity demanded decreases as the consumer's income increases, or in this context, as its price decreases (which can be interpreted as an increase in 'real' income)."
+      },
+      {
+        "q": "The law of diminishing marginal utility states that as a consumer consumes more and more units of a good, the additional satisfaction derived from each successive unit:",
+        "options": [
+          "Increases at an increasing rate.",
+          "Increases at a decreasing rate.",
+          "Remains constant.",
+          "Decreases at an increasing rate."
+        ],
+        "correct": 1,
+        "explanation": "The law of diminishing marginal utility suggests that the extra satisfaction (marginal utility) a consumer gets from consuming an additional unit of a good decreases as more units are consumed."
+      },
+      {
+        "q": "If the income of a consumer increases, and they start buying more of good X and less of good Y, what can be inferred about good Y?",
+        "options": [
+          "Good Y is a substitute for good X.",
+          "Good Y is a complement to good X.",
+          "Good Y is an inferior good.",
+          "Good Y is a normal good."
+        ],
+        "correct": 2,
+        "explanation": "If the consumption of good Y decreases as income increases, it means good Y is an inferior good. Consumers tend to switch to better quality or more preferred normal goods as their income rises."
+      },
+      {
+        "q": "What does the slope of the indifference curve represent?",
+        "options": [
+          "The total utility of the two goods.",
+          "The income effect.",
+          "The price ratio of the two goods.",
+          "The marginal rate of substitution (MRS)."
+        ],
+        "correct": 3,
+        "explanation": "The slope of the indifference curve at any point is known as the Marginal Rate of Substitution (MRS). It shows the rate at which a consumer is willing to give up one good for another while maintaining the same level of satisfaction."
+      },
+      {
+        "q": "The point of consumer's equilibrium occurs where:",
+        "options": [
+          "The budget line is tangent to the highest possible indifference curve.",
+          "The marginal utility is maximized.",
+          "The demand curve intersects the supply curve.",
+          "The total utility equals the total cost."
+        ],
+        "correct": 0,
+        "explanation": "Consumer's equilibrium is achieved when the consumer maximizes their satisfaction subject to their budget constraint. This occurs at the point where the budget line is tangent to the highest attainable indifference curve, meaning the slope of the budget line equals the slope of the indifference curve (MRS = Px/Py)."
+      },
+      {
+        "q": "Which concept explains why a consumer buys more of a good when its price falls, even if their income were to remain constant?",
+        "options": [
+          "Law of diminishing marginal utility.",
+          "Income effect and substitution effect.",
+          "Consumer's equilibrium.",
+          "Indifference curve analysis."
+        ],
+        "correct": 1,
+        "explanation": "The law of demand states that quantity demanded increases as price falls. This is explained by the combined effects of the substitution effect (the good becomes relatively cheaper) and the income effect (the consumer's real purchasing power increases)."
+      },
+      {
+        "q": "The budget line represents:",
+        "options": [
+          "The maximum quantity of a good a consumer is willing to buy at a given price.",
+          "Combinations of goods that provide equal levels of satisfaction.",
+          "Combinations of goods that a consumer can afford with their given income and market prices.",
+          "The total utility derived from consuming a good."
+        ],
+        "correct": 2,
+        "explanation": "The budget line (or budget constraint) illustrates all possible combinations of two goods that a consumer can purchase given their income and the prices of the two goods."
+      },
+      {
+        "q": "The substitution effect on demand for a good is always:",
+        "options": [
+          "Either positive or negative depending on the good.",
+          "Zero.",
+          "Positive.",
+          "Negative."
+        ],
+        "correct": 3,
+        "explanation": "The substitution effect is always negative because when the price of a good falls, it becomes relatively cheaper than other goods, and consumers tend to substitute the relatively cheaper good for others, thus increasing its demand."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-production-and-costs",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Production and Costs",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Production and Costs. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Opportunity cost refers to:",
+        "options": [
+          "The cost of the next best alternative foregone",
+          "The total cost of production",
+          "Explicit payments made by a firm",
+          "The sum of fixed and variable costs"
+        ],
+        "correct": 0,
+        "explanation": "Opportunity cost is a fundamental concept in economics that represents the value of the next best alternative that must be given up to pursue a certain action. It's the cost of what you could have had instead."
+      },
+      {
+        "q": "If the Average Cost (AC) is falling, then Marginal Cost (MC) must be:",
+        "options": [
+          "Equal to AC",
+          "Less than AC",
+          "Zero",
+          "Greater than AC"
+        ],
+        "correct": 1,
+        "explanation": "When Average Cost is falling, it means that the cost of producing the last unit (MC) is lower than the average cost of previous units, pulling the average down. Therefore, MC < AC."
+      },
+      {
+        "q": "The Law of Diminishing Marginal Returns states that if one factor of production is increased while others are held constant, then the marginal product of that factor will eventually:",
+        "options": [
+          "Become zero",
+          "Remain constant",
+          "Decrease",
+          "Increase"
+        ],
+        "correct": 2,
+        "explanation": "The law of diminishing marginal returns is a fundamental concept in economics that describes the decrease in the marginal output of a production process as the amount of a single factor is incrementally increased, while the amounts of all other factors remain fixed."
+      },
+      {
+        "q": "Which of the following is an example of a variable cost in the short run?",
+        "options": [
+          "Interest paid on a loan for machinery",
+          "Salary of the factory manager",
+          "Rent of the factory premises",
+          "Cost of raw materials"
+        ],
+        "correct": 3,
+        "explanation": "Variable costs are costs that change with the level of output. The cost of raw materials directly depends on how much is produced."
+      },
+      {
+        "q": "When Total Product (TP) is at its maximum, Marginal Product (MP) is:",
+        "options": [
+          "Zero",
+          "Negative",
+          "Positive and decreasing",
+          "Positive and increasing"
+        ],
+        "correct": 0,
+        "explanation": "The Marginal Product curve intersects the Total Product curve at its maximum point. When TP is at its peak, MP is zero. Before that, MP is positive and decreasing."
+      },
+      {
+        "q": "If total output increases from 100 units to 120 units when a firm hires one more worker, the Marginal Product of that worker is:",
+        "options": [
+          "220 units",
+          "20 units",
+          "120 units",
+          "100 units"
+        ],
+        "correct": 1,
+        "explanation": "Marginal Product (MP) is the change in total output resulting from employing one more unit of a variable input. Here, change in output is 120 - 100 = 20 units."
+      },
+      {
+        "q": "In the long run, all costs are considered:",
+        "options": [
+          "Fixed costs",
+          "Implicit costs",
+          "Variable costs",
+          "Sunk costs"
+        ],
+        "correct": 2,
+        "explanation": "In the long run, a firm has the flexibility to adjust all its factors of production. Therefore, all costs become variable in the long run as they can be altered according to the desired scale of production."
+      },
+      {
+        "q": "Which cost curve is U-shaped?",
+        "options": [
+          "Marginal Cost (MC)",
+          "Average Variable Cost (AVC)",
+          "Average Fixed Cost (AFC)",
+          "Both B and C"
+        ],
+        "correct": 3,
+        "explanation": "Both Average Variable Cost (AVC) and Marginal Cost (MC) curves are typically U-shaped due to the law of diminishing marginal returns. AFC, however, continuously falls."
+      },
+      {
+        "q": "When does Average Fixed Cost (AFC) start to fall?",
+        "options": [
+          "As output increases",
+          "When Marginal Cost is at its minimum",
+          "When Total Cost starts to fall",
+          "When Variable Cost starts to fall"
+        ],
+        "correct": 0,
+        "explanation": "AFC is calculated as Total Fixed Cost (TFC) divided by output. Since TFC is constant, as output increases, AFC will continuously decrease."
+      },
+      {
+        "q": "Which of the following is NOT a short-run cost?",
+        "options": [
+          "Fixed Cost",
+          "Total Cost",
+          "Rent of the factory building",
+          "Variable Cost"
+        ],
+        "correct": 1,
+        "explanation": "Total cost is the sum of fixed and variable costs, and while it includes short-run elements, it's not a distinct short-run cost category in the same way fixed and variable costs are. Rent of the factory building is a fixed cost, which is a short-run cost."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-the-theory-of-the-firm-under-perfect-competition",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "The Theory of the Firm under Perfect Competition",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — The Theory of the Firm under Perfect Competition. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "The total revenue (TR) for a perfectly competitive firm is calculated as:",
+        "options": [
+          "Marginal Cost (MC) * Quantity (Q)",
+          "Average Variable Cost (AVC) * Quantity (Q)",
+          "Price (P) * Quantity (Q)",
+          "Price (P) / Quantity (Q)"
+        ],
+        "correct": 2,
+        "explanation": "Total Revenue is the total income a firm generates from selling its goods or services, which is the price per unit multiplied by the number of units sold."
+      },
+      {
+        "q": "The law of diminishing marginal returns implies that as a firm increases its variable input, holding fixed inputs constant:",
+        "options": [
+          "Total product will eventually decrease",
+          "Marginal product will eventually decrease",
+          "Average product will eventually decrease",
+          "All of the above"
+        ],
+        "correct": 1,
+        "explanation": "The law of diminishing marginal returns specifically states that the additional output from each additional unit of the variable input will eventually fall."
+      },
+      {
+        "q": "Which of the following represents the short-run supply curve of a perfectly competitive firm?",
+        "options": [
+          "Its marginal cost curve above average total cost",
+          "Its average total cost curve above marginal cost",
+          "Its average variable cost curve above marginal cost",
+          "Its marginal cost curve above average variable cost"
+        ],
+        "correct": 3,
+        "explanation": "The firm's short-run supply curve is that portion of its marginal cost curve which lies above the minimum point of its average variable cost curve."
+      },
+      {
+        "q": "Which of the following is NOT a characteristic of a perfectly competitive market?",
+        "options": [
+          "Imperfect information",
+          "Homogeneous products",
+          "Large number of buyers and sellers",
+          "Free entry and exit"
+        ],
+        "correct": 0,
+        "explanation": "Perfect competition assumes perfect information, meaning buyers and sellers are fully aware of prices and product qualities."
+      },
+      {
+        "q": "In the long-run equilibrium of a perfectly competitive market, firms earn:",
+        "options": [
+          "Zero revenue",
+          "Normal profits",
+          "Economic losses",
+          "Supernormal profits"
+        ],
+        "correct": 1,
+        "explanation": "In long-run equilibrium, free entry and exit ensure that firms earn only normal profits (zero economic profit), where price equals minimum average total cost."
+      },
+      {
+        "q": "In a perfectly competitive market, a firm's demand curve is:",
+        "options": [
+          "Upward sloping",
+          "Perfectly inelastic (vertical)",
+          "Perfectly elastic (horizontal)",
+          "Downward sloping"
+        ],
+        "correct": 2,
+        "explanation": "In perfect competition, a firm is a price taker. It can sell any quantity at the market determined price, making its demand curve perfectly elastic at that price."
+      },
+      {
+        "q": "A firm operating in perfect competition will maximize its profit where:",
+        "options": [
+          "Marginal Revenue (MR) > Marginal Cost (MC)",
+          "Average Cost (AC) is minimized",
+          "Marginal Revenue (MR) < Marginal Cost (MC)",
+          "Marginal Revenue (MR) = Marginal Cost (MC)"
+        ],
+        "correct": 3,
+        "explanation": "Profit maximization in perfect competition occurs at the output level where MR equals MC. If MR > MC, the firm can increase profit by producing more. If MR < MC, it can increase profit by producing less."
+      },
+      {
+        "q": "In the short run, a perfectly competitive firm will shut down if the market price is:",
+        "options": [
+          "Below average variable cost",
+          "Above average total cost",
+          "Below average total cost",
+          "Above average variable cost"
+        ],
+        "correct": 0,
+        "explanation": "A firm will continue to produce in the short run as long as the price covers its average variable cost. If the price falls below AVC, the firm incurs losses greater than its fixed costs and is better off shutting down."
+      },
+      {
+        "q": "If the market price in a perfectly competitive industry is above the average total cost for firms in the long run, we can expect:",
+        "options": [
+          "Existing firms to reduce output",
+          "New firms to enter the industry",
+          "Firms to exit the industry",
+          "Existing firms to increase prices"
+        ],
+        "correct": 1,
+        "explanation": "Economic profits (price above ATC) in the long run signal opportunities for new firms to enter the industry, increasing supply and driving down prices towards the minimum ATC."
+      },
+      {
+        "q": "For a perfectly competitive firm, Marginal Revenue (MR) is equal to:",
+        "options": [
+          "Average Total Cost (ATC)",
+          "Marginal Cost (MC)",
+          "Price (P)",
+          "Average Variable Cost (AVC)"
+        ],
+        "correct": 2,
+        "explanation": "In perfect competition, the firm is a price taker, so it receives the same price for each unit sold. Therefore, MR is always equal to the market price."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-market-equilibrium",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Market Equilibrium",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Market Equilibrium. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Consider a market for a normal good. If consumer income rises and simultaneously the cost of production decreases, what can be definitively said about the equilibrium price and quantity?",
+        "options": [
+          "Equilibrium price will definitely decrease, quantity will be indeterminate.",
+          "Equilibrium quantity will definitely decrease, price will be indeterminate.",
+          "Equilibrium price will definitely increase, quantity will be indeterminate.",
+          "Equilibrium quantity will definitely increase, price will be indeterminate."
+        ],
+        "correct": 3,
+        "explanation": "An increase in income for a normal good shifts demand to the right (increasing quantity and price). A decrease in production cost shifts supply to the right (increasing quantity and decreasing price). The effect on price is uncertain as it depends on the magnitude of the shifts, but quantity will definitely increase."
+      },
+      {
+        "q": "Which of the following is a characteristic of a market in disequilibrium?",
+        "options": [
+          "Either a surplus or a shortage exists.",
+          "The price is such that quantity demanded equals quantity supplied.",
+          "There is no tendency for price to change.",
+          "Buyers and sellers are satisfied with the current price and quantity."
+        ],
+        "correct": 0,
+        "explanation": "Disequilibrium occurs when the market price is not at the equilibrium level. This leads to a situation where either quantity demanded exceeds quantity supplied (shortage) or quantity supplied exceeds quantity demanded (surplus), creating pressure for the price to adjust."
+      },
+      {
+        "q": "In the context of market equilibrium, a 'movement along' the demand curve is caused by a change in:",
+        "options": [
+          "The price of related goods.",
+          "The price of the good itself.",
+          "Consumer income.",
+          "Consumer tastes and preferences."
+        ],
+        "correct": 1,
+        "explanation": "A movement along the demand curve occurs when there is a change in the quantity demanded solely due to a change in the price of the good itself, assuming all other factors remain constant. Changes in income, related goods' prices, or tastes cause shifts of the entire demand curve."
+      },
+      {
+        "q": "If the demand for a luxury good decreases significantly due to an economic recession, what will likely happen to its equilibrium price and quantity?",
+        "options": [
+          "Equilibrium price will decrease, and equilibrium quantity will increase.",
+          "Equilibrium price will increase, and equilibrium quantity will increase.",
+          "Equilibrium price will decrease, and equilibrium quantity will decrease.",
+          "Equilibrium price will increase, and equilibrium quantity will decrease."
+        ],
+        "correct": 2,
+        "explanation": "A recession typically leads to a decrease in consumer income. For luxury goods, this causes a significant decrease in demand (a leftward shift of the demand curve). With supply remaining constant, this leads to a lower equilibrium price and a lower equilibrium quantity."
+      },
+      {
+        "q": "The concept of 'market equilibrium' implies that at the prevailing price:",
+        "options": [
+          "Quantity demanded is greater than quantity supplied.",
+          "There is a shortage of the good.",
+          "Quantity supplied is greater than quantity demanded.",
+          "Quantity demanded is equal to quantity supplied."
+        ],
+        "correct": 3,
+        "explanation": "Market equilibrium is the state where the quantity of a good that consumers are willing and able to buy is exactly equal to the quantity that producers are willing and able to sell at a given price. This point represents a balance between supply and demand."
+      },
+      {
+        "q": "If the price of a substitute good increases, what will be the impact on the equilibrium price and quantity of the original good?",
+        "options": [
+          "Both equilibrium price and quantity will increase.",
+          "Both equilibrium price and quantity will decrease.",
+          "Equilibrium price will increase, quantity will decrease.",
+          "Equilibrium price will decrease, quantity will increase."
+        ],
+        "correct": 0,
+        "explanation": "If the price of a substitute good increases, consumers will switch to the original good, increasing its demand. This rightward shift in the demand curve will lead to an increase in both the equilibrium price and quantity of the original good."
+      },
+      {
+        "q": "Which of the following scenarios will lead to a simultaneous increase in both equilibrium price and equilibrium quantity in a market?",
+        "options": [
+          "A decrease in demand.",
+          "An increase in demand.",
+          "A simultaneous decrease in both demand and supply.",
+          "A decrease in supply."
+        ],
+        "correct": 1,
+        "explanation": "An increase in demand, with supply remaining constant, shifts the demand curve to the right. This leads to a higher equilibrium price and a higher equilibrium quantity. A decrease in supply would increase price but decrease quantity."
+      },
+      {
+        "q": "If the government imposes a price ceiling below the equilibrium price, what is the likely outcome in the market?",
+        "options": [
+          "The market will reach a new, stable equilibrium.",
+          "No change in price or quantity.",
+          "A shortage of the good.",
+          "A surplus of the good."
+        ],
+        "correct": 2,
+        "explanation": "A price ceiling set below the equilibrium price prevents the price from rising to its natural level. At the lower price, quantity demanded exceeds quantity supplied, leading to a shortage."
+      },
+      {
+        "q": "What happens to the equilibrium quantity and price if the government introduces a subsidy for producers of a good?",
+        "options": [
+          "Both equilibrium quantity and price will increase.",
+          "Both equilibrium quantity and price will decrease.",
+          "Equilibrium quantity will decrease, and equilibrium price will increase.",
+          "Equilibrium quantity will increase, and equilibrium price will decrease."
+        ],
+        "correct": 3,
+        "explanation": "A subsidy to producers effectively lowers their cost of production, leading to an increase in supply (a rightward shift of the supply curve). This results in a lower equilibrium price and a higher equilibrium quantity."
+      },
+      {
+        "q": "In a perfectly competitive market, if the demand for a good increases while the supply remains constant, what will be the immediate effect on the equilibrium price and quantity?",
+        "options": [
+          "Equilibrium price will increase, equilibrium quantity will increase.",
+          "Equilibrium price will increase, equilibrium quantity will decrease.",
+          "Equilibrium price will decrease, equilibrium quantity will decrease.",
+          "Equilibrium price will decrease, equilibrium quantity will increase."
+        ],
+        "correct": 0,
+        "explanation": "An increase in demand, with supply unchanged, leads to a rightward shift of the demand curve. This results in a higher equilibrium price and a higher equilibrium quantity as consumers are willing to buy more at a higher price."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-non-competitive-markets",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Non-competitive Markets",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Non-competitive Markets. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "In an oligopoly, the firms are typically:",
+        "options": [
+          "Price setters",
+          "Interdependent in their decisions",
+          "Price takers",
+          "Engaged in a price war indefinitely"
+        ],
+        "correct": 1,
+        "explanation": "In an oligopoly, the actions of one firm significantly affect the other firms, leading to interdependence in their pricing, output, and advertising strategies."
+      },
+      {
+        "q": "When a monopolist faces a downward-sloping demand curve, its marginal revenue (MR) is:",
+        "options": [
+          "Greater than the price",
+          "Equal to the price",
+          "Less than the price",
+          "Zero at all output levels"
+        ],
+        "correct": 2,
+        "explanation": "To sell an additional unit, a monopolist must lower the price not only for that unit but also for all previous units sold. Thus, the marginal revenue is less than the price."
+      },
+      {
+        "q": "Price discrimination is most likely to occur in which type of market?",
+        "options": [
+          "Monopolistic Competition",
+          "Oligopoly",
+          "Perfect Competition",
+          "Monopoly"
+        ],
+        "correct": 3,
+        "explanation": "A monopolist, having sole control over supply, can charge different prices to different consumers for the same good or service, a practice known as price discrimination."
+      },
+      {
+        "q": "What is a common outcome of 'excess capacity' in monopolistic competition?",
+        "options": [
+          "Firms produce less than the output that minimizes average total cost.",
+          "Firms experience significant economies of scale.",
+          "Firms produce at the minimum point of their average total cost curve.",
+          "Market efficiency is maximized."
+        ],
+        "correct": 0,
+        "explanation": "In monopolistic competition, firms typically operate with excess capacity, meaning they produce at an output level below that which minimizes average total cost, due to product differentiation and downward-sloping demand."
+      },
+      {
+        "q": "A characteristic feature of monopolistic competition is:",
+        "options": [
+          "Collusion among firms",
+          "Product differentiation",
+          "Homogeneous products",
+          "Significant economies of scale"
+        ],
+        "correct": 1,
+        "explanation": "Monopolistic competition involves many firms selling differentiated products, which allows them to have some degree of control over their prices."
+      },
+      {
+        "q": "Which condition indicates that a monopolist is maximizing its profits?",
+        "options": [
+          "Total Revenue = Total Cost (TR=TC)",
+          "Price = Marginal Cost (P=MC)",
+          "Marginal Revenue = Marginal Cost (MR=MC)",
+          "Marginal Revenue = Price (MR=P)"
+        ],
+        "correct": 2,
+        "explanation": "Profit maximization for any firm, including a monopolist, occurs at the output level where marginal revenue equals marginal cost (MR=MC)."
+      },
+      {
+        "q": "Which of the following is a barrier to entry in a monopoly market?",
+        "options": [
+          "Easy access to raw materials",
+          "High consumer demand",
+          "Low production costs",
+          "Government patents and licenses"
+        ],
+        "correct": 3,
+        "explanation": "Government-granted patents, licenses, or exclusive rights create significant barriers to entry, preventing other firms from entering the market and thus maintaining a monopoly."
+      },
+      {
+        "q": "Which of the following best describes a monopoly market structure?",
+        "options": [
+          "A single seller selling a unique product with no close substitutes.",
+          "A large number of buyers and sellers, with identical products.",
+          "Many sellers offering differentiated products.",
+          "A few dominant sellers who are interdependent in their pricing and output decisions."
+        ],
+        "correct": 0,
+        "explanation": "A monopoly is characterized by a single seller in the market offering a product with no close substitutes, giving the seller significant market power."
+      },
+      {
+        "q": "The Kinked Demand Curve model is often associated with:",
+        "options": [
+          "Monopoly",
+          "Oligopoly",
+          "Monopolistic Competition",
+          "Perfect Competition"
+        ],
+        "correct": 1,
+        "explanation": "The Kinked Demand Curve model attempts to explain price rigidity in oligopolistic markets, where firms are hesitant to change prices due to the fear of reactions from competitors."
+      },
+      {
+        "q": "In an oligopoly, a cartel is a group of firms that:",
+        "options": [
+          "Are price takers in the market",
+          "Compete vigorously on price",
+          "Collude to set prices and output",
+          "Independently decide their production levels"
+        ],
+        "correct": 2,
+        "explanation": "A cartel is an agreement among firms in an oligopoly to act like a single monopolist by coordinating their pricing and output decisions to maximize joint profits."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-introduction-to-macroeconomics",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Introduction to Macroeconomics",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Introduction to Macroeconomics. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Gross Domestic Product (GDP) measures the:",
+        "options": [
+          "Total expenditure on imported goods and services",
+          "Total income earned by all individuals in a country",
+          "Total value of goods and services produced by a country's citizens, regardless of location",
+          "Total value of final goods and services produced within a country's geographical boundaries in a given period"
+        ],
+        "correct": 3,
+        "explanation": "GDP is the market value of all final goods and services produced within a country in a specific time period."
+      },
+      {
+        "q": "Which of the following is a component of aggregate demand (AD) in an open economy?",
+        "options": [
+          "Net exports",
+          "Government subsidies",
+          "Depreciation",
+          "Net indirect taxes"
+        ],
+        "correct": 0,
+        "explanation": "Aggregate demand comprises consumption, investment, government spending, and net exports (exports minus imports)."
+      },
+      {
+        "q": "Which of the following is a macroeconomic variable?",
+        "options": [
+          "The price of a single textbook",
+          "The total output of all firms in the country",
+          "The profit of a particular company",
+          "The salary of a specific employee"
+        ],
+        "correct": 1,
+        "explanation": "Macroeconomic variables are those that relate to the economy as a whole, such as national income, aggregate output, and overall price levels."
+      },
+      {
+        "q": "Which of the following is a key objective of macroeconomic policy in India?",
+        "options": [
+          "To reduce the number of private businesses",
+          "To control the price of a specific company's shares",
+          "To increase the overall production of goods and services",
+          "To manage the import of luxury goods"
+        ],
+        "correct": 2,
+        "explanation": "Macroeconomic policy aims to achieve broad economic goals like economic growth, price stability, and full employment, which are related to increasing the overall production of goods and services."
+      },
+      {
+        "q": "Unemployment where individuals are temporarily between jobs or seeking their first job is known as:",
+        "options": [
+          "Disguised unemployment",
+          "Structural unemployment",
+          "Cyclical unemployment",
+          "Frictional unemployment"
+        ],
+        "correct": 3,
+        "explanation": "Frictional unemployment occurs when people are in the process of moving between jobs, searching for new jobs, or entering the labor force."
+      },
+      {
+        "q": "The Circular Flow of Income model illustrates the relationship between:",
+        "options": [
+          "Households and firms",
+          "Households and the international market",
+          "Firms and the government",
+          "Households and the financial sector only"
+        ],
+        "correct": 0,
+        "explanation": "The basic circular flow model depicts the flow of goods, services, and money between households (consumers) and firms (producers)."
+      },
+      {
+        "q": "The 'Balance of Payments' accounts for a country records:",
+        "options": [
+          "The country's internal debt and credit",
+          "All economic transactions between the country and the rest of the world",
+          "The flow of goods and services only",
+          "All domestic transactions within the country"
+        ],
+        "correct": 1,
+        "explanation": "The Balance of Payments is a statement that summarizes all the economic transactions between a country's residents and the rest of the world over a period of time."
+      },
+      {
+        "q": "Fiscal policy primarily involves the government's decisions on:",
+        "options": [
+          "Exchange rates and trade policies",
+          "Inflation and unemployment targets",
+          "Taxation and government expenditure",
+          "Interest rates and money supply"
+        ],
+        "correct": 2,
+        "explanation": "Fiscal policy refers to the use of government spending and taxation to influence the economy."
+      },
+      {
+        "q": "Which of the following is considered a 'factor of production' in macroeconomics?",
+        "options": [
+          "Government bonds",
+          "Consumer durables",
+          "Interest rates",
+          "Entrepreneurship"
+        ],
+        "correct": 3,
+        "explanation": "The main factors of production are land, labor, capital, and entrepreneurship, which are used to produce goods and services."
+      },
+      {
+        "q": "Which of the following best describes 'inflation' in macroeconomics?",
+        "options": [
+          "A sustained increase in the general price level",
+          "A continuous fall in the general price level",
+          "A temporary rise in the price of a single commodity",
+          "A decrease in the demand for goods and services"
+        ],
+        "correct": 0,
+        "explanation": "Inflation refers to a persistent and widespread increase in the general price level of goods and services in an economy over a period of time."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-national-income-accounting",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "National Income Accounting",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — National Income Accounting. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Net Indirect Taxes (NIT) is calculated as:",
+        "options": [
+          "Indirect Taxes + Subsidies",
+          "Indirect Taxes - Subsidies",
+          "Direct Taxes + Subsidies",
+          "Direct Taxes - Subsidies"
+        ],
+        "correct": 1,
+        "explanation": "Net Indirect Taxes (NIT) represent the difference between indirect taxes levied by the government and subsidies provided by the government. NIT = Indirect Taxes - Subsidies."
+      },
+      {
+        "q": "Which method of calculating National Income involves summing up the value added at each stage of production?",
+        "options": [
+          "Income Method",
+          "Product Method",
+          "Value Added Method",
+          "Expenditure Method"
+        ],
+        "correct": 2,
+        "explanation": "The Value Added Method (also known as the Product Method) calculates National Income by summing the net value added by all the producing units in the economy. Value added is the difference between the value of output and the value of intermediate consumption."
+      },
+      {
+        "q": "Which of the following is an intermediate good?",
+        "options": [
+          "A car sold by a manufacturer to a consumer.",
+          "A tractor used by a farmer for cultivation.",
+          "A refrigerator bought by a household.",
+          "Flour purchased by a bakery for making bread."
+        ],
+        "correct": 3,
+        "explanation": "Intermediate goods are those goods that are used up in the production process of other goods or services. Flour purchased by a bakery is used to produce bread, hence it is an intermediate good."
+      },
+      {
+        "q": "Which of the following is the broadest measure of economic activity in an economy?",
+        "options": [
+          "Gross Domestic Product (GDP)",
+          "Gross National Product (GNP)",
+          "Personal Disposable Income (PDI)",
+          "National Income (NI)"
+        ],
+        "correct": 0,
+        "explanation": "GDP measures the total value of all final goods and services produced within the domestic territory of a country in a given period. While GNP, NI, and PDI are important, GDP represents the broadest measure of domestic production."
+      },
+      {
+        "q": "The sum of compensation of employees, operating surplus, and mixed income of self-employed is known as:",
+        "options": [
+          "Gross Domestic Product at Market Price",
+          "Net Domestic Product at Factor Cost",
+          "Gross National Product at Factor Cost",
+          "National Income"
+        ],
+        "correct": 1,
+        "explanation": "This sum represents the Net Domestic Product at Factor Cost (NDPFC). Operating surplus includes profits, interest, and rent. Compensation of employees is wages and salaries. Mixed income accounts for income of self-employed. These are the primary components of factor incomes earned domestically."
+      },
+      {
+        "q": "If a country's GDP is growing rapidly, but its Per Capita Income is stagnant, this implies:",
+        "options": [
+          "The population growth rate is negative.",
+          "The country is experiencing significant economic growth and improving living standards.",
+          "The benefits of economic growth are not being evenly distributed.",
+          "The country is facing a recession."
+        ],
+        "correct": 2,
+        "explanation": "Per Capita Income is calculated by dividing National Income (or GDP) by the total population. If GDP is growing but Per Capita Income is stagnant, it means the population is growing at the same or a faster rate than GDP, indicating that the per person share of the economic output is not increasing, suggesting unequal distribution or very high population growth diluting the benefits of GDP growth."
+      },
+      {
+        "q": "If the GDP at market price is Rs. 1000 crore and depreciation is Rs. 100 crore, then the GDP at factor cost is:",
+        "options": [
+          "Rs. 1100 crore",
+          "Rs. 800 crore",
+          "Rs. 1000 crore",
+          "Rs. 900 crore"
+        ],
+        "correct": 3,
+        "explanation": "GDP at Factor Cost = GDP at Market Price - Net Indirect Taxes. However, the question provides depreciation. The relationship between market price and factor cost is through Net Indirect Taxes. The question implicitly assumes Net Indirect Taxes are zero or it's a poorly worded question intending to ask about NDP. Assuming the question meant to ask for NDPFC from NDPMP or GNPFC from GNPMP. If we assume that Market Price includes indirect taxes and excludes subsidies, and Factor Cost is the reverse. Let's rephrase the question assuming it implies a conversion from Market Price to Factor Cost. Assuming the provided options are for a direct relationship with depreciation. GDP at Factor Cost = GDP at Market Price - Net Indirect Taxes. If the question meant to ask for Net Domestic Product at Factor Cost (NDPFC) from Gross Domestic Product at Market Price (GDPMP), it would be: NDPFC = GDPMP - Depreciation - Net Indirect Taxes. Since only depreciation is given, and assuming Net Indirect Taxes are zero for simplicity in this specific question context, GDP at Factor Cost = GDP at Market Price - Depreciation is incorrect. The standard conversion is GDPFC = GDPMP - NIT. If the question is asking for NDPMP from GDPMP, then NDPMP = GDPMP - Depreciation = 1000 - 100 = 900. Let's assume the question meant to ask: If GDP at Market Price is Rs. 1000 crore and Net Indirect Taxes are Rs. 100 crore, then GDP at Factor Cost is Rs. 900 crore. Given the options, and the common confusion, it's likely designed to test the relationship between market price and factor cost, or gross and net. If we strictly follow the relationship with depreciation, it leads to NDP, not GDPFC. However, if the question implies the difference between market price and factor cost is represented by depreciation (which is incorrect), then 1000-100 = 900 would be chosen. Let's consider a plausible scenario for the given options: If the question was 'If the Net Domestic Product at Market Price is Rs. 1000 crore and depreciation is Rs. 100 crore, then the Net Domestic Product at Factor Cost is:', then the answer would be 900. However, given 'GDP at market price' and options, and the presence of depreciation, it's most likely an error in the question and intended to be about NDP. Let's assume the question is flawed and intended to ask for NDPFC from NDPMP, where NDPMP = 1000 and depreciation = 100. Then NDPFC = 900. OR, if it meant GDPMP = 1000 and Net Indirect Taxes = 100, then GDPFC = 900. Given the option 900, it strongly suggests that the difference between market price and factor cost (or gross and net) is to be accounted for by the Rs. 100 amount. The most straightforward interpretation if forced to choose from options is that the difference from market price to factor cost is Rs. 100. If we interpret depreciation as the only difference conceptually between gross and net, and the question is about converting market price to factor cost, the options don't fit well. However, if the question meant to ask: 'If GDP at Market Price is Rs. 1000 crore and Net Indirect Taxes are Rs. 100 crore, then the GDP at Factor Cost is:', then the answer would be Rs. 900 crore. Let's proceed with the interpretation that the Rs. 100 is the amount to be subtracted to reach the factor cost from market price, irrespective of whether it's depreciation or NIT for this specific question's design. Thus, 1000 - 100 = 900."
+      },
+      {
+        "q": "Transfer payments are excluded from the calculation of National Income because:",
+        "options": [
+          "They do not involve the production of new goods or services.",
+          "They are difficult to measure accurately.",
+          "They are often paid in cash.",
+          "They are only received by specific groups of people."
+        ],
+        "correct": 0,
+        "explanation": "Transfer payments, such as pensions and subsidies, are one-way receipts without any corresponding production of goods or services. Therefore, they do not contribute to the value of current output and are excluded from National Income calculations."
+      },
+      {
+        "q": "Which component is NOT included in the expenditure method of calculating GDP?",
+        "options": [
+          "Private Final Consumption Expenditure",
+          "Interest Payments on National Debt",
+          "Government Final Consumption Expenditure",
+          "Net Exports"
+        ],
+        "correct": 1,
+        "explanation": "The expenditure method sums up consumption, investment, government spending, and net exports. Interest payments on national debt are transfer payments and are not considered as expenditure on new goods and services, hence excluded."
+      },
+      {
+        "q": "Which of the following best defines Gross National Disposable Income (GNDI)?",
+        "options": [
+          "GDP + Net current transfers from abroad",
+          "GDP + Net factor income from abroad",
+          "GNP + Net current transfers from abroad",
+          "GNP + Net factor income from abroad"
+        ],
+        "correct": 2,
+        "explanation": "Gross National Disposable Income (GNDI) is calculated by adding net current transfers from abroad to Gross National Product (GNP). GNDI = GNP + Net current transfers from abroad."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-money-and-banking",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Money and Banking",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Money and Banking. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "When the central bank buys government securities from the open market, it leads to:",
+        "options": [
+          "Decrease in money supply",
+          "Decrease in credit creation capacity",
+          "No change in money supply",
+          "Increase in money supply"
+        ],
+        "correct": 3,
+        "explanation": "Buying government securities injects money into the economy, increasing the money supply."
+      },
+      {
+        "q": "A 'credit multiplier' of 4 implies that a 100 rupee deposit can lead to a maximum of:",
+        "options": [
+          "400 rupee deposit creation",
+          "500 rupee deposit creation",
+          "100 rupee deposit creation",
+          "25 rupee deposit creation"
+        ],
+        "correct": 0,
+        "explanation": "Credit multiplier is calculated as 1/Required Reserve Ratio. If the multiplier is 4, the maximum increase in deposits is 4 times the initial deposit."
+      },
+      {
+        "q": "The difference between the interest rate charged by banks on loans and the interest rate paid on deposits is known as:",
+        "options": [
+          "Reverse repo rate",
+          "Spread",
+          "Liquidity ratio",
+          "Repo rate"
+        ],
+        "correct": 1,
+        "explanation": "The spread represents the net interest margin of a bank, reflecting its profitability from lending activities."
+      },
+      {
+        "q": "Which of the following is NOT a primary function of a commercial bank?",
+        "options": [
+          "Granting loans",
+          "Facilitating fund transfer",
+          "Issuing currency",
+          "Accepting deposits"
+        ],
+        "correct": 2,
+        "explanation": "Issuing currency is a primary function of the central bank, not commercial banks."
+      },
+      {
+        "q": "The demand for money that arises from the need to make everyday transactions is known as:",
+        "options": [
+          "Asset demand for money",
+          "Speculative demand for money",
+          "Precautionary demand for money",
+          "Transactions demand for money"
+        ],
+        "correct": 3,
+        "explanation": "Transactions demand for money relates to the need for money to carry out regular purchases and payments."
+      },
+      {
+        "q": "Fiat money is money that is:",
+        "options": [
+          "Issued by government decree and not backed by a physical commodity",
+          "Limited in supply to maintain its value",
+          "Primarily used for international transactions",
+          "Backed by precious metals like gold or silver"
+        ],
+        "correct": 0,
+        "explanation": "Fiat money's value comes from government order (fiat) rather than intrinsic value or commodity backing."
+      },
+      {
+        "q": "When the central bank requires banks to hold a certain percentage of their total deposits as reserves, it is known as:",
+        "options": [
+          "Open market operations",
+          "Legal Reserve Ratio (LRR)",
+          "Discount rate",
+          "Moral suasion"
+        ],
+        "correct": 1,
+        "explanation": "Legal Reserve Ratio includes both Cash Reserve Ratio (CRR) and Statutory Liquidity Ratio (SLR), which mandate banks to hold reserves."
+      },
+      {
+        "q": "Which of the following is a tool of quantitative credit control used by the central bank?",
+        "options": [
+          "Rationing of credit",
+          "Margin requirements",
+          "Bank rate",
+          "Moral suasion"
+        ],
+        "correct": 2,
+        "explanation": "The bank rate is a direct measure to control the overall volume of credit in the economy."
+      },
+      {
+        "q": "The Reserve Bank of India (RBI) acts as the banker to the:",
+        "options": [
+          "General public",
+          "Commercial banks only",
+          "Foreign banks",
+          "Central and State governments"
+        ],
+        "correct": 3,
+        "explanation": "The RBI functions as the banker to the central government and also advises and acts as a banker to state governments."
+      },
+      {
+        "q": "Which institution is responsible for regulating the Indian banking system?",
+        "options": [
+          "Reserve Bank of India (RBI)",
+          "Securities and Exchange Board of India (SEBI)",
+          "Ministry of Finance",
+          "National Bank for Agriculture and Rural Development (NABARD)"
+        ],
+        "correct": 0,
+        "explanation": "The RBI is the apex institution that oversees and regulates all commercial banks in India."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-determination-of-income-and-employment",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Determination of Income and Employment",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Determination of Income and Employment. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "In the context of the aggregate demand-aggregate supply model, full employment equilibrium occurs when:",
+        "options": [
+          "Inflation is zero.",
+          "Aggregate Demand equals Aggregate Supply at the full employment level of output.",
+          "Aggregate Supply is greater than Aggregate Demand.",
+          "Aggregate Demand is greater than Aggregate Supply."
+        ],
+        "correct": 1,
+        "explanation": "Full employment equilibrium is achieved when the economy produces at its potential output level, meaning there is no involuntary unemployment, and aggregate demand equals aggregate supply at this output level."
+      },
+      {
+        "q": "What does the 'autonomous' component of consumption represent?",
+        "options": [
+          "Consumption that increases with income.",
+          "Consumption by the government.",
+          "Consumption that does not depend on the level of income.",
+          "Consumption that decreases with income."
+        ],
+        "correct": 2,
+        "explanation": "Autonomous consumption is the minimum level of consumption that occurs even when income is zero. It is independent of the income level."
+      },
+      {
+        "q": "Deficient demand in an economy leads to:",
+        "options": [
+          "Inflationary gap",
+          "Excess capacity",
+          "Full employment equilibrium",
+          "Deflationary gap"
+        ],
+        "correct": 3,
+        "explanation": "Deficient demand, also known as underemployment equilibrium, occurs when aggregate demand is insufficient to employ all available resources, leading to a deflationary gap."
+      },
+      {
+        "q": "The paradox of thrift suggests that if everyone saves more, it can lead to:",
+        "options": [
+          "Decreased aggregate demand and lower economic output.",
+          "Increased aggregate investment and economic growth.",
+          "A balanced budget for the government.",
+          "Increased consumption and higher economic growth."
+        ],
+        "correct": 0,
+        "explanation": "The paradox of thrift states that while saving is good for an individual, if everyone tries to save more simultaneously, it reduces aggregate demand, leading to lower production and income, thus paradoxically reducing total savings."
+      },
+      {
+        "q": "If the government increases its spending, what is the likely impact on aggregate demand and income, assuming MPC > 0?",
+        "options": [
+          "Aggregate demand decreases, income decreases.",
+          "Aggregate demand increases, income increases.",
+          "Aggregate demand increases, income decreases.",
+          "Aggregate demand decreases, income increases."
+        ],
+        "correct": 1,
+        "explanation": "An increase in government spending is a component of aggregate demand. With a positive MPC, this initial increase in spending leads to a multiplied increase in aggregate income."
+      },
+      {
+        "q": "The Keynesian theory of employment primarily emphasizes the role of:",
+        "options": [
+          "Fiscal Policy alone",
+          "Money Supply",
+          "Aggregate Demand",
+          "Aggregate Supply"
+        ],
+        "correct": 2,
+        "explanation": "Keynesian economics posits that the level of output and employment is determined by the aggregate demand for goods and services."
+      },
+      {
+        "q": "Which of the following represents the aggregate demand for goods and services in an economy?",
+        "options": [
+          "C + S + T + X",
+          "I + G + X + M",
+          "C + S + T + M",
+          "C + I + G + X - M"
+        ],
+        "correct": 3,
+        "explanation": "Aggregate Demand (AD) is the total expenditure on goods and services in an economy, represented by Consumption (C) + Investment (I) + Government Spending (G) + Net Exports (X - M)."
+      },
+      {
+        "q": "Which of the following is a component of investment in macroeconomics?",
+        "options": [
+          "Purchase of a new factory by a firm.",
+          "Government transfer payments.",
+          "Payment of household electricity bills.",
+          "Purchase of shares in the stock market."
+        ],
+        "correct": 0,
+        "explanation": "Investment in macroeconomics refers to the creation of new capital assets, such as a new factory, machinery, or residential construction. The purchase of shares is financial investment, not real investment."
+      },
+      {
+        "q": "The effective demand refers to the point where:",
+        "options": [
+          "Aggregate Supply exceeds Aggregate Demand.",
+          "Aggregate Demand equals Aggregate Supply.",
+          "Marginal Propensity to Consume equals Marginal Propensity to Save.",
+          "Aggregate Demand exceeds Aggregate Supply."
+        ],
+        "correct": 1,
+        "explanation": "Effective demand, in Keynesian economics, is the level of aggregate demand at which it equals aggregate supply. This determines the equilibrium level of output and employment."
+      },
+      {
+        "q": "If the marginal propensity to consume (MPC) is 0.75, what is the value of the multiplier?",
+        "options": [
+          "0.25",
+          "1.33",
+          "4",
+          "3"
+        ],
+        "correct": 2,
+        "explanation": "The multiplier is calculated as 1 / (1 - MPC). With MPC = 0.75, the multiplier is 1 / (1 - 0.75) = 1 / 0.25 = 4."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-government-budget-and-the-economy",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Government Budget and the Economy",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Government Budget and the Economy. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which of the following is a primary objective of a government budget in India?",
+        "options": [
+          "Maximizing corporate profits",
+          "Minimizing government expenditure",
+          "Reducing the role of the public sector",
+          "Ensuring equitable distribution of income and wealth"
+        ],
+        "correct": 3,
+        "explanation": "A key objective of government budgeting is to address income inequalities and promote social justice, which is achieved through measures like progressive taxation and social welfare programs."
+      },
+      {
+        "q": "Which of the following is considered a 'capital receipt' in the Indian government budget?",
+        "options": [
+          "Disinvestment of shares of public sector undertakings",
+          "Interest received from loans given to states",
+          "Income tax collected by the government",
+          "Profits from public sector undertakings"
+        ],
+        "correct": 0,
+        "explanation": "Disinvestment is the sale of government assets, which results in a reduction of its assets and is therefore a capital receipt, not a recurring revenue source."
+      },
+      {
+        "q": "Revenue deficit in a government budget refers to:",
+        "options": [
+          "The excess of capital expenditure over capital receipts",
+          "The excess of revenue expenditure over revenue receipts",
+          "The excess of total expenditure over total receipts",
+          "The difference between fiscal deficit and interest payments"
+        ],
+        "correct": 1,
+        "explanation": "Revenue deficit specifically measures the shortfall in the government's revenue earnings compared to its revenue spending, excluding capital transactions."
+      },
+      {
+        "q": "A balanced budget implies:",
+        "options": [
+          "Government expenditure is greater than government receipts",
+          "Fiscal deficit is zero",
+          "Government receipts are equal to government expenditure",
+          "Government receipts are greater than government expenditure"
+        ],
+        "correct": 2,
+        "explanation": "A balanced budget occurs when the total revenue of the government exactly matches its total expenditure. While related to fiscal deficit being zero, the definition directly compares receipts and expenditure."
+      },
+      {
+        "q": "Fiscal deficit represents:",
+        "options": [
+          "The gap between government's total receipts and its revenue expenditure",
+          "The gap between government's total receipts and its total borrowings",
+          "The gap between government's revenue receipts and its total expenditure",
+          "The gap between government's total expenditure and its revenue receipts, excluding borrowings"
+        ],
+        "correct": 3,
+        "explanation": "Fiscal deficit is the difference between the government's total expenditure and its total receipts, excluding borrowings. It indicates the extent to which the government needs to borrow to finance its operations."
+      },
+      {
+        "q": "Which of the following accounts for the largest component of revenue expenditure for the Indian government?",
+        "options": [
+          "Interest payments on public debt",
+          "Defence expenditure",
+          "Subsidies",
+          "Salaries and pensions of government employees"
+        ],
+        "correct": 0,
+        "explanation": "Interest payments on past borrowings form a significant and often the largest portion of the Indian government's revenue expenditure, representing the cost of servicing its debt."
+      },
+      {
+        "q": "The primary deficit is calculated as:",
+        "options": [
+          "Fiscal Deficit + Interest Payments",
+          "Fiscal Deficit - Interest Payments",
+          "Revenue Deficit - Capital Receipts",
+          "Total Receipts - Revenue Expenditure"
+        ],
+        "correct": 1,
+        "explanation": "Primary deficit measures the government's borrowing requirement excluding interest payments on past debts. It shows the extent to which the government is borrowing to finance its current activities, excluding the cost of servicing old debt."
+      },
+      {
+        "q": "Which of the following is a tool of fiscal policy?",
+        "options": [
+          "Bank rate",
+          "Cash reserve ratio",
+          "Government borrowing",
+          "Open market operations"
+        ],
+        "correct": 2,
+        "explanation": "Government borrowing is a direct way for the government to finance its deficit and influence the money supply and interest rates, making it a tool of fiscal policy. Bank rate, OMO, and CRR are tools of monetary policy."
+      },
+      {
+        "q": "Which of the following would lead to an increase in the fiscal deficit?",
+        "options": [
+          "Increase in disinvestment proceeds",
+          "Increase in tax revenue",
+          "Decrease in borrowings",
+          "Increase in government expenditure"
+        ],
+        "correct": 3,
+        "explanation": "An increase in government expenditure, assuming other factors remain constant, will widen the gap between total expenditure and total receipts, thus increasing the fiscal deficit."
+      },
+      {
+        "q": "If the government aims to stimulate economic activity during a recession, it is likely to increase:",
+        "options": [
+          "Public expenditure and decrease taxes",
+          "Both taxes and public expenditure",
+          "Both taxes and decrease public expenditure",
+          "Taxes and decrease public expenditure"
+        ],
+        "correct": 0,
+        "explanation": "During a recession, the government typically uses expansionary fiscal policy. Increasing public expenditure injects money into the economy, while decreasing taxes leaves more disposable income with individuals and businesses, both boosting demand."
+      }
+    ],
+    "faqs": []
+  },
+  {
+    "slug": "class-12-economics-open-economy-macroeconomics",
+    "classLevel": "12",
+    "subject": "Economics",
+    "chapter": "Open Economy Macroeconomics",
+    "intro": "Practise chapter-wise MCQs for Class 12 Economics — Open Economy Macroeconomics. Every question comes with the correct answer and an explanation.",
+    "mcqs": [
+      {
+        "q": "Which of the following scenarios would likely lead to a decrease in foreign exchange reserves?",
+        "options": [
+          "A large inflow of foreign direct investment (FDI).",
+          "A central bank intervention to prevent its currency from depreciating.",
+          "A rise in foreign borrowing by domestic firms.",
+          "An increase in the country's exports."
+        ],
+        "correct": 1,
+        "explanation": "If a country's currency is depreciating, the central bank might sell its foreign exchange reserves to buy its own currency, thereby supporting its value and decreasing its reserves."
+      },
+      {
+        "q": "Which of the following is NOT a component of the Balance of Payments?",
+        "options": [
+          "Financial Account",
+          "Capital Account",
+          "Invisible Trade Account",
+          "Current Account"
+        ],
+        "correct": 2,
+        "explanation": "The Balance of Payments is broadly divided into the Current Account and the Capital Account (which includes the Financial Account). Invisible Trade is a component of the Current Account, not a separate major account."
+      },
+      {
+        "q": "When a country has a deficit in its capital account, it implies:",
+        "options": [
+          "The country is exporting more goods than importing.",
+          "The country's currency has appreciated significantly.",
+          "More capital is flowing into the country than flowing out.",
+          "More capital is flowing out of the country than flowing in."
+        ],
+        "correct": 3,
+        "explanation": "A capital account deficit means that the net outflow of capital from the country is greater than the net inflow. This includes investments made by residents abroad exceeding foreign investments made by non-residents in the country."
+      },
+      {
+        "q": "Managed floating exchange rate system is also known as:",
+        "options": [
+          "Dirty float",
+          "Fixed exchange rate",
+          "Gold standard",
+          "Free float"
+        ],
+        "correct": 0,
+        "explanation": "A managed float, or 'dirty float', is a system where the exchange rate is largely determined by market forces, but the central bank intervenes occasionally to influence the rate and maintain stability."
+      },
+      {
+        "q": "A country experiences a surplus in its Current Account. This generally implies:",
+        "options": [
+          "It is facing a shortage of foreign exchange.",
+          "It is exporting more goods and services than it is importing.",
+          "It is importing more goods and services than it is exporting.",
+          "It is receiving more foreign investment than it is making abroad."
+        ],
+        "correct": 1,
+        "explanation": "A current account surplus means that the value of a country's exports of goods and services, along with net income and net current transfers, exceeds the value of its imports. This indicates that the country is earning more from its foreign transactions than it is spending."
+      },
+      {
+        "q": "Appreciation of a country's currency means:",
+        "options": [
+          "The country's exports become cheaper for foreigners.",
+          "The country's imports become cheaper for domestic consumers.",
+          "Its currency can buy more units of foreign currency.",
+          "Its currency can buy fewer units of foreign currency."
+        ],
+        "correct": 2,
+        "explanation": "Appreciation means the domestic currency becomes stronger relative to foreign currencies, so more foreign currency can be bought with the same amount of domestic currency. This makes imports cheaper and exports more expensive."
+      },
+      {
+        "q": "The 'twin deficits' hypothesis suggests a relationship between:",
+        "options": [
+          "Capital account surplus and trade surplus.",
+          "Inflation and unemployment.",
+          "Interest rates and money supply.",
+          "Current account deficit and budget deficit."
+        ],
+        "correct": 3,
+        "explanation": "The twin deficits hypothesis posits that a country's budget deficit and current account deficit are often related, with a larger budget deficit potentially leading to a larger current account deficit."
+      },
+      {
+        "q": "Under a flexible exchange rate system, a decrease in aggregate demand in the domestic economy would likely lead to:",
+        "options": [
+          "Depreciation of the domestic currency.",
+          "Appreciation of the domestic currency.",
+          "Increased foreign exchange reserves.",
+          "No change in the exchange rate."
+        ],
+        "correct": 0,
+        "explanation": "A decrease in aggregate demand can lead to lower interest rates or a reduction in income, making domestic assets less attractive to foreigners and reducing demand for domestic goods, thus causing the currency to depreciate."
+      },
+      {
+        "q": "Which of the following is a measure to correct a deficit in the Balance of Payments?",
+        "options": [
+          "Devaluation of the domestic currency.",
+          "Imposing import restrictions.",
+          "Attracting foreign investment.",
+          "All of the above."
+        ],
+        "correct": 3,
+        "explanation": "Devaluation makes exports cheaper and imports costlier, helping to reduce a deficit. Import restrictions directly reduce imports. Attracting foreign investment helps improve the capital account. Therefore, all options are measures to correct a BOP deficit."
+      },
+      {
+        "q": "If the nominal exchange rate between the Indian Rupee (INR) and the US Dollar (USD) is INR 70 = 1 USD, and India's inflation rate is 5% while the US inflation rate is 2%, what is the approximate expected real exchange rate after one year, assuming purchasing power parity (PPP)?",
+        "options": [
+          "INR 73.50 = 1 USD",
+          "INR 72.10 = 1 USD",
+          "INR 70.00 = 1 USD",
+          "INR 68.00 = 1 USD"
+        ],
+        "correct": 1,
+        "explanation": "According to PPP, the exchange rate should adjust to offset inflation differentials. The INR is expected to depreciate against the USD by the difference in inflation rates (5% - 2% = 3%). So, the new nominal exchange rate will be approximately 70 * (1 + 0.03) = 72.10 INR = 1 USD."
       }
     ],
     "faqs": []
