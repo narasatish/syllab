@@ -11,13 +11,37 @@ import { initScrollReveal } from './lib/scrollReveal'
 
 // Capture uncaught errors / promise rejections → email alert to the owner.
 installGlobalErrorReporting()
-// Analytics (GTM / Clarity) — DEFERRED until the main thread is idle so its ~800ms of
-// third-party JS no longer blocks the critical render path (faster mobile LCP). It still
-// captures the session: initAnalytics() sends the initial pageview when it loads.
+// Analytics (GTM / Clarity) — deferred, because gtag is 165 KB of third-party JS.
+//
+// This used to use a 4000ms idle timeout. On a throttled mobile main thread the
+// idle callback never gets a quiet slot, so it fired at the timeout — landing
+// almost exactly on LCP (measured 4.6s) and costing 249ms of blocking time right
+// where it hurts most. Lighthouse attributed more blocking to Google Tag Manager
+// than to anything else on the page.
+//
+// Now it starts on whichever comes first:
+//   • the first real interaction (scroll / pointer / key) — an engaged visitor is
+//     tracked within milliseconds of engaging, so this loses nothing that matters;
+//   • otherwise an idle slot, with the fallback timeout pushed well clear of LCP.
+// A visitor who leaves without interacting inside that window goes uncounted. That
+// is the deliberate trade: a bounce we did not measure costs less than a slower
+// first paint for everyone who stayed.
 if (typeof window !== 'undefined') {
+  let started = false;
+  const start = () => {
+    if (started) return;
+    started = true;
+    for (const e of ['pointerdown', 'keydown', 'scroll', 'touchstart']) {
+      window.removeEventListener(e, start);
+    }
+    initAnalytics();
+  };
+  for (const e of ['pointerdown', 'keydown', 'scroll', 'touchstart']) {
+    window.addEventListener(e, start, { once: true, passive: true });
+  }
   const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
-  if (ric) ric(() => initAnalytics(), { timeout: 4000 });
-  else window.addEventListener('load', () => window.setTimeout(() => initAnalytics(), 1500));
+  if (ric) ric(start, { timeout: 9000 });
+  else window.addEventListener('load', () => window.setTimeout(start, 6000));
 }
 
 const rootEl = document.getElementById('root')!
