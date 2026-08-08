@@ -76,8 +76,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "Beyond the center of curvature",
           "At the focal point"
         ],
-        "correct": 1,
-        "explanation": "When the object is at infinity from a convex lens, the image is formed at the focal point and is real, inverted, and highly diminished."
+        "correct": 2,
+        "explanation": "For a convex lens the image is real, inverted and diminished when the object lies beyond 2F (the centre of curvature). With the object at infinity the image is a point at the focus, not simply \"diminished\"."
       },
       {
         "q": "The refractive index of a medium is always:",
@@ -2656,8 +2656,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "100 N",
           "1000 N"
         ],
-        "correct": 1,
-        "explanation": "Weight on Moon = (100 N) x (1.6 / 9.8) ≈ 16 N. Wait, let me recalculate: If astronaut weighs 100 N on Earth, mass = 100/9.8 ≈ 10.2 kg. On Moon: W = 10.2 x 1.6 ≈ 16 N."
+        "correct": 0,
+        "explanation": "Weight 100 N on Earth (g = 10 m/s²) gives mass = 100/10 = 10 kg. Mass does not change, so on the Moon W = m x g = 10 x 1.6 = 16 N."
       },
       {
         "q": "The orbital velocity of a satellite depends on:",
@@ -5310,8 +5310,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "1 M",
           "2 M"
         ],
-        "correct": 1,
-        "explanation": "Using M1V1 = M2V2: 2 * 50 = M2 * 500, so M2 = 100/500 = 0.2 M."
+        "correct": 0,
+        "explanation": "Dilution conserves moles: M₁V₁ = M₂V₂, so 2 x 50 = M₂ x 500 and M₂ = 100/500 = 0.2 M."
       },
       {
         "q": "Sodium carbonate (Na2CO3) solution is basic even though it contains no OH- ions directly. Why?",
@@ -5801,8 +5801,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "45 m",
           "60 m"
         ],
-        "correct": 1,
-        "explanation": "At maximum height, v = 0. Using v^2 = u^2 - 2*g*h: 0 = 900 - 2*10*h, so h = 45m. Wait, 900/20 = 45, not 75. Let me recheck: 30^2 = 900, 2*10 = 20, 900/20 = 45m. So answer should be index 0 (45m), not 2."
+        "correct": 2,
+        "explanation": "At the highest point v = 0, so h = u²/(2g) = 30²/(2 x 10) = 900/20 = 45 m."
       },
       {
         "q": "An object moving in a circle at constant speed has constant velocity. Is this true or false?",
@@ -6133,8 +6133,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "40 m",
           "30 m"
         ],
-        "correct": 3,
-        "explanation": "Distance s = 0.5*g*t^2 = 0.5*10*4 = 20m. Wait, 0.5*10*2^2 = 5*4 = 20. So answer should be 20m (index 1), not 30. Let me recalculate carefully: s = (1/2)*10*2^2 = 5*4 = 20 m."
+        "correct": 0,
+        "explanation": "Starting from rest, s = ½gt² = ½ x 10 x 2² = 20 m."
       },
       {
         "q": "The escape velocity from Earth is 11.2 km/s. What is the escape velocity from a planet with double Earth's mass and double its radius?",
@@ -6155,8 +6155,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "g/4",
           "g"
         ],
-        "correct": 1,
-        "explanation": "g = G*M/r^2. Mass M = (4/3)*pi*r^3*density. M_planet = (4/3)*pi*(r/2)^3*2*density = (4/3)*pi*r^3*density/4 = M_earth/4. Wait, let me recalculate: M = (4/3)*pi*r^3*rho. If rho doubles and r halves: M_new = (4/3)*pi*(r/2)^3*2*rho = (4/3)*pi*r^3*rho*(1/8)*2 = M_earth/4. g_planet = G*M_earth/(4*(r/2)^2) = G*M_earth/(4*r^2/4) = G*M_earth/r^2 = g_earth. Hmm, that gives g, not 2g. Let me verify once more: g = G*(4/3)*pi*r^3*rho / r^2 = (4/3)*G*pi*r*rho. If rho -> 2*rho and r -> r/2: g_new = (4/3)*G*pi*(r/2)*(2*rho) = (4/3)*G*pi*r*rho = g_earth. So answer is 2 (g). But the option at index 3 is 2g. Let me check if I made an error. Actually, I think there's confusion. Let me use g = G*M/R^2 directly and substitute M = (4/3)*pi*R^3*rho. g = G*rho*(4/3)*pi*R. If rho->2*rho, R->R/2: g_new = G*2*rho*(4/3)*pi*R/2 = G*rho*(4/3)*pi*R = g_old. So no change. Answer should be index 2 (g)."
+        "correct": 3,
+        "explanation": "Surface gravity g = (4/3)πGρR, so g is proportional to ρR. Doubling density and halving radius gives 2 x ½ = 1, i.e. the same g."
       },
       {
         "q": "Kepler's Third Law states that the square of the orbital period is proportional to the cube of the semi-major axis. For a satellite orbiting twice as far from Earth, how does its period change?",
@@ -7961,8 +7961,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "0.1 × 6.02 × 10²³",
           "6.02 × 10²³"
         ],
-        "correct": 1,
-        "explanation": "Molar mass of CO₂ = 12 + 32 = 44 g/mol. Moles = 4.4 / 44 = 0.1 mol. Molecules = 0.1 × 6.02 × 10²³."
+        "correct": 2,
+        "explanation": "Molar mass of CO₂ = 12 + 32 = 44 g/mol. Moles = 4.4/44 = 0.1, so molecules = 0.1 x 6.02 x 10²³."
       },
       {
         "q": "What is empirical formula?",
@@ -8337,8 +8337,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "1.505 × 10^23",
           "9.033 × 10^23"
         ],
-        "correct": 2,
-        "explanation": "At STP, 22.4 L = 1 mole. So 11.2 L = 0.5 mole. Number of molecules = 0.5 × 6.022 × 10^23 = 3.011 × 10^23. Wait, recalculating: 0.5 × 6.022 × 10^23 ≈ 3.011 × 10^23, but standard answer is 1.505 × 10^23 for 11.2L at STP when accounting for proper molar volume."
+        "correct": 0,
+        "explanation": "At STP one mole occupies 22.4 L, so 11.2 L is 0.5 mol. Molecules = 0.5 x 6.022 x 10²³ = 3.011 x 10²³."
       },
       {
         "q": "Which of the following has the highest molecular mass?",
@@ -9520,8 +9520,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "Agricultural practices",
           "All of the above"
         ],
-        "correct": 3,
-        "explanation": "Fossil fuel combustion, deforestation (reduces CO2 absorption), and agricultural practices (especially livestock) all significantly increase atmospheric CO2."
+        "correct": 1,
+        "explanation": "The question asks for the single largest contributor. Burning coal, oil and gas is by far the biggest source of anthropogenic CO₂, which is why \"all of the above\" cannot be the answer to a \"most impact\" question."
       }
     ],
     "faqs": [
