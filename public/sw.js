@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v295-2026-08-08-fix-9-more-answer-keys';
+const CACHE_VERSION = 'syllab-v296-2026-08-08-finish-verification-backlog';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

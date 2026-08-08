@@ -1720,8 +1720,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "River systems",
           "All of the above"
         ],
-        "correct": 3,
-        "explanation": "India uses groundwater, tanks, ponds, and river systems as major sources of irrigation."
+        "correct": 0,
+        "explanation": "Groundwater — through wells and tube wells — irrigates the largest share of India's net irrigated area, well ahead of canals and tanks. The question asks for the MAJOR source, so \"all of the above\" cannot be right."
       },
       {
         "q": "Which state is the largest producer of iron ore in India?",
@@ -1768,17 +1768,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "explanation": "Desalination is the process of removing salt and minerals from seawater or brackish water."
       },
       {
-        "q": "India's position among countries with the richest mineral resources is:",
-        "options": [
-          "First",
-          "Third",
-          "Fifth",
-          "Tenth"
-        ],
-        "correct": 1,
-        "explanation": "India ranks third in the world in terms of mineral resource wealth, after the USA and Russia."
-      },
-      {
         "q": "Which of the following is a renewable resource?",
         "options": [
           "Petroleum",
@@ -1788,17 +1777,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 2,
         "explanation": "Forests are renewable resources as they can be regenerated through natural growth and reforestation."
-      },
-      {
-        "q": "The degradation of soil due to water erosion is called:",
-        "options": [
-          "Deforestation",
-          "Desertification",
-          "Salinization",
-          "Leaching"
-        ],
-        "correct": 3,
-        "explanation": "Leaching is the process where water-soluble nutrients are washed away from the soil, degrading its fertility."
       }
     ],
     "faqs": [
@@ -13387,8 +13365,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "Remains constant.",
           "Increases at a decreasing rate."
         ],
-        "correct": 3,
-        "explanation": "The law of diminishing marginal utility suggests that the extra satisfaction (marginal utility) a consumer gets from consuming an additional unit of a good decreases as more units are consumed."
+        "correct": 0,
+        "explanation": "The law states that marginal utility FALLS as successive units are consumed. Any option saying utility increases contradicts the law itself."
       },
       {
         "q": "If the income of a consumer increases, and they start buying more of good X and less of good Y, what can be inferred about good Y?",
@@ -13564,17 +13542,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 2,
         "explanation": "AFC is calculated as Total Fixed Cost (TFC) divided by output. Since TFC is constant, as output increases, AFC will continuously decrease."
-      },
-      {
-        "q": "Which of the following is NOT a short-run cost?",
-        "options": [
-          "Variable Cost",
-          "Fixed Cost",
-          "Rent of the factory building",
-          "Total Cost"
-        ],
-        "correct": 3,
-        "explanation": "Total cost is the sum of fixed and variable costs, and while it includes short-run elements, it's not a distinct short-run cost category in the same way fixed and variable costs are. Rent of the factory building is a fixed cost, which is a short-run cost."
       }
     ],
     "faqs": []
@@ -15520,13 +15487,13 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "If a bill of exchange is payable 'at sight', when is it due for payment?",
         "options": [
-          "On demand",
           "On a specified future date",
-          "Immediately upon presentation",
-          "After a specified period from the date of issue"
+          "After a specified period from the date of issue",
+          "Thirty days after acceptance",
+          "Immediately upon presentation"
         ],
-        "correct": 2,
-        "explanation": "'At sight' means the bill is payable immediately upon its presentation to the drawee for payment."
+        "correct": 3,
+        "explanation": "A bill payable \"at sight\" falls due the moment it is presented to the drawee — no days of grace and no fixed future date."
       },
       {
         "q": "What is the consequence of dishonouring a bill of exchange?",
@@ -15684,13 +15651,13 @@ export const MCQ_CHAPTERS: McqChapter[] = [
       {
         "q": "Which of the following is an indirect expense?",
         "options": [
-          "Salary of sales manager",
-          "Factory rent",
           "Wages paid to factory workers",
+          "Factory rent",
+          "Purchase of raw materials",
           "Carriage outwards"
         ],
-        "correct": 0,
-        "explanation": "Salary of a sales manager is an operating expense related to selling and distribution, not directly involved in the production or purchase of goods. Factory rent, wages, and carriage outwards are directly related to the cost of goods sold."
+        "correct": 3,
+        "explanation": "Indirect expenses are charged to the Profit and Loss Account rather than the Trading Account. Carriage OUTWARDS is a selling cost; factory wages, factory rent and raw materials are all direct/manufacturing costs."
       },
       {
         "q": "Which account is debited when goods are purchased for resale?",
