@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v298-2026-08-08-lcp-hero-no-fade';
+const CACHE_VERSION = 'syllab-v299-2026-08-08-lcp-fix-plus-design-system';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
