@@ -46,7 +46,12 @@
   <!-- Preconnect to critical origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://syllab-backend.onrender.com" crossorigin />
+  <!-- No crossorigin: the only early request to this origin is the plain GET
+       /api/health warm-up in main.tsx. A crossorigin preconnect opens an
+       ANONYMOUS connection, which that request never uses — PageSpeed reported
+       it as "Unused preconnect" while simultaneously estimating 90ms of LCP
+       savings from preconnecting here. Same-mode is what makes it get reused. -->
+  <link rel="preconnect" href="https://syllab-backend.onrender.com" />
   <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
   <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com" />
   <!-- Fonts: non-blocking preload-swap so they don't block first paint (better LCP/FCP). -->

@@ -299,8 +299,16 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             <Sparkles size={13} className="text-amber-400" />
           </div>
 
-          {/* Headline */}
-          <h1 className="anim-fade-up anim-delay-1 text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tighter mb-4 leading-[1.05]">
+          {/* Headline — deliberately NOT animated.
+              This <h1> is the LCP element (PageSpeed named it). It used to carry
+              anim-fade-up + anim-delay-1, and fade-up starts at opacity:0 with
+              fill-mode "both" — so the delay held it fully invisible, then ramped
+              it in over 0.7s. PSI measured LCP as 980ms of "element render delay"
+              with 0ms TTFB: nothing was loading, we were just hiding our own
+              largest element for ~800ms. Field LCP was 3.5s (fails CWV).
+              Everything around it still fades in; only the LCP element paints
+              immediately. Do not re-add an entrance animation here. */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tighter mb-4 leading-[1.05]">
             Learn smarter with{' '}
             <span className="hero-gradient-text">AI by your side</span>
           </h1>
