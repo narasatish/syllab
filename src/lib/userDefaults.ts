@@ -35,3 +35,31 @@ export function getStoredRole(): 'student' | 'parent' | null {
 export function setStoredRole(role: 'student' | 'parent'): void {
   try { localStorage.setItem('syllab_user_role', role); } catch { /* ignore */ }
 }
+
+/**
+ * Has this browser EVER completed a sign-in?
+ *
+ * Firebase cannot answer that without downloading ~519 KB first, which is the
+ * whole problem: PageSpeed put the SDK in the homepage critical request chain
+ * (index -> vendor-motion -> firebase -> vendor-firebase-2, 794 ms) because the
+ * auth bootstrap ran on a requestIdleCallback with a 2000 ms timeout — on a
+ * throttled mobile thread the idle slot never arrives, so it always fired at
+ * the timeout, right in the middle of LCP.
+ *
+ * A visitor who has never signed in on this device cannot be signed in now, so
+ * for them the download is pure waste. This flag lets us skip it entirely until
+ * they actually interact. It is a HINT, not an auth decision — it never grants
+ * access to anything; the real check is still onAuthStateChanged. Worst case the
+ * flag is stale and auth simply starts a moment later than it could have.
+ */
+export function hasSignedInBefore(): boolean {
+  try { return localStorage.getItem('syllab_seen_auth') === '1'; } catch { return false; }
+}
+
+/** Called once auth resolves, so the NEXT load knows which path to take. */
+export function setSignedInHint(signedIn: boolean): void {
+  try {
+    if (signedIn) localStorage.setItem('syllab_seen_auth', '1');
+    else localStorage.removeItem('syllab_seen_auth');
+  } catch { /* ignore quota/private-mode */ }
+}

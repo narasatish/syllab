@@ -39,9 +39,13 @@ if (typeof window !== 'undefined') {
   for (const e of ['pointerdown', 'keydown', 'scroll', 'touchstart']) {
     window.addEventListener(e, start, { once: true, passive: true });
   }
-  const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
-  if (ric) ric(start, { timeout: 9000 });
-  else window.addEventListener('load', () => window.setTimeout(start, 6000));
+  // NOT requestIdleCallback. v297 used ric(start, { timeout: 9000 }) intending a
+  // 9s deferral, but ric fires at the FIRST IDLE MOMENT or the timeout,
+  // whichever is sooner — the timeout is a ceiling, not a floor. The page goes
+  // idle almost at once, so analytics still started early and the change
+  // measured as a no-op (GTM blocking time was unchanged, 249ms -> 268ms).
+  // Only a real timer actually defers.
+  window.setTimeout(start, 9000);
 }
 
 const rootEl = document.getElementById('root')!

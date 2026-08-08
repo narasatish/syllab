@@ -71,6 +71,8 @@ import {
   DEFAULT_USER_STATS,
   getStoredRole,
   setStoredRole,
+  hasSignedInBefore,
+  setSignedInHint,
 } from './lib/userDefaults';
 import { AuthFormState, UserProgress, UserStats } from './types';
 import { initGamification, syncXpMirror } from './lib/gamification';
@@ -1410,6 +1412,9 @@ export default function App() {
       const { getExtendedProfile } = userProfile;
 
       unsubscribe = onAuthStateChanged(auth, async (user) => {
+      // Record which path the NEXT page load should take. Signed in -> load the
+      // SDK promptly; signed out -> skip it until the visitor interacts.
+      setSignedInHint(!!user);
       try {
         if (user) {
           setCurrentUser(user);
@@ -1473,19 +1478,71 @@ export default function App() {
       });
     };
 
-    // requestIdleCallback where supported, otherwise a short timeout — either
-    // way the SDK starts downloading after the page is painted and interactive.
+    // WHEN to start auth. This used to be a flat requestIdleCallback with a
+    // 2000ms timeout for everyone. On a throttled mobile thread the idle slot
+    // never comes, so it always fired at the timeout — landing mid-LCP and then
+    // pulling ~519 KB. PageSpeed showed exactly that as the critical request
+    // chain (index -> vendor-motion -> firebase -> vendor-firebase-2, 794 ms).
+    //
+    // Split by whether this browser has ever signed in:
+    //
+    //   never signed in  -> it CANNOT be signed in now, so the download buys
+    //                       nothing during load. Wait for a real interaction
+    //                       (or a late idle slot well clear of LCP). Per this
+    //                       module's own note that is ~97% of arrivals.
+    //   signed in before -> load promptly, as before; those users need their
+    //                       stats and the header avatar, and delaying it just
+    //                       swaps the header late (the CLS culprit PageSpeed
+    //                       named on the LOGIN / SIGN UP button).
+    let started = false;
+    // Deliberately NO 'scroll'. Scroll is not a reliable intent signal here:
+    // navigate() calls window.scrollTo and the scroll-reveal setup runs on
+    // mount, so a scroll event fires with no user involved and would start the
+    // SDK download immediately — defeating the whole deferral. pointerdown /
+    // keydown / touchstart are unambiguous.
+    const EVENTS = ['pointerdown', 'keydown', 'touchstart'] as const;
+    const kick = () => {
+      if (started || cancelled) return;
+      started = true;
+      for (const e of EVENTS) window.removeEventListener(e, kick);
+      window.removeEventListener('syllab:need-auth', kick);
+      void startAuth();
+    };
+
     const ric = (window as unknown as {
       requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
     }).requestIdleCallback;
-    const handle = ric
-      ? ric(() => { void startAuth(); }, { timeout: 2000 })
-      : window.setTimeout(() => { void startAuth(); }, 200);
+
+    // Anything that needs a real user (opening the login modal) fires this.
+    window.addEventListener('syllab:need-auth', kick);
+
+    const returning = hasSignedInBefore();
+    let handle: number | undefined;
+    let idleHandle: number | undefined;
+    if (returning) {
+      // Returning user: get their session as soon as the thread is free.
+      // requestIdleCallback is CORRECT here — earliest idle is what we want.
+      idleHandle = ric ? ric(kick, { timeout: 2000 }) : undefined;
+      if (idleHandle === undefined) handle = window.setTimeout(kick, 200);
+    } else {
+      for (const e of EVENTS) window.addEventListener(e, kick, { once: true, passive: true });
+      // Guest fallback. Deliberately setTimeout and NOT requestIdleCallback:
+      // ric(cb, { timeout: N }) fires at the FIRST IDLE MOMENT **or** N,
+      // whichever comes first — the timeout is a ceiling, not a floor. An
+      // earlier attempt here used ric with a 10s timeout expecting a delay and
+      // it fired at 463ms, because the page goes idle almost immediately. Only
+      // a real timer defers. This just backstops a visitor who never
+      // interacts, so they still settle into a known signed-out state.
+      handle = window.setTimeout(kick, 10000);
+    }
 
     return () => {
       cancelled = true;
+      for (const e of EVENTS) window.removeEventListener(e, kick);
+      window.removeEventListener('syllab:need-auth', kick);
       const cic = (window as unknown as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback;
-      if (ric && cic) cic(handle); else clearTimeout(handle);
+      if (idleHandle !== undefined && cic) cic(idleHandle);
+      if (handle !== undefined) clearTimeout(handle);
       unsubscribe?.();
     };
   }, []);
@@ -1532,7 +1589,14 @@ export default function App() {
   // Any page can request the login modal by dispatching `syllab:require-login`.
   // Used by Mock Tests, Daily Challenges etc. to gate actions that need an account.
   useEffect(() => {
-    const handler = () => setLoginModalOpen(true);
+    const handler = () => {
+      // Make sure the auth listener is actually running before the modal opens.
+      // For a guest the SDK load is deferred until interaction, and this event
+      // can be dispatched programmatically — without this, a sign-in could
+      // complete with nothing subscribed to onAuthStateChanged.
+      window.dispatchEvent(new Event('syllab:need-auth'));
+      setLoginModalOpen(true);
+    };
     window.addEventListener('syllab:require-login', handler);
     return () => window.removeEventListener('syllab:require-login', handler);
   }, []);
