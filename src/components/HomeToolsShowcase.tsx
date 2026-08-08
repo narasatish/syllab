@@ -39,11 +39,11 @@ export default function HomeToolsShowcase() {
             className="group relative flex min-w-0 flex-col rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
           >
             {NEW_PATHS.has(t.path) && (
-              <span className="absolute right-2.5 top-2.5 rounded-full bg-primary px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wide text-white">New</span>
+              <span className="absolute right-2.5 top-2.5 rounded-full bg-primary px-1.5 py-0.5 text-[11px] font-black uppercase tracking-wide text-white">New</span>
             )}
             <span className="text-2xl">{t.emoji}</span>
             <span className="mt-2 block text-sm font-black text-slate-800 group-hover:text-primary dark:text-slate-100">{t.title}</span>
-            <span className="mt-0.5 line-clamp-2 text-[11px] font-medium leading-snug text-slate-400">{t.desc}</span>
+            <span className="mt-0.5 line-clamp-2 text-[11px] font-medium leading-snug text-slate-500">{t.desc}</span>
           </a>
         ))}
       </div>

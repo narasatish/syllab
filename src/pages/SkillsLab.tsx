@@ -73,7 +73,7 @@ function DiffBadge({ level }: { level: TutorialTopic['difficulty'] }) {
   return (
     <span
       className={cn(
-        'text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full',
+        'text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full',
         level === 'Beginner'
           ? 'bg-emerald-100 text-emerald-700'
           : level === 'Intermediate'
@@ -241,7 +241,7 @@ function LivePreviewEditor({
               aiFeedback.score >= 80 ? 'text-emerald-500' : aiFeedback.score >= 60 ? 'text-amber-500' : 'text-rose-500',
             )}>{aiFeedback.score}/100</div>
             <span className={cn(
-              'text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full',
+              'text-[11px] font-black uppercase tracking-widest px-3 py-1 rounded-full',
               aiFeedback.verdict === 'Excellent' ? 'bg-emerald-100 text-emerald-700' :
               aiFeedback.verdict === 'Good' ? 'bg-blue-100 text-blue-700' :
               aiFeedback.verdict === 'Error' ? 'bg-rose-100 text-rose-700' : 'bg-amber-100 text-amber-700',
@@ -398,7 +398,7 @@ function AIFeedbackEditor({
               <div>
                 <span
                   className={cn(
-                    'text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full',
+                    'text-[11px] font-black uppercase tracking-widest px-3 py-1 rounded-full',
                     feedback.verdict === 'Excellent'
                       ? 'bg-emerald-100 text-emerald-700'
                       : feedback.verdict === 'Good'
@@ -432,7 +432,7 @@ function AIFeedbackEditor({
 
             {feedback.strengths.length > 0 && (
               <div>
-                <p className="text-[9px] font-black uppercase tracking-widest text-emerald-600 mb-2">✅ Strengths</p>
+                <p className="text-[11px] font-black uppercase tracking-widest text-emerald-600 mb-2">✅ Strengths</p>
                 <ul className="space-y-1">
                   {feedback.strengths.map((s, i) => (
                     <li key={i} className="text-sm text-slate-600 font-medium flex gap-2">
@@ -445,7 +445,7 @@ function AIFeedbackEditor({
 
             {feedback.improvements.length > 0 && (
               <div>
-                <p className="text-[9px] font-black uppercase tracking-widest text-amber-600 mb-2">💡 Improve</p>
+                <p className="text-[11px] font-black uppercase tracking-widest text-amber-600 mb-2">💡 Improve</p>
                 <ul className="space-y-1">
                   {feedback.improvements.map((imp, i) => (
                     <li key={i} className="text-sm text-slate-600 font-medium flex gap-2">
@@ -458,7 +458,7 @@ function AIFeedbackEditor({
 
             {feedback.hint && (
               <div className="bg-violet-50 rounded-xl px-4 py-3">
-                <p className="text-[9px] font-black uppercase tracking-widest text-violet-600 mb-1">🔮 Hint</p>
+                <p className="text-[11px] font-black uppercase tracking-widest text-violet-600 mb-1">🔮 Hint</p>
                 <p className="text-sm text-slate-700 font-medium">{feedback.hint}</p>
               </div>
             )}
@@ -514,7 +514,7 @@ function PracticeChallenge({
       >
         <Trophy size={18} className={lang.textClass} />
         <div>
-          <p className={cn('text-[9px] font-black uppercase tracking-widest', lang.textClass)}>
+          <p className={cn('text-[11px] font-black uppercase tracking-widest', lang.textClass)}>
             Practice Challenge
           </p>
           <p className="text-base font-black text-slate-900">{p.title}</p>
@@ -525,7 +525,7 @@ function PracticeChallenge({
       <div className="p-6 space-y-5">
         {/* Description */}
         <div className="bg-slate-50 rounded-2xl p-4">
-          <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Task Description</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-2">Task Description</p>
           <p className="text-sm font-semibold text-slate-700 leading-relaxed whitespace-pre-line">
             {p.description}
           </p>
@@ -534,7 +534,7 @@ function PracticeChallenge({
         {/* Expected output */}
         {p.expectedOutput && (
           <div>
-            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Expected Output</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-2">Expected Output</p>
             <pre className="bg-slate-100 rounded-xl px-4 py-3 text-xs font-mono text-slate-700 overflow-x-auto">
               {p.expectedOutput}
             </pre>
@@ -638,7 +638,7 @@ function TopicContent({
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">
+            <span className="text-[11px] font-black uppercase tracking-widest text-slate-500">
               {topic.category}
             </span>
             <span className="text-slate-300">•</span>
@@ -651,12 +651,12 @@ function TopicContent({
         {isCompleted ? (
           <div className="flex items-center gap-1.5 text-emerald-600 shrink-0 bg-emerald-50 px-4 py-2 rounded-xl border border-emerald-100">
             <CheckCircle2 size={15} />
-            <span className="text-[9px] font-black uppercase tracking-widest">Completed</span>
+            <span className="text-[11px] font-black uppercase tracking-widest">Completed</span>
           </div>
         ) : (
           <button
             onClick={onComplete}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-dashed border-slate-300 text-slate-500 text-[9px] font-black uppercase tracking-widest hover:border-emerald-400 hover:text-emerald-600 transition-all shrink-0"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-dashed border-slate-300 text-slate-500 text-[11px] font-black uppercase tracking-widest hover:border-emerald-400 hover:text-emerald-600 transition-all shrink-0"
           >
             <CheckCircle2 size={13} /> Mark Done
           </button>
@@ -665,7 +665,7 @@ function TopicContent({
 
       {/* Theory */}
       <section>
-        <h2 className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
+        <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
           <BookOpen size={12} /> Theory
         </h2>
         <div className="space-y-4">
@@ -680,7 +680,7 @@ function TopicContent({
       {/* Syntax box */}
       {topic.syntax && (
         <section>
-          <h2 className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
+          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
             <Terminal size={12} /> Syntax
           </h2>
           <pre className="bg-slate-800 text-sky-300 rounded-2xl p-6 text-sm font-mono overflow-x-auto whitespace-pre leading-relaxed border border-slate-700">
@@ -691,7 +691,7 @@ function TopicContent({
 
       {/* Code example */}
       <section>
-        <h2 className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
+        <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
           <Code2 size={12} /> Code Example
         </h2>
         <pre className="bg-slate-900 text-emerald-400 rounded-2xl p-6 text-sm font-mono overflow-x-auto whitespace-pre leading-relaxed">
@@ -699,7 +699,7 @@ function TopicContent({
         </pre>
         {topic.output && (
           <div className="mt-3 bg-slate-50 border border-slate-200 rounded-xl px-5 py-4">
-            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Output</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-2">Output</p>
             <pre className="text-sm font-mono text-slate-700 whitespace-pre">{topic.output}</pre>
           </div>
         )}
@@ -708,7 +708,7 @@ function TopicContent({
       {/* Notes */}
       {topic.notes && topic.notes.length > 0 && (
         <section className="bg-blue-50 border border-blue-100 rounded-2xl p-6">
-          <p className="text-[9px] font-black uppercase tracking-widest text-blue-600 mb-3">📌 Key Notes</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-blue-600 mb-3">📌 Key Notes</p>
           <ul className="space-y-2">
             {topic.notes.map((note, i) => (
               <li key={i} className="text-sm font-semibold text-slate-700 flex gap-2">
@@ -725,7 +725,7 @@ function TopicContent({
       {/* Try It Yourself */}
       <section>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-[9px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2">
+          <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-500 flex items-center gap-2">
             <Play size={12} /> Try It Yourself
           </h2>
           <button
@@ -768,7 +768,7 @@ function TopicContent({
 
       {/* Practice challenge */}
       <section>
-        <h2 className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
+        <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
           <Trophy size={12} /> Practice Challenge
         </h2>
         <PracticeChallenge topic={topic} lang={lang} />
@@ -831,7 +831,7 @@ function Sidebar({
         <span className="text-2xl">{lang.emoji}</span>
         <div>
           <p className="font-black text-base text-white">{lang.name}</p>
-          <p className="text-[9px] font-bold text-white/70">
+          <p className="text-[11px] font-bold text-white/70">
             {topics.length} Topics · {completedIds.length} Done
           </p>
         </div>
@@ -843,7 +843,7 @@ function Sidebar({
           type="button"
           onClick={() => onViewChange(viewMode === 'career' ? 'topic' : 'career')}
           className={cn(
-            'rounded-xl px-2 py-2 text-[8px] font-black uppercase tracking-widest transition-all leading-tight',
+            'rounded-xl px-2 py-2 text-[11px] font-black uppercase tracking-widest transition-all leading-tight',
             viewMode === 'career'
               ? `${lang.bgClass} text-white`
               : 'bg-slate-100 text-slate-600 hover:bg-slate-200',
@@ -855,7 +855,7 @@ function Sidebar({
           type="button"
           onClick={() => onViewChange(viewMode === 'challenges' ? 'topic' : 'challenges')}
           className={cn(
-            'rounded-xl px-2 py-2 text-[8px] font-black uppercase tracking-widest transition-all leading-tight',
+            'rounded-xl px-2 py-2 text-[11px] font-black uppercase tracking-widest transition-all leading-tight',
             viewMode === 'challenges'
               ? `${lang.bgClass} text-white`
               : 'bg-slate-100 text-slate-600 hover:bg-slate-200',
@@ -867,7 +867,7 @@ function Sidebar({
           type="button"
           onClick={() => onViewChange(viewMode === 'projects' ? 'topic' : 'projects')}
           className={cn(
-            'rounded-xl px-2 py-2 text-[8px] font-black uppercase tracking-widest transition-all leading-tight',
+            'rounded-xl px-2 py-2 text-[11px] font-black uppercase tracking-widest transition-all leading-tight',
             viewMode === 'projects'
               ? `${lang.bgClass} text-white`
               : 'bg-slate-100 text-slate-600 hover:bg-slate-200',
@@ -879,7 +879,7 @@ function Sidebar({
 
       {/* Progress bar */}
       <div>
-        <div className="flex justify-between text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
+        <div className="flex justify-between text-[11px] font-black uppercase tracking-widest text-slate-500 mb-1.5">
           <span>Progress</span>
           <span>
             {topics.length > 0
@@ -905,7 +905,7 @@ function Sidebar({
             key={key}
             onClick={() => setLevelFilter(key)}
             className={cn(
-              'px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all',
+              'px-2.5 py-1 rounded-lg text-[11px] font-black uppercase tracking-widest transition-all',
               levelFilter === key
                 ? `${lang.bgClass} text-white`
                 : 'bg-slate-100 text-slate-500 hover:bg-slate-200',
@@ -916,7 +916,7 @@ function Sidebar({
         ))}
       </div>
       {levelFilter !== 'All' && (
-        <p className="text-[9px] text-slate-400 font-semibold px-1">
+        <p className="text-[11px] text-slate-500 font-semibold px-1">
           Showing {filteredTopics.length} {levelFilter} topics
         </p>
       )}
@@ -926,7 +926,7 @@ function Sidebar({
         const catTopics = filteredTopics.filter((t) => t.category === cat);
         return (
           <div key={cat}>
-            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 px-2 mb-2">
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 px-2 mb-2">
               {cat} <span className="text-slate-300">({catTopics.length})</span>
             </p>
             <ul className="space-y-0.5">
@@ -960,7 +960,7 @@ function Sidebar({
                       </span>
                       <span className="truncate leading-snug">{t.title}</span>
                       <span className={cn(
-                        'ml-auto shrink-0 text-[7px] font-black px-1.5 py-0.5 rounded-md',
+                        'ml-auto shrink-0 text-[11px] font-black px-1.5 py-0.5 rounded-md',
                         t.difficulty === 'Beginner' ? 'bg-emerald-100 text-emerald-600' :
                         t.difficulty === 'Intermediate' ? 'bg-amber-100 text-amber-600' :
                         'bg-red-100 text-red-600',
@@ -1037,11 +1037,11 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
       {mkt && (
         <div className="grid grid-cols-2 gap-3">
           <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
-            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">📊 Job Openings</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-1">📊 Job Openings</p>
             <p className={cn('text-lg font-black', lang.textClass)}>{mkt.openings}</p>
           </div>
           <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
-            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">🌍 Where It's Used</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-1">🌍 Where It's Used</p>
             <p className="text-sm font-bold text-slate-700 leading-snug">{mkt.scope}</p>
           </div>
         </div>
@@ -1063,7 +1063,7 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
                   <div className={cn('h-full rounded-full', lang.bgClass)} style={{ width: `${pct}%` }} />
                 </div>
                 <p className={cn('text-sm font-black', lang.textClass)}>{value}</p>
-                <p className="text-[9px] font-bold text-slate-400 leading-tight">{label}</p>
+                <p className="text-[11px] font-bold text-slate-500 leading-tight">{label}</p>
               </div>
             ))}
           </div>
@@ -1106,7 +1106,7 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
           <ol className="space-y-2">
             {cg.nextSkills.map((s, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className={cn('flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-black text-white mt-0.5', lang.bgClass)}>{i + 1}</span>
+                <span className={cn('flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-black text-white mt-0.5', lang.bgClass)}>{i + 1}</span>
                 <span className="text-sm font-medium text-slate-700">{s}</span>
               </li>
             ))}
@@ -1116,7 +1116,7 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
           <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">💡 Expert Career Tip</p>
           <p className={cn('text-base font-bold leading-relaxed', lang.textClass)}>"{cg.tip}"</p>
           <div className="mt-4 p-3 bg-slate-50 rounded-xl">
-            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">🎯 Quick Action</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-1">🎯 Quick Action</p>
             <p className="text-xs font-semibold text-slate-600">Start with the topics in this lab → complete 5 projects → put them on GitHub → you're job-ready in 6 months.</p>
           </div>
         </div>
@@ -1148,14 +1148,14 @@ function LanguageGrid({
           )}
         >
           {NEW_LANGUAGES.has(lang.id) && (
-            <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[7px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">
+            <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[11px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">
               NEW
             </span>
           )}
           <span className="text-2xl">{lang.emoji}</span>
           <span
             className={cn(
-              'text-[9px] font-black uppercase tracking-widest text-center leading-tight',
+              'text-[11px] font-black uppercase tracking-widest text-center leading-tight',
               active === lang.id ? 'text-white' : 'text-slate-500',
             )}
           >
@@ -1369,7 +1369,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
             🧪
           </div>
           <div>
-            <div className="text-[9px] font-black uppercase tracking-widest text-primary mb-1">
+            <div className="text-[11px] font-black uppercase tracking-widest text-primary mb-1">
               Skills Lab
             </div>
             <h1 className="text-2xl md:text-4xl font-black tracking-tight mb-2">
@@ -1390,7 +1390,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
             <div key={label} className="bg-white/10 rounded-2xl px-4 py-4 text-center">
               <div className="text-xl mb-1">{emoji}</div>
               <div className="text-lg font-black">{value}</div>
-              <div className="text-[9px] font-bold text-white/50 uppercase tracking-widest">{label}</div>
+              <div className="text-[11px] font-bold text-white/50 uppercase tracking-widest">{label}</div>
             </div>
           ))}
         </div>
@@ -1398,7 +1398,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
 
       {/* ── Language selector ── */}
       <div className="mb-6">
-        <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-3">
+        <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-3">
           Choose a Language
         </p>
         <LanguageGrid active={activeLangId} onSelect={setActiveLangId} />

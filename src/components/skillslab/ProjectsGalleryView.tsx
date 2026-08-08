@@ -131,7 +131,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
     <div className="space-y-5 pb-12">
       {/* Header */}
       <div className={cn('rounded-2xl p-5 text-white', lang.bgClass)}>
-        <p className="text-[9px] font-black uppercase tracking-widest text-white/70 mb-1">🛠️ Guided Projects</p>
+        <p className="text-[11px] font-black uppercase tracking-widest text-white/70 mb-1">🛠️ Guided Projects</p>
         <h2 className="text-xl font-black">{lang.name} Projects</h2>
         <p className="text-sm text-white/80 font-medium mt-0.5">
           {all.length} projects · Build real things step-by-step · Instant AI feedback
@@ -146,7 +146,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
               tab === key ? `${lang.bgClass} text-white shadow-sm` : 'bg-slate-100 text-slate-500 hover:bg-slate-200',
             )}>
             {label}
-            <span className={cn('text-[9px] rounded-full px-1.5 py-0.5',
+            <span className={cn('text-[11px] rounded-full px-1.5 py-0.5',
               tab === key ? 'bg-white/30 text-white' : 'bg-slate-200 text-slate-600',
             )}>{counts[key]}</span>
           </button>
@@ -174,10 +174,10 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                     <p className="font-black text-slate-800 text-sm">{p.title}</p>
                     <p className="text-xs text-slate-500 font-medium mt-0.5 truncate">{p.description}</p>
                     <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                      <span className="text-[9px] font-bold text-slate-400">⏱ ~{p.estimatedMinutes}min</span>
-                      <span className="text-[9px] font-bold text-slate-400">✨ +{p.xp} XP</span>
+                      <span className="text-[11px] font-bold text-slate-500">⏱ ~{p.estimatedMinutes}min</span>
+                      <span className="text-[11px] font-bold text-slate-500">✨ +{p.xp} XP</span>
                       {p.concepts.slice(0, 2).map(c => (
-                        <span key={c} className="text-[9px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-bold">{c}</span>
+                        <span key={c} className="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-bold">{c}</span>
                       ))}
                     </div>
                   </div>
@@ -198,13 +198,13 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                       <div className="border-t border-slate-100 px-5 py-5 space-y-4">
                         {/* What you'll build */}
                         <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4">
-                          <p className="text-[9px] font-black uppercase tracking-widest text-emerald-700 mb-1">🏆 What You'll Build</p>
+                          <p className="text-[11px] font-black uppercase tracking-widest text-emerald-700 mb-1">🏆 What You'll Build</p>
                           <p className="text-sm font-semibold text-slate-700">{p.whatYouBuild}</p>
                         </div>
 
                         {/* Steps */}
                         <div>
-                          <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-3">📋 Steps</p>
+                          <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-3">📋 Steps</p>
                           <ol className="space-y-2">
                             {p.steps.map((step, i) => (
                               <li key={i} className="flex items-start gap-3">
@@ -222,7 +222,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                         <div className="flex flex-wrap gap-1.5">
                           {p.concepts.map(c => (
                             <span key={c} className={cn(
-                              'text-[9px] font-black px-2.5 py-1 rounded-full',
+                              'text-[11px] font-black px-2.5 py-1 rounded-full',
                               tab === 'beginner' ? 'bg-emerald-50 text-emerald-700' :
                               tab === 'intermediate' ? 'bg-amber-50 text-amber-700' : 'bg-red-50 text-red-700',
                             )}>{c}</span>
@@ -232,7 +232,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                         {/* ── Code editor section ── */}
                         <div className="border-t border-slate-100 pt-4 space-y-3">
                           <div>
-                            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">
+                            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-2">
                               💻 Write Your Code
                               <span className="ml-2 normal-case font-medium text-slate-400">
                                 — attempt the project, then get AI feedback
@@ -272,7 +272,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                             >
                               <div className="flex items-center gap-3">
                                 <span className={cn(
-                                  'text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full',
+                                  'text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full',
                                   editor.aiFb.score >= 80 ? 'bg-emerald-100 text-emerald-700' :
                                   editor.aiFb.score >= 50 ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700',
                                 )}>{editor.aiFb.verdict}</span>
@@ -281,7 +281,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                               <p className="text-sm font-medium text-slate-700">{editor.aiFb.summary}</p>
                               {editor.aiFb.strengths?.length > 0 && (
                                 <div>
-                                  <p className="text-[9px] font-black uppercase tracking-widest text-emerald-700 mb-1">✅ Strengths</p>
+                                  <p className="text-[11px] font-black uppercase tracking-widest text-emerald-700 mb-1">✅ Strengths</p>
                                   <ul className="space-y-1">
                                     {editor.aiFb.strengths.map((s, i) => (
                                       <li key={i} className="text-sm text-slate-600 font-medium flex gap-2">
@@ -293,7 +293,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                               )}
                               {editor.aiFb.improvements?.length > 0 && (
                                 <div>
-                                  <p className="text-[9px] font-black uppercase tracking-widest text-amber-700 mb-1">💡 Improve</p>
+                                  <p className="text-[11px] font-black uppercase tracking-widest text-amber-700 mb-1">💡 Improve</p>
                                   <ul className="space-y-1">
                                     {editor.aiFb.improvements.map((s, i) => (
                                       <li key={i} className="text-sm text-slate-600 font-medium flex gap-2">

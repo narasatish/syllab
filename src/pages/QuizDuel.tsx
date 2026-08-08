@@ -145,7 +145,7 @@ export default function QuizDuel({ currentUser }: { currentUser?: FirebaseUser |
         )}
         {best > 0 && <p className="mb-4 text-center text-sm font-black text-slate-500">🏆 Your best: {best}</p>}
         <div className="mb-5">
-          <p className="mb-2 text-center text-[11px] font-black uppercase tracking-widest text-slate-400">Pick a topic</p>
+          <p className="mb-2 text-center text-[11px] font-black uppercase tracking-widest text-slate-500">Pick a topic</p>
           <div className="flex flex-wrap justify-center gap-2">
             {CATEGORIES.map((c) => (
               <button key={c.id} onClick={() => setCategory(c.id)} className={`rounded-full px-3.5 py-1.5 text-xs font-black transition-colors ${category === c.id ? 'bg-primary text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-200'}`}>{c.label}</button>

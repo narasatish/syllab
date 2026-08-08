@@ -58,7 +58,7 @@ function StudyStreak() {
           ))}
         </div>
       </div>
-      <p className="mt-2 text-[11px] text-slate-400">Tracked on this device from your Pomodoro sessions and flashcard reviews — nothing is uploaded.</p>
+      <p className="mt-2 text-[11px] text-slate-500">Tracked on this device from your Pomodoro sessions and flashcard reviews — nothing is uploaded.</p>
     </div>
   );
 }

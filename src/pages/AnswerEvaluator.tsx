@@ -70,7 +70,7 @@ export default function AnswerEvaluator() {
           className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-black text-white shadow hover:opacity-90 disabled:opacity-40 transition">
           {loading ? <><Loader2 size={16} className="animate-spin" /> Evaluating…</> : <><Sparkles size={16} /> Evaluate my answer</>}
         </button>
-        <p className="mt-2 text-[11px] text-slate-400">AI feedback is a study aid and can occasionally be imperfect — treat it as guidance, not the final board score.</p>
+        <p className="mt-2 text-[11px] text-slate-500">AI feedback is a study aid and can occasionally be imperfect — treat it as guidance, not the final board score.</p>
       </div>
 
       {error && (

@@ -93,7 +93,7 @@ function Side({ label, value, onChange, onLoad, fileName, busy }: SideProps) {
       <textarea value={value} onChange={(e) => onChange(e.target.value)} spellCheck={false}
         placeholder="Paste text here, or load a PDF / DOCX / TXT file…"
         className="h-56 w-full resize-y rounded-xl border border-slate-200 bg-slate-50 p-3 font-mono text-[13px] leading-relaxed outline-none focus:border-primary dark:bg-slate-900 dark:border-slate-700" />
-      {fileName && <p className="mt-1 truncate text-[11px] text-slate-400">Loaded: {fileName}</p>}
+      {fileName && <p className="mt-1 truncate text-[11px] text-slate-500">Loaded: {fileName}</p>}
     </div>
   );
 }

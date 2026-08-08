@@ -16,7 +16,7 @@ const inputCls = 'w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-
 function Field({ k, v }: { k: string; v: string }) {
   return (
     <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-2">
-      <span className="w-28 flex-shrink-0 text-[11px] font-black uppercase tracking-wide text-slate-400">{k}</span>
+      <span className="w-28 flex-shrink-0 text-[11px] font-black uppercase tracking-wide text-slate-500">{k}</span>
       <span className="break-all font-mono text-sm font-bold text-slate-800 dark:text-slate-100">{v}</span>
     </div>
   );

@@ -92,7 +92,7 @@ export default function StudyNudge({ onOpenStudyRoom, variant = 'banner' }: Prop
       ) : null}
       {recent.length ? (
         <div>
-          <p className="mb-1.5 text-[11px] font-black uppercase tracking-wide text-slate-400">Recently studied</p>
+          <p className="mb-1.5 text-[11px] font-black uppercase tracking-wide text-slate-500">Recently studied</p>
           <ul className="space-y-1">
             {recent.map((c) => (
               <li key={c.id} className="flex items-center justify-between rounded-lg bg-slate-50 px-3 py-1.5 text-sm">

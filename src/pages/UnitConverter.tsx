@@ -89,7 +89,7 @@ export default function UnitConverter() {
         {valid && !Number.isNaN(result) && (
           <div className="mt-3 flex items-center justify-between gap-3">
             <p className="text-sm font-bold text-slate-500">{fmt(n)} {fromLabel.replace(/\s*\(.*\)/, '')} = <span className="text-slate-800 dark:text-slate-200">{fmt(result)}</span> {toLabel.replace(/\s*\(.*\)/, '')}</p>
-            <button type="button" onClick={copy} className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-400 hover:text-primary">{copied ? <><Check size={12} /> Copied</> : <><Copy size={12} /> Copy</>}</button>
+            <button type="button" onClick={copy} className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 hover:text-primary">{copied ? <><Check size={12} /> Copied</> : <><Copy size={12} /> Copy</>}</button>
           </div>
         )}
       </div>

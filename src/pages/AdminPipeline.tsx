@@ -139,7 +139,7 @@ export default function AdminPipelinePage() {
                       <span className="text-xs font-bold text-slate-400">{stat.label}</span>
                       <div className="text-right">
                         <div className="font-black text-white">{stat.value}</div>
-                        <div className="text-[8px] font-black uppercase text-primary">{stat.trend}</div>
+                        <div className="text-[11px] font-black uppercase text-primary">{stat.trend}</div>
                       </div>
                    </div>
                  ))}

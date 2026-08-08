@@ -25,7 +25,7 @@ export default function CodingQuickCheck({ topicId }: { topicId: string }) {
       <div className="mb-3 flex items-center gap-2">
         <HelpCircle size={18} className="text-indigo-500" />
         <h3 className="text-sm font-black uppercase tracking-wide text-indigo-600 dark:text-indigo-300">Quick Check</h3>
-        <span className="ml-auto text-[11px] font-semibold text-slate-400">{mcqs.length} questions</span>
+        <span className="ml-auto text-[11px] font-semibold text-slate-500">{mcqs.length} questions</span>
       </div>
       <div className="space-y-5">
         {mcqs.map((m, qi) => {

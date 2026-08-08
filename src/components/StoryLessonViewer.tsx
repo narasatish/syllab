@@ -144,7 +144,7 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
       <div className={`shrink-0 bg-gradient-to-r p-4 text-white sm:p-6 ${meta.grad}`}>
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
-            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-white/80">
+            <p className="text-[11px] font-black uppercase tracking-[0.25em] text-white/80">
               Story Lesson · {lesson.subject} · Class {lesson.classLevel}
             </p>
             <h2 className="mt-1 truncate text-lg font-extrabold leading-tight sm:text-2xl">{lesson.title}</h2>

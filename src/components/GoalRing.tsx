@@ -27,7 +27,7 @@ export default function GoalRing({ minutes, goalMinutes = 120, size = 92 }: Prop
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="text-sm font-black text-white">{Math.round(pct * 100)}%</span>
-          {done ? <span className="text-[9px]">🎉</span> : null}
+          {done ? <span className="text-[11px]">🎉</span> : null}
         </div>
       </div>
       <p className="mt-1 text-[11px] font-bold text-white/60">{label} / {goalLabel} today</p>

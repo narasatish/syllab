@@ -127,7 +127,7 @@ export default function EnglishLab({ currentUser }: EnglishLabProps) {
                   )}
                 >
                   <div>{lv.label}</div>
-                  <div className="text-[9px] font-bold opacity-70">{lv.range}</div>
+                  <div className="text-[11px] font-bold opacity-70">{lv.range}</div>
                 </button>
               ))}
             </div>

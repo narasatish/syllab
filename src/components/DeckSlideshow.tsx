@@ -36,7 +36,7 @@ export default function DeckSlideshow({ deck, onClose }: { deck: UploadedDeck; o
       {/* Header */}
       <div className="shrink-0 flex items-center justify-between gap-3 bg-gradient-to-r from-emerald-500 to-teal-600 p-3 text-white sm:p-4">
         <div className="min-w-0">
-          <p className="text-[9px] font-black uppercase tracking-[0.25em] text-white/80">Story Lesson · Class {deck.classLevel}{deck.subject ? ` · ${deck.subject}` : ''}</p>
+          <p className="text-[11px] font-black uppercase tracking-[0.25em] text-white/80">Story Lesson · Class {deck.classLevel}{deck.subject ? ` · ${deck.subject}` : ''}</p>
           <h2 className="truncate text-base font-extrabold leading-tight sm:text-xl">{deck.chapter}</h2>
         </div>
         <div className="flex shrink-0 items-center gap-1.5">

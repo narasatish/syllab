@@ -142,7 +142,7 @@ function EngineeringPredictor() {
     <div className="space-y-5">
       {/* Exam selector */}
       <div>
-        <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">Choose your exam</label>
+        <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-2">Choose your exam</label>
         <div className="flex flex-wrap gap-1.5">
           {ENG_EXAMS.map(e => (
             <button key={e.id}
@@ -154,12 +154,12 @@ function EngineeringPredictor() {
             </button>
           ))}
         </div>
-        <p className="mt-1.5 text-[11px] text-slate-400 dark:text-slate-500">{exam.region} · indicative cutoffs</p>
+        <p className="mt-1.5 text-[11px] text-slate-500 dark:text-slate-500">{exam.region} · indicative cutoffs</p>
       </div>
 
       {/* Category + Women quota */}
       <div>
-        <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">Category</label>
+        <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-2">Category</label>
         <div className="flex flex-wrap gap-1.5">
           {CATEGORIES.map(c => (
             <button key={c.id}
@@ -183,7 +183,7 @@ function EngineeringPredictor() {
       </div>
 
       <div className="rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-5 shadow-sm">
-        <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">{exam.inputLabel}</label>
+        <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-2">{exam.inputLabel}</label>
         <div className="flex gap-2">
           <input type="number" inputMode="decimal" value={value} onChange={e => setValue(e.target.value)}
             placeholder={`max ${exam.inputMax}`} min={0} max={exam.inputMax} step="0.01"
@@ -247,7 +247,7 @@ function NeetPredictor() {
   return (
     <div className="space-y-5">
       <div className="rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-5 shadow-sm">
-        <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">Your NEET Marks (out of 720)</label>
+        <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-2">Your NEET Marks (out of 720)</label>
         <div className="flex gap-2">
           <input type="number" inputMode="numeric" value={marks} onChange={e => setMarks(e.target.value)}
             placeholder="e.g. 620" max={720}
@@ -335,20 +335,20 @@ function CareerExplorer() {
                     <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{c.field}</p>
                   </div>
                 </div>
-                <span className={`rounded-full px-2 py-0.5 text-[9px] font-black ${demandColor[c.demand]}`}>{c.demand}</span>
+                <span className={`rounded-full px-2 py-0.5 text-[11px] font-black ${demandColor[c.demand]}`}>{c.demand}</span>
               </div>
               <p className="mt-2 text-xs text-slate-600 dark:text-slate-400">{c.summary}</p>
               <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
                 <div className="rounded-lg bg-emerald-50 px-2.5 py-1.5">
                   <p className="font-black text-emerald-700">{c.salaryEntry}</p>
-                  <p className="text-[9px] font-bold text-emerald-600/70 uppercase tracking-wide">Entry</p>
+                  <p className="text-[11px] font-bold text-emerald-600/70 uppercase tracking-wide">Entry</p>
                 </div>
                 <div className="rounded-lg bg-indigo-50 px-2.5 py-1.5">
                   <p className="font-black text-indigo-700">{c.salaryExperienced}</p>
-                  <p className="text-[9px] font-bold text-indigo-600/70 uppercase tracking-wide">Experienced</p>
+                  <p className="text-[11px] font-bold text-indigo-600/70 uppercase tracking-wide">Experienced</p>
                 </div>
               </div>
-              <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400"><span className="font-black text-slate-600 dark:text-slate-300">Path:</span> {c.path}</p>
+              <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-500"><span className="font-black text-slate-600 dark:text-slate-300">Path:</span> {c.path}</p>
               <div className="mt-2 flex flex-wrap gap-1">
                 {c.skills.map(s => <span key={s} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-0.5 text-[10px] font-bold text-slate-500 dark:text-slate-300">{s}</span>)}
               </div>
@@ -428,7 +428,7 @@ function InterestQuiz({ onGoStream }: { onGoStream: () => void }) {
 
       {done && topGuide && (
         <div className="rounded-2xl bg-white dark:bg-slate-800 border-2 border-primary/30 p-5 shadow-md">
-          <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Your best-fit stream</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-500">Your best-fit stream</p>
           <h3 className="text-2xl font-black text-slate-900 dark:text-slate-100 mt-1">{topGuide.emoji} {topGuide.stream}</h3>
           <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{topGuide.forYou}</p>
           <div className="mt-3 flex flex-wrap gap-1.5">
@@ -438,7 +438,7 @@ function InterestQuiz({ onGoStream }: { onGoStream: () => void }) {
             <button onClick={onGoStream} className="rounded-xl bg-primary text-white px-4 py-2 text-xs font-black hover:bg-emerald-600 transition-colors">See full stream guide →</button>
             <button onClick={reset} className="rounded-xl bg-slate-100 text-slate-600 px-4 py-2 text-xs font-black hover:bg-slate-200 transition-colors">Retake</button>
           </div>
-          <p className="mt-3 text-[11px] text-slate-400 dark:text-slate-500">This is a fun guide, not a verdict — your interests can span many streams.</p>
+          <p className="mt-3 text-[11px] text-slate-500 dark:text-slate-500">This is a fun guide, not a verdict — your interests can span many streams.</p>
         </div>
       )}
     </div>
@@ -481,7 +481,7 @@ function ExamsAndScholarships() {
                 <span className="text-xl shrink-0">{e.emoji}</span>
                 <div className="min-w-0">
                   <p className="text-sm font-black text-slate-800 dark:text-slate-100 truncate">{e.exam}</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">{e.level} · {e.site}</p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-500 truncate">{e.level} · {e.site}</p>
                 </div>
               </div>
               <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-black text-primary">{e.window}</span>
@@ -496,7 +496,7 @@ function ExamsAndScholarships() {
           {SCHOLARSHIPS.map((s, i) => (
             <div key={i} className="rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 px-4 py-3 shadow-sm">
               <p className="text-sm font-black text-slate-800 dark:text-slate-100">{s.emoji} {s.name}</p>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{s.who}</p>
+              <p className="text-[11px] text-slate-500 dark:text-slate-500 mt-0.5">{s.who}</p>
               <div className="mt-1.5 flex items-center justify-between gap-2">
                 <span className="text-[11px] font-black text-emerald-600">{s.benefit}</span>
                 <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 truncate">{s.site}</span>
@@ -565,20 +565,20 @@ function CollegeExplorer() {
                   <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
                   <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 leading-tight truncate">{c.shortName || c.name}</h3>
                 </div>
-                <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-400 dark:text-slate-500"><MapPin size={11} />{c.city} · {c.state}</p>
+                <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-500 dark:text-slate-500"><MapPin size={11} />{c.city} · {c.state}</p>
               </div>
               <div className="flex flex-col items-end gap-1 shrink-0">
-                <span className={`rounded-full px-2 py-0.5 text-[9px] font-black ${typeColor[c.type]}`}>{c.type}</span>
+                <span className={`rounded-full px-2 py-0.5 text-[11px] font-black ${typeColor[c.type]}`}>{c.type}</span>
                 {c.nirf && <span className="text-[10px] font-black text-slate-500">NIRF #{c.nirf}</span>}
               </div>
             </div>
             <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
               <div className="rounded-lg bg-emerald-50 px-2.5 py-1.5">
-                <p className="text-[9px] font-bold text-emerald-600/70 uppercase tracking-wide">Fees / year</p>
+                <p className="text-[11px] font-bold text-emerald-600/70 uppercase tracking-wide">Fees / year</p>
                 <p className="font-black text-emerald-700">{c.feesPerYear}</p>
               </div>
               <div className="rounded-lg bg-blue-50 px-2.5 py-1.5">
-                <p className="text-[9px] font-bold text-blue-600/70 uppercase tracking-wide">Avg package</p>
+                <p className="text-[11px] font-bold text-blue-600/70 uppercase tracking-wide">Avg package</p>
                 <p className="font-black text-blue-700">{c.placementAvg}</p>
               </div>
             </div>
@@ -591,7 +591,7 @@ function CollegeExplorer() {
         })}
       </div>
       {!list.length && <p className="text-center text-sm text-slate-500 dark:text-slate-400 py-8">No colleges match your search.</p>}
-      <p className="text-center text-[11px] text-slate-400 dark:text-slate-500">Showing {list.length} colleges · click any for its full page.</p>
+      <p className="text-center text-[11px] text-slate-500 dark:text-slate-500">Showing {list.length} colleges · click any for its full page.</p>
     </div>
   );
 }
@@ -670,7 +670,7 @@ function Row({ a, b, c, tag }: { a: string; b: string; c: string; tag: string })
     <div className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 dark:bg-slate-700 px-4 py-3">
       <div className="min-w-0">
         <p className="text-sm font-black text-slate-800 dark:text-slate-100 truncate">{a}</p>
-        <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">{b}</p>
+        <p className="text-[11px] text-slate-500 dark:text-slate-500 truncate">{b}</p>
       </div>
       <div className="text-right shrink-0">
         <p className="text-xs font-black text-primary">{c}</p>

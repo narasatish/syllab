@@ -28,7 +28,7 @@ function ResultActions({ text }: { text: string | null }) {
     try { await navigator.clipboard.writeText(payload); setCopied(true); setTimeout(() => setCopied(false), 1800); } catch { /* clipboard blocked */ }
   };
   return (
-    <button type="button" onClick={share} className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-slate-400 hover:text-primary transition-colors">
+    <button type="button" onClick={share} className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 hover:text-primary transition-colors">
       {copied ? <><Check size={12} /> Copied!</> : <><Copy size={12} /> Copy / share result</>}
     </button>
   );
@@ -178,7 +178,7 @@ export default function Calculators() {
               </div>
             </div>
           </div>
-          <p className="mt-3 text-[11px] text-slate-400">CBSE rule: Percentage = CGPA × 9.5</p>
+          <p className="mt-3 text-[11px] text-slate-500">CBSE rule: Percentage = CGPA × 9.5</p>
           <ResultActions text={
             (num(cgpa) >= 0 && cgpa.trim() !== '') ? `CGPA ${num(cgpa)} = ${cgpaToPercentage(num(cgpa))}% (CBSE).`
             : num(pctIn) > 0 ? `${num(pctIn)}% = ${percentageToCgpa(num(pctIn))} CGPA (CBSE).`

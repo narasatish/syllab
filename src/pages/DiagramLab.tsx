@@ -89,7 +89,7 @@ export default function DiagramLab() {
       </div>
 
       {/* Result count */}
-      <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+      <p className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">
         {diagrams.length} diagram{diagrams.length !== 1 ? 's' : ''} found
       </p>
 
@@ -140,10 +140,10 @@ export default function DiagramLab() {
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className={cn('rounded-full px-2 py-0.5 text-[9px] font-black uppercase tracking-widest', colors.badge)}>
+                        <span className={cn('rounded-full px-2 py-0.5 text-[11px] font-black uppercase tracking-widest', colors.badge)}>
                           {diagram.subject}
                         </span>
-                        <span className="rounded-full px-2 py-0.5 text-[9px] font-black uppercase tracking-widest bg-indigo-100 text-indigo-700">
+                        <span className="rounded-full px-2 py-0.5 text-[11px] font-black uppercase tracking-widest bg-indigo-100 text-indigo-700">
                           Class {diagram.classNumber}
                         </span>
                       </div>

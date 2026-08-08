@@ -33,7 +33,7 @@ export default function ToolRelated({ current, count = 3 }: { current: string; c
             <span className="text-2xl">{t.emoji}</span>
             <span className="min-w-0">
               <span className="block text-sm font-black text-slate-800 dark:text-slate-100 group-hover:text-primary transition-colors truncate">{t.title}</span>
-              <span className="block text-[11px] text-slate-400 truncate">{t.desc}</span>
+              <span className="block text-[11px] text-slate-500 truncate">{t.desc}</span>
             </span>
           </a>
         ))}

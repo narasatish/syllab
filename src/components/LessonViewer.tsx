@@ -439,10 +439,10 @@ export default function LessonViewer({
             {/* Header */}
             <div className="flex items-center justify-between px-5 pt-6 z-10 shrink-0">
               <div>
-                <span className="text-[9px] font-black uppercase tracking-widest text-white/50 block">
+                <span className="text-[11px] font-black uppercase tracking-widest text-white/50 block">
                   {KIND_LABEL[slide.kind]}
                 </span>
-                <span className="text-[9px] font-black text-white/40">{current + 1} / {slides.length}{loading && ' · loading…'}</span>
+                <span className="text-[11px] font-black text-white/40">{current + 1} / {slides.length}{loading && ' · loading…'}</span>
               </div>
               <div className="flex gap-2 items-center">
                 {/* Language picker for narration */}
@@ -679,7 +679,7 @@ function QuizBlock({ slide, idx, picks, setPicks }: {
   return (
     <div className="flex flex-col items-center text-center">
       <div className="text-5xl mb-2 select-none">🧠</div>
-      <p className="text-[9px] font-black uppercase tracking-widest text-white/50 mb-3">Quick Check</p>
+      <p className="text-[11px] font-black uppercase tracking-widest text-white/50 mb-3">Quick Check</p>
       <p className="text-base sm:text-lg font-black text-white mb-5 leading-snug max-w-lg">
         {formatInline(slide.question || slide.body)}
       </p>

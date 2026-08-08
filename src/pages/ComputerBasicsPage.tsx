@@ -68,7 +68,7 @@ export default function ComputerBasicsPage() {
             >
               <div className="flex items-start justify-between">
                 <div className="text-4xl">{topic.emoji}</div>
-                <span className="bg-emerald-50 border border-emerald-200 rounded-full px-2 py-1 text-emerald-700 text-[9px] font-black uppercase tracking-widest whitespace-nowrap">
+                <span className="bg-emerald-50 border border-emerald-200 rounded-full px-2 py-1 text-emerald-700 text-[11px] font-black uppercase tracking-widest whitespace-nowrap">
                   {topic.level}
                 </span>
               </div>

@@ -121,7 +121,7 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
       {/* Header */}
       <div className={cn('rounded-2xl p-5 text-white flex items-center justify-between gap-4', lang.bgClass)}>
         <div>
-          <p className="text-[9px] font-black uppercase tracking-widest text-white/70 mb-1">🎮 Coding Challenges</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-white/70 mb-1">🎮 Coding Challenges</p>
           <h2 className="text-xl font-black">{lang.name} Challenges</h2>
           <p className="text-sm text-white/80 font-medium mt-0.5">
             {challenges.length} challenges · Instant AI feedback
@@ -139,7 +139,7 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
       <div className="flex gap-2 flex-wrap">
         {(['all', 'beginner', 'intermediate', 'advanced'] as Diff[]).map(d => (
           <button key={d} onClick={() => setDiff(d)}
-            className={cn('px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all',
+            className={cn('px-3 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-widest transition-all',
               diff === d ? `${lang.bgClass} text-white` : 'bg-slate-100 text-slate-500 hover:bg-slate-200',
             )}>
             {d === 'all' ? 'All' : d === 'beginner' ? '🟢 Beginner' : d === 'intermediate' ? '🟡 Mid' : '🔴 Advanced'}
@@ -160,12 +160,12 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
               <ChevronRight size={16} className="text-slate-300 group-hover:text-emerald-500 shrink-0 mt-1 transition-colors" />
             </div>
             <div className="flex items-center gap-2 mt-3">
-              <span className={cn('text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full',
+              <span className={cn('text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full',
                 c.difficulty === 'beginner' ? 'bg-emerald-100 text-emerald-700' :
                 c.difficulty === 'intermediate' ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700',
               )}>{c.difficulty}</span>
-              <span className="text-[9px] text-slate-400 font-bold">+{c.xp} XP</span>
-              <span className="text-[9px] text-slate-400 font-bold">~{c.estimatedMinutes}min</span>
+              <span className="text-[11px] text-slate-500 font-bold">+{c.xp} XP</span>
+              <span className="text-[11px] text-slate-500 font-bold">~{c.estimatedMinutes}min</span>
             </div>
           </button>
         ))}
@@ -185,7 +185,7 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
             >
               <div className={cn('flex items-center justify-between gap-3 px-6 py-5 rounded-t-[2rem]', lang.bgClass)}>
                 <div>
-                  <p className="text-[9px] font-black uppercase tracking-widest text-white/70">Challenge</p>
+                  <p className="text-[11px] font-black uppercase tracking-widest text-white/70">Challenge</p>
                   <p className="text-lg font-black text-white">{selected.title}</p>
                 </div>
                 <button onClick={() => setSelected(null)} className="p-2 rounded-xl bg-white/20 hover:bg-white/30 transition-all">
@@ -195,17 +195,17 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
 
               <div className="p-6 space-y-4">
                 <div className="bg-amber-50 border border-amber-100 rounded-xl p-4">
-                  <p className="text-[9px] font-black uppercase tracking-widest text-amber-700 mb-1">📖 Story</p>
+                  <p className="text-[11px] font-black uppercase tracking-widest text-amber-700 mb-1">📖 Story</p>
                   <p className="text-sm font-medium text-slate-700">{selected.story}</p>
                 </div>
                 <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                  <p className="text-[9px] font-black uppercase tracking-widest text-blue-700 mb-1">🎯 Task</p>
+                  <p className="text-[11px] font-black uppercase tracking-widest text-blue-700 mb-1">🎯 Task</p>
                   <p className="text-sm font-semibold text-slate-700">{selected.task}</p>
                 </div>
 
                 {/* Code editor */}
                 <div>
-                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">
+                  <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-2">
                     💻 Write Your Code
                     <span className="ml-2 normal-case font-medium text-slate-400">— type below, then click AI Feedback</span>
                   </p>
@@ -242,7 +242,7 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
                 {/* Run output */}
                 {(output || runErr) && (
                   <div className={cn('rounded-xl p-4', runErr ? 'bg-red-50 border border-red-100' : 'bg-slate-900')}>
-                    <p className={cn('text-[9px] font-black uppercase tracking-widest mb-2', runErr ? 'text-red-600' : 'text-slate-400')}>
+                    <p className={cn('text-[11px] font-black uppercase tracking-widest mb-2', runErr ? 'text-red-600' : 'text-slate-500')}>
                       {runErr ? '❌ Error' : '▶ Output'}
                     </p>
                     <pre className={cn('text-sm font-mono whitespace-pre-wrap', runErr ? 'text-red-700' : 'text-emerald-400')}>
@@ -254,7 +254,7 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
                 {/* Hint */}
                 {showHint && selected.hints[hintIdx] && (
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                    <p className="text-[9px] font-black uppercase tracking-widest text-amber-700 mb-1">
+                    <p className="text-[11px] font-black uppercase tracking-widest text-amber-700 mb-1">
                       💡 Hint {hintIdx + 1} of {selected.hints.length}
                     </p>
                     <p className="text-sm font-medium text-slate-700">{selected.hints[hintIdx]}</p>
@@ -264,13 +264,13 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
                 {/* Reveal expected output (hidden by default — don't spoil!) */}
                 <button
                   onClick={() => setShowAnswer(v => !v)}
-                  className="text-[9px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-600 transition-colors"
+                  className="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-slate-600 transition-colors"
                 >
                   {showAnswer ? '🙈 Hide Answer' : '👀 Reveal Expected Output'}
                 </button>
                 {showAnswer && selected.expectedOutput && (
                   <div className="bg-slate-800 rounded-xl p-4">
-                    <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">Expected Output</p>
+                    <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-2">Expected Output</p>
                     <pre className="text-sm font-mono text-emerald-400 whitespace-pre-wrap">{selected.expectedOutput}</pre>
                   </div>
                 )}
@@ -279,7 +279,7 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
                 {aiFb && (
                   <div className="rounded-xl border border-slate-200 p-4 space-y-3">
                     <div className="flex items-center gap-3">
-                      <span className={cn('text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full',
+                      <span className={cn('text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full',
                         aiFb.score >= 80 ? 'bg-emerald-100 text-emerald-700' :
                         aiFb.score >= 50 ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700',
                       )}>{aiFb.verdict}</span>

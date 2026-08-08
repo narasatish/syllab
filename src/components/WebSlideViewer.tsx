@@ -486,7 +486,7 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
       <div className={cn('shrink-0 bg-gradient-to-r p-4 text-white sm:p-6', theme.header)}>
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
-            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-white/80">
+            <p className="text-[11px] font-black uppercase tracking-[0.25em] text-white/80">
               Syllab Lesson · {lesson.subject} · Class {lesson.classLevel}
             </p>
             <h2 className="mt-1 text-lg font-black leading-tight sm:text-2xl">{lesson.title}</h2>
@@ -584,7 +584,7 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
           </button>
         </div>
 
-        <p className="mt-2 hidden sm:block text-center text-[9px] font-bold text-slate-300 uppercase tracking-widest">
+        <p className="mt-2 hidden sm:block text-center text-[11px] font-bold text-slate-300 uppercase tracking-widest">
           ← → Arrow keys · Esc to close
         </p>
       </div>

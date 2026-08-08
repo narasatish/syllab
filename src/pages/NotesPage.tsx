@@ -174,7 +174,7 @@ export default function NotesPage() {
                   <div className={`group flex items-center gap-1 rounded-xl border px-3 py-2 transition ${n.id === activeId ? 'border-primary/40 bg-primary/5' : 'border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-200'}`}>
                     <button type="button" onClick={() => setActiveId(n.id)} className="min-h-[44px] min-w-0 flex-1 py-1 text-left">
                       <span className="block truncate text-sm font-black text-slate-800 dark:text-slate-100">{title}</span>
-                      <span className="block truncate text-[11px] text-slate-400">{previewText(n.body, 46) || 'Empty'}</span>
+                      <span className="block truncate text-[11px] text-slate-500">{previewText(n.body, 46) || 'Empty'}</span>
                     </button>
                     <button type="button" onClick={() => removeNote(n.id)} aria-label="Delete note" className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center rounded-lg text-slate-300 hover:bg-rose-50 hover:text-rose-500"><Trash2 size={15} /></button>
                   </div>
@@ -198,7 +198,7 @@ export default function NotesPage() {
                 <Icon size={16} />
               </button>
             ))}
-            <span className="ml-auto pr-2 text-[11px] font-bold text-slate-400">{words} word{words === 1 ? '' : 's'}</span>
+            <span className="ml-auto pr-2 text-[11px] font-bold text-slate-500">{words} word{words === 1 ? '' : 's'}</span>
           </div>
 
           <div

@@ -49,7 +49,7 @@ export default function Scholarships() {
                   <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-black text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">{s.category}</span>
                   {s.level ? <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600 dark:bg-slate-700 dark:text-slate-300">{s.level}</span> : null}
                 </div>
-                <p className="mt-0.5 text-[11px] font-bold text-slate-400">{s.provider}</p>
+                <p className="mt-0.5 text-[11px] font-bold text-slate-500">{s.provider}</p>
                 <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">{s.forWhom}</p>
                 <div className="mt-2 grid gap-2 sm:grid-cols-3">
                   <Fact label="Benefit" value={s.amount} />
@@ -77,5 +77,5 @@ export default function Scholarships() {
 
 function Fact({ label, value }: { label: string; value: string }) {
   if (!value) return null;
-  return <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-900/40"><p className="text-[9px] font-bold uppercase text-slate-400">{label}</p><p className="mt-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">{value}</p></div>;
+  return <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-900/40"><p className="text-[11px] font-bold uppercase text-slate-500">{label}</p><p className="mt-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">{value}</p></div>;
 }

@@ -369,12 +369,12 @@ function ArticleCard({ article, onRead }: { article: Article; onRead: (a: Articl
       <div className={cn('h-36 bg-gradient-to-br flex items-center justify-center relative', article.coverColor)}>
         <span className="text-5xl drop-shadow">{article.emoji}</span>
         {article.trending && (
-          <span className="absolute top-3 left-3 flex items-center gap-1 bg-red-500 text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">
+          <span className="absolute top-3 left-3 flex items-center gap-1 bg-red-500 text-white text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">
             <Flame size={10} /> Trending
           </span>
         )}
         {article.pinned && (
-          <span className="absolute top-3 right-3 bg-white/20 text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">
+          <span className="absolute top-3 right-3 bg-white/20 text-white text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full">
             Evergreen
           </span>
         )}
@@ -383,7 +383,7 @@ function ArticleCard({ article, onRead }: { article: Article; onRead: (a: Articl
       {/* Body */}
       <div className="flex flex-col flex-1 p-5">
         {cat && (
-          <span className={cn('self-start text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full mb-3', cat.color)}>
+          <span className={cn('self-start text-[11px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full mb-3', cat.color)}>
             {cat.emoji} {cat.label}
           </span>
         )}
@@ -470,7 +470,7 @@ function ArticleModal({
           <div className={cn('h-52 bg-gradient-to-br flex items-center justify-center relative', article.coverColor)}>
             <span className="text-7xl drop-shadow">{article.emoji}</span>
             {cat && (
-              <span className={cn('absolute bottom-4 left-6 text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full', cat.color)}>
+              <span className={cn('absolute bottom-4 left-6 text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full', cat.color)}>
                 {cat.emoji} {cat.label}
               </span>
             )}
@@ -560,7 +560,7 @@ function ArticleModal({
               {(full?.tags || article.tags).map(tag => (
                 <span
                   key={tag}
-                  className="text-[9px] font-black uppercase tracking-widest bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full"
+                  className="text-[11px] font-black uppercase tracking-widest bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full"
                 >
                   {tag}
                 </span>
@@ -679,7 +679,7 @@ export default function Updates({ setTab }: UpdatesProps) {
         <div className="flex items-start gap-5">
           <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center text-3xl shrink-0">📡</div>
           <div>
-            <div className="text-[9px] font-black uppercase tracking-widest text-primary mb-1">Student Updates</div>
+            <div className="text-[11px] font-black uppercase tracking-widest text-primary mb-1">Student Updates</div>
             <h1 className="text-2xl md:text-4xl font-black tracking-tight mb-2">
               Exam News, AI Tools &amp; Study Guides
             </h1>
@@ -698,7 +698,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             <div key={label} className="bg-white/10 rounded-2xl px-4 py-4 text-center">
               <div className="text-xl mb-1">{emoji}</div>
               <div className="text-lg font-black">{value}</div>
-              <div className="text-[9px] font-bold text-white/50 uppercase tracking-widest">{label}</div>
+              <div className="text-[11px] font-bold text-white/50 uppercase tracking-widest">{label}</div>
             </div>
           ))}
         </div>

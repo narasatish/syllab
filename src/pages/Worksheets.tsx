@@ -91,7 +91,7 @@ export default function Worksheets() {
             <div className="flex items-center justify-between gap-2 p-3">
               <div className="min-w-0">
                 <p className="truncate text-sm font-black text-slate-900">{ws.emoji} {ws.title}</p>
-                <p className="text-[11px] font-bold uppercase tracking-wide text-slate-400">{label(ws.category)} · {ws.band}</p>
+                <p className="text-[11px] font-bold uppercase tracking-wide text-slate-500">{label(ws.category)} · {ws.band}</p>
               </div>
               <button
                 onClick={() => printWorksheet(ws.title, ws.svg())}

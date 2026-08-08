@@ -621,22 +621,22 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                   <div className="mt-4 grid grid-cols-4 gap-3">
                     <div className="rounded-xl bg-slate-50 p-3 text-center">
                       <Trophy className="mx-auto mb-1 text-amber-500" size={15} />
-                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">XP</div>
+                      <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">XP</div>
                       <div className="text-lg font-black text-slate-900">{child.xp || 0}</div>
                     </div>
                     <div className="rounded-xl bg-slate-50 p-3 text-center">
                       <Flame className="mx-auto mb-1 text-orange-500" size={15} />
-                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">Streak</div>
+                      <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">Streak</div>
                       <div className="text-lg font-black text-slate-900">{child.streak || 0}d</div>
                     </div>
                     <div className="rounded-xl bg-slate-50 p-3 text-center">
                       <BookOpen className="mx-auto mb-1 text-violet-500" size={15} />
-                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">Topics</div>
+                      <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">Topics</div>
                       <div className="text-lg font-black text-slate-900">{child.completedTopics || 0}</div>
                     </div>
                     <div className="rounded-xl bg-slate-50 p-3 text-center">
                       <div className="mb-1 text-[15px] leading-none">⏱️</div>
-                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">Study (wk)</div>
+                      <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">Study (wk)</div>
                       <div className="text-lg font-black text-slate-900">{child.studyMinutesThisWeek || 0}m</div>
                     </div>
                   </div>
@@ -907,20 +907,20 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                     </div>
                     <div className="flex gap-3">
                       <div className="text-center">
-                        <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">XP</div>
+                        <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">XP</div>
                         <div className="text-base font-black text-amber-600">{child.xp || 0}</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">Streak</div>
+                        <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">Streak</div>
                         <div className="text-base font-black text-orange-600">{child.streak || 0}d</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">Topics</div>
+                        <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">Topics</div>
                         <div className="text-base font-black text-violet-600">{child.completedTopics || 0}</div>
                       </div>
                       {avgPct !== null && (
                         <div className="text-center">
-                          <div className="text-[9px] font-black uppercase tracking-wider text-slate-400">Avg Score</div>
+                          <div className="text-[11px] font-black uppercase tracking-wider text-slate-500">Avg Score</div>
                           <div className={`text-base font-black ${avgPct >= 80 ? 'text-emerald-600' : avgPct >= 50 ? 'text-amber-600' : 'text-rose-600'}`}>{avgPct}%</div>
                         </div>
                       )}

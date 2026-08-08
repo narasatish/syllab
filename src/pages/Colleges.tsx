@@ -153,7 +153,7 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
                 <span className="text-[10px] font-black text-slate-400 dark:text-slate-500">{count} colleges</span>
               </div>
               <h3 className="mt-2 text-base font-black text-slate-900 dark:text-slate-100">{s.name}</h3>
-              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2">{s.blurb}</p>
+              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-500 line-clamp-2">{s.blurb}</p>
               <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-black text-primary">View colleges <ChevronRight size={12} /></span>
             </button>
           );
@@ -294,18 +294,18 @@ function CollegeCard({ college: c, go }: { college: CollegeFull; go: (to: string
             <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
             <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 leading-tight truncate">{c.shortName || c.name}</h3>
           </div>
-          <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-400 dark:text-slate-500"><MapPin size={11} />{c.city}</p>
+          <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-500 dark:text-slate-500"><MapPin size={11} />{c.city}</p>
         </div>
         <div className="flex flex-col items-end gap-1 shrink-0">
-          <span className={`rounded-full px-2 py-0.5 text-[9px] font-black ${typeColor[c.type]}`}>{c.type}</span>
+          <span className={`rounded-full px-2 py-0.5 text-[11px] font-black ${typeColor[c.type]}`}>{c.type}</span>
           {c.nirf && <span className="text-[10px] font-black text-slate-500">NIRF #{c.nirf}</span>}
         </div>
       </div>
       <div className="mt-2 grid grid-cols-2 gap-2 text-[11px]">
-        <div className="rounded-lg bg-emerald-50 dark:bg-emerald-950 px-2 py-1"><p className="text-[9px] font-bold text-emerald-600/70 dark:text-emerald-400 uppercase">Fees/yr</p><p className="font-black text-emerald-700 dark:text-emerald-300">{c.feesPerYear}</p></div>
-        <div className="rounded-lg bg-blue-50 dark:bg-blue-950 px-2 py-1"><p className="text-[9px] font-bold text-blue-600/70 dark:text-blue-400 uppercase">Avg package</p><p className="font-black text-blue-700 dark:text-blue-300">{c.placementAvg}</p></div>
+        <div className="rounded-lg bg-emerald-50 dark:bg-emerald-950 px-2 py-1"><p className="text-[11px] font-bold text-emerald-600/70 dark:text-emerald-400 uppercase">Fees/yr</p><p className="font-black text-emerald-700 dark:text-emerald-300">{c.feesPerYear}</p></div>
+        <div className="rounded-lg bg-blue-50 dark:bg-blue-950 px-2 py-1"><p className="text-[11px] font-bold text-blue-600/70 dark:text-blue-400 uppercase">Avg package</p><p className="font-black text-blue-700 dark:text-blue-300">{c.placementAvg}</p></div>
       </div>
-      <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400"><span className="font-black text-slate-600 dark:text-slate-300">Cutoff:</span> {c.cutoff}</p>
+      <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-500"><span className="font-black text-slate-600 dark:text-slate-300">Cutoff:</span> {c.cutoff}</p>
       <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-black text-primary">Full details <ChevronRight size={12} /></span>
     </button>
   );
@@ -341,7 +341,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
         ]}
       />
       {/* Breadcrumb */}
-      <nav className="mb-3 flex flex-wrap items-center gap-1 text-[11px] font-bold text-slate-400 dark:text-slate-500">
+      <nav className="mb-3 flex flex-wrap items-center gap-1 text-[11px] font-bold text-slate-500 dark:text-slate-500">
         <button onClick={() => go('/colleges')} className="hover:text-primary">Colleges</button>
         <ChevronRight size={11} />
         <button onClick={() => goBack(`/colleges/${stateSlug}`)} className="hover:text-primary">{c.state}</button>
@@ -397,7 +397,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
               </div>
             ))}
           </div>
-          <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">Indicative — confirm on each ranking body's official list.</p>
+          <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-500">Indicative — confirm on each ranking body's official list.</p>
         </Section>
       )}
 
@@ -429,7 +429,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
           <PlaceStat label="Highest" value={c.placementHighest} />
           <PlaceStat label="Placement rate" value={c.placementRate} />
         </div>
-        <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-slate-400">Top recruiters</p>
+        <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-slate-500">Top recruiters</p>
         <div className="mt-1 flex flex-wrap gap-1.5">
           {c.recruiters.map(r => <span key={r} className="rounded-full bg-indigo-50 dark:bg-indigo-950 px-2.5 py-1 text-[11px] font-bold text-indigo-600 dark:text-indigo-400">{r}</span>)}
         </div>
@@ -458,7 +458,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
 
       <Section title="Eligibility & documents required">
         <p className="text-sm text-slate-600 dark:text-slate-300">{eligibility(c)}</p>
-        <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-slate-400">Documents required</p>
+        <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-slate-500">Documents required</p>
         <ul className="mt-1 space-y-1.5">
           {documentsRequired(c).map((d, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
@@ -474,7 +474,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
             <span key={f} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2.5 py-1 text-[11px] font-bold text-slate-600 dark:text-slate-300">{f}</span>
           ))}
         </div>
-        <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">Typical facilities — verify specifics with the college.</p>
+        <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-500">Typical facilities — verify specifics with the college.</p>
       </Section>
 
       <Section title="Scholarships">
@@ -516,7 +516,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
                 </tbody>
               </table>
             </div>
-            <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">All figures indicative (2024) — verify on official sources.</p>
+            <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-500">All figures indicative (2024) — verify on official sources.</p>
           </Section>
         );
       })()}
@@ -573,7 +573,7 @@ function Section({ title, children }: { title: React.ReactNode; children: React.
 function Detail({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-2 py-1 border-b border-slate-50 dark:border-slate-700 last:border-0">
-      <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">{label}</span>
+      <span className="text-[11px] font-bold text-slate-500 dark:text-slate-500">{label}</span>
       <span className="text-xs font-black text-slate-700 dark:text-slate-200 text-right">{value}</span>
     </div>
   );

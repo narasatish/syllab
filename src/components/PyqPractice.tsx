@@ -159,7 +159,7 @@ export default function PyqPractice({ currentUser }: Props) {
                 <p className="text-sm font-bold text-slate-900">
                   <span className="text-slate-400 mr-1">Q{i + 1}.</span>{q.question}
                 </p>
-                <span className="shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-slate-500">{q.subject}</span>
+                <span className="shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-black uppercase tracking-wider text-slate-500">{q.subject}</span>
               </div>
               <div className="mt-3 space-y-2">
                 {q.options.map((opt, oi) => {

@@ -76,7 +76,7 @@ export default function RewardsPanel({ xp, compact = false }: Props) {
         <div>
           <div className="flex items-center justify-between mb-3">
             <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">🏅 Achievements</h4>
-            <span className="text-[11px] font-bold text-slate-400">{earnedCount}/{BADGES.length} unlocked</span>
+            <span className="text-[11px] font-bold text-slate-500">{earnedCount}/{BADGES.length} unlocked</span>
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
             {BADGES.map(b => {
@@ -89,7 +89,7 @@ export default function RewardsPanel({ xp, compact = false }: Props) {
                   }`}>
                   <span className={`text-3xl mb-1 ${got ? '' : 'grayscale'}`}>{got ? b.emoji : '🔒'}</span>
                   <span className="text-[10px] font-black text-slate-700 leading-tight">{b.name}</span>
-                  <span className="text-[9px] text-slate-400 leading-tight mt-0.5 line-clamp-2">{b.desc}</span>
+                  <span className="text-[11px] text-slate-500 leading-tight mt-0.5 line-clamp-2">{b.desc}</span>
                 </div>
               );
             })}
@@ -107,8 +107,8 @@ function StatChip({ emoji, value, label, sub, accent }: {
     <div className={`rounded-2xl bg-gradient-to-br ${accent} p-3 text-white text-center shadow`}>
       <div className="text-2xl">{emoji}</div>
       <div className="text-2xl font-black leading-none mt-1">{value}</div>
-      <div className="text-[9px] font-black uppercase tracking-widest text-white/80 mt-1">{label}</div>
-      {sub && <div className="text-[9px] font-bold text-white/60">{sub}</div>}
+      <div className="text-[11px] font-black uppercase tracking-widest text-white/80 mt-1">{label}</div>
+      {sub && <div className="text-[11px] font-bold text-white/60">{sub}</div>}
     </div>
   );
 }

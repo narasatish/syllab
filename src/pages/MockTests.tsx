@@ -1742,7 +1742,7 @@ function MockCard({ mock, onStart, isLoading }: { mock: MockTestMeta; onStart: (
       <div className="flex items-start justify-between gap-2">
         <h3 className="text-sm font-black text-slate-900">{mock.title}</h3>
         {!isAvailable && (
-          <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-[9px] font-black uppercase tracking-widest text-amber-700">
+          <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-black uppercase tracking-widest text-amber-700">
             Soon
           </span>
         )}

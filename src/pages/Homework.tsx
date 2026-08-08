@@ -77,7 +77,7 @@ function Stat({ icon, value, label }: { icon: React.ReactNode; value: number; la
       {icon}
       <div className="leading-none">
         <div className="text-lg font-black">{value}</div>
-        <div className="text-[9px] font-bold uppercase tracking-wider text-emerald-50/80">{label}</div>
+        <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-50/80">{label}</div>
       </div>
     </div>
   );

@@ -299,7 +299,7 @@ export default function ProgressPage({ currentUser, stats, setTab }: ProgressPag
                 className={cn('rounded-2xl p-3 text-center transition-all border-2', selected ? 'border-primary bg-primary/10' : unlocked ? 'border-transparent bg-slate-50 hover:bg-slate-100' : 'border-transparent bg-slate-50 opacity-40 cursor-not-allowed')}>
                 <div className="text-3xl mb-1">{av.icon}</div>
                 <div className="text-[10px] font-black text-slate-700 leading-tight">{av.name}</div>
-                <div className="text-[9px] text-slate-400 mt-0.5">{unlocked ? av.title : `${av.requiredXP} XP`}</div>
+                <div className="text-[11px] text-slate-500 mt-0.5">{unlocked ? av.title : `${av.requiredXP} XP`}</div>
               </button>
             );
           })}
@@ -399,11 +399,11 @@ export default function ProgressPage({ currentUser, stats, setTab }: ProgressPag
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <span className={`rounded-full px-2 py-0.5 text-[9px] font-black uppercase tracking-widest ${c.chip}`}>
+                          <span className={`rounded-full px-2 py-0.5 text-[11px] font-black uppercase tracking-widest ${c.chip}`}>
                             {meta.emoji} {meta.label}
                           </span>
                           {xp > 0 && (
-                            <span className="rounded-full bg-white/70 px-2 py-0.5 text-[9px] font-black text-slate-600">
+                            <span className="rounded-full bg-white/70 px-2 py-0.5 text-[11px] font-black text-slate-600">
                               +{xp} XP
                             </span>
                           )}

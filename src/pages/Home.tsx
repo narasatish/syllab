@@ -237,15 +237,15 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             {stats && (
               <div className="flex gap-2 flex-wrap">
                 <div className="rounded-2xl bg-white/10 px-4 py-2 text-center min-w-[60px]">
-                  <div className="text-[9px] font-black uppercase text-emerald-300">XP</div>
+                  <div className="text-[11px] font-black uppercase text-emerald-300">XP</div>
                   <div className="text-base font-black">{stats.xp.toLocaleString()}</div>
                 </div>
                 <div className="rounded-2xl bg-white/10 px-4 py-2 text-center min-w-[60px]">
-                  <div className="text-[9px] font-black uppercase text-orange-300">Streak</div>
+                  <div className="text-[11px] font-black uppercase text-orange-300">Streak</div>
                   <div className="text-base font-black">🔥 {stats.streak}d</div>
                 </div>
                 <div className="rounded-2xl bg-white/10 px-4 py-2 text-center min-w-[60px]">
-                  <div className="text-[9px] font-black uppercase text-violet-300">Rank</div>
+                  <div className="text-[11px] font-black uppercase text-violet-300">Rank</div>
                   <div className="text-base font-black">{stats.rank}</div>
                 </div>
               </div>
@@ -344,7 +344,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           {/* Trust strip */}
           <div className="anim-fade-up anim-delay-4 mt-12 flex items-center justify-center gap-6 flex-wrap">
             {['🇮🇳 Made for India', '✅ Free forever', '🎓 CBSE aligned', '🤖 AI-powered'].map(item => (
-              <span key={item} className="text-[11px] font-bold text-slate-400">{item}</span>
+              <span key={item} className="text-[11px] font-bold text-slate-500">{item}</span>
             ))}
           </div>
         </div>
@@ -430,7 +430,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           {CLASSES.map((classNum) => (
             <a key={classNum} href={`/class-${classNum}`} onClick={(e) => { e.preventDefault(); handleClassClick(classNum); }}
               className="group card-hover p-3 sm:p-5 bg-white border-2 border-slate-100 rounded-2xl text-center hover:border-violet-500 hover:bg-violet-50 active:scale-95 transition-all cursor-pointer">
-              <div className="text-[8px] font-black uppercase tracking-widest text-slate-600 group-hover:text-violet-500 transition-colors">Cls</div>
+              <div className="text-[11px] font-black uppercase tracking-widest text-slate-600 group-hover:text-violet-500 transition-colors">Cls</div>
               <div className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-violet-700 transition-colors">{classNum}</div>
             </a>
           ))}
@@ -556,10 +556,10 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             <button key={article.id} onClick={() => goToArticle(article.id)}
               className={`text-left rounded-2xl bg-gradient-to-br ${article.coverColor} p-5 text-white shadow-lg hover:-translate-y-0.5 transition-transform`}>
               <div className="text-3xl mb-3">{article.emoji}</div>
-              <div className="text-[9px] font-black uppercase tracking-widest opacity-70 mb-1">{article.category.replace(/-/g, ' ')}</div>
+              <div className="text-[11px] font-black uppercase tracking-widest opacity-70 mb-1">{article.category.replace(/-/g, ' ')}</div>
               <h3 className="text-sm font-black leading-snug line-clamp-2">{article.title}</h3>
               <p className="mt-2 text-[11px] opacity-80 font-medium line-clamp-2">{article.summary}</p>
-              <div className="mt-3 text-[9px] font-black uppercase tracking-widest opacity-60">{article.readingTime} min read · {article.updatedAt}</div>
+              <div className="mt-3 text-[11px] font-black uppercase tracking-widest opacity-60">{article.readingTime} min read · {article.updatedAt}</div>
             </button>
           ))}
         </div>

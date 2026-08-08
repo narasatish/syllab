@@ -140,7 +140,7 @@ export default function QuestionPaperGenerator() {
                   <label key={c.slug} className="flex min-h-[40px] cursor-pointer items-center gap-2 rounded-lg px-2 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <input type="checkbox" checked={chosen.includes(c.slug)} onChange={() => toggle(c.slug)} className="h-4 w-4 accent-emerald-600" />
                     <span className="flex-1 text-sm text-slate-700 dark:text-slate-200">{c.chapter}</span>
-                    <span className="text-[11px] font-bold text-slate-400">{c.mcqs.length}</span>
+                    <span className="text-[11px] font-bold text-slate-500">{c.mcqs.length}</span>
                   </label>
                 ))}
               </div>
@@ -181,7 +181,7 @@ export default function QuestionPaperGenerator() {
           <header className="mb-5 border-b border-slate-200 pb-3 text-center">
             <h2 className="text-xl font-black text-slate-900 dark:text-slate-100">Class {cls} — {subject}</h2>
             <p className="text-sm text-slate-600 dark:text-slate-300">MCQ Practice Paper · {paper.questions.length} questions · {paper.questions.length} marks</p>
-            <p className="mt-1 text-[11px] text-slate-400">Name: ____________________  Date: __________  Time: ____ min</p>
+            <p className="mt-1 text-[11px] text-slate-500">Name: ____________________  Date: __________  Time: ____ min</p>
           </header>
 
           <ol className="space-y-4">

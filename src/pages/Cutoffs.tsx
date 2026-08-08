@@ -90,7 +90,7 @@ export default function Cutoffs() {
               <tr key={c.slug} className="border-t border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50">
                 <td className="px-3 py-2">
                   <button onClick={() => navigate(`/colleges/${stateSlugForCollege(c)}/${c.slug}`)} className="text-left font-bold text-primary dark:text-emerald-400 hover:underline">{c.shortName || c.name}</button>
-                  <div className="text-[11px] text-slate-400">{c.city}, {c.state}</div>
+                  <div className="text-[11px] text-slate-500">{c.city}, {c.state}</div>
                 </td>
                 <td className="px-3 py-2 font-bold text-slate-600 dark:text-slate-300 whitespace-nowrap">{c.nirf ? `#${c.nirf}` : '—'}</td>
                 <td className="px-3 py-2 text-slate-700 dark:text-slate-300">{c.cutoff}</td>

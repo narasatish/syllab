@@ -67,15 +67,15 @@ export default function PeriodicTable() {
                 style={{ gridColumn: e.xpos, gridRow: e.ypos }}
                 title={`${e.name} — ${c.label}`}
                 className={`aspect-square rounded-md border p-0.5 text-left transition ${c.cls} ${dim ? 'opacity-25' : 'hover:scale-[1.08] hover:z-10 hover:shadow-md'}`}>
-                <div className="text-[7px] font-bold leading-none opacity-70">{e.z}</div>
+                <div className="text-[11px] font-bold leading-none opacity-70">{e.z}</div>
                 <div className="text-center text-[13px] font-black leading-tight">{e.symbol}</div>
                 <div className="hidden sm:block text-center text-[6px] leading-none truncate opacity-80">{e.name}</div>
               </button>
             );
           })}
           {/* Small labels linking the f-block strips to the main table */}
-          <div style={{ gridColumn: 3, gridRow: 6 }} className="flex items-center justify-center rounded-md border border-dashed border-fuchsia-200 text-[8px] font-bold text-fuchsia-500">57–71</div>
-          <div style={{ gridColumn: 3, gridRow: 7 }} className="flex items-center justify-center rounded-md border border-dashed border-pink-200 text-[8px] font-bold text-pink-500">89–103</div>
+          <div style={{ gridColumn: 3, gridRow: 6 }} className="flex items-center justify-center rounded-md border border-dashed border-fuchsia-200 text-[11px] font-bold text-fuchsia-500">57–71</div>
+          <div style={{ gridColumn: 3, gridRow: 7 }} className="flex items-center justify-center rounded-md border border-dashed border-pink-200 text-[11px] font-bold text-pink-500">89–103</div>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ export default function PeriodicTable() {
               <div className={`flex h-20 w-20 flex-col items-center justify-center rounded-xl border ${CATEGORY[selected.category].cls}`}>
                 <span className="text-[10px] font-bold opacity-70">{selected.z}</span>
                 <span className="text-3xl font-black leading-none">{selected.symbol}</span>
-                <span className="text-[9px] font-bold">{selected.mass}</span>
+                <span className="text-[11px] font-bold">{selected.mass}</span>
               </div>
               <button type="button" onClick={() => setSelected(null)} aria-label="Close" className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700"><X size={18} /></button>
             </div>
@@ -126,7 +126,7 @@ export default function PeriodicTable() {
 function Row({ k, v }: { k: string; v: string }) {
   return (
     <div className="border-b border-slate-50 dark:border-slate-700 pb-1">
-      <dt className="text-[11px] font-bold uppercase tracking-wide text-slate-400">{k}</dt>
+      <dt className="text-[11px] font-bold uppercase tracking-wide text-slate-500">{k}</dt>
       <dd className="font-bold text-slate-800 dark:text-slate-100">{v}</dd>
     </div>
   );

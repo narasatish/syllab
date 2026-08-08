@@ -1025,7 +1025,7 @@ function RhymesView({ goBack }: { goBack: (parent: string) => void }) {
                       allowFullScreen
                       loading="lazy"
                     />
-                    <p className="mt-1 text-center text-[11px] font-medium text-slate-400 dark:text-slate-500">🎵 Sung version by Super Simple Songs — press play to sing along!</p>
+                    <p className="mt-1 text-center text-[11px] font-medium text-slate-500 dark:text-slate-500">🎵 Sung version by Super Simple Songs — press play to sing along!</p>
                   </div>
                 ) : null}
 

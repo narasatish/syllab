@@ -401,7 +401,7 @@ export default function StudyArenaPage() {
                               <h4 className="text-base font-black text-slate-800 leading-tight">
                                 {card.question}
                               </h4>
-                              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1 rounded-full">
+                              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1 rounded-full">
                                 Tap to reveal
                               </span>
                             </div>
@@ -562,7 +562,7 @@ export default function StudyArenaPage() {
                                 >
                                   <div className="flex items-center gap-2 mb-1">
                                     <Sparkles size={14} className="text-emerald-500" />
-                                    <span className="font-black uppercase tracking-widest text-[9px]">
+                                    <span className="font-black uppercase tracking-widest text-[11px]">
                                       {isCorrect ? 'Excellent Analysis' : 'Learning Insight'}
                                     </span>
                                   </div>

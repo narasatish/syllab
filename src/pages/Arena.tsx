@@ -723,11 +723,11 @@ export default function ArenaPage({
                 <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Timer</label>
                 <div className="flex gap-2 rounded-2xl bg-slate-50 p-2">
                   <button type="button" onClick={() => setIsTimerEnabled(true)}
-                    className={cn('flex-1 rounded-xl py-1.5 text-[9px] font-black uppercase tracking-wider transition-all', isTimerEnabled ? 'bg-primary text-white' : 'text-slate-400')}>
+                    className={cn('flex-1 rounded-xl py-1.5 text-[11px] font-black uppercase tracking-wider transition-all', isTimerEnabled ? 'bg-primary text-white' : 'text-slate-500')}>
                     Enabled
                   </button>
                   <button type="button" onClick={() => setIsTimerEnabled(false)}
-                    className={cn('flex-1 rounded-xl py-1.5 text-[9px] font-black uppercase tracking-wider transition-all', !isTimerEnabled ? 'bg-primary text-white' : 'text-slate-400')}>
+                    className={cn('flex-1 rounded-xl py-1.5 text-[11px] font-black uppercase tracking-wider transition-all', !isTimerEnabled ? 'bg-primary text-white' : 'text-slate-500')}>
                     Disabled
                   </button>
                 </div>
