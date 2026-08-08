@@ -1,0 +1,77 @@
+[
+  {
+    "at": "2026-08-08T09:18:00.000Z",
+    "url": "https://syllab.in/",
+    "source": "pagespeed.web.dev (Google's own UI), report id 1y3skc8601",
+    "note": "BASELINE. Transcribed by hand from the PSI report, NOT produced by scripts/measure-cwv.mjs (the PSI API was returning 429 without a key at the time). Field data was read with the ORIGIN toggle selected, so it covers the whole origin, not just '/'. This is the first trustworthy performance record for syllab.in: every earlier number in this project came from local `npx lighthouse` runs on a loaded dev laptop and was wrong (local reported mobile score 54 / TBT ~1100ms; Google measured 72 / 20ms for the same page the same day). Captured BEFORE the v298 hero-LCP fix.",
+    "results": [
+      {
+        "strategy": "mobile",
+        "fieldScope": "whole origin (Origin toggle)",
+        "field": {
+          "LARGEST_CONTENTFUL_PAINT_MS": 3500,
+          "INTERACTION_TO_NEXT_PAINT": null,
+          "CUMULATIVE_LAYOUT_SHIFT_SCORE": 1,
+          "FIRST_CONTENTFUL_PAINT_MS": 2900,
+          "EXPERIMENTAL_TIME_TO_FIRST_BYTE": 1200
+        },
+        "fieldVerdict": "FAILED — LCP 3.5s (needs <= 2.5s)",
+        "lab": {
+          "score": 72,
+          "FCP": 3300,
+          "LCP": 5400,
+          "TBT": 20,
+          "CLS": 0,
+          "SI": 3800
+        },
+        "labEnvironment": {
+          "capturedAt": "Aug 8, 2026, 2:48 PM GMT+5:30",
+          "device": "Emulated Moto G Power",
+          "lighthouseVersion": "13.4.1",
+          "throttling": "Slow 4G",
+          "note": "Single page session, initial page load. Run on Google hardware."
+        },
+        "labLcpBreakdown": {
+          "timeToFirstByte": 0,
+          "elementRenderDelay": 980,
+          "element": "h1.anim-fade-up.anim-delay-1 — 'Learn smarter with AI by your side'",
+          "note": "This is what v298 fixes: 980ms of render delay with 0ms TTFB, because the LCP element was held at opacity:0 by its own entrance animation."
+        }
+      },
+      {
+        "strategy": "desktop",
+        "fieldScope": "whole origin (Origin toggle)",
+        "field": {
+          "LARGEST_CONTENTFUL_PAINT_MS": 2800,
+          "INTERACTION_TO_NEXT_PAINT": null,
+          "CUMULATIVE_LAYOUT_SHIFT_SCORE": 11,
+          "FIRST_CONTENTFUL_PAINT_MS": 2000,
+          "EXPERIMENTAL_TIME_TO_FIRST_BYTE": 700
+        },
+        "fieldVerdict": "FAILED — LCP 2.8s (needs <= 2.5s); CLS 0.11 also over the 0.10 threshold",
+        "lab": {
+          "score": 97,
+          "FCP": null,
+          "LCP": null,
+          "TBT": null,
+          "CLS": 0.003,
+          "SI": null
+        },
+        "otherCategories": {
+          "accessibility": 96,
+          "bestPractices": 100,
+          "seo": 100,
+          "agenticBrowsing": "3/3"
+        },
+        "labNote": "Individual desktop lab metric values were not all shown in the captured report; only the category score (97) and CLS (0.003) are recorded. Do not infer the missing ones.",
+        "labDiagnostics": {
+          "totalPayloadKiB": 669,
+          "mainThreadWorkMs": 1100,
+          "jsExecutionMs": 400,
+          "criticalPathLatencyMs": 794,
+          "criticalChain": "index.js -> vendor-motion -> firebase -> vendor-firebase-2 (111 KiB) -> userProfile"
+        }
+      }
+    ]
+  }
+]
