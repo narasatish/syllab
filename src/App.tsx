@@ -50,6 +50,7 @@ import { cn } from './lib/utils';
 import SEO from './components/SEO';
 import InstallPrompt from './components/InstallPrompt';
 import OfflineBanner from './components/OfflineBanner';
+import BottomTabBar from './components/BottomTabBar';
 import ColdStartBanner from './components/ColdStartBanner';
 import DraggableFab from './components/DraggableFab';
 // Lazy — PomodoroTimer is an opt-in focus widget that uses framer-motion. Loading
@@ -2487,6 +2488,10 @@ export default function App() {
       ) : null}
       <InstallPrompt />
       <OfflineBanner />
+      {/* Phone-only. Fixed, so it adds nothing to document flow or CLS. The
+          spacer below keeps it from covering the last few lines of content. */}
+      <BottomTabBar activeTab={activeTab} onNavigate={navigate} />
+      <div aria-hidden="true" className="h-[3.75rem] md:hidden" />
     </div>
     </MotionConfig>
   );

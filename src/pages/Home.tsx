@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { FULL_ARTICLES } from '../data/updateArticles';
 import ExamCountdownStrip from '../components/ExamCountdownStrip';
+import LiveQuizShowcase from '../components/LiveQuizShowcase';
 import {
   Sparkles,
   ArrowRight,
@@ -355,6 +356,11 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
            LCP element and nothing new belongs above it. Static render, no
            timers. */}
       <ExamCountdownStrip />
+
+      {/* ── LIVE QUIZ SHOWCASE ── Also below the hero. Rotation starts 4s after
+           mount via setTimeout (not requestIdleCallback), so it cannot compete
+           with LCP. */}
+      <LiveQuizShowcase />
 
       {/* ── REAL-NUMBERS TRUST BAND + SNAP & SOLVE (conversion) ──────────────── */}
       <section className="reveal max-w-6xl mx-auto px-5 pt-10">
