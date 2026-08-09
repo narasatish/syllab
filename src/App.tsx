@@ -1836,7 +1836,15 @@ export default function App() {
 
         <div className="flex items-center gap-4">
           <DarkModeToggle size={20} />
-          <div className="hidden items-center gap-3 md:flex">
+          {/* Fixed-width auth slot. PageSpeed named the LOGIN / SIGN UP button
+              as a layout-shift culprit, and desktop field CLS is failing at
+              0.11. Two things resize this box: the web font swapping in under
+              the button text, and auth resolving and replacing the button with
+              the XP chip + avatar cluster. Reserving the width and right-
+              aligning means neither moves the nav to its left. The signed-in
+              cluster is bounded (the display name is max-w-[100px] truncate),
+              so a fixed reservation is safe. */}
+          <div className="hidden min-w-[13rem] items-center justify-end gap-3 md:flex">
             {currentUser ? (() => {
               const headerAvatar = [...AVATAR_REWARDS].reverse().find(a =>
                 a.unlockType !== 'skills' && isAvatarUnlocked(a, stats, 0)

@@ -55,8 +55,12 @@ describe('sanitizeHtml — strips executable content (the XSS rule)', () => {
 
   it('is safe on empty / nullish', () => {
     expect(sanitizeHtml('')).toBe('');
-    // @ts-expect-error runtime guard
-    expect(sanitizeHtml(null)).toBe('');
+    // Deliberately passing something the signature forbids: sanitizeHtml does
+    // `String(html ?? '')` as a runtime guard because callers hand it values
+    // straight out of storage. An explicit cast, not @ts-expect-error — the
+    // directive was unused (null satisfies `string` under this tsconfig) and
+    // an unused @ts-expect-error is itself a tsc error.
+    expect(sanitizeHtml(null as unknown as string)).toBe('');
   });
 });
 

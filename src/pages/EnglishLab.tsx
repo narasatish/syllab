@@ -804,10 +804,8 @@ function VocabSection({ level }: { level: Level }) {
 function StoriesSection({ level }: { level: Level }) {
   const stories = getStoriesByLevel(level);
   const [idx, setIdx] = useState(0);
-  const [imgError, setImgError] = useState(false);
   const story = stories[idx];
 
-  useEffect(() => { setImgError(false); }, [idx, level]);
 
   const newStory = () => {
     let newIdx = Math.floor(Math.random() * stories.length);
@@ -828,15 +826,6 @@ function StoriesSection({ level }: { level: Level }) {
     <section className="rounded-[2rem] bg-white shadow sm:p-0 p-0 overflow-hidden">
       {/* Visual hero */}
       <div className={cn('relative h-44 sm:h-56 bg-gradient-to-br', story.gradient)}>
-        {story.imageUrl && !imgError && (
-          <img
-            src={story.imageUrl}
-            alt={story.title}
-            onError={() => setImgError(true)}
-            className="absolute inset-0 h-full w-full object-cover opacity-70 mix-blend-multiply"
-            loading="lazy"
-          />
-        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-3">
           <div className="flex-1 min-w-0">

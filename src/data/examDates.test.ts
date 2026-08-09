@@ -30,6 +30,22 @@ describe('exam data integrity', () => {
     }
   });
 
+  // Provenance is the whole point of allowing a countdown at all. A date with
+  // no note saying where it came from is indistinguishable from a guess.
+  it('a confirmed exam MUST record where the date came from', () => {
+    for (const e of EXAMS.filter((x) => x.status === 'confirmed')) {
+      expect(e.sourceNote, `${e.id}: confirmed with no sourceNote`).toBeTruthy();
+      expect((e.sourceNote ?? '').length, `${e.id}: sourceNote too thin to be evidence`).toBeGreaterThan(30);
+    }
+  });
+
+  it('covers the exams Indian students actually sit', () => {
+    const shorts = EXAMS.map((e) => e.short);
+    for (const must of ['JEE Main', 'NEET UG', 'CBSE Boards', 'TS EAPCET', 'AP EAPCET', 'KCET', 'MHT CET', 'WBJEE', 'BITSAT', 'COMEDK', 'VITEEE', 'CUET UG', 'CLAT']) {
+      expect(shorts, `missing ${must}`).toContain(must);
+    }
+  });
+
   it('an awaiting exam MUST NOT carry a date — that is the whole point', () => {
     for (const e of EXAMS.filter((x) => x.status === 'awaiting')) {
       expect(e.date, `${e.id}: awaiting but has a date; either confirm it or remove it`).toBeUndefined();
@@ -97,9 +113,15 @@ describe('selectors', () => {
     expect(awaitingDate(fixture).map((e) => e.id)).toEqual(['tbd']);
   });
 
-  it('as of today the real data has no confirmed dates — none were published', () => {
-    // Documents reality rather than asserting it forever: if this starts
-    // failing it is because a real date was added, which is the good outcome.
+  it('CLAT 2027 is the one confirmed date, verified from the Consortium PDF', () => {
+    const clat = EXAMS.find((e) => e.id === 'clat-2027');
+    expect(clat?.status).toBe('confirmed');
+    expect(clat?.date).toBe('2026-12-06');
+    // "Sunday, 6th December, 2026" per the official press release.
+    expect(new Date('2026-12-06T00:00:00').getDay(), 'the official notice says Sunday').toBe(0);
+  });
+
+  it('most exams are still awaiting a date — that is the honest state, not a bug', () => {
     expect(awaitingDate().length).toBeGreaterThan(0);
   });
 });

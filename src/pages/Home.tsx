@@ -352,12 +352,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         </div>
       </section>
 
-      {/* ── EXAM WATCH ── Sits AFTER the hero on purpose: the hero <h1> is the
-           LCP element and nothing new belongs above it. Static render, no
-           timers. */}
-      <ExamCountdownStrip />
-
-      {/* ── LIVE QUIZ SHOWCASE ── Also below the hero. Rotation starts 4s after
+      {/* ── LIVE QUIZ SHOWCASE ── Below the hero. Rotation starts 4s after
            mount via setTimeout (not requestIdleCallback), so it cannot compete
            with LCP. */}
       <LiveQuizShowcase />
@@ -642,6 +637,13 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           </div>
         </div>
       </section>
+
+      {/* ── EXAM WATCH ── Near the bottom deliberately. It led the page for one
+           release and looked bleak: as of Aug 2026 almost every 2027 date is
+           still unannounced, so the top of the home page was a wall of "not
+           announced yet". It belongs where a student goes looking for it, not
+           as the first thing they see. Static render, no timers. */}
+      <ExamCountdownStrip />
     </>
   );
 }
