@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v301-2026-08-08-defer-sdks-past-lcp';
+const CACHE_VERSION = 'syllab-v302-2026-08-09-exam-watch-quiz-tabbar';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
