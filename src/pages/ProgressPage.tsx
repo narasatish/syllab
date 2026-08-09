@@ -4,13 +4,17 @@ import { Activity, ArrowRight, ClipboardList, Flame, Gift, PlayCircle, Trophy, Z
 import { User as FirebaseUser } from 'firebase/auth';
 import { collection, doc, getDoc, onSnapshot, query, where } from 'firebase/firestore';
 import SEO from '../components/SEO';
-import { UserStats } from '../types';
+import { UserStats, UserProgress } from '../types';
 import { cn } from '../lib/utils';
 import { AVATAR_REWARDS, isAvatarUnlocked } from '../data/avatarRewards';
 import { getExtendedProfile, saveExtendedProfile } from '../lib/userProfile';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import { db } from '../lib/firebase';
 import MasteryProgress from '../components/MasteryProgress';
+import XpStreakRing from '../components/XpStreakRing';
+import SyllabusHeatmap from '../components/SyllabusHeatmap';
+import { SYLLABUS } from '../data/syllabus';
+import { getStreak } from '../lib/gamification';
 
 interface ActivityEvent {
   id: string;
@@ -108,6 +112,10 @@ interface ProgressPageProps {
   currentUser: FirebaseUser | null;
   stats: UserStats;
   setTab: (tab: string) => void;
+  /** Completed-chapter IDs drive the syllabus heatmap. */
+  progress?: UserProgress;
+  /** Which class's syllabus to draw. Empty means the student hasn't picked one. */
+  userClass?: string;
 }
 
 interface PausedSession {
@@ -118,7 +126,7 @@ interface PausedSession {
   active?: boolean;
 }
 
-export default function ProgressPage({ currentUser, stats, setTab }: ProgressPageProps) {
+export default function ProgressPage({ currentUser, stats, setTab, progress, userClass }: ProgressPageProps) {
   const { total: totalSkills } = useSkillsProgress();
   const [selectedAvatarId, setSelectedAvatarId] = useState('starter');
   const [pausedSession, setPausedSession] = useState<PausedSession | null>(null);
@@ -274,6 +282,26 @@ export default function ProgressPage({ currentUser, stats, setTab }: ProgressPag
           </button>
         </section>
       </div>
+
+      {/* XP ring + streak, and the syllabus heatmap.
+          Both are signed-in-only surfaces, which is why they live here rather
+          than on the homepage: ~97% of arrivals never sign in, so putting them
+          on / would add weight for people who can never see anything in them.
+          The heatmap renders nothing until a class is picked — an empty grid
+          for "no class selected" would look broken rather than empty. */}
+      <section className="grid gap-4 lg:grid-cols-2">
+        <div className="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm sm:p-6 dark:border-slate-800">
+          <h3 className="mb-4 text-base font-black tracking-tight">Your level</h3>
+          <XpStreakRing xp={stats.xp} streakDays={getStreak().count} />
+        </div>
+        {userClass ? (
+          <SyllabusHeatmap
+            chapters={SYLLABUS}
+            completedIds={progress?.completedChapters}
+            classLevel={userClass}
+          />
+        ) : null}
+      </section>
 
       {/* Mastery Progression */}
       <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50">

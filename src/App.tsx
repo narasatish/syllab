@@ -2087,7 +2087,7 @@ export default function App() {
                   {['learning_lab', 'study_arena', 'scan'].includes(activeTab) ? <LearningLabPage /> : null}
                   {activeTab === 'prep_hub' ? <PrepHubPage setTab={navigate} /> : null}
                   {activeTab === 'profile' ? <StudentProfilePage currentUser={currentUser} stats={stats} setTab={navigate} userClass={userClass} onClassChange={handleClassChange} onOpenLogin={() => setLoginModalOpen(true)} /> : null}
-                  {['progress', 'analytics'].includes(activeTab) ? <ProgressPage currentUser={currentUser} stats={stats} setTab={navigate} /> : null}
+                  {['progress', 'analytics'].includes(activeTab) ? <ProgressPage currentUser={currentUser} stats={stats} setTab={navigate} progress={progress} userClass={userClass} /> : null}
                   {activeTab === 'parent' ? <ParentDashboardPage currentUser={currentUser} setTab={navigate} /> : null}
                   {activeTab === 'about' ? <AboutPage /> : null}
                   {activeTab === 'contact' ? <ContactPage /> : null}
