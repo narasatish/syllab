@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { FULL_ARTICLES } from '../data/updateArticles';
+import ExamCountdownStrip from '../components/ExamCountdownStrip';
 import {
   Sparkles,
   ArrowRight,
@@ -349,6 +350,11 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           </div>
         </div>
       </section>
+
+      {/* ── EXAM WATCH ── Sits AFTER the hero on purpose: the hero <h1> is the
+           LCP element and nothing new belongs above it. Static render, no
+           timers. */}
+      <ExamCountdownStrip />
 
       {/* ── REAL-NUMBERS TRUST BAND + SNAP & SOLVE (conversion) ──────────────── */}
       <section className="reveal max-w-6xl mx-auto px-5 pt-10">
