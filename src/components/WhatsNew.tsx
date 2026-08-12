@@ -80,7 +80,7 @@ export default function WhatsNew({ onNavigate, onOpenArticle }: WhatsNewProps) {
     <section className="max-w-6xl mx-auto px-5 py-12 sm:py-16">
       {/* Section Header */}
       <div className="mb-12">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-700 text-[10px] font-black uppercase tracking-widest mb-4">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-700 text-[11px] font-black uppercase tracking-widest mb-4">
           <Sparkles size={13} />
           What's New
         </div>
@@ -118,7 +118,7 @@ export default function WhatsNew({ onNavigate, onOpenArticle }: WhatsNewProps) {
                     <ArrowRight size={16} />
                   </div>
                 </div>
-                <div className="mt-3 flex items-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                <div className="mt-3 flex items-center gap-2 text-[11px] text-slate-500 font-bold uppercase tracking-widest">
                   <span>{post.category}</span>
                   <span>•</span>
                   <span>{post.readTime}</span>

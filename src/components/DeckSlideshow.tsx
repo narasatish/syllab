@@ -74,7 +74,7 @@ export default function DeckSlideshow({ deck, onClose }: { deck: UploadedDeck; o
             {i === total - 1 ? 'Done' : <>Next <ArrowRight className="h-4 w-4" /></>}
           </button>
         </div>
-        <p className="mt-2 text-center text-[10px] font-bold uppercase tracking-widest text-slate-300">Slide {i + 1} of {total}</p>
+        <p className="mt-2 text-center text-[11px] font-bold uppercase tracking-widest text-slate-300">Slide {i + 1} of {total}</p>
       </div>
     </section>
   );

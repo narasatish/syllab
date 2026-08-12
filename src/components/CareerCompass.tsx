@@ -38,7 +38,7 @@ export default function CareerCompass({ subtitle, steps }: { subtitle: string; s
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400 text-sm font-black text-slate-900">{s.n}</span>
               <span className="text-white/40 transition-colors group-hover:text-amber-300">{s.icon}</span>
             </div>
-            <p className="mt-2.5 text-[10px] font-black uppercase tracking-widest text-amber-300/80">{s.label}</p>
+            <p className="mt-2.5 text-[11px] font-black uppercase tracking-widest text-amber-300/80">{s.label}</p>
             <h3 className="font-black text-white">{s.title}</h3>
             <p className="mt-0.5 text-xs leading-relaxed text-white/60">{s.desc}</p>
             <span className="mt-2 inline-flex items-center gap-1 text-xs font-black text-amber-300">{s.cta} <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" /></span>

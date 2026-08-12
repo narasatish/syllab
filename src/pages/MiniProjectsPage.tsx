@@ -379,13 +379,13 @@ export default function MiniProjectsPage() {
                 {project.concepts.slice(0, 3).map((concept) => (
                   <span
                     key={concept}
-                    className="px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-[10px] font-black"
+                    className="px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-[11px] font-black"
                   >
                     {concept}
                   </span>
                 ))}
                 {project.concepts.length > 3 && (
-                  <span className="text-[10px] font-black text-slate-500">+{project.concepts.length - 3}</span>
+                  <span className="text-[11px] font-black text-slate-500">+{project.concepts.length - 3}</span>
                 )}
               </div>
 

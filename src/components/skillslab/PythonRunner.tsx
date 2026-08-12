@@ -91,7 +91,7 @@ export default function PythonRunner({ initialCode, expectedOutput }: { initialC
       />
       {output ? (
         <div className="mt-3">
-          <p className="mb-1 text-[10px] font-black uppercase tracking-widest text-slate-400">Output</p>
+          <p className="mb-1 text-[11px] font-black uppercase tracking-widest text-slate-500">Output</p>
           <pre className="max-h-60 overflow-auto whitespace-pre-wrap rounded-xl bg-black/50 p-3 font-mono text-sm text-slate-100">{output}</pre>
           {passed === true ? (
             <p className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-emerald-400"><CheckCircle2 size={14} /> Correct — output matches!</p>

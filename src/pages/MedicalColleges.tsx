@@ -236,8 +236,8 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return <section className="mt-6"><h2 className="mb-2 flex items-center gap-2 text-base font-black text-slate-900 dark:text-slate-100"><ClipboardList size={16} className="text-primary" />{title}</h2>{children}</section>;
 }
 function Stat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
-  return <div className="rounded-xl border border-slate-100 bg-white p-2.5 text-center dark:border-slate-700 dark:bg-slate-800"><div className="mx-auto mb-1 flex justify-center text-primary">{icon}</div><p className="text-[10px] font-bold uppercase text-slate-400">{label}</p><p className="text-sm font-black text-slate-800 dark:text-slate-100">{value}</p></div>;
+  return <div className="rounded-xl border border-slate-100 bg-white p-2.5 text-center dark:border-slate-700 dark:bg-slate-800"><div className="mx-auto mb-1 flex justify-center text-primary">{icon}</div><p className="text-[11px] font-bold uppercase text-slate-500">{label}</p><p className="text-sm font-black text-slate-800 dark:text-slate-100">{value}</p></div>;
 }
 function Detail2({ label, value }: { label: string; value: string }) {
-  return <div className="rounded-xl bg-slate-50 p-3 dark:bg-slate-800"><p className="text-[10px] font-bold uppercase text-slate-400">{label}</p><p className="mt-0.5 font-black text-slate-800 dark:text-slate-100">{value}</p></div>;
+  return <div className="rounded-xl bg-slate-50 p-3 dark:bg-slate-800"><p className="text-[11px] font-bold uppercase text-slate-500">{label}</p><p className="mt-0.5 font-black text-slate-800 dark:text-slate-100">{value}</p></div>;
 }

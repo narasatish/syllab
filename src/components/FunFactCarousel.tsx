@@ -104,7 +104,7 @@ export default function FunFactCarousel() {
                 {current.emoji}
               </motion.div>
               <div className="flex-1 min-w-0">
-                <span className="inline-block rounded-full bg-white/20 backdrop-blur px-3 py-1 text-[10px] font-black uppercase tracking-widest mb-3">
+                <span className="inline-block rounded-full bg-white/20 backdrop-blur px-3 py-1 text-[11px] font-black uppercase tracking-widest mb-3">
                   {current.category}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black leading-tight mb-2 drop-shadow-md">

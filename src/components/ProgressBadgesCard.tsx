@@ -38,15 +38,15 @@ export default function ProgressBadgesCard({ xp }: { xp: number }) {
       <div className="flex gap-3">
         <div className="flex-1 rounded-2xl bg-orange-50 p-3 text-center dark:bg-orange-500/10">
           <p className="text-2xl font-black text-orange-600">🔥 {streak.count}</p>
-          <p className="text-[10px] font-black uppercase tracking-wide text-orange-400">Day streak</p>
+          <p className="text-[11px] font-black uppercase tracking-wide text-orange-400">Day streak</p>
         </div>
         <div className="flex-1 rounded-2xl bg-emerald-50 p-3 text-center dark:bg-emerald-500/10">
           <p className="text-2xl font-black text-emerald-600">🏅 {streak.best}</p>
-          <p className="text-[10px] font-black uppercase tracking-wide text-emerald-400">Best streak</p>
+          <p className="text-[11px] font-black uppercase tracking-wide text-emerald-400">Best streak</p>
         </div>
         <div className="flex-1 rounded-2xl bg-indigo-50 p-3 text-center dark:bg-indigo-500/10">
           <p className="text-2xl font-black text-indigo-600">{earned.length}/{BADGES.length}</p>
-          <p className="text-[10px] font-black uppercase tracking-wide text-indigo-400">Badges</p>
+          <p className="text-[11px] font-black uppercase tracking-wide text-indigo-400">Badges</p>
         </div>
       </div>
 
@@ -65,7 +65,7 @@ export default function ProgressBadgesCard({ xp }: { xp: number }) {
                 }`}
               >
                 <span className="text-2xl">{b.emoji}</span>
-                <span className="text-[10px] font-bold leading-tight text-slate-600 dark:text-slate-300">{b.name}</span>
+                <span className="text-[11px] font-bold leading-tight text-slate-600 dark:text-slate-300">{b.name}</span>
               </div>
             );
           })}

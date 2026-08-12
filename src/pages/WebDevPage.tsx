@@ -123,7 +123,7 @@ export default function WebDevPage() {
             >
               <div className="space-y-2">
                 <div className="inline-block bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1">
-                  <span className="text-emerald-700 text-[10px] font-black uppercase tracking-widest">{phase.phase}</span>
+                  <span className="text-emerald-700 text-[11px] font-black uppercase tracking-widest">{phase.phase}</span>
                 </div>
               </div>
               <ul className="space-y-3">

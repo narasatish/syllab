@@ -502,7 +502,7 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
       <section className="rounded-[2rem] bg-slate-900 p-6 text-white shadow-2xl sm:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-emerald-200">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-emerald-200">
               <CalendarDays size={14} />
               Daily streak challenge
             </div>
@@ -513,15 +513,15 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
           </div>
           <div className="grid grid-cols-3 gap-3">
             <div className="rounded-2xl bg-white/10 px-4 py-4">
-              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Timer</div>
+              <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">Timer</div>
               <div className="mt-1 flex items-center gap-2 text-xl font-black"><Clock size={18} /> {minutes}:{seconds}</div>
             </div>
             <div className="rounded-2xl bg-white/10 px-4 py-4">
-              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Score</div>
+              <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">Score</div>
               <div className="mt-1 text-xl font-black">{score}/{questions.length}</div>
             </div>
             <div className="rounded-2xl bg-white/10 px-4 py-4">
-              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Streak</div>
+              <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">Streak</div>
               <div className="mt-1 flex items-center gap-2 text-xl font-black"><Flame size={18} /> {streak}</div>
             </div>
           </div>
@@ -548,7 +548,7 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
 
       {category === 'Classes 5-10' ? (
         <section className="rounded-2xl bg-white p-4 shadow-sm">
-          <div className="mb-3 text-[10px] font-black uppercase tracking-widest text-slate-400">Choose class</div>
+          <div className="mb-3 text-[11px] font-black uppercase tracking-widest text-slate-500">Choose class</div>
           <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
             {CLASS_LEVELS.map((level) => (
               <button
@@ -587,7 +587,7 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
         ].map((item) => (
           <div key={item.label} className="rounded-2xl bg-white p-5 shadow-sm">
             <item.icon className="mb-3 text-primary" size={22} />
-            <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">{item.label}</div>
+            <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">{item.label}</div>
             <div className="mt-1 text-2xl font-black text-slate-900">{item.value}</div>
           </div>
         ))}
@@ -609,7 +609,7 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
           {current ? (
             <div className="space-y-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary">
+                <span className="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-primary">
                   {current.subject}
                 </span>
                 <span className="text-xs font-black text-slate-400">Question {index + 1} of {questions.length}</span>
@@ -695,7 +695,7 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
             </div>
             <div className="grid grid-cols-7 gap-2 text-center">
               {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, dayIndex) => (
-                <div key={`${day}-${dayIndex}`} className="text-[10px] font-black text-slate-400">{day}</div>
+                <div key={`${day}-${dayIndex}`} className="text-[11px] font-black text-slate-500">{day}</div>
               ))}
               {Array.from({ length: monthDays()[0].weekday }).map((_, index) => <div key={`blank-${index}`} />)}
               {monthDays().map((day) => {
@@ -739,13 +739,13 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
                 <div key={entry.id} className="flex items-center justify-between rounded-2xl bg-slate-50 p-3">
                   <div>
                     <div className="text-sm font-black text-slate-900">#{rank + 1} {entry.displayName}</div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    <div className="text-[11px] font-bold uppercase tracking-widest text-slate-500">
                       {entry.category}{entry.classLevel ? ` - Class ${entry.classLevel}` : ''} - {entry.date}
                     </div>
                   </div>
                     <div className="text-right">
                       <div className="text-sm font-black text-primary">{entry.score}/{entry.total}</div>
-                      <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                      <div className="text-[11px] font-bold uppercase tracking-widest text-slate-500">
                         {entry.durationSeconds ?? (180 - entry.secondsLeft)}s
                       </div>
                     </div>

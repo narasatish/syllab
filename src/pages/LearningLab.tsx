@@ -1,13 +1,14 @@
 ﻿import React from 'react';
 import { FileText, ScanLine, GraduationCap } from 'lucide-react';
+import { lazyWithRetry } from '../lib/lazyWithRetry';
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 
 type LabMode = 'study' | 'scan' | 'homework';
 
-const StudyArenaPage = React.lazy(() => import('./StudyArena'));
-const ScanAndSolve = React.lazy(() => import('./Scan'));
-const HomeworkPage = React.lazy(() => import('./Homework'));
+const StudyArenaPage = lazyWithRetry(() => import('./StudyArena'), 'StudyArena');
+const ScanAndSolve = lazyWithRetry(() => import('./Scan'), 'Scan');
+const HomeworkPage = lazyWithRetry(() => import('./Homework'), 'Homework');
 
 export default function LearningLabPage() {
   const [mode, setMode] = React.useState<LabMode>('study');
@@ -24,7 +25,7 @@ export default function LearningLabPage() {
       <section className="rounded-[2rem] bg-white p-5 shadow-xl shadow-slate-200/50 sm:p-7">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-primary">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-primary">
               <FileText size={14} />
               AI learning workspace
             </div>

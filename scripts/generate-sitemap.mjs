@@ -111,7 +111,12 @@ function buildUrls({ languages, topicsByLang }) {
   // (auth-gated, user-specific) and /sitemap is the in-app HTML sitemap — none
   // are prerendered, so they're intentionally EXCLUDED from the public sitemap
   // (listing them = soft-404s for crawlers).
-  for (const p of ['/about', '/contact', '/blog', '/terms', '/privacy']) {
+  // /terms and /privacy are deliberately NOT here. Both ship `noindex`, and a
+  // sitemap is a request to index — listing a noindexed page asks Google to
+  // crawl something we have told it to drop, which Search Console reports as
+  // "Excluded by noindex" against a submitted URL. They stay reachable and
+  // linked from the footer; they just are not advertised for indexing.
+  for (const p of ['/about', '/contact', '/blog']) {
     urls.push({ loc: p, priority: 0.6, changefreq: 'monthly' });
   }
 

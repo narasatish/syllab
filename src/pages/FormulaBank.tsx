@@ -103,7 +103,7 @@ export default function FormulaBank() {
           ) : (
             searchResults.map((group) => (
               <div key={group.topic} className="rounded-2xl bg-white shadow p-5">
-                <p className={cn('mb-3 text-[10px] font-black uppercase tracking-widest', subject.textColor)}>{group.topic}</p>
+                <p className={cn('mb-3 text-[11px] font-black uppercase tracking-widest', subject.textColor)}>{group.topic}</p>
                 <FormulaGrid items={group.items} subject={subject} />
               </div>
             ))
@@ -119,7 +119,7 @@ export default function FormulaBank() {
                 type="button"
                 onClick={() => { setActiveClass(i); setOpenTopics(new Set()); }}
                 className={cn(
-                  'rounded-2xl px-5 py-2.5 text-[10px] font-black uppercase tracking-widest transition-all',
+                  'rounded-2xl px-5 py-2.5 text-[11px] font-black uppercase tracking-widest transition-all',
                   activeClass === i
                     ? `bg-gradient-to-r ${subject.gradient} text-white shadow`
                     : 'bg-white text-slate-500 shadow hover:bg-slate-50',
@@ -145,7 +145,7 @@ export default function FormulaBank() {
                     <div className="flex items-center gap-3">
                       <div className={cn('h-2 w-2 rounded-full', `bg-gradient-to-r ${subject.gradient}`)} />
                       <span className="text-base font-black text-slate-800">{topicData.topic}</span>
-                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-black text-slate-500">
+                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-black text-slate-500">
                         {topicData.items.length} formulas
                       </span>
                     </div>
@@ -180,7 +180,7 @@ function FormulaGrid({
           key={i}
           className="rounded-xl border border-slate-100 bg-gradient-to-br from-slate-50 to-white p-4 shadow-sm"
         >
-          <p className={cn('mb-2 text-[10px] font-black uppercase tracking-widest', subject.textColor)}>
+          <p className={cn('mb-2 text-[11px] font-black uppercase tracking-widest', subject.textColor)}>
             {item.name}
           </p>
           <div className={cn(

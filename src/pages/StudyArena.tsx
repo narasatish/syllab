@@ -310,7 +310,7 @@ export default function StudyArenaPage() {
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={cn(
-                    'flex-1 py-3 px-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2',
+                    'flex-1 py-3 px-2 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2',
                     activeTab === tab
                       ? 'bg-primary text-white shadow-lg shadow-emerald-500/20'
                       : 'text-slate-400 hover:text-slate-600'
@@ -373,7 +373,7 @@ export default function StudyArenaPage() {
                       Active Recall <span className="text-orange-500 italic">Vault</span>
                     </h3>
                     {data.flashcards.length > 0 && (
-                      <div className="px-4 py-2 bg-orange-50 text-orange-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-orange-100">
+                      <div className="px-4 py-2 bg-orange-50 text-orange-600 rounded-full text-[11px] font-black uppercase tracking-widest border border-orange-100">
                         {data.flashcards.length} Cards Generated
                       </div>
                     )}
@@ -464,7 +464,7 @@ export default function StudyArenaPage() {
                       Adaptive <span className="text-emerald-500 italic">Assessment</span>
                     </h3>
                     {data.mcqs.length > 0 && (
-                      <div className="px-4 py-2 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-emerald-100">
+                      <div className="px-4 py-2 bg-emerald-50 text-emerald-600 rounded-full text-[11px] font-black uppercase tracking-widest border border-emerald-100">
                         {data.mcqs.length} Questions Ready
                       </div>
                     )}
@@ -521,7 +521,7 @@ export default function StudyArenaPage() {
                                   >
                                     <span
                                       className={cn(
-                                        'w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black transition-colors',
+                                        'w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-black transition-colors',
                                         hasAnswered && isOptionCorrect
                                           ? 'bg-emerald-200 text-emerald-800'
                                           : 'bg-slate-100 text-slate-500'

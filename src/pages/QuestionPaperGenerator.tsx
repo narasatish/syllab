@@ -193,7 +193,7 @@ export default function QuestionPaperGenerator() {
                     <li key={j} className="text-slate-700 dark:text-slate-300">({String.fromCharCode(97 + j)}) {o}</li>
                   ))}
                 </ol>
-                <p className="mt-0.5 text-[10px] text-slate-400">{q.chapter}</p>
+                <p className="mt-0.5 text-[11px] text-slate-500">{q.chapter}</p>
               </li>
             ))}
           </ol>

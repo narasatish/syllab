@@ -82,7 +82,7 @@ export default function Cutoffs() {
       {/* Cutoff table */}
       <div className="mt-3 overflow-x-auto rounded-2xl border border-slate-100 dark:border-slate-700">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 dark:bg-slate-800 text-[10px] font-black uppercase tracking-wide text-slate-400">
+          <thead className="bg-slate-50 dark:bg-slate-800 text-[11px] font-black uppercase tracking-wide text-slate-500">
             <tr><th className="px-3 py-2">College</th><th className="px-3 py-2">NIRF</th><th className="px-3 py-2">Indicative cutoff</th><th className="px-3 py-2">Avg pkg</th></tr>
           </thead>
           <tbody>

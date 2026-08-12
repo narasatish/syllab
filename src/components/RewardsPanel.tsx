@@ -43,7 +43,7 @@ export default function RewardsPanel({ xp, compact = false }: Props) {
             {level.emoji}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-[10px] font-black uppercase tracking-widest text-white/60">Level {level.level}</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-white/60">Level {level.level}</p>
             <h3 className="text-xl font-black truncate">{level.name}</h3>
             <p className="text-xs text-white/70 font-bold">{xp.toLocaleString()} XP</p>
           </div>
@@ -88,7 +88,7 @@ export default function RewardsPanel({ xp, compact = false }: Props) {
                     got ? 'border-amber-200 bg-amber-50' : 'border-slate-100 bg-slate-50 opacity-60'
                   }`}>
                   <span className={`text-3xl mb-1 ${got ? '' : 'grayscale'}`}>{got ? b.emoji : '🔒'}</span>
-                  <span className="text-[10px] font-black text-slate-700 leading-tight">{b.name}</span>
+                  <span className="text-[11px] font-black text-slate-700 leading-tight">{b.name}</span>
                   <span className="text-[11px] text-slate-500 leading-tight mt-0.5 line-clamp-2">{b.desc}</span>
                 </div>
               );

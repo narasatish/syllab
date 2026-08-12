@@ -136,7 +136,7 @@ export default function PyqPractice({ currentUser }: Props) {
         <button onClick={reset} className="inline-flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-primary">
           <ArrowLeft size={14} /> All papers
         </button>
-        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">syllab.in · PYQ-style</span>
+        <span className="text-[11px] font-black uppercase tracking-widest text-slate-500">syllab.in · PYQ-style</span>
       </div>
 
       <h2 className="text-xl font-black text-slate-900 mb-1">{exam.name} — Practice Paper</h2>
@@ -206,7 +206,7 @@ export default function PyqPractice({ currentUser }: Props) {
         </div>
       )}
 
-      <p className="mt-4 text-center text-[10px] text-slate-400">
+      <p className="mt-4 text-center text-[11px] text-slate-500">
         Original practice paper · syllab.in · not a reproduction of any official paper
       </p>
     </div>

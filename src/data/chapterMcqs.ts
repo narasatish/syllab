@@ -16311,7 +16311,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "11"
         ],
         "correct": 1,
-        "explanation": "8 plus 1 is 9."
+        "explanation": "Start at 8 and count on 1 more to reach 9."
       },
       {
         "q": "Rohan has 7 red balloons and 3 blue balloons. How many balloons does Rohan have altogether?",

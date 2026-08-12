@@ -159,7 +159,7 @@ export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab:
         <div className="grid gap-3 sm:grid-cols-2">
           {VISUAL_LESSONS.filter((l) => l.slug !== lesson.slug).map((l) => (
             <button key={l.slug} onClick={() => go(`/visual-learning/${l.slug}`)} className="rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
-              <p className="text-[10px] font-black uppercase tracking-widest text-primary">{l.subject}</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-primary">{l.subject}</p>
               <p className="mt-0.5 font-black text-slate-800 dark:text-slate-100">{l.title}</p>
             </button>
           ))}
@@ -183,7 +183,7 @@ export default function VisualLearning({ setTab, currentUser }: { setTab?: (tab:
           <button key={l.slug} onClick={() => go(`/visual-learning/${l.slug}`)} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800">
             <div className="aspect-[4/3] w-full bg-gradient-to-br from-sky-50 to-emerald-50 p-3 [&_svg]:h-full [&_svg]:w-full dark:from-slate-900 dark:to-slate-800" dangerouslySetInnerHTML={{ __html: l.steps[l.steps.length - 1].svg }} />
             <div className="p-4">
-              <p className="text-[10px] font-black uppercase tracking-widest text-primary">{l.subject} · {l.classLevel}</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-primary">{l.subject} · {l.classLevel}</p>
               <h2 className="mt-1 flex items-center gap-1.5 font-black text-slate-900 dark:text-slate-100"><PlayCircle size={16} className="text-primary" /> {l.title}</h2>
               <p className="mt-1 line-clamp-2 text-sm text-slate-500 dark:text-slate-400">{l.intro}</p>
             </div>

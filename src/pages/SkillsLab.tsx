@@ -145,7 +145,7 @@ function LivePreviewEditor({
           <button
             onClick={() => setTab('editor')}
             className={cn(
-              'flex items-center gap-1.5 px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all',
+              'flex items-center gap-1.5 px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-widest transition-all',
               tab === 'editor' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-400 hover:text-slate-600',
             )}
           >
@@ -154,7 +154,7 @@ function LivePreviewEditor({
           <button
             onClick={() => { run(); setTab('preview'); }}
             className={cn(
-              'flex items-center gap-1.5 px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all',
+              'flex items-center gap-1.5 px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-widest transition-all',
               tab === 'preview' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-400 hover:text-slate-600',
             )}
           >
@@ -163,7 +163,7 @@ function LivePreviewEditor({
         </div>
         <button
           onClick={() => { run(); setTab('preview'); }}
-          className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 text-white text-[10px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-sm shadow-emerald-500/30"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 text-white text-[11px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-sm shadow-emerald-500/30"
         >
           <Play size={12} /> Run
         </button>
@@ -172,7 +172,7 @@ function LivePreviewEditor({
             <button
               onClick={() => askAI('check')}
               disabled={aiLoading !== null || !code.trim()}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-violet-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-violet-700 transition-all disabled:opacity-50"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-violet-600 text-white text-[11px] font-black uppercase tracking-widest hover:bg-violet-700 transition-all disabled:opacity-50"
             >
               {aiLoading === 'check' ? <Loader2 size={12} className="animate-spin" /> : <Brain size={12} />}
               {aiLoading === 'check' ? 'Checking...' : 'AI Check'}
@@ -180,7 +180,7 @@ function LivePreviewEditor({
             <button
               onClick={() => askAI('hint')}
               disabled={aiLoading !== null}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest hover:bg-amber-600 transition-all disabled:opacity-50"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 text-white text-[11px] font-black uppercase tracking-widest hover:bg-amber-600 transition-all disabled:opacity-50"
             >
               {aiLoading === 'hint' ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} />}
               {aiLoading === 'hint' ? 'Thinking...' : 'Hint'}
@@ -209,7 +209,7 @@ function LivePreviewEditor({
             <div className="w-3 h-3 rounded-full bg-red-400" />
             <div className="w-3 h-3 rounded-full bg-yellow-400" />
             <div className="w-3 h-3 rounded-full bg-green-400" />
-            <span className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Preview</span>
+            <span className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">Preview</span>
           </div>
           <iframe
             srcDoc={preview}
@@ -225,7 +225,7 @@ function LivePreviewEditor({
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 flex gap-3">
           <Sparkles className="text-amber-600 shrink-0 mt-0.5" size={16} />
           <div className="flex-1">
-            <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 mb-1">Hint</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-amber-700 mb-1">Hint</p>
             <p className="text-sm leading-6 text-slate-700">{aiHint}</p>
           </div>
           <button onClick={() => setAiHint(null)} className="text-amber-600 hover:text-amber-800 text-xs">✕</button>
@@ -250,7 +250,7 @@ function LivePreviewEditor({
           <p className="text-sm leading-6 text-slate-700">{aiFeedback.summary}</p>
           {aiFeedback.strengths && aiFeedback.strengths.length > 0 && (
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-emerald-700 mb-1">✓ What's good</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-emerald-700 mb-1">✓ What's good</p>
               <ul className="space-y-1">
                 {aiFeedback.strengths.map((s, i) => <li key={i} className="text-sm text-slate-600">• {s}</li>)}
               </ul>
@@ -258,7 +258,7 @@ function LivePreviewEditor({
           )}
           {aiFeedback.improvements && aiFeedback.improvements.length > 0 && (
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 mb-1">→ Try this next</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-amber-700 mb-1">→ Try this next</p>
               <ul className="space-y-1">
                 {aiFeedback.improvements.map((s, i) => <li key={i} className="text-sm text-slate-600">• {s}</li>)}
               </ul>
@@ -339,7 +339,7 @@ function AIFeedbackEditor({
           >
             <RefreshCw size={12} />
           </button>
-          <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 bg-slate-800 px-2 py-1 rounded-lg">
+          <span className="text-[11px] font-black uppercase tracking-widest text-slate-500 bg-slate-800 px-2 py-1 rounded-lg">
             {language}
           </span>
         </div>
@@ -349,7 +349,7 @@ function AIFeedbackEditor({
         <button
           onClick={handleSubmit}
           disabled={loading !== null || !code.trim()}
-          className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-black text-[10px] uppercase tracking-widest hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-emerald-500/20"
+          className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-black text-[11px] uppercase tracking-widest hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-emerald-500/20"
         >
           {loading === 'check' ? <Loader2 size={13} className="animate-spin" /> : <Send size={13} />}
           {loading === 'check' ? 'Checking…' : 'Submit for AI Check'}
@@ -357,7 +357,7 @@ function AIFeedbackEditor({
         <button
           onClick={handleHint}
           disabled={loading !== null}
-          className="flex items-center gap-2 px-5 py-3 bg-amber-500 text-white rounded-xl font-black text-[10px] uppercase tracking-widest hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-50"
+          className="flex items-center gap-2 px-5 py-3 bg-amber-500 text-white rounded-xl font-black text-[11px] uppercase tracking-widest hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-50"
         >
           {loading === 'hint' ? <Loader2 size={13} className="animate-spin" /> : <Sparkles size={13} />}
           {loading === 'hint' ? 'Thinking…' : 'Get Hint'}
@@ -368,7 +368,7 @@ function AIFeedbackEditor({
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 flex gap-3">
           <Sparkles className="text-amber-600 shrink-0 mt-0.5" size={16} />
           <div className="flex-1">
-            <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 mb-1">Hint</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-amber-700 mb-1">Hint</p>
             <p className="text-sm leading-6 text-slate-700">{hint}</p>
           </div>
           <button onClick={() => setHint(null)} className="text-amber-600 hover:text-amber-800 text-xs">✕</button>
@@ -545,7 +545,7 @@ function PracticeChallenge({
         {p.hint && (
           <button
             onClick={() => setShowHint((v) => !v)}
-            className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors"
+            className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors"
           >
             <Lightbulb size={13} />
             {showHint ? 'Hide Hint' : 'Show Hint'}
@@ -582,7 +582,7 @@ function PracticeChallenge({
         <div>
           <button
             onClick={revealSolution}
-            className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors border border-amber-200 bg-amber-50 px-3 py-2 rounded-xl"
+            className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-amber-600 hover:text-amber-700 transition-colors border border-amber-200 bg-amber-50 px-3 py-2 rounded-xl"
           >
             {showSolution ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
             {showSolution ? '🙈 Hide Answer' : '💡 Show Answer (only after trying!)'}
@@ -731,7 +731,7 @@ function TopicContent({
           <button
             onClick={() => setShowTryIt((v) => !v)}
             className={cn(
-              'flex items-center gap-2 px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all',
+              'flex items-center gap-2 px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all',
               showTryIt
                 ? 'bg-slate-100 text-slate-600'
                 : `${lang.bgClass} ${lang.textClass} hover:opacity-80`,
@@ -1027,8 +1027,8 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
         <p className="mt-1 text-sm font-medium text-white/80">{lang.description}</p>
         {mkt && (
           <div className="mt-4 flex flex-wrap gap-3">
-            <span className="bg-white/20 rounded-xl px-3 py-1.5 text-[10px] font-black uppercase tracking-widest">{mkt.demand}</span>
-            <span className="bg-white/20 rounded-xl px-3 py-1.5 text-[10px] font-black uppercase tracking-widest">{mkt.trend}</span>
+            <span className="bg-white/20 rounded-xl px-3 py-1.5 text-[11px] font-black uppercase tracking-widest">{mkt.demand}</span>
+            <span className="bg-white/20 rounded-xl px-3 py-1.5 text-[11px] font-black uppercase tracking-widest">{mkt.trend}</span>
           </div>
         )}
       </div>
@@ -1050,7 +1050,7 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
       {/* Salary progression */}
       {sal && (
         <div className="rounded-2xl bg-white border border-slate-100 p-5 shadow-sm">
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">💰 Salary Growth Path (India)</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-4">💰 Salary Growth Path (India)</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {([
               { label: 'Fresher (0–1 yr)', value: sal.fresher, pct: 25 },
@@ -1073,7 +1073,7 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
       {/* Job roles + Companies */}
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-2xl bg-white border border-slate-100 shadow-sm p-5">
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">💼 Job Roles</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-3">💼 Job Roles</p>
           <ul className="space-y-2">
             {cg.roles.map((r, i) => (
               <li key={i} className="flex items-center gap-2 text-sm font-bold text-slate-700">
@@ -1085,11 +1085,11 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
         </div>
         <div className="rounded-2xl bg-white border border-slate-100 shadow-sm p-5 space-y-4">
           <div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">💰 Average Package</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-1">💰 Average Package</p>
             <p className={cn('text-2xl font-black', lang.textClass)}>{cg.avgSalary}</p>
           </div>
           <div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">🏢 Top Companies Hiring</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-2">🏢 Top Companies Hiring</p>
             <div className="flex flex-wrap gap-1.5">
               {cg.topCompanies.map((c) => (
                 <span key={c} className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-black text-slate-600">{c}</span>
@@ -1102,7 +1102,7 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
       {/* Learning path + Tip */}
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-2xl bg-white border border-slate-100 shadow-sm p-5">
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">🗺️ Learning Roadmap</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-3">🗺️ Learning Roadmap</p>
           <ol className="space-y-2">
             {cg.nextSkills.map((s, i) => (
               <li key={i} className="flex items-start gap-3">
@@ -1113,7 +1113,7 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
           </ol>
         </div>
         <div className={cn('rounded-2xl p-5 border-2', lang.borderClass, 'bg-white shadow-sm')}>
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">💡 Expert Career Tip</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-3">💡 Expert Career Tip</p>
           <p className={cn('text-base font-bold leading-relaxed', lang.textClass)}>"{cg.tip}"</p>
           <div className="mt-4 p-3 bg-slate-50 rounded-xl">
             <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-1">🎯 Quick Action</p>
@@ -1186,7 +1186,7 @@ function TopicNav({
       {prev ? (
         <button
           onClick={() => onSelect(prev.id)}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-slate-200 text-slate-600 text-[10px] font-black uppercase tracking-widest hover:border-slate-300 transition-all"
+          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-slate-200 text-slate-600 text-[11px] font-black uppercase tracking-widest hover:border-slate-300 transition-all"
         >
           <ChevronLeft size={14} />
           <span className="truncate max-w-[140px]">{prev.title}</span>
@@ -1197,7 +1197,7 @@ function TopicNav({
       {next ? (
         <button
           onClick={() => onSelect(next.id)}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-white text-[10px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
+          className="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-white text-[11px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
         >
           <span className="truncate max-w-[140px]">{next.title}</span>
           <ChevronRight size={14} />
@@ -1356,7 +1356,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
             <span className="text-xl">🎉</span>
             <div>
               <div className="text-sm">Topic Completed!</div>
-              <div className="text-[10px] font-black text-violet-200">+10 Skill Points · {pointsToast.topic}</div>
+              <div className="text-[11px] font-black text-violet-200">+10 Skill Points · {pointsToast.topic}</div>
             </div>
           </motion.div>
         )}
@@ -1410,7 +1410,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
         <div className="md:hidden absolute top-3 left-3 z-30">
           <button
             onClick={() => setSidebarOpen((v) => !v)}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-sm text-[10px] font-black uppercase tracking-widest text-slate-600"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-sm text-[11px] font-black uppercase tracking-widest text-slate-600"
           >
             <Menu size={14} />
             {sidebarOpen ? 'Close Menu' : 'Topics'}
@@ -1532,7 +1532,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
                         setTab('learning_lab');
                       }
                     }}
-                    className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-black text-[10px] uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20 shrink-0"
+                    className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-black text-[11px] uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20 shrink-0"
                   >
                     <Brain size={14} />
                     Ask AI Tutor

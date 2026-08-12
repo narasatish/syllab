@@ -55,7 +55,7 @@ function useSkillsProgress() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1.5">{label}</label>
+      <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 mb-1.5">{label}</label>
       {children}
     </div>
   );
@@ -198,13 +198,13 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
         <div className="flex items-center gap-5">
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-3xl shadow-lg shadow-emerald-500/30 select-none">{currentAvatar.icon}</div>
           <div>
-            <div className="text-[10px] font-black uppercase tracking-widest text-primary mb-0.5">{currentAvatar.name} · {currentAvatar.title}</div>
+            <div className="text-[11px] font-black uppercase tracking-widest text-primary mb-0.5">{currentAvatar.name} · {currentAvatar.title}</div>
             <h1 className="text-2xl font-black">{profile.personal.displayName || currentUser?.displayName || currentUser?.email || 'Student'}</h1>
             <div className="mt-2 flex gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2.5 py-1 text-[10px] font-black text-primary"><Trophy size={10} /> {stats.rank}</span>
-              <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-black text-slate-300"><Zap size={10} /> {stats.xp} XP</span>
-              <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-black text-slate-300"><Flame size={10} /> {stats.streak}d streak</span>
-              {userClass && <span className="inline-flex items-center gap-1 rounded-full bg-blue-500/20 px-2.5 py-1 text-[10px] font-black text-blue-300">Class {userClass}</span>}
+              <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2.5 py-1 text-[11px] font-black text-primary"><Trophy size={10} /> {stats.rank}</span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-black text-slate-300"><Zap size={10} /> {stats.xp} XP</span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-black text-slate-300"><Flame size={10} /> {stats.streak}d streak</span>
+              {userClass && <span className="inline-flex items-center gap-1 rounded-full bg-blue-500/20 px-2.5 py-1 text-[11px] font-black text-blue-300">Class {userClass}</span>}
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
       {/* Tab bar */}
       <div className="flex gap-1 rounded-2xl bg-slate-100 p-1.5 overflow-x-auto scrollbar-none">
         {PROFILE_TABS.map(t => (
-          <button key={t} type="button" onClick={() => setProfileTab(t)} className={cn('flex-shrink-0 rounded-xl px-3 py-2.5 text-[10px] font-black uppercase tracking-widest transition-all', tab === t ? 'bg-white text-secondary shadow-sm' : 'text-slate-500 hover:text-slate-700')}>
+          <button key={t} type="button" onClick={() => setProfileTab(t)} className={cn('flex-shrink-0 rounded-xl px-3 py-2.5 text-[11px] font-black uppercase tracking-widest transition-all', tab === t ? 'bg-white text-secondary shadow-sm' : 'text-slate-500 hover:text-slate-700')}>
             {t}
           </button>
         ))}
@@ -448,9 +448,9 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
         <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 space-y-6">
           <h2 className="text-xl font-black text-slate-900">Login & Security</h2>
           <div className="space-y-2">
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">Signed in as</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">Signed in as</p>
             <p className="text-sm font-bold text-slate-700">{currentUser?.email || '—'}</p>
-            <p className="text-[10px] font-bold text-slate-400">Provider: {currentUser?.providerData?.[0]?.providerId || 'email'}</p>
+            <p className="text-[11px] font-bold text-slate-500">Provider: {currentUser?.providerData?.[0]?.providerId || 'email'}</p>
           </div>
           {currentUser?.providerData?.[0]?.providerId !== 'google.com' && (
             <div className="space-y-4 border-t border-slate-100 pt-5">
@@ -493,7 +493,7 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
             <button type="button" onClick={() => { window.open(`mailto:support@syllab.in?subject=Account Deletion Request&body=UID: ${currentUser?.uid}`, '_blank'); }} className="flex items-center gap-2 rounded-xl bg-rose-50 px-4 py-2.5 text-xs font-black text-rose-700 hover:bg-rose-100 border border-rose-200 transition-colors">
               🗑️ Request Account Deletion
             </button>
-            <p className="text-[10px] text-slate-400 font-medium">Deletion requests are processed within 7 business days.</p>
+            <p className="text-[11px] text-slate-500 font-medium">Deletion requests are processed within 7 business days.</p>
           </div>
         </section>
       )}

@@ -39,15 +39,15 @@ function StudyStreak() {
         <div className="flex items-center gap-5">
           <div className="text-center">
             <div className="text-2xl font-black text-primary">🔥 {s}</div>
-            <div className="text-[10px] font-bold uppercase tracking-wide text-slate-400">day streak</div>
+            <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500">day streak</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-black text-slate-800 dark:text-slate-100">{t.focus}</div>
-            <div className="text-[10px] font-bold uppercase tracking-wide text-slate-400">focus sessions</div>
+            <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500">focus sessions</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-black text-slate-800 dark:text-slate-100">{t.flashcard}</div>
-            <div className="text-[10px] font-bold uppercase tracking-wide text-slate-400">cards reviewed</div>
+            <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500">cards reviewed</div>
           </div>
         </div>
         {/* last-7-days sparkline */}

@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { BarChart3, BookOpen, CheckCircle2, ChevronLeft, ChevronRight, ClipboardList, Clock, FlaskConical, Home, Medal, Menu, Plus, Share2, Trophy, Users, X, Zap } from 'lucide-react';
+import { lazyWithRetry } from '../lib/lazyWithRetry';
 import { User as FirebaseUser } from 'firebase/auth';
 import { addDoc, collection, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../lib/firebase';
@@ -22,7 +23,7 @@ import ShareResultCard from '../components/ShareResultCard';
 
 // Lazy: DiagramLab pulls ~14 per-class diagram data files (~480KB). It only
 // renders under the Diagrams tab, so keep it out of the initial MockTests chunk.
-const DiagramLab = React.lazy(() => import('./DiagramLab'));
+const DiagramLab = lazyWithRetry(() => import('./DiagramLab'), 'DiagramLab');
 
 type ExamSection = 'mocks' | 'olympiads' | 'formulas' | 'diagrams' | 'create' | 'live' | 'pyq';
 
@@ -684,7 +685,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
         {/* Hero */}
         <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
           <div className="max-w-3xl">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-primary">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-primary">
               <Trophy size={14} />
               Exams Hub
             </div>
@@ -695,7 +696,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
           </div>
           {/* SEO cross-links → per-exam mock-test landing pages */}
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="self-center text-[10px] font-black uppercase tracking-widest text-slate-400">Exam guides:</span>
+            <span className="self-center text-[11px] font-black uppercase tracking-widest text-slate-500">Exam guides:</span>
             {MOCK_EXAMS.map((e) => (
               <a key={e.slug} href={`/mock-tests/${e.slug}`} className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600 transition-colors hover:bg-emerald-100 hover:text-emerald-700">{e.name}</a>
             ))}
@@ -708,7 +709,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
                 type="button"
                 onClick={() => setActiveSection(tab.id)}
                 className={cn(
-                  'inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-[10px] font-black uppercase tracking-widest transition-all',
+                  'inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-[11px] font-black uppercase tracking-widest transition-all',
                   activeSection === tab.id
                     ? 'bg-primary text-white shadow-lg shadow-emerald-500/20'
                     : 'bg-slate-100 text-slate-500 hover:bg-slate-200',
@@ -880,7 +881,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
               /* Generated preview — Start + Share */
               <div className="space-y-5">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Custom Exam Ready</p>
+                  <p className="text-[11px] font-black uppercase tracking-widest text-emerald-600">Custom Exam Ready</p>
                   <h2 className="text-2xl font-black text-slate-900">{customExam.title}</h2>
                   <p className="mt-2 text-sm font-medium text-slate-500">
                     {customExam.questions.length} questions generated. Tap <strong>Start Exam</strong> when you're ready, or share the code with friends.
@@ -904,7 +905,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
                     <h3 className="text-sm font-black text-violet-700">Share with friends</h3>
                     <p className="mt-1 text-xs text-violet-600">Give this code to challenge classmates.</p>
                     <div className="mt-3 rounded-xl bg-white border border-violet-100 p-3 text-center">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-violet-500">Share Code</p>
+                      <p className="text-[11px] font-black uppercase tracking-widest text-violet-500">Share Code</p>
                       <p className="text-2xl font-black tracking-widest text-violet-700">{shareCode}</p>
                     </div>
                     <button
@@ -947,7 +948,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
                   <div className="space-y-5">
                     {/* Class */}
                     <div>
-                      <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400">Class</label>
+                      <label className="mb-2 block text-[11px] font-black uppercase tracking-widest text-slate-500">Class</label>
                       <div className="flex flex-wrap gap-2">
                         {['5','6','7','8','9','10','11','12'].map((c) => (
                           <button
@@ -966,7 +967,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
                     </div>
                     {/* Subjects */}
                     <div>
-                      <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400">Subjects (select one or more)</label>
+                      <label className="mb-2 block text-[11px] font-black uppercase tracking-widest text-slate-500">Subjects (select one or more)</label>
                       <div className="flex flex-wrap gap-2">
                         {(subjectOptions[createClass] || []).map((subj) => (
                           <button
@@ -989,7 +990,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
                     </div>
                     {/* Difficulty */}
                     <div>
-                      <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400">Difficulty Level</label>
+                      <label className="mb-2 block text-[11px] font-black uppercase tracking-widest text-slate-500">Difficulty Level</label>
                       <div className="flex gap-2">
                         {(['Easy', 'Medium', 'Hard'] as const).map((lvl) => (
                           <button
@@ -1008,7 +1009,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
                     </div>
                     {/* Number of questions */}
                     <div>
-                      <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400">Number of Questions</label>
+                      <label className="mb-2 block text-[11px] font-black uppercase tracking-widest text-slate-500">Number of Questions</label>
                       <div className="flex gap-2">
                         {[10, 20, 30].map((n) => (
                           <button
@@ -1039,7 +1040,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
                       <div className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-bold text-rose-700">{customError}</div>
                     )}
                     {customGenerating && (
-                      <p className="text-[10px] font-bold text-slate-400">This may take 10–30 seconds depending on subject count. We're fetching fresh questions from the AI backend.</p>
+                      <p className="text-[11px] font-bold text-slate-500">This may take 10–30 seconds depending on subject count. We're fetching fresh questions from the AI backend.</p>
                     )}
                   </div>
 
@@ -1100,7 +1101,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
                   <p className="mt-3 text-xs font-bold text-rose-600">{joinError}</p>
                 )}
                 {joinLoading && (
-                  <p className="mt-3 text-[10px] font-bold text-slate-400 text-center">Looking up exam… generating questions…</p>
+                  <p className="mt-3 text-[11px] font-bold text-slate-500 text-center">Looking up exam… generating questions…</p>
                 )}
               </div>
               {/* Host / create exam */}
@@ -1151,7 +1152,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
               <ChevronLeft size={14} />
               Back to Mocks
             </button>
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-primary">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-primary">
               <ClipboardList size={14} />
               Full test mode
             </div>
@@ -1269,11 +1270,11 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
       <section className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_320px]">
         <article className="rounded-[2rem] bg-white p-5 shadow-xl shadow-slate-200/50 sm:p-7">
           <div className="mb-5 flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary">
+            <span className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-primary">
               {current.subject}
             </span>
             {current.chapter ? (
-              <span className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-slate-500">
+              <span className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-slate-500">
                 {current.chapter}
               </span>
             ) : null}
@@ -1402,7 +1403,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
             <h2 className="text-lg font-black text-slate-900">Questions</h2>
             <span className="text-xs font-black text-slate-400">{Object.keys(answers).length} saved</span>
           </div>
-          <div className="mb-5 grid grid-cols-2 gap-2 text-[10px] font-bold text-slate-500">
+          <div className="mb-5 grid grid-cols-2 gap-2 text-[11px] font-bold text-slate-500">
             <Legend color="bg-emerald-500" label="Saved" />
             <Legend color="bg-amber-400" label="Review" />
             <Legend color="bg-rose-500" label="Unanswered" />
@@ -1411,7 +1412,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
           <div className="max-h-[calc(100dvh-300px)] overflow-y-auto pr-1">
             {['Physics', 'Chemistry', 'Mathematics'].map((subject) => (
               <div key={subject} className="mb-5">
-                <div className="mb-2 text-[10px] font-black uppercase tracking-widest text-slate-400">{subject}</div>
+                <div className="mb-2 text-[11px] font-black uppercase tracking-widest text-slate-500">{subject}</div>
                 <div className="grid grid-cols-5 gap-2">
                   {paper.questions.map((question, questionIndex) => question.subject === subject ? (
                     <button
@@ -1474,7 +1475,7 @@ function OlympiadCard({ olympiad, onStart }: { olympiad: OlympiadMeta; onStart: 
           <p className="text-xs font-bold text-slate-500">{olympiad.subtitle}</p>
         </div>
       </div>
-      <p className="mb-1 text-[10px] font-black uppercase tracking-widest text-slate-400">{olympiad.classes}</p>
+      <p className="mb-1 text-[11px] font-black uppercase tracking-widest text-slate-500">{olympiad.classes}</p>
       <div className="mb-4 flex flex-wrap gap-1">
         {olympiad.subjects.map((s) => (
           <button
@@ -1482,7 +1483,7 @@ function OlympiadCard({ olympiad, onStart }: { olympiad: OlympiadMeta; onStart: 
             type="button"
             onClick={(e) => { e.stopPropagation(); if (available) onStart(); }}
             disabled={!available}
-            className="rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-bold text-slate-600 hover:bg-white hover:text-slate-900 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="rounded-full bg-white/70 px-2 py-0.5 text-[11px] font-bold text-slate-600 hover:bg-white hover:text-slate-900 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {s}
           </button>
@@ -1490,7 +1491,7 @@ function OlympiadCard({ olympiad, onStart }: { olympiad: OlympiadMeta; onStart: 
       </div>
       <div className="mt-auto flex items-center justify-between gap-2">
         <span className={cn(
-          'rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest',
+          'rounded-full px-3 py-1 text-[11px] font-black uppercase tracking-widest',
           olympiad.difficulty === 'Expert' ? 'bg-rose-100 text-rose-700' :
           olympiad.difficulty === 'Advanced' ? 'bg-amber-100 text-amber-700' :
           olympiad.difficulty === 'Intermediate' ? 'bg-blue-100 text-blue-700' :
@@ -1500,12 +1501,12 @@ function OlympiadCard({ olympiad, onStart }: { olympiad: OlympiadMeta; onStart: 
           <button
             type="button"
             onClick={(e) => { e.stopPropagation(); onStart(); }}
-            className="rounded-full bg-slate-900 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-white hover:bg-slate-800"
+            className="rounded-full bg-slate-900 px-3 py-1.5 text-[11px] font-black uppercase tracking-widest text-white hover:bg-slate-800"
           >
             🎲 Generate Exam
           </button>
         ) : (
-          <span className="rounded-full bg-amber-100 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-amber-700">Coming Soon</span>
+          <span className="rounded-full bg-amber-100 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-amber-700">Coming Soon</span>
         )}
       </div>
     </div>
@@ -1531,7 +1532,7 @@ function OlympiadExamRunner({
     <div className="space-y-5">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Olympiad Exam · {total} Questions · Randomly Generated</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">Olympiad Exam · {total} Questions · Randomly Generated</p>
           <h3 className="text-xl font-black text-slate-900">{exam.title}</h3>
         </div>
         <div className="flex gap-2">
@@ -1692,7 +1693,7 @@ function MockTestsTabs({
               >
                 <span className="text-base">{cat.emoji}</span>
                 {cat.label}
-                <span className={cn('ml-1 rounded-full px-1.5 text-[10px]', active ? 'bg-white/20' : 'bg-slate-200 text-slate-500')}>
+                <span className={cn('ml-1 rounded-full px-1.5 text-[11px]', active ? 'bg-white/20' : 'bg-slate-200 text-slate-500')}>
                   {cat.exams.reduce((sum, e) => sum + getMocksByExam(e).length, 0)}
                 </span>
               </button>
@@ -1800,7 +1801,7 @@ function ResultScreen({
         <Trophy size={30} />
       </div>
       <div className="text-center">
-        <div className="mb-3 text-[10px] font-black uppercase tracking-widest text-primary">Test submitted</div>
+        <div className="mb-3 text-[11px] font-black uppercase tracking-widest text-primary">Test submitted</div>
         <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">{title}</h1>
         <p className="mt-3 text-sm font-medium text-slate-500">
           Your attempt has been saved. You can review detailed solutions here or from Progress Hub.
@@ -1817,7 +1818,7 @@ function ResultScreen({
           { label: 'XP Earned', value: `+${xpAward}` },
         ].map((item) => (
           <div key={item.label} className="rounded-2xl bg-slate-50 p-4 text-center">
-            <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">{item.label}</div>
+            <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">{item.label}</div>
             <div className="mt-1 text-2xl font-black text-slate-900">{item.value}</div>
           </div>
         ))}
@@ -1917,7 +1918,7 @@ function AnalysisPanel({
           { label: 'Time', value: timeStr },
         ].map((item) => (
           <div key={item.label} className="rounded-2xl bg-slate-50 p-4 text-center">
-            <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+            <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">
               {item.label}
             </div>
             <div className="mt-2 text-lg font-black text-slate-900 sm:text-2xl">

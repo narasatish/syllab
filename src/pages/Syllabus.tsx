@@ -140,7 +140,7 @@ function ChapterSummary({ chapter }: { chapter: Chapter }) {
         </span>
       </p>
       {status === 'loading' ? (
-        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary">
+        <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-primary">
           <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
           Generating summary
         </div>
@@ -167,7 +167,7 @@ function ChapterSummary({ chapter }: { chapter: Chapter }) {
               })
               .catch(() => setStatus('error'));
           }}
-          className="text-left text-[10px] font-black uppercase tracking-widest text-rose-500 hover:text-rose-700"
+          className="text-left text-[11px] font-black uppercase tracking-widest text-rose-500 hover:text-rose-700"
         >
           Could not refresh summary. Retry
         </button>
@@ -312,7 +312,7 @@ function ConceptView({
           <div className="p-8 md:p-12 space-y-10">
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 text-primary rounded-lg text-[10px] font-black uppercase tracking-widest border border-primary/10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 text-primary rounded-lg text-[11px] font-black uppercase tracking-widest border border-primary/10">
                   {concept.subject} &middot; Master Module
                 </div>
                 <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter leading-tight italic-serif">
@@ -322,7 +322,7 @@ function ConceptView({
                    <div className="h-1 flex-1 bg-slate-200 rounded-full overflow-hidden">
                       <div className="h-full bg-primary w-1/3" />
                    </div>
-                   <span className="text-[10px] font-black text-slate-400">33% Mastered</span>
+                   <span className="text-[11px] font-black text-slate-500">33% Mastered</span>
                 </div>
               </div>
 
@@ -341,7 +341,7 @@ function ConceptView({
                 <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-10">
                   <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
                     <div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-primary">Chapter Summary</div>
+                      <div className="text-[11px] font-black uppercase tracking-widest text-primary">Chapter Summary</div>
                       <h3 className="mt-2 text-2xl font-black tracking-tight text-slate-900">{concept.title}</h3>
                     </div>
                     <div className="rounded-2xl bg-primary/10 px-4 py-3 text-xs font-black uppercase tracking-widest text-primary">
@@ -352,7 +352,7 @@ function ConceptView({
                   <div className="grid gap-4">
                     {sections.map((section, index) => (
                       <div key={`${section}-${index}`} className="rounded-2xl bg-slate-50 p-5">
-                        <div className="mb-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary">
+                        <div className="mb-2 flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-primary">
                           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[11px] text-white">
                             {index + 1}
                           </span>
@@ -365,7 +365,7 @@ function ConceptView({
 
                   {keyTerms.length > 0 ? (
                     <div className="mt-8">
-                      <div className="mb-3 text-[10px] font-black uppercase tracking-widest text-slate-400">Key Words</div>
+                      <div className="mb-3 text-[11px] font-black uppercase tracking-widest text-slate-500">Key Words</div>
                       <div className="flex flex-wrap gap-2">
                         {keyTerms.map((term) => (
                           <span key={term} className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-600">
@@ -440,7 +440,7 @@ function ConceptView({
                     <div className="space-y-6">
                       {(concept.examTricks || ["Use dimensional analysis to eliminate options", "Identify symmetry in the problem", "Check boundary conditions first"]).map((t, i) => (
                         <div key={i} className="space-y-2">
-                           <div className="text-[10px] font-black uppercase text-amber-500 tracking-widest">Hack #{i+1}</div>
+                           <div className="text-[11px] font-black uppercase text-amber-500 tracking-widest">Hack #{i+1}</div>
                            <p className="text-sm font-bold text-amber-900 leading-relaxed">{t}</p>
                         </div>
                       ))}
@@ -460,7 +460,7 @@ function ConceptView({
                       </div>
                       <h5 className="text-xl font-black text-slate-900 mb-4">{ex.scenario}</h5>
                       <p className="text-slate-500 font-medium leading-relaxed mb-8 flex-1">{ex.details}</p>
-                      <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600 group-hover:gap-4 transition-all">
+                      <button className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] text-emerald-600 group-hover:gap-4 transition-all">
                         View Step-by-Step Solution <ArrowRight size={14} />
                       </button>
                     </div>
@@ -938,7 +938,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, s
                 <div className="flex h-full flex-col">
                   <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 sm:px-6">
                     <div className="min-w-0">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Preparing lesson</p>
+                      <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">Preparing lesson</p>
                       <p className="truncate text-sm font-black text-slate-900">{pptChapter?.title}</p>
                     </div>
                     <button
@@ -1049,7 +1049,13 @@ export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, s
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl md:text-3xl font-heading font-black mb-1 tracking-tight">📚 Curriculum Vault</h2>
+          {/* h1, not h2. The prerendered HTML for /syllabus carries an <h1>,
+              but once React hydrated, the page had NO <h1> at all — every
+              heading was an h2. Google renders JS, so it saw a 222k-character
+              page with no top-level heading, and screen-reader users got no
+              document title to orient from. This is the page's real subject,
+              so it is the h1. */}
+          <h1 className="text-2xl md:text-3xl font-heading font-black mb-1 tracking-tight">📚 Curriculum Vault</h1>
           <p className="text-slate-500 font-medium text-sm">
             Deep dive into concepts and practice with <span className="text-primary font-black">{totalQuestions.toLocaleString()}+</span> questions.
           </p>
@@ -1069,7 +1075,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, s
 
       {/* ── Board selector (clean dropdown) ────────────────────────────────── */}
       <div className="mt-4 flex items-center gap-3">
-        <span className="hidden sm:flex items-center shrink-0 w-20 text-[10px] font-black uppercase tracking-widest text-slate-400">Board</span>
+        <span className="hidden sm:flex items-center shrink-0 w-20 text-[11px] font-black uppercase tracking-widest text-slate-500">Board</span>
         <div className="relative">
           <select
             value={selectedBoard}
@@ -1094,7 +1100,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, s
       <div className="mt-3 space-y-2.5">
         {/* Class row */}
         <div className="flex items-center gap-3">
-          <span className="hidden sm:flex items-center gap-1.5 shrink-0 w-20 text-[10px] font-black uppercase tracking-widest text-slate-400">
+          <span className="hidden sm:flex items-center gap-1.5 shrink-0 w-20 text-[11px] font-black uppercase tracking-widest text-slate-500">
             <Filter size={13} /> Class
           </span>
           <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar flex-nowrap">
@@ -1115,7 +1121,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, s
 
         {/* Subject row */}
         <div className="flex items-center gap-3">
-          <span className="hidden sm:flex items-center shrink-0 w-20 text-[10px] font-black uppercase tracking-widest text-slate-400">
+          <span className="hidden sm:flex items-center shrink-0 w-20 text-[11px] font-black uppercase tracking-widest text-slate-500">
             Subject
           </span>
           <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar flex-nowrap">
@@ -1162,7 +1168,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, s
         <div className="mb-6 rounded-3xl border border-emerald-100 bg-gradient-to-r from-amber-50 via-white to-emerald-50 p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="text-4xl shrink-0">💰</div>
           <div className="flex-1">
-            <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Beyond School · Life Skills</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-emerald-600">Beyond School · Life Skills</p>
             <h3 className="font-black text-slate-900 text-lg leading-tight">Money &amp; Markets — the stuff school doesn't teach</h3>
             <p className="text-sm text-slate-600 mt-1">
               Saving, banking, stocks, currencies, gold, oil &amp; trade — Class 5 to 12, basics to advanced,
@@ -1215,7 +1221,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, s
                   <Pin size={14} fill={pinnedChapters.includes(chapter.id) ? "currentColor" : "none"} />
                 </button>
                 <span className={cn(
-                  "px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border shadow-sm",
+                  "px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest border shadow-sm",
                   chapter.subject === 'Physics' ? "bg-blue-50 text-blue-600 border-blue-100" :
                   chapter.subject === 'Chemistry' ? "bg-orange-50 text-orange-600 border-orange-100" :
                   chapter.subject === 'Biology' ? "bg-emerald-50 text-emerald-600 border-emerald-100" :
@@ -1258,14 +1264,14 @@ export default function SyllabusPage({ setTab, openTutor, syllabus = SYLLABUS, s
                   else if (htmlDeckUrl) setHtmlDeck({ url: htmlDeckUrl, chapter });
                   else { setLessonChapter(chapter); prewarmPptBackend(); }
                 }}
-                className="flex items-center justify-center gap-2 py-3.5 bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700 border border-violet-100 hover:border-violet-200 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest shadow-sm"
+                className="flex items-center justify-center gap-2 py-3.5 bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700 border border-violet-100 hover:border-violet-200 rounded-2xl transition-all font-black text-[11px] uppercase tracking-widest shadow-sm"
               >
                 <Sparkles size={14} />
                 Lesson
               </button>
               <button
                 onClick={openTutor}
-                className="flex items-center justify-center gap-2 py-3.5 bg-slate-50 hover:bg-white hover:text-primary border border-slate-100 hover:border-primary/20 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest text-slate-500 shadow-sm"
+                className="flex items-center justify-center gap-2 py-3.5 bg-slate-50 hover:bg-white hover:text-primary border border-slate-100 hover:border-primary/20 rounded-2xl transition-all font-black text-[11px] uppercase tracking-widest text-slate-500 shadow-sm"
               >
                 <Bot size={14} className="text-primary" />
                 AI Tutor

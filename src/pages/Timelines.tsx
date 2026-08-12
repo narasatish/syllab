@@ -62,7 +62,7 @@ export default function Timelines() {
         <div className="grid gap-3 sm:grid-cols-2">
           {TIMELINES.filter((t) => t.slug !== tl.slug).map((t) => (
             <button key={t.slug} onClick={() => go(`/timelines/${t.slug}`)} className="rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
-              <p className="text-[10px] font-black uppercase tracking-widest text-primary">{t.subject}</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-primary">{t.subject}</p>
               <p className="mt-0.5 font-black text-slate-800 dark:text-slate-100">{t.title}</p>
             </button>
           ))}
@@ -85,7 +85,7 @@ export default function Timelines() {
         {TIMELINES.map((t) => (
           <button key={t.slug} onClick={() => go(`/timelines/${t.slug}`)} className="group rounded-3xl border border-slate-200 bg-white p-5 text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800">
             <HistoryIcon size={22} className="text-primary" />
-            <p className="mt-3 text-[10px] font-black uppercase tracking-widest text-primary">{t.subject} · {t.classLevel}</p>
+            <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-primary">{t.subject} · {t.classLevel}</p>
             <h2 className="mt-1 font-black text-slate-900 dark:text-slate-100">{t.title}</h2>
             <p className="mt-1 line-clamp-2 text-sm text-slate-500 dark:text-slate-400">{t.intro}</p>
             <p className="mt-2 text-xs font-bold text-slate-400">{t.events.length} key events →</p>

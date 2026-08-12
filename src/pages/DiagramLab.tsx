@@ -60,7 +60,7 @@ export default function DiagramLab() {
             type="button"
             onClick={() => setActiveSubject(tab.id)}
             className={cn(
-              'inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-[10px] font-black uppercase tracking-widest transition-all text-white',
+              'inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-[11px] font-black uppercase tracking-widest transition-all text-white',
               activeSubject === tab.id ? `${tab.color} shadow-lg` : 'bg-slate-200 !text-slate-600 hover:bg-slate-300',
             )}
           >
@@ -77,7 +77,7 @@ export default function DiagramLab() {
             type="button"
             onClick={() => setActiveClass(tab.id)}
             className={cn(
-              'rounded-xl px-3.5 py-1.5 text-[10px] font-black uppercase tracking-widest transition-all',
+              'rounded-xl px-3.5 py-1.5 text-[11px] font-black uppercase tracking-widest transition-all',
               activeClass === tab.id
                 ? 'bg-indigo-600 text-white shadow-md'
                 : 'bg-slate-100 text-slate-500 hover:bg-slate-200',
@@ -154,7 +154,7 @@ export default function DiagramLab() {
                     </span>
                   </div>
                   <p className="mt-2 text-xs font-medium text-slate-500 line-clamp-2 leading-relaxed">{diagram.summary}</p>
-                  <p className={cn('mt-2 text-[10px] font-black', colors.text)}>{diagram.parts.length} labelled parts →</p>
+                  <p className={cn('mt-2 text-[11px] font-black', colors.text)}>{diagram.parts.length} labelled parts →</p>
                 </div>
               </button>
             );
@@ -200,10 +200,10 @@ function DiagramDetail({ diagram, onBack }: { diagram: Diagram; onBack: () => vo
         </div>
         <div className="p-6">
           <div className="flex flex-wrap gap-1.5 mb-2">
-            <span className={cn('rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest', colors.badge)}>
+            <span className={cn('rounded-full px-3 py-1 text-[11px] font-black uppercase tracking-widest', colors.badge)}>
               {diagram.subject}
             </span>
-            <span className="rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest bg-indigo-100 text-indigo-700">
+            <span className="rounded-full px-3 py-1 text-[11px] font-black uppercase tracking-widest bg-indigo-100 text-indigo-700">
               Class {diagram.classNumber} · {diagram.classRange}
             </span>
           </div>
@@ -216,9 +216,9 @@ function DiagramDetail({ diagram, onBack }: { diagram: Diagram; onBack: () => vo
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
           <h3 className="text-base font-black text-slate-900">Labelled Parts ({diagram.parts.length})</h3>
           <div className="flex gap-2">
-            <button onClick={expandAll}   className="text-[10px] font-black uppercase tracking-widest text-indigo-600 hover:underline">Expand all</button>
+            <button onClick={expandAll}   className="text-[11px] font-black uppercase tracking-widest text-indigo-600 hover:underline">Expand all</button>
             <span className="text-slate-300">|</span>
-            <button onClick={collapseAll} className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:underline">Collapse</button>
+            <button onClick={collapseAll} className="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:underline">Collapse</button>
           </div>
         </div>
         <div className="divide-y divide-slate-50">
@@ -248,14 +248,14 @@ function DiagramDetail({ diagram, onBack }: { diagram: Diagram; onBack: () => vo
 
       {diagram.funFact && (
         <div className="rounded-2xl bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 p-5">
-          <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 mb-2">🤩 Fun Fact</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-amber-700 mb-2">🤩 Fun Fact</p>
           <p className="text-sm font-medium leading-relaxed text-slate-700">{diagram.funFact}</p>
         </div>
       )}
 
       {diagram.examTip && (
         <div className="rounded-2xl bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-200 p-5">
-          <p className="text-[10px] font-black uppercase tracking-widest text-indigo-700 mb-2">🎯 Exam Tip</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-indigo-700 mb-2">🎯 Exam Tip</p>
           <p className="text-sm font-bold leading-relaxed text-slate-800">{diagram.examTip}</p>
         </div>
       )}

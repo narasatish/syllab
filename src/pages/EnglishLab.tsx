@@ -104,7 +104,7 @@ export default function EnglishLab({ currentUser }: EnglishLabProps) {
       <section className="rounded-[2rem] bg-gradient-to-br from-sky-500 via-indigo-600 to-violet-600 p-7 text-white shadow-2xl shadow-indigo-500/20 sm:p-9">
         <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
           <div className="max-w-3xl">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-[11px] font-black uppercase tracking-widest">
               <BookOpen size={12} /> English Lab
             </div>
             <h1 className="text-3xl font-black tracking-tight sm:text-5xl">Master English, Step by Step</h1>
@@ -114,7 +114,7 @@ export default function EnglishLab({ currentUser }: EnglishLabProps) {
           </div>
           {/* Level selector */}
           <div className="shrink-0 rounded-2xl bg-white/15 p-4 backdrop-blur">
-            <p className="mb-2 text-[10px] font-black uppercase tracking-widest text-white/70">Your Level</p>
+            <p className="mb-2 text-[11px] font-black uppercase tracking-widest text-white/70">Your Level</p>
             <div className="flex flex-col gap-1.5">
               {LEVELS.map((lv) => (
                 <button
@@ -146,7 +146,7 @@ export default function EnglishLab({ currentUser }: EnglishLabProps) {
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  'inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap',
+                  'inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-[11px] font-black uppercase tracking-widest transition-all whitespace-nowrap',
                   activeTab === tab.id
                     ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/20'
                     : 'text-slate-500 hover:bg-slate-100',
@@ -267,7 +267,7 @@ function DailyChallenge({ level, currentUser }: { level: Level; currentUser: Fir
 
       {/* Grammar tip */}
       <div className="rounded-[2rem] bg-white p-6 shadow sm:p-8">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-violet-100 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-violet-700">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-violet-100 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-violet-700">
           <GraduationCap size={11} /> Grammar Tip
         </div>
         <h3 className="text-xl font-black text-slate-900">{grammar.title}</h3>
@@ -283,7 +283,7 @@ function DailyChallenge({ level, currentUser }: { level: Level; currentUser: Fir
 
       {/* 5 Vocab words */}
       <div className="rounded-[2rem] bg-white p-6 shadow sm:p-8">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-sky-100 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-sky-700">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-sky-100 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-sky-700">
           <Sparkles size={11} /> 5 Words to Learn
         </div>
         <h3 className="text-xl font-black text-slate-900">Today's Vocabulary</h3>
@@ -299,7 +299,7 @@ function DailyChallenge({ level, currentUser }: { level: Level; currentUser: Fir
           ))}
         </div>
         <div className="mt-4 rounded-xl bg-gradient-to-r from-pink-50 to-violet-50 p-4 border border-pink-100">
-          <p className="text-[10px] font-black uppercase tracking-widest text-pink-600">⭐ Word of the Day</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-pink-600">⭐ Word of the Day</p>
           <p className="mt-1 text-2xl font-black text-pink-700">{word.word}</p>
           <p className="text-sm font-medium text-slate-600">{word.meaning}</p>
           <p className="mt-1 text-xs italic text-slate-500">"{word.example}"</p>
@@ -308,7 +308,7 @@ function DailyChallenge({ level, currentUser }: { level: Level; currentUser: Fir
 
       {/* Short reading */}
       <div className="rounded-[2rem] bg-white p-6 shadow sm:p-8">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-emerald-700">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-emerald-700">
           <BookOpen size={11} /> Short Reading
         </div>
         <h3 className="text-xl font-black text-slate-900">{passage.title}</h3>
@@ -352,13 +352,13 @@ function ReadingSection({ level }: { level: Level }) {
     <section className="rounded-[2rem] bg-white p-6 shadow sm:p-8">
       <div className="mb-4 flex items-center justify-between gap-3 flex-wrap">
         <div>
-          <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">
+          <p className="text-[11px] font-black uppercase tracking-widest text-emerald-600">
             Passage {idx + 1} of {set.length} · {allPassages.length} total
           </p>
           <h2 className="text-2xl font-black text-slate-900">{passage.title}</h2>
         </div>
         <div className="flex gap-2">
-          <button onClick={newSet} className="inline-flex items-center gap-1.5 rounded-xl bg-violet-100 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-violet-700 hover:bg-violet-200" title="Reshuffle all passages in a new order"><Shuffle size={13} />New Set</button>
+          <button onClick={newSet} className="inline-flex items-center gap-1.5 rounded-xl bg-violet-100 px-3 py-2 text-[11px] font-black uppercase tracking-widest text-violet-700 hover:bg-violet-200" title="Reshuffle all passages in a new order"><Shuffle size={13} />New Set</button>
           <button onClick={prev} className="rounded-xl bg-slate-100 p-2 hover:bg-slate-200"><ChevronLeft size={18} /></button>
           <button onClick={next} className="rounded-xl bg-slate-100 p-2 hover:bg-slate-200"><ChevronRight size={18} /></button>
         </div>
@@ -447,12 +447,12 @@ function ListeningSection({ level }: { level: Level }) {
     <section className="rounded-[2rem] bg-white p-6 shadow sm:p-8">
       <div className="mb-5 flex items-center justify-between flex-wrap gap-3">
         <div>
-          <p className="text-[10px] font-black uppercase tracking-widest text-sky-600">
+          <p className="text-[11px] font-black uppercase tracking-widest text-sky-600">
             Test {idx + 1} of {set.length} · {allTests.length} total
           </p>
           <h2 className="text-2xl font-black text-slate-900">Listen and answer</h2>
         </div>
-        <button onClick={newSet} className="inline-flex items-center gap-1.5 rounded-xl bg-violet-100 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-violet-700 hover:bg-violet-200" title="Reshuffle all tests in a new order"><Shuffle size={13} />New Set</button>
+        <button onClick={newSet} className="inline-flex items-center gap-1.5 rounded-xl bg-violet-100 px-3 py-2 text-[11px] font-black uppercase tracking-widest text-violet-700 hover:bg-violet-200" title="Reshuffle all tests in a new order"><Shuffle size={13} />New Set</button>
       </div>
       <button
         type="button"
@@ -550,14 +550,14 @@ function WritingSection({ level }: { level: Level }) {
     <section className="rounded-[2rem] bg-white p-6 shadow sm:p-8">
       <div className="mb-4 flex items-start justify-between gap-3 flex-wrap">
         <div>
-          <p className="text-[10px] font-black uppercase tracking-widest text-amber-600">
+          <p className="text-[11px] font-black uppercase tracking-widest text-amber-600">
             Prompt {idx + 1} of {set.length} · {allPrompts.length} total
           </p>
           <h2 className="mt-1 text-xl font-black text-slate-900">{prompt.topic}</h2>
           <p className="mt-2 text-sm font-medium text-amber-700">💡 Hint: {prompt.hint}</p>
           <p className="mt-1 text-xs text-slate-400">Aim for at least {prompt.minWords} words.</p>
         </div>
-        <button onClick={newSet} className="inline-flex items-center gap-1.5 rounded-xl bg-violet-100 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-violet-700 hover:bg-violet-200" title="Reshuffle all prompts in a new order"><Shuffle size={13} />New Set</button>
+        <button onClick={newSet} className="inline-flex items-center gap-1.5 rounded-xl bg-violet-100 px-3 py-2 text-[11px] font-black uppercase tracking-widest text-violet-700 hover:bg-violet-200" title="Reshuffle all prompts in a new order"><Shuffle size={13} />New Set</button>
       </div>
       <textarea
         value={essay}
@@ -565,7 +565,7 @@ function WritingSection({ level }: { level: Level }) {
         placeholder="Start writing here..."
         className="h-48 w-full rounded-2xl border-2 border-slate-200 bg-slate-50 p-4 text-sm font-medium leading-relaxed focus:border-amber-400 focus:bg-white outline-none"
       />
-      <div className="mt-2 flex items-center justify-between text-[10px] font-bold text-slate-400">
+      <div className="mt-2 flex items-center justify-between text-[11px] font-bold text-slate-500">
         <span>Words: {essay.trim().split(/\s+/).filter(Boolean).length} / {prompt.minWords}</span>
       </div>
       <div className="mt-4 flex gap-2 flex-wrap">
@@ -610,7 +610,7 @@ function GrammarSection({ level }: { level: Level }) {
     <section className="rounded-[2rem] bg-white p-6 shadow sm:p-8">
       <div className="mb-5 flex items-center justify-between flex-wrap gap-3">
         <div>
-          <p className="text-[10px] font-black uppercase tracking-widest text-violet-600">Lesson {idx + 1} of {lessons.length}</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-violet-600">Lesson {idx + 1} of {lessons.length}</p>
           <h2 className="text-2xl font-black text-slate-900">{lesson.title}</h2>
         </div>
         <div className="flex gap-2">
@@ -621,14 +621,14 @@ function GrammarSection({ level }: { level: Level }) {
 
       {/* What is */}
       <div className="rounded-2xl bg-gradient-to-br from-violet-50 to-indigo-50 p-5 border border-violet-100">
-        <p className="text-[10px] font-black uppercase tracking-widest text-violet-600">📖 What is it?</p>
+        <p className="text-[11px] font-black uppercase tracking-widest text-violet-600">📖 What is it?</p>
         <p className="mt-1.5 text-base font-medium leading-relaxed text-slate-800">{lesson.whatIs}</p>
       </div>
 
       {/* Examples */}
       {lesson.examples?.length ? (
         <div className="mt-4 rounded-2xl bg-slate-50 border border-slate-100 p-5">
-          <p className="mb-3 text-[10px] font-black uppercase tracking-widest text-emerald-600">✨ Examples</p>
+          <p className="mb-3 text-[11px] font-black uppercase tracking-widest text-emerald-600">✨ Examples</p>
           <ul className="space-y-2">
             {lesson.examples.map((ex, i) => (
               <li key={i} className="rounded-xl bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
@@ -642,7 +642,7 @@ function GrammarSection({ level }: { level: Level }) {
       {/* Rule */}
       {lesson.rule && (
         <div className="mt-4 rounded-2xl bg-amber-50 border-2 border-amber-200 p-5">
-          <p className="text-[10px] font-black uppercase tracking-widest text-amber-700">📏 Key Rule</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-amber-700">📏 Key Rule</p>
           <p className="mt-1.5 text-sm font-bold text-amber-900">{lesson.rule}</p>
         </div>
       )}
@@ -650,14 +650,14 @@ function GrammarSection({ level }: { level: Level }) {
       {/* Common mistake */}
       {lesson.commonMistake && (
         <div className="mt-4 rounded-2xl bg-rose-50 border border-rose-200 p-5">
-          <p className="text-[10px] font-black uppercase tracking-widest text-rose-700">⚠️ Common Mistake</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-rose-700">⚠️ Common Mistake</p>
           <p className="mt-1.5 text-sm font-bold text-rose-900">{lesson.commonMistake}</p>
         </div>
       )}
 
       {/* Quiz */}
       <div className="mt-6 rounded-2xl bg-white border-2 border-slate-100 p-5">
-        <p className="mb-3 text-[10px] font-black uppercase tracking-widest text-indigo-600">🎯 Quick Quiz</p>
+        <p className="mb-3 text-[11px] font-black uppercase tracking-widest text-indigo-600">🎯 Quick Quiz</p>
         <div className="space-y-4">
           {lesson.quiz.map((q, qi) => (
             <div key={qi}>
@@ -725,7 +725,7 @@ function VocabSection({ level }: { level: Level }) {
         href="/vocabulary"
         className="block rounded-[2rem] border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-6 shadow transition-all hover:border-emerald-400 sm:p-8"
       >
-        <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">📚 Vocabulary Reference Library</p>
+        <p className="text-[11px] font-black uppercase tracking-widest text-emerald-600">📚 Vocabulary Reference Library</p>
         <h2 className="mt-2 text-xl font-black text-slate-900">Idioms, Proverbs, One-Word Substitutions, Synonyms &amp; Antonyms</h2>
         <p className="mt-2 text-sm font-semibold text-slate-600">
           Browse the full collection of exam-ready vocabulary sets with meanings and example sentences →
@@ -734,7 +734,7 @@ function VocabSection({ level }: { level: Level }) {
 
       {/* Word of the Day */}
       <div className="rounded-[2rem] bg-gradient-to-br from-pink-100 to-purple-100 p-6 shadow sm:p-8">
-        <p className="text-[10px] font-black uppercase tracking-widest text-pink-700">⭐ Word of the Day</p>
+        <p className="text-[11px] font-black uppercase tracking-widest text-pink-700">⭐ Word of the Day</p>
         <h2 className="mt-2 text-5xl font-black text-pink-700">{wordOfDay.word}</h2>
         <p className="mt-2 text-lg font-bold text-slate-700">{wordOfDay.meaning}</p>
         <p className="mt-2 text-base italic text-slate-600">"{wordOfDay.example}"</p>
@@ -744,7 +744,7 @@ function VocabSection({ level }: { level: Level }) {
       <div className="rounded-[2rem] bg-white p-6 shadow sm:p-8">
         <div className="mb-4 flex items-center justify-between">
           <div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-violet-600">Flashcards</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-violet-600">Flashcards</p>
             <h2 className="text-xl font-black text-slate-900">Tap card to flip</h2>
           </div>
           <p className="text-xs font-black text-slate-400">{flashIdx + 1} / {words.length}</p>
@@ -756,13 +756,13 @@ function VocabSection({ level }: { level: Level }) {
         >
           {!showMeaning ? (
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-violet-500">English Word</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-violet-500">English Word</p>
               <p className="mt-4 text-4xl font-black text-violet-700">{card.word}</p>
               <p className="mt-4 text-xs font-bold text-violet-400">tap to see meaning</p>
             </div>
           ) : (
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-pink-500">Meaning</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-pink-500">Meaning</p>
               <p className="mt-3 text-lg font-bold text-pink-700">{card.meaning}</p>
               <p className="mt-2 text-sm italic text-slate-600">"{card.example}"</p>
             </div>
@@ -829,7 +829,7 @@ function StoriesSection({ level }: { level: Level }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-3">
           <div className="flex-1 min-w-0">
-            <p className="text-[10px] font-black uppercase tracking-widest text-white/90">{story.category} · Story {idx + 1} of {stories.length}</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-white/90">{story.category} · Story {idx + 1} of {stories.length}</p>
             <h2 className="mt-1 text-3xl sm:text-4xl font-black text-white drop-shadow">{story.title}</h2>
           </div>
           <div className="text-6xl sm:text-7xl drop-shadow-lg" aria-hidden>{story.emoji}</div>
@@ -851,7 +851,7 @@ function StoriesSection({ level }: { level: Level }) {
         <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-rose-50 p-6 border border-amber-100">
           <div className="text-base font-medium leading-relaxed text-slate-700 whitespace-pre-line">{story.content}</div>
           <div className="mt-5 rounded-xl bg-emerald-100 border border-emerald-200 p-4">
-            <p className="text-[10px] font-black uppercase tracking-widest text-emerald-700">🌟 Moral of the Story</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-emerald-700">🌟 Moral of the Story</p>
             <p className="mt-1 text-base italic font-bold text-emerald-800">{story.moral}</p>
           </div>
         </div>

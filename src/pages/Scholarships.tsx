@@ -46,8 +46,8 @@ export default function Scholarships() {
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <h2 className="text-base font-black text-slate-900 dark:text-slate-100">{s.name}</h2>
-                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-black text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">{s.category}</span>
-                  {s.level ? <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600 dark:bg-slate-700 dark:text-slate-300">{s.level}</span> : null}
+                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-black text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">{s.category}</span>
+                  {s.level ? <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-600 dark:bg-slate-700 dark:text-slate-300">{s.level}</span> : null}
                 </div>
                 <p className="mt-0.5 text-[11px] font-bold text-slate-500">{s.provider}</p>
                 <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">{s.forWhom}</p>

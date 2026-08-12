@@ -641,15 +641,15 @@ export default function BlogPage({ setTab }: BlogPageProps) {
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-3 mb-2">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full dark:text-emerald-400 dark:bg-emerald-900/30">
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full dark:text-emerald-400 dark:bg-emerald-900/30">
                         <Tag size={10} />
                         {post.category}
                       </span>
-                      <span className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400 dark:text-slate-500">
+                      <span className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 dark:text-slate-500">
                         <Clock size={10} />
                         {post.readTime}
                       </span>
-                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{post.date}</span>
+                      <span className="text-[11px] font-bold text-slate-500 dark:text-slate-500">{post.date}</span>
                     </div>
                     <h2 className="text-lg sm:text-xl font-black text-slate-900 leading-tight mb-2 dark:text-white">
                       {post.title}
@@ -709,12 +709,12 @@ export default function BlogPage({ setTab }: BlogPageProps) {
         {allPosts.length > 0 && (
           <div className="flex justify-center items-center gap-4 mt-8">
             {allPosts.length <= 9 ? (
-              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+              <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">
                 Showing {allPosts.length} article{allPosts.length !== 1 ? 's' : ''}
               </p>
             ) : (
               <>
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">
                   Showing {Math.min(visibleCount, allPosts.length)} of {allPosts.length}
                 </p>
                 {visibleCount < allPosts.length && (

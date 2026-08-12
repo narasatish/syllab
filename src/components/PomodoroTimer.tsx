@@ -167,7 +167,7 @@ export default function PomodoroTimer() {
             <button
               onClick={() => setIsExpanded(true)}
               aria-label="Open focus timer"
-              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center font-black text-[10px] sm:text-xs"
+              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center font-black text-[11px] sm:text-xs"
             >
               {formatTime(state.timeLeft)}
             </button>
@@ -199,7 +199,7 @@ export default function PomodoroTimer() {
                 <div className="flex items-center gap-1.5">
                   <button
                     onClick={hidePermanently}
-                    className="rounded-lg px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white/80 hover:bg-white/20 hover:text-white transition-colors"
+                    className="rounded-lg px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-white/80 hover:bg-white/20 hover:text-white transition-colors"
                     title="Hide the timer permanently"
                   >
                     Hide

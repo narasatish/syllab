@@ -203,7 +203,7 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
             </div>
           ) : slide ? (
             <>
-              <div className={`mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r px-3.5 py-1.5 text-[10px] font-black uppercase tracking-widest text-white ${meta.grad}`}>
+              <div className={`mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r px-3.5 py-1.5 text-[11px] font-black uppercase tracking-widest text-white ${meta.grad}`}>
                 <meta.Icon className="h-3.5 w-3.5" /> {meta.label}
                 {slide.emoji ? <span className="text-sm">{slide.emoji}</span> : null}
               </div>
@@ -235,7 +235,7 @@ export default function StoryLessonViewer({ lesson, onClose }: { lesson: StoryLe
 
               {slide.example && (
                 <div className="mt-5 rounded-2xl border border-orange-200 bg-orange-50/70 p-4 sm:p-5">
-                  <p className="mb-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-orange-700"><PenLine className="h-3.5 w-3.5" /> Worked Example</p>
+                  <p className="mb-2 flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-orange-700"><PenLine className="h-3.5 w-3.5" /> Worked Example</p>
                   <p className="font-semibold text-slate-800">{slide.example.problem}</p>
                   <p className="mt-2 leading-7 text-slate-700"><span className="font-black text-orange-700">Solution: </span>{slide.example.solution}</p>
                 </div>

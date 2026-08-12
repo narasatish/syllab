@@ -746,7 +746,7 @@ export default function StudyRoom({ onExit, userUid, userName }: Props) {
             <ul className="space-y-2">
               {EXAM_COUNTDOWNS.map((ex) => (
                 <li key={ex.name} className="flex items-center justify-between gap-2 text-sm">
-                  <span className="font-bold text-white/80">{ex.emoji} {ex.name} <span className="text-[10px] font-medium text-white/40">(expected)</span></span>
+                  <span className="font-bold text-white/80">{ex.emoji} {ex.name} <span className="text-[11px] font-medium text-white/40">(expected)</span></span>
                   <span className="shrink-0 rounded-full bg-emerald-500/20 px-2 py-0.5 text-xs font-black text-emerald-300">{daysUntil(ex.date)}d</span>
                 </li>
               ))}

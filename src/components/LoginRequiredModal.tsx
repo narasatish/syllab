@@ -59,7 +59,7 @@ export default function LoginRequiredModal({ isOpen, onClose, message }: LoginRe
                   Login to Syllab
                 </button>
                 
-                <div className="flex items-center gap-2 justify-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+                <div className="flex items-center gap-2 justify-center text-[11px] font-black uppercase tracking-[0.2em] text-slate-500">
                   <Sparkles size={12} className="text-primary" />
                   Join 12,500+ Top Scholars
                 </div>

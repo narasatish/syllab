@@ -599,7 +599,7 @@ export default function ArenaPage({
               }}
             />
             <div className="relative z-10 max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/20 px-4 py-2 text-[10px] font-black uppercase tracking-widest backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/20 px-4 py-2 text-[11px] font-black uppercase tracking-widest backdrop-blur-md">
                 <Target size={14} fill="currentColor" /> Strategic Command
               </div>
               <h1 className="text-5xl font-black leading-tight tracking-tighter md:text-7xl">
@@ -615,7 +615,7 @@ export default function ArenaPage({
             <div className="grid grid-cols-1 gap-8 rounded-[2.5rem] border border-slate-100 bg-white p-8 shadow-xl shadow-slate-200/20 md:grid-cols-2 md:p-12">
               {/* Class */}
               <div className="space-y-3">
-                <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Class Level</label>
+                <label className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">Class Level</label>
                 <div className="grid grid-cols-4 gap-2 sm:grid-cols-8">
                   {availableClasses.map((value) => (
                     <button key={value} type="button" onClick={() => { hasManuallySelectedClass.current = true; setSelClass(value); setSelChapter(''); }}
@@ -631,7 +631,7 @@ export default function ArenaPage({
                   <button
                     type="button"
                     onClick={() => { setSelClass(userClass as ClassLevel); setSelChapter(''); }}
-                    className="mt-1 text-[10px] font-black text-blue-600 hover:underline"
+                    className="mt-1 text-[11px] font-black text-blue-600 hover:underline"
                   >
                     ← Back to your class ({userClass})
                   </button>
@@ -640,7 +640,7 @@ export default function ArenaPage({
 
               {/* Subject */}
               <div className="space-y-3">
-                <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Subject Arena</label>
+                <label className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">Subject Arena</label>
                 <select value={selSubject} onChange={(e) => { setSelSubject(e.target.value as Subject); setSelChapter(''); }}
                   className="w-full cursor-pointer appearance-none rounded-2xl border border-slate-100 bg-slate-50 px-6 py-4 font-bold text-primary outline-none transition-all focus:ring-2 focus:ring-primary/20">
                   {availableSubjects.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -649,7 +649,7 @@ export default function ArenaPage({
 
               {/* Chapter */}
               <div className="space-y-3 md:col-span-2">
-                <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Chapter Focus</label>
+                <label className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">Chapter Focus</label>
                 <select value={selChapter} onChange={(e) => setSelChapter(e.target.value)}
                   className="w-full cursor-pointer appearance-none rounded-2xl border border-slate-100 bg-slate-50 px-6 py-4 font-bold text-primary outline-none transition-all focus:ring-2 focus:ring-primary/20">
                   <option value="">All Chapters</option>
@@ -668,12 +668,12 @@ export default function ArenaPage({
 
               {/* Difficulty */}
               <div className="space-y-3">
-                <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Difficulty</label>
+                <label className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">Difficulty</label>
                 <div className="flex gap-2">
                   {(['easy', 'medium', 'hard', 'mixed'] as Difficulty[]).map((d) => (
                     <button key={d} type="button" onClick={() => setSelectedDifficulty(d)}
                       className={cn(
-                        'flex-1 rounded-2xl border-2 py-4 text-[10px] font-black uppercase tracking-widest transition-all',
+                        'flex-1 rounded-2xl border-2 py-4 text-[11px] font-black uppercase tracking-widest transition-all',
                         selectedDifficulty === d ? 'border-primary bg-primary text-white shadow-lg' : 'border-slate-100 bg-white text-slate-400 hover:border-slate-200',
                       )}>
                       {d}
@@ -684,7 +684,7 @@ export default function ArenaPage({
 
               {/* Question Count + Practice More */}
               <div className="space-y-3">
-                <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Question Count</label>
+                <label className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">Question Count</label>
                 <div className="flex flex-col gap-3">
                   <div className="grid grid-cols-5 gap-2">
                     {['10', '20', '30', '40', '50'].map((c) => (
@@ -706,7 +706,7 @@ export default function ArenaPage({
                         type="button"
                         onClick={() => { setSelCount(String(n)); setSelectedDifficulty('mixed'); }}
                         className={cn(
-                          'flex items-center justify-center gap-1.5 rounded-xl border border-primary/20 bg-primary/5 py-2.5 text-[10px] font-black uppercase tracking-widest text-primary hover:bg-primary/10 transition-all',
+                          'flex items-center justify-center gap-1.5 rounded-xl border border-primary/20 bg-primary/5 py-2.5 text-[11px] font-black uppercase tracking-widest text-primary hover:bg-primary/10 transition-all',
                           selCount === String(n) && selectedDifficulty === 'mixed' && 'border-primary bg-primary/15',
                         )}
                       >
@@ -720,7 +720,7 @@ export default function ArenaPage({
 
               {/* Timer */}
               <div className="space-y-3">
-                <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Timer</label>
+                <label className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">Timer</label>
                 <div className="flex gap-2 rounded-2xl bg-slate-50 p-2">
                   <button type="button" onClick={() => setIsTimerEnabled(true)}
                     className={cn('flex-1 rounded-xl py-1.5 text-[11px] font-black uppercase tracking-wider transition-all', isTimerEnabled ? 'bg-primary text-white' : 'text-slate-500')}>
@@ -737,7 +737,7 @@ export default function ArenaPage({
                     <input type="range" min="0.5" max="10" step="0.5" value={timePerQuestion}
                       onChange={(e) => setTimePerQuestion(parseFloat(e.target.value))}
                       className="flex-1 accent-primary" />
-                    <span className="whitespace-nowrap text-[10px] font-black">{timePerQuestion}m/q</span>
+                    <span className="whitespace-nowrap text-[11px] font-black">{timePerQuestion}m/q</span>
                   </div>
                 )}
               </div>
@@ -797,7 +797,7 @@ export default function ArenaPage({
                   return (
                     <div
                       className={cn(
-                        'flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[10px] font-black uppercase tracking-widest',
+                        'flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-black uppercase tracking-widest',
                         colors,
                       )}
                     >
@@ -810,7 +810,7 @@ export default function ArenaPage({
                     initial={{ width: 0 }}
                     animate={{ width: `${((currentIndex + 1) / quizQuestions.length) * 100}%` }} />
                 </div>
-                <span className="text-[10px] font-black text-slate-400 tabular-nums">{currentIndex + 1} / {quizQuestions.length}</span>
+                <span className="text-[11px] font-black text-slate-500 tabular-nums">{currentIndex + 1} / {quizQuestions.length}</span>
               </div>
             </div>
           </div>
@@ -818,12 +818,12 @@ export default function ArenaPage({
           <div className="space-y-6">
             <div className="relative overflow-hidden rounded-[3rem] border-none bg-white p-10 md:p-14 shadow-2xl shadow-emerald-500/5">
               <div className="absolute left-10 top-10 flex gap-2">
-                <span className="rounded-full bg-primary/5 border border-primary/10 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-primary">
+                <span className="rounded-full bg-primary/5 border border-primary/10 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-primary">
                   {(cq as any).source || 'AI Generated'}
                 </span>
               </div>
               <div className="absolute right-10 top-10 flex gap-2">
-                <div className="flex items-center gap-2 rounded-full border border-slate-100 bg-slate-50/50 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <div className="flex items-center gap-2 rounded-full border border-slate-100 bg-slate-50/50 px-4 py-1.5 text-[11px] font-black uppercase tracking-widest text-slate-500">
                   <Zap size={12} className="text-amber-500" fill="currentColor" /> {cq.difficulty}
                 </div>
               </div>
@@ -874,7 +874,7 @@ export default function ArenaPage({
                         <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">AI Reasoning &amp; Insight</h4>
                       </div>
                       {isTimerEnabled && selectedAnswer === -1 ? (
-                        <span className="px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-[10px] font-black uppercase tracking-widest border border-rose-500/20">
+                        <span className="px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-[11px] font-black uppercase tracking-widest border border-rose-500/20">
                           Time Limit Exceeded
                         </span>
                       ) : null}

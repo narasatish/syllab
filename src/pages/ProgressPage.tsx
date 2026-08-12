@@ -98,7 +98,7 @@ function SpinWheel() {
         <div className="absolute inset-0 flex items-center justify-center"><div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg shadow-xl">🎯</div></div>
       </div>
       <div className="grid grid-cols-4 gap-1.5">
-        {SPIN_REWARDS.map((r, i) => <div key={i} className={cn('rounded-xl px-2 py-1 text-center text-[10px] font-black', r.bg)}>{r.label}</div>)}
+        {SPIN_REWARDS.map((r, i) => <div key={i} className={cn('rounded-xl px-2 py-1 text-center text-[11px] font-black', r.bg)}>{r.label}</div>)}
       </div>
       {result && <div className="w-full rounded-2xl border border-emerald-100 bg-emerald-50 p-3 text-center"><div className="text-2xl mb-1">🎉</div><div className="text-lg font-black text-emerald-700">{result.label}</div><div className="text-xs font-bold text-emerald-600">Come back tomorrow!</div></div>}
       <button type="button" onClick={spin} disabled={spinning || spunToday} className={cn('w-full rounded-2xl px-6 py-3 text-xs font-black uppercase tracking-widest text-white transition-all', spunToday ? 'cursor-not-allowed bg-slate-300' : 'bg-primary hover:bg-emerald-600')}>
@@ -238,7 +238,7 @@ export default function ProgressPage({ currentUser, stats, setTab, progress, use
               {highestAvatar.icon}
             </div>
             <div>
-              <div className="text-[10px] font-black uppercase tracking-widest text-primary mb-0.5">{highestAvatar.name} · {highestAvatar.title}</div>
+              <div className="text-[11px] font-black uppercase tracking-widest text-primary mb-0.5">{highestAvatar.name} · {highestAvatar.title}</div>
               <h1 className="text-2xl font-black">Progress & Rewards</h1>
             </div>
           </div>
@@ -255,12 +255,12 @@ export default function ProgressPage({ currentUser, stats, setTab, progress, use
         <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50">
           <div className="mb-5 flex items-start justify-between gap-4 flex-wrap">
             <div>
-              <div className="mb-1 inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1.5 text-[10px] font-black text-amber-600"><Gift size={12} /> Daily Reward</div>
+              <div className="mb-1 inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1.5 text-[11px] font-black text-amber-600"><Gift size={12} /> Daily Reward</div>
               <h2 className="text-xl font-black text-slate-900">Spin the Wheel</h2>
               <p className="text-sm font-medium text-slate-500">One free spin per day. Win XP or bonus points!</p>
             </div>
             <div className="rounded-2xl bg-amber-50 border border-amber-100 px-4 py-3 text-center">
-              <div className="text-[10px] font-black uppercase text-amber-600">Streak</div>
+              <div className="text-[11px] font-black uppercase text-amber-600">Streak</div>
               <div className="flex items-center gap-1 text-xl font-black text-amber-700"><Flame size={18} /> {stats.streak}</div>
             </div>
           </div>
@@ -327,7 +327,7 @@ export default function ProgressPage({ currentUser, stats, setTab, progress, use
                 onClick={() => void handleSelectAvatar(av.id)}
                 className={cn('rounded-2xl p-3 text-center transition-all border-2', selected ? 'border-primary bg-primary/10' : unlocked ? 'border-transparent bg-slate-50 hover:bg-slate-100' : 'border-transparent bg-slate-50 opacity-40 cursor-not-allowed')}>
                 <div className="text-3xl mb-1">{av.icon}</div>
-                <div className="text-[10px] font-black text-slate-700 leading-tight">{av.name}</div>
+                <div className="text-[11px] font-black text-slate-700 leading-tight">{av.name}</div>
                 <div className="text-[11px] text-slate-500 mt-0.5">{unlocked ? av.title : `${av.requiredXP} XP`}</div>
               </button>
             );
@@ -341,7 +341,7 @@ export default function ProgressPage({ currentUser, stats, setTab, progress, use
           <ClipboardList className="text-primary" size={20} />
           <h2 className="text-xl font-black text-slate-900">All Activity</h2>
           {activityEvents.length > 0 && (
-            <span className="ml-auto rounded-full bg-primary/10 px-3 py-1 text-[10px] font-black text-primary">
+            <span className="ml-auto rounded-full bg-primary/10 px-3 py-1 text-[11px] font-black text-primary">
               {activityEvents.length} sessions
             </span>
           )}
@@ -359,7 +359,7 @@ export default function ProgressPage({ currentUser, stats, setTab, progress, use
                 <div className="flex items-center justify-between gap-3">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[10px] font-black text-amber-800 uppercase tracking-widest">In Progress</span>
+                      <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[11px] font-black text-amber-800 uppercase tracking-widest">In Progress</span>
                     </div>
                     <p className="font-black text-sm text-amber-800 truncate">
                       {pausedSession.title ?? 'Mock Test'}
@@ -370,7 +370,7 @@ export default function ProgressPage({ currentUser, stats, setTab, progress, use
                   </div>
                   <button
                     onClick={() => setTab('mock_tests')}
-                    className="shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-amber-500 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white hover:bg-amber-600 transition-colors"
+                    className="shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-amber-500 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-white hover:bg-amber-600 transition-colors"
                   >
                     <PlayCircle size={13} /> Continue
                   </button>
@@ -438,7 +438,7 @@ export default function ProgressPage({ currentUser, stats, setTab, progress, use
                           )}
                         </div>
                         <p className={`font-black text-sm ${c.text} truncate`}>{evt.title}</p>
-                        <div className={`flex flex-wrap items-center gap-2 mt-1 text-[10px] font-bold ${c.text} opacity-70`}>
+                        <div className={`flex flex-wrap items-center gap-2 mt-1 text-[11px] font-bold ${c.text} opacity-70`}>
                           {evt.subject && <span>{evt.subject}</span>}
                           {evt.classLevel && <span>Class {evt.classLevel}</span>}
                           {score != null && total != null && <span>{score}/{total}</span>}
@@ -470,7 +470,7 @@ export default function ProgressPage({ currentUser, stats, setTab, progress, use
 
       {/* Analytics */}
       <section>
-        <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-primary mb-5">
+        <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-primary mb-5">
           <Activity size={14} /> Learning Analytics
         </div>
         <React.Suspense fallback={<div className="rounded-2xl bg-white p-8 text-center text-sm font-bold text-slate-400">Loading analytics…</div>}>

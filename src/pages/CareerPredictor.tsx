@@ -332,7 +332,7 @@ function CareerExplorer() {
                   <span className="text-2xl">{c.emoji}</span>
                   <div>
                     <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 leading-tight">{c.name}</h3>
-                    <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{c.field}</p>
+                    <p className="text-[11px] font-bold text-slate-500 dark:text-slate-500">{c.field}</p>
                   </div>
                 </div>
                 <span className={`rounded-full px-2 py-0.5 text-[11px] font-black ${demandColor[c.demand]}`}>{c.demand}</span>
@@ -350,16 +350,16 @@ function CareerExplorer() {
               </div>
               <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-500"><span className="font-black text-slate-600 dark:text-slate-300">Path:</span> {c.path}</p>
               <div className="mt-2 flex flex-wrap gap-1">
-                {c.skills.map(s => <span key={s} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-0.5 text-[10px] font-bold text-slate-500 dark:text-slate-300">{s}</span>)}
+                {c.skills.map(s => <span key={s} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-0.5 text-[11px] font-bold text-slate-500 dark:text-slate-300">{s}</span>)}
               </div>
               <div className="mt-1.5 flex flex-wrap gap-1">
-                {c.exams.map(e => <span key={e} className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">{e}</span>)}
+                {c.exams.map(e => <span key={e} className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-bold text-primary">{e}</span>)}
               </div>
               <div className="mt-2 rounded-lg p-2 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600">
-                <p className={`text-[10px] font-black px-1.5 py-0.5 rounded inline-flex items-center gap-1 ${aiBadgeColor}`}>
+                <p className={`text-[11px] font-black px-1.5 py-0.5 rounded inline-flex items-center gap-1 ${aiBadgeColor}`}>
                   {aiBadgeEmoji} AI Impact: {c.aiImpact}
                 </p>
-                <p className="text-[10px] text-slate-600 dark:text-slate-400 mt-1">{c.aiReason}</p>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1">{c.aiReason}</p>
               </div>
             </div>
           );
@@ -455,11 +455,11 @@ function StreamGuide() {
           <h3 className="text-lg font-black text-slate-900 dark:text-slate-100">{s.stream}</h3>
           <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{s.forYou}</p>
           <div className="mt-3">
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1">Careers</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-1">Careers</p>
             <div className="flex flex-wrap gap-1.5">{s.careers.map(c => <span key={c} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2.5 py-1 text-[11px] font-bold text-slate-600 dark:text-slate-300">{c}</span>)}</div>
           </div>
           <div className="mt-3">
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1">Key exams</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-1">Key exams</p>
             <div className="flex flex-wrap gap-1.5">{s.exams.map(e => <span key={e} className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-bold text-primary">{e}</span>)}</div>
           </div>
         </div>
@@ -499,7 +499,7 @@ function ExamsAndScholarships() {
               <p className="text-[11px] text-slate-500 dark:text-slate-500 mt-0.5">{s.who}</p>
               <div className="mt-1.5 flex items-center justify-between gap-2">
                 <span className="text-[11px] font-black text-emerald-600">{s.benefit}</span>
-                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 truncate">{s.site}</span>
+                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-500 truncate">{s.site}</span>
               </div>
             </div>
           ))}
@@ -562,14 +562,14 @@ function CollegeExplorer() {
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
+                  <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[11px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
                   <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 leading-tight truncate">{c.shortName || c.name}</h3>
                 </div>
                 <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-500 dark:text-slate-500"><MapPin size={11} />{c.city} · {c.state}</p>
               </div>
               <div className="flex flex-col items-end gap-1 shrink-0">
                 <span className={`rounded-full px-2 py-0.5 text-[11px] font-black ${typeColor[c.type]}`}>{c.type}</span>
-                {c.nirf && <span className="text-[10px] font-black text-slate-500">NIRF #{c.nirf}</span>}
+                {c.nirf && <span className="text-[11px] font-black text-slate-500">NIRF #{c.nirf}</span>}
               </div>
             </div>
             <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
@@ -583,7 +583,7 @@ function CollegeExplorer() {
               </div>
             </div>
             <div className="mt-2 flex flex-wrap gap-1">
-              {c.topBranches.map(b => <span key={b} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-0.5 text-[10px] font-bold text-slate-500 dark:text-slate-300">{b}</span>)}
+              {c.topBranches.map(b => <span key={b} className="rounded-full bg-slate-100 dark:bg-slate-700 px-2 py-0.5 text-[11px] font-bold text-slate-500 dark:text-slate-300">{b}</span>)}
             </div>
             <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-black text-primary">View full details →</span>
           </a>
@@ -605,7 +605,7 @@ function AiImpactAnalysis() {
         <p className="mt-2 text-xs leading-relaxed text-white/90">
           McKinsey estimates <strong>~23% of India's workforce</strong> exposed to automation. Yet NASSCOM projects <strong>2–3 million new AI-related jobs by 2030</strong>. The shift isn't about job loss—it's about <strong>which skills stay valuable</strong>. Careers involving creativity, human judgment, patient care, and emotional intelligence remain protected. Routine, repeatable tasks (data entry, basic support) face high automation risk.
         </p>
-        <p className="mt-2 text-[10px] text-white/70 italic">Note: These are indicative estimates for guidance. Your skills, adaptability, and continuous learning matter more than any forecast.</p>
+        <p className="mt-2 text-[11px] text-white/70 italic">Note: These are indicative estimates for guidance. Your skills, adaptability, and continuous learning matter more than any forecast.</p>
       </div>
 
       <div className="space-y-4">
@@ -634,7 +634,7 @@ function AiImpactAnalysis() {
                 {levelData.map(career => (
                   <div key={career.name} className="rounded-xl bg-white/70 p-3 border border-white/50">
                     <p className="text-xs font-black text-slate-800">{career.name}</p>
-                    <p className="text-[10px] text-slate-600 mt-1">{career.reason}</p>
+                    <p className="text-[11px] text-slate-600 mt-1">{career.reason}</p>
                   </div>
                 ))}
               </div>
@@ -674,7 +674,7 @@ function Row({ a, b, c, tag }: { a: string; b: string; c: string; tag: string })
       </div>
       <div className="text-right shrink-0">
         <p className="text-xs font-black text-primary">{c}</p>
-        <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{tag}</p>
+        <p className="text-[11px] font-bold text-slate-500 dark:text-slate-500">{tag}</p>
       </div>
     </div>
   );

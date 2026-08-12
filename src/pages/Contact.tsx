@@ -58,7 +58,7 @@ export default function ContactPage() {
               <Mail size={24} />
             </div>
             <div>
-              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Email Us</div>
+              <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">Email Us</div>
               <div className="font-bold text-slate-900">support@syllab.in</div>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function ContactPage() {
               <MessageSquare size={24} />
             </div>
             <div>
-              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Support</div>
+              <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">Support</div>
               <div className="font-bold text-slate-900">Academic and platform help</div>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
             <div className="space-y-2">
-              <label htmlFor="contact-name" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Your Name</label>
+              <label htmlFor="contact-name" className="text-[11px] font-black uppercase tracking-widest text-slate-500 ml-2">Your Name</label>
               <input 
                 id="contact-name"
                 name="name"
@@ -115,7 +115,7 @@ export default function ContactPage() {
             </div>
             
             <div className="space-y-2">
-              <label htmlFor="contact-email" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Email Address</label>
+              <label htmlFor="contact-email" className="text-[11px] font-black uppercase tracking-widest text-slate-500 ml-2">Email Address</label>
               <input 
                 id="contact-email"
                 name="email"
@@ -129,7 +129,7 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="contact-message" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Message</label>
+              <label htmlFor="contact-message" className="text-[11px] font-black uppercase tracking-widest text-slate-500 ml-2">Message</label>
               <textarea 
                 id="contact-message"
                 name="message"

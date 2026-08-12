@@ -95,7 +95,7 @@ export default function WhatToStudy({ setTab }: { setTab?: (tab: string) => void
         {WEIGHTAGE_SUBJECTS.map((s) => (
           <button key={s.slug} onClick={() => go(`/what-to-study/${s.slug}`)} className="rounded-3xl border border-slate-200 bg-white p-5 text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800">
             <Target size={20} className="text-primary" />
-            <p className="mt-3 text-[10px] font-black uppercase tracking-widest text-primary">{s.exam} · {s.totalMarks} marks</p>
+            <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-primary">{s.exam} · {s.totalMarks} marks</p>
             <h3 className="mt-1 font-black text-slate-900 dark:text-slate-100">{s.classLevel} {s.subject}</h3>
             <p className="mt-1 line-clamp-2 text-sm text-slate-500 dark:text-slate-400">{s.intro}</p>
           </button>

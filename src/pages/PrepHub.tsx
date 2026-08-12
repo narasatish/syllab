@@ -21,7 +21,7 @@ export default function PrepHubPage({ setTab }: PrepHubProps) {
 
       <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
         <div className="max-w-3xl">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-primary">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-primary">
             <SearchCheck size={14} />
             SEO learning hub
           </div>
@@ -40,7 +40,7 @@ export default function PrepHubPage({ setTab }: PrepHubProps) {
             </div>
             <h2 className="text-xl font-black leading-tight text-slate-900">{article.title}</h2>
             <p className="mt-3 flex-1 text-sm font-medium leading-relaxed text-slate-500">{article.summary}</p>
-            <div className="mt-5 rounded-2xl bg-slate-50 p-3 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <div className="mt-5 rounded-2xl bg-slate-50 p-3 text-[11px] font-black uppercase tracking-widest text-slate-500">
               Target: {article.keyword}
             </div>
           </article>

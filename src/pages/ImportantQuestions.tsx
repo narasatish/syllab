@@ -251,7 +251,7 @@ export default function ImportantQuestions({ setTab }: { setTab: (tab: string) =
                           <li key={qi} className="rounded-xl bg-slate-50 p-3">
                             <div className="flex items-start justify-between gap-2">
                               <p className="text-sm font-bold text-slate-800">Q{qi + 1}. {item.q}</p>
-                              <span className="shrink-0 rounded-full bg-slate-200 px-2 py-0.5 text-[10px] font-black text-slate-600">{item.marks} marks</span>
+                              <span className="shrink-0 rounded-full bg-slate-200 px-2 py-0.5 text-[11px] font-black text-slate-600">{item.marks} marks</span>
                             </div>
                             {answers[key] ? (
                               <div className="mt-2 rounded-lg border border-slate-100 bg-white p-3">

@@ -68,7 +68,7 @@ export default function ClassFilterBanner({
               onClick={() => onModeChange(m.id)}
               title={m.description}
               className={cn(
-                'rounded-lg px-3 py-1 text-[10px] font-black uppercase tracking-widest transition-all',
+                'rounded-lg px-3 py-1 text-[11px] font-black uppercase tracking-widest transition-all',
                 mode === m.id
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-blue-600 hover:bg-blue-100'
@@ -82,7 +82,7 @@ export default function ClassFilterBanner({
           <button
             type="button"
             onClick={onChangeClass}
-            className="flex items-center gap-1 rounded-lg bg-white border border-blue-200 px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-blue-600 hover:bg-blue-100 transition-colors"
+            className="flex items-center gap-1 rounded-lg bg-white border border-blue-200 px-2.5 py-1 text-[11px] font-black uppercase tracking-widest text-blue-600 hover:bg-blue-100 transition-colors"
             title="Change your class or selected ranges"
           >
             <Settings2 size={11} />

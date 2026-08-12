@@ -164,7 +164,7 @@ function SlideBody({ slide, theme, lessonOverview }: {
       'min-h-[280px] rounded-[2rem] border border-slate-100 bg-gradient-to-br p-5 sm:p-8 md:p-12 sm:min-h-[400px] md:min-h-[480px]',
       theme.body,
     )}>
-      <div className={cn('mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-black uppercase tracking-widest', theme.chip)}>
+      <div className={cn('mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[11px] font-black uppercase tracking-widest', theme.chip)}>
         <BookOpen className="h-3.5 w-3.5" />
         {slide.layout || 'Concept'} · Slide {slide.slideNumber}
       </div>
@@ -216,7 +216,7 @@ function SlideBody({ slide, theme, lessonOverview }: {
           const steps = splitIntoSteps(typeof slide.example === 'string' ? slide.example : String(slide.example));
           return (
             <div className="rounded-2xl border border-orange-200 bg-orange-50/70 p-5 md:col-span-2">
-              <p className="mb-3 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-orange-700">
+              <p className="mb-3 flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-orange-700">
                 <PenLine className="h-3.5 w-3.5" /> Worked Example
               </p>
               {steps.length > 1 ? (
@@ -237,7 +237,7 @@ function SlideBody({ slide, theme, lessonOverview }: {
 
         {slide.commonMistake && (
           <div className="rounded-2xl border border-red-200 bg-red-50/70 p-5 md:col-span-2">
-            <p className="mb-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-red-700">
+            <p className="mb-2 flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-red-700">
               <AlertTriangle className="h-3.5 w-3.5" /> Common Mistake
             </p>
             <p className="leading-7 text-slate-700">{renderInline(slide.commonMistake)}</p>

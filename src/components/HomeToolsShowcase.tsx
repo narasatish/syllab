@@ -23,7 +23,7 @@ export default function HomeToolsShowcase() {
   return (
     <section className="reveal max-w-6xl mx-auto px-5 py-10">
       <div className="mb-1 flex items-center justify-center gap-2">
-        <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300">100% Free · No signup</span>
+        <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-black uppercase tracking-widest text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300">100% Free · No signup</span>
       </div>
       <h2 className="mb-1 text-center text-xl font-black text-slate-900 sm:text-2xl dark:text-slate-100">{TOOLS.length}+ free study &amp; utility tools</h2>
       <p className="mx-auto mb-6 max-w-xl text-center text-sm font-medium text-slate-500 dark:text-slate-400">

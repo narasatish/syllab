@@ -187,7 +187,7 @@ export default function SyllabusTracker({ onChange }: Props) {
                     <button
                       type="button"
                       onClick={() => markSubject(s, doneCount < list.length)}
-                      className="shrink-0 rounded-lg bg-slate-100 dark:bg-slate-700 px-2.5 py-1 text-[10px] font-black text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+                      className="shrink-0 rounded-lg bg-slate-100 dark:bg-slate-700 px-2.5 py-1 text-[11px] font-black text-slate-600 dark:text-slate-300 hover:bg-slate-200"
                     >
                       {doneCount < list.length ? 'Mark all done' : 'Clear all'}
                     </button>

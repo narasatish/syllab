@@ -342,7 +342,7 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 text-xl">🗣️</div>
           <div>
             <h2 className="text-base font-black">AI English Conversation</h2>
-            <p className="text-[10px] font-bold text-sky-100">Natural 2-way chat · AI asks, you answer · hands-free</p>
+            <p className="text-[11px] font-bold text-sky-100">Natural 2-way chat · AI asks, you answer · hands-free</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -369,7 +369,7 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
       <div className="border-b border-slate-100 bg-sky-50 px-5 py-3">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
-            <p className="text-[10px] font-black uppercase tracking-widest text-sky-500">Today's Topic</p>
+            <p className="text-[11px] font-black uppercase tracking-widest text-sky-500">Today's Topic</p>
             <p className="mt-0.5 text-sm font-black text-slate-700">{currentPrompt}</p>
           </div>
           <button
@@ -482,7 +482,7 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
           </div>
         </div>
 
-        <p className="mt-3 text-[10px] font-bold text-slate-400 text-center">
+        <p className="mt-3 text-[11px] font-bold text-slate-500 text-center">
           {isMuted ? '🔇 AI voice muted' : voicesReady ? '🔊 AI will speak feedback aloud' : '🔊 Loading voice…'} · Processing via secure backend
         </p>
       </div>

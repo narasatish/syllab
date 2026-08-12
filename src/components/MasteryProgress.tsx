@@ -167,7 +167,7 @@ function ChapterMasteryBadges() {
               <div className="font-bold text-slate-700 leading-tight line-clamp-2">
                 {chapter?.title || chapterId}
               </div>
-              <div className={cn('text-[10px] font-semibold mt-1', config.color)}>
+              <div className={cn('text-[11px] font-semibold mt-1', config.color)}>
                 {stats.accuracy}%
               </div>
             </div>

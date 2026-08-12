@@ -78,7 +78,7 @@ function CollegeRow({ rank, name, sub, fees, extra, href }: { rank: number; name
       </div>
       <div className="shrink-0 text-right">
         <div className="text-xs font-black text-emerald-700 dark:text-emerald-300">{fees}</div>
-        <div className="text-[10px] text-slate-400">{extra}</div>
+        <div className="text-[11px] text-slate-500">{extra}</div>
       </div>
       <ChevronRight size={15} className="shrink-0 text-slate-400" />
     </button>

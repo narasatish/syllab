@@ -166,7 +166,7 @@ export default function Flashcards() {
           <button type="button" onClick={() => setFlipped((f) => !f)}
             className="w-full min-h-[220px] rounded-3xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-8 shadow-lg flex items-center justify-center text-center transition hover:shadow-xl">
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">{flipped ? 'Answer' : 'Question'} · tap to flip</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-3">{flipped ? 'Answer' : 'Question'} · tap to flip</p>
               <p className="text-lg font-black text-slate-900 dark:text-slate-100 whitespace-pre-wrap">{flipped ? current.back : current.front}</p>
             </div>
           </button>

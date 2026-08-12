@@ -128,7 +128,7 @@ export default function Pyqs() {
             {list.map((c) => (
               <button key={c.slug} onClick={() => go(`/pyqs/${c.slug}`)} className="rounded-3xl border border-slate-200 bg-white p-5 text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800">
                 <FileQuestion size={20} className="text-primary" />
-                <p className="mt-3 text-[10px] font-black uppercase tracking-widest text-primary">{c.subject} · {c.exam}</p>
+                <p className="mt-3 text-[11px] font-black uppercase tracking-widest text-primary">{c.subject} · {c.exam}</p>
                 <h3 className="mt-1 font-black text-slate-900 dark:text-slate-100">{c.chapter}</h3>
                 <p className="mt-1 text-xs font-bold text-slate-400">{c.questions.length} solved questions →</p>
               </button>

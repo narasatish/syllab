@@ -324,7 +324,7 @@ export default function ClassPage({ classNum, setTab }: ClassPageProps) {
           <ul className="space-y-3">
             {data.tips.map((tip, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-600 text-[10px] font-black flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-600 text-[11px] font-black flex items-center justify-center flex-shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 <span className="text-sm text-slate-600 font-medium leading-relaxed">{tip}</span>

@@ -29,7 +29,7 @@ function QuickMcqDemo({ onNavigate }: { onNavigate: (tab: string) => void }) {
   return (
     <div className="grid sm:grid-cols-2 gap-6 items-center h-full">
       <div>
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 text-emerald-700 px-3 py-1 text-[10px] font-black uppercase tracking-widest mb-3">
+        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 text-emerald-700 px-3 py-1 text-[11px] font-black uppercase tracking-widest mb-3">
           🎯 Try a real question
         </div>
         <h3 className="text-2xl font-black text-slate-900 mb-2">
@@ -119,7 +119,7 @@ function AiTutorDemo({ onNavigate }: { onNavigate: (tab: string) => void }) {
   return (
     <div className="grid sm:grid-cols-2 gap-6 items-center h-full">
       <div>
-        <div className="inline-flex items-center gap-2 rounded-full bg-violet-100 text-violet-700 px-3 py-1 text-[10px] font-black uppercase tracking-widest mb-3">
+        <div className="inline-flex items-center gap-2 rounded-full bg-violet-100 text-violet-700 px-3 py-1 text-[11px] font-black uppercase tracking-widest mb-3">
           🤖 Ask the AI Tutor
         </div>
         <h3 className="text-2xl font-black text-slate-900 mb-2">
@@ -161,7 +161,7 @@ function CodingDemo({ onNavigate }: { onNavigate: (tab: string) => void }) {
   return (
     <div className="grid sm:grid-cols-2 gap-6 items-center h-full">
       <div>
-        <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 text-blue-700 px-3 py-1 text-[10px] font-black uppercase tracking-widest mb-3">
+        <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 text-blue-700 px-3 py-1 text-[11px] font-black uppercase tracking-widest mb-3">
           💻 Live coding
         </div>
         <h3 className="text-2xl font-black text-slate-900 mb-2">

@@ -11,7 +11,7 @@ export default function TermsPage() {
       />
 
       <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-10">
-        <p className="text-[10px] font-black uppercase tracking-widest text-primary">Terms of Service</p>
+        <p className="text-[11px] font-black uppercase tracking-widest text-primary">Terms of Service</p>
         <h1 className="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">Terms of Service</h1>
         <p className="mt-4 text-sm font-semibold leading-relaxed text-slate-500">
           These terms describe the basic rules for using Syllab learning tools, practice content, account features, and AI-powered study support.

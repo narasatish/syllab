@@ -69,7 +69,12 @@ export default function PeriodicTable() {
                 className={`aspect-square rounded-md border p-0.5 text-left transition ${c.cls} ${dim ? 'opacity-25' : 'hover:scale-[1.08] hover:z-10 hover:shadow-md'}`}>
                 <div className="text-[11px] font-bold leading-none opacity-70">{e.z}</div>
                 <div className="text-center text-[13px] font-black leading-tight">{e.symbol}</div>
-                <div className="hidden sm:block text-center text-[6px] leading-none truncate opacity-80">{e.name}</div>
+                {/* Was text-[6px] — the smallest text anywhere on the site and
+                    effectively unreadable. 9px is still tight, but these are
+                    118 cells in a fixed grid, so this one genuinely cannot take
+                    the 11px the rest of the site now uses; the element name is
+                    also available in the cell's title/detail view. */}
+                <div className="hidden sm:block text-center text-[9px] leading-none truncate opacity-80">{e.name}</div>
               </button>
             );
           })}
@@ -82,7 +87,7 @@ export default function PeriodicTable() {
       {/* Legend */}
       <div className="mt-4 flex flex-wrap gap-1.5">
         {Object.values(CATEGORY).map((c) => (
-          <span key={c.label} className={`rounded-full border px-2 py-0.5 text-[10px] font-bold ${c.cls}`}>{c.label}</span>
+          <span key={c.label} className={`rounded-full border px-2 py-0.5 text-[11px] font-bold ${c.cls}`}>{c.label}</span>
         ))}
       </div>
 
@@ -92,7 +97,7 @@ export default function PeriodicTable() {
           <div className="w-full max-w-md rounded-2xl bg-white dark:bg-slate-800 p-5 shadow-2xl" onClick={(ev) => ev.stopPropagation()}>
             <div className="flex items-start justify-between">
               <div className={`flex h-20 w-20 flex-col items-center justify-center rounded-xl border ${CATEGORY[selected.category].cls}`}>
-                <span className="text-[10px] font-bold opacity-70">{selected.z}</span>
+                <span className="text-[11px] font-bold opacity-70">{selected.z}</span>
                 <span className="text-3xl font-black leading-none">{selected.symbol}</span>
                 <span className="text-[11px] font-bold">{selected.mass}</span>
               </div>

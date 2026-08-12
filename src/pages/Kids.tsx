@@ -991,7 +991,7 @@ function RhymesView({ goBack }: { goBack: (parent: string) => void }) {
                 <h3 className="font-black text-slate-800 dark:text-slate-100">{rhyme.title}</h3>
               </div>
               {hasVideo(rhyme.youtubeVideoId)
-                ? <span className="shrink-0 rounded-full bg-red-600 px-2 py-0.5 text-[10px] font-black text-white">▶ Sing-along</span>
+                ? <span className="shrink-0 rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-black text-white">▶ Sing-along</span>
                 : <Volume2 size={18} className="text-slate-600 dark:text-slate-400" />}
             </div>
           </motion.button>

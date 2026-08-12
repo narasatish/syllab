@@ -55,7 +55,7 @@ export default function MarksTracker() {
 
       {/* Subject rows */}
       <div className="rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 shadow-sm">
-        <div className="grid grid-cols-[1fr_5rem_5rem_5rem_auto] gap-2 px-1 pb-1 text-[10px] font-black uppercase tracking-wide text-slate-400">
+        <div className="grid grid-cols-[1fr_5rem_5rem_5rem_auto] gap-2 px-1 pb-1 text-[11px] font-black uppercase tracking-wide text-slate-500">
           <span>Subject</span><span>Scored</span><span>Out of</span><span className="text-right">%</span><span />
         </div>
         <div className="space-y-2">

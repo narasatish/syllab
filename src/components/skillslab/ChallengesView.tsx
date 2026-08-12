@@ -129,7 +129,7 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
         </div>
         <button
           onClick={random}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/20 hover:bg-white/30 transition-all text-[10px] font-black uppercase tracking-widest shrink-0"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/20 hover:bg-white/30 transition-all text-[11px] font-black uppercase tracking-widest shrink-0"
         >
           <Shuffle size={14} /> Random
         </button>
@@ -222,19 +222,19 @@ export default function ChallengesView({ lang, activeLangId }: Props) {
                 <div className="flex flex-wrap gap-2">
                   {selected.language === 'javascript' && (
                     <button onClick={doRun}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-emerald-700 transition-all">
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-[11px] font-black uppercase tracking-widest hover:bg-emerald-700 transition-all">
                       <Play size={13} /> Run Code
                     </button>
                   )}
                   <button onClick={doAI} disabled={aiLoading}
-                    className={cn('flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all',
+                    className={cn('flex items-center gap-2 px-4 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all',
                       aiLoading ? 'bg-slate-100 text-slate-400 cursor-wait' : 'bg-violet-600 text-white hover:bg-violet-700',
                     )}>
                     <Sparkles size={13} /> {aiLoading ? 'Checking…' : 'AI Feedback'}
                   </button>
                   <button
                     onClick={() => { setShowHint(true); setHintIdx(h => Math.min(h + 1, selected.hints.length - 1)); }}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-100 text-amber-700 text-[10px] font-black uppercase tracking-widest hover:bg-amber-200 transition-all">
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-100 text-amber-700 text-[11px] font-black uppercase tracking-widest hover:bg-amber-200 transition-all">
                     <Lightbulb size={13} /> Hint
                   </button>
                 </div>

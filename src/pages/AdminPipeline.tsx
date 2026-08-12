@@ -59,7 +59,7 @@ export default function AdminPipelinePage() {
       />
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-white rounded-full text-[10px] font-black uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-white rounded-full text-[11px] font-black uppercase tracking-widest">
             <Cpu size={12} /> Neural Ingestion Engine
           </div>
           <h1 className="text-5xl font-heading font-black text-secondary tracking-tight">Content <span className="italic-serif text-primary">Pipeline</span></h1>
@@ -86,7 +86,7 @@ export default function AdminPipelinePage() {
                 <h3 className="font-black text-secondary uppercase tracking-widest text-xs flex items-center gap-2">
                   <Database size={16} className="text-primary" /> Active Queue
                 </h3>
-                <span className="text-[10px] font-black text-slate-400">{tasks.filter(t => t.status === 'completed').length} / {tasks.length} Completed</span>
+                <span className="text-[11px] font-black text-slate-500">{tasks.filter(t => t.status === 'completed').length} / {tasks.length} Completed</span>
              </div>
              
              <div className="divide-y divide-slate-50">
@@ -101,7 +101,7 @@ export default function AdminPipelinePage() {
                      <div className="flex-1 space-y-2">
                         <div className="flex items-center justify-between">
                           <h4 className="font-black text-secondary">{task.name}</h4>
-                          <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{task.status}</span>
+                          <span className="text-[11px] font-black text-slate-500 uppercase tracking-widest">{task.status}</span>
                         </div>
                         <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
                           <motion.div 

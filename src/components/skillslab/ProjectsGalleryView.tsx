@@ -142,7 +142,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
       <div className="flex gap-2 flex-wrap">
         {DIFF_TABS.map(({ key, label }) => (
           <button key={key} onClick={() => { setTab(key); setExpanded(null); }}
-            className={cn('flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all',
+            className={cn('flex items-center gap-2 px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all',
               tab === key ? `${lang.bgClass} text-white shadow-sm` : 'bg-slate-100 text-slate-500 hover:bg-slate-200',
             )}>
             {label}
@@ -209,7 +209,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                             {p.steps.map((step, i) => (
                               <li key={i} className="flex items-start gap-3">
                                 <span className={cn(
-                                  'flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-black text-white',
+                                  'flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-black text-white',
                                   lang.bgClass,
                                 )}>{i + 1}</span>
                                 <p className="text-sm font-medium text-slate-700 leading-relaxed mt-0.5">{step}</p>
@@ -253,7 +253,7 @@ export default function ProjectsGalleryView({ lang, activeLangId }: Props) {
                             onClick={() => doAI(p)}
                             disabled={editor.aiLoading}
                             className={cn(
-                              'flex items-center gap-2 px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all',
+                              'flex items-center gap-2 px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all',
                               editor.aiLoading
                                 ? 'bg-slate-100 text-slate-400 cursor-wait'
                                 : 'bg-violet-600 text-white hover:bg-violet-700',

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { lazyWithRetry } from '../lib/lazyWithRetry';
 import { User as FirebaseUser } from 'firebase/auth';
 import { FULL_ARTICLES } from '../data/updateArticles';
 import ExamCountdownStrip from '../components/ExamCountdownStrip';
@@ -23,9 +24,9 @@ import StudyNudge from '../components/StudyNudge';
 import { getStreak } from '../lib/gamification';
 // Below-the-fold — lazy so they don't sit on the homepage's critical render path
 // (the hero/LCP element paints without waiting for this JS to parse/execute).
-const HomeFeatureGrid = React.lazy(() => import('../components/HomeFeatureGrid'));
-const HomeInteractiveDemo = React.lazy(() => import('../components/HomeInteractiveDemo'));
-const HomeToolsShowcase = React.lazy(() => import('../components/HomeToolsShowcase'));
+const HomeFeatureGrid = lazyWithRetry(() => import('../components/HomeFeatureGrid'), 'components-HomeFeatureGrid');
+const HomeInteractiveDemo = lazyWithRetry(() => import('../components/HomeInteractiveDemo'), 'components-HomeInteractiveDemo');
+const HomeToolsShowcase = lazyWithRetry(() => import('../components/HomeToolsShowcase'), 'components-HomeToolsShowcase');
 import WhatsNew from '../components/WhatsNew';
 
 interface HomePageProps {
@@ -146,7 +147,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             className="flex w-full items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 px-5 py-4 text-left shadow-sm transition-all hover:shadow-md dark:border-amber-900/40 dark:from-amber-950/30 dark:to-orange-950/20"
           >
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-amber-600">🔥 Keep your streak alive</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-amber-600">🔥 Keep your streak alive</p>
               <p className="mt-0.5 text-base font-black text-slate-800 dark:text-slate-100">You're on a {streakAtRisk}-day streak — do one quick thing today!</p>
             </div>
             <span className="shrink-0 rounded-full bg-amber-500 px-4 py-2 text-xs font-black text-white shadow-sm">Today's quiz →</span>
@@ -162,7 +163,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             className="flex w-full items-center justify-between gap-3 rounded-2xl border border-emerald-100 bg-gradient-to-r from-emerald-50 to-teal-50 px-5 py-4 text-left shadow-sm transition-all hover:shadow-md"
           >
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">↩ Pick up where you left off</p>
+              <p className="text-[11px] font-black uppercase tracking-widest text-emerald-600">↩ Pick up where you left off</p>
               <p className="mt-0.5 text-base font-black text-slate-800">{resume.label}</p>
             </div>
             <span className="shrink-0 rounded-full bg-emerald-500 px-4 py-2 text-xs font-black text-white shadow-sm">Continue →</span>
@@ -229,7 +230,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         <div className="mb-8 rounded-[2rem] bg-gradient-to-r from-emerald-900 to-slate-900 p-5 text-white shadow-xl">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-1">
+              <p className="text-[11px] font-black uppercase tracking-widest text-emerald-400 mb-1">
                 Welcome Back{userClass ? ` · Class ${userClass}` : ''}
               </p>
               <h2 className="text-xl font-black">
@@ -388,7 +389,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
             className="hover-lift group relative overflow-hidden rounded-[1.5rem] p-6 text-left text-white cursor-pointer"
             style={{ backgroundImage: 'var(--grad-vivid)', boxShadow: '0 16px 40px -10px rgba(139,92,246,.45)' }}
           >
-            <span className="absolute right-4 top-4 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-black tracking-wider">FREE</span>
+            <span className="absolute right-4 top-4 rounded-full bg-white/20 px-2 py-0.5 text-[11px] font-black tracking-wider">FREE</span>
             <div className="text-4xl">📸</div>
             <h3 className="mt-3 text-xl font-extrabold">Snap &amp; Solve a doubt</h3>
             <p className="mt-1.5 text-sm font-medium text-white/90">Stuck on a question? Photograph it and get a clear, step-by-step AI solution in seconds.</p>
@@ -408,7 +409,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           ]).map((c) => (
             <a key={c.tab} href={c.path} onClick={(e) => { e.preventDefault(); setTab?.(c.tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${c.grad} p-5 text-left text-white shadow-lg transition-transform hover:-translate-y-1 cursor-pointer`}>
-              {c.badge ? <span className="absolute right-3 top-3 rounded-full bg-white/25 px-2 py-0.5 text-[10px] font-black tracking-wider">{c.badge}</span> : null}
+              {c.badge ? <span className="absolute right-3 top-3 rounded-full bg-white/25 px-2 py-0.5 text-[11px] font-black tracking-wider">{c.badge}</span> : null}
               <div className="text-4xl">{c.emoji}</div>
               <h3 className="mt-3 text-lg font-black">{c.title}</h3>
               <p className="mt-1 text-sm font-medium text-white/85">{c.desc}</p>
@@ -501,7 +502,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
 
           <div className="relative grid sm:grid-cols-2 gap-10 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 text-white text-[10px] font-black uppercase tracking-widest mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 text-white text-[11px] font-black uppercase tracking-widest mb-4">
                 <Users size={11} />
                 For Parents & Teachers
               </div>
@@ -540,7 +541,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
       <section className="px-0 py-4">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 text-amber-700 text-[10px] font-black uppercase tracking-widest mb-2">📢 Latest Updates</div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-black uppercase tracking-widest mb-2">📢 Latest Updates</div>
             <h2 className="text-2xl font-black text-slate-900 tracking-tight">
               {currentUser && userClass ? `Updates for Class ${userClass}` : 'Student Updates'}
             </h2>

@@ -150,7 +150,7 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
               className="text-left rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
               <div className="flex items-center justify-between">
                 <span className="text-2xl">{s.emoji}</span>
-                <span className="text-[10px] font-black text-slate-400 dark:text-slate-500">{count} colleges</span>
+                <span className="text-[11px] font-black text-slate-500 dark:text-slate-500">{count} colleges</span>
               </div>
               <h3 className="mt-2 text-base font-black text-slate-900 dark:text-slate-100">{s.name}</h3>
               <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-500 line-clamp-2">{s.blurb}</p>
@@ -172,7 +172,7 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
 
       <button onClick={() => go('/career-predictor')} className="mt-6 flex w-full items-center justify-between gap-3 rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-5 text-left text-white shadow-md ring-1 ring-amber-300/20 transition hover:scale-[1.01]">
         <span>
-          <span className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-amber-300"><Compass size={13} /> Career Compass</span>
+          <span className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-amber-300"><Compass size={13} /> Career Compass</span>
           <span className="mt-1 block text-sm font-black">Not sure which college you'll get? Predict your JEE/NEET rank → see the colleges you can target.</span>
         </span>
         <ChevronRight size={20} className="shrink-0 text-amber-300" />
@@ -291,14 +291,14 @@ function CollegeCard({ college: c, go }: { college: CollegeFull; go: (to: string
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
-            <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
+            <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[11px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
             <h3 className="text-sm font-black text-slate-900 dark:text-slate-100 leading-tight truncate">{c.shortName || c.name}</h3>
           </div>
           <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-500 dark:text-slate-500"><MapPin size={11} />{c.city}</p>
         </div>
         <div className="flex flex-col items-end gap-1 shrink-0">
           <span className={`rounded-full px-2 py-0.5 text-[11px] font-black ${typeColor[c.type]}`}>{c.type}</span>
-          {c.nirf && <span className="text-[10px] font-black text-slate-500">NIRF #{c.nirf}</span>}
+          {c.nirf && <span className="text-[11px] font-black text-slate-500">NIRF #{c.nirf}</span>}
         </div>
       </div>
       <div className="mt-2 grid grid-cols-2 gap-2 text-[11px]">
@@ -360,7 +360,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
               <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-black text-white">🇮🇳 #{getNationalRank(c.slug)} of {TOTAL_COLLEGES} (Syllab rank)</span>
             </div>
           </div>
-          <span className={`rounded-full px-2.5 py-1 text-[10px] font-black ${typeColor[c.type]}`}>{c.type}</span>
+          <span className={`rounded-full px-2.5 py-1 text-[11px] font-black ${typeColor[c.type]}`}>{c.type}</span>
         </div>
         <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
           <Stat icon={<GraduationCap size={14} />} label="NIRF" value={c.nirf ? `#${c.nirf}` : '—'} />
@@ -393,7 +393,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
             {getRankings(c).map(r => (
               <div key={r.source} className="rounded-xl bg-amber-50 dark:bg-amber-950 border border-amber-100 dark:border-amber-900 px-3 py-1.5 text-center">
                 <p className="text-sm font-black text-amber-700 dark:text-amber-300">{r.rank}</p>
-                <p className="text-[10px] font-bold text-amber-600/70 dark:text-amber-400 uppercase tracking-wide">{r.source}</p>
+                <p className="text-[11px] font-bold text-amber-600/70 dark:text-amber-400 uppercase tracking-wide">{r.source}</p>
               </div>
             ))}
           </div>
@@ -496,7 +496,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+                  <tr className="text-[11px] font-black uppercase tracking-wide text-slate-500">
                     <th className="py-1.5 pr-2">College</th><th className="px-2">NIRF</th><th className="px-2">Fees/yr</th><th className="px-2">Avg pkg</th><th className="px-2">Placed</th>
                   </tr>
                 </thead>
@@ -557,7 +557,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
 function Stat({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <div className="rounded-xl bg-white/10 px-2 py-2">
-      <p className="flex items-center justify-center gap-1 text-[10px] font-bold text-white/60 uppercase">{icon}{label}</p>
+      <p className="flex items-center justify-center gap-1 text-[11px] font-bold text-white/60 uppercase">{icon}{label}</p>
       <p className="mt-0.5 text-sm font-black text-white">{value}</p>
     </div>
   );
@@ -582,7 +582,7 @@ function PlaceStat({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl bg-slate-50 dark:bg-slate-700 px-2 py-2">
       <p className="text-sm font-black text-slate-800 dark:text-slate-100">{value}</p>
-      <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase">{label}</p>
+      <p className="text-[11px] font-bold text-slate-500 dark:text-slate-500 uppercase">{label}</p>
     </div>
   );
 }

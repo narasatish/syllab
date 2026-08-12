@@ -410,7 +410,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
         {/* Hero */}
         <section className="rounded-[2rem] bg-gradient-to-br from-violet-600 via-indigo-600 to-blue-600 p-10 text-white shadow-2xl">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-[11px] font-black uppercase tracking-widest mb-4">
               <Users size={12} /> Parent Hub
             </div>
             <h1 className="text-4xl sm:text-5xl font-black leading-tight">
@@ -601,7 +601,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2 flex-wrap">
                         <h3 className="text-lg font-black text-slate-900">{child.displayName}</h3>
-                        <span className="inline-flex items-center gap-1 rounded-full bg-violet-100 px-2.5 py-0.5 text-[10px] font-black uppercase text-violet-700">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-violet-100 px-2.5 py-0.5 text-[11px] font-black uppercase text-violet-700">
                           <Trophy size={10} /> {child.rank || 'Rookie'}
                         </span>
                       </div>
@@ -644,7 +644,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                   {/* Recent activity (last 5) — live via onSnapshot */}
                   {child.activityEvents && child.activityEvents.length > 0 && (
                     <div className="mt-4 space-y-1.5">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Recent Activity (live)</p>
+                      <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">Recent Activity (live)</p>
                       {child.activityEvents.slice(0, 5).map((evt) => {
                         const TYPE_LABEL: Record<string, string> = {
                           daily_challenge: 'Daily Challenge',
@@ -664,7 +664,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                                 {TYPE_LABEL[evt.type] || 'Activity'} — {evt.title}
                               </p>
                               {date && (
-                                <p className="text-[10px] text-slate-400 mt-0.5">
+                                <p className="text-[11px] text-slate-500 mt-0.5">
                                   {date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
                                   {evt.subject ? ` · ${evt.subject}` : ''}
                                 </p>
@@ -705,7 +705,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                       </div>
                     ) : (
                       <div className="space-y-3">
-                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">Recent Exam Attempts</p>
+                        <p className="text-[11px] font-black uppercase tracking-widest text-slate-500 mb-3">Recent Exam Attempts</p>
                         {child.examResults!.map((r) => {
                           const date = r.completedAt?.toDate?.();
                           const pct = r.percentage ?? (r.total > 0 ? Math.round((r.score / r.total) * 100) : 0);
@@ -719,15 +719,15 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                                   <p className="font-black text-sm truncate">{r.title}</p>
                                   <div className="flex flex-wrap items-center gap-2 mt-1">
                                     {r.examCode && (
-                                      <span className="inline-flex items-center gap-1 rounded-full bg-white/60 px-2 py-0.5 text-[10px] font-black">
+                                      <span className="inline-flex items-center gap-1 rounded-full bg-white/60 px-2 py-0.5 text-[11px] font-black">
                                         Code: {r.examCode}
                                       </span>
                                     )}
                                     {r.classLevel && (
-                                      <span className="text-[10px] font-bold opacity-70">Class {r.classLevel}</span>
+                                      <span className="text-[11px] font-bold opacity-70">Class {r.classLevel}</span>
                                     )}
                                     {date && (
-                                      <span className="text-[10px] font-bold opacity-60">
+                                      <span className="text-[11px] font-bold opacity-60">
                                         {date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
                                       </span>
                                     )}
@@ -735,7 +735,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                                 </div>
                                 <div className="text-right shrink-0">
                                   <div className="text-xl font-black">{pct}%</div>
-                                  <div className="text-[10px] font-bold opacity-70">{r.score}/{r.total}</div>
+                                  <div className="text-[11px] font-bold opacity-70">{r.score}/{r.total}</div>
                                 </div>
                               </div>
                             </div>
@@ -764,7 +764,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
           <div className="space-y-4">
             {/* Class */}
             <div>
-              <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400">Class</label>
+              <label className="mb-2 block text-[11px] font-black uppercase tracking-widest text-slate-500">Class</label>
               <div className="flex flex-wrap gap-2">
                 {['5','6','7','8','9','10','11','12'].map((c) => (
                   <button
@@ -783,7 +783,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
             </div>
             {/* Subjects */}
             <div>
-              <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400">Subjects</label>
+              <label className="mb-2 block text-[11px] font-black uppercase tracking-widest text-slate-500">Subjects</label>
               <div className="flex flex-wrap gap-2">
                 {(subjectsByClass[examClass] || []).map((subj) => (
                   <button
@@ -807,7 +807,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
             {/* Level + Count row */}
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400">Difficulty</label>
+                <label className="mb-2 block text-[11px] font-black uppercase tracking-widest text-slate-500">Difficulty</label>
                 <div className="flex gap-2">
                   {(['Easy', 'Medium', 'Hard'] as const).map((lvl) => (
                     <button
@@ -825,7 +825,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                 </div>
               </div>
               <div>
-                <label className="mb-2 block text-[10px] font-black uppercase tracking-widest text-slate-400">Questions</label>
+                <label className="mb-2 block text-[11px] font-black uppercase tracking-widest text-slate-500">Questions</label>
                 <div className="flex gap-2">
                   {[10, 20, 30].map((n) => (
                     <button
@@ -864,9 +864,9 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
             </div>
             {examCode ? (
               <div className="mt-4 rounded-2xl border border-violet-200 bg-violet-50 p-4 text-center">
-                <p className="text-[10px] font-black uppercase tracking-widest text-violet-600">Exam Code</p>
+                <p className="text-[11px] font-black uppercase tracking-widest text-violet-600">Exam Code</p>
                 <p className="mt-1 text-3xl font-black tracking-widest text-violet-700">{examCode}</p>
-                <p className="mt-2 text-[10px] font-bold text-violet-500">Link copied! Share with your child.</p>
+                <p className="mt-2 text-[11px] font-bold text-violet-500">Link copied! Share with your child.</p>
               </div>
             ) : (
               <div className="mt-4 rounded-2xl border border-dashed border-slate-200 p-4 text-center text-xs font-bold text-slate-400">
@@ -883,7 +883,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
           <div className="flex items-center gap-2 mb-4">
             <Calendar className="text-violet-600" size={20} />
             <h2 className="text-xl font-black text-slate-900">Weekly Report</h2>
-            <span className="ml-auto rounded-full bg-amber-100 px-3 py-1 text-[10px] font-black text-amber-700">
+            <span className="ml-auto rounded-full bg-amber-100 px-3 py-1 text-[11px] font-black text-amber-700">
               Auto-email every Sunday coming soon
             </span>
           </div>
@@ -928,7 +928,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
                   </div>
                   {recentExams.length > 0 && (
                     <div className="mt-3 space-y-1">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Recent Exams</p>
+                      <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">Recent Exams</p>
                       {recentExams.map((r) => {
                         const pct = r.percentage ?? (r.total > 0 ? Math.round((r.score / r.total) * 100) : 0);
                         return (

@@ -203,7 +203,7 @@ export default function StudyPlanner() {
           <h2 className="mb-3 text-lg font-black text-slate-900 dark:text-slate-100">Your {plan.length}-day plan</h2>
           <div className="overflow-x-auto rounded-2xl border border-slate-100 dark:border-slate-700">
             <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50 dark:bg-slate-800 text-[10px] font-black uppercase tracking-wide text-slate-400">
+              <thead className="bg-slate-50 dark:bg-slate-800 text-[11px] font-black uppercase tracking-wide text-slate-500">
                 <tr><th className="px-3 py-2">Day</th><th className="px-3 py-2">Date</th><th className="px-3 py-2">Focus</th>{showChapters && <th className="px-3 py-2">Chapters</th>}<th className="px-3 py-2">Phase</th><th className="px-3 py-2">Hours</th></tr>
               </thead>
               <tbody>
@@ -217,7 +217,7 @@ export default function StudyPlanner() {
                         {(d as { chapters?: string[] }).chapters?.join(' · ') || <span className="text-slate-300">—</span>}
                       </td>
                     )}
-                    <td className="px-3 py-2"><span className={`rounded-full border px-2 py-0.5 text-[10px] font-black ${phaseStyle[d.phase]}`}>{d.phase === 'Mock' ? 'Mock test' : d.phase}</span></td>
+                    <td className="px-3 py-2"><span className={`rounded-full border px-2 py-0.5 text-[11px] font-black ${phaseStyle[d.phase]}`}>{d.phase === 'Mock' ? 'Mock test' : d.phase}</span></td>
                     <td className="px-3 py-2 font-bold text-slate-600 dark:text-slate-400">{d.hours}h</td>
                   </tr>
                 ))}

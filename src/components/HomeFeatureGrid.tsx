@@ -182,7 +182,7 @@ export default function HomeFeatureGrid({ onNavigate }: Props) {
               <p className="text-sm font-medium text-white/90 mb-4 leading-relaxed">{f.tagline}</p>
 
               <div className="flex items-center justify-between">
-                <span className="inline-block rounded-full bg-white/20 backdrop-blur px-3 py-1 text-[10px] font-black uppercase tracking-widest">
+                <span className="inline-block rounded-full bg-white/20 backdrop-blur px-3 py-1 text-[11px] font-black uppercase tracking-widest">
                   {f.badge}
                 </span>
                 <span className="text-xs font-black uppercase tracking-widest opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all inline-flex items-center gap-1">

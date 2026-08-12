@@ -394,10 +394,10 @@ function ArticleCard({ article, onRead }: { article: Article; onRead: (a: Articl
           {article.summary}
         </p>
         <div className="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
-          <div className="flex items-center gap-1 text-[10px] font-bold text-slate-400">
+          <div className="flex items-center gap-1 text-[11px] font-bold text-slate-500">
             <Clock size={11} /> {article.readingTime} min read
           </div>
-          <div className="flex items-center gap-1 text-[10px] font-black text-primary group-hover:gap-2 transition-all">
+          <div className="flex items-center gap-1 text-[11px] font-black text-primary group-hover:gap-2 transition-all">
             Read <ArrowRight size={11} />
           </div>
         </div>
@@ -489,7 +489,7 @@ function ArticleModal({
               <h1 className="text-2xl font-black text-slate-900 leading-tight mb-3">
                 {full?.title || article.title}
               </h1>
-              <div className="flex items-center gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <div className="flex items-center gap-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
                 <span className="flex items-center gap-1">
                   <Clock size={11} /> {full?.readingTime || article.readingTime} min read
                 </span>
@@ -588,7 +588,7 @@ function ArticleModal({
                   <button
                     key={`${tab}-${label}`}
                     onClick={() => { setTab(tab); onClose(); }}
-                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-slate-200 text-[10px] font-black uppercase tracking-widest text-slate-600 hover:border-primary hover:text-primary transition-all"
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-slate-200 text-[11px] font-black uppercase tracking-widest text-slate-600 hover:border-primary hover:text-primary transition-all"
                   >
                     {label}
                   </button>
@@ -723,7 +723,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             key={cat.id}
             onClick={() => setActiveCategory(cat.id)}
             className={cn(
-              'flex items-center gap-1.5 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap transition-all shrink-0',
+              'flex items-center gap-1.5 px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest whitespace-nowrap transition-all shrink-0',
               activeCategory === cat.id
                 ? cat.color
                 : 'bg-white border border-slate-200 text-slate-500 hover:border-slate-300'
@@ -737,7 +737,7 @@ export default function Updates({ setTab }: UpdatesProps) {
       {/* ── Trending now (only shown when no filter/search active) ── */}
       {activeCategory === 'all' && !searchQuery && (
         <section>
-          <h2 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">
+          <h2 className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-500 mb-4">
             <Flame size={13} className="text-red-500" /> Trending Now
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -749,7 +749,7 @@ export default function Updates({ setTab }: UpdatesProps) {
       {/* ── Evergreen / Pinned (only when no filter/search) ── */}
       {activeCategory === 'all' && !searchQuery && (
         <section>
-          <h2 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">
+          <h2 className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-500 mb-4">
             <Star size={13} className="text-amber-500" /> Essential Evergreen Guides
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -762,7 +762,7 @@ export default function Updates({ setTab }: UpdatesProps) {
       {(activeCategory !== 'all' || searchQuery) && (
         <section>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
+            <h2 className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-500">
               <Filter size={13} />
               {filtered.length} Article{filtered.length !== 1 ? 's' : ''}
               {activeCategory !== 'all' ? ` in ${CATEGORIES.find(c => c.id === activeCategory)?.label}` : ''}
@@ -771,7 +771,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             {(activeCategory !== 'all' || searchQuery) && (
               <button
                 onClick={() => { setActiveCategory('all'); setSearchQuery(''); }}
-                className="text-[10px] font-black uppercase tracking-widest text-primary hover:text-emerald-600 transition-colors"
+                className="text-[11px] font-black uppercase tracking-widest text-primary hover:text-emerald-600 transition-colors"
               >
                 Clear ✕
               </button>
@@ -794,7 +794,7 @@ export default function Updates({ setTab }: UpdatesProps) {
                 <div className="flex justify-center mt-8">
                   <button
                     onClick={() => setVisibleCount(visibleCount + 9)}
-                    className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
+                    className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
                   >
                     Load More Articles
                   </button>
@@ -808,7 +808,7 @@ export default function Updates({ setTab }: UpdatesProps) {
       {/* ── All articles grid (default view) ── */}
       {activeCategory === 'all' && !searchQuery && (
         <section>
-          <h2 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">
+          <h2 className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-500 mb-4">
             <TrendingUp size={13} /> All Updates
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -818,7 +818,7 @@ export default function Updates({ setTab }: UpdatesProps) {
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setVisibleCount(visibleCount + 9)}
-                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
+                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
               >
                 Load More Articles
               </button>
@@ -838,13 +838,13 @@ export default function Updates({ setTab }: UpdatesProps) {
         <div className="flex gap-3 shrink-0">
           <button
             onClick={() => setTab('syllabus')}
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-slate-200 text-slate-600 font-black text-[10px] uppercase tracking-widest hover:border-primary/30 transition-all"
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-slate-200 text-slate-600 font-black text-[11px] uppercase tracking-widest hover:border-primary/30 transition-all"
           >
             <BookOpen size={14} /> Syllabus
           </button>
           <button
             onClick={() => setTab('skills_lab')}
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-white font-black text-[10px] uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-white font-black text-[11px] uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
           >
             <Zap size={14} /> Skills Lab
           </button>

@@ -188,7 +188,7 @@ function DailyHomework({ onComplete }: { onComplete: () => void }) {
         <Select label="Board" value={board} onChange={setBoard} options={BOARDS} />
         <Select label="Subject" value={subject} onChange={(v) => { setSubject(v); setChapter(''); setCustomChapter(false); setSet(null); }} options={subjects.length ? subjects : ['Mathematics']} />
         <label className="block">
-          <span className="mb-1 block text-[10px] font-black uppercase tracking-wider text-slate-400">Chapter</span>
+          <span className="mb-1 block text-[11px] font-black uppercase tracking-wider text-slate-500">Chapter</span>
           {customChapter || !chapters.length ? (
             <input value={chapter} onChange={(e) => setChapter(e.target.value)} placeholder="Type your chapter"
               className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-bold text-slate-700 focus:border-primary focus:outline-none" />
@@ -329,10 +329,10 @@ function QuestionCard({ q, index, answer, onText, onImage }: {
         <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/10 text-xs font-black text-primary">{index + 1}</span>
         <div className="flex-1">
           <div className="mb-1 flex flex-wrap items-center gap-1.5">
-            {q.isReview && <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-800">🔁 Revision</span>}
-            {q.type === 'diagram' && <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-violet-700">✏️ Draw &amp; label</span>}
-            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-slate-500">{q.marks} mark{q.marks > 1 ? 's' : ''}</span>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{q.topic}</span>
+            {q.isReview && <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[11px] font-black uppercase tracking-wider text-amber-800">🔁 Revision</span>}
+            {q.type === 'diagram' && <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[11px] font-black uppercase tracking-wider text-violet-700">✏️ Draw &amp; label</span>}
+            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-black uppercase tracking-wider text-slate-500">{q.marks} mark{q.marks > 1 ? 's' : ''}</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{q.topic}</span>
           </div>
           <p className="text-sm font-bold text-slate-800">{q.question}</p>
         </div>
@@ -487,7 +487,7 @@ function WeeklyReportCard() {
 function Select({ label, value, onChange, options }: { label: string; value: string; onChange: (v: string) => void; options: string[] }) {
   return (
     <label className="block">
-      <span className="mb-1 block text-[10px] font-black uppercase tracking-wider text-slate-400">{label}</span>
+      <span className="mb-1 block text-[11px] font-black uppercase tracking-wider text-slate-500">{label}</span>
       <select value={value} onChange={(e) => onChange(e.target.value)}
         className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-bold text-slate-700 focus:border-primary focus:outline-none">
         {options.map((o) => <option key={o} value={o}>{o}</option>)}

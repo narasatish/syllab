@@ -968,7 +968,7 @@ function PageFallback() {
   return (
     <div className="flex h-[calc(100vh-220px)] flex-col items-center justify-center space-y-4">
       <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+      <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">
         Loading module...
       </p>
     </div>
@@ -1156,7 +1156,7 @@ function LoginModal({
               </div>
             </button>
           </div>
-          <p className="mt-6 text-center text-[10px] font-bold uppercase tracking-widest text-slate-300">
+          <p className="mt-6 text-center text-[11px] font-bold uppercase tracking-widest text-slate-300">
             You can change this later in your profile
           </p>
         </div>
@@ -1210,7 +1210,7 @@ function LoginModal({
                   }}
                   disabled={loading}
                   className={cn(
-                    'min-w-0 flex-1 rounded-xl py-3 text-[10px] font-black uppercase tracking-widest transition-all',
+                    'min-w-0 flex-1 rounded-xl py-3 text-[11px] font-black uppercase tracking-widest transition-all',
                     method === value ? 'bg-white text-primary shadow-sm' : 'text-slate-400 hover:text-slate-600',
                   )}
                 >
@@ -1246,7 +1246,7 @@ function LoginModal({
           {(method === 'email' || mode === 'reset') ? (
             <div className="space-y-4">
               <div className="space-y-1">
-                <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                <label className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">
                   Email Address
                 </label>
                 <input
@@ -1262,7 +1262,7 @@ function LoginModal({
               {mode !== 'reset' ? (
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
-                    <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    <label className="ml-2 text-[11px] font-black uppercase tracking-widest text-slate-500">
                       Password
                     </label>
                     {mode === 'signin' && (
@@ -1272,7 +1272,7 @@ function LoginModal({
                           setMode('reset');
                           setError(null);
                         }}
-                        className="mr-2 text-[10px] font-black uppercase tracking-widest text-primary hover:underline"
+                        className="mr-2 text-[11px] font-black uppercase tracking-widest text-primary hover:underline"
                       >
                         Forgot?
                       </button>
@@ -1875,7 +1875,7 @@ export default function App() {
                       <div className="absolute right-0 top-full mt-2 w-52 rounded-2xl border border-slate-200 bg-white shadow-2xl z-50 overflow-hidden">
                         <div className="px-4 py-3 border-b border-slate-100">
                           <div className="flex items-center gap-2">
-                            <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">{stats.rank}</div>
+                            <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">{stats.rank}</div>
                             {userRole && (
                               <span className={cn('rounded-full px-2 py-0.5 text-[11px] font-black uppercase tracking-wider', userRole === 'parent' ? 'bg-blue-100 text-blue-600' : 'bg-emerald-100 text-emerald-600')}>
                                 {userRole}
@@ -1940,8 +1940,8 @@ export default function App() {
                   <p className="truncate text-sm font-black text-slate-800">{currentUser.displayName || currentUser.email?.split('@')[0] || 'Student'}</p>
                   <p className="truncate text-[11px] font-medium text-slate-500">{currentUser.email}</p>
                   <div className="mt-1 flex items-center gap-2">
-                    <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-black text-emerald-700">{stats.xp.toLocaleString()} XP</span>
-                    {userClass ? <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-black text-blue-700">Class {userClass}</span> : null}
+                    <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-black text-emerald-700">{stats.xp.toLocaleString()} XP</span>
+                    {userClass ? <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[11px] font-black text-blue-700">Class {userClass}</span> : null}
                   </div>
                 </div>
                 <div className="flex shrink-0 flex-col gap-2 ml-3">
@@ -2480,7 +2480,7 @@ export default function App() {
                   {newsletterStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
                 </button>
                 {newsletterStatus === 'error' && (
-                  <p className="text-[10px] sm:text-xs text-red-400 font-bold">Could not subscribe — please try again.</p>
+                  <p className="text-[11px] sm:text-xs text-red-400 font-bold">Could not subscribe — please try again.</p>
                 )}
               </form>
             )}

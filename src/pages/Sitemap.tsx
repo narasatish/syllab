@@ -16,7 +16,7 @@ export default function SitemapPage({ setTab }: { setTab: (tab: string) => void 
         url="https://syllab.in/sitemap"
       />
       <header className="text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-[10px] font-black uppercase tracking-[0.2em] border border-primary/20">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-[11px] font-black uppercase tracking-[0.2em] border border-primary/20">
           <Map size={14} /> Global Taxonomy
         </div>
         <h1 className="text-5xl font-black text-slate-900 tracking-tight italic-serif">Sitemap Explorer</h1>
@@ -106,7 +106,7 @@ export default function SitemapPage({ setTab }: { setTab: (tab: string) => void 
           <ul className="space-y-6">
             <li>
               <a href="https://ncert.nic.in/textbook.php" target="_blank" rel="noreferrer" className="group space-y-2 block">
-                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Official Repo</div>
+                <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">Official Repo</div>
                 <div className="font-bold flex items-center justify-between group-hover:text-emerald-400 transition-colors">
                   NCERT Textbooks <ExternalLink size={14} />
                 </div>
@@ -114,7 +114,7 @@ export default function SitemapPage({ setTab }: { setTab: (tab: string) => void 
             </li>
             <li>
               <div className="group space-y-2 block opacity-50 cursor-not-allowed">
-                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Upcoming</div>
+                <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">Upcoming</div>
                 <div className="font-bold flex items-center justify-between">
                   JEE Previous Year Papers <ExternalLink size={14} />
                 </div>
@@ -122,7 +122,7 @@ export default function SitemapPage({ setTab }: { setTab: (tab: string) => void 
             </li>
             <li>
               <div className="group space-y-2 block opacity-50 cursor-not-allowed">
-                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Upcoming</div>
+                <div className="text-[11px] font-black uppercase tracking-widest text-slate-500">Upcoming</div>
                 <div className="font-bold flex items-center justify-between">
                   NEET Strategy Guides <ExternalLink size={14} />
                 </div>
@@ -130,7 +130,7 @@ export default function SitemapPage({ setTab }: { setTab: (tab: string) => void 
             </li>
           </ul>
           <div className="pt-8 mt-12 border-t border-white/10 text-center">
-             <p className="text-[10px] font-medium text-slate-500 uppercase tracking-widest leading-relaxed">
+             <p className="text-[11px] font-medium text-slate-500 uppercase tracking-widest leading-relaxed">
                Index updated daily by AI Syllab Engine
              </p>
           </div>

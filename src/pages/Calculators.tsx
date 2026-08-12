@@ -301,8 +301,8 @@ export default function Calculators() {
                 <div className="text-[11px] font-bold text-teal-600/80">EMI for {emi.months} months</div>
               </div>
               <div className="mt-2 grid grid-cols-2 gap-2 text-center">
-                <div className="rounded-lg bg-slate-50 p-2"><div className="text-sm font-black text-slate-800">{inr(emi.totalInterest)}</div><div className="text-[10px] font-bold text-slate-500">total interest</div></div>
-                <div className="rounded-lg bg-slate-50 p-2"><div className="text-sm font-black text-slate-800">{inr(emi.totalPayment)}</div><div className="text-[10px] font-bold text-slate-500">total payable</div></div>
+                <div className="rounded-lg bg-slate-50 p-2"><div className="text-sm font-black text-slate-800">{inr(emi.totalInterest)}</div><div className="text-[11px] font-bold text-slate-500">total interest</div></div>
+                <div className="rounded-lg bg-slate-50 p-2"><div className="text-sm font-black text-slate-800">{inr(emi.totalPayment)}</div><div className="text-[11px] font-bold text-slate-500">total payable</div></div>
               </div>
               <ResultActions text={`Education loan of ${inr(num(loanAmt))} at ${num(loanRate)}% for ${num(loanYears)} yrs → EMI ${inr(emi.emi)}/month (total interest ${inr(emi.totalInterest)}).`} />
             </>

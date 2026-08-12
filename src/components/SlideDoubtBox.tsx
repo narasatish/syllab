@@ -60,7 +60,7 @@ export default function SlideDoubtBox({ subject, chapter, classLevel, slideTitle
         >
           <MessageCircleQuestion size={14} /> Ask a doubt
         </button>
-        <span className="ml-auto text-[10px] font-semibold uppercase tracking-wide text-indigo-400">Free AI tutor</span>
+        <span className="ml-auto text-[11px] font-semibold uppercase tracking-wide text-indigo-400">Free AI tutor</span>
       </div>
 
       {open ? (

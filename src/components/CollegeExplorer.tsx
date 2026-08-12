@@ -115,12 +115,12 @@ export default function CollegeExplorer({ colleges, go }: { colleges: CollegeFul
                   <h3 className="truncate font-black text-slate-900 hover:text-indigo-700">{c.shortName || c.name}</h3>
                   <p className="mt-0.5 flex items-center gap-1 text-xs text-slate-500"><MapPin size={11} /> {c.city}, {c.state}</p>
                 </button>
-                <span className={cn('shrink-0 rounded-full px-2 py-0.5 text-[10px] font-black', typeColor[c.type])}>{c.type}</span>
+                <span className={cn('shrink-0 rounded-full px-2 py-0.5 text-[11px] font-black', typeColor[c.type])}>{c.type}</span>
               </div>
               <div className="mt-2 grid grid-cols-3 gap-2 text-center">
-                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[10px] font-bold text-slate-400">NIRF</p><p className="text-sm font-black text-slate-800">{c.nirf ? `#${c.nirf}` : '—'}</p></div>
-                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[10px] font-bold text-slate-400">Fees</p><p className="text-xs font-black text-slate-800">{c.feesTotal}</p></div>
-                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[10px] font-bold text-slate-400">Avg pkg</p><p className="text-xs font-black text-slate-800">{c.placementAvg}</p></div>
+                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">NIRF</p><p className="text-sm font-black text-slate-800">{c.nirf ? `#${c.nirf}` : '—'}</p></div>
+                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">Fees</p><p className="text-xs font-black text-slate-800">{c.feesTotal}</p></div>
+                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">Avg pkg</p><p className="text-xs font-black text-slate-800">{c.placementAvg}</p></div>
               </div>
               <div className="mt-2 flex items-center justify-between gap-2">
                 <button onClick={() => go(`/colleges/${stateSlugForCollege(c)}/${c.slug}`)} className="inline-flex items-center gap-1 text-xs font-black text-indigo-700 hover:underline">Details <ChevronRight size={12} /></button>
