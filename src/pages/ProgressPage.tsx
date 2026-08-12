@@ -15,6 +15,7 @@ import XpStreakRing from '../components/XpStreakRing';
 import SyllabusHeatmap from '../components/SyllabusHeatmap';
 import { SYLLABUS } from '../data/syllabus';
 import { getStreak } from '../lib/gamification';
+import { lazyWithRetry } from '../lib/lazyWithRetry';
 
 interface ActivityEvent {
   id: string;
@@ -30,7 +31,7 @@ interface ActivityEvent {
 }
 
 
-const AnalyticsPage = React.lazy(() => import('./Analytics'));
+const AnalyticsPage = lazyWithRetry(() => import('./Analytics'), 'Analytics');
 
 /* ─── Skills progress ─────────────────────────────────────────────────────── */
 const LS_SKILLS = 'syllab_skills_completed';
