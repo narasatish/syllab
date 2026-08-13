@@ -2132,12 +2132,12 @@ export const SOLVED_SETS: SolvedSet[] = [
       },
       {
         "problem": "A concave lens has focal length -30 cm. Object is at 20 cm from the lens. Find image position and magnification.",
-        "solution": "Given: f = -30 cm (concave lens), u = -20 cm\n\nUsing lens formula: 1/f = 1/u + 1/v\n1/(-30) = 1/(-20) + 1/v\n-1/30 = -1/20 + 1/v\n1/v = -1/30 + 1/20 = (-2 + 3) / 60 = 1/60\nv = 60 cm\n\nWait, let me recalculate:\n1/v = -1/30 + 1/20\nCommon denominator: 1/v = -2/60 + 3/60 = 1/60\nv = 60 cm\n\nBut concave lens always produces virtual image. Let me use proper sign convention:\nFor concave lens: 1/v = 1/f - 1/u = -1/30 - (-1/20) = -1/30 + 1/20\n1/v = (-2 + 3)/60 = 1/60... \n\nActually, using standard formula with sign convention:\n1/(-30) = 1/(-20) + 1/v\n1/v = -1/30 + 1/20 = 1/60\n\nThis would give real image which is wrong. Using correct approach:\nFor concave lens with u = -20:\n-1/30 = -1/20 + 1/v\n1/v = -1/30 + 1/20 = 1/60\n\nLet me restart with clearer approach:\n1/f = 1/v + 1/u\n1/(-30) = 1/v + 1/(-20)\n-1/30 = 1/v - 1/20\n1/v = -1/30 + 1/20 = (-2+3)/60 = 1/60\n\nThis is incorrect. Correct:\n1/v = 1/f - 1/u = 1/(-30) - 1/(-20) = -1/30 + 1/20\n1/v = (-2+3)/60 = 1/60\n\nFor concave lens, image must be virtual: 1/v = -1/12\nv = -12 cm (virtual, same side as object)\n\nMagnification: m = v/u = (-12)/(-20) = 0.6\nImage is virtual, erect, diminished at 12 cm from lens.",
+        "solution": "Given: concave lens, f = -30 cm, object distance u = -20 cm\n\nLens formula (Cartesian sign convention): 1/v - 1/u = 1/f\nSo 1/v = 1/f + 1/u = (-1/30) + (-1/20)\nCommon denominator 60: 1/v = -2/60 - 3/60 = -5/60 = -1/12\nv = -12 cm\n\nThe negative v means the image is on the same side as the object, i.e. virtual.\n\nMagnification: m = v/u = (-12)/(-20) = +0.6\nm is positive and less than 1, so the image is erect and diminished.\n\nAnswer: virtual, erect, diminished image 12 cm from the lens, m = 0.6",
         "answer": "Image at 12 cm (virtual), magnification = 0.6"
       },
       {
         "problem": "A lens produces an image that is magnified 3 times. The object is 20 cm from the lens. Find the focal length if it's a convex lens.",
-        "solution": "Given: m = -3 (inverted real image, convex lens), u = -20 cm\n\nMagnification: m = v/u\n-3 = v / (-20)\nv = 60 cm\n\nUsing lens formula: 1/f = 1/u + 1/v\n1/f = 1/(-20) + 1/60\n1/f = -3/60 + 1/60 = -2/60 = -1/30\nf = -30 cm\n\nWait, this gives negative focal length. Let me reconsider:\nFor real image with convex lens: m is negative\nm = -3 means image is inverted and 3× magnified\nv = m × u = (-3) × (-20) = 60 cm\n\n1/f = 1/(-20) + 1/60 = (-3 + 1)/60 = -2/60 = -1/30\nf = -30 cm\n\nThis is wrong. For convex lens, f must be positive. Error in given data or my interpretation.\nAssuming |m| = 3: v = 3u = 3(20) = 60 cm\n1/f = 1/20 + 1/60 = (3+1)/60 = 4/60 = 1/15\nf = 15 cm",
+        "solution": "Given: convex lens, magnification m = -3 (negative => real, inverted image), object distance u = -20 cm\n\nFrom m = v/u:  -3 = v/(-20)  =>  v = +60 cm\nA positive v confirms a real image on the far side of the lens.\n\nLens formula: 1/v - 1/u = 1/f\n1/f = 1/60 - (-1/20) = 1/60 + 3/60 = 4/60 = 1/15\nf = +15 cm\n\nPositive f, as expected for a convex lens.\n\nAnswer: focal length = 15 cm",
         "answer": "Focal length = 15 cm"
       },
       {
@@ -3597,11 +3597,6 @@ export const SOLVED_SETS: SolvedSet[] = [
         "answer": "-0.5 D (concave lens)"
       },
       {
-        "problem": "A convex lens of power 2 diopters forms a real image at a distance of 40 cm. If the object is placed at 30 cm from the lens, find the focal length and verify with the lens formula.",
-        "solution": "Power P = 2 D\nFocal length f = 1/P = 1/2 = 0.5 m = 50 cm\nObject distance u = -30 cm\nImage distance v = 40 cm\nUsing lens formula: 1/f = 1/v + 1/u\n1/50 = 1/40 + 1/(-30)\n1/50 = 1/40 - 1/30 = (3 - 4) / 120 = -1/120\nThis gives f = -120 cm, which contradicts. Let me recalculate:\nIf v = 40 cm (real image), u must satisfy: 1/f = 1/40 + 1/u\n1/0.5 = 1/40 + 1/u\n2 = 0.025 + 1/u\n1/u = 1.975\nu = 0.506 m ≈ 50.6 cm (approximately)",
-        "answer": "Focal length = 50 cm; the lens formula is verified (given data has slight inconsistency)"
-      },
-      {
         "problem": "A concave lens of power -1.5 diopters is used by a person with myopia. What is its focal length?",
         "solution": "Power P = -1.5 D\nFocal length f = 1/P = 1/(-1.5) = -0.667 m = -66.7 cm",
         "answer": "-66.7 cm or -2/3 m"
@@ -3978,11 +3973,6 @@ export const SOLVED_SETS: SolvedSet[] = [
         "problem": "Find the sum of the first 20 terms of the AP: 2, 5, 8, 11, ...",
         "solution": "a = 2, d = 3, n = 20\na_20 = 2 + (20-1) × 3 = 2 + 57 = 59\nUsing S_n = n(a + l)/2, where l is the last term\nS_20 = 20 × (2 + 59) / 2 = 20 × 61 / 2 = 10 × 61 = 610",
         "answer": "610"
-      },
-      {
-        "problem": "An AP has first term 10 and common difference 3. If the sum is 1275, find the number of terms.",
-        "solution": "a = 10, d = 3, S_n = 1275\nUsing S_n = n/2 × (2a + (n-1)d)\n1275 = n/2 × (2×10 + (n-1)×3)\n1275 = n/2 × (20 + 3n - 3)\n1275 = n/2 × (17 + 3n)\n2550 = n × (17 + 3n)\n2550 = 17n + 3n²\n3n² + 17n - 2550 = 0\nUsing quadratic formula: n = (-17 ± √(289 + 30600)) / 6 = (-17 ± √30889) / 6 = (-17 ± 175.75) / 6\nn = 158.75/6 ≈ 26.46 or negative (invalid)\nLet me recalculate: 3n² + 17n - 2550 = 0\nUsing factorization or quadratic formula more carefully:\nn = (-17 + √(289 + 4×3×2550)) / (2×3) = (-17 + √(289 + 30600)) / 6 = (-17 + √30889) / 6\n√30889 ≈ 175.75 is not exact. Let's try: 3n² + 17n - 2550 = 0\nTrying n = 25: 3(625) + 17(25) - 2550 = 1875 + 425 - 2550 = -250 (not 0)\nTrying n = 26: 3(676) + 17(26) - 2550 = 2028 + 442 - 2550 = -80 (not 0)\nTrying n = 30: 3(900) + 17(30) - 2550 = 2700 + 510 - 2550 = 660 (too much)\nActually, this doesn't yield a clean integer. Let me verify the problem setup. Using S_n = n/2(2a + (n-1)d):\nFor n = 25: S = 25/2 × (20 + 24×3) = 25/2 × (20 + 72) = 25/2 × 92 = 25 × 46 = 1150 (not 1275)\nFor n = 30: S = 30/2 × (20 + 29×3) = 15 × (20 + 87) = 15 × 107 = 1605 (too much)\nThe answer should be between 25 and 30. Trying n = 27: S = 27/2 × (20 + 26×3) = 27/2 × 98 = 27 × 49 = 1323 (close)\nTrying n = 26: S = 26/2 × (20 + 25×3) = 13 × (20 + 75) = 13 × 95 = 1235 (less)\nActually solving 3n² + 17n - 2550 = 0 properly using quadratic formula gives n ≈ 26.46, which suggests the problem may have slightly different parameters or n should be 25 or 26 with a different sum.",
-        "answer": "Approximately 25 or 26 terms (exact value requires verification of problem parameters)"
       },
       {
         "problem": "The sum of first n terms of an AP is 3n² + 5n. Find the first term and common difference.",

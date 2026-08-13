@@ -799,7 +799,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
         "q": "Express 0.342342342... as a fraction in lowest terms.",
         "year": "2023",
         "marks": 2,
-        "answer": "Let x = 0.342342342... (period = 3)\n1000x = 342.342342...\n1000x - x = 342\n999x = 342\nx = 342/999\nFind HCF(342, 999): 342 = 2 × 171 = 2 × 9 × 19, 999 = 27 × 37 = 3^3 × 37\nWait, recalculate: 999 = 3 × 333 = 3 × 3 × 111 = 9 × 111 = 9 × 3 × 37 = 27 × 37\n342 = 2 × 171 = 2 × 9 × 19... Let me check: 342/9 = 38, so 342 = 9 × 38\nHCF(342, 999) = 9\n342/999 = 38/111\nSimplify further: 38 = 2 × 19, 111 = 3 × 37, so HCF = 1\nAnswer: 38/111",
+        "answer": "Let x = 0.342342342... (the block '342' repeats, so period = 3)\n1000x = 342.342342...\n1000x - x = 342  =>  999x = 342  =>  x = 342/999\nNow reduce. 342 = 2 x 3^2 x 19 and 999 = 3^3 x 37, so HCF(342, 999) = 9.\n342/999 = 38/111\nCheck 38/111 is in lowest terms: 38 = 2 x 19, 111 = 3 x 37 — no common factor.\nAnswer: 38/111",
         "frequency": "Frequently asked"
       },
       {
@@ -855,13 +855,6 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
         "year": "2023",
         "marks": 3,
         "answer": "Using polynomial long division:\n3x^3 - x^2 - 3x + 1 divided by x^2 - 1\nFirst term of quotient: 3x^3 / x^2 = 3x\n3x(x^2 - 1) = 3x^3 - 3x\nSubtract: (3x^3 - x^2 - 3x + 1) - (3x^3 - 3x) = -x^2 + 1\nNext term of quotient: -x^2 / x^2 = -1\n-1(x^2 - 1) = -x^2 + 1\nSubtract: (-x^2 + 1) - (-x^2 + 1) = 0\nQuotient = 3x - 1, Remainder = 0",
-        "frequency": "Frequently asked"
-      },
-      {
-        "q": "If one zero of the polynomial x^2 + (k+1)x + (k^2 - 5k + 6) is 2, find the other zero.",
-        "year": "2021",
-        "marks": 3,
-        "answer": "If 2 is a zero, then: (2)^2 + (k+1)(2) + (k^2 - 5k + 6) = 0\n4 + 2k + 2 + k^2 - 5k + 6 = 0\nk^2 - 3k + 12 = 0\nUsing discriminant: 9 - 48 = -39 < 0, no real solution\nLet me verify problem: Assuming it's solvable, k^2 - 3k + 12 should give real k.\nActually, if 2 is a zero: 4 + 2(k+1) + (k^2 - 5k + 6) = 0\n4 + 2k + 2 + k^2 - 5k + 6 = 0\nk^2 - 3k + 12 = 0... This has no real solution.\nAssuming corrected polynomial or value, use Vieta's: if alpha = 2, then\nbeta = (k^2 - 5k + 6)/2 once k is found.",
         "frequency": "Frequently asked"
       },
       {
@@ -3703,13 +3696,6 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
         "frequency": "Frequently asked"
       },
       {
-        "q": "Prove the identity: (1 - cos²θ) / sin²θ = tan²θ",
-        "year": "2023",
-        "marks": 2,
-        "answer": "Left side: (1 - cos²θ) / sin²θ\n= sin²θ / sin²θ  [using sin²θ + cos²θ = 1, so 1 - cos²θ = sin²θ]\n= 1\nWait, let me recalculate.\nActually: (1 - cos²θ) / sin²θ = sin²θ / sin²θ = 1, not tan²θ\nLet me prove the correct identity:\nProve: sin²θ / cos²θ = tan²θ\nLeft side: sin²θ / cos²θ = (sin θ / cos θ)² = tan²θ = Right side ✓\nOr prove: 1 - sin²θ / cos²θ = 1, which gives (sin²θ + cos²θ) / cos²θ = sec²θ",
-        "frequency": "Frequently asked"
-      },
-      {
         "q": "Find the value of sin(A + B) if sin A = 1/2, cos B = √3/2, where A and B are acute angles.",
         "year": "2021",
         "marks": 3,
@@ -4257,7 +4243,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
         "q": "State Hess's Law and use it to calculate ΔH for the reaction C(s) + O₂(g) → CO₂(g) given:\n(i) C(s) + O₂(g) → CO(g), ΔH = -110 kJ/mol\n(ii) 2CO(g) + O₂(g) → 2CO₂(g), ΔH = -560 kJ/mol",
         "year": "2022",
         "marks": 3,
-        "answer": "Hess's Law: The enthalpy change for a reaction is the same regardless of the pathway taken, provided the initial and final states are the same. ΔH is path-independent.\n\nTarget reaction: C(s) + O₂(g) → CO₂(g), ΔH = ?\n\nGiven reactions:\n(i) C(s) + O₂(g) → CO(g), ΔH₁ = -110 kJ/mol\n(ii) 2CO(g) + O₂(g) → 2CO₂(g), ΔH₂ = -560 kJ/mol\n\nDivide reaction (ii) by 2:\nCO(g) + 1/2 O₂(g) → CO₂(g), ΔH₂' = -560/2 = -280 kJ/mol\n\nAdd reaction (i) and modified (ii):\nC(s) + O₂(g) + CO(g) + 1/2 O₂(g) → CO(g) + CO₂(g)\nCO cancels:\nC(s) + 3/2 O₂(g) → CO₂(g)\nΔH = ΔH₁ + ΔH₂' = -110 + (-280) = -390 kJ/mol\n\nBut we want C(s) + O₂(g) → CO₂(g). Hmm, let me recalculate.\nActually, add (i) + (ii)/2 directly:\n(i) + (ii)/2 gives: C(s) + O₂(g) + CO(g) + 0.5O₂(g) → CO(g) + CO₂(g)\nThis simplifies to: C(s) + 1.5O₂(g) → CO₂(g), ΔH = -390 kJ for 1.5 mol O₂\nFor 1 mol O₂: ΔH = -390/1.5 × 1 = -260 kJ\nWait, that's not matching standard values. Let me reconsider the pathway:\nC(s) + O₂(g) → CO(g), ΔH₁ = -110\nCO(g) + 1/2O₂(g) → CO₂(g), ΔH = -280\nAdding: C(s) + O₂(g) + CO(g) + 0.5O₂(g) → CO(g) + CO₂(g)\nC(s) + 1.5O₂(g) → CO₂(g)\nFor combustion to produce CO₂ from 1 mol C with O₂:\nWe need different O₂ ratio. Let me use standard approach:\nΔH = -110 + (-280) = -390 kJ for 3/2 mol O₂\nFor 1 mol C to CO₂: ΔH = -110 - 280 = -390 kJ (when CO intermediate forms then burns)\nBut direct combustion using 1 mol O₂: We scale it.\nActually, the correct answer is ΔH = -390 kJ for the complete combustion.\nFinal Answer: ΔH = -390 kJ/mol (using Hess's Law by adding the two given reactions with appropriate coefficients)",
+        "answer": "Hess's Law: the enthalpy change of a reaction is the same whatever route is taken, provided the initial and final states are the same. Enthalpy is a state function, so DH is path-independent.\n\nTarget: C(s) + O2(g) -> CO2(g)\n\nGiven:\n(i)  C(s) + 1/2 O2(g) -> CO(g),      DH1 = -110 kJ/mol\n(ii) 2CO(g) + O2(g) -> 2CO2(g),      DH2 = -560 kJ/mol\n\nHalve (ii):  CO(g) + 1/2 O2(g) -> CO2(g),  DH = -560/2 = -280 kJ/mol\n\nAdd that to (i):\n  C(s) + 1/2 O2 + CO + 1/2 O2 -> CO + CO2\nCO appears on both sides and cancels, and the two half-moles of O2 combine:\n  C(s) + O2(g) -> CO2(g)\n\nDH = (-110) + (-280) = -390 kJ/mol",
         "frequency": "Frequently asked"
       },
       {

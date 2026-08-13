@@ -146,6 +146,24 @@ describe('previous-year questions', () => {
     const bad = all.filter(({ q }) => DANGLING.test(String(q.q))).map(({ q }) => String(q.q).slice(0, 55));
     expect(bad).toEqual([]);
   });
+
+  /**
+   * Same guard as the MCQ bank, for the same reason. Four PYQ/solved-example
+   * answers shipped the model's scratchpad — "Wait, let me recalculate", "This
+   * is wrong... Error in given data or my interpretation. Assuming |m| = 3".
+   *
+   * These are worked solutions, so the damage is worse than a wrong MCQ key: a
+   * student reads them to learn the METHOD. Two of the four were also
+   * unanswerable questions (contradictory data, no integer solution), which the
+   * model said out loud before guessing.
+   */
+  it('answers contain no leaked model reasoning', () => {
+    const LEAK = /wait,|let me (recalculate|recompute|recheck|verify|reconsider)|hmm,|which contradicts|error in given data|assuming it's solvable|doesn't yield/i;
+    const leaked = all
+      .filter(({ q }) => LEAK.test(String(q.answer ?? '')))
+      .map(({ q }) => `${String(q.q).slice(0, 48)} — "${String(q.answer).match(LEAK)?.[0]}"`);
+    expect(leaked).toEqual([]);
+  });
 });
 
 describe('revision notes', () => {
