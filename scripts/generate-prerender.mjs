@@ -1479,6 +1479,66 @@ ROUTES.push({
 const DIFF_BY_CAT = {};
 for (const x of DIFFS) (DIFF_BY_CAT[x.category] ||= []).push(x);
 const DIFF_REINDEX_FAQ = new Map(DIFF_REINDEX.map((d) => [d.slug, d.faqs]));
+
+/**
+ * Deep bodies for the GSC-proven winners (public/diff-deep.json).
+ *
+ * WHY: the 2026-08-13 GSC export showed these 17 indexed comparisons pulling
+ * 22,725 impressions at an average position of ~8 — but converting at 0.42%.
+ * They were ranking on page 1 with roughly 400 crawl-time words against
+ * competitors running 1,500–3,400 on the same query. This adds ~1,150 words of
+ * real teaching content per page (explainers, worked examples, exam mistakes,
+ * a self-check quiz, extra FAQs), which is what closes that gap.
+ *
+ * Read from public/ rather than imported so the same file can be fetched by the
+ * React page at runtime — one source of truth, and zero JS-bundle cost.
+ */
+const DIFF_DEEP = (() => {
+  try {
+    return JSON.parse(readFileSync(path.join(ROOT, 'public', 'diff-deep.json'), 'utf8')).topics || {};
+  } catch {
+    return {};
+  }
+})();
+
+/** Render one deep topic to crawlable HTML. Returns '' when there is no deep entry. */
+function diffDeepHtml(slug, d) {
+  const t = DIFF_DEEP[slug];
+  if (!t) return '';
+  const P = (arr) => (arr || []).map((p) => `<p>${esc(p)}</p>`).join('');
+  const parts = [];
+
+  for (const e of t.explainers || []) {
+    parts.push(`<h2>${esc(e.term)}</h2>${P(e.paras)}`);
+  }
+  for (const s of t.sections || []) {
+    parts.push(`<h2>${esc(s.h)}</h2>${P(s.paras)}${
+      (s.bullets || []).length ? `<ul>${s.bullets.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''
+    }`);
+  }
+  if ((t.examples || []).length) {
+    parts.push(`<h2>${esc(d.termA)} vs ${esc(d.termB)} — Worked Examples</h2><ul>${
+      t.examples.map((x) => `<li><strong>${esc(x.t)}</strong> — ${esc(x.d)}</li>`).join('')
+    }</ul>`);
+  }
+  if ((t.mistakes || []).length) {
+    parts.push(`<h2>Common Mistakes Students Make</h2><ul>${
+      t.mistakes.map((m) => `<li>${esc(m)}</li>`).join('')
+    }</ul>`);
+  }
+  if ((t.quiz || []).length) {
+    parts.push(`<h2>Quick Self-Check</h2>${t.quiz.map((q, i) =>
+      `<div><p><strong>Q${i + 1}. ${esc(q.q)}</strong></p><ul>${
+        q.options.map((o, j) => `<li>${'ABCD'[j]}. ${esc(o)}</li>`).join('')
+      }</ul><p><strong>Answer: ${'ABCD'[q.correct]}. ${esc(q.options[q.correct])}</strong> — ${esc(q.why)}</p></div>`,
+    ).join('')}`);
+  }
+  if (t.ncertRef) {
+    parts.push(`<p><em>Syllabus reference: ${esc(t.ncertRef)}</em></p>`);
+  }
+  return parts.join('');
+}
+
 for (const d of DIFFS) {
   const rows = (d.table || []).slice(0, 12);
   const tableHtml = rows.length
@@ -1491,12 +1551,16 @@ for (const d of DIFFS) {
   // Curated re-index: GSC-proven winners get a factual FAQ (substantive, not thin)
   // and are allowed to index; everything else stays noindex.
   const reFaqs = DIFF_REINDEX_FAQ.get(d.slug);
-  const faqHtml = reFaqs ? `<h2>Frequently Asked Questions</h2>${reFaqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+  // Deep entries carry extra FAQs; they join the on-page list AND the FAQPage schema.
+  const allFaqs = reFaqs ? [...reFaqs, ...((DIFF_DEEP[d.slug] || {}).extraFaqs || [])] : null;
+  const faqHtml = allFaqs ? `<h2>Frequently Asked Questions</h2>${allFaqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+  const deepHtml = diffDeepHtml(d.slug, d);
   const bodyHtml = `
     <p class="speakable"><strong>The main difference between ${esc(d.termA)} and ${esc(d.termB)}:</strong> ${esc(d.intro)}</p>
     <h2>${esc(d.termA)} vs ${esc(d.termB)} — Comparison Table</h2>
     ${tableHtml}
     ${kpHtml}
+    ${deepHtml}
     ${faqHtml}
     ${relHtml}
     <p><a href="/difference-between">See all difference-between comparisons →</a></p>`;
@@ -1513,8 +1577,8 @@ for (const d of DIFFS) {
     // Re-indexed winners are deepened (table + key points + FAQ); the rest stay
     // noindex under the post-March-2026 thin-content policy.
     noindex: !DIFF_REINDEX_SLUGS.has(d.slug),
-    jsonLd: reFaqs
-      ? [breadcrumb, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: reFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
+    jsonLd: allFaqs
+      ? [breadcrumb, { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: allFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
       : breadcrumb,
   });
 }

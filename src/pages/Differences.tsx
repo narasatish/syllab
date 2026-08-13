@@ -12,6 +12,163 @@ import { usePathname } from '../lib/isomorphic';
 
 const SITE = 'https://syllab.in';
 
+/* ─── Deep content (public/diff-deep.json) ─────────────────────────────────────
+ * The GSC-proven comparisons carry ~1,150 extra words of teaching content.
+ * It is FETCHED, never imported: bundling it would put ~90 KB of prose into the
+ * Differences chunk for every visitor, including the ones who only open the hub.
+ * Same file the prerenderer reads, so the crawled HTML and the hydrated page
+ * show the same content — a mismatch there would be cloaking, and would also
+ * throw away the dwell time this content exists to earn.
+ */
+export interface DeepQuiz { q: string; options: string[]; correct: number; why: string; }
+export interface DeepTopic {
+  ncertRef?: string;
+  explainers?: { term: string; paras: string[] }[];
+  sections?: { h: string; paras?: string[]; bullets?: string[] }[];
+  examples?: { t: string; d: string }[];
+  mistakes?: string[];
+  quiz?: DeepQuiz[];
+  extraFaqs?: { q: string; a: string }[];
+}
+
+let deepCache: Record<string, DeepTopic> | null = null;
+let deepPromise: Promise<Record<string, DeepTopic>> | null = null;
+
+function loadDeep(): Promise<Record<string, DeepTopic>> {
+  if (deepCache) return Promise.resolve(deepCache);
+  deepPromise ??= fetch('/diff-deep.json')
+    .then((r) => (r.ok ? r.json() : { topics: {} }))
+    .then((j) => { deepCache = j.topics || {}; return deepCache; })
+    .catch(() => ({}));
+  return deepPromise;
+}
+
+function useDeep(slug: string): DeepTopic | null {
+  const [deep, setDeep] = useState<DeepTopic | null>(() => deepCache?.[slug] ?? null);
+  useEffect(() => {
+    let live = true;
+    loadDeep().then((all) => { if (live) setDeep(all[slug] ?? null); });
+    return () => { live = false; };
+  }, [slug]);
+  return deep;
+}
+
+/** One self-check question. Reveals the explanation only after an answer is picked. */
+function QuizItem({ item, n }: { item: DeepQuiz; n: number }) {
+  const [picked, setPicked] = useState<number | null>(null);
+  return (
+    <div className="rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+      <p className="font-bold text-slate-900 dark:text-slate-100">Q{n}. {item.q}</p>
+      <div className="mt-3 grid gap-2">
+        {item.options.map((o, j) => {
+          const isRight = j === item.correct;
+          const show = picked !== null;
+          const tone = !show
+            ? 'border-slate-200 hover:border-primary hover:bg-primary/5 dark:border-slate-600'
+            : isRight
+              ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40'
+              : j === picked
+                ? 'border-rose-400 bg-rose-50 dark:bg-rose-950/30'
+                : 'border-slate-200 opacity-60 dark:border-slate-600';
+          return (
+            <button
+              key={j}
+              type="button"
+              disabled={show}
+              onClick={() => setPicked(j)}
+              className={`rounded-xl border-2 px-3 py-2 text-left text-sm font-semibold text-slate-700 transition-colors dark:text-slate-200 ${tone}`}
+            >
+              <span className="mr-2 font-black text-slate-400">{'ABCD'[j]}.</span>{o}
+            </button>
+          );
+        })}
+      </div>
+      {picked !== null && (
+        <p className="mt-3 rounded-xl bg-slate-50 p-3 text-sm leading-relaxed text-slate-700 dark:bg-slate-900 dark:text-slate-300">
+          <strong className={picked === item.correct ? 'text-emerald-600' : 'text-rose-600'}>
+            {picked === item.correct ? 'Correct. ' : `Not quite — the answer is ${'ABCD'[item.correct]}. `}
+          </strong>
+          {item.why}
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** The deep teaching block: explainers, sections, examples, mistakes, quiz. */
+function DeepBody({ deep, termA, termB }: { deep: DeepTopic; termA: string; termB: string }) {
+  const H2 = 'mb-2 mt-8 text-lg font-black text-slate-900 dark:text-slate-100';
+  const P = 'mt-3 leading-relaxed text-slate-700 dark:text-slate-300';
+  return (
+    <>
+      {(deep.explainers ?? []).map((e, i) => (
+        <section key={`e${i}`}>
+          <h2 className={H2}>{e.term}</h2>
+          {e.paras.map((p, j) => <p key={j} className={P}>{p}</p>)}
+        </section>
+      ))}
+
+      {(deep.sections ?? []).map((s, i) => (
+        <section key={`s${i}`}>
+          <h2 className={H2}>{s.h}</h2>
+          {(s.paras ?? []).map((p, j) => <p key={j} className={P}>{p}</p>)}
+          {(s.bullets ?? []).length > 0 && (
+            <ul className="mt-3 space-y-2">
+              {s.bullets!.map((b, j) => (
+                <li key={j} className="flex gap-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <span className="mt-0.5 text-primary">•</span> {b}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
+
+      {(deep.examples ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>{termA} vs {termB} — Worked Examples</h2>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            {deep.examples!.map((x, i) => (
+              <div key={i} className="rounded-2xl border border-slate-100 bg-slate-50/60 p-3 dark:border-slate-700 dark:bg-slate-800/40">
+                <p className="text-sm font-black text-slate-900 dark:text-slate-100">{x.t}</p>
+                <p className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{x.d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {(deep.mistakes ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>Common Mistakes Students Make</h2>
+          <ul className="mt-3 space-y-2">
+            {deep.mistakes!.map((m, i) => (
+              <li key={i} className="flex gap-2 rounded-xl bg-amber-50 p-3 text-sm leading-relaxed text-amber-900 dark:bg-amber-950/30 dark:text-amber-200">
+                <span className="mt-0.5 shrink-0">⚠</span> {m}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {(deep.quiz ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>Quick Self-Check</h2>
+          <div className="mt-3 space-y-3">
+            {deep.quiz!.map((q, i) => <QuizItem key={i} item={q} n={i + 1} />)}
+          </div>
+        </section>
+      )}
+
+      {deep.ncertRef && (
+        <p className="mt-6 text-xs italic leading-relaxed text-slate-500 dark:text-slate-400">
+          Syllabus reference: {deep.ncertRef}
+        </p>
+      )}
+    </>
+  );
+}
+
 function parseSlug(pathname: string): string | null {
   const m = pathname.match(/\/difference-between\/([a-z0-9-]+)/);
   return m ? m[1] : null;
@@ -87,6 +244,10 @@ function DiffIndex({ query, setQuery, go }: { query: string; setQuery: (s: strin
 /* ── Detail ── */
 function DiffDetail({ topic, go, setTab }: { topic: DiffTopic; go: (to: string) => void; setTab: (t: string) => void }) {
   const related = DIFFERENCES.filter((d) => d.category === topic.category && d.slug !== topic.slug).slice(0, 4);
+  const deep = useDeep(topic.slug);
+  // Deep topics contribute extra FAQs; they must appear in the visible list AND
+  // the FAQPage schema, matching exactly what the prerenderer emits.
+  const faqs = deep?.extraFaqs?.length ? [...topic.faqs, ...deep.extraFaqs] : topic.faqs;
   const breadcrumbs = [
     { name: 'Difference Between', url: `${SITE}/difference-between` },
     { name: topic.title, url: `${SITE}/difference-between/${topic.slug}` },
@@ -101,7 +262,7 @@ function DiffDetail({ topic, go, setTab }: { topic: DiffTopic; go: (to: string) 
         jsonLd={[
           { '@context': 'https://schema.org', '@type': 'Article', headline: topic.title, description: topic.intro, inLanguage: 'en-IN', isAccessibleForFree: true, author: { '@type': 'Organization', name: 'Syllab.in' }, publisher: { '@type': 'Organization', name: 'Syllab.in' }, mainEntityOfPage: `${SITE}/difference-between/${topic.slug}` },
           { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbs.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: it.url })) },
-          ...(topic.faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: topic.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+          ...(faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
         ]}
       />
       <button onClick={() => go('/difference-between')} className="mb-4 inline-flex items-center gap-1 text-xs font-black text-slate-500 hover:text-primary">
@@ -149,12 +310,14 @@ function DiffDetail({ topic, go, setTab }: { topic: DiffTopic; go: (to: string) 
         </section>
       )}
 
+      {deep && <DeepBody deep={deep} termA={topic.termA} termB={topic.termB} />}
+
       {/* FAQs */}
-      {topic.faqs.length > 0 && (
+      {faqs.length > 0 && (
         <section className="mt-8">
           <h2 className="mb-3 text-lg font-black text-slate-900 dark:text-slate-100">Frequently Asked Questions</h2>
           <div className="space-y-3">
-            {topic.faqs.map((f, i) => (
+            {faqs.map((f, i) => (
               <details key={i} className="rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
                 <summary className="cursor-pointer font-bold text-slate-900 hover:text-primary dark:text-slate-100">{f.q}</summary>
                 <p className="mt-3 leading-relaxed text-slate-700 dark:text-slate-300">{f.a}</p>
