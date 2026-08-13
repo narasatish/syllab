@@ -72,6 +72,58 @@ describe('MCQ bank', () => {
     expect(padding).toEqual([]);
   });
 
+  /**
+   * Explanations must be an ANSWER, not the model's scratchpad.
+   *
+   * A verification sweep found 8 explanations containing leaked chain-of-thought
+   * — "Wait, let me recalculate", "Hmm, this doesn't match", "I'll mark option 0
+   * as the closest intended answer" — one of them 1,606 characters long. Worse,
+   * the leak was a reliable tell: in 6 of the 8 the working was RIGHT and the
+   * stored key was WRONG, because the generator second-guessed itself into the
+   * wrong option. Three more had no correct option at all.
+   *
+   * So this guard is not cosmetic. Text like this in an explanation means the
+   * question itself is probably broken.
+   */
+  it('explanations contain no leaked model reasoning', () => {
+    const LEAK = /wait,|let me (recalculate|recompute|recheck|verify)|i'll mark|assuming (a )?typo|none of the options|but the option says|hmm,|this doesn't match|as an ai/i;
+    const leaked = all
+      .filter(({ q }) => LEAK.test(q.explanation ?? ''))
+      .map(({ q }) => `${q.q.slice(0, 50)} — "${(q.explanation ?? '').match(LEAK)?.[0]}"`);
+    expect(leaked).toEqual([]);
+  });
+
+  it('explanations stay a readable length', () => {
+    // The leaked-reasoning ones ran to 1,606 chars. A genuine explanation for a
+    // school MCQ does not need 600.
+    const bloated = all
+      .filter(({ q }) => (q.explanation ?? '').length > 600)
+      .map(({ q }) => `${q.q.slice(0, 45)} (${(q.explanation ?? '').length} chars)`);
+    expect(bloated).toEqual([]);
+  });
+
+  /*
+   * DELIBERATELY NOT TESTED: options that are the same value written two ways.
+   *
+   * One real instance existed — "2000 sqrt(3) + 2000 m" and "2000 + 2000
+   * sqrt(3) m" on the same question, giving it two correct answers. It has been
+   * removed by hand.
+   *
+   * Two attempts at a guard were written and both deleted, because a
+   * sorted-character fingerprint cannot tell equivalence from difference:
+   *
+   *   prose  "importing more than exporting" vs "exporting more than importing"
+   *          — anagrams, opposite meanings, and both are good distractors.
+   *   maths  "x^2 + x - 6 = 0" vs "x^2 - x + 6 = 0"  — differ only in sign.
+   *          "sqrt(3)/2" vs "2/sqrt(3)"              — differ only in order.
+   *
+   * Nine false positives, zero true positives. Doing this properly needs
+   * symbolic evaluation of each option, not string comparison. A test that
+   * cries wolf is worse than no test — it teaches people to skip the output.
+   * The same conclusion was reached earlier about an arithmetic checker that
+   * produced 667 false positives. Do not re-add a string-based version.
+   */
+
   it('chapter slugs are unique', () => {
     const s = MCQ_CHAPTERS.map((c) => c.slug);
     expect(new Set(s).size).toBe(s.length);

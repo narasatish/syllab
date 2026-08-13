@@ -4698,8 +4698,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "9",
           "5"
         ],
-        "correct": 2,
-        "explanation": "As of recent reorganization, India has 8 Union Territories administered directly by the central government."
+        "correct": 1,
+        "explanation": "India has 8 Union Territories. Dadra and Nagar Haveli merged with Daman and Diu in 2020, and Jammu & Kashmir and Ladakh became UTs in 2019."
       },
       {
         "q": "What is the role of the Governor in a state?",
@@ -4967,8 +4967,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "10 cm",
           "5 cm"
         ],
-        "correct": 3,
-        "explanation": "1/f = (n-1)(1/R1 - 1/R2) = (1.5-1)(1/10 - 1/(-10)) = 0.5 * 0.2 = 0.1, so f = 10 cm. Wait, let me recalculate: (1/10 + 1/10) = 0.2, so f = 5 cm."
+        "correct": 2,
+        "explanation": "For a symmetric convex lens R1 = +10 cm and R2 = -10 cm. 1/f = (n-1)(1/R1 - 1/R2) = (1.5-1) x (1/10 + 1/10) = 0.5 x 0.2 = 0.1, so f = 10 cm."
       },
       {
         "q": "A concave mirror with focal length 15 cm forms a real, inverted image at the center of curvature. Where is the object placed?",
@@ -5019,8 +5019,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "9 ohms",
           "24 ohms"
         ],
-        "correct": 2,
-        "explanation": "Two 6-ohm resistors in parallel: 1/Rp = 1/6 + 1/6 = 2/6, so Rp = 3 ohms. Total = 3 + 12 = 15 ohms. Wait, let me recheck: 1/Rp = 1/6 + 1/6 = 1/3, Rp = 3 ohms. Total = 3 + 12 = 15 ohms."
+        "correct": 0,
+        "explanation": "Two 6-ohm resistors in parallel: 1/Rp = 1/6 + 1/6 = 1/3, so Rp = 3 ohms. That 3 ohms is in series with 12 ohms, so the total is 3 + 12 = 15 ohms."
       },
       {
         "q": "A copper wire has a resistance of 5 ohms at 20°C. As temperature increases to 100°C, the resistance increases due to thermal motion of electrons. What happens to the conductivity of copper?",
@@ -5063,8 +5063,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "90 W",
           "30 W"
         ],
-        "correct": 2,
-        "explanation": "At rated conditions, the bulb draws I = 60/120 = 0.5 A. In 240 V circuit with same current: V_bulb = 120 V, V_resistor = 240 - 120 = 120 V. Power in resistor = I^2 * R = 0.5^2 * 240 = 0.25 * 240 = 60 W. Wait, P = V*I = 120 * 0.5 = 60 W, but this doesn't match. Let me recalculate: If current is 0.5 A through the series resistor with 120 V drop, P = 120 * 0.5 = 60 W. Hmm, but 60+60=120, not accounting for full power delivery. Actually for a 60W bulb: Rb = V^2/P = 120^2/60 = 240 ohms. At 240V, current = 240/(240+R_series). For same power at 120V drop across bulb: I = 0.5A is needed. So R_series = 120/0.5 = 240 ohms. Power = 0.5^2 * 240 = 60W. But this exceeds bulb's rating. Correct approach: bulb rated 60W at 120V means Rb = 14400/60 = 240 ohms. To use in 240V: current must be limited to 120/240 = 0.5A. Rs = (240-120)/0.5 = 240 ohms. Power in Rs = 0.5^2 * 240 = 60W. But we want same power in bulb 60W. This creates issue. Actually the bulb will get 120V and 0.5A, so 60W. Resistor: 120V, 0.5A = 60W. Total 120W. But wait - let me reconsider: actual current would be I = 240/(240+240) = 0.5A. Bulb gets 120V, power = 0.5^2 * 240 = 60W correct. Resistor: same current 0.5A through 240 ohms = 60W. Answer is actually 60W not 90W. Let me verify once more: if we want 120V across bulb and 120V across resistor for equal drop at 0.5A, that's 60W each. Total 120W delivered from 240V source. 240V * 0.5A = 120W total. Yes! But none of the options exactly fit this reasoning. At face value: P_r = (240-120)^2 / R_s = 120^2/240 = 60W approximately. Checking option: answer should be 60W so option index 2."
+        "correct": 1,
+        "explanation": "The bulb needs 120 V at I = 60/120 = 0.5 A. The series resistor takes the other 240 - 120 = 120 V at the same 0.5 A, so its power is P = V x I = 120 x 0.5 = 60 W."
       },
       {
         "q": "In a parallel circuit with three identical bulbs rated 100 W each at 230 V, if one bulb burns out, what happens to the brightness of the remaining bulbs?",
@@ -5366,17 +5366,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "explanation": "As the observer moves closer to the tower, the angle of elevation increases from 60 to 75 degrees, showing the inverse relationship between distance and angle of elevation."
       },
       {
-        "q": "An aeroplane at height 2000 meters observes the angle of depression to two buildings on opposite sides of a road at 30 degrees and 45 degrees respectively. If both angles are measured from the plane, what is the distance between the buildings?",
-        "options": [
-          "2000 m",
-          "2000 sqrt(3) + 2000 m",
-          "2000 + 2000 sqrt(3) m",
-          "4000 m"
-        ],
-        "correct": 1,
-        "explanation": "Distance to 30-degree building: d1 = 2000/tan(30) = 2000*sqrt(3). Distance to 45-degree building: d2 = 2000/tan(45) = 2000. Total = 2000*sqrt(3) + 2000 m."
-      },
-      {
         "q": "In a right triangle, sin(A) = 3/5. What is cos(A)?",
         "options": [
           "4/3",
@@ -5386,17 +5375,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 2,
         "explanation": "If sin(A) = 3/5, then opposite = 3 and hypotenuse = 5. Using Pythagoras: adjacent = sqrt(25-9) = 4. So cos(A) = 4/5."
-      },
-      {
-        "q": "A boy on top of a cliff 50 meters high observes a boat at angle of depression 45 degrees. Later, the boat comes closer and the angle of depression becomes 60 degrees. How far did the boat travel?",
-        "options": [
-          "50 m",
-          "100 m",
-          "50 sqrt(3) m",
-          "50(sqrt(3) - 1) m"
-        ],
-        "correct": 3,
-        "explanation": "At 45 degrees: distance from cliff = 50/tan(45) = 50 m. At 60 degrees: distance = 50/tan(60) = 50/sqrt(3) m. Distance traveled = 50 - 50/sqrt(3) = 50(1 - 1/sqrt(3)) = 50(sqrt(3) - 1)/sqrt(3). Actually, 50 - 50/sqrt(3) = 50(sqrt(3) - 1)/sqrt(3) = 50(sqrt(3) - 1)/sqrt(3) * sqrt(3)/sqrt(3) = 50(3 - sqrt(3))/3. Hmm, this doesn't match. Let me recalculate: 50 - 50*sqrt(3)/3 = 50(1 - sqrt(3)/3) = 50(3-sqrt(3))/3. Or approximating: 50(1.732-1) = 50*0.732 which is roughly 50(sqrt(3)-1). The cleanest form is 50(sqrt(3)-1)."
       },
       {
         "q": "Two poles of heights 10 m and 20 m are 15 m apart. What is the angle of elevation from the top of the shorter pole to the top of the taller pole?",
@@ -5440,17 +5418,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         "explanation": "P(at least 2 wins) = P(exactly 2) + P(exactly 3). P(exactly 2) = C(3,2) * 0.6^2 * 0.4 = 3 * 0.36 * 0.4 = 0.432. P(exactly 3) = 0.6^3 = 0.216. Total = 0.432 + 0.216 = 0.648."
       },
       {
-        "q": "A card is drawn from a standard deck of 52 cards. What is the probability of getting a red card or a face card?",
-        "options": [
-          "35/52",
-          "15/52",
-          "38/52",
-          "26/52"
-        ],
-        "correct": 2,
-        "explanation": "Red cards = 26. Face cards = 12. Red face cards = 6 (overlap). Using inclusion-exclusion: P = (26 + 12 - 6)/52 = 32/52 = 8/13. Wait, that's 32/52, not 38. Let me reconsider: total face cards in deck = 12 (4 suits * 3 ranks). Red face cards = 6. P(red OR face) = (26 + 12 - 6)/52 = 32/52. Hmm, this doesn't match 38/52. Actually, let me recount: hearts and diamonds are red (13+13=26). Face cards (J,Q,K) = 4*3 = 12. Red face cards: 2 suits * 3 = 6. Using P(A or B) = P(A) + P(B) - P(A and B) = 26/52 + 12/52 - 6/52 = 32/52 = 8/13. This is not 38/52. Let me check if the question means something else. Actually 38/52 doesn't simplify nicely. The answer should be 32/52, but let me see if 38 is a typo. If we included all 13 ranks of red (instead of 26): that's 26. Plus 12 face cards (6 are red, already counted). So P(red or face) = 26 + 12 - 6 = 32. So answer is 32/52, but that's option index... 32 is not in the list. Checking 38: maybe the question intended diamonds (13) + face cards excluding red face cards? 13 + 12 - 6 = 19, not 38. Or hearts (13) + all face cards? 13 + 12 = 25, not 38. Actually, re-reading: red cards OR face card. That's (26 red) OR (12 face). With 6 overlap. So 26 + 12 - 6 = 32. The answer 32/52 is closest to option 3 (35/52) but not exact. Let me assume the correct answer is option 3 with explanation: cards that are red OR face: All 26 red cards + 6 non-red face cards (J,Q,K of clubs and spades) = 32. But 32/52 simplifies to 8/13, not matching the options. I'll mark this as index 3, but note the calculation gives 32/52."
-      },
-      {
         "q": "A die is rolled twice. What is the probability of getting a sum of 7?",
         "options": [
           "1/8",
@@ -5469,8 +5436,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "5/45",
           "10/90"
         ],
-        "correct": 0,
-        "explanation": "P(both red) = (5/10) * (4/9) = 20/90 = 2/9. Wait, that's 20/90, not 25/90. Let me recompute: 5 red out of 10 total. First ball red: 5/10. After removing one red, 4 red out of 9 remain. Second ball red: 4/9. P = 5/10 * 4/9 = 20/90. But the option says 25/90. Let me verify: 5*4 = 20, so 20/90. 20/90 = 2/9. None of the options match 20/90 exactly except when reduced. Actually 25/90 is wrong based on calculation. Assuming typo and correct answer is 20/90 which might be listed differently or there's an error. I'll mark option 0 as the closest intended answer."
+        "correct": 1,
+        "explanation": "Without replacement: P(first red) = 5/10 and P(second red) = 4/9. P(both red) = 5/10 x 4/9 = 20/90 = 2/9."
       },
       {
         "q": "A quality control inspector finds that 2% of products are defective. If a sample of 100 products is checked, what is the expected number of defective products?",
@@ -5750,17 +5717,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
     "intro": "NSO-style olympiad questions on motion, velocity, acceleration, and graphical analysis. Challenging problems requiring deep conceptual understanding and problem-solving skills.",
     "mcqs": [
       {
-        "q": "An object travels 20m in the first 2 seconds, 30m in the next 3 seconds, and 40m in the final 5 seconds. What is the average velocity for the entire journey?",
-        "options": [
-          "7.5 m/s",
-          "6.67 m/s",
-          "6 m/s",
-          "5 m/s"
-        ],
-        "correct": 1,
-        "explanation": "Total distance = 20 + 30 + 40 = 90 m. Total time = 2 + 3 + 5 = 10 s. Average velocity = 90/10 = 9 m/s. Wait, that's not in options. Let me recalculate: 90/10 = 9, not 6.67. Checking: if the answer is 6.67, then 6.67 * 10 = 66.7, not 90. There may be an error. But assuming the question is correct and looking for average speed: Total distance 90m, total time 10s, average = 9m/s. Since 9m/s is not listed, the closest is 7.5. But mathematically it should be 9. Let me assume there's a typo in distances or I misread. If distances were 10, 20, 30 total 60m in 10s = 6m/s (option 1). If 60, 40 m total in 9 s = about 6.67m/s. So answer is likely index 2."
-      },
-      {
         "q": "A car accelerates uniformly from rest. In the first second, it covers 2m. How far will it cover in the second second?",
         "options": [
           "4 m",
@@ -5908,8 +5864,8 @@ export const MCQ_CHAPTERS: McqChapter[] = [
           "3",
           "4"
         ],
-        "correct": 1,
-        "explanation": "360 = 2^3 * 3^2 * 5^1. So a=3, b=2, c=1. a+b+c = 6. Wait, let me verify: 8*9*5 = 360. Yes. So answer is 6, which is index 3."
+        "correct": 0,
+        "explanation": "Factorising: 360 = 2^3 x 3^2 x 5^1, so a = 3, b = 2, c = 1 and a + b + c = 6."
       },
       {
         "q": "What is the GCD of 84 and 126?",
@@ -14098,17 +14054,6 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 0,
         "explanation": "Per Capita Income is calculated by dividing National Income (or GDP) by the total population. If GDP is growing but Per Capita Income is stagnant, it means the population is growing at the same or a faster rate than GDP, indicating that the per person share of the economic output is not increasing, suggesting unequal distribution or very high population growth diluting the benefits of GDP growth."
-      },
-      {
-        "q": "If the GDP at market price is Rs. 1000 crore and depreciation is Rs. 100 crore, then the GDP at factor cost is:",
-        "options": [
-          "Rs. 1100 crore",
-          "Rs. 900 crore",
-          "Rs. 800 crore",
-          "Rs. 1000 crore"
-        ],
-        "correct": 1,
-        "explanation": "GDP at Factor Cost = GDP at Market Price - Net Indirect Taxes. However, the question provides depreciation. The relationship between market price and factor cost is through Net Indirect Taxes. The question implicitly assumes Net Indirect Taxes are zero or it's a poorly worded question intending to ask about NDP. Assuming the question meant to ask for NDPFC from NDPMP or GNPFC from GNPMP. If we assume that Market Price includes indirect taxes and excludes subsidies, and Factor Cost is the reverse. Let's rephrase the question assuming it implies a conversion from Market Price to Factor Cost. Assuming the provided options are for a direct relationship with depreciation. GDP at Factor Cost = GDP at Market Price - Net Indirect Taxes. If the question meant to ask for Net Domestic Product at Factor Cost (NDPFC) from Gross Domestic Product at Market Price (GDPMP), it would be: NDPFC = GDPMP - Depreciation - Net Indirect Taxes. Since only depreciation is given, and assuming Net Indirect Taxes are zero for simplicity in this specific question context, GDP at Factor Cost = GDP at Market Price - Depreciation is incorrect. The standard conversion is GDPFC = GDPMP - NIT. If the question is asking for NDPMP from GDPMP, then NDPMP = GDPMP - Depreciation = 1000 - 100 = 900. Let's assume the question meant to ask: If GDP at Market Price is Rs. 1000 crore and Net Indirect Taxes are Rs. 100 crore, then GDP at Factor Cost is Rs. 900 crore. Given the options, and the common confusion, it's likely designed to test the relationship between market price and factor cost, or gross and net. If we strictly follow the relationship with depreciation, it leads to NDP, not GDPFC. However, if the question implies the difference between market price and factor cost is represented by depreciation (which is incorrect), then 1000-100 = 900 would be chosen. Let's consider a plausible scenario for the given options: If the question was 'If the Net Domestic Product at Market Price is Rs. 1000 crore and depreciation is Rs. 100 crore, then the Net Domestic Product at Factor Cost is:', then the answer would be 900. However, given 'GDP at market price' and options, and the presence of depreciation, it's most likely an error in the question and intended to be about NDP. Let's assume the question is flawed and intended to ask for NDPFC from NDPMP, where NDPMP = 1000 and depreciation = 100. Then NDPFC = 900. OR, if it meant GDPMP = 1000 and Net Indirect Taxes = 100, then GDPFC = 900. Given the option 900, it strongly suggests that the difference between market price and factor cost (or gross and net) is to be accounted for by the Rs. 100 amount. The most straightforward interpretation if forced to choose from options is that the difference from market price to factor cost is Rs. 100. If we interpret depreciation as the only difference conceptually between gross and net, and the question is about converting market price to factor cost, the options don't fit well. However, if the question meant to ask: 'If GDP at Market Price is Rs. 1000 crore and Net Indirect Taxes are Rs. 100 crore, then the GDP at Factor Cost is:', then the answer would be Rs. 900 crore. Let's proceed with the interpretation that the Rs. 100 is the amount to be subtracted to reach the factor cost from market price, irrespective of whether it's depreciation or NIT for this specific question's design. Thus, 1000 - 100 = 900."
       },
       {
         "q": "Transfer payments are excluded from the calculation of National Income because:",
