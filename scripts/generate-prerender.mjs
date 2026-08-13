@@ -2776,6 +2776,9 @@ for (const lang of CODE_LANGS) {
   // unique text, not a keyword list, and it links to each lesson.
   const hubBody = codingHubBody(lang, L, CODE_TOPICS[lang] || [], CODE_CONTENT[lang] || {});
   const existingHub = ROUTES.find((r) => r.path === langPath);
+  if (process.env.DEBUG_CODING_HUB) {
+    console.log(`[hub] ${langPath} found=${!!existingHub} hadBody=${!!(existingHub && existingHub.bodyHtml)} newBody=${hubBody.length}`);
+  }
   if (existingHub) {
     if (!existingHub.bodyHtml && hubBody) existingHub.bodyHtml = hubBody;
   } else {
