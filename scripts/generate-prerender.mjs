@@ -2618,14 +2618,20 @@ function extractTopicContent(filePath) {
     // Find all topic objects: match from id: 'xxx' to the closing }
     // Simple regex approach: look for patterns like:
     // { id: 'ai-intro', category: ..., title: 'XXX', theory: [...]
+    // `category` is captured optionally so the course-hub page can group the
+    // syllabus under real headings ("Foundations", "Sorting & Searching") rather
+    // than one flat list. Optional because not every tutorial file sets it, and
+    // a topic without a category must still be found — losing the topic
+    // entirely would silently shrink the lesson list.
     const topicMatches = [...content.matchAll(
-      /\{\s*id:\s*['"]([a-z0-9-]+)['"][^}]*?title:\s*['"]([^'"]*)['"]/gm
+      /\{\s*id:\s*['"]([a-z0-9-]+)['"](?:[^}]*?category:\s*['"]([^'"]*)['"])?[^}]*?title:\s*['"]([^'"]*)['"]/gm
     )];
 
     for (const match of topicMatches) {
       const topicId = match[1];
-      const title = match[2];
-      topics[topicId] = { title, theoryText: '', syntaxText: '' };
+      const category = match[2] || '';
+      const title = match[3];
+      topics[topicId] = { title, category, theoryText: '', syntaxText: '' };
     }
 
     // For each topic, extract ALL paragraphs of its theory array (joined) — the
@@ -2691,6 +2697,64 @@ function readCodingTopics() {
     return { languages, topicsByLang, contentByLang };
   } catch { return { languages: [], topicsByLang: {}, contentByLang: {} }; }
 }
+/**
+ * Body for a /coding/<language> course hub.
+ *
+ * Builds a real syllabus page out of content the topic pages already read:
+ * every lesson grouped under its category, each with the first sentence of its
+ * own theory, plus a lesson count and links into each lesson. Nothing here is
+ * invented or padded — if a topic has no extracted theory it contributes only
+ * its title, and if the course has no topics at all this returns '' so the
+ * route keeps its previous (empty) body rather than gaining a hollow shell.
+ */
+function codingHubBody(lang, label, topicIds, contentMap) {
+  const topics = topicIds
+    .map((id) => ({ id, ...(contentMap[id] || {}) }))
+    .filter((t) => t.title);
+  if (topics.length < 2) return '';
+
+  // First sentence of the theory — a genuine summary, not a truncation to a
+  // fixed character count that would cut mid-word.
+  const firstSentence = (text) => {
+    const s = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!s) return '';
+    const m = s.match(/^(.{40,240}?[.!?])(\s|$)/);
+    return m ? m[1] : (s.length > 240 ? `${s.slice(0, 237).replace(/\s\S*$/, '')}…` : s);
+  };
+
+  const byCategory = new Map();
+  for (const t of topics) {
+    const cat = t.category || 'Course Lessons';
+    if (!byCategory.has(cat)) byCategory.set(cat, []);
+    byCategory.get(cat).push(t);
+  }
+
+  const sections = [...byCategory.entries()].map(([cat, list]) => {
+    const items = list.map((t) => {
+      const summary = firstSentence(t.theoryText);
+      return `<li><a href="/coding/${lang}/${t.id}"><strong>${esc(t.title)}</strong></a>${summary ? ` — ${esc(summary)}` : ''}</li>`;
+    }).join('');
+    return `<h3>${esc(cat)}</h3><ul>${items}</ul>`;
+  }).join('');
+
+  const withTheory = topics.filter((t) => t.theoryText).length;
+
+  return `
+    <p class="speakable"><strong>Free ${esc(label)} course:</strong> ${topics.length} lessons, from the basics through to the advanced topics interviewers actually ask about. Every lesson is free, needs no sign-up, and runs in your browser with an editor and instant AI feedback.</p>
+    <h2>${esc(label)} Course Syllabus — ${topics.length} Lessons</h2>
+    <p>Work through them in order, or jump to the topic you need. ${withTheory} lessons include worked explanations and runnable examples.</p>
+    ${sections}
+    <h2>Who this ${esc(label)} course is for</h2>
+    <p>School and college students in India starting from zero, and anyone revising ${esc(label)} for placements, board practicals or a project. There is no prerequisite beyond being able to type — the first lessons assume no programming background at all.</p>
+    <h2>How to study this course</h2>
+    <ol>
+      <li>Read the lesson, then run the example in the built-in editor before moving on — reading code is not the same as writing it.</li>
+      <li>Try the practice task at the end of each lesson. Getting it wrong and fixing it is where the learning happens.</li>
+      <li>When you are stuck, ask the free AI Tutor to explain that specific line rather than skipping ahead.</li>
+    </ol>
+    ${aiCta}`;
+}
+
 const titleCase = (slug) => slug.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 const langLabel = (l) => ({ 'ai-learning': 'AI & ML', 'data-analytics': 'Data Analytics', 'data-mining': 'Data Mining', 'app-dev': 'App Development', 'game-dev': 'Game Development', 'git-github': 'Git & GitHub', 'prompt-engineering': 'Prompt Engineering', 'cloud-computing': 'Cloud Computing', 'cybersecurity': 'Cyber Security', 'ai-agents': 'AI Agents' }[l] || titleCase(l));
 const existingCoding = new Set(ROUTES.map(r => r.path));
@@ -2698,12 +2762,29 @@ const { languages: CODE_LANGS, topicsByLang: CODE_TOPICS, contentByLang: CODE_CO
 for (const lang of CODE_LANGS) {
   const L = langLabel(lang);
   const langPath = `/coding/${lang}`;
-  if (!existingCoding.has(langPath)) {
+  // Course-hub body. These 34 pages were the THINNEST cluster on the site: a
+  // content audit measured /coding/dsa at 194 crawl-time words and
+  // /coding/python at 181, while the individual topic pages under them carried
+  // 263-366. The hub emitted a title and a meta description and nothing else,
+  // even though ~2,000 words of curriculum sit in the same data the topic pages
+  // already read. A near-empty hub above rich children is the worst shape for
+  // this: the hub is the page that ranks for "learn python free", and it is the
+  // page Google was given least reason to.
+  //
+  // So the hub now carries the actual syllabus — every topic title grouped by
+  // its category, with the opening line of each topic's theory. That is real,
+  // unique text, not a keyword list, and it links to each lesson.
+  const hubBody = codingHubBody(lang, L, CODE_TOPICS[lang] || [], CODE_CONTENT[lang] || {});
+  const existingHub = ROUTES.find((r) => r.path === langPath);
+  if (existingHub) {
+    if (!existingHub.bodyHtml && hubBody) existingHub.bodyHtml = hubBody;
+  } else {
     ROUTES.push({
       path: langPath,
       title: `Learn ${L} Free — Tutorials & Practice for Students | Syllab.in`,
       description: `Free ${L} tutorials, examples and coding practice for Indian students. Beginner to advanced, with an in-browser editor and AI feedback — no cost.`,
       keywords: `learn ${L} free, ${L} tutorial India, ${L} for students, ${L} coding practice free`,
+      ...(hubBody ? { bodyHtml: hubBody } : {}),
     });
   }
   for (const topic of (CODE_TOPICS[lang] || [])) {
