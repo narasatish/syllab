@@ -119,8 +119,35 @@ export function validateMcq(raw: unknown): BankMcq | null {
   const correct = Number(rawCorrect);
   if (!Number.isInteger(correct) || correct < 0 || correct > 3) return null;
 
+  // Reject leaked chain-of-thought. This is not a style rule — it is the single
+  // best predictor we have of a WRONG ANSWER KEY.
+  //
+  // A sweep of the live bank found 8 explanations containing model scratchpad
+  // ("Wait, let me recalculate", "I'll mark option 0 as the closest intended
+  // answer"). In SIX of those eight the working was correct and the stored key
+  // was wrong: the model computed the right value, talked itself out of it, and
+  // keyed a different option. Two more had no correct option at all. Every one
+  // of them had passed the checks above, because they are perfectly well-formed
+  // questions — four distinct options and an in-range index.
+  //
+  // So when a model shows this much doubt, the safe move is to drop the question
+  // rather than ship it and hope. Cheap: the generator just asks for another.
+  if (LEAKED_REASONING.test(explanation)) return null;
+
+  // A genuine explanation for a school MCQ does not need 600 characters. The
+  // worst offender found was 3,405 — a transcript of the model arguing with
+  // itself about a question whose premise was wrong.
+  if (explanation.length > 600) return null;
+
   return { q, options, correct, explanation };
 }
+
+/**
+ * Phrases that mean the model was still deliberating when it emitted the
+ * explanation. Kept next to validateMcq so both generation paths share it.
+ */
+export const LEAKED_REASONING =
+  /wait,|let me (recalculate|recompute|recheck|verify|reconsider)|i'll mark|assuming (a )?typo|none of the options|but the option says|hmm,|this doesn't match|doesn't match \d|as an ai|i think the answer/i;
 
 /** Drop questions already in the chapter (or repeated within the batch). */
 export function dedupeMcqs(existing: readonly BankMcq[], incoming: readonly BankMcq[]): BankMcq[] {

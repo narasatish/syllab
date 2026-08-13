@@ -89,6 +89,41 @@ describe('validateMcq', () => {
     expect(validateMcq(good)).toMatchObject({ correct: 2 });
   });
 
+  /**
+   * These reject at INGEST, so the daily generator cannot put back what was
+   * just cleaned out of the bank. Six wrong answer keys shipped to students
+   * behind explanations exactly like these — every one of them well-formed
+   * enough to pass the structural checks.
+   */
+  describe('leaked model reasoning', () => {
+    it.each([
+      'The answer is 5 cm. Wait, let me recalculate: it is 10 cm.',
+      "P = 20/90. But the option says 25/90, so I'll mark option 0.",
+      'Hmm, this doesn\'t match any option. Assuming a typo.',
+      'None of the options are correct, so I picked the closest.',
+      'Let me verify: 8 x 9 = 72. Actually that is wrong.',
+    ])('rejects: %s', (explanation) => {
+      expect(validateMcq({ ...good, explanation })).toBeNull();
+    });
+
+    it('keeps a clean explanation that merely contains the word "wait"', () => {
+      // The pattern requires "wait," with a comma — the deliberating form —
+      // so ordinary prose is not caught.
+      const ok = { ...good, explanation: 'Objects in orbit wait for no one; gravity acts continuously.' };
+      expect(validateMcq(ok)).not.toBeNull();
+    });
+  });
+
+  describe('explanation length', () => {
+    it('accepts a normal-length explanation', () => {
+      expect(validateMcq({ ...good, explanation: 'x'.repeat(600) })).not.toBeNull();
+    });
+
+    it('rejects a bloated one (the worst found live was 3405 chars)', () => {
+      expect(validateMcq({ ...good, explanation: 'x'.repeat(601) })).toBeNull();
+    });
+  });
+
   it('rejects the wrong number of options', () => {
     expect(validateMcq({ ...good, options: ['a', 'b', 'c'] })).toBeNull();
     expect(validateMcq({ ...good, options: ['a', 'b', 'c', 'd', 'e'] })).toBeNull();
