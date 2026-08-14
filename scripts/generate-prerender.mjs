@@ -878,17 +878,59 @@ function ncertRich(s) {
     .replace(/\n/g, '<br>');
 }
 
+/**
+ * Chapter MCQs, keyed identically to the solutions bank.
+ *
+ * public/data/generated-mcqs.json holds 11,623 MCQs — question, four options,
+ * correct index AND a written explanation — under the very same
+ * `class::Subject::chap-slug` keys, covering 242 of the 304 chapters. Like the
+ * solutions themselves, none of it was reaching the page. Surfacing it is not
+ * padding: a worked answer plus practice questions with explanations is what a
+ * student revising this chapter actually wants, and it is what the competitor
+ * pages carry.
+ */
+const NCERT_MCQS = (() => {
+  try {
+    return JSON.parse(readFileSync(path.join(ROOT, 'public', 'data', 'generated-mcqs.json'), 'utf8'));
+  } catch {
+    return {};
+  }
+})();
+
+/** Enough MCQs to give the chapter real revision value without dumping all 50. */
+const MCQ_PER_CHAPTER = 20;
+
+function ncertMcqHtml(key, title) {
+  const all = NCERT_MCQS[key];
+  if (!Array.isArray(all) || !all.length) return '';
+  const picked = all.slice(0, MCQ_PER_CHAPTER);
+  const body = picked.map((m, i) => {
+    const opts = (m.options || []).map((o, j) =>
+      `<li>${'ABCD'[j] ? `${'ABCD'[j]}. ` : ''}${esc(o)}</li>`).join('');
+    const ans = (m.options || [])[m.correct];
+    return `<h4>MCQ ${i + 1}. ${esc(m.question)}</h4><ul>${opts}</ul>` +
+      `<p><strong>Answer: ${'ABCD'[m.correct] ?? '?'}${ans ? `. ${esc(ans)}` : ''}</strong>` +
+      `${m.explanation ? ` — ${esc(m.explanation)}` : ''}</p>`;
+  }).join('');
+  return `<h2>${esc(title)} — Practice MCQs with Answers</h2>
+    <p>Attempt these ${picked.length} multiple-choice questions after working through the solutions above. Each carries the correct option and the reasoning behind it, so a wrong answer tells you which idea to revisit.</p>
+    ${body}`;
+}
+
 function ncertBody(c) {
-  const items = NCERT_BANK[`${c.classLevel}::${c.subject}::${c.chapSlug}`];
+  const key = `${c.classLevel}::${c.subject}::${c.chapSlug}`;
+  const items = NCERT_BANK[key];
   if (!Array.isArray(items) || !items.length) return '';
   const qa = items.map((it, i) =>
     `<h3>Q${i + 1}. ${esc(it.q)}</h3><p>${ncertRich(it.solution)}</p>`,
   ).join('');
+  const mcqs = ncertMcqHtml(key, c.title);
   return `
     <p class="speakable"><strong>NCERT Solutions for Class ${c.classLevel} ${esc(c.subject)} — ${esc(c.title)}.</strong>
     Step-by-step answers to all ${items.length} textbook questions from this chapter, written for CBSE board preparation and free to use.</p>
     <h2>${esc(c.title)} — All ${items.length} Questions Solved</h2>
     ${qa}
+    ${mcqs}
     <h2>How to Use These Solutions</h2>
     <p>Attempt each question yourself first and only then compare with the worked answer. Marks in the CBSE board exam are awarded for the METHOD as much as the final result, so reproduce the steps rather than memorising the last line. Where a solution states a law, a formula or a definition, learn that wording — examiners look for it.</p>
     <p>Related practice for this chapter: <a href="/mcqs">chapter MCQs</a>, <a href="/pyqs">previous-year questions</a>, <a href="/revision-notes">revision notes</a> and <a href="/sample-papers">sample papers</a>.</p>
