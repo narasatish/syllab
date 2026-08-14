@@ -3135,9 +3135,22 @@ function buildBodyContent(route) {
     richContent = `<div style="margin-top:1.5rem;line-height:1.7;">${route.bodyHtml}</div>`;
   }
 
-  // NCERT chapter pages — render actual Q&A for high SEO value + numbered list + table
+  // NCERT chapter pages — legacy fallback ONLY.
+  //
+  // This block truncates every solution to 500 characters and caps the list at
+  // `displayLimit`, ending with "Showing N of M questions". That was the best
+  // available when these routes shipped no body of their own.
+  //
+  // It must now be an ELSE-IF. It used to be a bare `if`, so on any NCERT page
+  // it ran AFTER the `if (route.bodyHtml)` branch above and REASSIGNED
+  // richContent, silently discarding the full body. The symptom was inverted
+  // and took a while to read: chapters WITH bank data rendered only the
+  // truncated 6-question version, while class-10/hindi-kshitij/tulsidas
+  // rendered the full body — because its bank key is "Hindi (Kshitij)" with
+  // parentheses, which this block's slug-derived lookup cannot find, so it
+  // failed to overwrite. The pages with real data were the ones being clobbered.
   const ncertMatch = route.path.match(/^\/ncert-solutions\/class-(\d+)\/([a-z-]+)\/([a-z-]+)$/);
-  if (ncertMatch) {
+  if (!route.bodyHtml && ncertMatch) {
     const [, classLevel, subjSlug, chapSlug] = ncertMatch;
     const ncertKey = `${classLevel}::${slugToSubject(subjSlug)}::${chapSlug}`;
     const ncertData = getNcertData();
