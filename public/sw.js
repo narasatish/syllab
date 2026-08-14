@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v307-2026-08-10-pyq-solved-answer-fixes';
+const CACHE_VERSION = 'syllab-v308-2026-08-14-diff-deep-bodies';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

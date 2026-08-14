@@ -27,7 +27,13 @@ export interface DeepTopic {
   sections?: { h: string; paras?: string[]; bullets?: string[] }[];
   examples?: { t: string; d: string }[];
   mistakes?: string[];
+  applications?: { h: string; d: string }[];
+  numericals?: { q: string; steps: string[]; answer: string }[];
+  boardQuestions?: { q: string; marks: string; a: string }[];
+  assertionReason?: { assertion: string; reason: string; answer: string; why: string }[];
   quiz?: DeepQuiz[];
+  glossary?: { term: string; def: string }[];
+  revision?: string[];
   extraFaqs?: { q: string; a: string }[];
 }
 
@@ -151,12 +157,106 @@ function DeepBody({ deep, termA, termB }: { deep: DeepTopic; termA: string; term
         </section>
       )}
 
+      {(deep.applications ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>Where This Shows Up in Real Life</h2>
+          {deep.applications!.map((a, i) => (
+            <div key={i} className="mt-3">
+              <h3 className="text-sm font-black text-slate-900 dark:text-slate-100">{a.h}</h3>
+              <p className="mt-1 leading-relaxed text-slate-700 dark:text-slate-300">{a.d}</p>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {(deep.numericals ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>Solved Numericals — Step by Step</h2>
+          <div className="mt-3 space-y-3">
+            {deep.numericals!.map((n, i) => (
+              <div key={i} className="rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+                <p className="font-bold text-slate-900 dark:text-slate-100">Problem {i + 1}. {n.q}</p>
+                <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  {n.steps.map((s, j) => <li key={j}>{s}</li>)}
+                </ol>
+                <p className="mt-2 rounded-xl bg-emerald-50 p-2 text-sm font-black text-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-300">Answer: {n.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {(deep.boardQuestions ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>Board-Style Questions with Model Answers</h2>
+          <div className="mt-3 space-y-3">
+            {deep.boardQuestions!.map((b, i) => (
+              <details key={i} className="rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+                <summary className="cursor-pointer font-bold text-slate-900 hover:text-primary dark:text-slate-100">
+                  {b.q} <span className="text-xs font-black text-slate-400">({b.marks} marks)</span>
+                </summary>
+                <p className="mt-3 leading-relaxed text-slate-700 dark:text-slate-300">{b.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {(deep.assertionReason ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>Assertion–Reason Questions (CBSE Format)</h2>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            Choose: (a) both A and R are true and R correctly explains A; (b) both true but R does not explain A;
+            (c) A true, R false; (d) A false, R true.
+          </p>
+          <div className="mt-3 space-y-3">
+            {deep.assertionReason!.map((x, i) => (
+              <details key={i} className="rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+                <summary className="cursor-pointer text-sm font-bold text-slate-900 dark:text-slate-100">
+                  {i + 1}. A: {x.assertion} — R: {x.reason}
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  <strong className="text-emerald-600">Answer: ({x.answer})</strong> — {x.why}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
       {(deep.quiz ?? []).length > 0 && (
         <section>
           <h2 className={H2}>Quick Self-Check</h2>
           <div className="mt-3 space-y-3">
             {deep.quiz!.map((q, i) => <QuizItem key={i} item={q} n={i + 1} />)}
           </div>
+        </section>
+      )}
+
+      {(deep.glossary ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>Key Terms Glossary</h2>
+          <dl className="mt-3 space-y-2">
+            {deep.glossary!.map((g, i) => (
+              <div key={i} className="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/40">
+                <dt className="text-sm font-black text-slate-900 dark:text-slate-100">{g.term}</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{g.def}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
+      {(deep.revision ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>One-Minute Revision</h2>
+          <ul className="mt-3 space-y-2">
+            {deep.revision!.map((r, i) => (
+              <li key={i} className="flex gap-2 rounded-xl bg-primary/5 p-3 text-sm leading-relaxed text-slate-800 dark:bg-primary/10 dark:text-slate-200">
+                <span className="mt-0.5 shrink-0 text-primary">★</span> {r}
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 

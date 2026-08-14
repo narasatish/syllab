@@ -1526,12 +1526,46 @@ function diffDeepHtml(slug, d) {
       t.mistakes.map((m) => `<li>${esc(m)}</li>`).join('')
     }</ul>`);
   }
+  if ((t.applications || []).length) {
+    parts.push(`<h2>Where This Shows Up in Real Life</h2>${
+      t.applications.map((a) => `<h3>${esc(a.h)}</h3><p>${esc(a.d)}</p>`).join('')
+    }`);
+  }
+  if ((t.numericals || []).length) {
+    parts.push(`<h2>Solved Numericals — Step by Step</h2>${t.numericals.map((n, i) =>
+      `<div><p><strong>Problem ${i + 1}. ${esc(n.q)}</strong></p><ol>${
+        n.steps.map((s) => `<li>${esc(s)}</li>`).join('')
+      }</ol><p><strong>Answer: ${esc(n.answer)}</strong></p></div>`,
+    ).join('')}`);
+  }
+  if ((t.boardQuestions || []).length) {
+    parts.push(`<h2>Board-Style Questions with Model Answers</h2>${t.boardQuestions.map((b) =>
+      `<h3>${esc(b.q)} <em>(${esc(b.marks)} marks)</em></h3><p>${esc(b.a)}</p>`,
+    ).join('')}`);
+  }
+  if ((t.assertionReason || []).length) {
+    parts.push(`<h2>Assertion–Reason Questions (CBSE Format)</h2><p>For each question choose: (a) both A and R are true and R is the correct explanation of A; (b) both are true but R is not the correct explanation; (c) A is true but R is false; (d) A is false but R is true.</p>${
+      t.assertionReason.map((x, i) =>
+        `<div><p><strong>${i + 1}. Assertion (A):</strong> ${esc(x.assertion)}<br><strong>Reason (R):</strong> ${esc(x.reason)}</p><p><strong>Answer: (${esc(x.answer)})</strong> — ${esc(x.why)}</p></div>`,
+      ).join('')
+    }`);
+  }
   if ((t.quiz || []).length) {
     parts.push(`<h2>Quick Self-Check</h2>${t.quiz.map((q, i) =>
       `<div><p><strong>Q${i + 1}. ${esc(q.q)}</strong></p><ul>${
         q.options.map((o, j) => `<li>${'ABCD'[j]}. ${esc(o)}</li>`).join('')
       }</ul><p><strong>Answer: ${'ABCD'[q.correct]}. ${esc(q.options[q.correct])}</strong> — ${esc(q.why)}</p></div>`,
     ).join('')}`);
+  }
+  if ((t.glossary || []).length) {
+    parts.push(`<h2>Key Terms Glossary</h2><dl>${
+      t.glossary.map((g) => `<dt><strong>${esc(g.term)}</strong></dt><dd>${esc(g.def)}</dd>`).join('')
+    }</dl>`);
+  }
+  if ((t.revision || []).length) {
+    parts.push(`<h2>One-Minute Revision</h2><ul>${
+      t.revision.map((r) => `<li>${esc(r)}</li>`).join('')
+    }</ul>`);
   }
   if (t.ncertRef) {
     parts.push(`<p><em>Syllabus reference: ${esc(t.ncertRef)}</em></p>`);
