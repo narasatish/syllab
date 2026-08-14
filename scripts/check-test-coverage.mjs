@@ -28,6 +28,12 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REPORT = path.join(ROOT, '.vitest-coverage-report.json');
 const RETRY = process.argv.includes('--retry');
+const VITEST_BIN = path.join(ROOT, 'node_modules', 'vitest', 'vitest.mjs');
+
+if (!existsSync(VITEST_BIN)) {
+  console.error(`Cannot find vitest at ${VITEST_BIN} — run npm install.`);
+  process.exit(1);
+}
 
 /** Every test file on disk, repo-relative with forward slashes. */
 function testFilesOnDisk(dir = path.join(ROOT, 'src'), acc = []) {
@@ -45,7 +51,12 @@ function runVitest(sequential) {
   if (existsSync(REPORT)) unlinkSync(REPORT);
   const args = ['vitest', 'run', '--reporter=json', `--outputFile=${REPORT}`];
   if (sequential) args.push('--no-file-parallelism');
-  const res = spawnSync('npx', args, { cwd: ROOT, stdio: 'inherit', shell: process.platform === 'win32' });
+  // Run vitest's own entry with the SAME node binary, rather than going through
+  // npx. Two reasons: `shell: true` with an args array concatenates instead of
+  // escaping (node DEP0190), and dropping the shell to avoid that makes Windows
+  // refuse to spawn npx.cmd at all — which silently produced no report.
+  // Invoking the .mjs directly sidesteps both.
+  const res = spawnSync(process.execPath, [VITEST_BIN, ...args.slice(1)], { cwd: ROOT, stdio: 'inherit' });
   if (!existsSync(REPORT) || statSync(REPORT).size < 10) {
     console.error('\nNo JSON report was written — vitest did not finish. Treating as failure.');
     process.exit(1);
