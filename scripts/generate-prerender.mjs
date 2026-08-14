@@ -847,9 +847,59 @@ ROUTES.push({
     ] },
   ],
 });
+/**
+ * The actual NCERT answers, for the page body.
+ *
+ * WHY THIS EXISTS: public/data/ncert-solutions.json holds 2,207 worked answers
+ * — roughly 287,000 words. getNcertChapters() reads that same file but keeps
+ * only `count`, throwing every question and answer away. So these routes were
+ * pushed with a title, a description and JSON-LD and NO bodyHtml at all, and a
+ * crawler saw ~536 words of nav, footer and boot skeleton per page. Against
+ * byjus.com's 3,386 on the comparable chapter that is not a content gap, it is
+ * a plumbing bug: the content was written, stored and then not rendered.
+ *
+ * /ncert-solutions is also the site's BEST-converting cluster (3.32% CTR in the
+ * 2026-08 GSC export, against 0.06% on /full-forms), so it was the worst place
+ * on the site to be shipping an empty body.
+ */
+const NCERT_BANK = (() => {
+  try {
+    return JSON.parse(readFileSync(path.join(ROOT, 'public', 'data', 'ncert-solutions.json'), 'utf8'));
+  } catch {
+    return {};
+  }
+})();
+
+/** Answers are stored with markdown-style **bold**; convert AFTER escaping. */
+function ncertRich(s) {
+  return esc(String(s ?? ''))
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n{2,}/g, '</p><p>')
+    .replace(/\n/g, '<br>');
+}
+
+function ncertBody(c) {
+  const items = NCERT_BANK[`${c.classLevel}::${c.subject}::${c.chapSlug}`];
+  if (!Array.isArray(items) || !items.length) return '';
+  const qa = items.map((it, i) =>
+    `<h3>Q${i + 1}. ${esc(it.q)}</h3><p>${ncertRich(it.solution)}</p>`,
+  ).join('');
+  return `
+    <p class="speakable"><strong>NCERT Solutions for Class ${c.classLevel} ${esc(c.subject)} — ${esc(c.title)}.</strong>
+    Step-by-step answers to all ${items.length} textbook questions from this chapter, written for CBSE board preparation and free to use.</p>
+    <h2>${esc(c.title)} — All ${items.length} Questions Solved</h2>
+    ${qa}
+    <h2>How to Use These Solutions</h2>
+    <p>Attempt each question yourself first and only then compare with the worked answer. Marks in the CBSE board exam are awarded for the METHOD as much as the final result, so reproduce the steps rather than memorising the last line. Where a solution states a law, a formula or a definition, learn that wording — examiners look for it.</p>
+    <p>Related practice for this chapter: <a href="/mcqs">chapter MCQs</a>, <a href="/pyqs">previous-year questions</a>, <a href="/revision-notes">revision notes</a> and <a href="/sample-papers">sample papers</a>.</p>
+    <p><a href="/ncert-solutions">All NCERT Solutions, Class 6–12 →</a></p>`;
+}
+
 for (const c of NCERT_CHAPTERS) {
   const today = new Date().toISOString().split('T')[0];
+  const items = NCERT_BANK[`${c.classLevel}::${c.subject}::${c.chapSlug}`] || [];
   ROUTES.push({
+    bodyHtml: ncertBody(c),
     path: `/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
     title: `${c.title} — Class ${c.classLevel} ${c.subject} NCERT Solutions (Free) | Syllab.in`,
     description: `Free step-by-step NCERT solutions for Class ${c.classLevel} ${c.subject} chapter "${c.title}" — ${c.count} important questions with detailed answers for CBSE board exam preparation.`,
