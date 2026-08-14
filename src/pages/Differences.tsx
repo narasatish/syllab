@@ -27,6 +27,7 @@ export interface DeepTopic {
   sections?: { h: string; paras?: string[]; bullets?: string[] }[];
   examples?: { t: string; d: string }[];
   mistakes?: string[];
+  diagrams?: { title: string; caption: string; alt: string; svg: string }[];
   applications?: { h: string; d: string }[];
   numericals?: { q: string; steps: string[]; answer: string }[];
   boardQuestions?: { q: string; marks: string; a: string }[];
@@ -154,6 +155,27 @@ function DeepBody({ deep, termA, termB }: { deep: DeepTopic; termA: string; term
               </li>
             ))}
           </ul>
+        </section>
+      )}
+
+      {(deep.diagrams ?? []).length > 0 && (
+        <section>
+          <h2 className={H2}>Diagrams</h2>
+          <div className="mt-3 grid gap-4">
+            {deep.diagrams!.map((g, i) => (
+              <figure key={i} className="m-0 rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+                <div
+                  className="text-slate-700 dark:text-slate-200 [&_svg]:h-auto [&_svg]:w-full"
+                  /* Authored in-repo (public/diff-deep.json), never user input — same
+                     markup the prerenderer emits, so crawled and hydrated DOM match. */
+                  dangerouslySetInnerHTML={{ __html: g.svg }}
+                />
+                <figcaption className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                  <strong className="text-slate-900 dark:text-slate-100">{g.title}.</strong> {g.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </section>
       )}
 

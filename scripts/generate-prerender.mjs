@@ -1526,6 +1526,17 @@ function diffDeepHtml(slug, d) {
       t.mistakes.map((m) => `<li>${esc(m)}</li>`).join('')
     }</ul>`);
   }
+  // Diagrams. NOTE the deliberate exception: d.svg is injected RAW, not esc()'d,
+  // because it is markup by design. Safe because diff-deep.json is authored in
+  // this repo and never accepts user input — do not point this at outside data.
+  // Inline SVG over raster on purpose: ~2 KB instead of ~80 KB, labels are
+  // crawlable text, crisp at any DPI, themes via currentColor, no extra request
+  // (so no CSP issue), and no CLS because every one carries a viewBox.
+  if ((t.diagrams || []).length) {
+    parts.push(`<h2>Diagrams</h2>${t.diagrams.map((g) =>
+      `<figure><div class="diagram">${g.svg}</div><figcaption>${esc(g.caption)}</figcaption></figure>`,
+    ).join('')}`);
+  }
   if ((t.applications || []).length) {
     parts.push(`<h2>Where This Shows Up in Real Life</h2>${
       t.applications.map((a) => `<h3>${esc(a.h)}</h3><p>${esc(a.d)}</p>`).join('')
