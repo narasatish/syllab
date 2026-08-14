@@ -7,6 +7,19 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /api/
 
+# Private, signed-in areas. These are SPA rewrites in firebase.json
+# (/profile/**, /parent/** -> /index.html), which means ANY invented path
+# under them returns 200 with the app shell and a canonical pointing at "/".
+# A crawler can therefore mint unlimited distinct URLs that all serve identical
+# content — a duplicate factory. The 2026-08-14 GSC Coverage export showed
+# 1,289 pages filed as "Duplicate without user-selected canonical", 56% of
+# everything not indexed. These pages are behind auth and have zero search
+# value, so the correct answer is to stop them being crawled at all.
+Disallow: /profile
+Disallow: /profile/
+Disallow: /parent
+Disallow: /parent/
+
 # Help bots discover all important content
 Allow: /syllabus
 Allow: /practice
