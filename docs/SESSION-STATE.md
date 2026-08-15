@@ -1,3 +1,137 @@
+# Session state — as of v320 (2026-08-15)
+
+Handoff memory. Read once when resuming work. Newest section first; older
+history is kept below because it still explains why parts of the codebase look
+the way they do.
+
+Fastest sanity check that you are looking at the live build:
+
+```bash
+curl -sS https://syllab.in/sw.js | grep -oP "syllab-v[0-9]+[^']*" | head -1
+```
+
+---
+
+# CURRENT — v320, deployed and verified live
+
+## The one pattern that produced almost every gain: content stored but never rendered
+
+Five separate instances found in one day. Every one returned HTTP 200, every
+build was green, nothing ever errored. **This is the single most valuable check
+to run on this codebase:** for each data file, compare bytes stored against
+words actually reaching a built page.
+
+| what | was | now |
+|---|---|---|
+| NCERT solutions — `getNcertChapters()` read the file and kept only `count`, discarding 2,207 answers | 536 w/page | **2,235** |
+| A missing `else` truncated every solution to 500 chars behind "Showing 6 of 10" | — | full text |
+| 11,623 MCQs in `generated-mcqs.json` under keys nothing looked up | — | 4,822 surfaced |
+| Blog: 83 `/updates/<slug>` pages emitted `summary` only | 156 w | **397 avg** |
+| `/coding`: syntax regex dropped code examples | 349 pages w/ code | **484** |
+
+**That well is now dry.** Verified as fully rendering what they have:
+`/revision-notes`, `/english-writing`, `/formula-sheets`, `/concepts`,
+`/gk-facts`. Everything remaining is authoring or a decision.
+
+## Also fixed in v309–v320
+
+- **17 `/difference-between` pages to 3,227 words avg (95% of BYJU'S 3,432)**,
+  all illustrated. Blocks: explainers, sections, worked examples, common
+  mistakes, applications, numericals, board questions w/ model answers, CBSE
+  assertion-reason, glossary, revision recap. Source: `public/diff-deep.json`.
+- **Inline-SVG diagram system**, 17 diagrams, 2.4–3.6 KB each vs ~80 KB PNG.
+  Theme via CSS vars on `.dark` — **NOT `prefers-color-scheme`**; this site is
+  class-based (`index.css` line 5). Contrast 6.09–7.26:1 both themes.
+- **`/profile/**` and `/parent/**` robots-blocked.** They rewrite to
+  `/index.html`, so ANY invented path returned 200 with the homepage canonical
+  — an unlimited duplicate factory. GSC Coverage showed 1,289 pages as
+  "Duplicate without user-selected canonical" (56% of all non-indexed).
+- **MCQ quality gate** (`mcqIsSound`) — rejects unanswerable questions,
+  duplicate options, leaked model reasoning. Removed 15 broken live questions.
+- **`generate-trending-blogs.mjs` was DELETING hand-written posts** on every
+  build via a full `writeFile`. Now merges; generated posts carry
+  `generated: true`, hand-written are preserved.
+- **`scripts/check-test-coverage.mjs`** — vitest's pool silently drops test
+  files while exiting 0 (ran **4 of 59** under memory pressure). This guard
+  diffs files-that-ran against files-on-disk and retries sequentially.
+  **A green `npm test` without this is not evidence the suite ran.**
+
+---
+
+# NEXT — blocked on the user, not on code
+
+1. **PSI API key.** 20 deploys unmeasured; CWV last known **FAILING** (mobile
+   LCP 3.5s, desktop CLS 0.11). `scripts/measure-cwv.mjs` is built and works.
+   Keyless PSI returns 429 — confirmed twice, hours apart.
+2. **`/hi`** — 17 pages at **23 words**. Write real Hindi, or noindex.
+3. **`/full-forms` + `/glossary`** — 249 pages, 69,773 impressions, **38
+   clicks**. Zero-click intent; more words will not help. Prune or keep.
+4. **`/coding`** — 873 pages, 245 w/page, 99 words of source theory per topic.
+   GSC: 293 impressions, **0 clicks, position 55.6**. Recommend consolidating
+   ~886 topics into 80–120 real lessons + noindex the tail.
+5. **`/mcqs` curriculum** — 81 pages named for the OLD NCERT syllabus while
+   `generated-mcqs.json` follows the current one. See
+   `scripts/mcq-chapter-map.mjs`; 7 hand-verified mappings, exclusions
+   documented with reasons.
+6. **ITER/CET hostel fees + branch-wise cutoff percentiles** — the queries ask
+   for exactly this (`iter fees for 4 years btech with hostel`, 283 impr,
+   0.35% CTR). Do NOT invent figures a family budgets on.
+
+## Authoring backlog (~556,000 words)
+
+| cluster | pages | now | note |
+|---|---|---|---|
+| `/revision-notes` | 119 | 472 w | **15.60% CTR — best converter on the site** |
+| `/mcqs` | 140 | 684 w | 13.97% CTR |
+| `/english-writing` | 94 | 102 w | only 33 words of source per entry |
+| `/medical-colleges` | 88 | 178 w | |
+| `/important-questions` | 50 | 97 w | |
+| 62 NCERT chapters | — | — | no MCQ bank entry → 54 pages <1,000 w |
+
+**Start with `/revision-notes`.** Schema in `src/data/revisionNotes.ts`:
+`slug · classLevel · subject · chapter · intro · sections · keyTerms · faqs`
+(median 358 words). Extend with the six blocks proven on difference-between.
+10 chapters/session, highest GSC impressions first.
+
+---
+
+# HOW TO NOT REPEAT MY MISTAKES
+
+Six errors in one session, all caught by checking the built artifact:
+
+- **Measure ONLY after a clean `npm run build`.** Running
+  `generate-prerender.mjs` standalone over an already-prerendered `dist`
+  double-counts. I reported 1,990 (true: 1,594), then 517 (true: 245). Twice.
+- **Never subtract aggregates to count defects.** "497 have syntax − 484
+  render = 13 broken" was wrong; measured file-by-file it was **2**.
+- **Verify the artifact, never the diff.** A "route collision" was a missing
+  `else`; "missing titles" were my own regex failing on a newline.
+- **Do not auto-fix what a guard flags.** The content guards over-flag: "Draw
+  the graph of x + y = 4" is an instruction, not a dangling figure; "sin 30° =
+  1/2" is complete, not thin. Inspect before editing.
+- **Never run two builds concurrently.** One wipes `dist/index.html` under the
+  other and the build dies with a misleading error.
+
+## Environment gotchas
+
+- Build needs **>2 GB free RAM**. Below ~1 GB it dies mid-transform (exit 127)
+  or the test pool drops most files. Other projects' builds were the real hog,
+  not this one.
+- `public/feed.xml` intermittently locks (OneDrive sync) → transient
+  ENOENT/UNKNOWN. Retry.
+- The in-app browser **cannot load localhost** ("Not allowed to load local
+  resource"), so dev-server visual checks are unavailable. Verify from
+  `dist/` files or the live domain.
+
+## Never eye-checked
+
+Everything from this session is measured, none of it seen. Nobody has looked
+at the 17 diagrams or the 3 new blog posts rendered. Worth 30 seconds on
+`/updates/jee-main-percentile-vs-rank-explained` and any difference-between
+page.
+
+---
+
 # Session state — as of v288 (2026-08-04)
 
 Handoff memory. Read once when resuming work. Newest section first; older history
