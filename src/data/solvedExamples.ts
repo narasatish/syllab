@@ -2950,42 +2950,32 @@ export const SOLVED_SETS: SolvedSet[] = [
     "chapter": "First Flight Extracts - Previous Year Questions",
     "intro": "First Flight contains stories and extracts that develop critical thinking and literary analysis. These questions test comprehension, interpretation, and ability to relate textual content to themes.",
     "examples": [
-      {
-        "problem": "Read the extract carefully and answer: 'It was a bright cold day in April, and the clocks were striking thirteen.' What is the significance of clocks striking thirteen? [3 marks]",
-        "solution": "This line from 1984 suggests an abnormal, dystopian world where even basic things like time work differently. Thirteen is not a natural hour on a 12-hour clock, symbolizing: (1) The oppressive, unnatural society under Big Brother's control, (2) Disconnection from reality and logic, (3) The government's power to redefine even fundamental aspects like time. It creates an immediate sense of unease and alienation, preparing readers for the theme of totalitarianism and loss of individual freedom.",
-        "answer": "Symbolizes dystopian world and government's control over reality itself."
-      },
-      {
-        "problem": "Analyze the character of the protagonist in the assigned extract. What values does he/she represent? [4 marks]",
-        "solution": "The protagonist typically represents: (1) Struggle against oppression or adversity, (2) Human resilience and determination, (3) Quest for freedom and self-identity, (4) Moral courage to stand against injustice, (5) Growth through experiences and challenges. The character's journey reflects universal human values and social themes relevant to students. Analysis should include specific examples from the text showing character development.",
-        "answer": "Protagonist represents human resilience, freedom, and moral courage against oppression."
-      },
-      {
-        "problem": "What themes are explored in the extract? How are they relevant to modern society? [4 marks]",
-        "solution": "Themes often include: (1) Power and corruption, (2) Individual versus society, (3) Freedom and surveillance, (4) Truth and propaganda, (5) Human relationships and isolation. Relevance to modern society: (1) Growing concerns about data privacy and surveillance, (2) Misinformation and propaganda in media, (3) Corporate and governmental control, (4) Importance of individual freedom, (5) Need for critical thinking. Students should make connections between text and contemporary issues.",
-        "answer": "Themes like power, freedom, and truth remain relevant to digital age and modern governance."
-      },
-      {
-        "problem": "How does the author use literary devices such as symbolism and imagery in the passage? [3 marks]",
-        "solution": "Literary devices used: (1) Symbolism: Objects, colors, or settings represent deeper meanings. (2) Imagery: Vivid descriptions create sensory experiences. (3) Metaphor: Abstract concepts expressed through concrete examples. (4) Irony: Contrast between expectations and reality. (5) Tone: Author's attitude expressed through word choice and style. Specific examples should be provided from the text with explanation of how they enhance meaning and reader engagement.",
-        "answer": "Author uses symbolism, imagery, and irony to convey themes effectively."
-      },
-      {
-        "problem": "How does the protagonist's journey reflect the broader social/political context? [4 marks]",
-        "solution": "The protagonist's personal struggle mirrors: (1) Individual struggles for rights in oppressive systems, (2) Loss of innocence and growing awareness, (3) Conflict between personal desires and societal expectations, (4) Search for truth in a world of lies, (5) Moral dilemmas faced by ordinary people. The personal narrative becomes a commentary on larger social issues, allowing readers to understand collective experiences through individual perspective.",
-        "answer": "Personal journey reflects struggle for individual rights within oppressive social system."
-      },
-      {
-        "problem": "What is the significance of the title/ending of the extract? [3 marks]",
-        "solution": "Title and ending are significant because: (1) They capture the essence of the narrative or message, (2) Title foreshadows themes developed in the text, (3) Ending provides closure or raises questions prompting reflection, (4) They remain memorable and guide interpretation, (5) Often contain symbolism relevant to the story. Analysis should relate title/ending to central themes and character development.",
-        "answer": "Title/ending encapsulates central theme and provides meaningful closure to narrative."
-      },
-      {
-        "problem": "How would you describe the tone of the passage? Provide textual evidence. [3 marks]",
-        "solution": "Tone analysis involves identifying author's attitude: optimistic, pessimistic, ironic, satirical, etc. Evidence includes: (1) Word choice (diction), (2) Sentence structure and rhythm, (3) Imagery and descriptive language, (4) Figurative language and symbols, (5) Perspective and point of view. Students should cite specific phrases and explain how they contribute to the overall tone.",
-        "answer": ""
-      }
-    ],
+        {
+                "problem": "In 'A Letter to God', why does Lencho write a letter to God, and what does his reaction to receiving only seventy pesos reveal about his character? [4 marks]",
+                "solution": "Lencho is a poor farmer whose entire maize crop is destroyed by a hailstorm that falls 'like new coins' on his field. Left with no seed and no food for the coming year, and having 'nothing but faith' in God, he writes asking for a hundred pesos to sow his field again and to live on until the new crop comes.\n\nWhen the postmaster and his colleagues collect what they can and send seventy pesos, Lencho is not grateful but angry. He counts the money, and instead of doubting God, he immediately concludes that the post-office employees have stolen the rest.\n\nThis reveals two things. First, the depth and literalness of his faith: he never once suspects that God might not have sent it, only that men interfered. Second, his complete distrust of people, which stands in ironic contrast to the very people whose kindness actually supplied the money. He calls them 'a bunch of crooks' in his second letter — the story's central irony.",
+                "answer": "He writes out of absolute faith that God will help; receiving seventy pesos he blames the post-office staff for stealing the rest, showing unshakeable faith in God alongside deep distrust of human beings — the irony being that those very people gave him the money."
+        },
+        {
+                "problem": "In 'Nelson Mandela: Long Walk to Freedom', what does Mandela mean by saying that courage is not the absence of fear but the triumph over it? [3 marks]",
+                "solution": "Mandela is defining courage through the comrades he watched during the struggle against apartheid. He says he learned that courage was not the absence of fear, but the triumph over it, and that the brave man is not one who does not feel afraid but one who conquers that fear.\n\nHe had seen men and women risk imprisonment, torture and death for their beliefs. They were not fearless — they felt fear as anyone would — but they refused to let it govern their actions.\n\nThe significance is that it makes courage available to ordinary people rather than only to the exceptional. Fear is expected; what matters is what a person does in spite of it.",
+                "answer": "Courage is not being without fear but overcoming it — the brave person feels fear yet acts rightly in spite of it, which makes courage possible for ordinary people."
+        },
+        {
+                "problem": "In the poem 'Dust of Snow' by Robert Frost, how does a small natural incident change the poet's mood? Explain with reference to the poem. [3 marks]",
+                "solution": "A crow shakes down a dust of snow on the poet from a hemlock tree. Both images are conventionally negative: the crow is associated with darkness and ill omen, and the hemlock is a poisonous tree associated with sorrow.\n\nYet this trivial, accidental shower of snow gives the poet's heart 'a change of mood' and saves 'some part of a day' he had 'rued' — that is, regretted or spent in sorrow.\n\nFrost's point is that healing can come from the most unlikely and ordinary sources. Nature does not need to be grand or beautiful to lift the spirit; a moment's contact with it, even through symbols of gloom, is enough to redeem part of a bad day.",
+                "answer": "A crow shaking snow from a hemlock tree — both gloomy symbols — unexpectedly lifts the poet's mood and rescues part of a day he had spent in regret, showing that comfort can come from the humblest natural moment."
+        },
+        {
+                "problem": "In 'From the Diary of Anne Frank', why does Anne say that paper has more patience than people? [3 marks]",
+                "solution": "Anne begins her diary observing that paper has more patience than people. She means that a sheet of paper will receive whatever she writes without interrupting, judging, growing bored or offering unwanted advice, which is more than any listener would do.\n\nShe feels she has no true friend despite being surrounded by a loving family and about thirty people she could call friends. She has no one she can confide her deepest thoughts to, and she does not want to simply record bare facts as most people do in a diary.\n\nSo she creates 'Kitty' as an imaginary friend and writes to her. The remark is really a statement of loneliness: paper listens perfectly precisely because it cannot answer back.",
+                "answer": "Paper accepts anything written on it without interrupting, judging or tiring, unlike people. Anne, lonely despite family and acquaintances, needed a confidant who would simply listen — so she wrote to her imaginary friend Kitty."
+        },
+        {
+                "problem": "In 'A Tiger in the Zoo' by Leslie Norris, contrast the tiger in the cage with the tiger in the wild as the poet presents them. [4 marks]",
+                "solution": "The poet sets the two states directly against each other. In the cage the tiger 'stalks' in 'a few steps of his cage', moving in 'quiet rage' — his power reduced to pacing a confined space, his anger silent because it has no outlet. He ignores the visitors and at night stares at the 'brilliant stars' with 'his brilliant eyes', longing for what he has lost.\n\nIn the wild he would be 'lurking in shadow', sliding through 'long grass' near the water hole, stalking deer — free, purposeful and dangerous. He would be 'snarling around houses at the jungle's edge', 'baring his white fangs, his claws' and terrifying the villagers.\n\nThe contrast is between suppressed and expressed power. The same animal is majestic and free in one setting and pitiable in the other, and the poem is a criticism of caging wild animals for human display.",
+                "answer": "Caged, the tiger paces a few steps in 'quiet rage', ignored and staring at the stars; wild, he would lurk in shadow, stalk deer at the water hole and terrify villagers with bared fangs. The contrast condemns confining wild animals."
+        }
+],
     "tips": [
       "Always support analysis with direct quotes from the text; citations strengthen arguments.",
       "Identify and explain literary devices: symbolism, metaphor, irony, imagery, personification.",
