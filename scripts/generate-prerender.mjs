@@ -900,10 +900,39 @@ const NCERT_MCQS = (() => {
 /** Enough MCQs to give the chapter real revision value without dumping all 50. */
 const MCQ_PER_CHAPTER = 20;
 
+/**
+ * Guards against publishing a broken question.
+ *
+ * An audit of the 4,835 MCQs actually reaching these pages found 15 defects
+ * (0.31%): 11 questions referencing a graph or figure the page has no way to
+ * render — so they are unanswerable as printed — 3 with two identical options,
+ * which gives them two correct answers, and 1 carrying leaked model reasoning.
+ * A low rate is not a safe rate when the page is teaching method: a student who
+ * cannot answer a question assumes the fault is theirs.
+ *
+ * These reject rather than repair, and the pool holds up to 50 per chapter
+ * against the 20 published, so dropping a few costs nothing.
+ */
+const MCQ_DANGLING = /\b(the|given) (passage|diagram|figure|graph|extract)\b|shown (above|below)/i;
+const MCQ_LEAK = /wait,|let me (recalculate|recompute|recheck|verify|reconsider)|i'll mark|assuming (a )?typo|none of the options|but the option says|hmm,|this doesn't match|as an ai|i think the answer/i;
+
+function mcqIsSound(m) {
+  const opts = m.options || [];
+  if (opts.length !== 4) return false;
+  if (!Number.isInteger(m.correct) || m.correct < 0 || m.correct >= opts.length) return false;
+  // Two identical options means two correct answers.
+  if (new Set(opts.map((o) => String(o).trim().toLowerCase())).size !== opts.length) return false;
+  if (MCQ_DANGLING.test(String(m.question ?? ''))) return false;
+  if (MCQ_LEAK.test(String(m.explanation ?? ''))) return false;
+  if (String(m.explanation ?? '').trim().length < 15) return false;
+  return true;
+}
+
 function ncertMcqHtml(key, title) {
   const all = NCERT_MCQS[key];
   if (!Array.isArray(all) || !all.length) return '';
-  const picked = all.slice(0, MCQ_PER_CHAPTER);
+  const picked = all.filter(mcqIsSound).slice(0, MCQ_PER_CHAPTER);
+  if (!picked.length) return '';
   const body = picked.map((m, i) => {
     const opts = (m.options || []).map((o, j) =>
       `<li>${'ABCD'[j] ? `${'ABCD'[j]}. ` : ''}${esc(o)}</li>`).join('');
