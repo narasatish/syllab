@@ -2969,12 +2969,34 @@ function extractTopicContent(filePath) {
       }
     }
 
-    // Extract syntax if present
-    const syntaxPattern = /id:\s*['"]([a-z0-9-]+)['"][^}]*?syntax:\s*`([^`]{50,300})/gm;
+    // Extract the syntax / code example.
+    //
+    // The previous pattern was `id:\s*['"]([a-z0-9-]+)['"][^}]*?syntax:\s*`([^`]{50,300})`
+    // and it dropped most of them. Three separate faults, all silent:
+    //   1. `['"]` did not match BACKTICK-quoted ids, though the theory pattern
+    //      above already handles all three quote styles.
+    //   2. `[^}]*?` stops at the first '}' between the id and the syntax key —
+    //      and a topic object almost always contains one before it (a nested
+    //      object, or an escaped brace inside the theory strings).
+    //   3. `{50,300}` quietly discarded any example shorter than 50 characters
+    //      or longer than 300. A three-line snippet is still the point of a
+    //      coding page.
+    // Result: 497 topics carry syntax in the data, but only 349 of 873 built
+    // pages contained a <pre> block. A tutorial page with no code on it.
+    //
+    // The lookahead is what keeps this honest: the gap between the id and its
+    // syntax may contain anything EXCEPT another `id:` declaration, so a topic
+    // can never borrow the next topic's code example.
+    const NOT_NEXT_ID = String.raw`(?:(?!id:\s*['"\`])[\s\S])*?`;
+    const syntaxPattern = new RegExp(
+      String.raw`id:\s*['"\`]([a-z0-9-]+)['"\`]${NOT_NEXT_ID}syntax:\s*(\`[^\`]+\`|'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")`,
+      'g',
+    );
     for (const match of content.matchAll(syntaxPattern)) {
       const topicId = match[1];
-      if (topics[topicId]) {
-        topics[topicId].syntaxText = match[2];
+      if (topics[topicId] && !topics[topicId].syntaxText) {
+        const raw = match[2].slice(1, -1).replace(/\\(['"\\])/g, '$1').replace(/\\n/g, '\n');
+        if (raw.trim()) topics[topicId].syntaxText = raw.slice(0, 1200);
       }
     }
 
