@@ -26,6 +26,7 @@ import { getAiHubTopics } from './aiHubTopics.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { DIFF_REINDEX, DIFF_REINDEX_SLUGS } from './diff-reindex.mjs';
+import { mappedChapterSlug } from './mcq-chapter-map.mjs';
 import { CONCEPT_FAQ } from './concept-faq.mjs';
 import { POSTER_SHEETS, posterHref } from './posters.mjs';
 import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
@@ -1819,9 +1820,67 @@ function pyqBody(x, sibs, base) {
   const qs = (x.questions || []).map((q) => `<div class="qa"><h3>Q${q.year ? ` (${esc(String(q.year))}, ${esc(String(q.marks || ''))} mark${Number(q.marks) > 1 ? 's' : ''})` : ''}: ${esc(q.q)}</h3><p><strong>Answer:</strong> ${nl2br(q.answer)}</p></div>`).join('');
   return `<p class="speakable">${esc(x.intro)}</p><h2>${esc(x.chapter)} — Previous Year Questions with Solutions</h2>${qs}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} ${esc(x.subject)} PYQs`)}${aiCta}`;
 }
+/**
+ * Find the question bank for a /mcqs page.
+ *
+ * Two lookups, in order. First the chapter name slugified directly, which
+ * covers the chapters both datasets happen to name identically. Then the
+ * hand-checked table in mcq-chapter-map.mjs, which bridges the cases where the
+ * current NCERT set renamed a chapter ("The Fundamental Unit of Life" is now
+ * "cell-the-building-block-of-life").
+ *
+ * Subject is IGNORED on purpose: chapterMcqs files everything under "Science"
+ * while the bank splits Physics / Chemistry / Biology. Class plus chapter slug
+ * is unique enough, and requiring the subject to agree was itself blocking
+ * legitimate matches.
+ */
+function mcqBankFor(x) {
+  const direct = String(x.chapter || '').toLowerCase()
+    .replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const mapped = mappedChapterSlug(x.classLevel, x.chapter);
+  for (const slug of [direct, mapped]) {
+    if (!slug) continue;
+    const prefix = `${x.classLevel}::`;
+    const suffix = `::${slug}`;
+    for (const key of Object.keys(NCERT_MCQS)) {
+      if (key.startsWith(prefix) && key.endsWith(suffix) && Array.isArray(NCERT_MCQS[key])) {
+        return NCERT_MCQS[key];
+      }
+    }
+  }
+  return [];
+}
+
 function mcqBody(x, sibs, base) {
   const qs = (x.mcqs || []).map((m, i) => { const opts = (m.options || []).map((o, j) => `<li>${esc(o)}${j === m.correct ? ' ✓ (correct)' : ''}</li>`).join(''); return `<div class="qa"><h3>Q${i + 1}. ${esc(m.q)}</h3><ol type="A">${opts}</ol>${m.explanation ? `<p><strong>Explanation:</strong> ${esc(m.explanation)}</p>` : ''}</div>`; }).join('');
-  return `<p class="speakable">${esc(x.intro)}</p><h2>${esc(x.chapter)} MCQs with Answers &amp; Explanations</h2>${qs}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} ${esc(x.subject)} MCQs`)}${aiCta}`;
+  // Top up from the generated bank.
+  //
+  // /mcqs is the site's second-best converting cluster (13.97% CTR in the
+  // 2026-08 GSC export) and its pages carry a median of 595 words, because
+  // chapterMcqs.ts holds roughly ten questions each. generated-mcqs.json holds
+  // up to FIFTY for the same chapters, keyed as `class::Subject::chap-slug`
+  // instead of by page slug — 27,143 questions in total, none of which reached
+  // these pages. Same oversight as the NCERT solutions, different file.
+  //
+  // Everything added passes mcqIsSound(), and anything already present in
+  // x.mcqs is skipped so a question is never asked twice on one page.
+  const seen = new Set((x.mcqs || []).map((m) => String(m.q || '').trim().toLowerCase()));
+  const extraPool = mcqBankFor(x);
+  const extra = (Array.isArray(extraPool) ? extraPool : [])
+    .filter(mcqIsSound)
+    .filter((m) => !seen.has(String(m.question || '').trim().toLowerCase()))
+    .slice(0, 30);
+  const extraHtml = extra.length
+    ? `<h2>More Practice Questions on ${esc(x.chapter)}</h2>
+       <p>Another ${extra.length} questions on the same chapter, each with the correct option and the reasoning behind it. Work through these once you are comfortable with the set above.</p>`
+      + extra.map((m, i) => {
+        const opts = (m.options || []).map((o, j) => `<li>${esc(o)}${j === m.correct ? ' ✓ (correct)' : ''}</li>`).join('');
+        return `<div class="qa"><h3>Q${qs ? (x.mcqs || []).length + i + 1 : i + 1}. ${esc(m.question)}</h3><ol type="A">${opts}</ol>`
+          + `${m.explanation ? `<p><strong>Explanation:</strong> ${esc(m.explanation)}</p>` : ''}</div>`;
+      }).join('')
+    : '';
+
+  return `<p class="speakable">${esc(x.intro)}</p><h2>${esc(x.chapter)} MCQs with Answers &amp; Explanations</h2>${qs}${extraHtml}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} ${esc(x.subject)} MCQs`)}${aiCta}`;
 }
 function solvedBody(x, sibs, base) {
   const ex = (x.examples || []).map((e, i) => `<div class="qa"><h3>Example ${i + 1}: ${esc(e.problem)}</h3><p><strong>Solution:</strong> ${nl2br(e.solution)}</p></div>`).join('');
