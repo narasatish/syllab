@@ -1480,12 +1480,42 @@ function generateBlogs() {
 /**
  * Main: Generate and write blogs
  */
+/**
+ * MERGE, never clobber.
+ *
+ * This ran on every `npm run build` and wrote the whole file, so any post that
+ * did not come from a template here was destroyed. Three hand-written
+ * long-form posts were committed, wiped by the very next build, and deployed
+ * without them — the file went 57 back to 54 with no error and nothing in the
+ * log. Silent data loss inside the build is the worst shape of bug: the commit
+ * looks right, the build is green, and only production is wrong.
+ *
+ * Posts generated here carry `generated: true`. Anything WITHOUT that flag is
+ * hand-written and is preserved, kept at the top so newest curated work leads
+ * the blog. A generated post can still be refreshed by its id.
+ */
 async function main() {
   try {
-    const blogs = generateBlogs();
-    await fs.writeFile(OUTPUT_PATH, JSON.stringify(blogs, null, 2), 'utf8');
-    console.log(`✓ Generated ${blogs.length} trending blogs → ${OUTPUT_PATH}`);
-    console.log('Blogs:', blogs.map((b) => b.title));
+    const generated = generateBlogs().map((b) => ({ ...b, generated: true }));
+
+    let existing = [];
+    try {
+      const raw = JSON.parse(await fs.readFile(OUTPUT_PATH, 'utf8'));
+      if (Array.isArray(raw)) existing = raw;
+    } catch { /* first run, or unreadable — treat as empty */ }
+
+    const generatedIds = new Set(generated.map((b) => b.id));
+    // Posts written before the `generated` flag existed carry no marker. Treat
+    // one as generated if a template still produces that exact id — otherwise
+    // the whole legacy set would freeze and never pick up a refresh again.
+    // Anything else is genuinely hand-written and is preserved.
+    const handWritten = existing.filter((b) => b && b.id && !b.generated && !generatedIds.has(b.id));
+
+    const merged = [...handWritten, ...generated];
+
+    await fs.writeFile(OUTPUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
+    console.log(`✓ ${generated.length} generated + ${handWritten.length} hand-written preserved = ${merged.length} posts → ${OUTPUT_PATH}`);
+    if (handWritten.length) console.log('  Preserved:', handWritten.map((b) => b.id).join(', '));
   } catch (error) {
     console.error('Error generating blogs:', error);
     process.exit(1);
