@@ -871,6 +871,33 @@ const NCERT_BANK = (() => {
   }
 })();
 
+/**
+ * Minimal markdown → HTML for blog article bodies.
+ *
+ * Deliberately mirrors what src/pages/Blog.tsx renders, so the crawled HTML and
+ * the hydrated page agree: '##'/'###' headings, '- ' bullets, '1. ' numbered
+ * lists, inline **bold** and [text](/url) links. Escaping runs FIRST, so any
+ * angle bracket in the prose is neutralised before markup is introduced.
+ */
+function mdToHtml(md) {
+  const inline = (s) => esc(s)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return String(md || '').split(/\n{2,}/).map((block) => {
+    const b = block.trim();
+    if (!b) return '';
+    if (b.startsWith('###')) return `<h3>${inline(b.replace(/^###\s*/, ''))}</h3>`;
+    if (b.startsWith('##')) return `<h2>${inline(b.replace(/^##\s*/, ''))}</h2>`;
+    if (b.startsWith('- ')) {
+      return `<ul>${b.split('\n').map((l) => `<li>${inline(l.replace(/^-\s*/, ''))}</li>`).join('')}</ul>`;
+    }
+    if (/^\d+\.\s/.test(b)) {
+      return `<ol>${b.split('\n').map((l) => `<li>${inline(l.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol>`;
+    }
+    return `<p>${inline(b)}</p>`;
+  }).join('');
+}
+
 /** Answers are stored with markdown-style **bold**; convert AFTER escaping. */
 function ncertRich(s) {
   return esc(String(s ?? ''))
@@ -3431,18 +3458,19 @@ function buildBodyContent(route) {
   // table + admission + FAQ, built at route-creation time) — handled by the
   // `if (route.bodyHtml)` branch above, so no college-specific block here.
 
-  // Blog article pages — show summary
+  // Blog article pages — render the FULL article, not just the summary.
+  //
+  // This used to emit only article.summary, so a 1,029-word post shipped ~156
+  // crawlable words and the body appeared only after hydration. Prerendering a
+  // page and then withholding its content defeats the purpose: the URL existed,
+  // returned 200, and still had nothing for a crawler to rank.
   else if (route.path.match(/^\/updates\/[a-z0-9-]+$/)) {
     const slug = route.path.split('/')[2];
-    const article = (getBlogArticles() || []).find(a => a.slug === slug);
+    const article = (getBlogArticles() || []).find((a) => a.slug === slug);
     if (article) {
-      richContent = `
-        <div style="margin-top: 1.5rem; padding: 1rem; background: #fffef0; border-left: 4px solid #ff9800;">
-          <p style="font-size: 0.95rem; line-height: 1.6; color: #555;">
-            ${esc(article.summary)}
-          </p>
-        </div>
-      `;
+      richContent = `<div style="margin-top:1.5rem;padding:1rem;background:#fffef0;border-left:4px solid #ff9800;">
+          <p style="font-size:0.95rem;line-height:1.6;color:#555;">${esc(article.summary)}</p>
+        </div>${mdToHtml(article.content)}`;
     }
   }
 

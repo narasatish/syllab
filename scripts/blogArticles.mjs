@@ -70,6 +70,11 @@ export function getBlogArticles() {
         // Word count of the real article text, so callers can keep thin posts
         // out of the index. See THIN_WORD_MIN below.
         words: wordCount(b.content),
+        // The article body itself. Without this the prerenderer had only the
+        // summary to work with, so /updates/<slug> shipped ~160 words of a
+        // 1,000-word post and the rest existed only after hydration — invisible
+        // to a crawler, which is the whole point of prerendering these.
+        content: b.content || '',
       });
     }
   } catch { /* autoBlogs.json optional */ }
