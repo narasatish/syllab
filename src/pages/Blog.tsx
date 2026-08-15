@@ -492,34 +492,72 @@ export default function BlogPage({ setTab }: BlogPageProps) {
             content: (
               <div className="prose prose-slate max-w-none">
                 {blog.content.split('\n\n').map((paragraph: string, idx: number) => {
+                  /**
+                   * Inline formatting for ANY text run.
+                   *
+                   * Bold used to be parsed only on paragraphs that STARTED with
+                   * '**', so bold in the middle of a sentence rendered as literal
+                   * asterisks — and markdown links rendered as raw
+                   * "[text](/url)". Both are handled here so the same rules apply
+                   * wherever they appear, in paragraphs, headings and list items.
+                   */
+                  const inline = (text: string, keyPrefix: string): React.ReactNode[] =>
+                    text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*)/g).filter(Boolean).map((part, i) => {
+                      const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+                      if (link) {
+                        return (
+                          <a key={`${keyPrefix}-${i}`} href={link[2]} className="text-primary underline underline-offset-2 hover:text-emerald-600">
+                            {link[1]}
+                          </a>
+                        );
+                      }
+                      const bold = part.match(/^\*\*([^*]+)\*\*$/);
+                      if (bold) return <strong key={`${keyPrefix}-${i}`}>{bold[1]}</strong>;
+                      return <React.Fragment key={`${keyPrefix}-${i}`}>{part}</React.Fragment>;
+                    });
+
+                  // '###' before '##' — otherwise a '###' heading matches the
+                  // '##' branch and renders with a stray leading '#'.
+                  if (paragraph.startsWith('###')) {
+                    return (
+                      <h4 key={idx} className="text-base font-black text-slate-900 mt-5 mb-2 dark:text-slate-100">
+                        {inline(paragraph.replace(/^###\s*/, '').trim(), `h4${idx}`)}
+                      </h4>
+                    );
+                  }
                   if (paragraph.startsWith('##')) {
                     return (
-                      <h3 key={idx} className="text-xl font-black text-slate-900 mt-6 mb-3">
-                        {paragraph.replace('##', '').trim()}
+                      <h3 key={idx} className="text-xl font-black text-slate-900 mt-6 mb-3 dark:text-slate-100">
+                        {inline(paragraph.replace(/^##\s*/, '').trim(), `h3${idx}`)}
                       </h3>
                     );
                   }
                   if (paragraph.startsWith('- ')) {
                     return (
-                      <ul key={idx} className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+                      <ul key={idx} className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4 dark:text-slate-300">
                         {paragraph.split('\n').map((item: string, i: number) => (
-                          <li key={i} className="text-slate-600">{item.replace('- ', '').trim()}</li>
+                          <li key={i} className="text-slate-600 dark:text-slate-300">
+                            {inline(item.replace(/^-\s*/, '').trim(), `li${idx}-${i}`)}
+                          </li>
                         ))}
                       </ul>
                     );
                   }
-                  if (paragraph.startsWith('**')) {
+                  // Numbered lists: '1. ' … '9. ' on consecutive lines.
+                  if (/^\d+\.\s/.test(paragraph)) {
                     return (
-                      <p key={idx} className="text-slate-600 text-base leading-relaxed mb-4">
-                        {paragraph.split(/\*\*/).map((part: string, i: number) => (
-                          i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+                      <ol key={idx} className="list-decimal pl-6 space-y-2 text-slate-600 text-base mb-4 dark:text-slate-300">
+                        {paragraph.split('\n').map((item: string, i: number) => (
+                          <li key={i} className="text-slate-600 dark:text-slate-300">
+                            {inline(item.replace(/^\d+\.\s*/, '').trim(), `oli${idx}-${i}`)}
+                          </li>
                         ))}
-                      </p>
+                      </ol>
                     );
                   }
                   return (
-                    <p key={idx} className="text-slate-600 text-base leading-relaxed mb-4">
-                      {paragraph}
+                    <p key={idx} className="text-slate-600 text-base leading-relaxed mb-4 dark:text-slate-300">
+                      {inline(paragraph, `p${idx}`)}
                     </p>
                   );
                 })}
