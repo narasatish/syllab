@@ -303,6 +303,57 @@ describe('revision-note deep content', () => {
  */
 const SENIOR_TERMS = /thylakoid|NADPH|Calvin cycle|light-dependent reaction|light-independent reaction|photosystem|glycolysis|Krebs cycle|electron transport chain|oxidative phosphorylation|Le Chatelier|de Broglie|Heisenberg|azimuthal quantum|hybridi[sz]ation/i;
 
+/**
+ * classLevel must be stored ONE way across every bank.
+ *
+ * Three separate banks have now shipped this bug. classLevel is the grouping
+ * key (`classLevel|subject`), so storing both "10" and "Class 10" splits a
+ * cluster in half: related-nav links only within its own half, and the hub
+ * lists the same group twice. It also leaks into titles — /mcqs was shipping
+ * "Light (Case Study) (10 Science)" and /revision-notes shipped "Nutrition in
+ * Plants 7 Science".
+ *
+ *   revisionNotes  fixed earlier: 78 values, groups 19 -> 15
+ *   chapterMcqs    fixed 2026-08-16: all 139 records were bare
+ *   concepts       fixed 2026-08-16: 53 "10" against 26 "Class 10" — the
+ *                  biggest cluster on the site, split down the middle
+ *
+ * Ranges like "Class 9-10" are legitimate for a concept spanning two years;
+ * what is not legitimate is the bare form.
+ */
+describe('classLevel is stored consistently', () => {
+  const banks: [string, { classLevel?: string; slug?: string }[]][] = [
+    ['revisionNotes', REVISION_NOTES],
+    ['chapterMcqs', MCQ_CHAPTERS as { classLevel?: string; slug?: string }[]],
+    ['pyqs', PYQ_CHAPTERS as { classLevel?: string; slug?: string }[]],
+  ];
+
+  it('no bank stores a bare class number instead of "Class N"', () => {
+    const bare: string[] = [];
+    for (const [name, items] of banks) {
+      for (const item of items) {
+        const cl = String(item.classLevel ?? '');
+        if (cl && /^\d/.test(cl)) bare.push(`${name}/${item.slug}: "${cl}"`);
+      }
+    }
+    expect(bare).toEqual([]);
+  });
+
+  it('a class is never represented in two different forms at once', () => {
+    for (const [name, items] of banks) {
+      const forms = new Set(items.map((i) => String(i.classLevel ?? '')).filter(Boolean));
+      // Strip the prefix; any collision means the same class stored two ways.
+      const seen = new Map<string, string>();
+      for (const f of forms) {
+        const key = f.replace(/^Class\s*/i, '');
+        const prev = seen.get(key);
+        expect(prev, `${name}: class ${key} stored as both "${prev}" and "${f}"`).toBeUndefined();
+        seen.set(key, f);
+      }
+    }
+  });
+});
+
 describe('content is pitched at its own class level', () => {
   const banks: [string, { classLevel?: string }[]][] = [
     ['revisionNotes', REVISION_NOTES],

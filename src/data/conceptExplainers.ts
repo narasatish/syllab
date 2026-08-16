@@ -3085,7 +3085,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "electric-potential-and-potential-difference",
     "title": "Electric Potential and Potential Difference",
     "subject": "Physics",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "intro": "Electric potential is the work done per unit charge to move a charge from infinity to a point in an electric field. Potential difference is the difference in electric potential between two points. Understanding these concepts is crucial for analyzing electric circuits and fields.",
     "sections": [
       {
@@ -3158,7 +3158,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "resistance-and-resistivity",
     "title": "Resistance and Resistivity",
     "subject": "Physics",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "intro": "Resistance is the property of a material that opposes the flow of electric current. Resistivity is an intrinsic property of the material itself. Together, these concepts explain why different materials conduct electricity differently and how to design circuits with specific electrical properties.",
     "sections": [
       {
@@ -3231,7 +3231,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "lenses-and-lens-formula",
     "title": "Lenses and Lens Formula",
     "subject": "Physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A lens is a transparent optical device that uses refraction to focus or diverge light. The lens formula relates the object distance, image distance, and focal length, enabling us to predict where an image forms and whether it is magnified or reduced.",
     "sections": [
       {
@@ -3304,7 +3304,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "dispersion-of-light",
     "title": "Dispersion of Light",
     "subject": "Physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Dispersion is the phenomenon where white light separates into its constituent colors when passing through a prism or other medium. Different colors (wavelengths) of light have different speeds in a medium, causing them to refract at different angles. This explains rainbows and chromatic aberration in lenses.",
     "sections": [
       {
@@ -3377,7 +3377,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "refraction-through-a-prism",
     "title": "Refraction through a Prism",
     "subject": "Physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A prism is a transparent optical element with flat, polished surfaces at an angle to each other. When light passes through a prism, it refracts at both the entry and exit surfaces, changing direction. The study of refraction through prisms is essential for understanding how optical instruments focus and disperse light.",
     "sections": [
       {
@@ -3450,7 +3450,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "archimedes-principle-and-buoyancy",
     "title": "Archimedes Principle and Buoyancy",
     "subject": "Physics",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "intro": "Archimedes Principle states that any object immersed in a fluid experiences an upward buoyant force equal to the weight of the fluid displaced. This principle explains why ships float, objects sink or rise in water, and is fundamental to understanding fluid mechanics.",
     "sections": [
       {
@@ -3523,7 +3523,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "density-and-relative-density",
     "title": "Density and Relative Density",
     "subject": "Physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Density is the mass of a substance per unit volume. Relative density is the ratio of the density of a substance to the density of water. These concepts help us identify materials, predict floating behavior, and understand the physical properties of substances.",
     "sections": [
       {
@@ -3596,7 +3596,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "redox-reactions",
     "title": "Redox Reactions",
     "subject": "Chemistry",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "intro": "Redox reactions are chemical reactions where electrons are transferred between reactants. In these reactions, one substance loses electrons (oxidation) while another gains electrons (reduction). Redox reactions are fundamental to chemistry, occurring in batteries, combustion, respiration, and many industrial processes.",
     "sections": [
       {
@@ -3669,7 +3669,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "ph-scale-and-indicators",
     "title": "pH Scale and Indicators",
     "subject": "Chemistry",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The pH scale measures the acidity or alkalinity of a solution using the concentration of hydrogen ions (H+). pH indicators are substances that change color at different pH values, helping us quickly determine whether a solution is acidic, neutral, or basic. Understanding pH is crucial in chemistry, biology, medicine, and environmental science.",
     "sections": [
       {
@@ -3742,7 +3742,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "allotropes-of-carbon",
     "title": "Allotropes of Carbon",
     "subject": "Chemistry",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Allotropes are different forms of the same element in the same physical state. Carbon has several important allotropes including diamond, graphite, and fullerenes. Each allotrope has distinct properties due to different arrangements of carbon atoms, making them useful for different applications.",
     "sections": [
       {
@@ -3815,7 +3815,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "soaps-and-detergents",
     "title": "Soaps and Detergents",
     "subject": "Chemistry",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Soaps and detergents are cleaning agents that help remove dirt, oil, and grease from surfaces and fabrics. They work by reducing surface tension and suspending oily substances in water. While soaps are naturally derived, detergents are synthetic. Understanding their chemistry explains how they work and why they are essential in daily hygiene and cleaning.",
     "sections": [
       {
@@ -3888,7 +3888,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "human-heart-and-blood-circulation",
     "title": "Human Heart and Blood Circulation",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The human heart is a muscular pump that circulates blood throughout the body. The circulatory system transports oxygen, nutrients, and hormones to all cells and removes waste products like carbon dioxide. Understanding heart structure and blood circulation is essential for understanding human physiology and health.",
     "sections": [
       {
@@ -3969,7 +3969,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "reflex-action-and-neurons",
     "title": "Reflex Action and Neurons",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Reflex actions are automatic, involuntary responses to stimuli that occur without conscious thought. They are controlled by the reflex arc, a neural pathway that connects sensory neurons to motor neurons through the spinal cord. Understanding reflex actions and neurons is essential for comprehending how the nervous system functions.",
     "sections": [
       {
@@ -4042,7 +4042,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "mendels-laws-of-inheritance",
     "title": "Mendel's Laws of Inheritance",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Gregor Mendel discovered the fundamental laws of heredity through experiments with pea plants. His laws explain how traits are inherited from parents to offspring. Understanding Mendel's Laws is essential for studying genetics, predicting inheritance patterns, and understanding human heredity.",
     "sections": [
       {
@@ -4115,7 +4115,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "surface-tension",
     "title": "Surface Tension",
     "subject": "Physics",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "intro": "Surface tension is the property of liquids whereby they behave as if covered by a thin elastic skin. This occurs because molecules at the liquid surface experience unbalanced intermolecular forces. Surface tension explains many everyday phenomena like water droplets, floating insects, and soap bubbles.",
     "sections": [
       {
@@ -4188,7 +4188,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "sets-and-venn-diagrams",
     "title": "Sets and Venn Diagrams",
     "subject": "Mathematics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A set is a well-defined collection of objects. Venn diagrams are pictorial representations of sets and their relationships. Sets and Venn diagrams are fundamental tools in mathematics and logic, helping visualize relationships between different groups and solve problems involving unions, intersections, and complements.",
     "sections": [
       {
@@ -4261,7 +4261,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "coordinate-geometry-basics",
     "title": "Coordinate Geometry Basics",
     "subject": "Mathematics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Coordinate geometry uses algebra to study geometry by representing points on a plane using ordered pairs. It connects algebraic equations with geometric shapes, allowing us to analyze distance, slope, and equations of lines and curves on a coordinate system.",
     "sections": [
       {
@@ -4334,7 +4334,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "circle-theorems",
     "title": "Circle Theorems",
     "subject": "Mathematics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Circle theorems are fundamental geometric principles about circles, angles, chords, tangents, and arcs. These theorems help solve problems related to angles in circles, chord properties, and tangent relationships. Understanding them is essential for geometry and appears frequently in exams.",
     "sections": [
       {
@@ -4407,7 +4407,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "compound-interest",
     "title": "Compound Interest",
     "subject": "Mathematics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Compound interest is interest earned on principal plus previously earned interest. It is more powerful than simple interest because interest accumulates on interest. Understanding compound interest is essential for financial planning, investments, loans, and understanding how savings grow over time.",
     "sections": [
       {
@@ -4480,7 +4480,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "permutations-and-combinations",
     "title": "Permutations and Combinations",
     "subject": "Mathematics",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "intro": "Permutations and combinations are methods of counting arrangements and selections. Permutations count ordered arrangements where order matters. Combinations count unordered selections where order does not matter. These concepts are essential for probability, statistics, and solving counting problems.",
     "sections": [
       {
@@ -4553,7 +4553,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-human-heart",
     "title": "Diagram of the Human Heart (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The human heart is a muscular organ that pumps blood throughout your body. Understanding its structure and the flow of blood through its chambers and valves is essential for CBSE Class 10 biology. This labelled diagram helps you identify all major parts and their roles.",
     "sections": [
       {
@@ -4614,7 +4614,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-human-digestive-system",
     "title": "Diagram of the Human Digestive System (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The digestive system breaks down food into nutrients your body can absorb. It's a long tube with specialized organs from mouth to anus. This labelled diagram shows every major organ involved in digestion and their functions.",
     "sections": [
       {
@@ -4675,7 +4675,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-human-respiratory-system",
     "title": "Diagram of the Human Respiratory System (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The respiratory system brings oxygen into your body and removes carbon dioxide. It includes the nose, trachea, lungs, and diaphragm. This labelled diagram shows how air travels and where gas exchange occurs.",
     "sections": [
       {
@@ -4736,7 +4736,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-neuron-nerve-cell",
     "title": "Diagram of a Neuron (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A neuron is the basic unit of the nervous system that transmits electrical signals throughout your body. Understanding its structure is key to learning how the brain and nervous system work. This labelled diagram shows all parts of a neuron and how they function.",
     "sections": [
       {
@@ -4797,7 +4797,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-human-eye",
     "title": "Diagram of the Human Eye (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The human eye is a complex optical instrument that allows you to see the world around you. Light enters through the cornea, passes through the lens, and creates an image on the retina. This labelled diagram shows all the eye's structures and how vision works.",
     "sections": [
       {
@@ -4858,7 +4858,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-human-brain",
     "title": "Diagram of the Human Brain (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The human brain is the command center of your nervous system, controlling all body functions and consciousness. It has different regions responsible for different tasks. This labelled diagram shows the major brain structures and their functions.",
     "sections": [
       {
@@ -4919,7 +4919,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-nephron",
     "title": "Diagram of a Nephron (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A nephron is the functional unit of the kidney that filters blood to produce urine. Each kidney contains about one million nephrons. This labelled diagram shows all parts of a nephron and how filtration, reabsorption, and secretion work.",
     "sections": [
       {
@@ -4980,7 +4980,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-plant-cell",
     "title": "Diagram of a Plant Cell (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A plant cell is a eukaryotic cell with specialized structures that allow plants to perform photosynthesis, store energy, and maintain rigidity. Plant cells differ from animal cells in several important ways. This labelled diagram shows all major organelles and structures unique to plant cells.",
     "sections": [
       {
@@ -5041,7 +5041,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-animal-cell",
     "title": "Diagram of an Animal Cell (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "An animal cell is a eukaryotic cell without a cell wall or large vacuole. Animal cells are flexible and adapted for movement and specialized functions. This labelled diagram shows all major organelles and structures found in animal cells.",
     "sections": [
       {
@@ -5102,7 +5102,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-flower-structure",
     "title": "Diagram of the Structure of a Flower (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A flower is the reproductive structure of flowering plants (angiosperms). Understanding flower anatomy is essential for learning about plant reproduction and pollination. This labelled diagram shows all major flower parts and their reproductive functions.",
     "sections": [
       {
@@ -5163,7 +5163,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-leaf-cross-section",
     "title": "Diagram of the Cross-Section of a Leaf (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A leaf is the primary photosynthetic organ of a plant. Its cross-section shows multiple layers specialized for light absorption, gas exchange, and water transport. This labelled diagram shows all layers and structures essential for photosynthesis.",
     "sections": [
       {
@@ -5224,7 +5224,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-human-ear",
     "title": "Diagram of the Human Ear (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The human ear is a complex sensory organ that detects sound waves and converts them into electrical signals the brain interprets as sound. The ear also controls balance and orientation. This labelled diagram shows the three parts of the ear and how sound travels.",
     "sections": [
       {
@@ -5285,7 +5285,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-reflex-arc",
     "title": "Diagram of a Reflex Arc (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "A reflex arc is the neural pathway that allows rapid, automatic responses to stimuli without conscious thought. Understanding reflex arcs is essential for learning how the nervous system protects the body. This labelled diagram shows how signals travel from stimulus to response.",
     "sections": [
       {
@@ -5346,7 +5346,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-xylem-and-phloem",
     "title": "Diagram of Xylem and Phloem (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Xylem and phloem are the vascular tissues of plants that transport water and nutrients. Xylem carries water and minerals upward; phloem carries sugars and other organic compounds throughout the plant. This labelled diagram shows the structure and function of both tissues.",
     "sections": [
       {
@@ -5407,7 +5407,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-mitochondria",
     "title": "Diagram of Mitochondria (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Mitochondria is the powerhouse of the cell, producing ATP (energy) through cellular respiration. Understanding mitochondrial structure is essential for learning how cells generate energy. This labelled diagram shows all parts of mitochondria and how energy is produced.",
     "sections": [
       {
@@ -5468,7 +5468,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "diagram-of-dna-structure",
     "title": "Diagram of DNA Structure (with Labels)",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "DNA (deoxyribonucleic acid) is the molecule that stores genetic information in all living organisms. Understanding DNA structure is essential for learning about heredity and molecular biology. This labelled diagram shows the components and organization of the DNA double helix.",
     "sections": [
       {
@@ -6753,7 +6753,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "kinetic-theory-of-gases",
     "title": "Kinetic Theory of Gases",
     "subject": "physics",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "intro": "Kinetic theory explains how gas particles move and behave. It says that gases are made of tiny particles constantly moving in random directions and colliding with each other and container walls. This movement creates gas pressure and explains why gases expand or contract with temperature changes.",
     "sections": [
       {
@@ -6817,7 +6817,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "thermal-expansion",
     "title": "Thermal Expansion: How Objects Grow with Heat",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Thermal expansion is the increase in size of materials when heated. When temperature increases, particles in solids, liquids, and gases vibrate more vigorously and move farther apart on average, causing the object to expand. This happens in bridges, railway tracks, and pipelines in India's hot climate.",
     "sections": [
       {
@@ -6881,7 +6881,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "latent-heat",
     "title": "Latent Heat: The Hidden Heat in Phase Changes",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Latent heat is the energy required to change the state of a substance without changing its temperature. When water boils, it absorbs latent heat of vaporization and turns from liquid to gas at 100°C without getting hotter. Similarly, latent heat of fusion is absorbed when ice melts at 0°C. This hidden energy is crucial for refrigeration, cooking, and weather systems.",
     "sections": [
       {
@@ -6945,7 +6945,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "specific-heat-capacity",
     "title": "Specific Heat Capacity: How Materials Store Heat Differently",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Specific heat capacity is the amount of heat energy needed to raise the temperature of one kilogram of a substance by one degree Celsius. Water has a high specific heat capacity, which is why it warms and cools slowly, making it useful for heating systems and climate regulation. Different materials have different specific heat capacities, explaining why sand heats up quickly while water stays cool.",
     "sections": [
       {
@@ -7009,7 +7009,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "laws-of-reflection-mirror-formula",
     "title": "Laws of Reflection and Mirror Formula: How Light Bounces",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The laws of reflection describe how light bounces off surfaces. The angle of incidence equals the angle of reflection, measured from the normal line perpendicular to the surface. The mirror formula relates object distance, image distance, and focal length, allowing calculation of image position and size for mirrors used in telescopes, microscopes, and everyday reflections.",
     "sections": [
       {
@@ -7073,7 +7073,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "power-of-a-lens",
     "title": "Power of a Lens: Measuring Lens Strength and Prescription",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Power of a lens is a measure of how strongly the lens converges or diverges light. It is the reciprocal of focal length in meters. A lens with power of +2 diopters has focal length of 0.5 meters. Power determines lens strength in glasses prescriptions, and understanding it helps choose appropriate lenses for vision correction.",
     "sections": [
       {
@@ -7137,7 +7137,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "electric-circuits-symbols",
     "title": "Electric Circuits and Symbols: Reading and Understanding Circuit Diagrams",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Electric circuit diagrams use standardized symbols to represent components like batteries, resistors, switches, and bulbs. Understanding these symbols allows reading and analyzing circuits. A circuit diagram is a simplified drawing showing how electrical components are connected, making it easier to design and troubleshoot electrical systems than using actual photographs.",
     "sections": [
       {
@@ -7201,7 +7201,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "fuse-earthing",
     "title": "Fuse and Earthing: Electrical Safety Systems",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Fuses and earthing are essential safety systems in electrical installations. A fuse is a wire that melts when current exceeds its rating, breaking the circuit and preventing fires. Earthing connects the metallic body of appliances to ground, allowing dangerous currents to flow safely into earth instead of through a person. Together, they prevent electrical fires, shocks, and injuries.",
     "sections": [
       {
@@ -7265,7 +7265,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "solar-system-planets",
     "title": "Solar System and Planets: Structure of Our Cosmic Neighborhood",
     "subject": "science",
-    "classLevel": "6",
+    "classLevel": "Class 6",
     "intro": "The solar system consists of the Sun at the center with eight planets, moons, asteroids, and comets orbiting around it. The four inner planets (Mercury, Venus, Earth, Mars) are small and rocky, while the four outer planets (Jupiter, Saturn, Uranus, Neptune) are large and gaseous. Understanding the solar system helps us appreciate Earth's place in the universe.",
     "sections": [
       {
@@ -7329,7 +7329,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "phases-of-the-moon",
     "title": "Phases of the Moon: Why the Moon Looks Different Each Night",
     "subject": "science",
-    "classLevel": "6",
+    "classLevel": "Class 6",
     "intro": "The moon appears to change shape in the sky during a month-long cycle called lunar phases. These changes are caused by the changing angle between the Sun, Earth, and Moon as the Moon orbits Earth. Understanding lunar phases helps track time, predict tides, and appreciate the Moon's movement through our night sky.",
     "sections": [
       {
@@ -7393,7 +7393,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "water-cycle",
     "title": "Water Cycle: How Water Moves Through Earth's Systems",
     "subject": "science",
-    "classLevel": "6",
+    "classLevel": "Class 6",
     "intro": "The water cycle describes how water moves between oceans, atmosphere, and land through evaporation, condensation, precipitation, and collection. Solar energy drives the cycle by evaporating water from surfaces. Understanding the water cycle is essential for appreciating freshwater availability, weather patterns, and climate in India.",
     "sections": [
       {
@@ -7457,7 +7457,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "rock-cycle",
     "title": "Rock Cycle: How Rocks Transform Over Time",
     "subject": "science",
-    "classLevel": "6",
+    "classLevel": "Class 6",
     "intro": "The rock cycle describes how rocks transform from one type to another through geological processes. Igneous rocks form from cooling magma, sedimentary rocks form from compressed sediments, and metamorphic rocks form from existing rocks subjected to heat and pressure. Understanding the rock cycle helps interpret Earth's geological history and the formation of mountains, valleys, and mineral resources.",
     "sections": [
       {
@@ -7521,7 +7521,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "acids-in-daily-life",
     "title": "Acids in Daily Life: Where We Find Them and How They Work",
     "subject": "chemistry",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "intro": "Acids are substances with pH below 7 that taste sour and conduct electricity in water. They are present in everyday items like lemon juice, vinegar, stomach acid, and soft drinks. Understanding acids helps us appreciate their uses in cleaning, cooking, preservation, and understand their potential dangers when concentrated.",
     "sections": [
       {
@@ -7585,7 +7585,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "combustion-types",
     "title": "Combustion Types: Understanding Burning and Fire",
     "subject": "chemistry",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "intro": "Combustion is a rapid chemical reaction between a fuel and oxygen that releases heat and light, creating fire. There are different types of combustion including complete combustion (producing mainly carbon dioxide and water) and incomplete combustion (producing carbon monoxide and soot). Understanding combustion is essential for safety, energy production, and environmental protection.",
     "sections": [
       {
@@ -7649,7 +7649,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "conservation-of-momentum",
     "title": "Conservation of Momentum: Why Collisions Follow Rules",
     "subject": "physics",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "intro": "Momentum is the product of mass and velocity. The law of conservation of momentum states that in an isolated system, total momentum before a collision equals total momentum after. This explains why rocket thrust works, how air bags protect us, and how billiard balls behave when they collide.",
     "sections": [
       {
@@ -7713,7 +7713,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "pascals-law",
     "title": "Pascal's Law: How Pressure Multiplies in Fluids",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Pascal's law states that pressure applied to a confined fluid is transmitted equally in all directions throughout the fluid. This principle explains hydraulic systems like car brakes, hydraulic jacks, and power steering. A small input force applied over a small area can create a large output force over a large area, providing mechanical advantage.",
     "sections": [
       {
@@ -7777,7 +7777,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "boyles-law-charles-law",
     "title": "Boyle's Law and Charles's Law: Gas Behavior Under Changing Conditions",
     "subject": "physics",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Boyle's law states that at constant temperature, the pressure and volume of a gas are inversely proportional. Charles's law states that at constant pressure, the volume and absolute temperature of a gas are directly proportional. These laws explain how balloons expand when heated, how pressure cookers work, and predict gas behavior in everyday situations.",
     "sections": [
       {
@@ -7841,7 +7841,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "ohmic-non-ohmic-conductors",
     "title": "Ohmic and Non-Ohmic Conductors: How Resistance Changes",
     "subject": "physics",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "intro": "Ohmic conductors follow Ohm's law, where resistance remains constant regardless of voltage and current. Non-ohmic conductors have resistance that changes with voltage or current. Understanding the difference is important for designing circuits, predicting component behavior, and maintaining equipment reliability.",
     "sections": [
       {
@@ -7905,7 +7905,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "nervous-system-reflex-action",
     "title": "Nervous System and Reflex Action: Your Body's Command Center",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Your nervous system receives information about your environment, processes it, and commands your body to respond. Through reflex actions, your body reacts instantly to dangers without waiting for conscious thought, protecting you from harm.",
     "sections": [
       {
@@ -7969,7 +7969,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "structure-of-the-heart",
     "title": "Structure of the Heart: Understanding the Pump of Life",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The heart is a muscular pump composed of four chambers and numerous valves that work in perfect coordination to circulate blood throughout your body. Understanding the heart's structure is essential to appreciating how blood flows and how this vital organ maintains your life.",
     "sections": [
       {
@@ -8033,7 +8033,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "nephron-urine-formation",
     "title": "Nephron and Urine Formation: How Kidneys Filter Blood",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The nephron is the functional unit of the kidney responsible for filtering blood and forming urine. Through a process of filtration, reabsorption, and secretion, the nephron precisely controls which substances leave your body and which are conserved, maintaining your body's chemical balance.",
     "sections": [
       {
@@ -8097,7 +8097,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "neuron-structure-function",
     "title": "Neuron Structure and Function: The Cells of Communication",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Neurons are specialized cells that transmit electrical and chemical signals throughout your body. Each neuron has a specific structure designed for receiving, processing, and sending information. Understanding neurons is fundamental to understanding how your nervous system works.",
     "sections": [
       {
@@ -8161,7 +8161,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "plant-tissues",
     "title": "Plant Tissues: The Building Blocks of Plants",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Plants are composed of specialized tissues that work together to support the plant's structure and functions. From the protective epidermis to the water-conducting xylem, each tissue type has unique characteristics suited to its role in plant survival.",
     "sections": [
       {
@@ -8225,7 +8225,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "animal-tissues",
     "title": "Animal Tissues: The Specialized Fabrics of Bodies",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Animals are composed of four main tissue types: epithelial, connective, muscle, and nervous tissues. Each tissue type has specialized cells and structures suited to performing specific functions essential for animal survival and movement.",
     "sections": [
       {
@@ -8289,7 +8289,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "transportation-plants-xylem-phloem",
     "title": "Transportation in Plants: Xylem and Phloem",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Plants transport water, minerals, and sugars through two vascular tissues: xylem and phloem. These specialized systems allow water to reach the tallest trees and sugars to be distributed throughout the plant, enabling growth and survival.",
     "sections": [
       {
@@ -8353,7 +8353,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "nitrogen-cycle",
     "title": "Nitrogen Cycle: Nature's Way of Recycling Nitrogen",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The nitrogen cycle describes how nitrogen moves between the atmosphere, soil, water, and living organisms. Though nitrogen is abundant in the air, most organisms cannot use atmospheric nitrogen directly. Specialized bacteria convert it to usable forms, making life as we know it possible.",
     "sections": [
       {
@@ -8417,7 +8417,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "carbon-cycle",
     "title": "Carbon Cycle: How Carbon Moves Through Nature",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The carbon cycle describes how carbon moves between the atmosphere, living organisms, oceans, and rocks. Carbon dioxide in the air is the starting point for nearly all life on Earth. Understanding this cycle reveals the interconnections between all living and non-living systems.",
     "sections": [
       {
@@ -8481,7 +8481,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "oxygen-cycle",
     "title": "Oxygen Cycle: How Oxygen Is Produced and Used",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The oxygen cycle describes how oxygen is produced by photosynthesis, used in respiration, and recycled through the environment. Almost all oxygen in the atmosphere comes from organisms, making the oxygen cycle essential for aerobic life.",
     "sections": [
       {
@@ -8545,7 +8545,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "greenhouse-effect",
     "title": "Greenhouse Effect: Understanding Global Warming",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The greenhouse effect is the warming of Earth caused by gases trapping heat in the atmosphere. While a natural greenhouse effect keeps Earth habitable, human activities have intensified it, causing rapid climate change with serious consequences.",
     "sections": [
       {
@@ -8609,7 +8609,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "ozone-layer-depletion",
     "title": "Ozone Layer Depletion: Protecting Our Shield",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "The ozone layer in the upper atmosphere protects life from harmful ultraviolet radiation. Human-made chemicals are destroying this protective layer, increasing UV exposure and threatening health and ecosystems. Understanding ozone depletion is crucial for environmental protection.",
     "sections": [
       {
@@ -8673,7 +8673,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "genetics-heredity-basics",
     "title": "Genetics and Heredity Basics: How Traits Pass to Offspring",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Genetics is the study of heredity, how traits pass from parents to offspring through genes. DNA carries genetic information in the form of genes, which are instructions for building proteins and developing characteristics. Understanding genetics explains why you resemble your parents and why each person is unique.",
     "sections": [
       {
@@ -8737,7 +8737,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "mendels-laws-inheritance",
     "title": "Mendel's Laws of Inheritance: The Rules of Heredity",
     "subject": "Biology",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "intro": "Gregor Mendel discovered fundamental laws explaining how traits are inherited. Through careful observation of pea plants, he established that inheritance follows predictable patterns. Mendel's laws are the foundation of modern genetics.",
     "sections": [
       {
@@ -8801,7 +8801,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "periodic-table-periodicity",
     "title": "Periodic Table and Periodicity",
     "subject": "Chemistry",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "The periodic table organizes elements by atomic number and recurring chemical properties. Periodicity refers to the repeating patterns of properties across periods and groups that help predict element behavior.",
     "sections": [
       {
@@ -8874,7 +8874,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "ionic-bonding",
     "title": "Ionic Bonding: Transfer of Electrons",
     "subject": "Chemistry",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Ionic bonding occurs when electrons are transferred from one atom to another, creating positively charged cations and negatively charged anions. These oppositely charged ions attract each other electrostatically.",
     "sections": [
       {
@@ -8947,7 +8947,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "covalent-bonding",
     "title": "Covalent Bonding: Sharing of Electrons",
     "subject": "Chemistry",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Covalent bonding occurs when two atoms share one or more pairs of electrons, resulting in a stable molecule. This bond typically forms between non-metallic elements with similar electronegativities.",
     "sections": [
       {
@@ -9020,7 +9020,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "acids-bases-salts",
     "title": "Acids, Bases, and Salts: pH and Indicators",
     "subject": "Chemistry",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Acids and bases are fundamental categories of compounds defined by their ability to donate or accept protons. The pH scale measures acidity and basicity, while indicators are substances that change color based on pH.",
     "sections": [
       {
@@ -9093,7 +9093,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "metals-nonmetals-reactivity",
     "title": "Metals and Non-metals: Reactivity Series",
     "subject": "Chemistry",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "The reactivity series arranges metals and non-metals in order of their tendency to lose or gain electrons. This series helps predict whether a chemical reaction will occur between elements.",
     "sections": [
       {
@@ -9166,7 +9166,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "carbon-compounds-functional-groups",
     "title": "Carbon and Its Compounds: Functional Groups",
     "subject": "Chemistry",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Carbon forms the backbone of all organic compounds through its ability to form four covalent bonds. Functional groups are specific arrangements of atoms that determine the chemical properties of organic molecules.",
     "sections": [
       {
@@ -9239,7 +9239,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "electrolysis-electrochemistry",
     "title": "Electrolysis and Electrochemistry",
     "subject": "Chemistry",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Electrolysis is a process where electrical energy drives non-spontaneous chemical reactions. It involves breaking down compounds by passing electric current through them.",
     "sections": [
       {
@@ -9312,7 +9312,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "rate-of-reaction-kinetics",
     "title": "Rate of Reaction and Chemical Kinetics",
     "subject": "Chemistry",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "The rate of reaction measures how quickly reactants are consumed or products are formed. Chemical kinetics explores factors affecting reaction rates and reaction mechanisms.",
     "sections": [
       {
@@ -9385,7 +9385,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "states-of-matter-phase-changes",
     "title": "States of Matter and Phase Changes",
     "subject": "Physics",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Matter exists in three primary states: solid, liquid, and gas, each with distinct properties. Phase changes occur when matter transitions between states through addition or removal of energy.",
     "sections": [
       {
@@ -9458,7 +9458,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "gravitation-and-g",
     "title": "Gravitation and Gravitational Acceleration (g)",
     "subject": "Physics",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Gravity is the force of attraction between all objects with mass. Gravitational acceleration (g) is the acceleration imparted by gravity on falling objects, approximately 9.8 m/s² on Earth.",
     "sections": [
       {
@@ -9531,7 +9531,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "lenses-image-formation",
     "title": "Lenses and Image Formation",
     "subject": "Physics",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Lenses are transparent optical devices that refract light to form images. Converging and diverging lenses produce different types of images depending on object position.",
     "sections": [
       {
@@ -9604,7 +9604,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "arithmetic-progressions",
     "title": "Arithmetic Progressions and Series",
     "subject": "Maths",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "An arithmetic progression (AP) is a sequence where consecutive terms have a constant difference (common difference d). Arithmetic series is the sum of terms in an arithmetic progression.",
     "sections": [
       {
@@ -9677,7 +9677,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "probability-basics",
     "title": "Probability: Basics and Sample Space",
     "subject": "Maths",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Probability is the measure of likelihood that an event will occur. It ranges from 0 (impossible) to 1 (certain), expressed as a fraction, decimal, or percentage.",
     "sections": [
       {
@@ -9750,7 +9750,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "statistics-central-tendency",
     "title": "Statistics: Mean, Median, Mode, and Measures of Spread",
     "subject": "Maths",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Statistics describes and analyzes data. Measures of central tendency (mean, median, mode) indicate where data clusters. Measures of spread show how data varies.",
     "sections": [
       {
@@ -9823,7 +9823,7 @@ export const CONCEPT_EXPLAINERS: ConceptExplainer[] = [
     "slug": "surface-area-volume-solids",
     "title": "Surface Area and Volume of Solids",
     "subject": "Maths",
-    "classLevel": "10-12",
+    "classLevel": "Class 10-12",
     "intro": "Surface area is the total area of all surfaces of a 3D object. Volume is the amount of space inside a 3D object. Both are essential for practical applications in engineering and manufacturing.",
     "sections": [
       {

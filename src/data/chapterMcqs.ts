@@ -14,7 +14,7 @@ export interface McqChapter {
 export const MCQ_CHAPTERS: McqChapter[] = [
   {
     "slug": "class-10-science-light-reflection-refraction-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Light Reflection and Refraction",
     "intro": "Light travels in straight lines and can be reflected and refracted when it encounters different surfaces and media. Understanding reflection and refraction is essential for explaining how mirrors, lenses, and optical instruments work.",
@@ -143,7 +143,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-electricity-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Electricity",
     "intro": "Electricity is the flow of electrons through a conductor, and understanding electric current, resistance, and power is crucial for practical applications. This chapter covers Ohm's law, electrical circuits, and energy calculations.",
@@ -272,7 +272,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-acids-bases-salts-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Acids Bases and Salts",
     "intro": "Acids, bases, and salts are fundamental chemical compounds that react with each other and have important industrial and biological applications. Understanding their properties and reactions is essential for chemistry.",
@@ -401,7 +401,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-life-processes-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Life Processes",
     "intro": "Life processes include nutrition, respiration, transportation, and excretion, which are essential for the survival and growth of all living organisms. Understanding these processes helps us comprehend how organisms maintain homeostasis.",
@@ -530,7 +530,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-carbon-compounds-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Carbon and its Compounds",
     "intro": "Carbon is a unique element that forms millions of compounds due to its ability to bond with other atoms, including hydrogen, oxygen, and nitrogen. Understanding organic chemistry is crucial for comprehending the chemistry of life.",
@@ -659,7 +659,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-metals-nonmetals-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Metals and Non-metals",
     "intro": "Metals and non-metals are the two main categories of elements with distinct physical and chemical properties. Understanding their characteristics and reactions is fundamental to inorganic chemistry.",
@@ -788,7 +788,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-real-numbers-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Real Numbers",
     "intro": "Real numbers include all rational and irrational numbers, and understanding their properties is essential for higher mathematics. This chapter covers the Euclidean algorithm, prime factorization, and rational and irrational numbers.",
@@ -917,7 +917,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-polynomials-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Polynomials",
     "intro": "Polynomials are algebraic expressions with multiple terms consisting of variables and constants. Understanding polynomial operations and theorems like the remainder and factor theorems is essential for solving equations.",
@@ -1046,7 +1046,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-quadratic-equations-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Quadratic Equations",
     "intro": "Quadratic equations are polynomial equations of degree 2 and have numerous applications in physics and engineering. Solving them involves factorization, completing the square, or using the quadratic formula.",
@@ -1175,7 +1175,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-triangles-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Triangles",
     "intro": "Triangles are fundamental geometric shapes, and understanding their properties like similarity, congruence, and the Pythagorean theorem is essential for geometry. This chapter covers triangle theorems and their applications.",
@@ -1304,7 +1304,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-trigonometry-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Trigonometry",
     "intro": "Trigonometry is the study of relationships between sides and angles in triangles and has numerous applications in navigation, surveying, and engineering. Understanding trigonometric ratios is essential for solving problems.",
@@ -1433,7 +1433,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-probability-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Probability",
     "intro": "Probability is the mathematical study of uncertainty and randomness, with applications in statistics, finance, and science. Understanding basic probability concepts helps in making informed decisions.",
@@ -1562,7 +1562,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-social-science-nationalism-india-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Nationalism in India",
     "intro": "The Indian independence movement was a long struggle against British colonial rule, led by prominent figures like Mahatma Gandhi, Jawaharlal Nehru, and others. Understanding this history is crucial for Indian citizens.",
@@ -1691,7 +1691,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-social-science-resources-development-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Resources and Development",
     "intro": "Resources are essential inputs for economic development, and their sustainable management is crucial for the country's future. India has diverse resources including minerals, forests, water, and land.",
@@ -1798,7 +1798,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-social-science-power-sharing-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Power Sharing",
     "intro": "Power sharing is a fundamental principle of democracy where government authority is distributed among different branches and levels. In India, power is shared among the Union, States, and local bodies.",
@@ -1927,7 +1927,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-social-science-sectors-economy-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Sectors of Indian Economy",
     "intro": "The Indian economy is divided into primary, secondary, and tertiary sectors based on the nature of economic activities. Understanding these sectors is essential for analyzing economic development.",
@@ -2056,7 +2056,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-matter-surroundings-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Matter in Our Surroundings",
     "intro": "Matter is anything that has mass and occupies space, existing in three states: solid, liquid, and gas. Understanding the properties of matter and changes in its states is fundamental to science.",
@@ -2185,7 +2185,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-atoms-molecules-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Atoms and Molecules",
     "intro": "Atoms are the smallest units of elements that retain chemical properties, while molecules are combinations of atoms. Understanding atomic structure and chemical formulas is essential for chemistry.",
@@ -2314,7 +2314,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-fundamental-unit-life-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "The Fundamental Unit of Life",
     "intro": "The cell is the fundamental unit of life, and all living organisms are composed of one or more cells. Understanding cell structure and function is crucial for biology.",
@@ -2443,7 +2443,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-motion-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Motion",
     "intro": "Motion is the change of position of an object with respect to time, and understanding its laws is fundamental to physics. This chapter covers distance, displacement, speed, velocity, and acceleration.",
@@ -2572,7 +2572,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-gravitation-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Gravitation",
     "intro": "Gravitation is the force of attraction between all objects in the universe, discovered and explained by Newton. Understanding gravity is essential for understanding planetary motion and weight.",
@@ -2701,7 +2701,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-social-science-french-revolution-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "French Revolution",
     "intro": "The French Revolution was a pivotal period in world history that transformed French society and influenced democratic movements globally. Understanding its causes, events, and consequences is essential.",
@@ -2830,7 +2830,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-social-science-nazism-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Nazism",
     "intro": "Nazism was a totalitarian ideology in Germany under Adolf Hitler that led to World War II and the Holocaust. Understanding this dark period is crucial for preventing similar atrocities.",
@@ -2959,7 +2959,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-social-science-physical-features-india-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Physical Features of India",
     "intro": "India's diverse physical features include mountain ranges, plateaus, plains, and coastal regions that significantly influence its climate, vegetation, and human settlement patterns.",
@@ -3088,7 +3088,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-heredity-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Heredity and Evolution",
     "intro": "Heredity is the process of passing traits from parents to offspring. Understanding heredity helps us comprehend how characteristics are inherited across generations.",
@@ -3217,7 +3217,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-human-eye-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "The Human Eye and Colourful World",
     "intro": "The human eye is a complex optical instrument that allows us to see the world. Understanding its structure and function helps explain vision and optical phenomena.",
@@ -3346,7 +3346,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-magnetic-effects-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Magnetic Effects of Electric Current",
     "intro": "Electric current produces magnetic fields, and these magnetic effects have numerous practical applications. Understanding magnetism helps us use electric devices efficiently.",
@@ -3475,7 +3475,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-our-environment-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Our Environment",
     "intro": "Our environment consists of living and non-living components that interact with each other. Understanding environmental ecosystems and food chains helps us appreciate nature's balance.",
@@ -3604,7 +3604,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-reproduction-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "How do Organisms Reproduce",
     "intro": "Reproduction is essential for the continuation of species. Understanding both asexual and sexual reproduction helps us comprehend how life perpetuates itself.",
@@ -3733,7 +3733,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-coordinate-geometry-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Coordinate Geometry",
     "intro": "Coordinate geometry combines algebra with geometry using coordinates to locate points and determine distances. This topic helps solve geometric problems using algebraic methods.",
@@ -3862,7 +3862,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-arithmetic-progressions-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Arithmetic Progressions",
     "intro": "An arithmetic progression is a sequence where consecutive terms have a constant difference. Understanding APs helps solve problems involving sequences and series.",
@@ -3991,7 +3991,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-circles-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Circles",
     "intro": "A circle is a fundamental geometric shape with unique properties. Understanding circles helps solve problems related to tangents, chords, and angles.",
@@ -4120,7 +4120,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-surface-areas-volumes-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Surface Areas and Volumes",
     "intro": "Surface area and volume calculations are essential for understanding three-dimensional shapes. These concepts help solve practical problems in engineering and construction.",
@@ -4249,7 +4249,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-matter-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Matter in Our Surroundings",
     "intro": "Matter is everything around us that has mass and volume. Understanding the properties of matter helps us comprehend the physical world.",
@@ -4378,7 +4378,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-cell-mcq",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "The Fundamental Unit of Life",
     "intro": "The cell is the smallest unit of life and all living organisms are made of cells. Understanding cell structure and function is crucial to biology.",
@@ -4507,7 +4507,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-sst-nationalism-india-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Nationalism in India",
     "intro": "The nationalist movement in India was a struggle for independence from British colonial rule. Understanding this movement helps us appreciate India's freedom struggle.",
@@ -4636,7 +4636,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-sst-federalism-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Federalism",
     "intro": "Federalism is a system of government where power is divided between central and regional governments. India is a federal democratic state with this structure.",
@@ -4765,7 +4765,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-sst-money-credit-mcq",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Money and Credit",
     "intro": "Money is a medium of exchange, and credit systems facilitate economic transactions. Understanding money and credit is essential for economic literacy.",
@@ -4894,7 +4894,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-light-case-study",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Light (Case Study)",
     "intro": "This set covers CBSE-style case-based questions on refraction and reflection of light. Students analyze real-world scenarios involving mirrors, lenses, and light behavior.",
@@ -5162,7 +5162,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-electricity-case-study",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Electricity (Case Study)",
     "intro": "Case-based questions on electric circuits, current, resistance, and power. Real-world applications in household wiring and electrical safety.",
@@ -5269,7 +5269,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-life-processes-case-study",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Life Processes (Case Study)",
     "intro": "CBSE case-based questions on human digestion, respiration, and circulation. Scenarios involve medical conditions, diet analysis, and physiological responses.",
@@ -5376,7 +5376,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-acids-bases-case-study",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Acids and Bases (Case Study)",
     "intro": "Real-world scenarios involving pH, neutralization, and industrial acid-base reactions. Students apply concepts to agriculture, medicine, and household chemistry.",
@@ -5483,7 +5483,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-trigonometry-applications",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Trigonometry (Applications Case Study)",
     "intro": "Real-world applications of trigonometry involving heights, distances, angles of elevation and depression. CBSE-style case questions on surveying, engineering, and navigation.",
@@ -5568,7 +5568,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-probability-case-study",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Probability (Case Study)",
     "intro": "CBSE case-based probability questions involving real-world scenarios like games, sports, and quality control. Students calculate experimental and theoretical probabilities.",
@@ -5664,7 +5664,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-coordinate-geometry-case",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Coordinate Geometry (Case Study)",
     "intro": "Real-world coordinate geometry problems involving distances, areas, and straight lines. Applications include map navigation, construction, and architecture.",
@@ -5771,7 +5771,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-sst-money-credit-case",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Money and Credit (Case Study)",
     "intro": "CBSE case-based questions on money, credit systems, banking, and financial inclusion. Real-world scenarios involving loans, interest rates, and economic decisions.",
@@ -5878,7 +5878,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-motion-olympiad",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Motion Olympiad",
     "intro": "NSO-style olympiad questions on motion, velocity, acceleration, and graphical analysis. Challenging problems requiring deep conceptual understanding and problem-solving skills.",
@@ -6062,7 +6062,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-maths-olympiad-number-system",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Mathematics",
     "chapter": "Maths Olympiad - Number System",
     "intro": "IMO and NSO-style challenging problems on number theory, rational and irrational numbers, and algebraic properties. Advanced logical reasoning required.",
@@ -6158,7 +6158,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-science-olympiad-atoms-molecules",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Atoms and Molecules Olympiad",
     "intro": "NSO challenging questions on atomic structure, molecular composition, and chemical formulas. Olympiad-level logical reasoning on matter and substances.",
@@ -6265,7 +6265,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-gravitation-olympiad",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Gravitation Olympiad",
     "intro": "NSO and advanced physics olympiad questions on gravity, planetary motion, and orbital mechanics. Requires mastery of Newton's law and orbital concepts.",
@@ -6372,7 +6372,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-science-cell",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Cell Structure and Function",
     "intro": "This MCQ chapter covers the fundamental concepts of cell biology, organelles, and their functions. Master the structure of plant and animal cells to excel in your science exams.",
@@ -6633,7 +6633,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-science-force",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Force and Motion",
     "intro": "Learn about forces, motion, Newton's laws, and friction. These fundamental concepts explain how objects move and interact with their environment.",
@@ -6762,7 +6762,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-science-sound",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Sound",
     "intro": "Understand the properties of sound, how it travels, and why it matters. Learn about frequency, wavelength, and practical applications of sound.",
@@ -6891,7 +6891,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-science-light",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Light",
     "intro": "Explore the properties of light, reflection, refraction, and the human eye. Understand how light enables vision and interacts with different materials.",
@@ -7020,7 +7020,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-science-microorganisms",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Microorganisms and Disease",
     "intro": "Learn about microscopic life forms, bacteria, viruses, and their role in disease and fermentation. Understand how disease spreads and prevention methods.",
@@ -7149,7 +7149,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-maths-rational-numbers",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Rational Numbers",
     "intro": "Master rational numbers, their properties, and operations. Learn about fractions, decimals, and how to work with numbers expressed as ratios.",
@@ -7278,7 +7278,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-maths-squares",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Squares and Square Roots",
     "intro": "Understand perfect squares, square roots, and their properties. Learn estimation techniques and applications in geometry.",
@@ -7407,7 +7407,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-8-maths-mensuration",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Mensuration (Areas and Volumes)",
     "intro": "Learn to calculate areas of 2D shapes and volumes of 3D objects. Master formulas and solve practical geometry problems.",
@@ -7536,7 +7536,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-7-science-nutrition",
-    "classLevel": "7",
+    "classLevel": "Class 7",
     "subject": "Science",
     "chapter": "Nutrition in Animals and Plants",
     "intro": "Understand how plants and animals obtain and use nutrients. Learn about food chains, photosynthesis, and digestive systems.",
@@ -7665,7 +7665,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-7-science-heat",
-    "classLevel": "7",
+    "classLevel": "Class 7",
     "subject": "Science",
     "chapter": "Heat and Temperature",
     "intro": "Explore the difference between heat and temperature, methods of heat transfer, and effects of heat on matter.",
@@ -7794,7 +7794,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-7-science-motion",
-    "classLevel": "7",
+    "classLevel": "Class 7",
     "subject": "Science",
     "chapter": "Motion and Its Types",
     "intro": "Understand different types of motion, speed, velocity, and acceleration. Learn to analyze movement in physics.",
@@ -7923,7 +7923,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-physics-units",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "chapter": "Units and Measurements",
     "intro": "Master the SI unit system, derived units, and measurement techniques essential for all physics studies.",
@@ -8052,7 +8052,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-physics-laws-of-motion",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "chapter": "Laws of Motion",
     "intro": "Study Newtons three laws of motion and their applications to understand how objects move and interact.",
@@ -8181,7 +8181,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-chemistry-mole-concept",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "chapter": "Mole Concept",
     "intro": "Master the mole as the central concept connecting atomic mass, molecular mass, and stoichiometry in chemistry.",
@@ -8310,7 +8310,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-physics-electrostatics",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "chapter": "Electrostatics",
     "intro": "Study electric charges, electric fields, and electric potential. Master Coulombs law and its applications.",
@@ -8439,7 +8439,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-biology-reproduction",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Biology",
     "chapter": "Reproduction and Development",
     "intro": "Study sexual and asexual reproduction, gametogenesis, embryonic development, and reproductive health in humans.",
@@ -8568,7 +8568,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-atoms-molecules",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Atoms and Molecules",
     "intro": "Atoms are the smallest indivisible particles of matter, while molecules are formed when two or more atoms combine chemically. This chapter explores the fundamental concepts of atomic mass, molecular mass, moles, and Avogadro's number.",
@@ -8697,7 +8697,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-structure-of-atom",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Structure of Atom",
     "intro": "The atom consists of a nucleus containing protons and neutrons, surrounded by electrons in various shells. Understanding atomic structure is fundamental to chemistry and explains the properties of elements.",
@@ -8826,7 +8826,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-tissues",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Tissues",
     "intro": "Tissues are groups of similar cells that work together to perform a specific function. Understanding plant and animal tissues is essential for comprehending how organisms are organized and how they function.",
@@ -8955,7 +8955,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-diversity-in-living-organisms",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Diversity in Living Organisms",
     "intro": "Living organisms are classified into different kingdoms based on their characteristics. The binomial nomenclature system helps scientists organize and name the vast diversity of life on Earth.",
@@ -9084,7 +9084,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-why-do-we-fall-ill",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Why Do We Fall Ill",
     "intro": "Health is a state of complete physical, mental, and social well-being. Diseases are caused by pathogens like bacteria, viruses, and fungi, and can be prevented through hygiene, vaccination, and a healthy lifestyle.",
@@ -9213,7 +9213,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-science-natural-resources",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Natural Resources",
     "intro": "Natural resources are materials and energy sources that occur naturally on Earth. Soil, air, and water are essential components of the biosphere that support all life and must be conserved for future generations.",
@@ -9342,7 +9342,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-periodic-classification",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Periodic Classification of Elements",
     "intro": "The periodic table organizes elements based on their atomic number and chemical properties. Understanding periodic trends helps predict element behavior and properties.",
@@ -9471,7 +9471,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-carbon-compounds",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Carbon Compounds",
     "intro": "Carbon forms the backbone of all organic compounds, which include hydrocarbons, alcohols, aldehydes, and carboxylic acids. Understanding carbon chemistry is essential for biology, medicine, and materials science.",
@@ -9600,7 +9600,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-heredity-and-evolution",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Heredity and Evolution",
     "intro": "Heredity is the transmission of traits from parents to offspring through genes. Evolution explains the diversity of life through natural selection and adaptation over millions of years.",
@@ -9729,7 +9729,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-science-our-environment",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Our Environment",
     "intro": "An ecosystem consists of biotic and abiotic factors interacting in complex food chains and food webs. Understanding energy flow and nutrient cycling is essential for environmental conservation.",
@@ -9858,7 +9858,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-real-numbers",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Real Numbers",
     "intro": "Real numbers include all rational and irrational numbers. Understanding properties like divisibility, prime factorization, and the Euclidean algorithm is fundamental to number theory.",
@@ -9987,7 +9987,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-polynomials",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Polynomials",
     "intro": "Polynomials are algebraic expressions with terms containing variables raised to non-negative integer powers. Understanding zeros, factors, and the relationship between them is essential for solving equations.",
@@ -10116,7 +10116,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-triangles",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Triangles",
     "intro": "Triangles are fundamental geometric shapes. Understanding similarity, congruence, and the properties of various triangle types is essential for geometry and trigonometry.",
@@ -10245,7 +10245,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-circles",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Circles",
     "intro": "A circle is a locus of points equidistant from a center. Understanding properties like tangents, chords, arcs, and angles is fundamental to geometry and trigonometry.",
@@ -10374,7 +10374,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-10-maths-trigonometry",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Trigonometry",
     "intro": "Trigonometry relates the sides and angles of right triangles. The ratios sine, cosine, and tangent are fundamental to solving problems in geometry, physics, and engineering.",
@@ -10503,7 +10503,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-maths-number-systems",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Mathematics",
     "chapter": "Number Systems",
     "intro": "Number systems encompass natural numbers, whole numbers, integers, rational, and irrational numbers. Understanding the properties and representation of these numbers is fundamental to mathematics.",
@@ -10632,7 +10632,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-9-maths-linear-equations-two-variables",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Mathematics",
     "chapter": "Linear Equations in Two Variables",
     "intro": "Linear equations in two variables represent straight lines on a coordinate plane. Understanding solutions, graphing, and simultaneous equations is essential for algebra and coordinate geometry.",
@@ -10761,7 +10761,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-accounting-for-partnership-basic-concepts",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Accounting for Partnership: Basic Concepts",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Accounting for Partnership: Basic Concepts. Every question comes with the correct answer and an explanation.",
@@ -10881,7 +10881,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-goodwill-nature-and-valuation",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Goodwill: Nature and Valuation",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Goodwill: Nature and Valuation. Every question comes with the correct answer and an explanation.",
@@ -11001,7 +11001,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-reconstitution-of-a-partnership-firm-change-in-profit-shari",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Reconstitution of a Partnership Firm - Change in Profit Sharing Ratio",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Reconstitution of a Partnership Firm - Change in Profit Sharing Ratio. Every question comes with the correct answer and an explanation.",
@@ -11121,7 +11121,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-reconstitution-of-a-partnership-firm-admission-of-a-partner",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Reconstitution of a Partnership Firm - Admission of a Partner",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Reconstitution of a Partnership Firm - Admission of a Partner. Every question comes with the correct answer and an explanation.",
@@ -11241,7 +11241,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-reconstitution-of-a-partnership-firm-retirement-and-death-o",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Reconstitution of a Partnership Firm - Retirement and Death of a Partner",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Reconstitution of a Partnership Firm - Retirement and Death of a Partner. Every question comes with the correct answer and an explanation.",
@@ -11361,7 +11361,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-dissolution-of-partnership-firm",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Dissolution of Partnership Firm",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Dissolution of Partnership Firm. Every question comes with the correct answer and an explanation.",
@@ -11481,7 +11481,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-accounting-for-share-capital",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Accounting for Share Capital",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Accounting for Share Capital. Every question comes with the correct answer and an explanation.",
@@ -11502,7 +11502,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-issue-and-redemption-of-debentures",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Issue and Redemption of Debentures",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Issue and Redemption of Debentures. Every question comes with the correct answer and an explanation.",
@@ -11622,7 +11622,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-financial-statements-of-a-company",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Financial Statements of a Company",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Financial Statements of a Company. Every question comes with the correct answer and an explanation.",
@@ -11742,7 +11742,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-analysis-of-financial-statements",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Analysis of Financial Statements",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Analysis of Financial Statements. Every question comes with the correct answer and an explanation.",
@@ -11862,7 +11862,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-accounting-ratios",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Accounting Ratios",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Accounting Ratios. Every question comes with the correct answer and an explanation.",
@@ -11982,7 +11982,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-accountancy-cash-flow-statement",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Accountancy",
     "chapter": "Cash Flow Statement",
     "intro": "Practise chapter-wise MCQs for Class 12 Accountancy — Cash Flow Statement. Every question comes with the correct answer and an explanation.",
@@ -12102,7 +12102,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-nature-and-significance-of-management",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Nature and Significance of Management",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Nature and Significance of Management. Every question comes with the correct answer and an explanation.",
@@ -12222,7 +12222,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-principles-of-management",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Principles of Management",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Principles of Management. Every question comes with the correct answer and an explanation.",
@@ -12342,7 +12342,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-business-environment",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Business Environment",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Business Environment. Every question comes with the correct answer and an explanation.",
@@ -12462,7 +12462,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-planning",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Planning",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Planning. Every question comes with the correct answer and an explanation.",
@@ -12582,7 +12582,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-organising",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Organising",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Organising. Every question comes with the correct answer and an explanation.",
@@ -12702,7 +12702,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-staffing",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Staffing",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Staffing. Every question comes with the correct answer and an explanation.",
@@ -12822,7 +12822,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-directing",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Directing",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Directing. Every question comes with the correct answer and an explanation.",
@@ -12942,7 +12942,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-controlling",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Controlling",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Controlling. Every question comes with the correct answer and an explanation.",
@@ -13062,7 +13062,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-financial-management",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Financial Management",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Financial Management. Every question comes with the correct answer and an explanation.",
@@ -13182,7 +13182,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-financial-markets",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Financial Markets",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Financial Markets. Every question comes with the correct answer and an explanation.",
@@ -13302,7 +13302,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-marketing-management",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Marketing Management",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Marketing Management. Every question comes with the correct answer and an explanation.",
@@ -13422,7 +13422,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-business-studies-consumer-protection",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Business Studies",
     "chapter": "Consumer Protection",
     "intro": "Practise chapter-wise MCQs for Class 12 Business Studies — Consumer Protection. Every question comes with the correct answer and an explanation.",
@@ -13542,7 +13542,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-introduction-to-microeconomics",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Introduction to Microeconomics",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Introduction to Microeconomics. Every question comes with the correct answer and an explanation.",
@@ -13662,7 +13662,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-theory-of-consumer-behaviour",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Theory of Consumer Behaviour",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Theory of Consumer Behaviour. Every question comes with the correct answer and an explanation.",
@@ -13782,7 +13782,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-production-and-costs",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Production and Costs",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Production and Costs. Every question comes with the correct answer and an explanation.",
@@ -13891,7 +13891,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-the-theory-of-the-firm-under-perfect-competition",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "The Theory of the Firm under Perfect Competition",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — The Theory of the Firm under Perfect Competition. Every question comes with the correct answer and an explanation.",
@@ -14011,7 +14011,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-market-equilibrium",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Market Equilibrium",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Market Equilibrium. Every question comes with the correct answer and an explanation.",
@@ -14131,7 +14131,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-non-competitive-markets",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Non-competitive Markets",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Non-competitive Markets. Every question comes with the correct answer and an explanation.",
@@ -14251,7 +14251,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-introduction-to-macroeconomics",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Introduction to Macroeconomics",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Introduction to Macroeconomics. Every question comes with the correct answer and an explanation.",
@@ -14371,7 +14371,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-national-income-accounting",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "National Income Accounting",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — National Income Accounting. Every question comes with the correct answer and an explanation.",
@@ -14480,7 +14480,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-money-and-banking",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Money and Banking",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Money and Banking. Every question comes with the correct answer and an explanation.",
@@ -14600,7 +14600,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-determination-of-income-and-employment",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Determination of Income and Employment",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Determination of Income and Employment. Every question comes with the correct answer and an explanation.",
@@ -14720,7 +14720,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-government-budget-and-the-economy",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Government Budget and the Economy",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Government Budget and the Economy. Every question comes with the correct answer and an explanation.",
@@ -14840,7 +14840,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-12-economics-open-economy-macroeconomics",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Economics",
     "chapter": "Open Economy Macroeconomics",
     "intro": "Practise chapter-wise MCQs for Class 12 Economics — Open Economy Macroeconomics. Every question comes with the correct answer and an explanation.",
@@ -14960,7 +14960,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-introduction-to-accounting",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Introduction to Accounting",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Introduction to Accounting. Every question comes with the correct answer and an explanation.",
@@ -15080,7 +15080,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-theory-base-of-accounting",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Theory Base of Accounting",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Theory Base of Accounting. Every question comes with the correct answer and an explanation.",
@@ -15200,7 +15200,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-recording-of-transactions-i",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Recording of Transactions - I",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Recording of Transactions - I. Every question comes with the correct answer and an explanation.",
@@ -15320,7 +15320,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-recording-of-transactions-ii",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Recording of Transactions - II",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Recording of Transactions - II. Every question comes with the correct answer and an explanation.",
@@ -15440,7 +15440,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-bank-reconciliation-statement",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Bank Reconciliation Statement",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Bank Reconciliation Statement. Every question comes with the correct answer and an explanation.",
@@ -15560,7 +15560,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-trial-balance-and-rectification-of-errors",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Trial Balance and Rectification of Errors",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Trial Balance and Rectification of Errors. Every question comes with the correct answer and an explanation.",
@@ -15680,7 +15680,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-depreciation-provisions-and-reserves",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Depreciation, Provisions and Reserves",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Depreciation, Provisions and Reserves. Every question comes with the correct answer and an explanation.",
@@ -15800,7 +15800,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-bills-of-exchange",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Bills of Exchange",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Bills of Exchange. Every question comes with the correct answer and an explanation.",
@@ -15920,7 +15920,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-financial-statements-i",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Financial Statements - I",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Financial Statements - I. Every question comes with the correct answer and an explanation.",
@@ -16040,7 +16040,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-financial-statements-ii",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Financial Statements - II",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Financial Statements - II. Every question comes with the correct answer and an explanation.",
@@ -16160,7 +16160,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-accounts-from-incomplete-records",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Accounts from Incomplete Records",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Accounts from Incomplete Records. Every question comes with the correct answer and an explanation.",
@@ -16214,7 +16214,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-11-accountancy-applications-of-computers-in-accounting",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Accountancy",
     "chapter": "Applications of Computers in Accounting",
     "intro": "Practise chapter-wise MCQs for Class 11 Accountancy — Applications of Computers in Accounting. Every question comes with the correct answer and an explanation.",
@@ -16334,7 +16334,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-1-mathematics-numbers-from-1-to-9",
-    "classLevel": "1",
+    "classLevel": "Class 1",
     "subject": "Mathematics",
     "chapter": "Numbers from 1 to 9",
     "intro": "Practise chapter-wise MCQs for Class 1 Mathematics — Numbers from 1 to 9. Every question comes with the correct answer and an explanation.",
@@ -16454,7 +16454,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-1-mathematics-numbers-from-10-to-20",
-    "classLevel": "1",
+    "classLevel": "Class 1",
     "subject": "Mathematics",
     "chapter": "Numbers from 10 to 20",
     "intro": "Practise chapter-wise MCQs for Class 1 Mathematics — Numbers from 10 to 20. Every question comes with the correct answer and an explanation.",
@@ -16574,7 +16574,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-1-mathematics-addition",
-    "classLevel": "1",
+    "classLevel": "Class 1",
     "subject": "Mathematics",
     "chapter": "Addition",
     "intro": "Practise chapter-wise MCQs for Class 1 Mathematics — Addition. Every question comes with the correct answer and an explanation.",
@@ -16694,7 +16694,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-1-mathematics-subtraction",
-    "classLevel": "1",
+    "classLevel": "Class 1",
     "subject": "Mathematics",
     "chapter": "Subtraction",
     "intro": "Practise chapter-wise MCQs for Class 1 Mathematics — Subtraction. Every question comes with the correct answer and an explanation.",
@@ -16814,7 +16814,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-1-mathematics-shapes-around-us",
-    "classLevel": "1",
+    "classLevel": "Class 1",
     "subject": "Mathematics",
     "chapter": "Shapes Around Us",
     "intro": "Practise chapter-wise MCQs for Class 1 Mathematics — Shapes Around Us. Every question comes with the correct answer and an explanation.",
@@ -16934,7 +16934,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-1-mathematics-money",
-    "classLevel": "1",
+    "classLevel": "Class 1",
     "subject": "Mathematics",
     "chapter": "Money",
     "intro": "Practise chapter-wise MCQs for Class 1 Mathematics — Money. Every question comes with the correct answer and an explanation.",
@@ -17054,7 +17054,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-1-mathematics-time",
-    "classLevel": "1",
+    "classLevel": "Class 1",
     "subject": "Mathematics",
     "chapter": "Time",
     "intro": "Practise chapter-wise MCQs for Class 1 Mathematics — Time. Every question comes with the correct answer and an explanation.",
@@ -17174,7 +17174,7 @@ export const MCQ_CHAPTERS: McqChapter[] = [
   },
   {
     "slug": "class-1-mathematics-measurement",
-    "classLevel": "1",
+    "classLevel": "Class 1",
     "subject": "Mathematics",
     "chapter": "Measurement",
     "intro": "Practise chapter-wise MCQs for Class 1 Mathematics — Measurement. Every question comes with the correct answer and an explanation.",
