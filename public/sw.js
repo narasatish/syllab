@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v322-2026-08-16-college-fees-no-longer-contradict';
+const CACHE_VERSION = 'syllab-v323-2026-08-16-class-level-stored-one-way';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
