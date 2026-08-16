@@ -17,6 +17,33 @@ const typeColor: Record<string, string> = {
 };
 const MAX_COMPARE = 3;
 
+/**
+ * Four-year B.Tech tuition, derived the SAME way the prerenderer derives it
+ * (generate-prerender.mjs: feesPerYear × 4).
+ *
+ * This used to print `feesTotal` raw, and that field disagrees with
+ * `feesPerYear` on 16 of the 78 colleges holding numeric fees: 11 store exactly
+ * 10× the annual figure and 5 store 6×. ITER Bhubaneswar — the most-searched
+ * college on this site, with roughly 800 impressions for fee queries alone —
+ * showed "Total fees ₹30,00,000" here while its own page FAQ said the four-year
+ * tuition is about ₹12,00,000. A family comparing colleges was reading a number
+ * 2.5× too high.
+ *
+ * Deriving from the annual figure makes the explorer agree with the page, and
+ * the label now says what the number actually is: tuition for four years,
+ * excluding hostel and mess. Colleges whose fees are stored as a range string
+ * ("₹3–4 L") have no annual number to multiply, so their stored value is shown
+ * unchanged.
+ *
+ * The 16 inconsistent records still need correcting from official sources —
+ * this makes the site self-consistent, it does not verify the underlying fee.
+ */
+function courseTuition(c: CollegeFull): string {
+  const perYear = Number(String(c.feesPerYear ?? '').replace(/[^0-9.]/g, ''));
+  if (!Number.isFinite(perYear) || perYear <= 0) return c.feesTotal || '—';
+  return `₹${(perYear * 4).toLocaleString('en-IN')}`;
+}
+
 export default function CollegeExplorer({ colleges, go }: { colleges: CollegeFull[]; go: (to: string) => void }) {
   const [type, setType] = useState<(typeof TYPES)[number]>('All');
   const [exam, setExam] = useState('All');
@@ -85,7 +112,7 @@ export default function CollegeExplorer({ colleges, go }: { colleges: CollegeFul
                 ['Type', (c: CollegeFull) => c.type],
                 ['City', (c: CollegeFull) => `${c.city}, ${c.state}`],
                 ['NIRF rank', (c: CollegeFull) => (c.nirf ? `#${c.nirf}` : '—')],
-                ['Total fees', (c: CollegeFull) => c.feesTotal],
+                ['4-year tuition', (c: CollegeFull) => courseTuition(c)],
                 ['Cutoff (top)', (c: CollegeFull) => c.cutoff],
                 ['Avg package', (c: CollegeFull) => c.placementAvg],
                 ['Highest', (c: CollegeFull) => c.placementHighest],
@@ -119,7 +146,7 @@ export default function CollegeExplorer({ colleges, go }: { colleges: CollegeFul
               </div>
               <div className="mt-2 grid grid-cols-3 gap-2 text-center">
                 <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">NIRF</p><p className="text-sm font-black text-slate-800">{c.nirf ? `#${c.nirf}` : '—'}</p></div>
-                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">Fees</p><p className="text-xs font-black text-slate-800">{c.feesTotal}</p></div>
+                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">4-yr tuition</p><p className="text-xs font-black text-slate-800">{courseTuition(c)}</p></div>
                 <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">Avg pkg</p><p className="text-xs font-black text-slate-800">{c.placementAvg}</p></div>
               </div>
               <div className="mt-2 flex items-center justify-between gap-2">

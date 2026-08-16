@@ -6,6 +6,38 @@ describe('engineering COLLEGES integrity', () => {
   const stateNames = new Set(COLLEGE_STATE_INFO.map((s) => s.name));
   const validTypes = new Set(['IIT', 'NIT/IIIT', 'Government', 'Private/Deemed', 'Private']);
 
+  /**
+   * A college fee is a number a family budgets on, so the two fee fields must
+   * not contradict each other.
+   *
+   * As of 2026-08-16, 16 of the 78 colleges holding numeric fees do contradict:
+   * 11 store feesTotal as exactly 10x feesPerYear and 5 store 6x, against 62
+   * that correctly store 4x for a four-year B.Tech. ITER Bhubaneswar — the
+   * most-searched college on this site — stores ₹3,00,000/yr and ₹30,00,000
+   * "full course".
+   *
+   * Both renderers now DERIVE the four-year figure from feesPerYear, so nothing
+   * user-facing shows the contradicted number. This test does not fail on the
+   * existing 16, because which field is authoritative cannot be settled without
+   * official fee schedules and guessing is worse than the inconsistency. It
+   * fails if the problem SPREADS, so the count can only go down.
+   */
+  it('the feesTotal/feesPerYear contradiction does not spread beyond the known 16', () => {
+    const KNOWN_BAD = 16;
+    const num = (v: unknown) => {
+      const n = Number(String(v ?? '').replace(/[^0-9.]/g, ''));
+      return Number.isFinite(n) && n > 0 ? n : null;
+    };
+    const bad = COLLEGES.filter((c) => {
+      if (/[₹L–]/.test(String(c.feesTotal))) return false; // range strings have no annual number
+      const t = num(c.feesTotal), y = num(c.feesPerYear);
+      if (!t || !y) return false;
+      return Math.abs(t / y - 4) > 0.15;
+    }).map((c) => `${c.slug} (${c.feesPerYear}/yr vs ${c.feesTotal} total)`);
+    expect(bad.length, `feesTotal contradicts feesPerYear on:\n  ${bad.join('\n  ')}`)
+      .toBeLessThanOrEqual(KNOWN_BAD);
+  });
+
   it('has unique slugs', () => {
     const slugs = COLLEGES.map((c) => c.slug);
     const dupes = slugs.filter((s, i) => slugs.indexOf(s) !== i);
