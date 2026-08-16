@@ -1,4 +1,4 @@
-# Session state — as of v320 (2026-08-15)
+# Session state — as of v321 (2026-08-16)
 
 Handoff memory. Read once when resuming work. Newest section first; older
 history is kept below because it still explains why parts of the codebase look
@@ -9,6 +9,62 @@ Fastest sanity check that you are looking at the live build:
 ```bash
 curl -sS https://syllab.in/sw.js | grep -oP "syllab-v[0-9]+[^']*" | head -1
 ```
+
+---
+
+# ⚠️ v321 IS COMMITTED BUT NOT DEPLOYED
+
+Nine commits sit on `redesign-ui`, unpushed. Live is still v320, so **none of
+what follows is visible to a single user yet.** CACHE_VERSION is already bumped
+to `syllab-v321-2026-08-16-content-that-was-never-rendered`; deploying needs the
+owner's explicit go-ahead, as always.
+
+---
+
+# CORRECTIONS TO THE v320 HANDOFF — read before trusting the sections below
+
+Four claims in the previous handoff were acted on this session and found wrong.
+They are corrected here because the wrong versions read authoritative.
+
+**"That well is now dry" — it was not.** The v320 handoff listed
+`/revision-notes`, `/english-writing`, `/formula-sheets`, `/concepts` and
+`/gk-facts` as "verified as fully rendering what they have" and declared the
+content-stored-but-never-rendered pattern exhausted. Four more instances turned
+up the same day:
+
+| what | stored | actually reaching a page |
+|---|---|---|
+| `generated-mcqs.json` | 27,143 questions | 1 of the 6 `/mcqs` pages that rank |
+| `/hi` page template | intro + FAQs in `hindi-concepts.mjs` | no body-section support at ALL |
+| `/revision-notes` | schema had no deep body | ~361 words/page |
+| `studyClusters.mjs` projection | — | would have eaten `caseStudies` silently |
+
+The last one is the warning worth keeping: **`studyClusters.mjs` projects a
+fixed field list and drops anything not explicitly named.** Add a field to a
+content bank and it will load correctly in dev, pass every test, and never
+reach a built page. Check that projection whenever you extend a bank.
+
+**"/hi — 17 pages at 23 words. Write real Hindi, or noindex."** Both halves
+wrong. It is **14 pages at 124-239 words**, and the 2026-08-13 export shows two
+of them on **page one**: `ohmic-non-ohmic-conductors` at position 6.2 (72
+impressions), `power-of-a-lens` at 9.4 (62). Noindexing them, as that line
+advised, would have destroyed the only Hindi traction the site has. They were
+deepened instead (230→590 and 190→520 words). Ranking that well on 200 words
+says these queries are barely contested — this is the cheapest depth on the
+site, not the most disposable.
+
+**"/mcqs curriculum — 81 pages named for the OLD NCERT syllabus."** The naming
+mismatch is real, but the fix is not renaming: `mcq-chapter-map.mjs` now
+supports merging several bank chapters into one page and filtering within a
+chapter. Its exclusions list is mostly CORRECT and must not be "helpfully"
+mapped — Olympiad and case-study pages promise a specific kind of question, and
+filling them with ordinary chapter MCQs misrepresents the page to a student.
+Two entries there were wrong and are now resolved (nutrition merge, Mole
+Concept filter); the rest stand.
+
+**"/revision-notes — 119 pages, 15.60% CTR, best converter on the site."** True
+but thinner than it sounds: that rate is 17 clicks on 109 impressions, and only
+**10 of the 119 pages register any impressions at all**. Treat it as directional.
 
 ---
 
@@ -29,9 +85,13 @@ words actually reaching a built page.
 | Blog: 83 `/updates/<slug>` pages emitted `summary` only | 156 w | **397 avg** |
 | `/coding`: syntax regex dropped code examples | 349 pages w/ code | **484** |
 
-**That well is now dry.** Verified as fully rendering what they have:
+**~~That well is now dry.~~ WRONG — see the corrections block at the top of this
+file.** Four more instances were found on 2026-08-16, including in
+`/revision-notes`, which this very sentence listed as verified. The list below
+means "these five were checked once, in one way" — it does not mean the pattern
+is exhausted. Re-check rather than trusting it:
 `/revision-notes`, `/english-writing`, `/formula-sheets`, `/concepts`,
-`/gk-facts`. Everything remaining is authoring or a decision.
+`/gk-facts`.
 
 ## Also fixed in v309–v320
 
@@ -60,44 +120,118 @@ words actually reaching a built page.
 
 # NEXT — blocked on the user, not on code
 
-1. **PSI API key.** 20 deploys unmeasured; CWV last known **FAILING** (mobile
-   LCP 3.5s, desktop CLS 0.11). `scripts/measure-cwv.mjs` is built and works.
-   Keyless PSI returns 429 — confirmed twice, hours apart.
-2. **`/hi`** — 17 pages at **23 words**. Write real Hindi, or noindex.
-3. **`/full-forms` + `/glossary`** — 249 pages, 69,773 impressions, **38
-   clicks**. Zero-click intent; more words will not help. Prune or keep.
-4. **`/coding`** — 873 pages, 245 w/page, 99 words of source theory per topic.
-   GSC: 293 impressions, **0 clicks, position 55.6**. Recommend consolidating
-   ~886 topics into 80–120 real lessons + noindex the tail.
-5. **`/mcqs` curriculum** — 81 pages named for the OLD NCERT syllabus while
-   `generated-mcqs.json` follows the current one. See
-   `scripts/mcq-chapter-map.mjs`; 7 hand-verified mappings, exclusions
-   documented with reasons.
-6. **ITER/CET hostel fees + branch-wise cutoff percentiles** — the queries ask
+1. **DEPLOY v321.** Nine commits, none live. Everything below assumes it ships.
+2. **PSI API key.** Still the only blocker on all performance work. CWV last
+   known **FAILING** (mobile LCP 3.5s, desktop CLS 0.11), now 20+ deploys
+   unmeasured. Keyless PSI returns 429 — confirmed a THIRD time on 2026-08-16.
+   `npm run cwv` is wired and `.env` carries a documented empty `PSI_API_KEY`
+   slot. The API is free and needs no billing account:
+   https://console.cloud.google.com/apis/library/pagespeedonline.googleapis.com
+3. **Run a stored-vs-rendered sweep across every bank.** This is the highest
+   value work available and the v320 handoff wrongly called it finished. For
+   each data file, compare what is STORED against words actually reaching a
+   built page. Four hits in one session; there is no reason to think the last
+   one has been found. Include the `studyClusters.mjs` projection in the check.
+4. **`/full-forms` + `/glossary`** — 249 pages, 69,773 impressions, **38
+   clicks**. Already `noindex,follow` and correctly decaying. Zero-click
+   intent; more words will not help. Leave alone or prune; do NOT "fix".
+5. **~7 more `/mcqs` pages carry impressions** and have not been touched. The
+   machinery is in place now — check `mcqBankFor()` resolves before authoring
+   anything by hand, because the bank usually already has the questions.
+6. **`/coding` consolidation.** The tail is noindexed (see below) but the 873
+   topic pages still EXIST at 245 words each. Consolidating into 80–120 real
+   lessons remains undone; noindex bought time, it did not fix the content.
+7. **ITER/CET hostel fees + branch-wise cutoff percentiles** — the queries ask
    for exactly this (`iter fees for 4 years btech with hostel`, 283 impr,
    0.35% CTR). Do NOT invent figures a family budgets on.
 
-## Authoring backlog (~556,000 words)
+## What NOT to do next
+
+- **Do not deepen the remaining 109 `/revision-notes` pages.** They have zero
+  impressions between them. The constraint there is indexation and authority,
+  not word count, and adding words to pages nobody sees is exactly the
+  mass-production Google penalises.
+- **Do not map the excluded `/mcqs` pages.** See `mcq-chapter-map.mjs`. Olympiad
+  and case-study pages promise a specific kind of question; ordinary chapter
+  MCQs would misrepresent them to a student.
+
+## Authoring backlog, re-measured 2026-08-16
 
 | cluster | pages | now | note |
 |---|---|---|---|
-| `/revision-notes` | 119 | 472 w | **15.60% CTR — best converter on the site** |
-| `/mcqs` | 140 | 684 w | 13.97% CTR |
-| `/english-writing` | 94 | 102 w | only 33 words of source per entry |
+| `/revision-notes` | 119 | 10 done at **5,127 w**, 109 at ~326 w | only 10 have ANY impressions |
+| `/mcqs` | 139 | 6 done, ~7 more with impressions | bank usually has the questions already |
+| `/english-writing` | 94 | 102 w | only 33 words of source per entry — check the bank first |
 | `/medical-colleges` | 88 | 178 w | |
 | `/important-questions` | 50 | 97 w | |
-| 62 NCERT chapters | — | — | no MCQ bank entry → 54 pages <1,000 w |
+| `/hi` | 14 | 2 done at ~555 w, 12 at ~180 w | page-one positions; cheapest depth on the site |
 
-**Start with `/revision-notes`.** Schema in `src/data/revisionNotes.ts`:
-`slug · classLevel · subject · chapter · intro · sections · keyTerms · faqs`
-(median 358 words). Extend with the six blocks proven on difference-between.
-10 chapters/session, highest GSC impressions first.
+**The lesson that should drive the next session:** before authoring anything,
+check whether the content already exists somewhere the page does not read from.
+Four times out of four this session, it did.
+
+---
+
+# WHAT v321 SHIPPED (committed 2026-08-16, not yet deployed)
+
+| ver | commit | what |
+|---|---|---|
+| v321 | `62b126b` | 10 `/revision-notes` chapters: 3,608 → **51,265** crawlable words |
+| v321 | `77d834a` | classLevel stored two ways; Class 11 photosynthesis on a Class 7 page |
+| v321 | `23fa8b2` | build restamped 54 unchanged blog posts with today's date |
+| v321 | `2c849a0` | the two Hindi pages that rank had no room to say anything |
+| v321 | `559f1af` | 27,143 MCQs reached 1 page in 6; `/coding` tail noindexed |
+| v321 | `13c2a3a` | sitemap 3,564 → 2,693; `npm run cwv` |
+| v321 | `b8176dc` | Olympiad / case-study / Class 8 Cell authored properly |
+
+Detail worth carrying forward:
+
+- **`public/rn-deep.json` (306 KB) is FETCHED, never imported.** Same contract
+  as `diff-deep.json`. The prerenderer reads the same file so crawled and
+  hydrated DOM match; breaking that is cloaking. Shared plumbing now lives in
+  `src/components/deepContent.ts` with the quiz in `QuizItem.tsx` — split
+  across two files because a module exporting both a component and plain
+  functions breaks Fast Refresh.
+- **Self-check answers must be spread across A–D.** The first draft keyed 45 of
+  50 to B or C, which is guessable without reading the question. A vitest guard
+  now enforces the spread. Same for assertion-reason: it ran 24 (a) and one (b)
+  before rebalancing to one of each code per chapter.
+- **CBSE case studies need a passage.** `McqCaseStudy` was added for this. The
+  `DANGLING` guard used to reject any question mentioning "the passage"; it now
+  enforces the real rule — such a reference is allowed only when it resolves to
+  a real passage of 40+ words that is actually used.
+- **`/coding` tail ships `noindex, follow`.** `CODING_KEEP_INDEXED` protects the
+  two topic URLs with data. **`generate-sitemap.mjs` is a SEPARATE script** and
+  carries a duplicate keep-set — if the two ever disagree, the site tells Google
+  "index this" in the sitemap and "don't" in the page. Keep them in step.
+- **Blog dates now move only when content moves.** No extra state file: the
+  previous date already lives in the file the merge step reads.
 
 ---
 
 # HOW TO NOT REPEAT MY MISTAKES
 
-Six errors in one session, all caught by checking the built artifact:
+From v321, all four caught only by checking the real artifact:
+
+- **Know which container holds the body before counting words.** Measured "0
+  crawlable words" on pages that were fine three times running — `/revision-notes`
+  uses `<article>`, `/hi` pages are standalone with `<main>`, and the SPA shell
+  has neither. The count was wrong, not the page.
+- **Two `<h1>` and 7,042 words looked like duplicated content.** It is the
+  intentional `#prerender-seo` block: a 1×1 clipped `aria-hidden` sibling
+  carrying the crawlable copy. A user sees one `h1`. Do not "fix" it.
+- **Dark-mode contrast measured 1.03 and looked catastrophic.** That was an
+  artifact of forcing `.dark` via JS before React applied its theme. Through the
+  app's own toggle it is near-white on dark slate. Toggle the way a user does.
+- **A scan is only as good as the fields it reads.** Scanned `intro` + `sections`
+  for off-syllabus terms, declared it fixed, and the built HTML still had ATP and
+  NADPH — in an FAQ the scan never looked at. Name the fields you checked.
+- **Match `id`, not a field that may not exist.** Diffed `autoBlogs.json` by
+  `slug`; posts have no `slug`, so every lookup returned entry zero and the diff
+  claimed 56 hand-written posts had been overwritten. Nothing had. Verify the
+  join key exists before trusting any diff built on it.
+
+Six errors from v320, all caught by checking the built artifact:
 
 - **Measure ONLY after a clean `npm run build`.** Running
   `generate-prerender.mjs` standalone over an already-prerendered `dist`
