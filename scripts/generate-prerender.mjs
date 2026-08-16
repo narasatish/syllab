@@ -684,7 +684,28 @@ for (const c of COLLEGES_M) {
   // (we don't hold that figure, so we never invent one). GSC shows real research
   // intent here ("<college> fees for 4 years with hostel", "<college> placement 2026").
   const feeYr = inr(c.feesPerYear);
-  const fee4 = (() => { const n = Number(String(c.feesPerYear).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? inr(n * 4) : null; })();
+  // Four-year tuition, derived from the annual figure — but ONLY when the
+  // record's own two fee fields agree that it is a four-year course.
+  //
+  // 16 colleges contradict themselves, in opposite directions: 11 Odisha
+  // records store feesTotal as perYear x 10 (the ROUND annual figure was typed,
+  // the total is wrong), while 5 Gujarat records store perYear as feesTotal / 6
+  // — two of them hold 91,667 and 83,333, which are exactly a total divided by
+  // six. For that second group, multiplying the annual figure by four
+  // understates the course fee against the total actually on record.
+  //
+  // Deciding which field is true needs the real fee schedules. A fee is a
+  // number a family budgets on, so where the record contradicts itself this
+  // emits NO four-year figure at all rather than a plausible wrong one. The
+  // per-year fee, hostel charge and cutoff are all still published.
+  const fee4 = (() => {
+    const y = Number(String(c.feesPerYear).replace(/[^0-9.]/g, ''));
+    if (!Number.isFinite(y) || y <= 0) return null;
+    const t = Number(String(c.feesTotal ?? '').replace(/[^0-9.]/g, ''));
+    const totalIsNumeric = Number.isFinite(t) && t > 0 && !/[₹L–]/.test(String(c.feesTotal ?? ''));
+    if (totalIsNumeric && Math.abs(t / y - 4) > 0.15) return null; // self-contradictory
+    return inr(y * 4);
+  })();
   const pkg = inr(c.placementAvg);
   const hi = inr(c.placementHighest);
   const branches = (c.topBranches || []);

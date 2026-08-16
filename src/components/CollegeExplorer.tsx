@@ -18,30 +18,55 @@ const typeColor: Record<string, string> = {
 const MAX_COMPARE = 3;
 
 /**
- * Four-year B.Tech tuition, derived the SAME way the prerenderer derives it
- * (generate-prerender.mjs: feesPerYear × 4).
+ * Four-year B.Tech tuition for the comparison table.
  *
- * This used to print `feesTotal` raw, and that field disagrees with
- * `feesPerYear` on 16 of the 78 colleges holding numeric fees: 11 store exactly
- * 10× the annual figure and 5 store 6×. ITER Bhubaneswar — the most-searched
- * college on this site, with roughly 800 impressions for fee queries alone —
- * showed "Total fees ₹30,00,000" here while its own page FAQ said the four-year
- * tuition is about ₹12,00,000. A family comparing colleges was reading a number
- * 2.5× too high.
+ * This used to print `feesTotal` raw, and that field contradicts `feesPerYear`
+ * on 16 of the 78 colleges holding numeric fees. ITER Bhubaneswar — the
+ * most-searched college on this site — showed "Total fees ₹30,00,000" while its
+ * own page FAQ said about ₹12,00,000. A family was reading a number 2.5× too
+ * high.
  *
- * Deriving from the annual figure makes the explorer agree with the page, and
- * the label now says what the number actually is: tuition for four years,
- * excluding hostel and mess. Colleges whose fees are stored as a range string
- * ("₹3–4 L") have no annual number to multiply, so their stored value is shown
- * unchanged.
+ * WHY THIS DOES NOT SIMPLY DERIVE perYear × 4 FOR EVERYONE: the two bad groups
+ * disagree in opposite directions, and the stored values say which field was
+ * typed and which was computed.
  *
- * The 16 inconsistent records still need correcting from official sources —
- * this makes the site self-consistent, it does not verify the underlying fee.
+ *   11 Odisha colleges store total = perYear × 10, with a ROUND per-year
+ *      (₹3,00,000 for ITER). The annual figure was entered; the total is wrong.
+ *
+ *    5 Gujarat colleges store total = perYear × 6, and two of them hold a
+ *      per-year that is exactly total ÷ 6 (₹91,667 from ₹5,50,000; ₹83,333 from
+ *      ₹5,00,000). There the TOTAL was entered and the annual figure was
+ *      computed with the wrong divisor.
+ *
+ * So multiplying the annual figure by 4 is right for the first group and wrong
+ * for the second. Choosing between them needs the real fee schedules, and
+ * guessing a number a family budgets on is worse than showing less. Where the
+ * two fields contradict each other, this shows NO course total — the per-year
+ * figure is still displayed in its own column, and the detail page still gives
+ * the fee breakdown.
+ *
+ * Once the 16 records are corrected from official sources, they satisfy the
+ * ratio check automatically and the total appears with no code change.
  */
 function courseTuition(c: CollegeFull): string {
-  const perYear = Number(String(c.feesPerYear ?? '').replace(/[^0-9.]/g, ''));
-  if (!Number.isFinite(perYear) || perYear <= 0) return c.feesTotal || '—';
-  return `₹${(perYear * 4).toLocaleString('en-IN')}`;
+  const num = (v: unknown) => {
+    const n = Number(String(v ?? '').replace(/[^0-9.]/g, ''));
+    return Number.isFinite(n) && n > 0 ? n : null;
+  };
+  const perYear = num(c.feesPerYear);
+  const total = num(c.feesTotal);
+
+  // Stored as a range ("₹3–4 L"): nothing to compute, show what is on record.
+  if (/[₹L–]/.test(String(c.feesTotal ?? ''))) return c.feesTotal || '—';
+  if (!perYear) return c.feesTotal || '—';
+
+  // Self-consistent (or no total to check against): derive it, matching
+  // generate-prerender.mjs so the explorer and the page agree.
+  if (!total || Math.abs(total / perYear - 4) <= 0.15) {
+    return `₹${(perYear * 4).toLocaleString('en-IN')}`;
+  }
+  // Contradictory record — say so rather than pick a number.
+  return 'see college page';
 }
 
 export default function CollegeExplorer({ colleges, go }: { colleges: CollegeFull[]; go: (to: string) => void }) {
