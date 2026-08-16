@@ -149,11 +149,21 @@ function buildUrls({ languages, topicsByLang }) {
     if (count >= 2) urls.push({ loc: `/colleges/city/${slug}`, priority: 0.7, changefreq: 'weekly' });
   }
 
-  // Deep coding topic pages are now PRERENDERED with unique titles + a
-  // self-referencing canonical (see generate-prerender.mjs), so they're valid
-  // indexable URLs — list them so Google can discover the long-tail.
+  // Deep coding topic pages now ship `noindex, follow` (see CODING_KEEP_INDEXED
+  // in generate-prerender.mjs: 293 impressions and zero clicks across ~900 URLs
+  // at an average position around 55). A noindex page listed in the sitemap is a
+  // direct contradiction — the sitemap says "index this", the page says "don't" —
+  // so the tail must come OUT of the sitemap at the same time.
+  //
+  // KEEP THIS SET IN STEP WITH CODING_KEEP_INDEXED. If the two ever disagree,
+  // the site is telling Google two different things about the same URL.
+  const CODING_KEEP_INDEXED = new Set([
+    'sql/sql-string-functions',
+    'git-github/git-status',
+  ]);
   for (const lang of languages) {
     for (const topicId of (topicsByLang[lang] || [])) {
+      if (!CODING_KEEP_INDEXED.has(`${lang}/${topicId}`)) continue;
       urls.push({ loc: `/coding/${lang}/${topicId}`, priority: 0.5, changefreq: 'monthly' });
     }
   }
