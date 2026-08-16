@@ -80,8 +80,21 @@ function Detail({ chapter, go, setTab }: { chapter: McqChapter; go: (to: string)
       <div className="mt-5 space-y-4">
         {chapter.mcqs.map((mq, i) => {
           const sel = answers[i];
+          // Print a case-study passage once, above the first question using it,
+          // matching mcqBody() in the prerenderer so the crawled and hydrated
+          // pages read identically. A case-study question without its passage
+          // is unanswerable.
+          const cs = mq.case ? (chapter.caseStudies ?? []).find((c) => c.id === mq.case) : undefined;
+          const startsCase = cs && (i === 0 || chapter.mcqs[i - 1].case !== mq.case);
           return (
-            <div key={i} className="rounded-xl border border-slate-200 p-4 dark:border-slate-700">
+            <div key={i}>
+            {startsCase && (
+              <div className="mb-3 rounded-xl border-l-4 border-primary bg-primary/5 p-4 dark:bg-primary/10">
+                <p className="text-xs font-black uppercase tracking-wide text-primary">Case Study: {cs!.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">{cs!.passage}</p>
+              </div>
+            )}
+            <div className="rounded-xl border border-slate-200 p-4 dark:border-slate-700">
               <p className="mb-3 text-sm font-bold text-slate-800 dark:text-slate-100">{i + 1}. {mq.q}</p>
               <div className="space-y-1.5">
                 {mq.options.map((opt, j) => {
@@ -103,6 +116,7 @@ function Detail({ chapter, go, setTab }: { chapter: McqChapter; go: (to: string)
                 })}
               </div>
               {sel !== null && <p className="mt-2 rounded-lg bg-slate-50 p-2.5 text-xs leading-relaxed text-slate-600 dark:bg-slate-800 dark:text-slate-300"><b>Explanation:</b> {mq.explanation}</p>}
+            </div>
             </div>
           );
         })}

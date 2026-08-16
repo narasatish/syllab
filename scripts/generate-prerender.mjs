@@ -1894,7 +1894,21 @@ function mcqBankFor(x) {
 }
 
 function mcqBody(x, sibs, base) {
-  const qs = (x.mcqs || []).map((m, i) => { const opts = (m.options || []).map((o, j) => `<li>${esc(o)}${j === m.correct ? ' ✓ (correct)' : ''}</li>`).join(''); return `<div class="qa"><h3>Q${i + 1}. ${esc(m.q)}</h3><ol type="A">${opts}</ol>${m.explanation ? `<p><strong>Explanation:</strong> ${esc(m.explanation)}</p>` : ''}</div>`; }).join('');
+  // Case-study questions carry a `case` id resolving to a passage. The passage
+  // is printed once, immediately before the first question that uses it, so a
+  // question saying "the passage" always has one directly above it. A CBSE
+  // case-study question without its passage is unanswerable, which is the whole
+  // reason these pages were previously left unmapped rather than topped up with
+  // ordinary chapter MCQs.
+  const cases = new Map((x.caseStudies || []).map((c) => [c.id, c]));
+  const qs = (x.mcqs || []).map((m, i, arr) => {
+    const opts = (m.options || []).map((o, j) => `<li>${esc(o)}${j === m.correct ? ' ✓ (correct)' : ''}</li>`).join('');
+    const startsCase = m.case && cases.has(m.case) && (i === 0 || arr[i - 1].case !== m.case);
+    const head = startsCase
+      ? `<div class="case-study"><h3>Case Study: ${esc(cases.get(m.case).title)}</h3><p>${esc(cases.get(m.case).passage)}</p></div>`
+      : '';
+    return `${head}<div class="qa"><h3>Q${i + 1}. ${esc(m.q)}</h3><ol type="A">${opts}</ol>${m.explanation ? `<p><strong>Explanation:</strong> ${esc(m.explanation)}</p>` : ''}</div>`;
+  }).join('');
   // Top up from the generated bank.
   //
   // /mcqs is the site's second-best converting cluster (13.97% CTR in the

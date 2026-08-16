@@ -1,9 +1,15 @@
 /** chapterMcqs.ts — chapter-wise MCQ / objective question banks cluster. */
-export interface McqQ { q: string; options: string[]; correct: number; explanation: string; }
+/** `case` links a question to a McqCaseStudy on the same chapter. CBSE
+ *  case-based questions are answered FROM a passage, so a question carrying
+ *  this id is rendered under that passage and cannot stand without it. */
+export interface McqQ { q: string; options: string[]; correct: number; explanation: string; case?: string; }
 export interface McqFaq { q: string; a: string; }
+/** A CBSE case-study stem: one passage answering several questions. */
+export interface McqCaseStudy { id: string; title: string; passage: string; }
 export interface McqChapter {
   slug: string; classLevel: string; subject: string; chapter: string;
   intro: string; mcqs: McqQ[]; faqs: McqFaq[];
+  caseStudies?: McqCaseStudy[];
 }
 export const MCQ_CHAPTERS: McqChapter[] = [
   {
@@ -4980,6 +4986,167 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 0,
         "explanation": "When an object is placed at the center of curvature (u = R = 2f), a real, inverted image of the same size is formed at the center of curvature."
+      },
+      {
+        "case": "cs-rear-view",
+        "q": "Which type of mirror is used as the rear-view mirror described in the passage, and why?",
+        "options": [
+          "Concave, because it magnifies distant vehicles",
+          "Convex, because it always gives an erect image and a wide field of view",
+          "Plane, because it shows the true size of every vehicle",
+          "Concave, because it gives a real image the driver can see"
+        ],
+        "correct": 1,
+        "explanation": "A convex mirror always forms a virtual, erect and diminished image whatever the object distance, and because it diverges light it covers a much wider field of view than a plane mirror of the same size. Both properties are what a driver needs."
+      },
+      {
+        "case": "cs-rear-view",
+        "q": "The warning printed on the mirror says objects are closer than they appear. What causes this impression?",
+        "options": [
+          "The image is diminished, so the brain judges the vehicle to be further away",
+          "The mirror bends light so the vehicle really is closer than it looks",
+          "The image is inverted, confusing the driver",
+          "The mirror magnifies the vehicle"
+        ],
+        "correct": 0,
+        "explanation": "A convex mirror always produces a diminished image. We normally judge distance partly from apparent size, so a smaller-looking vehicle is read as a more distant one. The warning exists because the diminution, not the distance, is what changed."
+      },
+      {
+        "case": "cs-rear-view",
+        "q": "Where is the image formed by the rear-view mirror located?",
+        "options": [
+          "In front of the mirror, and it can be caught on a screen",
+          "Behind the mirror, between the pole and the focus",
+          "At the centre of curvature",
+          "At infinity"
+        ],
+        "correct": 1,
+        "explanation": "For a convex mirror the image is always virtual and lies behind the mirror between the pole and the principal focus, however far away the object is. Being virtual, it cannot be caught on a screen."
+      },
+      {
+        "case": "cs-rear-view",
+        "q": "If a car is 10 m behind a convex mirror of focal length 2 m, the image formed will be:",
+        "options": [
+          "Real, inverted and magnified",
+          "Virtual, erect and diminished",
+          "Real, erect and the same size",
+          "Virtual, inverted and magnified"
+        ],
+        "correct": 1,
+        "explanation": "A convex mirror gives a virtual, erect, diminished image for every object position — the numbers only change how small the image is, never its nature. This unchanging behaviour is exactly why it is chosen for a rear-view mirror."
+      },
+      {
+        "case": "cs-pool",
+        "q": "Why does the pool in the passage appear shallower than it really is?",
+        "options": [
+          "Light slows down and bends away from the normal on leaving water, so rays appear to come from a higher point",
+          "Water absorbs some of the light",
+          "The swimming pool tiles reflect light upward",
+          "Light travels in a curve inside water"
+        ],
+        "correct": 0,
+        "explanation": "Light leaving the water enters a rarer medium and bends away from the normal. Tracing those emerging rays back makes them appear to come from a point higher than the true floor, so the observer sees a raised, shallower bottom."
+      },
+      {
+        "case": "cs-pool",
+        "q": "The bending of light described in the passage is called:",
+        "options": [
+          "Reflection",
+          "Dispersion",
+          "Refraction",
+          "Scattering"
+        ],
+        "correct": 2,
+        "explanation": "The change in direction of light as it passes from one transparent medium into another of different optical density is refraction. It happens because the speed of light differs in the two media."
+      },
+      {
+        "case": "cs-pool",
+        "q": "For light passing from water into air, which statement is correct?",
+        "options": [
+          "It bends towards the normal because air is denser",
+          "It bends away from the normal because air is optically rarer",
+          "It does not bend at all",
+          "It always undergoes total internal reflection"
+        ],
+        "correct": 1,
+        "explanation": "Air is optically rarer than water, so light speeds up on entering it and bends away from the normal. Total internal reflection happens only beyond the critical angle, not for every ray."
+      },
+      {
+        "case": "cs-pool",
+        "q": "The refractive index of water is about 1.33. What does this number mean?",
+        "options": [
+          "Light travels 1.33 times faster in water than in vacuum",
+          "Light travels about 1.33 times faster in vacuum than in water",
+          "Water is 1.33 times denser than air by mass",
+          "The pool appears 1.33 times deeper than it is"
+        ],
+        "correct": 1,
+        "explanation": "Refractive index is the ratio of the speed of light in vacuum to its speed in the medium. A value of 1.33 means light travels about 1.33 times faster in vacuum than in water. It is an optical ratio, not a statement about mass density."
+      },
+      {
+        "case": "cs-dentist",
+        "q": "Why does the dentist in the passage hold the mirror closer to the tooth than its focal length?",
+        "options": [
+          "To obtain a real, inverted image on a screen",
+          "To obtain an enlarged, erect, virtual image of the tooth",
+          "To reduce the brightness of the reflected light",
+          "Because a concave mirror only works at close range"
+        ],
+        "correct": 1,
+        "explanation": "A concave mirror gives an enlarged, erect, virtual image only when the object lies between the pole and the focus. Placing the tooth closer than the focal length is therefore what produces the magnified upright view the dentist needs."
+      },
+      {
+        "case": "cs-dentist",
+        "q": "The same dentist's mirror is also used to concentrate light on the tooth. Which property allows this?",
+        "options": [
+          "A concave mirror converges the light falling on it",
+          "A concave mirror diverges light over a wide area",
+          "A concave mirror disperses white light into colours",
+          "A concave mirror absorbs stray light"
+        ],
+        "correct": 0,
+        "explanation": "A concave mirror is a converging mirror: parallel rays striking it are brought together at the principal focus. That is why the same shape is used in torches, headlamps and solar cookers to gather or direct light."
+      },
+      {
+        "case": "cs-dentist",
+        "q": "If the tooth were instead placed beyond the centre of curvature of the mirror, the image would be:",
+        "options": [
+          "Virtual, erect and magnified",
+          "Real, inverted and diminished",
+          "Real, erect and magnified",
+          "Virtual, inverted and diminished"
+        ],
+        "correct": 1,
+        "explanation": "For a concave mirror with the object beyond C, the image forms between F and C and is real, inverted and diminished — useless for examining a tooth, which is precisely why the mirror is held close instead."
+      },
+      {
+        "case": "cs-dentist",
+        "q": "A concave mirror of radius of curvature 4 cm is used. Its focal length is:",
+        "options": [
+          "8 cm",
+          "4 cm",
+          "2 cm",
+          "1 cm"
+        ],
+        "correct": 2,
+        "explanation": "For a spherical mirror the focal length is half the radius of curvature, f = R/2, so f = 4/2 = 2 cm. The tooth must then sit within 2 cm of the mirror for the magnified erect image."
+      }
+    ],
+    "caseStudies": [
+      {
+        "id": "cs-rear-view",
+        "title": "The rear-view mirror",
+        "passage": "Every car carries a rear-view mirror on the driver's side, and it is never a plane mirror. The surface bulges outward, and printed along its lower edge is the warning: objects in mirror are closer than they appear. Whatever the distance of the vehicle behind — a lorry a few metres back or a motorcycle far down the road — the driver always sees it the right way up and smaller than it really is, and can take in several lanes of traffic at once in a mirror no bigger than a postcard."
+      },
+      {
+        "id": "cs-pool",
+        "title": "The swimming pool that is deeper than it looks",
+        "passage": "A swimming pool is filled to a uniform depth of 3 metres. Standing at the edge and looking straight down, a student judges the tiled floor to be roughly 2.25 metres below the surface, and a coin lying on the bottom seems to float above the tiles. A stick held at an angle in the water appears bent at the point where it enters. The refractive index of water is about 1.33, and light travels more slowly in water than in air."
+      },
+      {
+        "id": "cs-dentist",
+        "title": "The dentist's mirror",
+        "passage": "A dentist examining a patient's tooth uses a small mirror with an inward-curving reflecting surface, mounted on a long handle. Holding it very close to the tooth, the dentist sees an enlarged, upright view of the surface being examined. The same mirror is also angled to throw the light from the overhead lamp onto the tooth, brightening the area under examination. The mirror's radius of curvature is 4 cm."
       }
     ],
     "faqs": [
@@ -5792,6 +5959,94 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 0,
         "explanation": "A curved v-t graph indicates the acceleration is not constant (changing acceleration). A straight v-t graph indicates constant acceleration. A horizontal line indicates constant velocity."
+      },
+      {
+        "q": "A body travels the first half of a distance at 40 km/h and the second half at 60 km/h. What is its average speed for the whole journey?",
+        "options": [
+          "50 km/h",
+          "48 km/h",
+          "52 km/h",
+          "45 km/h"
+        ],
+        "correct": 1,
+        "explanation": "Average speed is total distance over total time, never the average of the two speeds. For equal DISTANCES the harmonic mean applies: 2(40)(60)/(40+60) = 4800/100 = 48 km/h. The tempting 50 km/h would only be right if the two speeds were held for equal TIMES."
+      },
+      {
+        "q": "A car covers the first half of its journey TIME at 40 km/h and the second half of the time at 60 km/h. Its average speed is:",
+        "options": [
+          "48 km/h",
+          "50 km/h",
+          "45 km/h",
+          "55 km/h"
+        ],
+        "correct": 1,
+        "explanation": "For equal time intervals the arithmetic mean applies: (40 + 60)/2 = 50 km/h. Compare this with the equal-distance case, which gives 48 km/h — the same two speeds produce different averages depending on whether distance or time is shared equally."
+      },
+      {
+        "q": "A stone is dropped from rest. Taking g = 10 m/s², the ratio of the distances it falls in the 1st, 2nd and 3rd seconds is:",
+        "options": [
+          "1 : 2 : 3",
+          "1 : 4 : 9",
+          "1 : 3 : 5",
+          "1 : 1 : 1"
+        ],
+        "correct": 2,
+        "explanation": "Distance in the nth second is u + (a/2)(2n − 1), which from rest gives 5(2n − 1): 5 m, 15 m and 25 m, a ratio of 1 : 3 : 5. The ratio 1 : 4 : 9 is the TOTAL distance after 1, 2 and 3 seconds — a classic trap."
+      },
+      {
+        "q": "Two trains 120 m and 80 m long move towards each other on parallel tracks at 20 m/s and 30 m/s. How long do they take to completely cross each other?",
+        "options": [
+          "4 s",
+          "10 s",
+          "5 s",
+          "2 s"
+        ],
+        "correct": 0,
+        "explanation": "Moving towards each other, the relative speed is 20 + 30 = 50 m/s. To cross completely, the relative displacement needed is the SUM of the lengths, 120 + 80 = 200 m. Time = 200/50 = 4 s."
+      },
+      {
+        "q": "A particle returns to its starting point after moving along a circular track of radius r. Its displacement and distance are respectively:",
+        "options": [
+          "2πr and 0",
+          "0 and 2πr",
+          "0 and 0",
+          "2πr and 2πr"
+        ],
+        "correct": 1,
+        "explanation": "Displacement is the shortest straight line from start to finish; returning to the start makes it zero. Distance is the actual path length covered, which is the full circumference 2πr. This is why average velocity for the trip is zero while average speed is not."
+      },
+      {
+        "q": "A ball thrown vertically upward returns to the thrower's hand. Which statement is correct about the whole flight?",
+        "options": [
+          "Acceleration is zero at the highest point",
+          "Velocity and acceleration are both zero at the highest point",
+          "Velocity is zero at the highest point but acceleration is g downward throughout",
+          "Acceleration reverses direction at the highest point"
+        ],
+        "correct": 2,
+        "explanation": "At the top the ball is momentarily at rest, so velocity is zero — but gravity never switches off, so the acceleration stays g downward for the entire flight, including that instant. Confusing zero velocity with zero acceleration is the single most common error in this topic."
+      },
+      {
+        "q": "A car accelerates uniformly from 10 m/s to 30 m/s while covering 200 m. Its acceleration is:",
+        "options": [
+          "1 m/s²",
+          "2 m/s²",
+          "4 m/s²",
+          "0.5 m/s²"
+        ],
+        "correct": 1,
+        "explanation": "Use v² = u² + 2as, the equation that avoids time: 30² = 10² + 2a(200), so 900 = 100 + 400a, giving 400a = 800 and a = 2 m/s². Choosing this equation rather than solving for time first is what makes the problem quick."
+      },
+      {
+        "q": "The area under a velocity-time graph between two instants gives:",
+        "options": [
+          "The acceleration",
+          "The displacement",
+          "The average speed",
+          "The distance always, never displacement"
+        ],
+        "correct": 1,
+        "explanation": "The area under a v-t graph gives displacement, and area below the time axis counts as negative. Distance would be the sum of the magnitudes of all the areas. The SLOPE of the same graph gives acceleration."
       }
     ],
     "faqs": [
@@ -6231,6 +6486,138 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 1,
         "explanation": "Centrioles are found in animal cells and help organize the spindle fibers during cell division, assisting in the movement of chromosomes."
+      },
+      {
+        "q": "Who discovered the cell, and what was he actually looking at?",
+        "options": [
+          "Robert Hooke, looking at a thin slice of cork",
+          "Anton von Leeuwenhoek, looking at pond water",
+          "Robert Brown, looking at an onion peel",
+          "Rudolf Virchow, looking at animal tissue"
+        ],
+        "correct": 0,
+        "explanation": "Robert Hooke observed a thin slice of cork under his own microscope in 1665 and saw box-like compartments, which he named cells. Cork is dead tissue, so what he actually saw were the empty walls left behind, not living cells."
+      },
+      {
+        "q": "Which of these organisms is unicellular?",
+        "options": [
+          "Amoeba",
+          "Onion",
+          "Earthworm",
+          "Mango tree"
+        ],
+        "correct": 0,
+        "explanation": "Amoeba is made of a single cell that performs every life function on its own. The others are multicellular, built from many cells with different jobs."
+      },
+      {
+        "q": "Which cell is able to change its shape as it moves?",
+        "options": [
+          "Nerve cell",
+          "Amoeba",
+          "Red blood cell",
+          "Muscle cell"
+        ],
+        "correct": 1,
+        "explanation": "Amoeba has no fixed shape and pushes out pseudopodia to move and to capture food. Among human cells the white blood cell can also change shape."
+      },
+      {
+        "q": "The longest cell in the human body is the:",
+        "options": [
+          "Red blood cell",
+          "Muscle cell",
+          "Nerve cell",
+          "Bone cell"
+        ],
+        "correct": 2,
+        "explanation": "Nerve cells are the longest cells in the human body — some run more than a metre — because they carry messages over long distances."
+      },
+      {
+        "q": "Which part of the cell controls the entry and exit of substances?",
+        "options": [
+          "Cell wall",
+          "Cell membrane",
+          "Nucleus",
+          "Vacuole"
+        ],
+        "correct": 1,
+        "explanation": "The cell membrane, also called the plasma membrane, surrounds every cell and is selectively permeable, so it decides what may pass in or out. It is present in both plant and animal cells."
+      },
+      {
+        "q": "A cell wall is present in:",
+        "options": [
+          "Animal cells only",
+          "Plant cells only",
+          "Both plant and animal cells",
+          "Neither"
+        ],
+        "correct": 1,
+        "explanation": "Only plant cells have a cell wall, made mainly of cellulose, lying outside the cell membrane. It gives the plant cell its rigid, fixed shape and protects it."
+      },
+      {
+        "q": "Which structure gives green colour to plant leaves?",
+        "options": [
+          "Chromoplast",
+          "Leucoplast",
+          "Chloroplast",
+          "Vacuole"
+        ],
+        "correct": 2,
+        "explanation": "Chloroplasts are plastids containing the green pigment chlorophyll. They trap sunlight for photosynthesis, and their pigment is what makes leaves look green."
+      },
+      {
+        "q": "The large central vacuole is a characteristic feature of:",
+        "options": [
+          "Plant cells",
+          "Animal cells",
+          "Bacterial cells",
+          "All cells equally"
+        ],
+        "correct": 0,
+        "explanation": "Plant cells have one large central vacuole that can occupy most of the cell and keeps it firm. Animal cells have vacuoles too, but they are small and numerous."
+      },
+      {
+        "q": "A cell whose nucleus has NO nuclear membrane around it is called:",
+        "options": [
+          "Eukaryotic",
+          "Prokaryotic",
+          "Multicellular",
+          "Unicellular"
+        ],
+        "correct": 1,
+        "explanation": "In a prokaryotic cell, such as a bacterium, the nuclear material lies free in the cytoplasm without a surrounding nuclear membrane. Cells with a proper membrane-bound nucleus are eukaryotic."
+      },
+      {
+        "q": "Chromosomes are found inside the:",
+        "options": [
+          "Cytoplasm",
+          "Cell membrane",
+          "Nucleus",
+          "Vacuole"
+        ],
+        "correct": 2,
+        "explanation": "Chromosomes lie within the nucleus and carry genes, which pass characters from parents to offspring. They become visible as thread-like structures when the cell divides."
+      },
+      {
+        "q": "The jelly-like substance between the nucleus and the cell membrane is:",
+        "options": [
+          "Cytoplasm",
+          "Plasma",
+          "Chlorophyll",
+          "Protoplasm"
+        ],
+        "correct": 0,
+        "explanation": "Cytoplasm is the jelly-like substance filling the space between the cell membrane and the nucleus, and it holds the various organelles. Cytoplasm together with the nucleus makes up the protoplasm."
+      },
+      {
+        "q": "Why is the cell called the structural and functional unit of living organisms?",
+        "options": [
+          "Because every organism is built from cells and every life process happens inside them",
+          "Because cells are visible to the naked eye",
+          "Because all cells are exactly the same size",
+          "Because only plants are made of cells"
+        ],
+        "correct": 0,
+        "explanation": "Every living organism is built from one or many cells, and all the activities that keep it alive take place within those cells. That is why the cell is described as both the structural and the functional unit of life."
       }
     ],
     "faqs": [

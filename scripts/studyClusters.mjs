@@ -80,7 +80,10 @@ export function getEnglishWriting(root) {
 export function getChapterMcqs(root) {
   return readArray(root, 'chapterMcqs.ts', 'export const MCQ_CHAPTERS: McqChapter[] = ')
     .filter((m) => m && m.slug && m.chapter)
-    .map((m) => ({ slug: m.slug, classLevel: m.classLevel, subject: m.subject, chapter: m.chapter, intro: String(m.intro || '').slice(0, 155), mcqs: Array.isArray(m.mcqs) ? m.mcqs : [], faqs: Array.isArray(m.faqs) ? m.faqs : [] }));
+    // caseStudies must be carried through: this projection drops anything not
+    // named here, and a case-study passage that never reaches the prerenderer
+    // would leave its questions referring to a passage the page does not show.
+    .map((m) => ({ slug: m.slug, classLevel: m.classLevel, subject: m.subject, chapter: m.chapter, intro: String(m.intro || '').slice(0, 155), mcqs: Array.isArray(m.mcqs) ? m.mcqs : [], caseStudies: Array.isArray(m.caseStudies) ? m.caseStudies : [], faqs: Array.isArray(m.faqs) ? m.faqs : [] }));
 }
 export function getStaticGk(root) {
   return readArray(root, 'staticGk.ts', 'export const GK_TOPICS: GkTopic[] = ')

@@ -59,8 +59,42 @@ describe('MCQ bank', () => {
   });
 
   it('no question references a figure or passage that cannot be shown', () => {
-    const bad = all.filter(({ q }) => DANGLING.test(q.q)).map(({ q }) => q.q.slice(0, 55));
+    // A question MAY refer to "the passage" when it belongs to a case study
+    // whose passage is printed directly above it. The rule being enforced is
+    // not "never mention a passage" but "never promise material the page does
+    // not show" — so the reference has to be backed by a real passage.
+    const hasPassage = ({ c, q }: { c: typeof MCQ_CHAPTERS[number]; q: { case?: string } }) =>
+      Boolean(q.case && (c.caseStudies ?? []).some((cs) => cs.id === q.case));
+    const bad = all
+      .filter((row) => DANGLING.test(row.q.q) && !hasPassage(row))
+      .map(({ q }) => q.q.slice(0, 55));
     expect(bad).toEqual([]);
+  });
+
+  it('every case-study question resolves to a passage substantial enough to answer from', () => {
+    const broken: string[] = [];
+    for (const { c, q } of all) {
+      if (!q.case) continue;
+      const cs = (c.caseStudies ?? []).find((x) => x.id === q.case);
+      if (!cs) { broken.push(`${c.slug}: question points at missing case "${q.case}"`); continue; }
+      // A one-line stub is not a case study; CBSE passages carry the data the
+      // questions are answered from.
+      if ((cs.passage ?? '').trim().split(/\s+/).length < 40) {
+        broken.push(`${c.slug}: case "${q.case}" passage is too short to answer from`);
+      }
+      if (!(cs.title ?? '').trim()) broken.push(`${c.slug}: case "${q.case}" has no title`);
+    }
+    expect([...new Set(broken)]).toEqual([]);
+  });
+
+  it('every declared case study is actually used by at least one question', () => {
+    const orphans: string[] = [];
+    for (const c of MCQ_CHAPTERS) {
+      for (const cs of (c.caseStudies ?? [])) {
+        if (!c.mcqs.some((q) => q.case === cs.id)) orphans.push(`${c.slug}: unused case "${cs.id}"`);
+      }
+    }
+    expect(orphans).toEqual([]);
   });
 
   it('correct answers are spread across A-D, not concentrated on one letter', () => {
