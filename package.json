@@ -17,7 +17,7 @@
     "preview": "vite preview",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "lint": "eslint .",
-    "test": "node scripts/audit-seo.mjs && node scripts/check-test-coverage.mjs",
+    "test": "node scripts/audit-projections.mjs --strict && node scripts/audit-seo.mjs && node scripts/check-test-coverage.mjs",
     "test:watch": "vitest",
     "test:seo": "node scripts/audit-seo.mjs",
     "cwv": "node scripts/measure-cwv.mjs",
@@ -39,7 +39,8 @@
     "decks:import": "tsx scripts/import-decks.ts",
     "ig:preview": "node -e \"process.env.DRY_RUN='true'; import('./scripts/instagram-bot/post-daily.mjs')\"",
     "ig:preview-puzzle": "node -e \"process.env.DRY_RUN='true'; process.argv.push('--type=puzzle'); import('./scripts/instagram-bot/post-daily.mjs')\"",
-    "build:images": "node scripts/generate-image-sitemap.mjs"
+    "build:images": "node scripts/generate-image-sitemap.mjs",
+    "audit:projections": "node scripts/audit-projections.mjs"
   },
   "dependencies": {
     "@eslint/js": "^10.0.1",
