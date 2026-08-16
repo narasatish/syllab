@@ -73,9 +73,22 @@ export function getMathsTables(root) {
     .map((m) => ({ slug: m.slug, title: m.title, intro: String(m.intro || '').slice(0, 155), category: m.category || '', columns: Array.isArray(m.columns) ? m.columns : [], rows: Array.isArray(m.rows) ? m.rows : [], faqs: Array.isArray(m.faqs) ? m.faqs : [] }));
 }
 export function getEnglishWriting(root) {
+  // This projection used to keep only slug, title and a 155-char intro, so the
+  // prerenderer emitted ~145 crawlable words per page while the React page —
+  // which imports the full module directly — showed the model answer, the
+  // format, the tips and the FAQs. Users saw ~316 words and Google saw 145, on
+  // pages already ranking 5th-10th with 4,713 impressions in the 2026-08-13
+  // export. Everything the detail page renders is carried through now.
   return readArray(root, 'englishWriting.ts', 'export const ENGLISH_WRITING: EnglishWriting[] = ')
     .filter((e) => e && e.slug && e.title)
-    .map((e) => ({ slug: e.slug, title: e.title, intro: String(e.intro || '').slice(0, 155) }));
+    .map((e) => ({
+      slug: e.slug, title: e.title, classLevel: e.classLevel, category: e.category,
+      intro: String(e.intro || '').slice(0, 155),
+      format: Array.isArray(e.format) ? e.format : [],
+      sample: String(e.sample || ''),
+      tips: Array.isArray(e.tips) ? e.tips : [],
+      faqs: Array.isArray(e.faqs) ? e.faqs : [],
+    }));
 }
 export function getChapterMcqs(root) {
   return readArray(root, 'chapterMcqs.ts', 'export const MCQ_CHAPTERS: McqChapter[] = ')
@@ -103,7 +116,21 @@ export function getEnglishLiterature(root) {
 export function getConcepts(root) {
   return readArray(root, 'conceptExplainers.ts', 'export const CONCEPT_EXPLAINERS: ConceptExplainer[] = ')
     .filter((c) => c && c.slug && c.title)
-    .map((c) => ({ slug: c.slug, title: c.title, subject: c.subject, classLevel: c.classLevel, intro: String(c.intro || '').slice(0, 155), faqs: Array.isArray(c.faqs) ? c.faqs : [] }));
+    // This projection kept intro + faqs and dropped sections, examples,
+    // realLife and commonMistakes — about 112,900 words across 147 records.
+    // /concepts is the site's LARGEST source of impressions (8,730 across 38
+    // pages in the 2026-08-13 export, one page alone at 3,831 at position 9),
+    // and every one of those pages was ranking on roughly a quarter of the
+    // content already written for it.
+    .map((c) => ({
+      slug: c.slug, title: c.title, subject: c.subject, classLevel: c.classLevel,
+      intro: String(c.intro || '').slice(0, 155),
+      sections: Array.isArray(c.sections) ? c.sections : [],
+      examples: Array.isArray(c.examples) ? c.examples : [],
+      realLife: Array.isArray(c.realLife) ? c.realLife : [],
+      commonMistakes: Array.isArray(c.commonMistakes) ? c.commonMistakes : [],
+      faqs: Array.isArray(c.faqs) ? c.faqs : [],
+    }));
 }
 export function getSolvedExamples(root) {
   return readArray(root, 'solvedExamples.ts', 'export const SOLVED_SETS: SolvedSet[] = ')

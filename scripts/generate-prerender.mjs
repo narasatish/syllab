@@ -2071,6 +2071,32 @@ function rnFaqs(x) {
   return [...(x.faqs || []), ...((RN_DEEP[x.slug] || {}).extraFaqs || [])];
 }
 
+/**
+ * Crawlable body for /english-writing.
+ *
+ * These pages had NO body builder at all, so the prerendered HTML carried only
+ * the title, a truncated intro and a breadcrumb — about 145 words — while the
+ * React page rendered the full model answer, format, tips and FAQs from the
+ * same records. The gap mattered because this cluster is the site's biggest
+ * source of impressions by a wide margin: 4,713 across 28 pages in the
+ * 2026-08-13 export, at positions 5.3 to 9.9. Page-one rankings earned on 145
+ * words that Google could see.
+ *
+ * The sample answer is the substance of the page — it is what a student
+ * searching "letter for hostel complaint" actually wants — so it is emitted in
+ * full, with newlines preserved as line breaks.
+ */
+function englishWritingBody(x, sibs, base) {
+  const fmt = (x.format || []).length
+    ? `<h2>Format to Follow</h2><ol>${x.format.map((f) => `<li>${esc(f)}</li>`).join('')}</ol>` : '';
+  const sample = x.sample
+    ? `<h2>Model Answer: ${esc(x.title)}</h2><div class="sample">${nl2br(x.sample)}</div>` : '';
+  const tips = (x.tips || []).length
+    ? `<h2>Marks-Scoring Tips</h2><ul>${x.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : '';
+  return `<p class="speakable">${esc(x.intro)}</p>${fmt}${sample}${tips}`
+    + `${faqBlock(x.faqs)}${relBlock(sibs, base, 'More English Writing Topics')}${aiCta}`;
+}
+
 function revisionBody(x, sibs) {
   const secs = (x.sections || []).map((s) => `<h2>${esc(s.heading)}</h2><ul>${(s.points || []).map((p) => `<li>${esc(p)}</li>`).join('')}</ul>`).join('');
   const kt = (x.keyTerms || []).length ? `<h2>Key Terms</h2><ul>${x.keyTerms.map((t) => `<li><strong>${esc(t.term)}:</strong> ${esc(t.meaning)}</li>`).join('')}</ul>` : '';
@@ -2234,7 +2260,28 @@ function conceptBody(x, sibs, base) {
   const faqHtml = faqs.length ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
   const vSlug = CONCEPT_TO_VISUAL[x.slug];
   const visualLink = vSlug ? `<p><a href="/visual-learning/${vSlug}">🎬 Watch the animated, step-by-step ${esc(x.title)} diagram →</a></p>` : '';
-  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p><h2>${esc(x.title)} Explained Simply</h2><p>${esc(x.intro)}${x.classLevel || x.subject ? ` This is a key ${esc(x.subject || '')} concept${x.classLevel ? ` for ${esc(x.classLevel)}` : ''}.` : ''}</p>${visualLink}${faqHtml}${rel}<p><a href="${base}">Browse all concepts →</a></p>`;
+
+  // The teaching body. Every one of these fields was written and stored in
+  // conceptExplainers.ts and none of it reached a page: the loader projected
+  // them away, so these pages ranked on their intro and FAQs alone. That is
+  // roughly a quarter of what was already authored for them.
+  const sections = (x.sections || []).map((s) =>
+    `<h2>${esc(s.heading)}</h2><p>${nl2br(s.body)}</p>`).join('');
+  const examples = (x.examples || []).length
+    ? `<h2>Worked Examples</h2>${x.examples.map((e, i) =>
+        `<div class="qa"><h3>Example ${i + 1}. ${esc(e.problem)}</h3><p><strong>Solution:</strong> ${nl2br(e.solution)}</p></div>`).join('')}`
+    : '';
+  const realLife = (x.realLife || []).length
+    ? `<h2>Where You See This in Real Life</h2><ul>${x.realLife.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>`
+    : '';
+  const mistakes = (x.commonMistakes || []).length
+    ? `<h2>Common Mistakes Students Make</h2><ul>${x.commonMistakes.map((m) => `<li>${esc(m)}</li>`).join('')}</ul>`
+    : '';
+
+  return `<p class="speakable"><strong>${esc(x.title)}:</strong> ${esc(x.intro)}</p>`
+    + `<h2>${esc(x.title)} Explained Simply</h2><p>${esc(x.intro)}${x.classLevel || x.subject ? ` This is a key ${esc(x.subject || '')} concept${x.classLevel ? ` for ${esc(x.classLevel)}` : ''}.` : ''}</p>`
+    + `${visualLink}${sections}${examples}${realLife}${mistakes}${faqHtml}${rel}`
+    + `<p><a href="${base}">Browse all concepts →</a></p>`;
 }
 function visualBody(x, sibs, base) {
   const why = x.whyItMatters ? `<p><strong>Why it matters:</strong> ${esc(x.whyItMatters)}</p>` : '';
@@ -2294,7 +2341,7 @@ try {
 } catch (e) { console.warn('⚠️  Memory poster generation error:', e?.message || e); }
 const STUDY_CLUSTERS = [
   { base: '/maths-tables', name: 'Maths Tables & Charts', kw: 'maths tables, multiplication table, squares cubes primes', data: getMathsTables(ROOT), label: (x) => x.title, titleSuffix: '— Full Chart & Quick Revision', body: mathsTableBody },
-  { base: '/english-writing', name: 'English Writing Skills', kw: 'essay writing, letter writing, notice article speech writing', data: getEnglishWriting(ROOT), label: (x) => x.title },
+  { base: '/english-writing', name: 'English Writing Skills', kw: 'essay writing, letter writing, notice article speech writing', data: getEnglishWriting(ROOT), label: (x) => x.title, body: englishWritingBody },
   { base: '/mcqs', name: 'Chapter-wise MCQs', kw: 'MCQ with answers, objective questions, online test CBSE', data: getChapterMcqs(ROOT), label: (x) => `${x.chapter} (${x.classLevel} ${x.subject})`, body: mcqBody },
   { base: '/gk-facts', name: 'General Knowledge', kw: 'general knowledge, static GK, GK for exams', data: getStaticGk(ROOT), label: (x) => x.title, body: gkBody },
   { base: '/vocabulary', name: 'English Vocabulary', kw: 'idioms and phrases, proverbs, one word substitution, synonyms antonyms', data: getEnglishVocab(ROOT), label: (x) => x.title, body: vocabBody },
