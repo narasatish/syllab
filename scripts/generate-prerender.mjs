@@ -1864,18 +1864,33 @@ function pyqBody(x, sibs, base) {
 function mcqBankFor(x) {
   const direct = String(x.chapter || '').toLowerCase()
     .replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  const mapped = mappedChapterSlug(x.classLevel, x.chapter);
-  for (const slug of [direct, mapped]) {
-    if (!slug) continue;
-    const prefix = `${x.classLevel}::`;
+  const prefix = `${x.classLevel}::`;
+  const pull = (slug) => {
     const suffix = `::${slug}`;
     for (const key of Object.keys(NCERT_MCQS)) {
       if (key.startsWith(prefix) && key.endsWith(suffix) && Array.isArray(NCERT_MCQS[key])) {
         return NCERT_MCQS[key];
       }
     }
-  }
-  return [];
+    return [];
+  };
+
+  // An exact name match on the bank always wins.
+  const hit = pull(direct);
+  if (hit.length) return hit;
+
+  // Otherwise fall back to the hand-verified map, which may merge several bank
+  // chapters (a page covering more ground than one bank entry) and may carry a
+  // topic filter (a page narrower than the bank chapter it sits in). See
+  // scripts/mcq-chapter-map.mjs — the exclusions there are deliberate, and
+  // Olympiad and case-study pages must stay unmapped because standard MCQs
+  // would misrepresent what those pages promise the student.
+  const mapped = mappedChapterSlug(x.classLevel, x.chapter);
+  if (!mapped) return [];
+  const merged = mapped.slugs.flatMap(pull);
+  return mapped.match
+    ? merged.filter((m) => mapped.match.test(`${m.question ?? ''} ${m.explanation ?? ''}`))
+    : merged;
 }
 
 function mcqBody(x, sibs, base) {
@@ -3212,6 +3227,22 @@ function codingHubBody(lang, label, topicIds, contentMap) {
 const titleCase = (slug) => slug.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 const langLabel = (l) => ({ 'ai-learning': 'AI & ML', 'data-analytics': 'Data Analytics', 'data-mining': 'Data Mining', 'app-dev': 'App Development', 'game-dev': 'Game Development', 'git-github': 'Git & GitHub', 'prompt-engineering': 'Prompt Engineering', 'cloud-computing': 'Cloud Computing', 'cybersecurity': 'Cyber Security', 'ai-agents': 'AI Agents' }[l] || titleCase(l));
 const existingCoding = new Set(ROUTES.map(r => r.path));
+
+/**
+ * /coding topic pages that keep their index tag, as `lang/topic`.
+ *
+ * Derived from the 2026-08-13 GSC export: these are the only topic-level URLs
+ * in the whole /coding tree that registered any impressions at all. They convert
+ * at zero and sit around position 50-58, so they are not winners — they are
+ * simply the pages with DATA, and this site has already had one near-miss from
+ * pruning a family on a sample rather than on the export. Re-check against a
+ * fresh export before adding or removing anything here.
+ */
+const CODING_KEEP_INDEXED = new Set([
+  'sql/sql-string-functions', // 86 impressions, position 50.27
+  'git-github/git-status',    // 74 impressions, position 57.86
+]);
+
 const { languages: CODE_LANGS, topicsByLang: CODE_TOPICS, contentByLang: CODE_CONTENT } = readCodingTopics();
 for (const lang of CODE_LANGS) {
   const L = langLabel(lang);
@@ -3251,6 +3282,22 @@ for (const lang of CODE_LANGS) {
       description: `Learn ${titleCase(topic)} in ${L} with a free, beginner-friendly tutorial, examples and practice for Indian students on Syllab.in.`,
       keywords: `${titleCase(topic)}, ${L} ${titleCase(topic)}, learn ${L} free, ${L} tutorial`,
       topicContent: CODE_CONTENT[lang] && CODE_CONTENT[lang][topic],
+      // Post-March-2026 thin-content policy. The 2026-08-13 GSC export shows the
+      // whole /coding topic tail returning 293 impressions and ZERO clicks at an
+      // average position around 55 — page five or six, from ~900 indexed URLs
+      // averaging 245 words with only 99 words of source theory per topic.
+      // Pages that rank nowhere and convert nothing still count towards how
+      // Google judges the domain, so the tail ships `noindex, follow`: it keeps
+      // passing link equity and stays fully readable to anyone who lands on it.
+      //
+      // The LANGUAGE HUBS (/coding/<lang>) stay indexed — they are the
+      // consolidation target, and two of them are the only /coding URLs in the
+      // export with meaningful impressions.
+      //
+      // CODING_KEEP_INDEXED protects any topic page that HAS data. Session 9
+      // nearly pruned this site's best-performing family on a 4-page sample;
+      // nothing here is pruned on a hunch.
+      noindex: !CODING_KEEP_INDEXED.has(`${lang}/${topic}`),
     });
   }
 }

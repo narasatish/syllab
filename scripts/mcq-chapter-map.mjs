@@ -42,6 +42,23 @@ export const MCQ_CHAPTER_MAP = {
   // ── Class 10 ───────────────────────────────────────────────────────────
   // Pure wording difference — the bank keeps the second "the".
   '10::The Human Eye and Colourful World': 'the-human-eye-and-the-colourful-world',
+
+  // ── Content decisions taken deliberately (see the notes below) ─────────
+  // The page covers BOTH halves of the topic; the bank splits them. Mapping to
+  // either alone would silently drop half the chapter, so both are merged.
+  // 59 + 60 questions. This is the highest-impression /mcqs page in the
+  // 2026-08-13 export (42 impressions at position 8.7).
+  '7::Nutrition in Animals and Plants': ['nutrition-in-plants', 'nutrition-in-animals'],
+
+  // The bank has no "Mole Concept" chapter, but 29 of the 50 questions in
+  // Some Basic Concepts of Chemistry ARE mole, molar-mass, Avogadro and
+  // stoichiometry questions. Taking the whole chapter would put significant
+  // figures and SI units on a page that promises the mole concept, so the
+  // entry carries a topic filter and only the on-topic questions are used.
+  '11::Mole Concept': {
+    chapter: 'some-basic-concepts-of-chemistry',
+    match: /mole|molar|avogadro|stoichiometr|empirical formula|molecular mass|percentage composition/i,
+  },
 };
 
 /**
@@ -59,10 +76,17 @@ export const MCQ_CHAPTER_MAP = {
  *   CBSE case-study questions are a distinct format built on a passage. Plain
  *   MCQs are not case-study questions and must not be presented as such.
  *
- * "Nutrition in Animals and Plants" (Class 7)
- *   The bank splits this into nutrition-in-plants AND nutrition-in-animals.
- *   Mapping to either alone would silently drop half the chapter. Merging both
- *   is defensible but is a content decision, not a mapping one.
+ * RESOLVED 2026-08-16 — "Nutrition in Animals and Plants" (Class 7) is now
+ * mapped to BOTH bank chapters. The merge was always the right answer; it
+ * simply needed someone to take the content decision rather than leave the
+ * page short. See MCQ_CHAPTER_MAP above.
+ *
+ * RESOLVED 2026-08-16 — Class 11 "Mole Concept" is now mapped to
+ * some-basic-concepts-of-chemistry WITH A TOPIC FILTER. The note below was
+ * half-right: no bank chapter carries that name, but 29 of that chapter's 50
+ * questions are squarely mole/molar/Avogadro/stoichiometry. The filter takes
+ * those and leaves behind the significant-figures and SI-unit questions, which
+ * belong to the chapter but not to this page.
  *
  * All Class 11 Accountancy (10 chapters)
  *   The bank has no Accountancy subject whatsoever. There is nothing to map to.
@@ -78,7 +102,23 @@ export const MCQ_CHAPTER_MAP = {
  */
 export const MCQ_MAP_EXCLUSIONS_DOCUMENTED = true;
 
-/** Resolve a chapterMcqs entry to a bank chapter slug, or null. */
+/**
+ * Resolve a chapterMcqs entry to bank chapter slug(s), or null.
+ *
+ * A map value may be:
+ *   - a string  — one bank chapter
+ *   - an array  — several bank chapters merged (the page covers all of them)
+ *   - an object — { chapter, match } to take only the questions in that bank
+ *                 chapter whose text matches, for pages narrower than the
+ *                 chapter they live in.
+ *
+ * Always returns { slugs: string[], match: RegExp|null } or null, so callers
+ * do not have to re-handle the three shapes.
+ */
 export function mappedChapterSlug(classLevel, chapter) {
-  return MCQ_CHAPTER_MAP[`${classLevel}::${chapter}`] ?? null;
+  const v = MCQ_CHAPTER_MAP[`${classLevel}::${chapter}`];
+  if (!v) return null;
+  if (typeof v === 'string') return { slugs: [v], match: null };
+  if (Array.isArray(v)) return { slugs: v, match: null };
+  return { slugs: [v.chapter], match: v.match ?? null };
 }
