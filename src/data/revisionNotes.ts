@@ -2867,7 +2867,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-nationalism-europe",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Nationalism in Europe",
     "intro": "Nationalism emerged as a powerful force in Europe during the 18th and 19th centuries, reshaping political boundaries and identities. It challenged the old dynastic empires and led to the creation of new nation-states based on shared culture, language, and history.",
@@ -2940,7 +2940,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-nationalism-india",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Nationalism in India",
     "intro": "Indian nationalism emerged in the late 19th century as a response to British colonial rule, combining traditional values with modern ideals of self-determination. The freedom struggle united diverse groups across religions, regions, and languages to achieve independence in 1947.",
@@ -3013,7 +3013,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-resources-development",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Resources and Development",
     "intro": "Resources are essential materials provided by nature and developed through human effort that support economic growth and human welfare. Sustainable development ensures that present resource use does not compromise the needs of future generations.",
@@ -3086,7 +3086,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-agriculture",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Agriculture",
     "intro": "Agriculture is the primary economic activity in India, employing a large portion of the population and providing food security. Understanding different farming systems, crop varieties, and agricultural practices is crucial for sustainable development.",
@@ -3159,7 +3159,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-power-sharing",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Power Sharing",
     "intro": "Power sharing is the foundation of democratic governance, distributing political authority among multiple institutions and levels to prevent tyranny and protect rights. A well-designed power-sharing system ensures checks and balances and accommodates diverse groups.",
@@ -3232,7 +3232,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-federalism",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Federalism",
     "intro": "Federalism is a system of government that divides power between a central authority and constituent state or regional governments. It allows for unity in diversity while respecting local autonomy and cultural differences.",
@@ -3305,7 +3305,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-sectors-indian-economy",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Sectors of Indian Economy",
     "intro": "The Indian economy comprises three sectors that contribute differently to GDP and employment: primary sector produces raw materials, secondary sector manufactures goods, and tertiary sector provides services. Understanding these sectors is key to economic development.",
@@ -3378,7 +3378,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-money-credit",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Money and Credit",
     "intro": "Money serves as a medium of exchange, store of value, and unit of account, facilitating economic transactions. Credit extends money supply and enables productive investment, but misuse can lead to debt and economic instability.",
@@ -3451,7 +3451,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-manufacturing-industries",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Manufacturing Industries",
     "intro": "Manufacturing industries transform raw materials into finished goods and are central to economic development. They create employment, generate government revenue, and contribute significantly to GDP and export earnings.",
@@ -3524,7 +3524,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-social-science-lifelines-national-economy",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Lifelines of National Economy",
     "intro": "Transportation and communication networks form the lifelines of any economy, connecting people, resources, and markets. Efficient infrastructure enables trade, reduces costs, and facilitates economic development across regions.",
@@ -3597,7 +3597,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-french-revolution",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "French Revolution",
     "intro": "The French Revolution (1789-1799) fundamentally transformed French society and had lasting impacts across Europe. It challenged feudalism, aristocratic privilege, and absolute monarchy while establishing principles of liberty, equality, and democracy.",
@@ -3670,7 +3670,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-nazism-rise-hitler",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Nazism and Rise of Hitler",
     "intro": "Adolf Hitler and the Nazi Party rose to power in Germany during the 1930s, capitalizing on economic crisis and national humiliation. Nazi ideology based on racial supremacy, militarism, and totalitarianism led to World War II and the Holocaust.",
@@ -3743,7 +3743,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-physical-features-india",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Physical Features of India",
     "intro": "India's diverse physical geography includes mountains, plateaus, plains, and coastal regions that influence climate, vegetation, and human activities. Understanding these features is essential for studying geography and environmental management.",
@@ -3816,7 +3816,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-drainage",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Drainage",
     "intro": "Drainage systems refer to the network of rivers and water bodies that collect and transport water across the landscape. Understanding drainage patterns is crucial for water management, agriculture, and understanding regional geography.",
@@ -3889,7 +3889,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-climate",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Climate",
     "intro": "Climate refers to long-term weather patterns and atmospheric conditions of a region determined by latitude, altitude, and proximity to water bodies. India's climate is influenced by monsoons and varies significantly across regions.",
@@ -3962,7 +3962,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-what-is-democracy",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "What is Democracy",
     "intro": "Democracy is a system of government where power rests with the people exercised through voting and representation. It is based on principles of equality, freedom, and accountability ensuring protection of individual rights.",
@@ -4035,7 +4035,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-constitutional-design",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Constitutional Design",
     "intro": "A constitution is a supreme law that defines the structure of government, distribution of powers, and fundamental rights of citizens. India's constitution is the world's longest, reflecting its diverse society and democratic values.",
@@ -4108,7 +4108,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-electoral-politics",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Electoral Politics",
     "intro": "Electoral politics involves the process of holding elections, casting votes, and selecting representatives in a democracy. Fair elections are essential for democratic governance and ensuring accountability of elected officials.",
@@ -4181,7 +4181,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-social-science-poverty-challenge",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Poverty as a Challenge",
     "intro": "Poverty refers to lack of income and resources to meet basic needs like food, shelter, and education. It remains a major challenge in India affecting millions and requiring coordinated efforts for reduction and elimination.",
@@ -4254,7 +4254,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-crop-production",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Crop Production and Management",
     "intro": "Crop production involves cultivation of plants for food and other purposes through systematic management. Understanding agricultural practices, crop varieties, and soil management is essential for sustainable farming and food security.",
@@ -4327,7 +4327,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-microorganisms",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Microorganisms: Friend and Foe",
     "intro": "Microorganisms are tiny living organisms visible only under microscopes including bacteria, viruses, fungi, and protozoa. They play crucial roles in nature and human life - some are beneficial while others cause diseases.",
@@ -4400,7 +4400,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-cell-structure",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Cell: Structure and Functions",
     "intro": "Cell is the basic unit of life and all living organisms are made of cells. Understanding cell structure and functions is essential for comprehending how life processes occur at microscopic level.",
@@ -4473,7 +4473,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-reproduction-in-animals",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Reproduction in Animals",
     "intro": "Reproduction is the process by which organisms produce offspring to continue their species. Most animals reproduce sexually, involving male and female gametes.",
@@ -4558,7 +4558,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-force-and-pressure",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Force and Pressure",
     "intro": "Force is a push or pull that can change the motion or shape of an object. Pressure is the force applied per unit area and has important applications in daily life.",
@@ -4642,7 +4642,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-sound",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Sound",
     "intro": "Sound is a form of energy produced by vibrating objects that travels through matter as waves. Understanding sound properties helps us perceive the world and develop technology.",
@@ -4729,7 +4729,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-chemical-effects-of-current",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Chemical Effects of Electric Current",
     "intro": "Electric current flowing through certain solutions can cause chemical reactions, leading to decomposition, displacement, and plating. These effects have practical applications in industry.",
@@ -4816,7 +4816,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-maths-rational-numbers",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Rational Numbers",
     "intro": "Rational numbers are numbers that can be expressed as the ratio of two integers. They form an important part of the number system and have properties similar to integers.",
@@ -4903,7 +4903,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-maths-squares-and-square-roots",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Squares and Square Roots",
     "intro": "Squares are products of a number with itself, and square roots are the inverse operation. Understanding these concepts is essential for algebra and geometry.",
@@ -4990,7 +4990,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-maths-mensuration",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Mensuration",
     "intro": "Mensuration deals with the measurement of lengths, areas, and volumes of geometric figures. These concepts are applied in construction, engineering, and daily life.",
@@ -5079,7 +5079,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-maths-exponents-and-powers",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Exponents and Powers",
     "intro": "Exponents and powers provide a compact way to express repeated multiplication. They are fundamental to algebra, science, and technology.",
@@ -5166,7 +5166,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-maths-herons-formula",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Mathematics",
     "chapter": "Heron's Formula",
     "intro": "Heron's Formula provides a method to calculate the area of a triangle when all three side lengths are known. This formula is particularly useful when the height is difficult to measure.",
@@ -5253,7 +5253,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-sst-climate",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Climate",
     "intro": "Climate refers to the long-term patterns of weather in a region, determined by temperature, precipitation, wind patterns, and humidity. Different climates support different ecosystems and lifestyles.",
@@ -5340,7 +5340,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-sst-constitutional-design",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Social Science",
     "chapter": "Constitutional Design",
     "intro": "India's Constitution is the supreme law that governs the country, outlining the structure of government, rights of citizens, and principles for democratic functioning.",
@@ -5427,7 +5427,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-maths-areas-related-to-circles",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Areas Related to Circles",
     "intro": "This chapter deals with calculating areas of circles, sectors, and segments. These concepts are essential in geometry and have practical applications in design and engineering.",
@@ -5514,7 +5514,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-science-periodic-classification",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "chapter": "Periodic Classification of Elements",
     "intro": "The periodic table is a systematic arrangement of all known elements based on their atomic number and chemical properties. Understanding periodic trends helps predict element behavior.",
@@ -5601,7 +5601,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-sst-nationalism-in-europe",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Nationalism in Europe",
     "intro": "Nationalism emerged in 19th century Europe as a powerful force leading to unification of Italy and Germany and contributing to World War I. Nationalism shaped modern European history.",
@@ -5688,7 +5688,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-sst-agriculture",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Social Science",
     "chapter": "Agriculture",
     "intro": "Agriculture is the practice of farming for food and raw materials production. Understanding agricultural practices, crop types, and farming methods is important for food security and economic development.",
@@ -5775,7 +5775,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-physics-units-and-measurements",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "chapter": "Units and Measurements",
     "intro": "Physics is based on precise measurements of physical quantities. Understanding units and measurement systems is fundamental to studying physics and conducting experiments.",
@@ -5864,7 +5864,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-physics-laws-of-motion",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "chapter": "Laws of Motion",
     "intro": "Newton's laws of motion form the foundation of classical mechanics, explaining how objects move and respond to forces. These laws are fundamental to understanding physical phenomena.",
@@ -5951,7 +5951,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-chemistry-basic-concepts",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "chapter": "Some Basic Concepts of Chemistry",
     "intro": "Chemistry studies matter and its reactions. Understanding fundamental concepts like atomic mass, molar mass, and stoichiometry is essential for solving chemistry problems.",
@@ -6038,7 +6038,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-chemistry-structure-of-atom",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "chapter": "Structure of Atom",
     "intro": "The atom consists of a nucleus containing protons and neutrons, surrounded by electrons. Understanding atomic structure is essential for understanding chemical bonding and reactions.",
@@ -6125,7 +6125,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-biology-the-living-world",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Biology",
     "chapter": "The Living World",
     "intro": "Biology is the study of life and living organisms. Understanding the diversity of life, classification, and characteristics of living things forms the foundation of biological sciences.",
@@ -6213,7 +6213,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-biology-cell-the-unit-of-life",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Biology",
     "chapter": "Cell: The Unit of Life",
     "intro": "The cell is the basic unit of life and all living organisms are composed of one or more cells. Understanding cell structure and function is fundamental to modern biology.",
@@ -6300,7 +6300,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-12-physics-electric-charges-and-fields",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "chapter": "Electric Charges and Fields",
     "intro": "Electric charge is a fundamental property of matter. Understanding electric charge and electric fields is essential for comprehending electromagnetism and electricity.",
@@ -6387,7 +6387,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-12-physics-current-electricity",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "chapter": "Current Electricity",
     "intro": "Electric current is the flow of charge through a conductor. Understanding current, resistance, and circuits forms the basis for practical applications of electricity.",
@@ -6474,7 +6474,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-12-chemistry-solutions",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Chemistry",
     "chapter": "Solutions",
     "intro": "Solutions are homogeneous mixtures of solute and solvent with uniform composition. Understanding solubility, concentration, and colligative properties is essential in chemistry.",
@@ -6561,7 +6561,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-12-chemistry-electrochemistry",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Chemistry",
     "chapter": "Electrochemistry",
     "intro": "Electrochemistry studies reactions involving electron transfer. Understanding oxidation-reduction reactions, galvanic cells, and electrolysis is fundamental to chemistry and technology.",
@@ -6648,7 +6648,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-12-biology-principles-of-inheritance",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Biology",
     "chapter": "Principles of Inheritance and Variation",
     "intro": "Inheritance is the transmission of genetic traits from parents to offspring. Understanding Mendel's laws and genetic principles explains how traits are passed through generations.",
@@ -6735,7 +6735,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-12-biology-human-reproduction",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Biology",
     "chapter": "Human Reproduction",
     "intro": "Human reproduction involves complex physiological systems. Understanding reproductive anatomy, gametogenesis, and developmental biology is essential for understanding human health.",
@@ -6822,7 +6822,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-coal-petroleum",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Coal and Petroleum",
     "intro": "Coal and petroleum are fossil fuels formed from the remains of ancient plants and organisms buried under pressure for millions of years. They are crucial energy sources but non-renewable and contribute to environmental problems.",
@@ -6888,7 +6888,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-combustion-flame",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Combustion and Flame",
     "intro": "Combustion is a rapid chemical reaction between a fuel and oxygen that releases heat and light, producing a flame. Understanding combustion is essential for safe handling of fuels and fire prevention.",
@@ -6961,7 +6961,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-reproduction-animals",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Reproduction in Animals",
     "intro": "Reproduction is the biological process by which organisms produce offspring, ensuring the continuation of species. Animals reproduce through sexual or asexual reproduction with different strategies and adaptations.",
@@ -7028,7 +7028,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-force-pressure",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Force and Pressure",
     "intro": "Force is a push or pull that can change an object's motion, shape, or direction, while pressure is the force applied per unit area. Understanding these concepts is vital for physics and real-world applications.",
@@ -7102,7 +7102,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-friction",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Friction",
     "intro": "Friction is the force that opposes motion between surfaces in contact, converting kinetic energy to heat. Understanding friction is crucial for everyday activities from walking to driving vehicles.",
@@ -7174,7 +7174,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-light",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Light",
     "intro": "Light is a form of electromagnetic radiation that travels at constant speed and exhibits both particle and wave properties. Understanding light is fundamental to optics, vision, and numerous technological applications.",
@@ -7247,7 +7247,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-science-stars-solar-system",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Science",
     "chapter": "Stars and the Solar System",
     "intro": "The solar system consists of the Sun, planets, moons, and other celestial objects orbiting the Sun, while stars are massive luminous spheres of plasma in distant galaxies. Understanding these bodies helps us comprehend the universe.",
@@ -7313,7 +7313,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-maths-linear-equations",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Linear Equations in One Variable",
     "intro": "Linear equations in one variable are equations with the variable appearing to the first power, solved by isolating the variable. They form the foundation for algebra and solving real-world problems.",
@@ -7385,7 +7385,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-maths-squares-square-roots",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Squares and Square Roots",
     "intro": "Squares are numbers multiplied by themselves, while square roots are the inverse operation finding the base number. These concepts are essential for geometry, algebra, and solving quadratic equations.",
@@ -7460,7 +7460,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-maths-cubes-cube-roots",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Cubes and Cube Roots",
     "intro": "Cubes are numbers raised to the third power, while cube roots are the inverse operation. Unlike square roots, cube roots of negative numbers are negative, expanding the number system.",
@@ -7535,7 +7535,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-8-maths-comparing-quantities",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "chapter": "Comparing Quantities",
     "intro": "Comparing quantities involves ratios, proportions, percentages, and their applications in practical situations. These tools help solve problems related to profit, loss, discount, and compound interest.",
@@ -7614,7 +7614,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-7-science-nutrition-plants",
-    "classLevel": "7",
+    "classLevel": "Class 7",
     "subject": "Science",
     "chapter": "Nutrition in Plants",
     "intro": "Plants are autotrophs that produce their own food through photosynthesis using sunlight, water, and carbon dioxide. Understanding plant nutrition is fundamental to ecology and agriculture.",
@@ -7624,8 +7624,8 @@ export const REVISION_NOTES: RevisionNote[] = [
         "points": [
           "Photosynthesis is the process by which plants produce glucose using sunlight, carbon dioxide, and water",
           "Chlorophyll is the green pigment in chloroplasts that captures light energy",
-          "Light-dependent reactions occur in the thylakoid membranes and produce ATP and NADPH",
-          "Light-independent reactions or Calvin cycle occur in the stroma and produce glucose",
+          "The leaf is the food factory of the plant; food made there is carried to every other part, including the roots",
+          "Each stoma is bounded by two guard cells, which open and close the pore",
           "Carbon dioxide is absorbed through stomata, pores on plant leaves",
           "Water is absorbed by roots and transported to leaves through the xylem",
           "Glucose produced in photosynthesis is used for plant growth and respiration",
@@ -7639,7 +7639,8 @@ export const REVISION_NOTES: RevisionNote[] = [
       {
         "heading": "Important Formulas",
         "points": [
-          "Photosynthesis: 6CO₂ + 6H₂O + Light → C₆H₁₂O₆ + 6O₂"
+          "Photosynthesis (word equation): Carbon dioxide + Water → Carbohydrate + Oxygen, in the presence of sunlight and chlorophyll",
+          "Sunlight and chlorophyll are conditions and are written on the arrow, not as reactants — neither is used up"
         ]
       }
     ],
@@ -7676,7 +7677,7 @@ export const REVISION_NOTES: RevisionNote[] = [
       },
       {
         "q": "What is the role of chlorophyll in photosynthesis?",
-        "a": "Chlorophyll is the green pigment that captures light energy and converts it into chemical energy in the form of ATP and NADPH, which are used to produce glucose"
+        "a": "Chlorophyll is the green pigment present in leaves that traps energy from sunlight. Without it the plant cannot use light energy to make food, which is why photosynthesis takes place only in the green parts of a plant"
       },
       {
         "q": "How do nitrogen-fixing bacteria help plants?",
@@ -7686,7 +7687,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-7-science-heat",
-    "classLevel": "7",
+    "classLevel": "Class 7",
     "subject": "Science",
     "chapter": "Heat",
     "intro": "Heat is thermal energy transfer between objects at different temperatures, measured in joules or calories. Understanding heat transfer is essential for explaining weather, cooking, and industrial processes.",
@@ -7760,7 +7761,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-7-science-acids-bases-salts",
-    "classLevel": "7",
+    "classLevel": "Class 7",
     "subject": "Science",
     "chapter": "Acids, Bases and Salts",
     "intro": "Acids and bases are chemical compounds with opposite properties, while salts result from their neutralization. Understanding these substances is crucial for chemistry and daily life applications.",
@@ -7834,7 +7835,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-7-science-respiration",
-    "classLevel": "7",
+    "classLevel": "Class 7",
     "subject": "Science",
     "chapter": "Respiration",
     "intro": "Respiration is the process by which organisms release energy from food molecules through oxidation, providing ATP for cellular functions. Both aerobic and anaerobic respiration play vital roles in life.",
@@ -7907,7 +7908,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-physics-units-measurements",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "chapter": "Units and Measurements",
     "intro": "Units and measurements form the foundation of physics, providing standardized ways to quantify physical quantities. Accurate measurement and proper unit conversion are essential for scientific work.",
@@ -7981,7 +7982,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-physics-laws-motion",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "chapter": "Laws of Motion",
     "intro": "Newton's laws of motion describe how objects move and how forces affect their motion, forming the foundation of classical mechanics. These laws explain everyday phenomena and planetary motion.",
@@ -8056,7 +8057,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-11-chemistry-structure-atom",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "chapter": "Structure of Atom",
     "intro": "Understanding atomic structure explains chemical bonding and element properties. Modern quantum mechanics describes electron orbitals, energy levels, and configurations determining reactivity.",
@@ -8129,7 +8130,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-12-biology-reproduction",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Biology",
     "chapter": "Reproduction",
     "intro": "Reproduction is the fundamental biological process for continuation of species through sexual or asexual means. Class 12 covers gametogenesis, fertilization, and early embryonic development in detail.",
@@ -8196,7 +8197,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-science-matter-surroundings",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Matter in Our Surroundings",
     "intro": "Matter is anything that has mass and occupies space, made up of atoms and molecules in constant motion. Understanding matter's properties helps us classify substances and predict their behavior in different conditions.",
@@ -8276,7 +8277,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-science-is-matter-pure",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Is Matter Around Us Pure",
     "intro": "Pure substances have fixed physical and chemical properties, while mixtures are combinations of two or more substances that retain individual properties. This chapter explores classification, separation techniques, and properties of pure substances versus mixtures.",
@@ -8369,7 +8370,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-science-atoms-molecules",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Atoms and Molecules",
     "intro": "Atoms are the smallest units of an element that retain its properties, while molecules are combinations of atoms bonded together. Understanding atomic and molecular structures is fundamental to chemistry.",
@@ -8452,7 +8453,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-science-structure-atom",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Structure of the Atom",
     "intro": "Atoms contain subatomic particles—electrons, protons, and neutrons—arranged in a nucleus and electron shells with specific arrangements. Understanding atomic structure explains chemical behavior and properties.",
@@ -8534,7 +8535,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-science-fundamental-unit-life",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "The Fundamental Unit of Life",
     "intro": "The cell is the smallest unit of life capable of independent existence and reproduction. All organisms are composed of one or more cells, and understanding cell structure and function is crucial to studying biology.",
@@ -8620,7 +8621,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-science-force-laws-motion",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Force and Laws of Motion",
     "intro": "Force is a push or pull that can change an object's motion or shape. Newton's laws of motion explain how objects move and interact, forming the foundation of classical mechanics.",
@@ -8705,7 +8706,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-9-science-work-energy",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Science",
     "chapter": "Work and Energy",
     "intro": "Work is done when force causes displacement in its direction. Energy is capacity to do work, and understanding energy conservation and transformation is key to understanding physical phenomena.",
@@ -8783,7 +8784,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-maths-pair-linear-equations",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Pair of Linear Equations in Two Variables",
     "intro": "Pairs of linear equations can be solved using multiple methods to find values of two unknowns. Understanding graphical and algebraic methods helps solve real-world problems.",
@@ -8860,7 +8861,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-maths-introduction-trigonometry",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Introduction to Trigonometry",
     "intro": "Trigonometry studies relationships between angles and sides of triangles. Sine, cosine, and tangent ratios are fundamental tools for solving problems involving angles and distances.",
@@ -8941,7 +8942,7 @@ export const REVISION_NOTES: RevisionNote[] = [
   },
   {
     "slug": "class-10-maths-surface-areas-volumes",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Surface Areas and Volumes",
     "intro": "Surface area and volume are measurements of 3D shapes essential for solving practical problems. Understanding formulas for various shapes enables calculating space and material requirements.",
