@@ -21,6 +21,65 @@ owner's explicit go-ahead, as always.
 
 ---
 
+# HOW TO READ GSC FOR THIS SITE — read before acting on any export
+
+Three things distort the headline numbers badly enough to cause wrong decisions.
+
+## 1. Impressions are 64% zero-click noise. Expect them to CRASH, and be glad.
+
+| | queries | impressions | clicks | CTR |
+|---|---:|---:|---:|---:|
+| "full form" queries | 390 | **42,563** (64%) | 21 (17%) | 0.05% |
+| everything else | 610 | 24,046 | 100 | **0.42%** |
+
+The site-wide 0.18% CTR is an artefact of `/full-forms`, which is deliberately
+`noindex,follow` and correctly decaying. Real content converts 8x better.
+
+**As that cluster falls out of the index, total impressions will drop hard while
+clicks hold or rise.** Read naively that looks like a collapse; it is the prune
+working. Always re-measure with full-form queries excluded before concluding
+anything about a content change.
+
+## 2. Impressions are NOT opportunity. Clicks per page is.
+
+Measured from the 2026-08-13 export:
+
+| cluster | pages | clicks/page | note |
+|---|---:|---:|---|
+| `/sample-papers` | 19 | **9.89** | 4x the next best — build more of these |
+| `/english-literature` | 16 | 3.44 | |
+| `/formula-sheets` | 59 | 2.93 | |
+| `/state-board-solutions` | 58 | 2.67 | |
+| `/ncert-solutions` | 93 | 2.22 | |
+| `/pyqs` | 16 | 2.19 | 10.97% CTR |
+| `/mcqs` | 13 | 1.92 | 13.97% CTR |
+| `/concepts` | 36 | **0.47** | 8,596 impressions, 17 clicks |
+| `/full-forms` | 214 | **0.17** | 66,586 impressions, 37 clicks |
+
+`/concepts` carries 47x the impressions of `/mcqs` and earns a quarter of the
+clicks per page. Impression volume sent this session to `/concepts` first; the
+click data says `/sample-papers` was the better target all along.
+
+## 3. Intent splits cleanly, and it predicts CTR better than depth does.
+
+**Zero-click (ranks page 1, nobody clicks — Google answers in the SERP):**
+`/full-forms` 0.06% at pos 12 · `/colleges` 0.28% at pos 15 · `/concepts` 0.20%
+at pos 14.6 · `/maths-tables` 0.23% at pos 8.6. These are LOOKUP intent. More
+words will not fix them; the answer fits in a snippet.
+
+**Converting (3-14% CTR):** `/pyqs`, `/mcqs`, `/solved-examples`,
+`/state-board-solutions`, `/sample-papers`, `/ncert-solutions`,
+`/formula-sheets`. All are "I need the worked answer or the practice set" —
+intent a snippet cannot satisfy.
+
+**Ranking too deep to matter (pos 25+):** `/glossary` 44.7 · `/updates` 55.1 ·
+`/mock-tests` 59.7 · `/career` 71.3 · `/coding` 55.5 (now noindexed).
+
+Before deepening a cluster, ask which of the three it is. Depth pays in the
+second group and is close to wasted in the first.
+
+---
+
 # CORRECTIONS TO THE v320 HANDOFF — read before trusting the sections below
 
 Four claims in the previous handoff were acted on this session and found wrong.
@@ -144,6 +203,41 @@ is exhausted. Re-check rather than trusting it:
 7. **ITER/CET hostel fees + branch-wise cutoff percentiles** — the queries ask
    for exactly this (`iter fees for 4 years btech with hostel`, 283 impr,
    0.35% CTR). Do NOT invent figures a family budgets on.
+
+## Cannibalisation — first ever audit, 2026-08-16
+
+`scripts/audit-cannibalisation.mjs`. The v320 handoff listed this as never
+checked. Across 2,500 INDEXABLE pages (noindex ones cannot cannibalise, so they
+are excluded):
+
+- **48 groups share an EXACT title.** Mostly `-mcq` twins:
+  `/mcqs/class-10-maths-circles` and `/mcqs/class-10-maths-circles-mcq` carry
+  the identical title with only 52% body overlap — two pages splitting one
+  query, each holding half the material. Also
+  `/concepts/periodic-table-and-periodicity` vs `periodic-table-periodicity`
+  (36% overlap) and `/gk-facts/currencies-of-countries` vs
+  `currency-of-countries`.
+- **Same college under two URLs**: `/colleges/delhi-ncr/jss-noida` and
+  `/colleges/uttar-pradesh/jss-academy-noida`; LPU as both `lpu-jalandhar` and
+  `lpu-phagwara`.
+- **Three competing Class 10 trigonometry formula sheets**:
+  `applications-of-trigonometry`, `some-applications-of-trigonometry`,
+  `introduction-to-trigonometry`.
+
+Fixing means choosing a canonical page per intent and redirecting or merging the
+rest — a content decision, so nothing was changed automatically.
+
+**The tool filters by audience, and that matters.** An early version reported
+`/sample-papers/class-10-science` against `class-10-social-science`, and the
+Class 9 vs Class 11 versions of `work-energy-power`, as duplicates. They differ
+only by class or subject and serve different students. `differentAudience()`
+suppresses those; it cut the near-duplicate list from 353 pairs to 217 and the
+group count from 141 to 120. A tool whose output needs hand-filtering is one
+nobody runs twice.
+
+Still noisy for `/colleges`: different institutions sharing tokens (IIIT
+Bangalore vs IIIT Allahabad) surface as near-duplicates. Treat that cluster's
+near-duplicate rows as leads, not findings.
 
 ## What NOT to do next
 
