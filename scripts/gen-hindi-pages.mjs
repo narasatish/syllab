@@ -26,6 +26,17 @@ function buildPage(c) {
         <h3>${esc(f.q)}</h3>
         <p>${esc(f.a)}</p>
       </div>`).join('');
+  // Optional teaching body. These pages carried only an intro and FAQs — about
+  // 200 words — yet two of them hold page-one positions in the 2026-08-13 GSC
+  // export (ohmic-non-ohmic-conductors at 6.2, power-of-a-lens at 9.4). Ranking
+  // that well on that little says the Hindi queries are barely contested, so
+  // depth here is worth more than anywhere else on the site.
+  const sectionsHtml = (c.sections || []).map((s) => `
+      <section>
+        <h2>${esc(s.h)}</h2>
+        ${(s.paras || []).map((p) => `<p>${esc(p)}</p>`).join('')}
+        ${(s.points || []).length ? `<ul>${s.points.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+      </section>`).join('');
   const jsonLd = [
     {
       '@context': 'https://schema.org', '@type': 'LearningResource',
@@ -94,7 +105,7 @@ function buildPage(c) {
   <nav class="crumb"><a href="/">होम</a> › <a href="/hi/concepts">हिन्दी कॉन्सेप्ट</a> › ${esc(c.title)}</nav>
   <h1>${esc(c.title)}</h1>
   <p class="meta">${esc(c.subject)} · ${esc(c.level)} · मुफ़्त हिन्दी नोट्स (NCERT आधारित)</p>
-  <p class="lead">${esc(c.intro)}</p>
+  <p class="lead">${esc(c.intro)}</p>${sectionsHtml}
   <h2>अक्सर पूछे जाने वाले प्रश्न (FAQs)</h2>
   ${faqHtml}
   <div class="note">
