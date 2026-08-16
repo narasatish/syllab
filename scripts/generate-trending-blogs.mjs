@@ -1511,10 +1511,33 @@ async function main() {
     // Anything else is genuinely hand-written and is preserved.
     const handWritten = existing.filter((b) => b && b.id && !b.generated && !generatedIds.has(b.id));
 
-    const merged = [...handWritten, ...generated];
+    /**
+     * Keep the previous date whenever the post's text has not changed.
+     *
+     * generateBlogs() derives every date from `now`, so before this the build
+     * restamped all ~54 generated posts on every run while their content stayed
+     * byte-identical — today's date on unchanged material is fake freshness, it
+     * misleads both students and search engines, and it guaranteed a large
+     * meaningless diff on every single build.
+     *
+     * The date now moves only when the content moves, which is the same rule
+     * LandingPrep applies via its per-path content fingerprint. No extra state
+     * file is needed: the previous date already lives in the file we just read.
+     */
+    const previousById = new Map(existing.filter((b) => b && b.id).map((b) => [b.id, b]));
+    let refreshed = 0;
+    const dated = generated.map((b) => {
+      const prev = previousById.get(b.id);
+      if (prev && prev.content === b.content && prev.date) return { ...b, date: prev.date };
+      if (prev) refreshed += 1;
+      return b;
+    });
+
+    const merged = [...handWritten, ...dated];
 
     await fs.writeFile(OUTPUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
     console.log(`✓ ${generated.length} generated + ${handWritten.length} hand-written preserved = ${merged.length} posts → ${OUTPUT_PATH}`);
+    console.log(`  Dates: ${refreshed} re-dated (content changed), ${generated.length - refreshed} kept (content unchanged).`);
     if (handWritten.length) console.log('  Preserved:', handWritten.map((b) => b.id).join(', '));
   } catch (error) {
     console.error('Error generating blogs:', error);
