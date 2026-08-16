@@ -1,7 +1,18 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { MCQ_CHAPTERS } from './chapterMcqs';
 import { PYQ_CHAPTERS } from './pyqs';
 import { REVISION_NOTES } from './revisionNotes';
+
+/** Shape of one entry in public/rn-deep.json (fetched asset, so not typechecked elsewhere). */
+interface RnDeepTopic {
+  ncertRef?: string;
+  quiz?: { q: string; options: string[]; correct: number; why: string }[];
+  assertionReason?: { assertion: string; reason: string; answer: string; why: string }[];
+  boardQuestions?: { q: string; marks: string; a: string }[];
+  numericals?: { q: string; steps: string[]; answer: string }[];
+}
 
 /**
  * Cross-bank content-integrity guard.
@@ -178,6 +189,69 @@ describe('revision notes', () => {
   it('slugs are unique', () => {
     const s = REVISION_NOTES.map((r) => r.slug);
     expect(new Set(s).size).toBe(s.length);
+  });
+});
+
+/**
+ * The deep revision-note bodies (public/rn-deep.json) are the one content bank
+ * that ships as a fetched asset rather than a module, so nothing else typechecks
+ * it. A wrong `correct` index here would key a self-check question to the wrong
+ * option — a defect that renders perfectly and would never fail a build.
+ *
+ * The answer-spread assertion is deliberate: the first draft put 45 of 50
+ * answers at B or C, which is guessable without reading the question.
+ */
+describe('revision-note deep content', () => {
+  const deep = JSON.parse(
+    readFileSync(join(process.cwd(), 'public', 'rn-deep.json'), 'utf8'),
+  ).topics as Record<string, RnDeepTopic>;
+
+  it('every self-check question is answerable and keyed in range', () => {
+    for (const [slug, t] of Object.entries(deep)) {
+      (t.quiz ?? []).forEach((q, i) => {
+        expect(q.options.length, `${slug} quiz${i}: option count`).toBe(4);
+        expect(new Set(q.options).size, `${slug} quiz${i}: duplicate options`).toBe(4);
+        expect(q.correct, `${slug} quiz${i}: correct index out of range`)
+          .toBeGreaterThanOrEqual(0);
+        expect(q.correct, `${slug} quiz${i}: correct index out of range`).toBeLessThan(4);
+        expect(q.why?.length, `${slug} quiz${i}: no explanation`).toBeGreaterThan(20);
+      });
+    }
+  });
+
+  it('assertion-reason answers use the CBSE a/b/c/d codes', () => {
+    for (const [slug, t] of Object.entries(deep)) {
+      (t.assertionReason ?? []).forEach((a, i) => {
+        expect(['a', 'b', 'c', 'd'], `${slug} AR${i}: bad code "${a.answer}"`).toContain(a.answer);
+        expect(a.assertion && a.reason && a.why, `${slug} AR${i}: missing field`).toBeTruthy();
+      });
+    }
+  });
+
+  it('board answers and numericals are substantive, and every topic cites its syllabus', () => {
+    for (const [slug, t] of Object.entries(deep)) {
+      expect(t.ncertRef, `${slug}: no ncertRef`).toBeTruthy();
+      (t.boardQuestions ?? []).forEach((b, i) => {
+        expect(b.marks, `${slug} BQ${i}: no marks`).toBeTruthy();
+        expect(b.a.split(/\s+/).length, `${slug} BQ${i}: model answer too short`).toBeGreaterThan(24);
+      });
+      (t.numericals ?? []).forEach((n, i) => {
+        expect(n.steps.length, `${slug} num${i}: needs >=2 steps`).toBeGreaterThan(1);
+        expect(n.answer, `${slug} num${i}: no answer`).toBeTruthy();
+      });
+    }
+  });
+
+  it('answers are spread across the options rather than clustered', () => {
+    const all = Object.values(deep).flatMap((t) => t.quiz ?? []);
+    const dist = [0, 0, 0, 0];
+    all.forEach((q) => { dist[q.correct] += 1; });
+    // With n questions an even spread is n/4 each; allow a generous band but
+    // catch the failure mode where one or two letters carry nearly everything.
+    const floor = Math.floor(all.length / 8);
+    dist.forEach((c, i) => {
+      expect(c, `only ${c} of ${all.length} answers at option ${'ABCD'[i]}`).toBeGreaterThanOrEqual(floor);
+    });
   });
 });
 

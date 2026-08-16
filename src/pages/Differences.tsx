@@ -8,99 +8,19 @@ import { ArrowLeft, ArrowRight, GitCompareArrows, Search, Sparkles } from 'lucid
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { DIFFERENCES, getDifference, type DiffTopic } from '../data/differences';
+import { useDeep, type DeepTopic } from '../components/deepContent';
+import QuizItem from '../components/QuizItem';
 import { usePathname } from '../lib/isomorphic';
 
 const SITE = 'https://syllab.in';
 
 /* ─── Deep content (public/diff-deep.json) ─────────────────────────────────────
  * The GSC-proven comparisons carry ~1,150 extra words of teaching content.
- * It is FETCHED, never imported: bundling it would put ~90 KB of prose into the
- * Differences chunk for every visitor, including the ones who only open the hub.
- * Same file the prerenderer reads, so the crawled HTML and the hydrated page
- * show the same content — a mismatch there would be cloaking, and would also
- * throw away the dwell time this content exists to earn.
+ * The fetch/cache plumbing and the quiz component are shared with the
+ * /revision-notes cluster — see src/components/deepContent.tsx for why the JSON
+ * is fetched rather than imported.
  */
-export interface DeepQuiz { q: string; options: string[]; correct: number; why: string; }
-export interface DeepTopic {
-  ncertRef?: string;
-  explainers?: { term: string; paras: string[] }[];
-  sections?: { h: string; paras?: string[]; bullets?: string[] }[];
-  examples?: { t: string; d: string }[];
-  mistakes?: string[];
-  diagrams?: { title: string; caption: string; alt: string; svg: string }[];
-  applications?: { h: string; d: string }[];
-  numericals?: { q: string; steps: string[]; answer: string }[];
-  boardQuestions?: { q: string; marks: string; a: string }[];
-  assertionReason?: { assertion: string; reason: string; answer: string; why: string }[];
-  quiz?: DeepQuiz[];
-  glossary?: { term: string; def: string }[];
-  revision?: string[];
-  extraFaqs?: { q: string; a: string }[];
-}
-
-let deepCache: Record<string, DeepTopic> | null = null;
-let deepPromise: Promise<Record<string, DeepTopic>> | null = null;
-
-function loadDeep(): Promise<Record<string, DeepTopic>> {
-  if (deepCache) return Promise.resolve(deepCache);
-  deepPromise ??= fetch('/diff-deep.json')
-    .then((r) => (r.ok ? r.json() : { topics: {} }))
-    .then((j) => { deepCache = j.topics || {}; return deepCache; })
-    .catch(() => ({}));
-  return deepPromise;
-}
-
-function useDeep(slug: string): DeepTopic | null {
-  const [deep, setDeep] = useState<DeepTopic | null>(() => deepCache?.[slug] ?? null);
-  useEffect(() => {
-    let live = true;
-    loadDeep().then((all) => { if (live) setDeep(all[slug] ?? null); });
-    return () => { live = false; };
-  }, [slug]);
-  return deep;
-}
-
-/** One self-check question. Reveals the explanation only after an answer is picked. */
-function QuizItem({ item, n }: { item: DeepQuiz; n: number }) {
-  const [picked, setPicked] = useState<number | null>(null);
-  return (
-    <div className="rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
-      <p className="font-bold text-slate-900 dark:text-slate-100">Q{n}. {item.q}</p>
-      <div className="mt-3 grid gap-2">
-        {item.options.map((o, j) => {
-          const isRight = j === item.correct;
-          const show = picked !== null;
-          const tone = !show
-            ? 'border-slate-200 hover:border-primary hover:bg-primary/5 dark:border-slate-600'
-            : isRight
-              ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40'
-              : j === picked
-                ? 'border-rose-400 bg-rose-50 dark:bg-rose-950/30'
-                : 'border-slate-200 opacity-60 dark:border-slate-600';
-          return (
-            <button
-              key={j}
-              type="button"
-              disabled={show}
-              onClick={() => setPicked(j)}
-              className={`rounded-xl border-2 px-3 py-2 text-left text-sm font-semibold text-slate-700 transition-colors dark:text-slate-200 ${tone}`}
-            >
-              <span className="mr-2 font-black text-slate-400">{'ABCD'[j]}.</span>{o}
-            </button>
-          );
-        })}
-      </div>
-      {picked !== null && (
-        <p className="mt-3 rounded-xl bg-slate-50 p-3 text-sm leading-relaxed text-slate-700 dark:bg-slate-900 dark:text-slate-300">
-          <strong className={picked === item.correct ? 'text-emerald-600' : 'text-rose-600'}>
-            {picked === item.correct ? 'Correct. ' : `Not quite — the answer is ${'ABCD'[item.correct]}. `}
-          </strong>
-          {item.why}
-        </p>
-      )}
-    </div>
-  );
-}
+const DEEP_URL = '/diff-deep.json';
 
 /** The deep teaching block: explainers, sections, examples, mistakes, quiz. */
 function DeepBody({ deep, termA, termB }: { deep: DeepTopic; termA: string; termB: string }) {
@@ -366,7 +286,7 @@ function DiffIndex({ query, setQuery, go }: { query: string; setQuery: (s: strin
 /* ── Detail ── */
 function DiffDetail({ topic, go, setTab }: { topic: DiffTopic; go: (to: string) => void; setTab: (t: string) => void }) {
   const related = DIFFERENCES.filter((d) => d.category === topic.category && d.slug !== topic.slug).slice(0, 4);
-  const deep = useDeep(topic.slug);
+  const deep = useDeep(DEEP_URL, topic.slug);
   // Deep topics contribute extra FAQs; they must appear in the visible list AND
   // the FAQPage schema, matching exactly what the prerenderer emits.
   const faqs = deep?.extraFaqs?.length ? [...topic.faqs, ...deep.extraFaqs] : topic.faqs;

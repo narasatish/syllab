@@ -1943,10 +1943,109 @@ function glossaryBody(g, sibs) {
   const ex = g.example ? `<h2>Example</h2><p>${nl2br(g.example)}</p>` : '';
   return `${def}${expl}${ex}${faqBlock(g.faqs)}${relBlock(sibs, '/glossary', `More ${esc(g.category || '')} Terms`)}${aiCta}`;
 }
+/**
+ * Deep bodies for the revision-note chapters that carry GSC impressions
+ * (public/rn-deep.json).
+ *
+ * WHY: the 2026-08-13 GSC export shows /revision-notes converting at 15.60%,
+ * the best rate on the site — but only 10 of the 119 pages register any
+ * impressions at all, and those 10 averaged ~350 crawl-time words. The cluster
+ * ranks and converts; it is simply too thin to rank higher. This adds ~4,300
+ * words of real teaching content per page, using the same block model already
+ * proven on /difference-between.
+ *
+ * Read from public/ rather than imported so the React page can fetch the same
+ * file at runtime — one source of truth, and zero JS-bundle cost.
+ */
+const RN_DEEP = (() => {
+  try {
+    return JSON.parse(readFileSync(path.join(ROOT, 'public', 'rn-deep.json'), 'utf8')).topics || {};
+  } catch {
+    return {};
+  }
+})();
+
+/** Render one deep revision-note topic to crawlable HTML. '' when no deep entry. */
+function rnDeepHtml(slug) {
+  const t = RN_DEEP[slug];
+  if (!t) return '';
+  const P = (arr) => (arr || []).map((p) => `<p>${esc(p)}</p>`).join('');
+  const parts = [];
+
+  for (const e of t.explainers || []) {
+    parts.push(`<h2>${esc(e.term)}</h2>${P(e.paras)}`);
+  }
+  for (const s of t.sections || []) {
+    parts.push(`<h2>${esc(s.h)}</h2>${P(s.paras)}${
+      (s.bullets || []).length ? `<ul>${s.bullets.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''
+    }`);
+  }
+  if ((t.numericals || []).length) {
+    parts.push(`<h2>Solved Numericals — Step by Step</h2>${t.numericals.map((n, i) =>
+      `<div><p><strong>Problem ${i + 1}. ${esc(n.q)}</strong></p><ol>${
+        (n.steps || []).map((s) => `<li>${esc(s)}</li>`).join('')
+      }</ol><p><strong>Answer: ${esc(n.answer)}</strong></p></div>`,
+    ).join('')}`);
+  }
+  if ((t.examples || []).length) {
+    parts.push(`<h2>Worked Examples</h2><ul>${
+      t.examples.map((x) => `<li><strong>${esc(x.t)}</strong> — ${esc(x.d)}</li>`).join('')
+    }</ul>`);
+  }
+  if ((t.mistakes || []).length) {
+    parts.push(`<h2>Common Mistakes Students Make</h2><ul>${
+      t.mistakes.map((m) => `<li>${esc(m)}</li>`).join('')
+    }</ul>`);
+  }
+  if ((t.applications || []).length) {
+    parts.push(`<h2>Where This Shows Up in Real Life</h2>${
+      t.applications.map((a) => `<h3>${esc(a.h)}</h3><p>${esc(a.d)}</p>`).join('')
+    }`);
+  }
+  if ((t.boardQuestions || []).length) {
+    parts.push(`<h2>Board-Style Questions with Model Answers</h2>${t.boardQuestions.map((b) =>
+      `<h3>${esc(b.q)} <em>(${esc(b.marks)} marks)</em></h3><p>${esc(b.a)}</p>`,
+    ).join('')}`);
+  }
+  if ((t.assertionReason || []).length) {
+    parts.push(`<h2>Assertion–Reason Questions (CBSE Format)</h2><p>For each question choose: (a) both A and R are true and R is the correct explanation of A; (b) both are true but R is not the correct explanation; (c) A is true but R is false; (d) A is false but R is true.</p>${
+      t.assertionReason.map((x, i) =>
+        `<div><p><strong>${i + 1}. Assertion (A):</strong> ${esc(x.assertion)}<br><strong>Reason (R):</strong> ${esc(x.reason)}</p><p><strong>Answer: (${esc(x.answer)})</strong> — ${esc(x.why)}</p></div>`,
+      ).join('')
+    }`);
+  }
+  if ((t.quiz || []).length) {
+    parts.push(`<h2>Quick Self-Check</h2>${t.quiz.map((q, i) =>
+      `<div><p><strong>Q${i + 1}. ${esc(q.q)}</strong></p><ul>${
+        q.options.map((o, j) => `<li>${'ABCD'[j]}. ${esc(o)}</li>`).join('')
+      }</ul><p><strong>Answer: ${'ABCD'[q.correct]}. ${esc(q.options[q.correct])}</strong> — ${esc(q.why)}</p></div>`,
+    ).join('')}`);
+  }
+  if ((t.glossary || []).length) {
+    parts.push(`<h2>Key Terms Glossary</h2><dl>${
+      t.glossary.map((g) => `<dt><strong>${esc(g.term)}</strong></dt><dd>${esc(g.def)}</dd>`).join('')
+    }</dl>`);
+  }
+  if ((t.revision || []).length) {
+    parts.push(`<h2>One-Minute Revision</h2><ul>${
+      t.revision.map((r) => `<li>${esc(r)}</li>`).join('')
+    }</ul>`);
+  }
+  if (t.ncertRef) {
+    parts.push(`<p><em>Syllabus reference: ${esc(t.ncertRef)}</em></p>`);
+  }
+  return parts.join('');
+}
+
+/** The note's own FAQs plus any extras carried by its deep entry. */
+function rnFaqs(x) {
+  return [...(x.faqs || []), ...((RN_DEEP[x.slug] || {}).extraFaqs || [])];
+}
+
 function revisionBody(x, sibs) {
   const secs = (x.sections || []).map((s) => `<h2>${esc(s.heading)}</h2><ul>${(s.points || []).map((p) => `<li>${esc(p)}</li>`).join('')}</ul>`).join('');
   const kt = (x.keyTerms || []).length ? `<h2>Key Terms</h2><ul>${x.keyTerms.map((t) => `<li><strong>${esc(t.term)}:</strong> ${esc(t.meaning)}</li>`).join('')}</ul>` : '';
-  return `<p class="speakable">${esc(x.intro)}</p>${secs}${kt}${faqBlock(x.faqs)}${relBlock(sibs, '/revision-notes', `More ${esc(x.classLevel)} ${esc(x.subject)} Revision Notes`)}${aiCta}`;
+  return `<p class="speakable">${esc(x.intro)}</p>${secs}${kt}${rnDeepHtml(x.slug)}${faqBlock(rnFaqs(x))}${relBlock(sibs, '/revision-notes', `More ${esc(x.classLevel)} ${esc(x.subject)} Revision Notes`)}${aiCta}`;
 }
 
 const GLOSSARY_DATA = getGlossary(ROOT);
@@ -1992,11 +2091,27 @@ for (const g of GLOSSARY_DATA) {
 
 // ─── Revision Notes (/revision-notes, /revision-notes/:slug) ──────────────────
 const REVISION_DATA = getRevisionNotes(ROOT);
+// Derived, never hardcoded: the hub read "Class 9 & 10" long after the cluster
+// had grown to Classes 7-12. Keep this in step with the same block in
+// src/pages/RevisionNotes.tsx so crawled and hydrated copy agree.
+const RN_CLASS_NUMS = [...new Set(REVISION_DATA.map((r) => Number(String(r.classLevel).replace(/\D/g, ''))))]
+  .filter(Boolean).sort((a, b) => a - b);
+const RN_CLASS_RANGE = RN_CLASS_NUMS.length > 1
+  ? `Class ${RN_CLASS_NUMS[0]}-${RN_CLASS_NUMS[RN_CLASS_NUMS.length - 1]}`
+  : `Class ${RN_CLASS_NUMS[0]}`;
+// Top three subjects by chapter count only — naming all six overruns the 160
+// character meta-description limit.
+const RN_SUBJECTS = (() => {
+  const n = {};
+  REVISION_DATA.forEach((r) => { n[r.subject] = (n[r.subject] ?? 0) + 1; });
+  const s = Object.keys(n).sort((a, b) => n[b] - n[a]).slice(0, 3);
+  return s.length > 1 ? `${s.slice(0, -1).join(', ')} and ${s[s.length - 1]}` : s[0];
+})();
 ROUTES.push({
   path: '/revision-notes',
-  title: 'CBSE Revision Notes Class 9 & 10 — Quick Chapter Notes | Syllab.in',
-  description: `Free CBSE revision notes — ${REVISION_DATA.length}+ chapter-wise quick notes for Class 9 & 10 Science and Maths, with key points, formulas and FAQs. NCERT aligned.`,
-  keywords: 'CBSE revision notes, class 10 science notes, class 10 maths notes, class 9 notes, quick revision notes, NCERT chapter notes',
+  title: `CBSE Revision Notes ${RN_CLASS_RANGE} — Quick Chapter Notes | Syllab.in`,
+  description: `Free CBSE revision notes — ${REVISION_DATA.length} chapter-wise notes for ${RN_CLASS_RANGE} ${RN_SUBJECTS}, with key points, formulas and FAQs. NCERT aligned.`,
+  keywords: `CBSE revision notes, ${RN_CLASS_NUMS.map((n) => `class ${n} revision notes`).join(', ')}, quick revision notes, NCERT chapter notes`,
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'CBSE Revision Notes', url: `${SITE}/revision-notes`, inLanguage: 'en-IN', isAccessibleForFree: true },
 });
 const REV_BY_GROUP = {};
@@ -2013,7 +2128,8 @@ for (const r of REVISION_DATA) {
     description: r.intro,
     keywords: `${r.chapter.toLowerCase()} revision notes, ${r.classLevel.toLowerCase()} ${(r.subject||'').toLowerCase()} ${r.chapter.toLowerCase()} notes, cbse ${(r.subject||'').toLowerCase()} notes`,
     bodyHtml: revisionBody(r, sibs),
-    jsonLd: (r.faqs && r.faqs.length) ? [breadcrumb, faqJsonLd(r.faqs)] : breadcrumb,
+    // Deep entries carry extra FAQs; they join the on-page list AND the schema.
+    jsonLd: rnFaqs(r).length ? [breadcrumb, faqJsonLd(rnFaqs(r))] : breadcrumb,
   });
 }
 
