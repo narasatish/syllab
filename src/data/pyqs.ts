@@ -5274,7 +5274,7 @@ export const PYQ_CHAPTERS: PyqChapter[] = [
       },
       {
         "q": "Can photosynthesis occur without sunlight?",
-        "a": "No, photosynthesis cannot occur without sunlight. Sunlight provides the energy needed for the process. Light-dependent reactions require photons to drive electron excitation and ATP/NADPH production."
+        "a": "No, photosynthesis cannot occur without sunlight. Chlorophyll traps energy from sunlight, and that energy is what the plant uses to combine carbon dioxide and water into food. Sunlight and chlorophyll are the two conditions written on the arrow of the equation, and without either of them the process does not run."
       }
     ]
   },

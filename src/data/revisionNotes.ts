@@ -7838,71 +7838,86 @@ export const REVISION_NOTES: RevisionNote[] = [
     "classLevel": "Class 7",
     "subject": "Science",
     "chapter": "Respiration",
-    "intro": "Respiration is the process by which organisms release energy from food molecules through oxidation, providing ATP for cellular functions. Both aerobic and anaerobic respiration play vital roles in life.",
+    "intro": "Every living cell breaks down food to release the energy it needs, and that process is respiration. This chapter separates breathing from respiration, follows the path air takes through the human body, and looks at how animals from earthworms to fish manage the same job in very different ways.",
     "sections": [
       {
         "heading": "Key Points to Remember",
         "points": [
-          "Respiration is a series of chemical reactions that release energy from organic compounds",
-          "Aerobic respiration requires oxygen and occurs in mitochondria, producing maximum ATP",
-          "Anaerobic respiration occurs without oxygen in the cytoplasm, producing less ATP",
-          "Glucose is the primary substrate for respiration in most organisms",
-          "Glycolysis breaks down glucose into pyruvate, producing 2 ATP molecules",
-          "Krebs cycle occurs in the mitochondrial matrix and releases carbon dioxide and energy",
-          "Electron transport chain in inner mitochondrial membrane produces the majority of ATP",
-          "Fermentation is anaerobic respiration producing lactate or ethanol depending on organism",
-          "Lactic acid fermentation occurs in muscles during intense exercise",
-          "Alcoholic fermentation occurs in yeast and bacteria, producing ethanol and carbon dioxide",
-          "Respiration releases carbon dioxide and water as byproducts",
-          "Respiratory rate increases with exercise, temperature, and metabolic demand"
+          "Respiration is the breakdown of food inside the cells of the body to release energy; it goes on in every living cell, all the time",
+          "Breathing is only one part of it — taking in oxygen-rich air and giving out carbon dioxide-rich air. Breathing is not the same as respiration",
+          "One breath means one inhalation plus one exhalation, and the breathing rate is the number of breaths taken in a minute",
+          "An adult at rest breathes about 15 to 18 times a minute; during heavy exercise this can rise to about 25 times a minute",
+          "Aerobic respiration uses oxygen; organisms that respire this way are called aerobes",
+          "Anaerobic respiration takes place without oxygen; yeast is the standard example of an anaerobe, and it is used to make alcohol and wine",
+          "During heavy exercise the muscles do not get enough oxygen, so glucose breaks down into lactic acid, and the build-up causes muscle cramps",
+          "A hot water bath or a massage relieves cramps because it improves blood circulation, so more oxygen reaches the muscle and the lactic acid is broken down",
+          "In inhalation the ribs move up and outwards and the diaphragm moves down, making the chest cavity larger; in exhalation both move back and it becomes smaller",
+          "Exhaled air turns lime water milky, which is the test showing it contains more carbon dioxide",
+          "Cockroaches breathe through small openings called spiracles and a network of air tubes called tracheae; earthworms breathe through their moist skin",
+          "Fish take in oxygen dissolved in water using gills; frogs can breathe through their skin as well as their lungs",
+          "Plants respire too — leaves exchange gases through stomata, and roots take in air from the spaces between soil particles"
         ]
       },
       {
-        "heading": "Important Formulas",
+        "heading": "Important Word Equations",
         "points": [
-          "Aerobic Respiration: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + Energy (ATP)",
-          "Anaerobic Respiration: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ + Energy (less ATP)"
+          "Aerobic respiration: Glucose + Oxygen → Carbon dioxide + Water + Energy",
+          "Anaerobic respiration in yeast: Glucose → Alcohol + Carbon dioxide + Energy",
+          "In our muscles when oxygen runs short: Glucose → Lactic acid + Energy",
+          "Note that anaerobic respiration releases much less energy than aerobic respiration from the same amount of glucose"
         ]
       }
     ],
     "keyTerms": [
       {
         "term": "Respiration",
-        "meaning": "Process of breaking down food molecules to release energy in the form of ATP"
+        "meaning": "The breakdown of food inside the cells of the body to release energy"
       },
       {
-        "term": "Aerobic Respiration",
-        "meaning": "Respiration requiring oxygen, producing maximum ATP energy from glucose"
+        "term": "Breathing",
+        "meaning": "Taking in oxygen-rich air into the body and giving out air rich in carbon dioxide"
       },
       {
-        "term": "Anaerobic Respiration",
-        "meaning": "Respiration without oxygen, producing less ATP than aerobic respiration"
+        "term": "Breathing rate",
+        "meaning": "The number of breaths taken in one minute; about 15 to 18 for an adult at rest"
       },
       {
-        "term": "Glycolysis",
-        "meaning": "First stage of respiration that breaks glucose into pyruvate"
+        "term": "Aerobic respiration",
+        "meaning": "Respiration that takes place using oxygen; organisms doing this are called aerobes"
       },
       {
-        "term": "Krebs Cycle",
-        "meaning": "Cycle occurring in mitochondria that oxidizes pyruvate and releases energy"
+        "term": "Anaerobic respiration",
+        "meaning": "Respiration that takes place without oxygen, as in yeast, releasing much less energy"
       },
       {
-        "term": "Fermentation",
-        "meaning": "Anaerobic process producing lactate or ethanol without complete oxidation"
+        "term": "Diaphragm",
+        "meaning": "The sheet of muscle below the chest cavity that moves down during inhalation and up during exhalation"
+      },
+      {
+        "term": "Spiracles",
+        "meaning": "Small openings on the sides of a cockroach's body through which air enters the tracheae"
+      },
+      {
+        "term": "Gills",
+        "meaning": "Organs that allow fish to take in oxygen dissolved in water"
       }
     ],
     "faqs": [
       {
-        "q": "What is the difference between aerobic and anaerobic respiration?",
-        "a": "Aerobic respiration requires oxygen and produces approximately 38 ATP per glucose molecule. Anaerobic respiration lacks oxygen and produces only 2 ATP, but occurs when oxygen is limited"
+        "q": "What is the difference between breathing and respiration?",
+        "a": "Breathing is the physical act of taking in oxygen-rich air and giving out carbon dioxide-rich air, and it involves the nose, windpipe and lungs. Respiration is the breakdown of food inside the cells to release energy. Breathing supplies the oxygen that respiration uses, so breathing is one step that supports respiration, not the same thing as it"
       },
       {
-        "q": "Why do muscles produce lactic acid during intense exercise?",
-        "a": "During intense exercise, muscles demand more ATP than aerobic respiration can supply. Cells switch to anaerobic fermentation, producing lactic acid as a byproduct, which causes muscle fatigue"
+        "q": "Why do we get muscle cramps after heavy exercise?",
+        "a": "During heavy exercise the muscle cells need more energy than the oxygen reaching them can supply. The cells then break down glucose without oxygen, producing lactic acid, and the build-up of lactic acid causes cramps. A hot water bath or a massage improves blood circulation so more oxygen reaches the muscle, the lactic acid is broken down and the cramp is relieved"
       },
       {
-        "q": "How is fermentation used in industry?",
-        "a": "Fermentation is used in brewing to produce alcohol, in yogurt production for lactic acid, and in bread making where CO₂ from fermentation makes dough rise"
+        "q": "How do we know that exhaled air contains more carbon dioxide?",
+        "a": "Blow exhaled air through lime water using a straw and the lime water turns milky. Lime water turns milky in the presence of carbon dioxide, so the change shows that the air we breathe out is richer in carbon dioxide than the air around us"
+      },
+      {
+        "q": "How do earthworms and fish breathe?",
+        "a": "An earthworm breathes through its skin, which feels moist and slimy; gases pass through the moist skin into the blood. A fish takes in water through its mouth and passes it over the gills, which extract the oxygen dissolved in the water. Both are solving the same problem as our lungs do, but in the medium each animal lives in"
       }
     ]
   },

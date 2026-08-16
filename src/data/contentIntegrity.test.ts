@@ -255,6 +255,41 @@ describe('revision-note deep content', () => {
   });
 });
 
+/**
+ * Syllabus-level guard.
+ *
+ * A Class 7 page was teaching light-dependent reactions in thylakoid membranes,
+ * ATP, NADPH and the Calvin cycle, and a Class 7 Respiration page was teaching
+ * glycolysis, the Krebs cycle and the electron transport chain. Both rendered
+ * perfectly, passed every test and passed the SEO audit — content pitched years
+ * above its own class is invisible to every check that only looks at structure.
+ *
+ * 'ATP' is deliberately NOT on this list: NCERT names it at Class 9 when it
+ * introduces mitochondria, so guarding it would flag correct material.
+ */
+const SENIOR_TERMS = /thylakoid|NADPH|Calvin cycle|light-dependent reaction|light-independent reaction|photosystem|glycolysis|Krebs cycle|electron transport chain|oxidative phosphorylation|Le Chatelier|de Broglie|Heisenberg|azimuthal quantum|hybridi[sz]ation/i;
+
+describe('content is pitched at its own class level', () => {
+  const banks: [string, { classLevel?: string }[]][] = [
+    ['revisionNotes', REVISION_NOTES],
+    ['chapterMcqs', MCQ_CHAPTERS as { classLevel?: string }[]],
+    ['pyqs', PYQ_CHAPTERS as { classLevel?: string }[]],
+  ];
+
+  it('no Class 6-8 page uses senior-syllabus terminology', () => {
+    const offenders: string[] = [];
+    for (const [name, items] of banks) {
+      for (const item of items) {
+        const cls = Number(String(item.classLevel ?? '').replace(/\D/g, ''));
+        if (!cls || cls > 8) continue;
+        const hit = JSON.stringify(item).match(SENIOR_TERMS);
+        if (hit) offenders.push(`${name}: Class ${cls} item uses "${hit[0]}"`);
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+});
+
 describe('no published stub content', () => {
   it('no bank contains a TODO/lorem/TBD left behind', () => {
     const banks: [string, unknown][] = [
