@@ -33,6 +33,13 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as clusters from './studyClusters.mjs';
+import * as differencesData from './differencesData.mjs';
+import * as ncertChapters from './ncertChapters.mjs';
+import * as stateBoardChapters from './stateBoardChapters.mjs';
+import * as medicalCollegesData from './medicalColleges.mjs';
+
+/** Loader modules this audit knows about, beyond studyClusters.mjs. */
+const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -72,6 +79,12 @@ const BANKS = [
   ['getFormulaSheets', 'formulaSheets.ts', 'export const FORMULA_SHEETS: FormulaSheet[] = '],
   ['getFullForms', 'fullForms.ts', 'export const FULL_FORMS: FullForm[] = '],
   ['getSamplePapers', 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = '],
+
+  // Loaders OUTSIDE studyClusters.mjs. These were unaudited until 2026-08-16 —
+  // and an audit that silently skips a loader is the same shape of blind spot
+  // it exists to catch. A 4th element names the module.
+  ['getDifferences', 'differences.ts', 'export const DIFFERENCES: DiffTopic[] = ', 'differencesData'],
+  ['getMedicalManifest', 'medicalColleges.ts', 'export const MEDICAL_COLLEGES: MedicalCollege[] = ', 'medicalCollegesData'],
 ];
 
 /** `${loader}.${field}` -> why it is deliberately not carried through. */
@@ -87,6 +100,14 @@ const ALLOWED = {
   // the surviving third would pass equity between pages that are already
   // decaying on purpose. Not worth it unless the field is cleaned up first.
   'getFullForms.related': '68% of entries do not resolve to a page; cluster is noindex by design',
+
+  // Checked 2026-08-16 against the built pages, not assumed. The 17 GSC-proven
+  // difference pages that are ALLOWED TO INDEX render a curated FAQ set from
+  // diff-reindex.mjs plus diff-deep extraFaqs — verified: an indexed page
+  // carries the FAQ heading and 16 <h3> entries. The other 267 are noindex, so
+  // a crawler-facing FAQ there would serve nobody, and the React page still
+  // shows this field to actual readers. Superseded, not lost.
+  'getDifferences.faqs': 'indexed pages use the curated diff-reindex FAQs; the rest are noindex',
 };
 
 const words = (v) => JSON.stringify(v ?? '')
@@ -103,11 +124,16 @@ const strict = process.argv.includes('--strict');
 let violations = 0;
 const unaudited = [];
 
-for (const [fn, file, marker] of BANKS) {
-  if (typeof clusters[fn] !== 'function') { unaudited.push(`${fn} — not exported by studyClusters.mjs`); continue; }
+for (const [fn, file, marker, moduleName = 'clusters'] of BANKS) {
+  const mod = MODULES[moduleName];
+  if (!mod || typeof mod[fn] !== 'function') { unaudited.push(`${fn} — not exported by ${moduleName}`); continue; }
   const raw = readArray(file, marker);
   if (!raw || !raw.length) { unaudited.push(`${fn} (${file}) — marker not found, NOT AUDITED`); continue; }
-  const projected = clusters[fn](ROOT);
+  let projected = mod[fn](ROOT);
+  // Some loaders return a manifest object rather than a bare array.
+  if (projected && !Array.isArray(projected)) {
+    projected = projected.colleges || projected.chapters || projected.items || null;
+  }
   if (!Array.isArray(projected) || !projected.length) { unaudited.push(`${fn} — loader returned nothing, NOT AUDITED`); continue; }
 
   const kept = keysOf(projected);
