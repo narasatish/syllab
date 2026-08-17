@@ -22,7 +22,7 @@ import {
   EXAM_CALENDAR, SCHOLARSHIPS,
   CAREERS_BY_AI_IMPACT,
 } from '../data/predictorData';
-import { COLLEGES as ALL_COLLEGES, COLLEGE_STATE_INFO, stateSlugForCollege, getStateRank } from '../data/colleges';
+import { COLLEGES_LIVE as ALL_COLLEGES, COLLEGE_STATE_INFO, stateSlugForCollege, getStateRank } from '../data/colleges';
 
 type Tab = 'jee' | 'neet' | 'colleges' | 'careers' | 'quiz' | 'stream' | 'exams' | 'ai-impact';
 

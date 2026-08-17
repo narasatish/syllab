@@ -103,7 +103,8 @@ export function comparisonSet(c: CollegeFull, all: CollegeFull[]): CollegeFull[]
 
 export function isGoodSummary(c: CollegeFull): string {
   const bits: string[] = [];
-  if (c.nirf) bits.push(`ranked #${c.nirf} in India (NIRF Engineering 2024)`);
+  if (c.nirf) bits.push(`ranked #${c.nirf} in India (NIRF Engineering 2025)`);
+  else if (c.nirfBand) bits.push(`a place in the ${c.nirfBand} band of NIRF Engineering 2025`);
   if (c.placementAvg) bits.push(`an average package of about ${c.placementAvg}`);
   if (c.placementRate) bits.push(`a placement rate of around ${c.placementRate}`);
   const branches = (c.topBranches || []).slice(0, 3).join(', ') || 'engineering';

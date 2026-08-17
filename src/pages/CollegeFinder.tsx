@@ -10,7 +10,7 @@ import { ArrowLeft, ChevronRight, Award } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import HubNav, { HubNavItem } from '../components/HubNav';
-import { COLLEGES, stateSlugForCollege, type CollegeFull } from '../data/colleges';
+import { COLLEGES_LIVE, stateSlugForCollege, type CollegeFull } from '../data/colleges';
 import { MEDICAL_COLLEGES, medStateSlug, type MedicalCollege } from '../data/medicalColleges';
 import { usePathname } from '../lib/isomorphic';
 
@@ -96,7 +96,7 @@ function ExamIndex({ go }: { go: (t: string) => void }) {
       <PageHero emoji="🎯" title="Colleges by Entrance Exam" subtitle="Pick your exam to see the colleges that accept it — with fees, cutoffs and admission." className="mb-6" />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {EXAMS.map((e) => {
-          const n = e.medical ? MEDICAL_COLLEGES.length : COLLEGES.filter((c) => c.exams.includes(e.label)).length;
+          const n = e.medical ? MEDICAL_COLLEGES.length : COLLEGES_LIVE.filter((c) => c.exams.includes(e.label)).length;
           return (
             <button key={e.slug} onClick={() => go(`/colleges-accepting/${e.slug}`)} className="rounded-2xl border-2 border-slate-100 bg-white p-4 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary dark:border-slate-700 dark:bg-slate-800">
               <div className="font-black text-slate-800 dark:text-slate-100">{e.label}</div>
@@ -110,7 +110,7 @@ function ExamIndex({ go }: { go: (t: string) => void }) {
 }
 
 function ExamView({ exam, go }: { exam: typeof EXAMS[number]; go: (t: string) => void }) {
-  const eng = exam.medical ? [] : COLLEGES.filter((c) => c.exams.includes(exam.label)).sort((a, b) => (a.nirf || 999) - (b.nirf || 999));
+  const eng = exam.medical ? [] : COLLEGES_LIVE.filter((c) => c.exams.includes(exam.label)).sort((a, b) => (a.nirf || 999) - (b.nirf || 999));
   const med = exam.medical ? [...MEDICAL_COLLEGES].sort((a, b) => (a.nirf || 999) - (b.nirf || 999)) : [];
   const total = eng.length + med.length;
   return (
@@ -166,7 +166,7 @@ function CourseIndex({ go }: { go: (t: string) => void }) {
 function CourseView({ course, go }: { course: typeof COURSES[number]; go: (t: string) => void }) {
   const list = course.medical
     ? [...MEDICAL_COLLEGES].sort((a, b) => (a.nirf || 999) - (b.nirf || 999)).slice(0, 30)
-    : COLLEGES.filter((c) => c.topBranches.some((b) => course.matchers.some((m) => b.toLowerCase().includes(m)))).sort((a, b) => (a.nirf || 999) - (b.nirf || 999)).slice(0, 40);
+    : COLLEGES_LIVE.filter((c) => c.topBranches.some((b) => course.matchers.some((m) => b.toLowerCase().includes(m)))).sort((a, b) => (a.nirf || 999) - (b.nirf || 999)).slice(0, 40);
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
       <SEO title={`Best ${course.short} Colleges in India 2026 — Ranking, Fees & Cutoffs | Syllab.in`}

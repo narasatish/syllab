@@ -10,7 +10,7 @@ import { Search } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import ToolRelated from '../components/ToolRelated';
 import SEO from '../components/SEO';
-import { COLLEGES, stateSlugForCollege } from '../data/colleges';
+import { COLLEGES_LIVE, stateSlugForCollege } from '../data/colleges';
 
 const SITE = 'https://syllab.in';
 
@@ -31,7 +31,7 @@ export default function Cutoffs() {
   // All exams that actually appear in the directory, ordered.
   const exams = useMemo(() => {
     const set = new Set<string>();
-    for (const c of COLLEGES) for (const e of c.exams) set.add(e);
+    for (const c of COLLEGES_LIVE) for (const e of c.exams) set.add(e);
     const present = [...set];
     const ordered = EXAM_ORDER.filter((e) => present.includes(e));
     const rest = present.filter((e) => !EXAM_ORDER.includes(e)).sort();
@@ -43,7 +43,7 @@ export default function Cutoffs() {
 
   const rows = useMemo(() => {
     const query = q.trim().toLowerCase();
-    return COLLEGES
+    return COLLEGES_LIVE
       .filter((c) => c.exams.includes(exam))
       .filter((c) => !query || c.name.toLowerCase().includes(query) || c.city.toLowerCase().includes(query) || c.state.toLowerCase().includes(query))
       .sort((a, b) => (a.nirf ?? Infinity) - (b.nirf ?? Infinity));

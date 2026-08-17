@@ -39,115 +39,232 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 10 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper follows the latest CBSE Class 10 Maths exam pattern, with questions spread across four sections. Practice it to revise every chapter and build board-exam confidence. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "80 minutes",
-    "totalMarks": 35,
+    "intro": "This is a full-length CBSE Class 10 Mathematics paper built to the current board blueprint: 38 questions across five sections for 80 marks in 3 hours, with Section A objective, Sections B to D descriptive and Section E case-based. Every question is followed by a fully worked solution, not just the final answer, so you can check your method as well as your result.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - MCQs",
-        "marks": 5,
-        "instructions": "Answer all 20 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 20,
+        "instructions": "Questions 1–18 are multiple choice. Questions 19 and 20 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "If the sum of the roots of the quadratic equation 2x^2 - (k+1)x + (k-2) = 0 is 5/2, then the value of k is",
+            "q": "The HCF of 96 and 404 is",
             "marks": 1,
-            "answer": "k = 6"
+            "answer": "4. 404 = 96×4 + 20; 96 = 20×4 + 16; 20 = 16×1 + 4; 16 = 4×4 + 0. The last non-zero remainder is 4."
           },
           {
-            "q": "The 15th term of an AP with first term 5 and common difference 3 is",
+            "q": "The LCM of two numbers is 182 and their HCF is 13. If one number is 26, the other is",
             "marks": 1,
-            "answer": "47"
+            "answer": "91. Product of the numbers = HCF × LCM = 13 × 182 = 2366, so the other number = 2366 ÷ 26 = 91."
           },
           {
-            "q": "If sin A = 3/5, then cos A is equal to",
+            "q": "If the sum of the roots of 2x² − (k+1)x + (k−2) = 0 is 5/2, then k equals",
             "marks": 1,
-            "answer": "4/5"
+            "answer": "k = 4. Sum of roots = (k+1)/2 = 5/2, so k + 1 = 5 and k = 4."
           },
           {
-            "q": "The radius of the circle with equation x^2 + y^2 - 6x - 8y + 9 = 0 is",
+            "q": "The quadratic equation x² + 4x + 5 = 0 has",
             "marks": 1,
-            "answer": "4"
+            "answer": "No real roots. D = 16 − 20 = −4 < 0, so the roots are not real."
           },
           {
-            "q": "Two similar triangles have areas in the ratio 4:9. Their corresponding sides are in the ratio",
+            "q": "The 15th term of an AP whose first term is 5 and common difference is 3 is",
             "marks": 1,
-            "answer": "2:3"
+            "answer": "47. aₙ = a + (n−1)d = 5 + 14×3 = 5 + 42 = 47."
+          },
+          {
+            "q": "How many two-digit numbers are divisible by 7?",
+            "marks": 1,
+            "answer": "13. They form the AP 14, 21, …, 98: 98 = 14 + (n−1)7 gives n = 13."
+          },
+          {
+            "q": "If the pair of equations 2x + 3y = 7 and 4x + 6y = k has infinitely many solutions, then k is",
+            "marks": 1,
+            "answer": "14. For infinitely many solutions a₁/a₂ = b₁/b₂ = c₁/c₂, i.e. 2/4 = 3/6 = 7/k, so k = 14."
+          },
+          {
+            "q": "If sin A = 3/5, then cos A equals",
+            "marks": 1,
+            "answer": "4/5. cos²A = 1 − sin²A = 1 − 9/25 = 16/25, and A is acute, so cos A = 4/5."
+          },
+          {
+            "q": "The value of (sin 30° · cos 60° + cos 30° · sin 60°) is",
+            "marks": 1,
+            "answer": "1. It equals sin(30° + 60°) = sin 90° = 1. Directly: ½·½ + (√3/2)(√3/2) = ¼ + ¾ = 1."
+          },
+          {
+            "q": "A ladder leans against a wall making an angle of 60° with the ground. If the foot of the ladder is 2.5 m from the wall, the length of the ladder is",
+            "marks": 1,
+            "answer": "5 m. cos 60° = base/hypotenuse, so ½ = 2.5/L and L = 5 m."
+          },
+          {
+            "q": "Two similar triangles have areas in the ratio 4 : 9. Their corresponding sides are in the ratio",
+            "marks": 1,
+            "answer": "2 : 3. The ratio of areas of similar triangles equals the square of the ratio of corresponding sides, and √(4/9) = 2/3."
+          },
+          {
+            "q": "In a right triangle ABC right-angled at B, if AB = 6 cm and BC = 8 cm, then AC is",
+            "marks": 1,
+            "answer": "10 cm. AC² = 6² + 8² = 36 + 64 = 100, so AC = 10 cm."
+          },
+          {
+            "q": "The distance of the point (−6, 8) from the origin is",
+            "marks": 1,
+            "answer": "10 units. √((−6)² + 8²) = √(36 + 64) = √100 = 10."
+          },
+          {
+            "q": "The midpoint of the segment joining (2, −3) and (−6, 7) is",
+            "marks": 1,
+            "answer": "(−2, 2). Midpoint = ((2 + (−6))/2, (−3 + 7)/2) = (−4/2, 4/2) = (−2, 2)."
+          },
+          {
+            "q": "The length of a tangent drawn from a point 13 cm from the centre of a circle of radius 5 cm is",
+            "marks": 1,
+            "answer": "12 cm. The tangent is perpendicular to the radius, so length = √(13² − 5²) = √(169 − 25) = √144 = 12 cm."
+          },
+          {
+            "q": "The area of a sector of a circle of radius 7 cm with central angle 60° is",
+            "marks": 1,
+            "answer": "77/3 cm² ≈ 25.67 cm². Area = (θ/360)πr² = (60/360)(22/7)(49) = (1/6)(154) = 77/3 cm²."
+          },
+          {
+            "q": "If the mean of 5, 7, 9, x and 11 is 9, then x is",
+            "marks": 1,
+            "answer": "13. The sum must be 5 × 9 = 45, and 5 + 7 + 9 + 11 = 32, so x = 13."
+          },
+          {
+            "q": "A die is thrown once. The probability of getting a prime number is",
+            "marks": 1,
+            "answer": "1/2. The primes on a die are 2, 3 and 5 — three outcomes out of six, so 3/6 = 1/2."
+          },
+          {
+            "q": "Assertion (A): The number 6ⁿ can end with the digit 0 for some natural number n. Reason (R): Any number ending in 0 has both 2 and 5 as prime factors.",
+            "marks": 1,
+            "answer": "(d) A is false, R is true. 6ⁿ = 2ⁿ·3ⁿ has no factor 5, so it can never end in 0; the reason itself is a correct statement."
+          },
+          {
+            "q": "Assertion (A): The points (1, 1), (2, 3) and (3, 5) are collinear. Reason (R): Three points are collinear if the area of the triangle they form is zero.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. Area = ½|1(3−5) + 2(5−1) + 3(1−3)| = ½|−2 + 8 − 6| = 0, so the points are collinear by exactly the criterion in R."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
+        "instructions": "Answer all 5 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Find the HCF of 210 and 55 using Euclidean algorithm.",
+            "q": "Prove that 3 + 2√5 is irrational, given that √5 is irrational.",
             "marks": 2,
-            "answer": "HCF = 5"
+            "answer": "Suppose 3 + 2√5 is rational, say equal to r. Then √5 = (r − 3)/2. The right side is a difference and quotient of rationals, hence rational, so √5 would be rational — contradicting the given. Therefore 3 + 2√5 is irrational."
           },
           {
-            "q": "If a and b are zeroes of x^2 + 5x + k, and a - b = 1, find k.",
+            "q": "Find the zeroes of the polynomial x² − 2x − 8 and verify the relation between the zeroes and the coefficients.",
             "marks": 2,
-            "answer": "k = 6"
+            "answer": "x² − 2x − 8 = (x − 4)(x + 2), so the zeroes are 4 and −2. Sum = 4 + (−2) = 2 = −(−2)/1 = −b/a. Product = 4 × (−2) = −8 = −8/1 = c/a. Both relations hold."
           },
           {
-            "q": "Find the sum of the first 20 terms of AP: 1, 4, 7, 10...",
+            "q": "Solve for x and y: x + y = 14 and x − y = 4.",
             "marks": 2,
-            "answer": "S20 = 590"
+            "answer": "Adding the two equations gives 2x = 18, so x = 9. Substituting into x + y = 14 gives y = 5. Hence x = 9, y = 5."
           },
           {
-            "q": "If cos 9A = sin A and 0 < A < 90 degrees, find the value of A.",
+            "q": "In triangle ABC, the point D lies on AB and the point E lies on AC such that DE is parallel to BC. If AD = 3 cm, DB = 5 cm and AE = 4.5 cm, find EC.",
             "marks": 2,
-            "answer": "A = 10 degrees"
+            "answer": "By the Basic Proportionality Theorem, AD/DB = AE/EC, so 3/5 = 4.5/EC. Cross-multiplying, 3·EC = 22.5 and EC = 7.5 cm."
           },
           {
-            "q": "A point P is at distance 13 cm from the center of a circle of radius 5 cm. Find the length of the tangent from P to the circle.",
+            "q": "A bag contains 5 red, 8 white and 7 black balls. One ball is drawn at random. Find the probability that it is not black.",
             "marks": 2,
-            "answer": "12 cm"
+            "answer": "Total balls = 5 + 8 + 7 = 20. Balls that are not black = 5 + 8 = 13. P(not black) = 13/20."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (3 marks)",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 18,
+        "instructions": "Answer all 6 questions. Each carries 3 marks.",
+        "questions": [
+          {
+            "q": "Find the HCF and LCM of 510 and 92 by prime factorisation, and verify that HCF × LCM = product of the numbers.",
+            "marks": 3,
+            "answer": "510 = 2 × 3 × 5 × 17 and 92 = 2² × 23. The only common prime factor is 2, so HCF = 2. LCM = 2² × 3 × 5 × 17 × 23 = 23460. Check: HCF × LCM = 2 × 23460 = 46920, and 510 × 92 = 46920. Verified."
+          },
+          {
+            "q": "Solve the quadratic equation 2x² − 7x + 3 = 0 by the quadratic formula.",
+            "marks": 3,
+            "answer": "Here a = 2, b = −7, c = 3, so D = 49 − 24 = 25 and √D = 5. x = (7 ± 5)/4, giving x = 12/4 = 3 and x = 2/4 = 1/2. The roots are 3 and 1/2."
+          },
+          {
+            "q": "The sum of the first 12 terms of an AP is 246 and its first term is 4. Find the common difference and the 12th term.",
+            "marks": 3,
+            "answer": "Sₙ = n/2[2a + (n−1)d] gives 246 = 6[8 + 11d], so 8 + 11d = 41, hence 11d = 33 and d = 3. The 12th term is a + 11d = 4 + 33 = 37."
+          },
+          {
+            "q": "Prove that (1 + cot²θ)(1 − cos θ)(1 + cos θ) = 1.",
+            "marks": 3,
+            "answer": "(1 − cos θ)(1 + cos θ) = 1 − cos²θ = sin²θ. Also 1 + cot²θ = cosec²θ = 1/sin²θ. Multiplying, (1/sin²θ)(sin²θ) = 1, as required."
+          },
+          {
+            "q": "Find the area of the triangle whose vertices are (1, −1), (−4, 6) and (−3, −5).",
+            "marks": 3,
+            "answer": "Area = ½|x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂)| = ½|1(6−(−5)) + (−4)((−5)−(−1)) + (−3)((−1)−6)| = ½|11 + 16 + 21| = ½(48) = 24 square units."
+          },
+          {
+            "q": "A chord of a circle of radius 10 cm subtends a right angle at the centre. Find the area of the corresponding minor segment. (Use π = 3.14)",
+            "marks": 3,
+            "answer": "Area of the sector = (90/360)πr² = ¼ × 3.14 × 100 = 78.5 cm². Area of the triangle formed by the two radii = ½ × 10 × 10 = 50 cm². Minor segment = 78.5 − 50 = 28.5 cm²."
+          }
+        ]
+      },
+      {
+        "name": "Section D — Long Answer (5 marks each)",
+        "marks": 20,
+        "instructions": "Answer all 4 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "A motor boat whose speed in still water is 18 km/h takes 1 hour more to go 24 km upstream than to return downstream to the same spot. Find the speed of the stream.",
+            "marks": 5,
+            "answer": "Let the stream speed be x km/h. Upstream time = 24/(18 − x), downstream time = 24/(18 + x), and the difference is 1 hour: 24/(18 − x) − 24/(18 + x) = 1. This gives 24(18 + x − 18 + x) = (18 − x)(18 + x), i.e. 48x = 324 − x². So x² + 48x − 324 = 0, which factors as (x + 54)(x − 6) = 0. Rejecting the negative root, the stream flows at 6 km/h."
+          },
+          {
+            "q": "Prove that if a line is drawn parallel to one side of a triangle to intersect the other two sides at distinct points, the other two sides are divided in the same ratio (Basic Proportionality Theorem).",
+            "marks": 5,
+            "answer": "In triangle ABC let DE ∥ BC meet AB at D and AC at E. Join BE and CD, and drop perpendiculars EM ⊥ AB and DN ⊥ AC. Now ar(ADE)/ar(BDE) = (½·AD·EM)/(½·DB·EM) = AD/DB, since both triangles share the same height EM. Similarly ar(ADE)/ar(DEC) = AE/EC. But triangles BDE and DEC stand on the same base DE and lie between the same parallels DE and BC, so ar(BDE) = ar(DEC). Hence AD/DB = AE/EC."
+          },
+          {
+            "q": "The angle of elevation of the top of a tower from a point on the ground is 30°. On walking 30 m towards the tower, the angle of elevation becomes 60°. Find the height of the tower and the original distance from its foot.",
+            "marks": 5,
+            "answer": "Let the height be h and the nearer distance be x. From the nearer point, tan 60° = h/x, so h = x√3. From the farther point, tan 30° = h/(x + 30), so h = (x + 30)/√3. Equating, x√3 = (x + 30)/√3, hence 3x = x + 30, so x = 15 m and h = 15√3 ≈ 25.98 m. The original distance was x + 30 = 45 m."
+          },
+          {
+            "q": "A solid is in the shape of a cone standing on a hemisphere, both having the same radius 7 cm, and the total height of the solid is 21 cm. Find the volume of the solid. (Use π = 22/7)",
+            "marks": 5,
+            "answer": "The hemisphere contributes a height equal to its radius, 7 cm, so the cone's height is 21 − 7 = 14 cm. Volume of the hemisphere = (2/3)πr³ = (2/3)(22/7)(343) = 718.67 cm³. Volume of the cone = (1/3)πr²h = (1/3)(22/7)(49)(14) = 718.67 cm³. Total volume ≈ 1437.33 cm³."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Case-based questions (4 marks each)",
         "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "instructions": "Answer all 3 case-based questions. Each has sub-parts totalling 4 marks.",
         "questions": [
           {
-            "q": "Solve the system: 2x + 3y = 8 and 3x + 2y = 7",
-            "marks": 3,
-            "answer": "x = 2, y = 4/3"
-          },
-          {
-            "q": "Find the area of a triangle with vertices A(2, 3), B(5, 7), C(-1, 6).",
-            "marks": 3,
-            "answer": "Area = 6 square units"
-          },
-          {
-            "q": "A ladder 10 m long leans against a wall. The foot of the ladder is 6 m away from the base of the wall. At what height does the ladder touch the wall?",
-            "marks": 3,
-            "answer": "8 m"
-          },
-          {
-            "q": "Prove that the sum of the angles in a triangle is 180 degrees.",
-            "marks": 3,
-            "answer": "Use parallel line property with alternate interior angles"
-          }
-        ]
-      },
-      {
-        "name": "Section D - Long Answer (4 marks)",
-        "marks": 8,
-        "instructions": "Answer all 2 questions, each carrying 4 marks.",
-        "questions": [
-          {
-            "q": "A cone has height 12 cm and base radius 5 cm. Find its curved surface area and total surface area.",
+            "q": "CASE STUDY 1 — A school is organising a sports day. The seats in the stadium are arranged in rows: the first row has 20 seats, the second 24, the third 28, and so on, each row having 4 more seats than the one before. (i) Which progression do the seat counts form, and what are its first term and common difference? (ii) How many seats are in the 15th row? (iii) How many seats are there in the first 15 rows altogether?",
             "marks": 4,
-            "answer": "CSA = 204.2 sq cm, TSA = 285.7 sq cm approximately"
+            "answer": "(i) The counts 20, 24, 28, … form an AP with first term a = 20 and common difference d = 4. (ii) a₁₅ = a + 14d = 20 + 56 = 76 seats. (iii) S₁₅ = 15/2 (2×20 + 14×4) = 15/2 (40 + 56) = 15/2 × 96 = 720 seats."
           },
           {
-            "q": "Two concentric circles have radii 5 cm and 3 cm. A chord of the larger circle is tangent to the smaller circle. Find the length of the chord.",
+            "q": "CASE STUDY 2 — A student stands 20 m from the base of a vertical flagpole. The angle of elevation of the top of the pole from the student's eye, which is 1.5 m above the ground, is 45°. (i) Sketch the situation and name the right triangle involved. (ii) Find the height of the pole above eye level. (iii) Find the total height of the flagpole.",
             "marks": 4,
-            "answer": "8 cm"
+            "answer": "(i) The horizontal line from the eye to the pole, the vertical part of the pole above eye level, and the line of sight form a right triangle, right-angled at the pole. (ii) tan 45° = h/20, and tan 45° = 1, so h = 20 m above eye level. (iii) Total height = 20 + 1.5 = 21.5 m."
+          },
+          {
+            "q": "CASE STUDY 3 — A survey recorded the daily pocket money (in ₹) of 40 students: 0–10 → 4 students, 10–20 → 8, 20–30 → 12, 30–40 → 10, 40–50 → 6. (i) Which class is the modal class? (ii) Find the mode. (iii) Find the mean pocket money using the direct method.",
+            "marks": 4,
+            "answer": "(i) The highest frequency is 12, so the modal class is 20–30. (ii) Mode = l + [(f₁ − f₀)/(2f₁ − f₀ − f₂)] × h = 20 + [(12 − 8)/(24 − 8 − 10)] × 10 = 20 + (4/6)(10) = 26.67 (about ₹26.7). (iii) Using midpoints 5, 15, 25, 35, 45: Σfᵢxᵢ = 4(5) + 8(15) + 12(25) + 10(35) + 6(45) = 20 + 120 + 300 + 350 + 270 = 1060. Mean = 1060/40 = ₹26.50."
           }
         ]
       }
@@ -173,120 +290,237 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 10 Science Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive science sample paper covers Physics, Chemistry, and Biology with questions from all major chapters. Use this to assess your preparation and familiarize yourself with the exam pattern. This is a shortened practice set: 17 questions worth 40 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "90 minutes",
-    "totalMarks": 40,
+    "intro": "This is a full-length CBSE Class 10 Science paper built to the current board blueprint: 39 questions across five sections for 80 marks in 3 hours, covering Physics, Chemistry and Biology in the proportions the board uses. Section A is objective, Sections B to D are descriptive and Section E is case-based. Every question carries a fully worked solution explaining the reasoning, not just the final answer.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - Multiple Choice",
-        "marks": 4,
-        "instructions": "Answer all 16 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 20,
+        "instructions": "Questions 1–18 are multiple choice. Questions 19 and 20 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "The speed of light in a medium is 1.5 x 10^8 m/s. The refractive index of the medium is",
+            "q": "The correct balanced equation for the reaction of iron with steam is",
             "marks": 1,
-            "answer": "2"
+            "answer": "3Fe + 4H₂O → Fe₃O₄ + 4H₂. Iron reacts with steam (not cold water) to give iron(II,III) oxide and hydrogen gas."
           },
           {
-            "q": "Which hormone controls blood glucose levels?",
+            "q": "When quicklime is added to water, the reaction is",
             "marks": 1,
-            "answer": "Insulin"
+            "answer": "A combination reaction that is exothermic. CaO + H₂O → Ca(OH)₂, releasing a large amount of heat."
           },
           {
-            "q": "The atomic number of an element is 17. Its electronic configuration is",
+            "q": "The pH of a solution changes from 4 to 3. The hydrogen ion concentration becomes",
             "marks": 1,
-            "answer": "2, 8, 7"
+            "answer": "10 times greater. The pH scale is logarithmic, so a fall of one unit means a tenfold rise in [H⁺]."
           },
           {
-            "q": "The pH of a neutral solution is",
+            "q": "Which of the following is used to test whether a substance is a base: red litmus, blue litmus, or dilute HCl?",
             "marks": 1,
-            "answer": "7"
+            "answer": "Red litmus. A base turns red litmus blue; blue litmus stays blue and so gives no information."
+          },
+          {
+            "q": "The common name of sodium hydrogencarbonate is",
+            "marks": 1,
+            "answer": "Baking soda, NaHCO₃. It is used in antacids and in baking powder with a mild edible acid."
+          },
+          {
+            "q": "The reaction 2PbO + C → 2Pb + CO₂ shows that carbon is acting as",
+            "marks": 1,
+            "answer": "A reducing agent. Carbon removes oxygen from lead oxide, so PbO is reduced and carbon is itself oxidised."
+          },
+          {
+            "q": "Which gas is evolved when a metal reacts with a dilute acid?",
+            "marks": 1,
+            "answer": "Hydrogen. It burns with a pop sound when a lighted splint is brought near, which is the standard test."
+          },
+          {
+            "q": "The functional group present in ethanoic acid is",
+            "marks": 1,
+            "answer": "The carboxylic acid group, −COOH. Ethanoic acid is CH₃COOH."
+          },
+          {
+            "q": "The number of covalent bonds in a molecule of ethane (C₂H₆) is",
+            "marks": 1,
+            "answer": "Seven — six C–H bonds and one C–C bond."
+          },
+          {
+            "q": "The site of complete oxidation of glucose in a cell is the",
+            "marks": 1,
+            "answer": "Mitochondrion. Glycolysis occurs in the cytoplasm, but the complete breakdown to CO₂ and water occurs in the mitochondria."
+          },
+          {
+            "q": "The xylem in plants is responsible for",
+            "marks": 1,
+            "answer": "Transport of water and dissolved minerals from the roots to the rest of the plant. Phloem transports food."
+          },
+          {
+            "q": "Which hormone regulates the level of sugar in the blood?",
+            "marks": 1,
+            "answer": "Insulin, secreted by the pancreas. Its deficiency causes diabetes."
+          },
+          {
+            "q": "In human beings, the sex of a child is determined by",
+            "marks": 1,
+            "answer": "The chromosome inherited from the father. The mother always contributes an X; the father contributes either X (girl) or Y (boy)."
+          },
+          {
+            "q": "A concave mirror forms a real, inverted and magnified image when the object is placed",
+            "marks": 1,
+            "answer": "Between the focus F and the centre of curvature C. The image then forms beyond C."
+          },
+          {
+            "q": "The refractive index of a medium in which light travels at 2 × 10⁸ m/s is (speed of light in vacuum = 3 × 10⁸ m/s)",
+            "marks": 1,
+            "answer": "1.5. n = c/v = (3 × 10⁸)/(2 × 10⁸) = 1.5."
+          },
+          {
+            "q": "The power of a lens of focal length 25 cm is",
+            "marks": 1,
+            "answer": "+4 D. P = 1/f in metres = 1/0.25 = 4 dioptres, positive because a 25 cm focal length here denotes a converging lens."
+          },
+          {
+            "q": "Two resistors of 6 Ω and 3 Ω are connected in parallel. Their equivalent resistance is",
+            "marks": 1,
+            "answer": "2 Ω. 1/R = 1/6 + 1/3 = 1/2, so R = 2 Ω."
+          },
+          {
+            "q": "The direction of the magnetic field around a straight current-carrying conductor is given by",
+            "marks": 1,
+            "answer": "The right-hand thumb rule: point the right thumb along the current and the curled fingers give the direction of the field."
+          },
+          {
+            "q": "Assertion (A): Photosynthesis is an endothermic process. Reason (R): Energy is absorbed from sunlight during photosynthesis.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. Photosynthesis stores absorbed light energy in glucose, which is precisely why it is endothermic."
+          },
+          {
+            "q": "Assertion (A): Ozone in the upper atmosphere is harmful to living organisms. Reason (R): Ozone absorbs ultraviolet radiation from the Sun.",
+            "marks": 1,
+            "answer": "(d) A is false, R is true. Upper-atmosphere ozone protects life by absorbing UV radiation; it is ozone at ground level that is a pollutant."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
-        "marks": 14,
-        "instructions": "Answer all 7 questions, each carrying 2 marks.",
-        "questions": [
-          {
-            "q": "What is myopia? How can it be corrected?",
-            "marks": 2,
-            "answer": "Myopia is nearsightedness. It is corrected using a concave lens."
-          },
-          {
-            "q": "Define refraction of light. Give one example.",
-            "marks": 2,
-            "answer": "Refraction is the bending of light when it enters a different medium. Example: A pencil appears bent in water."
-          },
-          {
-            "q": "What is the difference between mitosis and meiosis?",
-            "marks": 2,
-            "answer": "Mitosis produces 2 identical cells; meiosis produces 4 non-identical haploid cells."
-          },
-          {
-            "q": "How does a catalyst increase the rate of a chemical reaction?",
-            "marks": 2,
-            "answer": "A catalyst lowers the activation energy required for the reaction."
-          },
-          {
-            "q": "Distinguish between renewable and non-renewable resources.",
-            "marks": 2,
-            "answer": "Renewable resources can be replenished naturally; non-renewable resources cannot and are exhausted."
-          },
-          {
-            "q": "What is the function of stomata in plants?",
-            "marks": 2,
-            "answer": "Stomata allow gas exchange and water vapor loss in plants through transpiration."
-          },
-          {
-            "q": "Define the term alloy. Give two examples.",
-            "marks": 2,
-            "answer": "An alloy is a mixture of two or more elements where at least one is a metal. Examples: Brass, Steel."
-          }
-        ]
-      },
-      {
-        "name": "Section C - Long Answer (3 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "instructions": "Answer all 6 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Explain the process of photosynthesis with a chemical equation.",
-            "marks": 3,
-            "answer": "Plants use sunlight, water, and CO2 to produce glucose and oxygen. 6CO2 + 6H2O + light = C6H12O6 + 6O2"
+            "q": "Why is respiration considered an exothermic reaction? Write the overall equation.",
+            "marks": 2,
+            "answer": "Respiration breaks down glucose and releases the energy stored in it, which the cell uses for its activities — energy is given out, so the reaction is exothermic. C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy."
           },
           {
-            "q": "How does a thermal power plant generate electricity?",
-            "marks": 3,
-            "answer": "Fossil fuels heat water to steam, which drives turbines connected to generators to produce electricity."
+            "q": "What is meant by a rancid food, and how can rancidity be prevented?",
+            "marks": 2,
+            "answer": "Rancidity is the oxidation of fats and oils in food, which spoils their smell and taste. It is prevented by adding antioxidants, packaging in nitrogen, keeping food in airtight containers and refrigerating it."
           },
           {
-            "q": "Explain the process of digestion in the human body.",
-            "marks": 3,
-            "answer": "Food is broken down mechanically and chemically in the mouth, stomach, and small intestine; nutrients are absorbed."
+            "q": "Distinguish between an acid and a base in terms of the ions they produce in aqueous solution, with one example of each.",
+            "marks": 2,
+            "answer": "An acid produces hydrogen ions, H⁺ (as H₃O⁺), in water — for example HCl → H⁺ + Cl⁻. A base produces hydroxide ions, OH⁻ — for example NaOH → Na⁺ + OH⁻."
           },
           {
-            "q": "What is the principle behind a simple electric motor?",
-            "marks": 3,
-            "answer": "A current-carrying coil in a magnetic field experiences a force, causing it to rotate continuously."
+            "q": "Why do we apply paint on iron articles?",
+            "marks": 2,
+            "answer": "Paint forms a barrier that keeps out air and moisture, both of which are needed for rusting. Without contact with oxygen and water the iron cannot corrode, so painting prevents rusting."
+          },
+          {
+            "q": "State two differences between arteries and veins.",
+            "marks": 2,
+            "answer": "Arteries carry blood away from the heart, usually oxygenated, under high pressure and have thick elastic walls without valves. Veins carry blood towards the heart, usually deoxygenated, under low pressure and have thinner walls with valves that prevent backflow."
+          },
+          {
+            "q": "Define the principal focus of a concave mirror.",
+            "marks": 2,
+            "answer": "It is the point on the principal axis at which rays of light parallel to the principal axis actually meet after reflection from the concave mirror. The distance of this point from the pole is the focal length."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (5 marks)",
-        "marks": 10,
-        "instructions": "Answer all 2 questions, with internal choice; each carrying 5 marks.",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 21,
+        "instructions": "Answer all 7 questions. Each carries 3 marks.",
         "questions": [
           {
-            "q": "Describe the structure and function of a neuron. OR Explain the process of fertilization in plants.",
-            "marks": 5,
-            "answer": "A neuron has a cell body, dendrites, and axon for nerve impulse transmission. OR Pollen fertilizes the ovule; fusion of gametes occurs."
+            "q": "Balance the equation and name the type of reaction: Fe + CuSO₄ → FeSO₄ + Cu.",
+            "marks": 3,
+            "answer": "The equation is already balanced: Fe + CuSO₄ → FeSO₄ + Cu, with one atom of each element on both sides. It is a displacement reaction, because the more reactive iron displaces the less reactive copper from its salt solution. The blue colour of the copper sulphate solution fades and a reddish-brown deposit of copper forms."
           },
           {
-            "q": "How does a convex lens form images at different distances? Draw ray diagrams.",
+            "q": "What happens when sodium hydrogencarbonate is heated? Give the equation and one use of the product.",
+            "marks": 3,
+            "answer": "On heating, sodium hydrogencarbonate decomposes: 2NaHCO₃ →(heat) Na₂CO₃ + H₂O + CO₂. The carbon dioxide released is what makes cakes and bread rise, which is why baking soda is used in baking powder; the sodium carbonate formed is used in cleaning agents."
+          },
+          {
+            "q": "Explain why carbon forms a very large number of compounds. Give any two reasons.",
+            "marks": 3,
+            "answer": "First, carbon shows catenation — carbon atoms bond strongly to one another to form long chains, branched chains and rings, which no other element does to the same extent. Second, carbon is tetravalent, so each atom can bond with four other atoms of carbon or of other elements such as hydrogen, oxygen, nitrogen and sulphur. The strength of these covalent bonds makes the resulting compounds stable."
+          },
+          {
+            "q": "Draw and label the pathway of blood in the human heart, naming the four chambers in order.",
+            "marks": 3,
+            "answer": "Deoxygenated blood from the body enters the right atrium through the vena cava, passes to the right ventricle, and is pumped through the pulmonary artery to the lungs. Oxygenated blood returns from the lungs through the pulmonary vein into the left atrium, passes to the left ventricle, and is pumped out through the aorta to the body. The four chambers in order are right atrium, right ventricle, left atrium and left ventricle; valves between them prevent backflow."
+          },
+          {
+            "q": "State the laws of refraction of light and define absolute refractive index.",
+            "marks": 3,
+            "answer": "First law: the incident ray, the refracted ray and the normal at the point of incidence all lie in the same plane. Second law (Snell's law): for a given pair of media, the ratio of the sine of the angle of incidence to the sine of the angle of refraction is constant, sin i / sin r = n. The absolute refractive index of a medium is the ratio of the speed of light in vacuum to the speed of light in that medium, n = c/v."
+          },
+          {
+            "q": "An electric bulb is rated 220 V and 100 W. Calculate its resistance and the current it draws in normal operation.",
+            "marks": 3,
+            "answer": "Power P = V²/R, so R = V²/P = (220 × 220)/100 = 484 Ω. Current I = P/V = 100/220 = 0.45 A. The bulb therefore has a resistance of 484 Ω and draws about 0.45 A."
+          },
+          {
+            "q": "What is a food chain? Explain why the number of trophic levels in a food chain is limited to four or five.",
+            "marks": 3,
+            "answer": "A food chain is the series of organisms through which energy passes as one feeds on another — for example grass → grasshopper → frog → snake. Only about 10% of the energy at one trophic level is transferred to the next, the rest being lost as heat and used in life processes. After four or five levels so little energy remains that it cannot support another population, so food chains are short."
+          }
+        ]
+      },
+      {
+        "name": "Section D — Long Answer (5 marks each)",
+        "marks": 15,
+        "instructions": "Answer all 3 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "(a) What is meant by the reactivity series of metals? (b) Explain, with equations, why zinc can displace copper from copper sulphate solution but copper cannot displace zinc from zinc sulphate solution. (c) Name one metal that does not react with dilute acids.",
             "marks": 5,
-            "answer": "At 2f: real, inverted, same size; beyond 2f: real, inverted, diminished; between f and lens: virtual, erect, magnified."
+            "answer": "(a) The reactivity series is the arrangement of metals in decreasing order of their tendency to lose electrons and form positive ions, the most reactive at the top. (b) Zinc lies above copper in the series, so it is more reactive and displaces copper: Zn + CuSO₄ → ZnSO₄ + Cu, the blue solution fading as reddish-brown copper is deposited. Copper lies below zinc, is less reactive, and therefore cannot displace it, so Cu + ZnSO₄ → no reaction. (c) Copper (or silver or gold) does not react with dilute acids to release hydrogen."
+          },
+          {
+            "q": "(a) Draw a ray diagram showing image formation by a convex lens when the object is placed beyond 2F₁. (b) State the nature, position and size of the image. (c) An object 4 cm high is placed 30 cm from a convex lens of focal length 10 cm. Find the position and height of the image.",
+            "marks": 5,
+            "answer": "(a) One ray parallel to the principal axis refracts through F₂; a second ray through the optical centre goes straight on; they meet to form the image between F₂ and 2F₂ on the far side. (b) The image is real, inverted and diminished. (c) Using 1/v − 1/u = 1/f with u = −30 cm and f = +10 cm: 1/v = 1/10 + 1/(−30) = (3 − 1)/30 = 2/30, so v = +15 cm — the image is 15 cm from the lens on the opposite side. Magnification m = v/u = 15/(−30) = −0.5, so the image height = −0.5 × 4 = −2 cm: it is 2 cm tall and inverted."
+          },
+          {
+            "q": "(a) State Mendel's law of dominance using his monohybrid cross as an example. (b) A tall pea plant (TT) is crossed with a short one (tt). Give the F₁ and F₂ genotypes and the F₂ phenotypic ratio. (c) Why did Mendel choose the pea plant?",
+            "marks": 5,
+            "answer": "(a) The law of dominance states that when two contrasting forms of a trait are present together, only one — the dominant one — is expressed, while the recessive form remains hidden. In Mendel's cross of tall with short pea plants, all F₁ plants were tall. (b) F₁ is entirely Tt and all plants are tall. Selfing the F₁ gives F₂ genotypes TT, Tt, Tt and tt, a genotypic ratio of 1 : 2 : 1, and since T is dominant the phenotypic ratio is 3 tall : 1 short. (c) The pea plant has clearly contrasting characters, is self-pollinating so pure lines are easily maintained, can be cross-pollinated by hand, and has a short life cycle producing many seeds — so results appear quickly and in large numbers."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Case-based questions (4 marks each)",
+        "marks": 12,
+        "instructions": "Answer all 3 case-based questions. Each has sub-parts totalling 4 marks.",
+        "questions": [
+          {
+            "q": "CASE STUDY 1 — A student tests four household solutions with universal indicator and records: lemon juice pH 2, milk pH 6, water pH 7, soap solution pH 10. (i) Which solution is most acidic and which is most basic? (ii) Which is neutral? (iii) The student's tooth enamel begins to corrode below pH 5.5 — explain why brushing with a toothpaste like the soap solution helps.",
+            "marks": 4,
+            "answer": "(i) Lemon juice at pH 2 is the most acidic and soap solution at pH 10 the most basic. (ii) Water at pH 7 is neutral. (iii) Bacteria in the mouth produce acids that lower the pH below 5.5, and tooth enamel — calcium phosphate — is corroded by that acid. Toothpastes are mildly basic, so they neutralise the excess acid and raise the pH above the level at which enamel dissolves."
+          },
+          {
+            "q": "CASE STUDY 2 — An electric circuit has a 6 V battery connected to two resistors of 4 Ω and 8 Ω joined in series, with an ammeter connected in series. (i) Find the equivalent resistance. (ii) Find the current recorded by the ammeter. (iii) Find the potential difference across the 8 Ω resistor.",
+            "marks": 4,
+            "answer": "(i) In series the resistances add: R = 4 + 8 = 12 Ω. (ii) I = V/R = 6/12 = 0.5 A, and since the current is the same everywhere in a series circuit the ammeter reads 0.5 A wherever it is placed. (iii) V = IR = 0.5 × 8 = 4 V across the 8 Ω resistor (the remaining 2 V is across the 4 Ω resistor, and 4 + 2 = 6 V as expected)."
+          },
+          {
+            "q": "CASE STUDY 3 — A pond ecosystem contains algae, small fish that eat the algae, and large fish that eat the small fish. A factory discharges a non-biodegradable pesticide into the pond. (i) Write the food chain and name the producer. (ii) Which organism will have the highest concentration of the pesticide, and what is this phenomenon called? (iii) Suggest one way to reduce this problem.",
+            "marks": 4,
+            "answer": "(i) The food chain is algae → small fish → large fish, and the algae are the producers because they make their own food by photosynthesis. (ii) The large fish, at the highest trophic level, will carry the highest concentration. Because the pesticide is non-biodegradable it is not broken down or excreted, so it accumulates and becomes more concentrated at each successive level — this is called biological magnification. (iii) Use biodegradable pesticides, or treat factory effluent before discharge, or switch to biological pest control so the harmful chemical never enters the food chain."
           }
         ]
       }
@@ -1207,110 +1441,207 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Physics",
     "board": "CBSE",
     "title": "CBSE Class 12 Physics Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive physics sample paper covers electromagnetism, optics, modern physics, and mechanics. Prepare thoroughly using this paper to excel in the board examination. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "75 minutes",
-    "totalMarks": 34,
+    "intro": "This is a full-length CBSE Class 12 Physics paper built to the current board blueprint: 33 questions across five sections for 70 marks in 3 hours, the 30 remaining marks being the practical component assessed in school. Section A is objective, Section D is case-based and Section E carries the long derivations. Every question is followed by a complete worked solution with the derivation set out step by step.",
+    "duration": "3 hours",
+    "totalMarks": 70,
     "sections": [
       {
-        "name": "Section A - Multiple Choice",
-        "marks": 4,
-        "instructions": "Answer all 16 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 16,
+        "instructions": "Questions 1–14 are multiple choice. Questions 15 and 16 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "The SI unit of electric field is",
+            "q": "Two point charges each of +2 μC are placed 30 cm apart in air. The force between them is",
             "marks": 1,
-            "answer": "N/C or V/m"
+            "answer": "0.4 N, repulsive. F = kq₁q₂/r² = (9 × 10⁹)(2 × 10⁻⁶)²/(0.3)² = (9 × 10⁹)(4 × 10⁻¹²)/0.09 = 0.4 N."
           },
           {
-            "q": "The refractive index of diamond is approximately",
+            "q": "The electric field inside a charged hollow conductor in electrostatic equilibrium is",
             "marks": 1,
-            "answer": "2.42"
+            "answer": "Zero. Charge resides entirely on the outer surface and the field inside the conducting material and cavity is zero, which is the basis of electrostatic shielding."
           },
           {
-            "q": "According to Einstein's photoelectric equation, the maximum kinetic energy of photoelectrons is",
+            "q": "The capacitance of a parallel plate capacitor is doubled when",
             "marks": 1,
-            "answer": "hf - phi, where phi is work function"
+            "answer": "The separation between the plates is halved. C = ε₀A/d, so halving d doubles C (equivalently, doubling the plate area also doubles it)."
           },
           {
-            "q": "The angle of minimum deviation for an equilateral prism is",
+            "q": "The drift velocity of electrons in a conductor is of the order of",
             "marks": 1,
-            "answer": "60 degrees"
+            "answer": "10⁻⁴ m/s — less than a millimetre per second, even though the electrical signal itself travels at nearly the speed of light."
+          },
+          {
+            "q": "The resistance of a wire is R. If it is stretched to twice its original length, its new resistance is",
+            "marks": 1,
+            "answer": "4R. Stretching keeps the volume constant, so doubling the length halves the area; R = ρl/A becomes ρ(2l)/(A/2) = 4ρl/A = 4R."
+          },
+          {
+            "q": "A charged particle moving parallel to a uniform magnetic field experiences a force of magnitude",
+            "marks": 1,
+            "answer": "Zero. F = qvB sin θ and θ = 0°, so sin θ = 0 and the force vanishes."
+          },
+          {
+            "q": "The magnetic field at the centre of a circular coil of n turns, radius r, carrying current I is",
+            "marks": 1,
+            "answer": "B = μ₀nI/2r, directed along the axis of the coil as given by the right-hand rule."
+          },
+          {
+            "q": "Lenz's law is a consequence of the law of conservation of",
+            "marks": 1,
+            "answer": "Energy. The induced current always opposes the change producing it, so work must be done against that opposition — otherwise energy would be created from nothing."
+          },
+          {
+            "q": "In a purely inductive AC circuit, the current",
+            "marks": 1,
+            "answer": "Lags the voltage by π/2 (90°). The inductor opposes the change in current, so the current peaks a quarter cycle after the voltage."
+          },
+          {
+            "q": "Electromagnetic waves are produced by",
+            "marks": 1,
+            "answer": "Accelerated charges. A charge at rest gives only an electrostatic field and one in uniform motion only a steady magnetic field; acceleration is required to radiate."
+          },
+          {
+            "q": "The refractive index of a medium for which the critical angle is 30° is",
+            "marks": 1,
+            "answer": "2. n = 1/sin C = 1/sin 30° = 1/0.5 = 2."
+          },
+          {
+            "q": "In Young's double slit experiment, the fringe width is doubled when",
+            "marks": 1,
+            "answer": "The distance between the slits is halved. β = λD/d, so halving d doubles β (as would doubling D)."
+          },
+          {
+            "q": "The stopping potential in a photoelectric experiment depends on",
+            "marks": 1,
+            "answer": "The frequency of the incident light and the work function of the metal — not on the intensity, which affects only the number of photoelectrons."
+          },
+          {
+            "q": "In a p-n junction diode under forward bias, the width of the depletion layer",
+            "marks": 1,
+            "answer": "Decreases. Forward bias opposes the built-in potential, so the depletion region narrows and the current rises steeply."
+          },
+          {
+            "q": "Assertion (A): The nucleus of an atom contains most of its mass. Reason (R): Protons and neutrons are much more massive than electrons.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. A proton or neutron is about 1836 times the mass of an electron, so nearly all the mass sits in the nucleus."
+          },
+          {
+            "q": "Assertion (A): A convex lens behaves as a diverging lens when immersed in a liquid of higher refractive index. Reason (R): The focal length of a lens depends on the refractive index of the surrounding medium.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. By the lens maker's formula 1/f = (n_lens/n_medium − 1)(1/R₁ − 1/R₂), if n_medium exceeds n_lens the bracket changes sign and the lens diverges."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
+        "instructions": "Answer all 5 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Define electric dipole moment. What is its SI unit?",
+            "q": "Define electric flux and write its SI unit.",
             "marks": 2,
-            "answer": "Product of charge and separation: p = qd; SI unit is Coulomb-meter (C.m)"
+            "answer": "Electric flux through a surface is the total number of electric field lines crossing it, defined as Φ = ∮E·dA, the surface integral of the electric field over the area. Its SI unit is the newton metre squared per coulomb (N m² C⁻¹), equivalently the volt metre."
           },
           {
-            "q": "What is the focal length of a plane mirror? Explain.",
+            "q": "State Kirchhoff's two rules for electrical networks.",
             "marks": 2,
-            "answer": "Focal length of plane mirror is infinite because parallel rays do not converge."
+            "answer": "Junction rule: the algebraic sum of currents meeting at any junction is zero, which expresses conservation of charge. Loop rule: the algebraic sum of the changes in potential around any closed loop is zero, which expresses conservation of energy."
           },
           {
-            "q": "State Lenz's law. Give one example.",
+            "q": "Write the expression for the force per unit length between two long parallel current-carrying conductors and state when it is attractive.",
             "marks": 2,
-            "answer": "Induced current opposes the change causing it. Example: Magnetic field from induced current opposes change in flux."
+            "answer": "F/l = μ₀I₁I₂/(2πd), where d is the separation. The force is attractive when the currents flow in the same direction and repulsive when they are antiparallel."
           },
           {
-            "q": "What is the threshold frequency in the photoelectric effect?",
+            "q": "Distinguish between the resistance and the impedance of an AC circuit.",
             "marks": 2,
-            "answer": "Minimum frequency of light needed to cause photoemission; f0 = phi/h"
+            "answer": "Resistance opposes current in a purely resistive circuit and dissipates energy, and it is independent of frequency. Impedance is the total opposition of a circuit containing resistance together with inductance or capacitance, Z = √(R² + (X_L − X_C)²); it depends on frequency and its reactive part stores rather than dissipates energy."
           },
           {
-            "q": "Define half-life. What is the half-life of U-238?",
+            "q": "Define the term 'mass defect' and relate it to binding energy.",
             "marks": 2,
-            "answer": "Time for half of nuclei to decay. Half-life of U-238 is approximately 4.5 billion years."
+            "answer": "Mass defect Δm is the difference between the sum of the masses of the free nucleons and the actual mass of the nucleus they form. This missing mass appears as the binding energy that holds the nucleus together, given by E = Δm·c²."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (3 marks)",
-        "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 21,
+        "instructions": "Answer all 7 questions. Each carries 3 marks.",
         "questions": [
           {
-            "q": "Derive the expression for electric field due to an infinite uniformly charged sheet.",
+            "q": "Derive an expression for the electric field on the axis of an electric dipole at a distance r from its centre, for r far greater than the dipole length.",
             "marks": 3,
-            "answer": "E = sigma / (2 * epsilon0), independent of distance from sheet."
+            "answer": "Take charges −q at −a and +q at +a on the axis, so the dipole moment is p = q(2a). At an axial point distance r from the centre, the field from +q is kq/(r − a)² directed outward and from −q is kq/(r + a)² directed inward. The resultant is E = kq[1/(r − a)² − 1/(r + a)²] = kq·4ar/(r² − a²)². For r ≫ a the denominator becomes r⁴, giving E = 4kqar/r⁴ = 2kp/r³, directed along the dipole moment."
           },
           {
-            "q": "Explain the phenomenon of total internal reflection. When does it occur?",
+            "q": "Two capacitors of 3 μF and 6 μF are connected first in series and then in parallel across a 12 V supply. Find the equivalent capacitance and the total charge in each case.",
             "marks": 3,
-            "answer": "Occurs when light travels from denser to rarer medium at angle greater than critical angle."
+            "answer": "In series: 1/C = 1/3 + 1/6 = 1/2, so C = 2 μF and Q = CV = 2 × 12 = 24 μC (the same charge on each capacitor). In parallel: C = 3 + 6 = 9 μF and Q = 9 × 12 = 108 μC total, shared as 36 μC and 72 μC. The parallel combination therefore stores four and a half times the charge."
           },
           {
-            "q": "Describe the working of a transformer. Write the transformer equation.",
+            "q": "State the principle of a potentiometer and explain why it is preferred over a voltmeter for measuring emf.",
             "marks": 3,
-            "answer": "Step-up or step-down device; Vs/Vp = Ns/Np; uses electromagnetic induction."
+            "answer": "A potentiometer works on the principle that when a steady current flows through a wire of uniform cross-section, the potential difference across any portion is directly proportional to its length: V ∝ l. At the balance point no current is drawn from the cell being measured, so the potentiometer measures the true emf rather than the terminal voltage. A voltmeter, having finite resistance, always draws some current, so the reading falls short of the emf by the drop across the cell's internal resistance."
           },
           {
-            "q": "Explain photoelectric effect and its Einstein's explanation.",
+            "q": "Derive the expression for the torque on a rectangular current-carrying loop placed in a uniform magnetic field.",
             "marks": 3,
-            "answer": "Light energy knocked out electrons; hf = phi + KE; explains why stopping potential is independent of intensity."
+            "answer": "Consider a rectangular loop of sides l and b carrying current I in a uniform field B, with the normal to the loop at angle θ to B. The forces on the two sides of length b are equal, opposite and along the same line, so they cancel. The forces on the two sides of length l are F = BIl each, opposite in direction but separated by a perpendicular distance b sin θ, so they form a couple. The torque is τ = BIl × b sin θ = BIA sin θ, where A = lb; for n turns τ = nBIA sin θ, or in vector form τ = m × B with m = nIA."
+          },
+          {
+            "q": "A coil of 100 turns and area 0.05 m² is placed in a magnetic field which falls uniformly from 0.8 T to 0.2 T in 0.1 s. Calculate the induced emf.",
+            "marks": 3,
+            "answer": "The change in flux per turn is ΔΦ = A·ΔB = 0.05 × (0.8 − 0.2) = 0.03 Wb. By Faraday's law the magnitude of the induced emf is ε = N·ΔΦ/Δt = 100 × 0.03/0.1 = 30 V. By Lenz's law the induced current flows so as to oppose the decrease, that is, to maintain the original flux."
+          },
+          {
+            "q": "Draw a labelled ray diagram of a compound microscope in normal adjustment and write its magnifying power.",
+            "marks": 3,
+            "answer": "The object is placed just beyond the focus of the short-focal-length objective, which forms a real, inverted, magnified image inside the focal length of the eyepiece; the eyepiece then acts as a simple magnifier and the final image is virtual, inverted relative to the object and highly magnified, formed at the least distance of distinct vision. The magnifying power is m = m₀ × mₑ = (v₀/u₀)(1 + D/fₑ), where D is 25 cm."
+          },
+          {
+            "q": "Explain the photoelectric effect and state two observations that the wave theory of light fails to explain.",
+            "marks": 3,
+            "answer": "The photoelectric effect is the emission of electrons from a metal surface when light of sufficiently high frequency falls on it; Einstein explained it by treating light as photons of energy hν, giving hν = φ₀ + K_max. Wave theory fails on two counts. First, there is a threshold frequency below which no emission occurs however intense the light, whereas waves should eventually supply enough energy at any frequency. Second, emission is instantaneous, whereas wave theory predicts a measurable time lag while the electron absorbs sufficient energy."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (4 marks)",
+        "name": "Section D — Case-based questions (4 marks each)",
         "marks": 8,
-        "instructions": "Answer all 2 questions, each carrying 4 marks.",
+        "instructions": "Answer both case-based questions. Each has sub-parts totalling 4 marks.",
         "questions": [
           {
-            "q": "Derive Coulomb's law using Gauss's law.",
+            "q": "CASE STUDY 1 — A step-down transformer is used to run a 12 V, 24 W lamp from a 240 V AC mains supply. Assume the transformer is ideal. (i) Find the turns ratio Np : Ns. (ii) Find the current in the secondary. (iii) Find the current drawn from the mains. (iv) Why are transformer cores laminated?",
             "marks": 4,
-            "answer": "For point charge, Gauss law gives E = q/(4*pi*epsilon0*r^2); force F = qE = kq1q2/r^2"
+            "answer": "(i) For an ideal transformer Np/Ns = Vp/Vs = 240/12 = 20, so the ratio is 20 : 1. (ii) Secondary current Is = P/Vs = 24/12 = 2 A. (iii) An ideal transformer conserves power, so Ip = P/Vp = 24/240 = 0.1 A. (iv) The core is laminated, with thin sheets separated by insulating varnish, to break up the paths available to eddy currents; this greatly reduces the eddy-current heat losses and improves efficiency."
           },
           {
-            "q": "Explain the principle and working of an AC generator.",
+            "q": "CASE STUDY 2 — Light of wavelength 600 nm falls on a double slit with slit separation 0.2 mm, and the interference pattern is observed on a screen 1.0 m away. (i) Calculate the fringe width. (ii) Where is the central maximum located and why is it bright? (iii) What happens to the pattern if the whole apparatus is immersed in water of refractive index 1.33?",
             "marks": 4,
-            "answer": "Rotating coil in magnetic field; induced EMF = nBAlSinwt; converts mechanical to electrical energy."
+            "answer": "(i) β = λD/d = (600 × 10⁻⁹ × 1.0)/(0.2 × 10⁻³) = 3 × 10⁻³ m = 3 mm. (ii) The central maximum lies on the perpendicular bisector of the two slits, equidistant from both; the path difference there is zero, so the waves arrive in phase and interfere constructively. (iii) In water the wavelength shortens to λ/n, so the fringe width becomes β/1.33 ≈ 2.26 mm — the pattern contracts, with the fringes closer together."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Long Answer (5 marks each)",
+        "marks": 15,
+        "instructions": "Answer all 3 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "(a) Using Gauss's law, derive the electric field due to an infinitely long uniformly charged straight wire of linear charge density λ. (b) A wire carries λ = 4 × 10⁻⁶ C/m; find the field 20 cm from it.",
+            "marks": 5,
+            "answer": "(a) By symmetry the field is radial and equal in magnitude at every point of a coaxial cylinder of radius r and length l. Choose that cylinder as the Gaussian surface. No flux crosses the flat ends because the field is parallel to them, so the flux is E × 2πrl through the curved surface. The charge enclosed is λl, so Gauss's law gives E × 2πrl = λl/ε₀, hence E = λ/(2πε₀r), directed away from the wire for positive λ. (b) E = (2 × 9 × 10⁹ × 4 × 10⁻⁶)/0.2 = 72 × 10³/0.2 = 3.6 × 10⁵ N/C, directed radially outward."
+          },
+          {
+            "q": "(a) Derive the lens maker's formula for a thin lens. (b) A biconvex lens of refractive index 1.5 has both radii of curvature equal to 20 cm. Find its focal length and power.",
+            "marks": 5,
+            "answer": "(a) Refraction at the first surface takes an object at u to an image at v₁: n₂/v₁ − n₁/u = (n₂ − n₁)/R₁. This image acts as the object for the second surface: n₁/v − n₂/v₁ = (n₁ − n₂)/R₂. Adding the two equations eliminates v₁ and gives n₁(1/v − 1/u) = (n₂ − n₁)(1/R₁ − 1/R₂). Dividing by n₁ and using 1/v − 1/u = 1/f yields 1/f = (n − 1)(1/R₁ − 1/R₂) with n = n₂/n₁. (b) For a biconvex lens R₁ = +20 cm and R₂ = −20 cm, so 1/f = (1.5 − 1)(1/20 − 1/(−20)) = 0.5 × (2/20) = 1/20, giving f = 20 cm = 0.2 m. Power P = 1/f in metres = +5 D."
+          },
+          {
+            "q": "(a) Draw a labelled circuit diagram of a full-wave rectifier using two diodes and explain its working. (b) Sketch the input and output waveforms. (c) State one advantage over a half-wave rectifier.",
+            "marks": 5,
+            "answer": "(a) A centre-tapped transformer feeds two diodes whose outputs join at a common load resistor. During the positive half cycle the upper diode is forward biased and conducts while the lower is reverse biased; during the negative half cycle the roles reverse. In both halves the current through the load flows in the same direction, so both halves of the input are used. (b) The input is a full sine wave alternating about zero; the output is a series of positive humps, one for each half cycle, touching zero between them. (c) A full-wave rectifier uses both half cycles, so its output frequency is twice the input and the ripple is far easier to smooth, and its rectification efficiency is about double that of a half-wave rectifier."
           }
         ]
       }
@@ -1857,8 +2188,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 10 Mathematics Sample Paper 2026 Set 2 (with Solutions)",
-    "intro": "This sample paper follows the latest CBSE curriculum with a mix of arithmetic, algebra, geometry, and statistics. Solve all sections carefully to master key concepts for your board exam.",
-    "duration": "3 hours",
+    "intro": "This sample paper follows the latest CBSE curriculum with a mix of arithmetic, algebra, geometry, and statistics. Solve all sections carefully to master key concepts for your board exam. This set is longer than the board paper: 110 marks against the 80-mark CBSE pattern, so treat it as extended practice rather than a timed board rehearsal.",
+    "duration": "4 hours",
     "totalMarks": 110,
     "sections": [
       {
@@ -2154,8 +2485,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 10 Science Sample Paper 2026 Set 2 (with Solutions)",
-    "intro": "This sample paper covers Physics, Chemistry, and Biology topics from the CBSE curriculum. Test your understanding of fundamental concepts and their real-world applications.",
-    "duration": "3 hours",
+    "intro": "This sample paper covers Physics, Chemistry, and Biology topics from the CBSE curriculum. Test your understanding of fundamental concepts and their real-world applications. This set is longer than the board paper: 110 marks against the 80-mark CBSE pattern, so treat it as extended practice rather than a timed board rehearsal.",
+    "duration": "4 hours",
     "totalMarks": 110,
     "sections": [
       {
@@ -2569,8 +2900,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 9 Mathematics Sample Paper 2026 Set 2 (with Solutions)",
-    "intro": "This comprehensive sample paper tests your knowledge of Class 9 Maths including number systems, geometry, and statistics. Practice regularly to strengthen your foundation for higher classes.",
-    "duration": "3 hours",
+    "intro": "This comprehensive sample paper tests your knowledge of Class 9 Maths including number systems, geometry, and statistics. Practice regularly to strengthen your foundation for higher classes. This set is longer than the board paper: 110 marks against the 80-mark CBSE pattern, so treat it as extended practice rather than a timed board rehearsal.",
+    "duration": "4 hours",
     "totalMarks": 110,
     "sections": [
       {
@@ -6608,8 +6939,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Biology",
     "board": "CBSE",
     "title": "Class 11 Biology Sample Paper",
-    "intro": "This advanced biology sample paper covers cellular biology, genetics, ecology, and human physiology. It is designed for students preparing for competitive exams and CBSE board examinations.",
-    "duration": "3 hours",
+    "intro": "This advanced biology sample paper covers cellular biology, genetics, ecology, and human physiology. It is designed for students preparing for competitive exams and CBSE board examinations. This set is longer than the board paper: 80 marks against the 70-mark CBSE pattern, so treat it as extended practice rather than a timed board rehearsal.",
+    "duration": "3 hours 30 minutes",
     "totalMarks": 80,
     "sections": [
       {
@@ -6735,8 +7066,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "Class 11 English Sample Paper",
-    "intro": "This English sample paper tests reading comprehension, grammar, critical thinking, and creative writing skills. It follows CBSE Class 11 curriculum with both prescribed texts and extended reading.",
-    "duration": "3 hours",
+    "intro": "This English sample paper tests reading comprehension, grammar, critical thinking, and creative writing skills. It follows CBSE Class 11 curriculum with both prescribed texts and extended reading. This set is longer than the board paper: 100 marks against the 80-mark CBSE pattern, so treat it as extended practice rather than a timed board rehearsal.",
+    "duration": "3 hours 45 minutes",
     "totalMarks": 100,
     "sections": [
       {
@@ -6845,8 +7176,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "Class 12 English Sample Paper Set 2",
-    "intro": "This advanced English paper for Class 12 encompasses higher-order thinking skills, sophisticated literary analysis, and professional communication. It prepares students for university-level English studies.",
-    "duration": "3 hours",
+    "intro": "This advanced English paper for Class 12 encompasses higher-order thinking skills, sophisticated literary analysis, and professional communication. It prepares students for university-level English studies. This set is longer than the board paper: 100 marks against the 80-mark CBSE pattern, so treat it as extended practice rather than a timed board rehearsal.",
+    "duration": "3 hours 45 minutes",
     "totalMarks": 100,
     "sections": [
       {
@@ -7610,7 +7941,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 7 English Sample Paper 2026 (with Solutions)",
     "intro": "This comprehensive English sample paper includes reading comprehension, grammar, writing, and literature sections. Master this paper to excel in all aspects of English language and literature. This is a shortened practice set: 17 questions worth 58 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "2 hours 15 minutes",
     "totalMarks": 58,
     "sections": [
       {
@@ -7900,7 +8231,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 6 Social Science Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper covers geography, history, and civics topics for Class 6 students. Practice this paper to understand early human societies, earth's features, and fundamental concepts of citizenship. This is a shortened practice set: 25 questions worth 53 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "2 hours",
     "totalMarks": 53,
     "sections": [
       {
@@ -8079,7 +8410,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 8 Science Sample Paper 2026 (with Solutions)",
     "intro": "This comprehensive Class 8 Science paper covers biology, chemistry, and physics topics including reproduction, materials, and motion. Strengthen your understanding of scientific concepts through this practice paper. This is a shortened practice set: 22 questions worth 50 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "2 hours",
     "totalMarks": 50,
     "sections": [
       {

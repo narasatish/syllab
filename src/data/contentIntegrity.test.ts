@@ -407,3 +407,53 @@ describe('no published stub content', () => {
     }
   });
 });
+
+/**
+ * A sample paper's mark total and duration are a promise about the exam being
+ * rehearsed. On 2026-08-17 six papers broke that promise: three claimed "3 hours"
+ * over 110 marks for CBSE papers that are set at 80, and none disclosed it. A
+ * student timing themselves against those was rehearsing an exam that does not
+ * exist.
+ *
+ * Papers may legitimately be shorter or longer than the board paper — but then
+ * they must SAY SO. This test allows any total, and requires the intro to
+ * disclose the mismatch whenever the total is not the board's.
+ */
+describe('sample papers do not misrepresent the CBSE blueprint', () => {
+  // CBSE theory totals. Classes 6-8 sit no board exam, so no blueprint applies.
+  const boardTotal = (classLevel: string, subject: string): number | null => {
+    const cls = (String(classLevel).match(/\d+/) || [''])[0];
+    if (['6', '7', '8'].includes(cls)) return null;
+    return /physics|chemistry|biolog|computer/i.test(subject) ? 70 : 80;
+  };
+
+  it('any paper whose marks differ from the board total discloses it', () => {
+    const undisclosed: string[] = [];
+    for (const p of SAMPLE_PAPERS) {
+      const expected = boardTotal(p.classLevel, p.subject);
+      if (expected == null || p.totalMarks === expected) continue;
+      if (!/shortened practice set|extended practice/i.test(p.intro || '')) undisclosed.push(`${p.slug} (${p.totalMarks}m vs board ${expected}m)`);
+    }
+    expect(undisclosed, `papers presenting a non-board mark total as the real thing: ${undisclosed.join(', ')}`).toEqual([]);
+  });
+
+  it('the stated duration is proportional to the marks, not copied from the board paper', () => {
+    // The board allows 180 minutes for 80 marks. Anything claiming a duration
+    // more than 35% away from that ratio is mislabelled.
+    // Hours may be fractional ("2.5 hours"), so match a decimal — `(\d+)` alone
+    // reads "2.5 hours" as 5 hours and reports a correct paper as broken.
+    const mins = (d: string): number | null => {
+      const h = /(\d+(?:\.\d+)?)\s*hour/.exec(d), m = /(\d+)\s*min/.exec(d);
+      if (!h && !m) return null;
+      return (h ? +h[1] * 60 : 0) + (m ? +m[1] : 0);
+    };
+    const off: string[] = [];
+    for (const p of SAMPLE_PAPERS) {
+      const got = mins(p.duration || '');
+      if (got == null || !p.totalMarks) continue;
+      const fair = (p.totalMarks / 80) * 180;
+      if (Math.abs(got - fair) / fair > 0.35) off.push(`${p.slug}: ${p.totalMarks}m in ${p.duration} (proportional ≈ ${Math.round(fair)} min)`);
+    }
+    expect(off, `duration does not match the mark total: ${off.join(' | ')}`).toEqual([]);
+  });
+});

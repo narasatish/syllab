@@ -105,6 +105,19 @@ function buildUrls({ languages, topicsByLang }) {
       'class-10-maths-trigonometry',
       'class-10-maths-applications-of-trigonometry',
     ]),
+    '/colleges': new Set([
+      // Six institutions were each published TWICE under different slugs, with
+      // contradicting fees, NIRF ranks and cutoffs - a family comparing Amity saw
+      // Rs 3-4 L/yr on one page and Rs 9 L/yr on the other. The RICHER record of
+      // each pair survives; these thinner twins are retired rather than merged, so
+      // no fee figure has to be invented to reconcile them.
+      'iit-bhu',
+      'amity-noida',
+      'jss-noida',
+      'kiet-ghaziabad',
+      'thapar-patiala',
+      'lpu-jalandhar',
+    ]),
     '/concepts': new Set([
       'periodic-table-periodicity',
     ]),
@@ -226,6 +239,7 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/colleges/${s.slug}`, priority: 0.7, changefreq: 'weekly' });
   }
   for (const c of colleges) {
+    if (isRetired('/colleges', c.slug)) continue;
     urls.push({ loc: `/colleges/${c.stateSlug}/${c.slug}`, priority: 0.6, changefreq: 'monthly' });
   }
   // City college hubs — "Top Engineering Colleges in {City}" (cities with 2+ colleges).

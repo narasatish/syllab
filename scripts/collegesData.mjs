@@ -6,9 +6,14 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
+// A quoted string field. The value may contain an ESCAPED apostrophe — several
+// `about` texts read `One of India\'s largest ...` — so the capture must consume
+// `\'` rather than treat it as the closing quote. The naive `'([^']*)'` stopped
+// dead at the backslash and shipped "One of India\" as the college's entire
+// description on the live page.
 function field(line, key) {
-  const m = line.match(new RegExp(`${key}: '([^']*)'`));
-  return m ? m[1] : '';
+  const m = line.match(new RegExp(`${key}: '((?:[^'\\\\]|\\\\.)*)'`));
+  return m ? m[1].replace(/\\'/g, "'").replace(/\\\\/g, '\\') : '';
 }
 // Unquoted numeric field (e.g. `nirf: 12,`); returns null for `nirf: null` or absent.
 function numField(line, key) {
@@ -46,6 +51,10 @@ export function getCollegesManifest(root) {
         type: field(line, 'type'),
         established: numField(line, 'established'),
         nirf: numField(line, 'nirf'),
+        // Below rank 100 NIRF publishes a BAND, not a position. Projecting only
+        // `nirf` would drop the band and render "—" for 50 colleges that do have
+        // a published standing.
+        nirfBand: field(line, 'nirfBand'),
         feesPerYear: field(line, 'feesPerYear'),
         feesTotal: field(line, 'feesTotal'),
         hostelPerYear: field(line, 'hostelPerYear'),

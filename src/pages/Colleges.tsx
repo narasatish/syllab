@@ -19,7 +19,7 @@ import PageHero from '../components/PageHero';
 import HubNav, { HubNavItem } from '../components/HubNav';
 import CollegeExplorer from '../components/CollegeExplorer';
 import {
-  COLLEGE_STATE_INFO, COLLEGES, getStateInfo, getCollegesByState,
+  COLLEGE_STATE_INFO, COLLEGES, COLLEGES_LIVE, getStateInfo, getCollegesByState,
   getCollegeBySlug, stateSlugForCollege, getRankings, getStateRank, getNationalRank,
   TOTAL_COLLEGES, getCitiesWithColleges, getCollegesByCity, cityInfoForSlug, type CollegeFull,
 } from '../data/colleges';
@@ -110,7 +110,7 @@ export default function Colleges() {
 
 /* ─── Index: states grid ────────────────────────────────────────────────────*/
 function CollegesIndex({ go }: { go: (to: string) => void }) {
-  const featured = [...COLLEGES].sort((a, b) => (a.nirf ?? 999) - (b.nirf ?? 999)).slice(0, 6);
+  const featured = [...COLLEGES_LIVE].sort((a, b) => (a.nirf ?? 999) - (b.nirf ?? 999)).slice(0, 6);
   const collegeHubItems: HubNavItem[] = [
     { label: 'Engineering', emoji: '🏛️', path: '/colleges', tab: 'colleges' },
     { label: 'Medical', emoji: '🩺', path: '/medical-colleges', tab: 'medical_colleges' },
@@ -186,7 +186,7 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
       <h2 className="mt-8 mb-3 flex items-center gap-2 text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">
         <Compass size={14} className="text-indigo-700" /> Browse &amp; compare all colleges
       </h2>
-      <CollegeExplorer colleges={COLLEGES} go={go} />
+      <CollegeExplorer colleges={COLLEGES_LIVE} go={go} />
     </div>
   );
 }
@@ -489,7 +489,7 @@ function CollegeDetail({ college: c, go, goBack }: { college: CollegeFull; go: (
       </Section>
 
       {(() => {
-        const cmp = comparisonSet(c, COLLEGES);
+        const cmp = comparisonSet(c, COLLEGES_LIVE);
         if (cmp.length < 2) return null;
         return (
           <Section title={`Compare ${c.shortName || c.name} with top ${c.type} colleges`}>

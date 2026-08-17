@@ -44,8 +44,9 @@
   <!-- NOTE: No static canonical here — each page injects its own via React Helmet -->
 
   <!-- Preconnect to critical origins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- fonts.googleapis.com / fonts.gstatic.com preconnects removed: the fonts are
+       now self-hosted from this origin, so there is no third-party font hop to
+       warm up. Keeping them would open two TLS connections nothing ever uses. -->
   <!-- No crossorigin: the only early request to this origin is the plain GET
        /api/health warm-up in main.tsx. A crossorigin preconnect opens an
        ANONYMOUS connection, which that request never uses — PageSpeed reported
@@ -54,9 +55,32 @@
   <link rel="preconnect" href="https://syllab-backend.onrender.com" />
   <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
   <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com" />
-  <!-- Fonts: non-blocking preload-swap so they don't block first paint (better LCP/FCP). -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@400..800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@400..800&display=swap" /></noscript>
+  <!-- Fonts: SELF-HOSTED. Previously two round trips to fonts.googleapis.com and
+       fonts.gstatic.com sat in front of first paint — DNS + TLS to two third-party
+       origins before a single glyph could render. Both families are variable
+       fonts, so one latin file each (48 KB + 41 KB) covers every weight the site
+       uses. Declared inline so there is no stylesheet request in front of them,
+       and preloaded because @font-face inside inline CSS is only discovered once
+       the parser reaches it. -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin />
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;        /* variable: one file serves 400-900 */
+      font-display: swap;
+      src: url('/fonts/inter-latin-var.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Bricolage Grotesque';
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url('/fonts/bricolage-latin-var.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+  </style>
   <!-- Scroll-reveal gate: only hide reveal elements (pre-paint, no flash) when JS is on
        AND motion is allowed. JS off / reduced-motion → content stays fully visible. -->
   <script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js-reveal')}catch(e){}</script>

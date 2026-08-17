@@ -137,6 +137,19 @@ const RETIRED_SLUGS = {
     'class-9-physics-gravitation-numericals',
     'class-9-physics-work-and-energy-numericals',
   ]),
+  '/colleges': new Set([
+    // Six institutions were each published TWICE under different slugs, with
+    // contradicting fees, NIRF ranks and cutoffs - a family comparing Amity saw
+    // Rs 3-4 L/yr on one page and Rs 9 L/yr on the other. The RICHER record of
+    // each pair survives; these thinner twins are retired rather than merged, so
+    // no fee figure has to be invented to reconcile them.
+    'iit-bhu',
+    'amity-noida',
+    'jss-noida',
+    'kiet-ghaziabad',
+    'thapar-patiala',
+    'lpu-jalandhar',
+  ]),
   '/concepts': new Set([
     'periodic-table-periodicity',
   ]),
@@ -727,8 +740,12 @@ for (let c = 1; c <= 12; c++) {
 
 // ─── College pages (/colleges, /colleges/:state, /colleges/:state/:slug) ─────
 const { states: COLLEGE_STATES_M, colleges: COLLEGES_M } = getCollegesManifest(ROOT);
+// COLLEGES_M still generates a page for every slug (retired duplicates keep
+// resolving, they just carry noindex). LISTINGS must use COLLEGES_LIVE, or the
+// same institution appears twice in the same ranked table at the same rank.
+const COLLEGES_LIVE = COLLEGES_M.filter((c) => !isRetired('/colleges', c.slug));
 
-// ── (H) Data study: Top engineering colleges by NIRF 2024 (crawlable, linkable asset,
+// ── (H) Data study: Top engineering colleges by NIRF 2025 (crawlable, linkable asset,
 //    computed from the verified college directory — no fabricated numbers) ──────────
 const toLPA = (v) => {
   const s = String(v ?? '');
@@ -738,7 +755,7 @@ const toLPA = (v) => {
   if (!Number.isFinite(n) || n <= 0) return null;
   return n > 1000 ? n / 100000 : n; // raw rupees → LPA, else assume already LPA
 };
-const rankedColleges = COLLEGES_M
+const rankedColleges = COLLEGES_LIVE
   .filter((c) => Number.isFinite(Number(c.nirf)) && Number(c.nirf) > 0)
   .sort((a, b) => Number(a.nirf) - Number(b.nirf))
   .slice(0, 30);
@@ -747,14 +764,14 @@ const _pkgs = rankedColleges.map((c) => toLPA(c.placementAvg)).filter((n) => n &
 const _avgPkg = _pkgs.length ? (_pkgs.reduce((a, b) => a + b, 0) / _pkgs.length).toFixed(1) : null;
 const _studyRows = rankedColleges.map((c, i) => `<tr><td>${i + 1}</td><td><a href="/colleges/${c.stateSlug}/${c.slug}">${esc(c.name)}</a></td><td>${esc(c.city || '')}</td><td>${esc(c.type)}</td><td>#${c.nirf}</td><td>${esc(c.placementAvg || '—')}</td></tr>`).join('');
 const collegesDataStudy = `
-  <h2>Data Study: Top ${rankedColleges.length} Engineering Colleges in India by NIRF 2024</h2>
-  <p class="speakable">Compiled from Syllab's directory of ${COLLEGES_M.length}+ engineering colleges. The ranking uses official NIRF 2024 Engineering ranks; fees and placement figures are indicative and should be verified on each college's official website.</p>
+  <h2>Data Study: Top ${rankedColleges.length} Engineering Colleges in India by NIRF 2025</h2>
+  <p class="speakable">Compiled from Syllab's directory of ${COLLEGES_M.length}+ engineering colleges. The ranking uses official NIRF 2025 Engineering ranks; fees and placement figures are indicative and should be verified on each college's official website.</p>
   <ul>
     <li><strong>${_iitCount} of the top ${rankedColleges.length}</strong> engineering colleges in India are IITs.</li>
     ${_avgPkg ? `<li>The average placement package across these top colleges is about <strong>₹${_avgPkg} LPA</strong> (indicative).</li>` : ''}
     <li>Admission to the top ranks is via <a href="/mock-tests/jee-advanced">JEE Advanced</a> (IITs) and <a href="/mock-tests/jee-main">JEE Main</a> (NITs/IIITs).</li>
   </ul>
-  <table><thead><tr><th>#</th><th>College</th><th>City</th><th>Type</th><th>NIRF 2024</th><th>Avg. package (indicative)</th></tr></thead><tbody>${_studyRows}</tbody></table>
+  <table><thead><tr><th>#</th><th>College</th><th>City</th><th>Type</th><th>NIRF 2025</th><th>Avg. package (indicative)</th></tr></thead><tbody>${_studyRows}</tbody></table>
   <p>Browse the full directory by state below, or try the free <a href="/college-predictor">college predictor</a> and <a href="/medical-colleges">medical colleges</a>.</p>`;
 
 ROUTES.push({
@@ -767,7 +784,7 @@ ROUTES.push({
 });
 
 for (const s of COLLEGE_STATES_M) {
-  const inState = COLLEGES_M.filter(c => c.stateSlug === s.slug);
+  const inState = COLLEGES_LIVE.filter(c => c.stateSlug === s.slug);
   ROUTES.push({
     path: `/colleges/${s.slug}`,
     title: `Top ${inState.length} Engineering Colleges in ${s.name} 2026 — Fees, Cutoff & Ranking | Syllab.in`,
@@ -817,11 +834,12 @@ for (const c of COLLEGES_M) {
   const recruiters = (c.recruiters || []);
   const exams = (c.exams || []);
   const steps = (c.admissionSteps || []);
-  const cmpSet = comparisonSet(c, COLLEGES_M);
+  const cmpSet = comparisonSet(c, COLLEGES_LIVE);
   const cmpHasPeers = cmpSet.length > 1;
   const good = (() => {
     const bits = [];
-    if (c.nirf) bits.push(`ranked #${c.nirf} in India (NIRF Engineering 2024)`);
+    if (c.nirf) bits.push(`ranked #${c.nirf} in India (NIRF Engineering 2025)`);
+    else if (c.nirfBand) bits.push(`a place in the ${c.nirfBand} band of NIRF Engineering 2025`);
     if (pkg) bits.push(`an average package of about ${pkg}`);
     if (c.placementRate) bits.push(`a placement rate of around ${c.placementRate}`);
     return bits.length ? `${c.shortName} is a well-regarded choice — it has ${bits.join(', ')}. Whether it is "good for you" depends on your rank, budget and preferred branch (${branches.slice(0, 3).join(', ') || 'engineering'}).` : `${c.shortName} is one of the engineering colleges in ${c.stateName}. Compare its fees, cutoff and placements below to judge fit for your rank and budget.`;
@@ -840,7 +858,7 @@ for (const c of COLLEGES_M) {
     <h2>${esc(c.shortName)} vs Top ${esc(c.type)} Colleges — Comparison</h2>
     <p>How ${esc(c.shortName)} compares with peer colleges on the key numbers students weigh (all figures indicative, 2024).</p>
     <table><thead><tr><th>College</th><th>NIRF</th><th>Fees / year</th><th>Avg package</th><th>Placement rate</th></tr></thead><tbody>
-      ${cmpSet.map((o) => `<tr><td>${o.slug === c.slug ? `<strong>${esc(o.shortName)}</strong>` : `<a href="/colleges/${o.stateSlug}/${o.slug}">${esc(o.shortName)}</a>`}</td><td>${o.nirf ? '#' + o.nirf : '—'}</td><td>${esc(inr(o.feesPerYear) || o.feesPerYear || '—')}</td><td>${esc(inr(o.placementAvg) || o.placementAvg || '—')}</td><td>${esc(o.placementRate || '—')}</td></tr>`).join('')}
+      ${cmpSet.map((o) => `<tr><td>${o.slug === c.slug ? `<strong>${esc(o.shortName)}</strong>` : `<a href="/colleges/${o.stateSlug}/${o.slug}">${esc(o.shortName)}</a>`}</td><td>${o.nirf ? '#' + o.nirf : o.nirfBand ? esc(o.nirfBand) : '—'}</td><td>${esc(inr(o.feesPerYear) || o.feesPerYear || '—')}</td><td>${esc(inr(o.placementAvg) || o.placementAvg || '—')}</td><td>${esc(o.placementRate || '—')}</td></tr>`).join('')}
     </tbody></table>` : '';
   const news = collegeNewsLinks(c);
   const scholes = collegeScholarships(c);
@@ -853,7 +871,7 @@ for (const c of COLLEGES_M) {
       <tr><td>Type / ownership</td><td>${esc(ownershipLabel(c.type))}</td></tr>
       ${c.established ? `<tr><td>Established</td><td>${c.established}</td></tr>` : ''}
       <tr><td>Location</td><td>${esc(c.city)}, ${esc(c.stateName)}</td></tr>
-      ${c.nirf ? `<tr><td>NIRF Engineering rank (2024)</td><td>#${c.nirf}</td></tr>` : ''}
+      ${c.nirf ? `<tr><td>NIRF Engineering rank (2025)</td><td>#${c.nirf}</td></tr>` : c.nirfBand ? `<tr><td>NIRF Engineering 2025</td><td>rank band ${esc(c.nirfBand)}</td></tr>` : ''}
       <tr><td>Recognition</td><td>${esc(recognitionLabel(c.type))}</td></tr>
       <tr><td>Entrance exam(s)</td><td>${esc(exams.join(', ') || '—')}</td></tr>
       ${c.website ? `<tr><td>Official website</td><td><a href="https://${esc(c.website)}" rel="nofollow noopener">${esc(c.website)}</a></td></tr>` : ''}
@@ -903,6 +921,7 @@ for (const c of COLLEGES_M) {
     <p><em>All figures (fees, NIRF rank, cutoffs, placements) are indicative for guidance and should be verified on the official college / counselling website before any decision.</em></p>`;
   ROUTES.push({
     path: `/colleges/${c.stateSlug}/${c.slug}`,
+    ...(isRetired('/colleges', c.slug) ? { noindex: true } : {}),
     title: `${c.shortName} Fees 2026 — B.Tech Fees, Cutoff & Placements | Syllab.in`,
     description: `${c.name}, ${c.city}: B.Tech tuition ${feeYr || c.feesPerYear}/yr${fee4 ? ` (≈${fee4} for 4 years)` : ''}, ${c.cutoff} Average package ${pkg || c.placementAvg}. Full fees, cutoff & placements — free.`,
     keywords: `${c.name} fees, ${c.shortName} fees for 4 years, ${c.shortName} cutoff 2026, ${c.shortName} placements, ${c.name} admission process, ${c.city} engineering college`,
@@ -2654,7 +2673,7 @@ ROUTES.push({
     if (!rows.length) return '';
     return `<h2>${esc(examName)} — Indicative College Cutoffs (2026)</h2>
       <table><thead><tr><th>College</th><th>NIRF</th><th>Indicative cutoff</th><th>Avg package</th></tr></thead><tbody>
-      ${rows.map((c) => `<tr><td><a href="/colleges/${c.stateSlug}/${c.slug}">${esc(c.shortName)}</a> <span>(${esc(c.city)})</span></td><td>${c.nirf ? '#' + c.nirf : '—'}</td><td>${esc(c.cutoff || '—')}</td><td>${esc(c.placementAvg || '—')}</td></tr>`).join('')}
+      ${rows.map((c) => `<tr><td><a href="/colleges/${c.stateSlug}/${c.slug}">${esc(c.shortName)}</a> <span>(${esc(c.city)})</span></td><td>${c.nirf ? '#' + c.nirf : c.nirfBand ? esc(c.nirfBand) : '—'}</td><td>${esc(c.cutoff || '—')}</td><td>${esc(c.placementAvg || '—')}</td></tr>`).join('')}
       </tbody></table>`;
   };
   const examsForPrerender = ['JEE Main', 'JEE Advanced', 'MHT-CET', 'KCET', 'WBJEE'];

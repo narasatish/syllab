@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { COLLEGES, COLLEGE_STATE_INFO } from './colleges';
+import { COLLEGES, COLLEGES_LIVE, COLLEGE_STATE_INFO, DUPLICATE_COLLEGE_SLUGS } from './colleges';
 import { MEDICAL_COLLEGES, MEDICAL_STATE_INFO } from './medicalColleges';
 
 describe('engineering COLLEGES integrity', () => {
@@ -87,6 +87,70 @@ describe('MEDICAL_COLLEGES integrity', () => {
       // only require it to be a valid non-negative number.
       expect(Number.isFinite(c.mbbsSeats) && c.mbbsSeats >= 0, `mbbsSeats invalid for ${c.slug}`).toBe(true);
       expect(c.about, `about missing for ${c.slug}`).toBeTruthy();
+    }
+  });
+});
+
+/**
+ * NIRF ranks are the single most load-bearing number on a college page: a family
+ * uses it to decide where to apply. On 2026-08-17 the stored ranks were audited
+ * against the official India Rankings 2025 (Engineering) tables and 52 of the 62
+ * institutes that appear in the published top 100 held the WRONG rank — Jamia
+ * Millia was stored as #3, LPU as #121 and #50 on its two duplicate pages, IIT
+ * (BHU) as #15 and #9. A further 29 published a precise rank while not being in
+ * the published list at all.
+ *
+ * These tests pin the values to the checked-in official table, so a future edit
+ * cannot quietly reintroduce an invented rank.
+ */
+describe('NIRF ranks match the official published table', async () => {
+  const NIRF = (await import('./nirf2025Engineering.json')).default as {
+    ranks: Record<string, { rank: number; city: string }>;
+    bands: Record<string, { band: string; city: string }>;
+  };
+  const officialRanks = new Set(Object.values(NIRF.ranks).map((r) => r.rank));
+  const officialBands = new Set(Object.values(NIRF.bands).map((b) => b.band));
+
+  it('every stored rank is a position that actually exists in the top 100', () => {
+    for (const c of COLLEGES) {
+      if (c.nirf == null) continue;
+      expect(Number.isInteger(c.nirf) && c.nirf >= 1 && c.nirf <= 100,
+        `${c.slug} stores NIRF ${c.nirf}; only ranks 1-100 are published as exact positions`).toBe(true);
+      expect(officialRanks.has(c.nirf), `${c.slug} stores rank ${c.nirf}, absent from the official table`).toBe(true);
+    }
+  });
+
+  it('no college carries both an exact rank and a band', () => {
+    for (const c of COLLEGES) {
+      expect(!(c.nirf != null && c.nirfBand), `${c.slug} has both nirf=${c.nirf} and nirfBand=${c.nirfBand}`).toBe(true);
+    }
+  });
+
+  it('every stored band is one NIRF actually publishes', () => {
+    for (const c of COLLEGES) {
+      if (!c.nirfBand) continue;
+      expect(officialBands.has(c.nirfBand), `${c.slug} stores band "${c.nirfBand}", which NIRF does not publish`).toBe(true);
+    }
+  });
+
+  it('no two live colleges claim the same exact rank', () => {
+    const seen = new Map<number, string>();
+    for (const c of COLLEGES_LIVE) {
+      if (c.nirf == null) continue;
+      // Rank 67 is a genuine tie in the official 2025 table (Sathyabama and PSG).
+      const prev = seen.get(c.nirf);
+      if (prev && c.nirf !== 67) {
+        throw new Error(`rank #${c.nirf} claimed by both ${prev} and ${c.slug}`);
+      }
+      seen.set(c.nirf, c.slug);
+    }
+    expect(seen.size).toBeGreaterThan(40);
+  });
+
+  it('the retired duplicate slugs still exist as records so their URLs resolve', () => {
+    for (const slug of DUPLICATE_COLLEGE_SLUGS) {
+      expect(COLLEGES.some((c) => c.slug === slug), `${slug} was deleted; its URL would 404`).toBe(true);
+      expect(COLLEGES_LIVE.some((c) => c.slug === slug), `${slug} must not appear in listings`).toBe(false);
     }
   });
 });

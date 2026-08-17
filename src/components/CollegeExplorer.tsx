@@ -136,7 +136,7 @@ export default function CollegeExplorer({ colleges, go }: { colleges: CollegeFul
                 ['College', (c: CollegeFull) => c.shortName || c.name],
                 ['Type', (c: CollegeFull) => c.type],
                 ['City', (c: CollegeFull) => `${c.city}, ${c.state}`],
-                ['NIRF rank', (c: CollegeFull) => (c.nirf ? `#${c.nirf}` : '—')],
+                ['NIRF rank', (c: CollegeFull) => (c.nirf ? `#${c.nirf}` : c.nirfBand ? c.nirfBand : '—')],
                 ['4-year tuition', (c: CollegeFull) => courseTuition(c)],
                 ['Cutoff (top)', (c: CollegeFull) => c.cutoff],
                 ['Avg package', (c: CollegeFull) => c.placementAvg],
@@ -170,7 +170,7 @@ export default function CollegeExplorer({ colleges, go }: { colleges: CollegeFul
                 <span className={cn('shrink-0 rounded-full px-2 py-0.5 text-[11px] font-black', typeColor[c.type])}>{c.type}</span>
               </div>
               <div className="mt-2 grid grid-cols-3 gap-2 text-center">
-                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">NIRF</p><p className="text-sm font-black text-slate-800">{c.nirf ? `#${c.nirf}` : '—'}</p></div>
+                <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">NIRF</p><p className="text-sm font-black text-slate-800">{c.nirf ? `#${c.nirf}` : c.nirfBand ? c.nirfBand : '—'}</p></div>
                 <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">4-yr tuition</p><p className="text-xs font-black text-slate-800">{courseTuition(c)}</p></div>
                 <div className="rounded-lg bg-slate-50 py-1.5"><p className="text-[11px] font-bold text-slate-500">Avg pkg</p><p className="text-xs font-black text-slate-800">{c.placementAvg}</p></div>
               </div>
