@@ -1505,7 +1505,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-10-maths-real-numbers-solved-examples",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Real Numbers (HCF LCM Euclid)",
     "intro": "Euclidean algorithm and HCF-LCM problems form the foundation of number theory in Class 10. These solved examples show how to find HCF using Euclid's algorithm, verify the HCF-LCM relationship, and solve word problems.",
@@ -1565,7 +1565,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-10-maths-pair-linear-equations-solved-examples",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Pair of Linear Equations in Two Variables",
     "intro": "Pair of linear equations can be solved using substitution, elimination, or cross-multiplication methods. These examples demonstrate all three approaches and applications to real-world problems.",
@@ -1625,7 +1625,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-10-maths-circles-solved-examples",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Circles",
     "intro": "Circle theorems involve angles, tangents, chords, and secants. These solved examples cover key circle properties including angle theorems, tangent-radius relationships, and chord properties with applications.",
@@ -1685,7 +1685,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-10-maths-statistics-solved-examples",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "chapter": "Statistics",
     "intro": "Statistics involves organizing, analyzing, and interpreting data using measures like mean, median, mode, and standard deviation. These examples cover grouped data, finding central tendencies, and calculating measures of dispersion.",
@@ -1745,7 +1745,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-9-maths-linear-equations-two-variables-solved-examples",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Mathematics",
     "chapter": "Linear Equations in Two Variables",
     "intro": "Linear equations in two variables represent straight lines on a graph. These examples demonstrate how to solve, graph, and verify solutions to equations of the form ax + by + c = 0.",
@@ -1805,7 +1805,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-9-maths-herons-formula-solved-examples",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Mathematics",
     "chapter": "Heron's Formula",
     "intro": "Heron's formula calculates the area of a triangle using only the lengths of its sides, without needing the height. These examples cover triangles with given sides, applications to irregular shapes, and practical problems.",
@@ -1865,7 +1865,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-9-physics-sound-solved-examples",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Physics",
     "chapter": "Sound",
     "intro": "Sound is a mechanical wave that travels through different media. These examples cover speed of sound, frequency, wavelength, echo, and the Doppler effect with numerical calculations.",
@@ -1925,7 +1925,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-10-chemistry-chemical-equations-solved-examples",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "chapter": "Chemical Equations and Balancing",
     "intro": "Balancing chemical equations ensures conservation of mass by having equal numbers of each atom type on both sides. These examples cover balancing methods, stoichiometry, and mole calculations.",
@@ -1985,7 +1985,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-11-physics-gravitation-solved-examples",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "chapter": "Gravitation",
     "intro": "Gravitation is the force of attraction between masses. These examples cover Newton's law of universal gravitation, gravitational field, orbital motion, and calculations involving planets and satellites.",
@@ -2045,7 +2045,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-11-physics-thermodynamics-solved-examples",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "chapter": "Thermodynamics",
     "intro": "Thermodynamics studies heat, work, and internal energy. These examples cover the first law, heat capacity, specific heat, and applications involving temperature changes and phase transitions.",
@@ -2105,7 +2105,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-12-physics-optics-lens-mirror-solved-examples",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "chapter": "Optics - Mirror and Lens",
     "intro": "Optics covers reflection and refraction using mirrors and lenses. These examples involve lens formula, mirror formula, magnification, and image formation with numerical calculations.",
@@ -2165,7 +2165,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-12-maths-integrals-solved-examples",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "chapter": "Integrals (Indefinite and Definite)",
     "intro": "Integrals find antiderivatives and areas under curves. These examples cover power rule, trigonometric integrals, definite integrals, and applications like area and volume.",
@@ -2225,7 +2225,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-12-maths-application-derivatives-solved-examples",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "chapter": "Application of Derivatives",
     "intro": "Applications of derivatives include finding maxima, minima, rate of change, and optimization problems. These examples cover critical points, second derivative test, and practical optimization scenarios.",
@@ -2285,7 +2285,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-11-chemistry-thermodynamics-solved-examples",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "chapter": "Thermodynamics",
     "intro": "Chemical thermodynamics studies enthalpy, entropy, and Gibbs free energy. These examples cover heat of reaction, entropy changes, spontaneity, and equilibrium constants with calculations.",
@@ -2345,7 +2345,7 @@ export const SOLVED_SETS: SolvedSet[] = [
   },
   {
     "slug": "class-11-maths-sequences-series-solved-examples",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Mathematics",
     "chapter": "Sequences and Series",
     "intro": "Sequences are ordered lists of numbers; series are sums of sequence terms. These examples cover arithmetic and geometric sequences, their sums, and applications with numerical calculations.",

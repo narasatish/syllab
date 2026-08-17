@@ -1,14 +1,20 @@
 /** englishLiterature.ts — NCERT English chapter summaries, characters, themes. */
 export interface LitChar { name: string; description: string; }
 export interface LitFaq { q: string; a: string; }
+/** A poetic or literary device, named with the line that demonstrates it. */
+export interface LitDevice { name: string; example: string; }
+/** One NCERT textbook exercise question with a model answer. */
+export interface LitTextbookQA { q: string; a: string; }
 export interface LitChapter {
   slug: string; classLevel: string; book: string; chapter: string;
   intro: string; summary: string; characters: LitChar[]; themes: string[]; faqs: LitFaq[];
+  /** Both optional: only the chapters with search demand carry them so far. */
+  devices?: LitDevice[]; textbookQA?: LitTextbookQA[];
 }
 export const LIT_CHAPTERS: LitChapter[] = [
   {
     "slug": "class-10-english-a-letter-to-god",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "A Letter to God",
     "intro": "A humble farmer writes a letter to God requesting 1,000 pesos compensation for his damaged crops destroyed by hail. The story explores faith, hope, and the consequences when that faith meets bureaucratic reality.",
@@ -39,11 +45,59 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What does Lencho's final reaction reveal about his character?",
         "a": "His reaction reveals that while Lencho has strong faith, he is also suspicious and ungrateful. He doubts that God would cheat him rather than feeling thankful for receiving 970 pesos from kind strangers."
       }
+    ],
+    "devices": [
+      {
+        "name": "Irony",
+        "example": "The men who actually help Lencho are the ones he ends up calling thieves."
+      },
+      {
+        "name": "Simile",
+        "example": "The raindrops are compared to new coins — \"the big drops were ten-cent pieces, the little ones were fives\" — turning rain into money before the hail destroys it."
+      },
+      {
+        "name": "Personification",
+        "example": "The hail is described as an army of locusts falling on the field, given the intent of a destroyer."
+      },
+      {
+        "name": "Imagery",
+        "example": "The field white with hail \"as if covered with salt\" makes the ruin visible in a single stroke."
+      },
+      {
+        "name": "Symbolism",
+        "example": "The letter stands for absolute, uncomplicated faith — and for how blind such faith can be to the human kindness in front of it."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "What did Lencho hope for?",
+        "a": "He hoped for a good downpour of rain, which his ripe field of maize needed badly. He had been watching the sky from the north-east all morning and was pleased when the rain finally began, because it would guarantee a good harvest."
+      },
+      {
+        "q": "Why did Lencho say the raindrops were like \"new coins\"?",
+        "a": "Because the rain meant a good harvest and therefore money. He looked at the falling drops in terms of what they would earn him — the big drops ten-cent pieces and the small ones fives — so the comparison shows how directly his livelihood depended on the weather."
+      },
+      {
+        "q": "How did the rain change? What happened to Lencho's fields?",
+        "a": "A strong wind began to blow and large hailstones started falling with the rain. For an hour hail battered the valley, and afterwards the field was white, as if covered with salt. Not a leaf remained on the trees, the maize was totally destroyed and the flowers were gone from the plants, leaving the family facing a year of hunger."
+      },
+      {
+        "q": "Who or what did Lencho have faith in? What did he do?",
+        "a": "He had complete faith in God. Believing that God sees everything and that no one dies of hunger while God provides, he wrote a letter addressed to God asking for a hundred pesos to sow his field again and live until the next crop, and posted it at the town post office."
+      },
+      {
+        "q": "Who read the letter, and what was their reaction?",
+        "a": "The postmaster read it, and he laughed at first but then became serious, moved by the writer's faith. Determined not to shake that faith, he asked his employees and friends for contributions and gave part of his own salary, collecting seventy of the hundred pesos and sending them to Lencho signed \"God\"."
+      },
+      {
+        "q": "Why was Lencho not surprised on seeing the money? What was his reaction?",
+        "a": "He was not surprised because his faith was absolute — he had expected God to answer, so the arrival of money confirmed what he already believed. On counting it, however, he became angry that it was only seventy pesos, concluded that God could not have made a mistake, and wrote again asking for the rest and warning God not to send it through the post office because \"the post office employees are a bunch of crooks\"."
+      }
     ]
   },
   {
     "slug": "class-10-english-nelson-mandela-long-walk-to-freedom",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "Nelson Mandela: Long Walk to Freedom",
     "intro": "Nelson Mandela's autobiography excerpt describes his journey from a privileged childhood to becoming a symbol of anti-apartheid struggle in South Africa. This passage reflects his growth from anger to wisdom and forgiveness.",
@@ -78,7 +132,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-two-stories-about-flying",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "Two Stories about Flying",
     "intro": "This chapter contains two contrasting narratives about flying: one about His First Flight featuring a young seabird's courage and another about a young pilot's first solo flight. Both explore themes of fear, growth, and overcoming self-doubt.",
@@ -113,7 +167,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-from-the-diary-of-anne-frank",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "From the Diary of Anne Frank",
     "intro": "This passage from Anne Frank's diary documents her life in hiding during the Holocaust. Through her youthful perspective, she explores adolescent experiences, relationships, and her deep observations about human nature.",
@@ -148,7 +202,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-the-hundred-dresses",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "The Hundred Dresses",
     "intro": "This poignant story explores bullying, social prejudice, and redemption through the tale of a poor Polish girl in an American school. It examines how careless cruelty can have lasting consequences and the power of compassion.",
@@ -187,7 +241,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-glimpses-of-india",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "Glimpses of India",
     "intro": "This chapter comprises three short pieces offering impressionistic views of India: Coorg describes a scenic hill station, Kodaikanal showcases hill station beauty, and Coonoor presents colonial hill station charm. Together they paint a diverse picture of Indian landscape and culture.",
@@ -213,7 +267,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-mijbil-the-otter",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "Mijbil the Otter",
     "intro": "This delightful essay recounts the author Gavin Maxwell's experience adopting a young otter in Iraq and bringing it to Scotland. It combines humor, affection, and vivid descriptions of the otter's personality and antics.",
@@ -248,7 +302,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-madam-rides-the-bus",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "Madam Rides the Bus",
     "intro": "This story celebrates the courage of an elderly Indian woman who defies social conventions by boarding a bus alone. It explores themes of independence, breaking gender barriers, and the power of individual determination.",
@@ -283,7 +337,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-the-sermon-at-benares",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "The Sermon at Benares",
     "intro": "This retelling of a Buddhist parable from the Buddha's teachings uses the story of a grieving mother to convey profound lessons about acceptance, grief, and the universal nature of suffering and mortality.",
@@ -318,7 +372,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-a-triumph-of-surgery",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "A Triumph of Surgery",
     "intro": "This heartwarming story portrays a veterinarian's determination to save an injured doe and the extraordinary surgery he performs. It celebrates medical skill, compassion for animals, and the rewards of dedication.",
@@ -353,7 +407,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-the-thiefs-story",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "The Thief's Story",
     "intro": "This poignant story follows the transformation of a young pickpocket through the kindness and trust of a stranger. It explores redemption, trust, and the human capacity for change.",
@@ -384,11 +438,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What ultimately changes Hari?",
         "a": "Hari is changed by Anil's trust, kindness, and belief in him. Learning to read and write, earning honest wages, and feeling valued help Hari see a better life, making him choose integrity over theft."
       }
+    ],
+    "devices": [
+      {
+        "name": "First-person narration",
+        "example": "Hari Singh tells his own story, so the reader follows his reasoning and his change of heart from inside."
+      },
+      {
+        "name": "Irony",
+        "example": "The thief robs a man who was teaching him to read, and it is the loss of that teaching, not the money, that he cannot bear."
+      },
+      {
+        "name": "Symbolism",
+        "example": "The wet, damp notes stand for guilt itself — the stolen money is spoilt in his hand before he can use it."
+      },
+      {
+        "name": "Understatement",
+        "example": "Anil says nothing about the theft and simply hands over a damp fifty-rupee note, which says more than an accusation could."
+      },
+      {
+        "name": "Humour",
+        "example": "Hari Singh's frank account of overcharging for the daily shopping and of changing his name every month gives the story its light touch."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "What are Hari Singh's reactions to the prospect of receiving an education? How do they change his character?",
+        "a": "At first he is only mildly interested and values the offer for what it might be worth later: an educated man can steal on a much larger scale. But the lessons come to matter for their own sake, and it is the thought of losing them that turns him back at the railway station. The prospect of education gives him something he wants more than money, which is what changes him."
+      },
+      {
+        "q": "Why does Anil not hand the thief over to the police?",
+        "a": "Anil understands that punishment would end the boy's chance of becoming anything else. By saying nothing, and by handing him a damp note the next morning, he shows he knows about the theft and is choosing to trust him anyway. That trust is more likely to reform Hari Singh than the police, and the story ends with the boy staying to learn."
+      },
+      {
+        "q": "Do you think Anil was a \"simple\" man? Why or why not?",
+        "a": "He is easy-going and careless with money, and he keeps it under the mattress, so on the surface he seems simple. But he is not naive: he clearly realises the notes have been taken and returns one that is still damp from the rain, without accusation. He is a shrewd judge of what the boy needs, and the \"simplicity\" is a kind of generosity rather than stupidity."
+      },
+      {
+        "q": "What does Hari Singh think about after he has stolen the money?",
+        "a": "He plans to catch the 10:30 Express to Lucknow, then hesitates on the platform and lets the train go. He thinks about how easy the theft was, and then about what he loses by it: Anil's hurt would not be about the money but about the broken trust, and without Anil he will never learn to read and write and will remain what he is."
+      },
+      {
+        "q": "What is the significance of the title \"The Thief's Story\"?",
+        "a": "The title is deliberately plain. The story is told by the thief, so it is his account rather than a story about him, and by the end the label no longer fits: the boy who returns the money in the night is not simply a thief. The title marks where he begins, and the story is the distance he travels from it."
+      }
     ]
   },
   {
     "slug": "class-10-english-the-midnight-visitor",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "The Midnight Visitor",
     "intro": "This suspenseful spy story takes the reader through a night of tension and mistaken identity in a hotel room. It combines elements of espionage, deception, and surprise endings.",
@@ -423,7 +521,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-a-question-of-trust",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "First Flight",
     "chapter": "A Question of Trust",
     "intro": "This story explores themes of deception and trust through the interaction between a housewife and a burglar. It examines how assumptions about character can be dangerously misleading.",
@@ -458,7 +556,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-10-english-footprints-without-feet",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "book": "Footprints without Feet",
     "chapter": "Footprints without Feet",
     "intro": "This science fiction story by H.G. Wells presents a mysterious stranger who discovers the secret of becoming invisible. It explores themes of power, isolation, and the consequences of scientific ambition.",
@@ -497,7 +595,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-9-english-the-fun-they-had",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Beehive",
     "chapter": "The Fun They Had",
     "intro": "This futuristic story by Isaac Asimov contrasts education in the future with traditional schooling methods. Through children's discovery of an old book, it questions whether technological advancement always improves human experience.",
@@ -532,7 +630,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-9-english-the-sound-of-music",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Beehive",
     "chapter": "The Sound of Music",
     "intro": "This biography celebrates Evelyn Glennie, a deaf Scottish percussionist who overcame her disability to become a world-renowned musician. It is a testament to determination, passion, and the triumph of human spirit.",
@@ -567,7 +665,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-9-english-the-little-girl",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Beehive",
     "chapter": "The Little Girl",
     "intro": "This poignant story by Katherine Mansfield portrays a child's confused emotions toward her father and her realization of his vulnerability. It explores the complexity of parent-child relationships and emotional maturation.",
@@ -602,7 +700,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-9-english-a-truly-beautiful-mind",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Beehive",
     "chapter": "A Truly Beautiful Mind",
     "intro": "This biography celebrates Albert Einstein, focusing not on his scientific achievements but on his character, humility, and unique personality. It portrays the man behind the genius.",
@@ -633,7 +731,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-9-english-the-snake-and-the-mirror",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Beehive",
     "chapter": "The Snake and the Mirror",
     "intro": "This humorous and philosophical story from South Indian literature explores vanity and human nature through an encounter between a vain barber and a snake. It combines comedy with social commentary.",
@@ -668,7 +766,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-9-english-the-lost-child",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Beehive",
     "chapter": "The Lost Child",
     "intro": "This tender story by Mulk Raj Anand captures the emotional journey of a child separated from his parents at a fair. It explores innocence, loss, and the vulnerability of childhood.",
@@ -703,7 +801,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-9-english-the-adventures-of-toto",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Moments",
     "chapter": "The Adventures of Toto",
     "intro": "This humorous story by Ruskin Bond narrates the misadventures of Toto, a mischievous monkey, and his owner. It celebrates the chaos, affection, and lessons that come with keeping a wild animal as a pet.",
@@ -734,11 +832,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What is the lesson of Toto's story?",
         "a": "The story teaches that wild animals, no matter how endearing, are not suited for domestic life. True compassion for wildlife involves respecting their nature and allowing them to live in their natural habitat."
       }
+    ],
+    "devices": [
+      {
+        "name": "Humour",
+        "example": "Toto's destruction of curtains, wallpaper and dishes is narrated with affectionate amusement rather than complaint."
+      },
+      {
+        "name": "Personification",
+        "example": "Toto is given human motives — he is \"mischievous\", he grins, he takes offence — which is what makes him a character rather than a pet."
+      },
+      {
+        "name": "Imagery",
+        "example": "Toto in the bowl of warm water, delighted, then in the kettle with only his head showing — the comedy is visual."
+      },
+      {
+        "name": "Irony",
+        "example": "Grandfather buys a monkey to add to his private zoo and finds the household unable to contain it."
+      },
+      {
+        "name": "First-person narration",
+        "example": "The boy narrator's fondness colours every incident, so even the damage is told as delight."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "How does Toto come to grandfather's private zoo?",
+        "a": "Grandfather bought Toto from a tonga-driver for five rupees. The monkey had been tied to a feeding-trough and looked out of place there, and grandfather, who kept a private zoo, was attracted by his bright eyes and decided he would be a valuable addition."
+      },
+      {
+        "q": "\"Toto was a pretty monkey.\" In what sense is Toto pretty?",
+        "a": "He had bright, sparkling eyes set beneath deep-set eyebrows, pearly white teeth, and quick, restless fingers. His tail added to his good looks and served as a third hand for gripping. The narrator finds him pretty in the sense of being lively and expressive rather than merely decorative."
+      },
+      {
+        "q": "Why does grandfather take Toto to Saharanpur, and what happens there?",
+        "a": "He took Toto to Saharanpur to return him to the pet shop, carrying him in a big black canvas kit-bag. On the train Toto managed to get his head out, and the ticket collector classed him as a dog, charging three rupees. On the return journey, with no Toto in the bag, grandfather was still charged for the bag itself — which the narrator notes as a joke at grandfather's expense."
+      },
+      {
+        "q": "How does Toto almost boil himself alive?",
+        "a": "On a cold winter day he found a large kettle of water left on the fire to boil. He climbed in, enjoying the warmth as it heated, and put the lid on. As the water grew hot he tried to get out, found the lid in place, and would have been boiled had grandmother not arrived and lifted him out in time."
+      },
+      {
+        "q": "Why does the author say Toto was not the sort of pet they could keep for long?",
+        "a": "Because he was too expensive and too destructive. He tore wallpaper and curtains, broke dishes and damaged clothes, frightened the other animals, and once bit a hole in his own reflection's mirror. The family could not afford the ruin he caused, so he was eventually sold back to the tonga-driver for three rupees."
+      }
     ]
   },
   {
     "slug": "class-9-english-iswaran-the-storyteller",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Moments",
     "chapter": "Iswaran the Storyteller",
     "intro": "This story by R.K. Narayan portrays a clever cook who uses storytelling to maintain his position and win over his employer. It celebrates the art of narrative and human connection.",
@@ -769,11 +911,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What does Iswaran's success reveal about human nature?",
         "a": "It reveals that humans are drawn to stories and narrative and that storytelling creates bonds between people. Iswaran's ability to entertain and provide companionship through words makes him valuable despite his professional role as a cook."
       }
+    ],
+    "devices": [
+      {
+        "name": "Story within a story",
+        "example": "Iswaran's tales are told inside the frame of Mahendra's account, so the reader hears them as Mahendra does."
+      },
+      {
+        "name": "Suspense",
+        "example": "Iswaran never finishes a tale without a dramatic pause — \"and then, what do you think happened?\" — which is his whole technique."
+      },
+      {
+        "name": "Humour",
+        "example": "The absurdity of the tusker episode, and Iswaran's casual claim to have felled an elephant with a crowbar, are told with a straight face."
+      },
+      {
+        "name": "Imagery",
+        "example": "The moonlit night, the white sari-clad figure with a bundle, the dishevelled hair — the ghost scene is built entirely from visual detail."
+      },
+      {
+        "name": "Irony",
+        "example": "Mahendra dismisses ghost stories as nonsense until he believes he sees one, and it is the storyteller's art rather than any ghost that unnerves him."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "In what way is Iswaran an asset to Mahendra?",
+        "a": "Iswaran cooked, washed clothes and cleaned the house, and could conjure up a hot meal from apparently nothing however remote the posting. He was attached to Mahendra and followed him uncomplainingly to every site. Above all he entertained him with an endless supply of stories in places where there was nothing else to do, which made the isolation bearable."
+      },
+      {
+        "q": "How does Iswaran describe the uprooted tree on the highway? What does it tell us about him?",
+        "a": "He describes it theatrically, as a large stone-like creature lying across the road with enormous bushy hair, and only gradually reveals it was an uprooted tree. It shows that he cannot tell anything plainly: every ordinary event is dramatised, with suspense and description borrowed from the Tamil thrillers he reads."
+      },
+      {
+        "q": "How did Iswaran describe the tusker?",
+        "a": "He said a tusker escaped from a timber yard and ran amok, smashing fences, huts and stalls and uprooting trees. It entered the school ground where boys were playing, and Iswaran claimed that he alone took a crowbar, crept up, and struck the third toenail of the animal, which shuddered and collapsed. The scale of the boast is the point of the episode."
+      },
+      {
+        "q": "Why does Mahendra decide to leave the place?",
+        "a": "Because he can no longer sleep there. After Iswaran tells him the factory is built on a burial ground and then describes a female ghost with a foetus in her arms, Mahendra dismisses it — until one full-moon night he looks out and sees, as he believes, exactly that figure. Shaken, he decides to leave the haunted place rather than spend another night in it."
+      },
+      {
+        "q": "Can you think of any other ending for the story?",
+        "a": "One natural alternative is that Mahendra investigates the next morning and finds an ordinary explanation — a woman from a nearby settlement, or Iswaran himself staging the scene — which would make the story a comedy about suggestion rather than a ghost story. Another is that Mahendra stays, hears more tales, and comes to enjoy them, leaving the question of the ghost permanently open."
+      }
     ]
   },
   {
     "slug": "class-9-english-in-the-kingdom-of-fools",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "book": "Moments",
     "chapter": "In the Kingdom of Fools",
     "intro": "This witty folktale features two travelers encountering a kingdom where everything is reversed or absurd. It is a social satire that critiques foolishness and blind tradition.",
@@ -935,6 +1121,50 @@ export const LIT_CHAPTERS: LitChapter[] = [
       {
         "q": "Why doesn't the father immediately console the boy?",
         "a": "The father understands that experiencing loss and its consequences is crucial for the boy's development. This discomfort teaches him responsibility and acceptance of life's harsh realities."
+      }
+    ],
+    "devices": [
+      {
+        "name": "Symbolism",
+        "example": "The ball is not a toy but the first possession the boy has lost; it stands for everything a person loses irrecoverably."
+      },
+      {
+        "name": "Repetition",
+        "example": "\"What, what is he to do?\" — the repeated question conveys the boy's helplessness and the speaker's inability to answer it."
+      },
+      {
+        "name": "Alliteration",
+        "example": "\"buys a ball back\", \"staring down\" — repeated consonant sounds tie the lines together."
+      },
+      {
+        "name": "Personification",
+        "example": "The ball is described as \"merrily bouncing\" as though it acts of its own accord."
+      },
+      {
+        "name": "Enjambment",
+        "example": "Lines run on without pause — \"He senses first responsibility / In a world of possessions\" — mirroring the boy's continuing thought."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "Why does the poet say, \"I would not intrude on him\"? Why doesn't he offer him money to buy another ball?",
+        "a": "The poet deliberately stands back because the boy is learning something that cannot be taught by comfort. Offering money would replace the object and cancel the lesson: the boy would learn that loss is easily repaired, which is untrue. The grief has to be lived through for the understanding to take, so the poet refuses to intrude on it."
+      },
+      {
+        "q": "\"Money is external.\" What does the poet mean by this?",
+        "a": "Money can buy another ball, but it cannot restore the ball that was lost or undo the fact of losing. What the boy is learning — that things go and do not come back — happens inside him, and no external purchase reaches it. Money touches the object, not the loss."
+      },
+      {
+        "q": "What does the poet say the boy is learning from the loss of the ball?",
+        "a": "He is learning \"the epistemology of loss\" — how to know loss, how to stand up in a world of possessions and understand that things will be lost and cannot be recovered. It is his first responsibility, and the poem treats it as the beginning of an adult understanding rather than a small childhood upset."
+      },
+      {
+        "q": "How does the poet describe the boy's reaction to the loss?",
+        "a": "The boy stands rigid and trembling, staring down into the water where the ball has gone. The poet notes that no one buys a ball back — the words are plain, and the boy's stillness carries the shock. His whole young day is shaken by the sight of the ball going merrily on, indifferent to him."
+      },
+      {
+        "q": "Why is the ball significant when the boy has other balls?",
+        "a": "Because it is not about the object's replaceability. This particular ball carries the boy's memories of playing with it, and its loss is his first real experience of something being gone for good. Another ball would be another thing; it would not be that one, and that is the distinction the poem is about."
       }
     ]
   },
@@ -1139,6 +1369,54 @@ export const LIT_CHAPTERS: LitChapter[] = [
       {
         "q": "Does the speaker really take the less traveled road?",
         "a": "The poem is deliberately ambiguous. Upon close reading, the roads appear equally worn. The speaker's conviction about choosing the 'less traveled' road may reflect self-deception or retrospective narrative construction."
+      }
+    ],
+    "devices": [
+      {
+        "name": "Extended metaphor",
+        "example": "The two roads in a yellow wood stand for a choice in life, and the whole poem is built on that single figure."
+      },
+      {
+        "name": "Symbolism",
+        "example": "The \"yellow wood\" suggests autumn and therefore later life; the undergrowth that hides the road's end stands for an unknowable future."
+      },
+      {
+        "name": "Imagery",
+        "example": "\"Two roads diverged in a yellow wood\", leaves \"no step had trodden black\" — the scene is precise and visual throughout."
+      },
+      {
+        "name": "Repetition",
+        "example": "\"I took the one less traveled by\" echoes the earlier claim, and \"ages and ages hence\" doubles the word for emphasis."
+      },
+      {
+        "name": "Rhyme scheme",
+        "example": "Each stanza follows ABAAB, giving the poem the steady, almost conversational tread of someone thinking aloud."
+      },
+      {
+        "name": "Irony",
+        "example": "The speaker says one road was less travelled, having just admitted the two were \"worn really about the same\" — the poem quietly questions the story we tell about our own choices."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "Where does the traveller find himself? What problem does he face?",
+        "a": "He finds himself in a yellow wood, at a point where the road divides into two. His problem is that he can travel only one of them and cannot see far down either, since the undergrowth bends and hides where each leads. He must choose without knowing what he is choosing."
+      },
+      {
+        "q": "Discuss what these phrases mean: a yellow wood, it was grassy and wanted wear, the passing there, leaves no step had trodden black, how way leads on to way.",
+        "a": "A yellow wood is an autumn forest, suggesting the later part of life. \"Grassy and wanted wear\" means the road looked less used and so seemed to invite a traveller. \"The passing there\" refers to the traffic of people who had walked the roads. \"Leaves no step had trodden black\" means the fallen leaves lay fresh and unblackened, so no one had walked there that morning. \"How way leads on to way\" means one choice opens into further choices, so returning to the original fork becomes unlikely."
+      },
+      {
+        "q": "Is there any difference between the two roads as the poet describes them in the second and third stanzas?",
+        "a": "Barely any. In the second stanza he claims the second road was grassier and wanted wear, but in the third he admits the passing there had \"worn them really about the same\" and that both lay equally in leaves no step had trodden black. The difference he first asserts is quietly withdrawn, which is central to the poem."
+      },
+      {
+        "q": "What do you think the last two lines of the poem mean?",
+        "a": "\"I took the one less traveled by, / And that has made all the difference\" is the story the speaker expects to tell in later years, marked by the \"sigh\" that introduces it. Since he has already told us the roads were much the same, the lines suggest that we give our choices a significance in hindsight that they did not obviously have at the time. Whether the sigh is regret or satisfaction is left deliberately open."
+      },
+      {
+        "q": "Have you ever had to make a difficult choice? How did you decide?",
+        "a": "The poem's answer is that such choices are usually made on slight and partly imagined grounds, because the outcomes cannot be seen in advance. What matters afterwards is that \"way leads on to way\" — one decision commits you to a path from which returning is impractical — so the choosing has to be lived with rather than endlessly reconsidered."
       }
     ]
   },
@@ -1373,7 +1651,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-11-hornbill-the-portrait-of-a-lady",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Hornbill",
     "chapter": "The Portrait of a Lady",
     "intro": "This is a touching biographical sketch of the author's grandmother. The piece beautifully captures how she transformed from a traditional woman bound by customs into a devotee of spiritual reading.",
@@ -1408,11 +1686,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "Why is this piece called a portrait?",
         "a": "It is called a portrait because Khushwant Singh creates a detailed, affectionate character study of his grandmother, capturing her personality, values, and spiritual essence through vivid descriptions and anecdotes."
       }
+    ],
+    "devices": [
+      {
+        "name": "Simile",
+        "example": "\"She was like the winter landscape in the mountains, an expanse of pure white serenity breathing peace and contentment.\""
+      },
+      {
+        "name": "Imagery",
+        "example": "The grandmother telling her beads, the sparrows on her shoulders, the thousand wrinkles on her face — the portrait is built from images, as the title promises."
+      },
+      {
+        "name": "Contrast",
+        "example": "Village life against city life; the grandmother reciting prayers against the poet learning Western science and music."
+      },
+      {
+        "name": "Symbolism",
+        "example": "The sparrows stand for the grandmother's daily bond with living things; their silent mourning at her death is the story's final tribute."
+      },
+      {
+        "name": "Metaphor",
+        "example": "\"The turning point in our friendship\" — the friendship itself is treated as something with a shape that can turn."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "Mention the three phases of the author's relationship with his grandmother before he left the country to study abroad.",
+        "a": "First, in the village, they were inseparable: she woke him, washed and dressed him, walked him to the temple school and fed the village dogs with him. Second, in the city, they drifted apart — he went to an English school by bus, learnt of Western science and music, and she could no longer help with his lessons or accompany him. Third, when he went to university he was given a separate room and the common link snapped; she accepted it silently and spent her days at the spinning wheel."
+      },
+      {
+        "q": "Three phases of the author's relationship — what was the turning point?",
+        "a": "The move from the village to the city was the turning point. In the village her role in his day was practical and constant; in the city the school taught things she thought irreligious, she stopped going with him, and their shared routine ended. Her withdrawal to the spinning wheel and her prayers followed from that."
+      },
+      {
+        "q": "The grandmother was a religious person. What are the details that tell you this?",
+        "a": "She was always telling the beads of her rosary, and her lips moved in inaudible prayer throughout the day. She said her prayers in a monotonous singsong while helping him dress and hoped he would learn it by heart. She went to the temple school with him and read scriptures there, and later she read the holy book in her room. Even on the day of her death she refused to stop praying, telling her beads until her lips went still."
+      },
+      {
+        "q": "Describe the changing relationship between the author and his grandmother. Did their feelings for each other change?",
+        "a": "Their daily closeness ended — village companionship gave way to city separation and finally to separate rooms — but their affection did not. She saved fragments of the day's food for the village dogs, then for the city sparrows, and when he returned after five years she was waiting at the station and clasped him without a word. Her feeling stayed constant; only the shape of their contact changed."
+      },
+      {
+        "q": "What was the last sign of physical contact between them?",
+        "a": "The last sign of physical contact was at the railway station when the author left for abroad: she kissed his forehead silently. He considered that kiss possibly the last sign of physical contact between them, because he was not sure she would live until he returned."
+      }
     ]
   },
   {
     "slug": "class-11-hornbill-we-are-not-afraid-to-die",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Hornbill",
     "chapter": "We're Not Afraid to Die... If We Can All Be Together",
     "intro": "This is a gripping true account of a family's survival during a terrifying storm at sea. The narrative showcases extraordinary human courage and the will to survive against impossible odds.",
@@ -1451,11 +1773,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What does the title mean in the context of the story?",
         "a": "The title expresses the family's willingness to face death if necessary, but only if they all face it together. Their greatest fear is not death itself, but being separated from each other."
       }
+    ],
+    "devices": [
+      {
+        "name": "First-person narration",
+        "example": "The account is told by the father, which keeps the danger immediate and the family's fear personal rather than reported."
+      },
+      {
+        "name": "Imagery",
+        "example": "\"a wave the size of a mountain\", \"a torn sail flapping\" — the sea is rendered visually and audibly throughout."
+      },
+      {
+        "name": "Simile",
+        "example": "The approaching wave is described as looking like an enormous cliff of water bearing down on the boat."
+      },
+      {
+        "name": "Understatement",
+        "example": "Six-year-old Jonathan says \"We aren't afraid of dying if we can all be together\" — the calm phrasing carries the story's emotional weight and gives it its title."
+      },
+      {
+        "name": "Suspense",
+        "example": "The narrative withholds whether the crippled boat will find Ile Amsterdam until the last moment."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "List the steps taken by the captain to protect the ship when rough weather began.",
+        "a": "He dropped the storm jib and lashed a heavy mooring rope in a loop across the stern, double-lashed everything, went through their life-raft drill, attached lifelines, donned oilskins and life jackets, and had the family prepare for the worst."
+      },
+      {
+        "q": "Describe the mental condition of the voyagers on 4 and 5 January.",
+        "a": "They were exhausted and frightened but determined. The boat was half-full of water, the pumps were blocked and Mary was steering with a broken hand-pump while the author bailed and repaired. On 5 January the situation seemed hopeless, yet the children's courage — Jonathan's remark about not being afraid to die if they were together, and Sue hiding her injuries so as not to add to her father's worries — restored the family's resolve."
+      },
+      {
+        "q": "Describe the shifts in the narration of the events as indicated in the three sections of the text.",
+        "a": "The first section is calm and anticipatory: preparation, the plan to follow Captain Cook's route, and pleasant early sailing. The second turns to crisis — the wave, the flooding, the injuries, the pumping and bailing, and the search for Ile Amsterdam. The third resolves into relief and gratitude as the island is sighted and the family lands safely."
+      },
+      {
+        "q": "What difference did you notice between the reaction of the adults and the children when faced with danger?",
+        "a": "The adults reacted with practical urgency and visible strain: pumping, bailing, navigating, and privately fearing the worst. The children reacted with quiet courage — Sue concealed a badly bruised head and a deep cut so as not to worry her father, and Jonathan spoke without panic about dying so long as the family was together. Their calm was what steadied the adults."
+      },
+      {
+        "q": "What lesson do we learn from such hazardous experiences?",
+        "a": "That optimism, presence of mind and cooperation matter more than the strength of the storm. The family survived because each person did what they could and because hope was maintained; the story argues that courage in adversity is largely a decision, and that it is often shown most plainly by the least powerful people present."
+      }
     ]
   },
   {
     "slug": "class-11-hornbill-the-adventure",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Hornbill",
     "chapter": "The Adventure",
     "intro": "This narrative explores a young man's mysterious encounter in a historical city that transforms his perspective on life. It blends reality and imagination in a thought-provoking way.",
@@ -1490,11 +1856,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What does the protagonist learn from this adventure?",
         "a": "The protagonist gains a transformed perspective on reality and existence, learning that true adventure and growth come from internal exploration and openness to experiences that challenge our understanding of the world."
       }
+    ],
+    "devices": [
+      {
+        "name": "Science fiction framing",
+        "example": "A historian's accident becomes a doorway into an alternative history, and the story treats it with the seriousness of a physics problem."
+      },
+      {
+        "name": "Alternative history",
+        "example": "The Marathas win the Battle of Panipat in 1761, and India is never fully colonised — the whole plot rests on this single altered outcome."
+      },
+      {
+        "name": "Irony",
+        "example": "A professor of history finds himself in a history he has never read, and his expertise is exactly what makes the difference visible to him."
+      },
+      {
+        "name": "Suspense",
+        "example": "The reader does not know until the end whether Gangadharpant travelled, dreamt, or lived a parallel reality."
+      },
+      {
+        "name": "Scientific allusion",
+        "example": "Rajendra Deshpande explains the experience through catastrophe theory and quantum superposition, grounding fantasy in real physics."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "Why does Rajendra Deshpande say the professor's experience was neither a dream nor a hallucination?",
+        "a": "Because Gangadharpant brought back physical evidence: the page from Bhausahebanchi Bakhar describing a Maratha victory at Panipat, which does not exist in the history he knows. A dream leaves nothing behind. Rajendra therefore explains it as a genuine transition between two worlds rather than an event inside the professor's mind."
+      },
+      {
+        "q": "What are the two things Rajendra uses to explain the experience?",
+        "a": "Catastrophe theory and quantum theory. Catastrophe theory accounts for how a small, critical change — the death of a leader, the loss of nerve in an army — can flip the outcome of a battle entirely. Quantum theory supplies the idea that a system can exist in more than one state, and that an observer's interaction determines which one is realised."
+      },
+      {
+        "q": "What was the point of divergence between the two worlds?",
+        "a": "The Battle of Panipat in 1761. In the professor's world the Marathas were defeated; in the world he entered, Vishwasrao's bullet narrowly missed him, the Maratha army's morale held and they won. Everything that follows — the East India Company never gaining a foothold, a Peshwa-run India with a nominally Mughal monarch — flows from that one different outcome."
+      },
+      {
+        "q": "What kind of society did the professor find in the alternative world?",
+        "a": "He found an India that had never been colonised: Bombay was under a Maratha administration, the East India Company had been reduced to a small trading outpost, and Indians ran their own affairs with technology and institutions of their own. The Anglo-Indians he met treated the arrangement as unremarkable, which is what convinced him the world was real rather than staged."
+      },
+      {
+        "q": "What do you understand by the \"catastrophic\" situation described in the story?",
+        "a": "A catastrophic situation is one where a tiny change produces a disproportionate and irreversible shift in outcome. At Panipat, whether one bullet found Vishwasrao decided whether an empire rose or fell. The story uses the term in its mathematical sense — a sudden jump between states — not merely as a synonym for disaster."
+      }
     ]
   },
   {
     "slug": "class-11-hornbill-mothers-day",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Hornbill",
     "chapter": "Mother's Day",
     "intro": "This is a humorous one-act play that subverts the traditional Mother's Day celebration through an unexpected role reversal. The play offers witty social commentary on family dynamics and gender roles.",
@@ -1541,7 +1951,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-11-hornbill-the-browning-version",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Hornbill",
     "chapter": "The Browning Version",
     "intro": "This poignant drama centers on an aging teacher's final day at school and an unexpected moment of grace that redeems his difficult life. It explores themes of recognition, forgiveness, and human dignity.",
@@ -1589,7 +1999,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-11-snapshots-the-summer-of-the-beautiful-white-horse",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Snapshots",
     "chapter": "The Summer of the Beautiful White Horse",
     "intro": "This charming story celebrates the friendship between two poor Armenian boys and their discovery of a beautiful white horse. It explores themes of trust, honor, and the joy of simple pleasures.",
@@ -1633,11 +2043,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "Why does the horse owner give the horse to the boys?",
         "a": "The owner recognizes that the boys have treated the horse with genuine care and respect, demonstrating integrity and goodness despite their poverty. He rewards their character and the love they have shown the animal."
       }
+    ],
+    "devices": [
+      {
+        "name": "Humour",
+        "example": "Two boys who cannot admit to stealing insist for weeks that they are merely borrowing, and the narrative plays the contradiction straight."
+      },
+      {
+        "name": "Irony",
+        "example": "A tribe famous for honesty produces a cousin who takes a horse, and the family's pride in honesty is exactly what forces its return."
+      },
+      {
+        "name": "Characterisation",
+        "example": "Mourad is defined by his wild streak and his way with animals; Aram by his longing to ride and his uneasy conscience."
+      },
+      {
+        "name": "Dialect and idiom",
+        "example": "The Armenian-American speech — \"It is no harm\", \"I understand your position\" — gives the story its distinct voice."
+      },
+      {
+        "name": "Symbolism",
+        "example": "The white horse stands for a childhood longing that cannot be honestly possessed."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "You know that people usually think that a person stealing is a thief. Then why does the writer say that the boys were not thieves?",
+        "a": "Because the Garoghlanian tribe was famous for its honesty, and the boys measured themselves by that. In their own reasoning, taking a horse to ride was not stealing but borrowing, since they never intended to sell it or keep it permanently. The narrator insists it would become stealing only if they sold the horse or refused to give it back — which they never did."
+      },
+      {
+        "q": "What was the aftermath of John Byro's visit to the boys' house?",
+        "a": "John Byro visited Uncle Khosrove and described his stolen horse, and Uncle Khosrove roared his usual \"it is no harm, pay no attention to it\". But Aram understood that the farmer had recognised the horse when he met the boys on the road, and had chosen not to accuse them out of respect for their family's reputation. That silent trust is what made the boys return the horse the next morning."
+      },
+      {
+        "q": "Did the boys return the horse because they were conscience-stricken or because they were afraid?",
+        "a": "Conscience, not fear. John Byro never threatened them; he said instead that he would not believe the family capable of stealing and put the resemblance down to a horse that was the twin of his own. Being trusted rather than accused is what became unbearable, and they took the horse back to his barn the following morning."
+      },
+      {
+        "q": "What made John Byro believe the horse was his?",
+        "a": "He studied the horse closely on the road, looked into its mouth and said he would swear it was his if he did not know the boys' parents and the reputation of their tribe. He recognised the animal completely — but concluded aloud that a Garoghlanian would not steal, and named it the twin of his stolen horse instead."
+      },
+      {
+        "q": "Why is the story titled \"The Summer of the Beautiful White Horse\"?",
+        "a": "The title fixes the episode as a single remembered season of childhood. The horse is beautiful and briefly theirs, and the summer is the time before the boys had to weigh desire against the family's honesty. Calling it \"the summer of\" rather than \"the story of\" marks it as a memory of a particular age that does not return."
+      }
     ]
   },
   {
     "slug": "class-11-snapshots-the-address",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Snapshots",
     "chapter": "The Address",
     "intro": "This haunting post-Holocaust story follows a Jewish woman's attempt to retrieve her family's possessions from a hiding place in Amsterdam. It explores themes of loss, betrayal, and the aftermath of tragedy.",
@@ -1677,11 +2131,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What does this story reveal about the aftermath of the Holocaust?",
         "a": "The story reveals that even after the war ended, survivors faced continued trauma, betrayal, and indifference from those who had not suffered, making recovery from loss profoundly difficult and often impossible."
       }
+    ],
+    "devices": [
+      {
+        "name": "First-person narration",
+        "example": "The daughter tells the story, so the reader feels the coldness of Mrs Dorling's reception exactly as she does."
+      },
+      {
+        "name": "Symbolism",
+        "example": "The address, Number 46 Marconi Street, stands for the past itself — a place the narrator finally decides not to return to."
+      },
+      {
+        "name": "Irony",
+        "example": "The objects are perfectly preserved and perfectly meaningless: surrounded by her mother's things, the narrator feels nothing but revulsion."
+      },
+      {
+        "name": "Imagery",
+        "example": "The green knitted cardigan, the burn mark on the tablecloth, the silver cutlery in the drawer — the memory of home is carried by small objects."
+      },
+      {
+        "name": "Understatement",
+        "example": "The story never names the war or the deportation directly; the horror is left in the gaps."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "\"Have you come back?\" said the woman. \"I thought that no one had come back.\" Does this statement give some clue about the story?",
+        "a": "Yes. It reveals that the narrator's family were among those taken away during the war and that Mrs Dorling had assumed none of them would survive. It explains why she kept the belongings so comfortably and why she is dismayed rather than pleased at the door — the returning daughter is an inconvenience she had not planned for."
+      },
+      {
+        "q": "The story is divided into pre-war and post-war times. What are the differences you notice?",
+        "a": "Before the war the objects belonged to a home and had meaning through use: the tablecloth was on the table, the silver in the drawer, the vase held flowers, and the mother was alive among them. After the war the same objects sit in a stranger's rooms in tasteless arrangements, cut off from the life that gave them significance. The war changed not the things but everything that made them matter."
+      },
+      {
+        "q": "What does the narrator mean by \"the connection had been broken\"?",
+        "a": "She means the objects no longer connect her to her mother or her home. Seeing them in Mrs Dorling's rooms, in a strange arrangement and among strange furniture, she realises they have become ordinary things belonging to someone else. The past they represented cannot be recovered by taking them back, so the link is broken beyond repair."
+      },
+      {
+        "q": "Why did the narrator decide to forget the address?",
+        "a": "Because reclaiming the objects would not reclaim her mother or her life, and living among them would tie her to a past she must move beyond. She resolves to leave them where they are and forget the address, choosing the future over a grief that possession would only prolong."
+      },
+      {
+        "q": "What was the reaction of the narrator when she entered the living room of Mrs Dorling's house?",
+        "a": "She recognised everything and felt increasingly oppressed. The furniture was arranged in a tasteless way, the room smelt musty, and objects she had known intimately — the woollen tablecloth with its burn mark, the cutlery, the vase — struck her as belonging to a life that had ended. Rather than comfort, she felt a growing need to leave."
+      }
     ]
   },
   {
     "slug": "class-11-snapshots-albert-einstein-at-school",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Snapshots",
     "chapter": "Albert Einstein at School",
     "intro": "This biographical sketch presents the young Albert Einstein as a rebellious and imaginative student who challenges conventional thinking in his German school. It shows how his early unconventionality foreshadowed his revolutionary scientific mind.",
@@ -1725,11 +2223,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What does the story suggest about the relationship between genius and education?",
         "a": "The story suggests that rigid educational systems designed for conformity can fail to recognize and nurture true genius, and that innovative thinkers often need freedom and encouragement to develop their full potential."
       }
+    ],
+    "devices": [
+      {
+        "name": "Satire",
+        "example": "The school is mocked as a place where dates are valued over ideas and obedience over understanding."
+      },
+      {
+        "name": "Irony",
+        "example": "The boy the teachers call a failure and expel is Albert Einstein."
+      },
+      {
+        "name": "Dialogue",
+        "example": "The story is carried almost entirely by exchanges — with the history teacher, with Yuri, with Elsa, with the head teacher — which keeps the conflict immediate."
+      },
+      {
+        "name": "Contrast",
+        "example": "Rote learning against genuine curiosity; the rigid teachers against the sympathetic maths teacher Mr Koch, who says he has nothing left to teach Albert."
+      },
+      {
+        "name": "Humour",
+        "example": "The medical certificate scheme and the doctor's dry cooperation give the story its comic edge."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "What do you understand of Einstein's nature from his conversation with his history teacher?",
+        "a": "He questions the value of memorising dates, arguing that facts can be looked up in a book and that what matters is understanding ideas. He is honest to the point of bluntness, telling the teacher he does not see the point of the lesson. He is not disrespectful for its own sake but genuinely unable to pretend that mechanical learning is education."
+      },
+      {
+        "q": "Why did Einstein's teacher say he would not amount to anything?",
+        "a": "Because Einstein refused to learn by rote and openly disputed the worth of what he was being taught. In a system that measured pupils by memorised dates and obedience, his questioning read as laziness and insolence, so the teacher concluded he would never succeed."
+      },
+      {
+        "q": "Why did Albert want to leave school, and how did he plan to do it?",
+        "a": "He found the atmosphere stifling, the teaching mechanical and the discipline pointless, and he was learning more on his own. He planned to obtain a doctor's certificate declaring a nervous breakdown so that he could leave for six months and go to Milan, and Yuri arranged an appointment with a medical student, Dr Ernst Weil, who provided it."
+      },
+      {
+        "q": "What was the role of Yuri in Albert's life?",
+        "a": "Yuri was his only real friend in Munich and his practical support: he found Albert his lodging, listened to his complaints about school, arranged the doctor who wrote the certificate, and advised him about the reference from Mr Koch. He is the one person in the story who takes Albert seriously as he is."
+      },
+      {
+        "q": "Was Albert right in leaving school? Give reasons.",
+        "a": "On the evidence of the story, yes. The school taught nothing he valued, his maths master admitted he had nothing further to teach him, and staying would have meant years of resented rote learning. Leaving allowed him to pursue the physics and mathematics he was already ahead in. The story is careful, though, to show that his decision was a rejection of that particular schooling, not of learning."
+      }
     ]
   },
   {
     "slug": "class-11-hornbill-poem-a-photograph",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Hornbill",
     "chapter": "A Photograph",
     "intro": "This reflective poem explores the passage of time through an old photograph of the poet's mother and her cousins at the beach. The poem contrasts the frozen moment in the photograph with the inevitable changes brought by time.",
@@ -1808,7 +2350,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-11-hornbill-poem-the-laburnum-top",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Hornbill",
     "chapter": "The Laburnum Top",
     "intro": "This poem uses a laburnum tree momentarily activated by goldfinches to explore themes of life, energy, and the transitory nature of vitality. The poem is rich in sensory imagery and symbolic meaning.",
@@ -1890,7 +2432,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-11-snapshots-poem-childhood",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Snapshots",
     "chapter": "Childhood",
     "intro": "This poem traces the speaker's journey from childhood innocence to adult awareness, exploring the loss of childhood wonder and the gradual understanding of life's complexities. It reflects on what is gained and lost as we grow.",
@@ -1921,7 +2463,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-11-snapshots-poem-father-to-son",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "book": "Snapshots",
     "chapter": "Father to Son",
     "intro": "This poem explores the difficulty of communication between a father and son across generations, highlighting the gap created by different worldviews and experiences. It examines the failure of understanding and connection.",
@@ -1952,7 +2494,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-flamingo-the-last-lesson",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Flamingo",
     "chapter": "The Last Lesson",
     "intro": "This poignant story is set during the Franco-Prussian War and depicts a French schoolmaster's final lesson in his native language before German occupation forces the teaching of German instead. It celebrates French identity and the power of language.",
@@ -1996,7 +2538,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-flamingo-lost-spring",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Flamingo",
     "chapter": "Lost Spring: Stories of Stolen Childhood",
     "intro": "This essay documents the harsh realities of child labor in India, particularly focusing on children engaged in carpet weaving and rag picking. It exposes the exploitation of children and the loss of their childhood and potential.",
@@ -2040,7 +2582,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-flamingo-deep-water",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Flamingo",
     "chapter": "Deep Water",
     "intro": "This autobiographical essay describes a harrowing childhood near-drowning experience and how the author overcame his resulting water phobia through determination and perseverance. It is an inspiring story of facing and conquering fear.",
@@ -2080,7 +2622,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-flamingo-the-rattrap",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Flamingo",
     "chapter": "The Rattrap",
     "intro": "This philosophical short story follows a poor vagabond who makes his living by selling traps and stealing from others. A chance act of kindness begins his redemption and transformation into a better person.",
@@ -2124,7 +2666,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-flamingo-indigo",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Flamingo",
     "chapter": "Indigo",
     "intro": "This biographical essay recounts the Indigo Planters Movement in India and features Mahatma Gandhi's first major success in nonviolent resistance. It demonstrates the power of civil disobedience in challenging British colonial exploitation.",
@@ -2172,7 +2714,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-flamingo-poets-and-pancakes",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Flamingo",
     "chapter": "Poets and Pancakes",
     "intro": "This humorous essay about life in a film studio depicts the author's experiences as a young employee and offers an insider's view of the chaos and camaraderie of Indian cinema production. It celebrates the absurdities and passions of filmmaking.",
@@ -2220,7 +2762,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-flamingo-poem-my-mother-at-sixty-six",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Flamingo",
     "chapter": "My Mother at Sixty-Six",
     "intro": "This tender poem captures a moment between a mother and daughter in a car, reflecting on aging, mortality, and the complex emotions of watching a parent grow old. It explores love, loss, and the passage of time.",
@@ -2251,7 +2793,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-flamingo-poem-keeping-quiet",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Flamingo",
     "chapter": "Keeping Quiet",
     "intro": "This meditative poem advocates for global stillness and silence as a path to peace and mutual understanding. It proposes that in moments of quietness, people might recognize their common humanity and step back from conflict.",
@@ -2282,7 +2824,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-vistas-the-tiger-king",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Vistas",
     "chapter": "The Tiger King",
     "intro": "This satirical story portrays the arrogance and obsession of a maharaja who seeks to kill 100 tigers as a mark of prowess. The tale critiques pride, vanity, and the consequences of unchecked power and ego.",
@@ -2366,7 +2908,7 @@ export const LIT_CHAPTERS: LitChapter[] = [
   },
   {
     "slug": "class-12-vistas-the-enemy",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Vistas",
     "chapter": "The Enemy",
     "intro": "This wartime story explores the moral complexity of compassion and the choice to help someone who is technically an enemy. It challenges simplistic notions of patriotism and affirms the universal nature of humanity.",
@@ -2410,11 +2952,55 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What does the ending suggest about the resolution?",
         "a": "The ambiguous ending, where the American's ultimate fate is unknown, suggests that the moral choice to help has been made, but the consequences and outcomes remain uncertain, reflecting the complexity of moral action in wartime."
       }
+    ],
+    "devices": [
+      {
+        "name": "Conflict",
+        "example": "The story is built on an internal conflict — Sadao's duty as a surgeon against his duty as a Japanese citizen in wartime."
+      },
+      {
+        "name": "Irony",
+        "example": "A Japanese doctor risks execution to save an American prisoner of war, while his own General withholds help for private reasons."
+      },
+      {
+        "name": "Characterisation through action",
+        "example": "Sadao is defined by what he does with his hands — operating, extracting the bullet — rather than by what he says about loyalty."
+      },
+      {
+        "name": "Symbolism",
+        "example": "The sea that washes the wounded man ashore stands for a fate that ignores national boundaries."
+      },
+      {
+        "name": "Contrast",
+        "example": "Sadao's professional compassion is set against Hana's fear and the servants' superstition and desertion."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "How did Dr Sadao come to be a surgeon and why was he not sent abroad with the troops?",
+        "a": "His father sent him to America at twenty-two to study surgery and medicine, and he returned a distinguished surgeon and scientist. He was not sent abroad with the troops for two reasons: he was perfecting a discovery that would make wounds entirely clean, and the old General was in poor health and might need an operation, so Sadao was kept at home for the General's sake."
+      },
+      {
+        "q": "Why did Dr Sadao decide to treat the wounded American soldier?",
+        "a": "Because he was a surgeon first. He recognised that the man would die without immediate help, and having examined the wound he could not put him back into the sea. His professional instinct — that a doctor does not let a man die when he can save him — overrode the fact that the man was an enemy and that sheltering him was a crime."
+      },
+      {
+        "q": "What was the General's plan and why did it fail?",
+        "a": "The General promised to send his private assassins to kill the American quietly in his bed, sparing Sadao the risk of reporting him. It failed because the General fell ill, underwent an operation and simply forgot the promise in his own preoccupation with survival — he later admitted he had been thinking only of himself. His forgetfulness is what leaves Sadao to solve the problem himself."
+      },
+      {
+        "q": "How did Sadao finally get rid of the soldier?",
+        "a": "He gave the American his own boat, food, bottled water, clothes and a flashlight, and directed him to a nearby uninhabited island, telling him to signal with the flashlight after dark if he needed more food and to board any Korean fishing boat that passed. When no signal came on the second night, Sadao knew the man had gone."
+      },
+      {
+        "q": "Does the story remain relevant today? Give reasons.",
+        "a": "Yes. It asks whether professional and human duty stop at a national border, which is the same question raised whenever doctors treat enemy wounded, refugees or prisoners. Sadao is neither a rebel nor a patriot in any simple sense; he acts on the standard of his profession, and the story argues that such standards are what keep humanity intact when politics does not."
+      }
     ]
   },
   {
     "slug": "class-12-vistas-should-wizard-hit-mommy",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "book": "Vistas",
     "chapter": "Should Wizard Hit Mommy?",
     "intro": "This thought-provoking story examines the relationship between a father and his young daughter as they engage in imaginative storytelling. It raises questions about parenting, creativity, and the transmission of values from parent to child.",

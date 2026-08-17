@@ -10,7 +10,7 @@ export interface FormulaSheet { slug: string; title: string; classLevel: string;
 export const FORMULA_SHEETS: FormulaSheet[] = [
   {
     "title": "Class 10 Maths Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "Essential formulas for CBSE Class 10 Maths covering Real Numbers, Polynomials, Linear/Quadratic Equations, AP, Triangles, Coordinate Geometry, Trigonometry, Circles, and Statistics. Master these formulas for board exams and competitive entrance tests.",
@@ -302,7 +302,7 @@ export const FORMULA_SHEETS: FormulaSheet[] = [
   },
   {
     "title": "Class 11 Maths Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Mathematics",
     "emoji": "📊",
     "intro": "Master Class 11 Maths formulas covering Trigonometry, Complex Numbers, Permutations & Combinations, Binomial Theorem, Sequences & Series, Straight Lines, Conic Sections, 3D Geometry, and Limits. Essential for JEE preparation and board exams.",
@@ -644,7 +644,7 @@ export const FORMULA_SHEETS: FormulaSheet[] = [
   },
   {
     "title": "Class 12 Maths Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "∫",
     "intro": "Comprehensive Class 12 Maths formulas covering Inverse Trigonometry, Matrices & Determinants, Continuity & Differentiability, Derivatives, Integration, Differential Equations, Vectors, 3D Geometry, and Probability. Essential for board exams and competitive entrance tests.",
@@ -2223,7 +2223,7 @@ export const FORMULA_SHEETS: FormulaSheet[] = [
   },
   {
     "title": "Class 11 Chemistry: Essential Formulas & Concepts",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "emoji": "⚗️",
     "intro": "Master the foundational concepts of chemistry: atomic structure, mole theory, gas laws, thermodynamics, equilibrium, and redox reactions. All formulas in one reference sheet for quick problem-solving.",
@@ -2607,7 +2607,7 @@ export const FORMULA_SHEETS: FormulaSheet[] = [
   },
   {
     "title": "Class 12 Chemistry: Solutions, Kinetics & Electrochemistry",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Chemistry",
     "emoji": "⚗️",
     "intro": "Advanced chemistry: colligative properties, Raoult's law, electrochemistry, kinetics, and organic conversions. Essential for JEE/NEET and board exams.",

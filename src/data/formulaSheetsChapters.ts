@@ -6,7 +6,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-biology-heredity",
     "title": "Class 10 Biology: Heredity Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Biology",
     "emoji": "🧬",
     "intro": "All Heredity formulas for Class 10 Biology (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -47,7 +47,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-biology-life-processes",
     "title": "Class 10 Biology: Life Processes Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Biology",
     "emoji": "🧬",
     "intro": "All Life Processes formulas for Class 10 Biology (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -100,7 +100,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-chemistry-acids-bases-and-salts",
     "title": "Class 10 Chemistry: Acids Bases and Salts Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Acids Bases and Salts formulas for Class 10 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -153,7 +153,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-chemistry-acids-bases-salts",
     "title": "Class 10 Chemistry: Acids, Bases & Salts Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Acids, Bases & Salts formulas for Class 10 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -194,7 +194,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-chemistry-carbon-and-its-compounds",
     "title": "Class 10 Chemistry: Carbon and its Compounds Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Carbon and its Compounds formulas for Class 10 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -247,7 +247,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-chemistry-carbon-its-compounds",
     "title": "Class 10 Chemistry: Carbon & its Compounds Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Carbon & its Compounds formulas for Class 10 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -288,7 +288,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-chemistry-chemical-reactions-and-equations",
     "title": "Class 10 Chemistry: Chemical Reactions and Equations Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Chemical Reactions and Equations formulas for Class 10 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -337,7 +337,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-chemistry-chemical-reactions-equations",
     "title": "Class 10 Chemistry: Chemical Reactions & Equations Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Chemical Reactions & Equations formulas for Class 10 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -382,7 +382,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-chemistry-metals-and-non-metals",
     "title": "Class 10 Chemistry: Metals and Non-Metals Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Metals and Non-Metals formulas for Class 10 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -423,7 +423,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-chemistry-periodic-classification",
     "title": "Class 10 Chemistry: Periodic Classification Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Periodic Classification formulas for Class 10 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -464,7 +464,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-applications-of-trigonometry",
     "title": "Class 10 Maths: Applications of Trigonometry Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Applications of Trigonometry formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -501,7 +501,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-areas-related-to-circles",
     "title": "Class 10 Maths: Areas Related to Circles Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Areas Related to Circles formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -542,7 +542,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-arithmetic-progressions",
     "title": "Class 10 Maths: Arithmetic Progressions Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Arithmetic Progressions formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -595,7 +595,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-circles",
     "title": "Class 10 Maths: Circles Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Circles formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -632,7 +632,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-coordinate-geometry",
     "title": "Class 10 Maths: Coordinate Geometry Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Coordinate Geometry formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -685,7 +685,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-introduction-to-trigonometry",
     "title": "Class 10 Maths: Introduction to Trigonometry Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Introduction to Trigonometry formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -758,7 +758,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-pair-of-linear-equations",
     "title": "Class 10 Maths: Pair of Linear Equations Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Pair of Linear Equations formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -807,7 +807,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-polynomials",
     "title": "Class 10 Maths: Polynomials Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Polynomials formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -856,7 +856,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-probability",
     "title": "Class 10 Maths: Probability Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Probability formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -905,7 +905,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-quadratic-equations",
     "title": "Class 10 Maths: Quadratic Equations Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Quadratic Equations formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -958,7 +958,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-real-numbers",
     "title": "Class 10 Maths: Real Numbers Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Real Numbers formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1003,7 +1003,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-some-applications-of-trigonometry",
     "title": "Class 10 Maths: Some Applications of Trigonometry Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Some Applications of Trigonometry formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1056,7 +1056,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-statistics",
     "title": "Class 10 Maths: Statistics Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Statistics formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1105,7 +1105,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-surface-areas-and-volumes",
     "title": "Class 10 Maths: Surface Areas and Volumes Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Surface Areas and Volumes formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1154,7 +1154,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-triangles",
     "title": "Class 10 Maths: Triangles Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Triangles formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1207,7 +1207,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-triangles-similarity",
     "title": "Class 10 Maths: Triangles (Similarity) Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Triangles (Similarity) formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1248,7 +1248,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-maths-trigonometry",
     "title": "Class 10 Maths: Trigonometry Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Trigonometry formulas for Class 10 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1297,7 +1297,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-physics-electricity",
     "title": "Class 10 Physics: Electricity Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Electricity formulas for Class 10 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1350,7 +1350,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-physics-human-eye-and-colourful-world",
     "title": "Class 10 Physics: Human Eye and Colourful World Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Human Eye and Colourful World formulas for Class 10 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1399,7 +1399,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-physics-human-eye-defects",
     "title": "Class 10 Physics: Human Eye & Defects Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Human Eye & Defects formulas for Class 10 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1440,7 +1440,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-physics-light-reflection-and-refraction",
     "title": "Class 10 Physics: Light – Reflection and Refraction Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Light – Reflection and Refraction formulas for Class 10 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1493,7 +1493,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-physics-light-reflection-refraction",
     "title": "Class 10 Physics: Light – Reflection & Refraction Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Light – Reflection & Refraction formulas for Class 10 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1542,7 +1542,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-10-physics-magnetic-effects-of-electric-current",
     "title": "Class 10 Physics: Magnetic Effects of Electric Current Formulas",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Magnetic Effects of Electric Current formulas for Class 10 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -1583,7 +1583,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-chemistry-equilibrium",
     "title": "Class 11 Chemistry: Equilibrium Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Equilibrium formulas for Class 11 Chemistry (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -1632,7 +1632,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-chemistry-some-basic-concepts-of-chemistry",
     "title": "Class 11 Chemistry: Some Basic Concepts of Chemistry Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Some Basic Concepts of Chemistry formulas for Class 11 Chemistry (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -1685,7 +1685,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-chemistry-structure-of-atom",
     "title": "Class 11 Chemistry: Structure of Atom Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Structure of Atom formulas for Class 11 Chemistry (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -1734,7 +1734,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-chemistry-thermodynamics-chemistry",
     "title": "Class 11 Chemistry: Thermodynamics (Chemistry) Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Thermodynamics (Chemistry) formulas for Class 11 Chemistry (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -1783,7 +1783,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-mathematics-limits-and-derivatives",
     "title": "Class 11 Mathematics: Limits and Derivatives Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Limits and Derivatives formulas for Class 11 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -1836,7 +1836,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-mathematics-permutations-and-combinations",
     "title": "Class 11 Mathematics: Permutations and Combinations Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Permutations and Combinations formulas for Class 11 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -1885,7 +1885,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-mathematics-sequences-and-series",
     "title": "Class 11 Mathematics: Sequences and Series Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Sequences and Series formulas for Class 11 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -1938,7 +1938,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-mathematics-sets",
     "title": "Class 11 Mathematics: Sets Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Sets formulas for Class 11 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -1987,7 +1987,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-mathematics-straight-lines",
     "title": "Class 11 Mathematics: Straight Lines Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Straight Lines formulas for Class 11 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2040,7 +2040,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-mathematics-trigonometric-functions",
     "title": "Class 11 Mathematics: Trigonometric Functions Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Trigonometric Functions formulas for Class 11 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2093,7 +2093,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-physics-gravitation",
     "title": "Class 11 Physics: Gravitation Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Gravitation formulas for Class 11 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2146,7 +2146,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-physics-laws-of-motion",
     "title": "Class 11 Physics: Laws of Motion Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Laws of Motion formulas for Class 11 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2199,7 +2199,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-physics-motion-in-a-straight-line",
     "title": "Class 11 Physics: Motion in a Straight Line Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Motion in a Straight Line formulas for Class 11 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2252,7 +2252,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-physics-oscillations",
     "title": "Class 11 Physics: Oscillations Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Oscillations formulas for Class 11 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2305,7 +2305,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-physics-thermodynamics",
     "title": "Class 11 Physics: Thermodynamics Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Thermodynamics formulas for Class 11 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2358,7 +2358,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-physics-units-and-measurements",
     "title": "Class 11 Physics: Units and Measurements Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Units and Measurements formulas for Class 11 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2399,7 +2399,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-physics-waves",
     "title": "Class 11 Physics: Waves Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Waves formulas for Class 11 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2448,7 +2448,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-11-physics-work-energy-power",
     "title": "Class 11 Physics: Work Energy Power Formulas",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Work Energy Power formulas for Class 11 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2501,7 +2501,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-chemistry-chemical-kinetics",
     "title": "Class 12 Chemistry: Chemical Kinetics Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Chemical Kinetics formulas for Class 12 Chemistry (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2550,7 +2550,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-chemistry-electrochemistry",
     "title": "Class 12 Chemistry: Electrochemistry Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Electrochemistry formulas for Class 12 Chemistry (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2599,7 +2599,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-chemistry-solutions",
     "title": "Class 12 Chemistry: Solutions Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Solutions formulas for Class 12 Chemistry (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2656,7 +2656,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-mathematics-3d-geometry",
     "title": "Class 12 Mathematics: 3D Geometry Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All 3D Geometry formulas for Class 12 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2701,7 +2701,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-mathematics-application-of-derivatives",
     "title": "Class 12 Mathematics: Application of Derivatives Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Application of Derivatives formulas for Class 12 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2746,7 +2746,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-mathematics-continuity-and-differentiability",
     "title": "Class 12 Mathematics: Continuity and Differentiability Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Continuity and Differentiability formulas for Class 12 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2795,7 +2795,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-mathematics-differential-equations",
     "title": "Class 12 Mathematics: Differential Equations Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Differential Equations formulas for Class 12 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2832,7 +2832,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-mathematics-integration",
     "title": "Class 12 Mathematics: Integration Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Integration formulas for Class 12 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2881,7 +2881,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-mathematics-matrices-and-determinants",
     "title": "Class 12 Mathematics: Matrices and Determinants Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Matrices and Determinants formulas for Class 12 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2930,7 +2930,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-mathematics-probability",
     "title": "Class 12 Mathematics: Probability Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Probability formulas for Class 12 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -2983,7 +2983,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-mathematics-vectors",
     "title": "Class 12 Mathematics: Vectors Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Mathematics",
     "emoji": "📐",
     "intro": "All Vectors formulas for Class 12 Mathematics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3028,7 +3028,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-maths-derivatives-calculus",
     "title": "Class 12 Maths: Derivatives (Calculus) Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Derivatives (Calculus) formulas for Class 12 Maths (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3077,7 +3077,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-maths-integrals-calculus",
     "title": "Class 12 Maths: Integrals (Calculus) Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Integrals (Calculus) formulas for Class 12 Maths (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3122,7 +3122,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-maths-probability",
     "title": "Class 12 Maths: Probability Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Probability formulas for Class 12 Maths (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3163,7 +3163,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-maths-vectors",
     "title": "Class 12 Maths: Vectors Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Vectors formulas for Class 12 Maths (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3204,7 +3204,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-alternating-current",
     "title": "Class 12 Physics: Alternating Current Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Alternating Current formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3261,7 +3261,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-atoms-and-nuclei",
     "title": "Class 12 Physics: Atoms and Nuclei Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Atoms and Nuclei formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3314,7 +3314,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-current-electricity",
     "title": "Class 12 Physics: Current Electricity Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Current Electricity formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3371,7 +3371,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-dual-nature-modern-physics",
     "title": "Class 12 Physics: Dual Nature & Modern Physics Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Dual Nature & Modern Physics formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3412,7 +3412,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-dual-nature-of-radiation",
     "title": "Class 12 Physics: Dual Nature of Radiation Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Dual Nature of Radiation formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3457,7 +3457,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-electric-charges-and-fields",
     "title": "Class 12 Physics: Electric Charges and Fields Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Electric Charges and Fields formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3506,7 +3506,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-electromagnetic-induction",
     "title": "Class 12 Physics: Electromagnetic Induction Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Electromagnetic Induction formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3559,7 +3559,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-electrostatic-potential-and-capacitance",
     "title": "Class 12 Physics: Electrostatic Potential and Capacitance Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Electrostatic Potential and Capacitance formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3612,7 +3612,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-electrostatics",
     "title": "Class 12 Physics: Electrostatics Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Electrostatics formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3653,7 +3653,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-moving-charges-and-magnetism",
     "title": "Class 12 Physics: Moving Charges and Magnetism Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Moving Charges and Magnetism formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3706,7 +3706,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-ray-optics",
     "title": "Class 12 Physics: Ray Optics Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Ray Optics formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3747,7 +3747,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-12-physics-wave-optics",
     "title": "Class 12 Physics: Wave Optics Formulas",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Wave Optics formulas for Class 12 Physics (CBSE / NCERT) on one page — fast revision for board exams, JEE & NEET. 100% free, no login, download as PDF.",
@@ -3796,7 +3796,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-biology-the-fundamental-unit-of-life-cell",
     "title": "Class 9 Biology: The Fundamental Unit of Life (Cell) Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Biology",
     "emoji": "🧬",
     "intro": "All The Fundamental Unit of Life (Cell) formulas for Class 9 Biology (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -3837,7 +3837,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-biology-tissues",
     "title": "Class 9 Biology: Tissues Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Biology",
     "emoji": "🧬",
     "intro": "All Tissues formulas for Class 9 Biology (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -3874,7 +3874,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-chemistry-atoms-and-molecules",
     "title": "Class 9 Chemistry: Atoms and Molecules Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Atoms and Molecules formulas for Class 9 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -3911,7 +3911,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-chemistry-structure-of-the-atom",
     "title": "Class 9 Chemistry: Structure of the Atom Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Chemistry",
     "emoji": "🧪",
     "intro": "All Structure of the Atom formulas for Class 9 Chemistry (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -3952,7 +3952,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-maths-algebraic-identities",
     "title": "Class 9 Maths: Algebraic Identities Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Algebraic Identities formulas for Class 9 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -4001,7 +4001,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-maths-heron-s-formula",
     "title": "Class 9 Maths: Heron's Formula Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Maths",
     "emoji": "📐",
     "intro": "All Heron's Formula formulas for Class 9 Maths (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -4038,7 +4038,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-physics-force-laws-of-motion",
     "title": "Class 9 Physics: Force & Laws of Motion Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Force & Laws of Motion formulas for Class 9 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -4079,7 +4079,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-physics-gravitation",
     "title": "Class 9 Physics: Gravitation Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Gravitation formulas for Class 9 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -4120,7 +4120,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-physics-motion",
     "title": "Class 9 Physics: Motion Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Motion formulas for Class 9 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",
@@ -4161,7 +4161,7 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
   {
     "slug": "class-9-physics-work-energy-power",
     "title": "Class 9 Physics: Work, Energy & Power Formulas",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Physics",
     "emoji": "⚛️",
     "intro": "All Work, Energy & Power formulas for Class 9 Physics (CBSE / NCERT) on one page — fast revision for board exams. 100% free, no login, download as PDF.",

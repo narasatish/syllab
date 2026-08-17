@@ -93,6 +93,10 @@ function buildUrls({ languages, topicsByLang }) {
   // sitemap tells Google "index this" while the page says "don't".
   const RETIRED_SLUGS = {
     '/formula-sheets': new Set([
+      'class-10-chemistry-acids-bases-salts',
+      'class-10-chemistry-carbon-its-compounds',
+      'class-10-chemistry-chemical-reactions-equations',
+      'class-10-physics-light-reflection-refraction',
       // Class 10 shipped FOUR trigonometry sheets for NCERT's TWO chapters. The
       // formulas from these two are merged into the sheets that match real
       // chapters — Introduction to Trigonometry (Ch 8) and Some Applications of
@@ -150,6 +154,14 @@ function buildUrls({ languages, topicsByLang }) {
       'class-9-social-science-constitutional-design',
     ]),
     '/solved-examples': new Set([
+      'class-10-maths-statistics-numericals',
+      'class-11-gravitation-numericals',
+      'class-11-physics-work-power-energy-numericals',
+      'class-11-sequences-series-numericals',
+      'class-11-thermodynamics-chemistry-numericals',
+      'class-11-thermodynamics-numericals',
+      'class-9-maths-herons-formula-numericals',
+      'class-9-physics-sound-numericals',
       'class-10-maths-arithmetic-progressions-numericals',
       'class-10-maths-coordinate-geometry-numericals',
       'class-10-maths-probability-numericals',

@@ -4,6 +4,13 @@ import { join } from 'node:path';
 import { MCQ_CHAPTERS } from './chapterMcqs';
 import { PYQ_CHAPTERS } from './pyqs';
 import { REVISION_NOTES } from './revisionNotes';
+import { LIT_CHAPTERS } from './englishLiterature';
+import { ENGLISH_WRITING } from './englishWriting';
+import { SOLVED_SETS } from './solvedExamples';
+import { SAMPLE_PAPERS } from './samplePapers';
+import { GLOSSARY } from './glossary';
+import { FORMULA_SHEETS } from './formulaSheets';
+import { FORMULA_SHEETS_CHAPTERS } from './formulaSheetsChapters';
 
 /** Shape of one entry in public/rn-deep.json (fetched asset, so not typechecked elsewhere). */
 interface RnDeepTopic {
@@ -322,10 +329,22 @@ const SENIOR_TERMS = /thylakoid|NADPH|Calvin cycle|light-dependent reaction|ligh
  * what is not legitimate is the bare form.
  */
 describe('classLevel is stored consistently', () => {
-  const banks: [string, { classLevel?: string; slug?: string }[]][] = [
+  // EVERY bank that stores classLevel. The guard originally covered three and
+  // the bug promptly turned up in seven more: englishLiterature was split 46/17
+  // between bare and prefixed, glossary 67/87, englishWriting 30/64. Guarding a
+  // subset just moves the defect somewhere unwatched.
+  type WithClass = { classLevel?: string; slug?: string };
+  const banks: [string, WithClass[]][] = [
     ['revisionNotes', REVISION_NOTES],
-    ['chapterMcqs', MCQ_CHAPTERS as { classLevel?: string; slug?: string }[]],
-    ['pyqs', PYQ_CHAPTERS as { classLevel?: string; slug?: string }[]],
+    ['chapterMcqs', MCQ_CHAPTERS as WithClass[]],
+    ['pyqs', PYQ_CHAPTERS as WithClass[]],
+    ['englishLiterature', LIT_CHAPTERS as WithClass[]],
+    ['englishWriting', ENGLISH_WRITING as WithClass[]],
+    ['solvedExamples', SOLVED_SETS as WithClass[]],
+    ['samplePapers', SAMPLE_PAPERS as WithClass[]],
+    ['glossary', GLOSSARY as WithClass[]],
+    ['formulaSheets', FORMULA_SHEETS as WithClass[]],
+    ['formulaSheetsChapters', FORMULA_SHEETS_CHAPTERS as WithClass[]],
   ];
 
   it('no bank stores a bare class number instead of "Class N"', () => {

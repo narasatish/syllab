@@ -1218,7 +1218,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-mother",
     "category": "Essay",
     "title": "Essay on My Mother",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "Your mother is the most important person in your life who has given you everything. Writing an essay on your mother helps you appreciate her love and sacrifice.",
     "format": [
       "Introduction (Who is your mother and why she is special)",
@@ -1247,7 +1247,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-teacher",
     "category": "Essay",
     "title": "Essay on My Teacher",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "A good teacher shapes your future and becomes a role model for life. Writing about your teacher shows respect and appreciation for their hard work.",
     "format": [
       "Introduction (Name and subject of your teacher)",
@@ -1276,7 +1276,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-honesty-best-policy",
     "category": "Essay",
     "title": "Essay on Honesty is the Best Policy",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "Honesty is a core value that builds trust and leads to success in life. This essay explains why honesty is always the best choice, no matter the situation.",
     "format": [
       "Introduction (What is honesty and why it matters)",
@@ -1305,7 +1305,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-discipline",
     "category": "Essay",
     "title": "Essay on Discipline",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "Discipline is the habit of following rules and doing things in order. It is essential for success in school, sports, and life.",
     "format": [
       "Introduction (Definition of discipline)",
@@ -1334,7 +1334,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-time-management",
     "category": "Essay",
     "title": "Essay on Time Management",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "Time is precious and cannot be bought or returned. Learning to manage time well is a skill that helps you achieve your goals.",
     "format": [
       "Introduction (Why time is important)",
@@ -1363,7 +1363,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-mobile-phone",
     "category": "Essay",
     "title": "Essay on Mobile Phone",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "Mobile phones are part of modern life and offer many benefits but also risks if not used wisely. This essay discusses both advantages and disadvantages.",
     "format": [
       "Introduction (What is a mobile phone and its importance)",
@@ -1392,7 +1392,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-social-media",
     "category": "Essay",
     "title": "Essay on Social Media",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "Social media platforms like Instagram, Facebook, and TikTok have changed how we communicate. Understanding their impact is important for healthy usage.",
     "format": [
       "Introduction (What is social media and its popularity)",
@@ -1421,7 +1421,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-cleanliness-swachh-bharat",
     "category": "Essay",
     "title": "Essay on Cleanliness and Swachh Bharat Mission",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "Cleanliness is a national priority in India through the Swachh Bharat Mission. Personal and community cleanliness improves health and quality of life.",
     "format": [
       "Introduction (Importance of cleanliness)",
@@ -1450,7 +1450,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-women-empowerment",
     "category": "Essay",
     "title": "Essay on Women Empowerment in India",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "Women empowerment means giving women equal rights, education, and opportunities. India is making progress but much work remains to be done.",
     "format": [
       "Introduction (What is women empowerment and why it matters)",
@@ -1479,7 +1479,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-corruption",
     "category": "Essay",
     "title": "Essay on Corruption and its Effects on Society",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "Corruption means using power dishonestly for personal gain. It is a major problem in India that affects development and justice.",
     "format": [
       "Introduction (Definition and prevalence of corruption)",
@@ -1508,7 +1508,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-unemployment",
     "category": "Essay",
     "title": "Essay on Unemployment in India",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "Unemployment means people willing and able to work cannot find jobs. It is a serious problem affecting India's youth and economy.",
     "format": [
       "Introduction (What is unemployment and its prevalence in India)",
@@ -1537,7 +1537,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-deforestation",
     "category": "Essay",
     "title": "Essay on Deforestation and its Impact",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "Deforestation is the removal of trees and forests to use land for other purposes. It is causing serious environmental and social problems in India.",
     "format": [
       "Introduction (What is deforestation)",
@@ -1566,7 +1566,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-importance-trees",
     "category": "Essay",
     "title": "Essay on Importance of Trees",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "Trees are among nature's greatest gifts. They provide oxygen, food, shelter, and countless benefits to humans and animals.",
     "format": [
       "Introduction (Why trees are important for life)",
@@ -1595,7 +1595,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-yoga",
     "category": "Essay",
     "title": "Essay on Yoga and Health",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "Yoga is an ancient Indian practice combining physical postures, breathing, and meditation. It is increasingly recognized worldwide for improving physical and mental health.",
     "format": [
       "Introduction (What is yoga and its origins in India)",
@@ -1624,7 +1624,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-junk-food-health",
     "category": "Essay",
     "title": "Essay on Junk Food and Health",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "Junk food refers to food that is unhealthy and high in calories but low in nutrition. Growing consumption of junk food is causing serious health problems in India.",
     "format": [
       "Introduction (Definition of junk food)",
@@ -1653,7 +1653,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-india-country",
     "category": "Essay",
     "title": "Essay on My Country India",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "India is a diverse, ancient, and culturally rich nation. This essay celebrates India's uniqueness and its contributions to the world.",
     "format": [
       "Introduction (Basic facts about India)",
@@ -1683,7 +1683,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-independence-day",
     "category": "Essay",
     "title": "Essay on Independence Day of India",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "Independence Day on August 15 celebrates India's freedom from British rule. It is a day to remember the sacrifices of freedom fighters and commitment to national unity.",
     "format": [
       "Introduction (Date and significance of Independence Day)",
@@ -1713,7 +1713,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-hill-station-visit",
     "category": "Essay",
     "title": "Essay on A Visit to a Hill Station",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "Hill stations are cool, beautiful places in mountains where people go for vacation. Visiting a hill station is a memorable and refreshing experience.",
     "format": [
       "Introduction (What is a hill station and why people visit)",
@@ -1743,7 +1743,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-newspaper",
     "category": "Essay",
     "title": "Essay on Newspaper",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "A newspaper is a printed publication that provides news and information to the public daily. Newspapers are important for keeping society informed and aware.",
     "format": [
       "Introduction (What is a newspaper and its importance)",
@@ -1772,7 +1772,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "essay-science-boon-bane",
     "category": "Essay",
     "title": "Essay on Science as a Boon or Bane",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "Science has transformed human life with discoveries and inventions. But like any tool, science can be used for good or harm.",
     "format": [
       "Introduction (Science's role in modern life)",
@@ -1802,7 +1802,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "application-sick-leave",
     "category": "Application",
     "title": "Application for Sick Leave",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "An application for sick leave is a formal request to your principal or teacher to be absent from school due to illness. It explains why you cannot attend school.",
     "format": [
       "Date",
@@ -1837,7 +1837,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "application-fee-concession",
     "category": "Application",
     "title": "Application for Fee Concession",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "An application for fee concession requests the school to reduce tuition fees due to financial hardship. It is a formal way to communicate financial difficulties.",
     "format": [
       "Date",
@@ -1872,7 +1872,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "application-character-certificate",
     "category": "Application",
     "title": "Application for Character Certificate",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "A character certificate is an official document from school confirming your good conduct and character. It is needed for college admission or jobs.",
     "format": [
       "Date",
@@ -1907,7 +1907,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "letter-friend-birthday",
     "category": "Letter",
     "title": "Letter to Friend Inviting for Birthday",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "An invitation letter to a friend for your birthday party is informal but should be warm and clear. It invites them to celebrate with you.",
     "format": [
       "Date",
@@ -1940,7 +1940,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "letter-father-asking-money",
     "category": "Letter",
     "title": "Letter to Father Asking for Money",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "A letter asking your father for money should be polite, honest, and include clear explanation of why you need it.",
     "format": [
       "Date",
@@ -1973,7 +1973,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "letter-water-supply-complaint",
     "category": "Letter",
     "title": "Letter of Complaint about Water Supply",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "A complaint letter about poor water supply is written to authorities requesting them to resolve the water issue in your area.",
     "format": [
       "Date",
@@ -2007,7 +2007,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "application-bank-account",
     "category": "Application",
     "title": "Bank Account Opening Application",
-    "classLevel": "8-10",
+    "classLevel": "Class 8-10",
     "intro": "A bank account opening application is a formal request to open a savings account in a bank. Banks require completed forms with personal information.",
     "format": [
       "Date",
@@ -2041,7 +2041,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "invitation-writing",
     "category": "Invitation",
     "title": "Invitation Writing",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "An invitation is a polite request asking someone to attend an event. Invitations should be clear about event details and warm in tone.",
     "format": [
       "Opening (Dear or Hi, nature of event)",
@@ -2073,7 +2073,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "advertisement-writing",
     "category": "Advertisement",
     "title": "Advertisement Writing",
-    "classLevel": "7-10",
+    "classLevel": "Class 7-10",
     "intro": "An advertisement is a short, attractive message designed to promote a product, service, or event. Good ads catch attention and persuade people.",
     "format": [
       "Catchy headline that attracts attention",
@@ -2106,7 +2106,7 @@ export const ENGLISH_WRITING: EnglishWriting[] = [
     "slug": "message-writing",
     "category": "Message",
     "title": "Message Writing",
-    "classLevel": "6-10",
+    "classLevel": "Class 6-10",
     "intro": "A message is a short form of communication conveying information quickly. Messages should be clear, concise, and appropriate to the situation.",
     "format": [
       "Greeting (Optional but nice)",

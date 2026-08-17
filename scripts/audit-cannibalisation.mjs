@@ -39,9 +39,14 @@ function fingerprint(title) {
       .replace(/\|.*$/, '')                    // drop the " | Syllab.in" suffix
       .replace(/&[a-z]+;/gi, ' ')
       .toLowerCase()
-      .replace(/[^a-z0-9\s]/g, ' ')
+      // Devanagari is KEPT: stripping it collapsed every /hi/ page to the same
+      // near-empty fingerprint and reported them as competing with each other.
+      .replace(/[^a-z0-9ऀ-ॿ\s]/g, ' ')
       .split(/\s+/)
-      .filter((w) => w && !STOP.has(w) && w.length > 1),
+      // Single characters are KEPT when numeric: dropping them made
+      // "multiplication table of 2" and "... of 3" identical, which reported
+      // the entire /maths-tables cluster as one duplicate group.
+      .filter((w) => w && !STOP.has(w) && (w.length > 1 || /[0-9]/.test(w))),
   )].sort().join(' ');
 }
 
@@ -70,6 +75,17 @@ function facets(url) {
 }
 /** True when two URLs target genuinely different audiences. */
 function differentAudience(urlA, urlB) {
+  // DIFFERENT CLUSTERS ARE NEVER DUPLICATES. /revision-notes/class-10-maths-circles
+  // and /mcqs/class-10-maths-circles share a topical fingerprint but answer
+  // different intents — read the chapter versus practise it. Without this rule
+  // the audit proposed retiring 39 revision-note pages because the matching MCQ
+  // page happened to be longer, which would have deleted a whole cluster's worth
+  // of legitimate pages while appearing to remove duplicates.
+  if (urlA.split('/')[1] !== urlB.split('/')[1]) return true;
+  // /hi/* pages are Hindi translations carrying reciprocal hreflang with their
+  // English counterparts. An alternate is the OPPOSITE of a duplicate — telling
+  // Google these compete would be exactly wrong.
+  if (urlA.startsWith('/hi/') !== urlB.startsWith('/hi/')) return true;
   const a = facets(urlA), b = facets(urlB);
   if (a.cls && b.cls && a.cls !== b.cls) return true;
   if (a.subj && b.subj && a.subj !== b.subj) return true;

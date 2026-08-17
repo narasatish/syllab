@@ -40,7 +40,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 10 Maths Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper follows the latest CBSE Class 10 Maths exam pattern, with questions spread across four sections. Practice it to revise every chapter and build board-exam confidence. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "80 minutes",
     "totalMarks": 35,
     "sections": [
       {
@@ -174,7 +174,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 10 Science Sample Paper 2026 (with Solutions)",
     "intro": "This comprehensive science sample paper covers Physics, Chemistry, and Biology with questions from all major chapters. Use this to assess your preparation and familiarize yourself with the exam pattern. This is a shortened practice set: 17 questions worth 40 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "90 minutes",
     "totalMarks": 40,
     "sections": [
       {
@@ -313,7 +313,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 10 Social Science Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper integrates History, Geography, Political Science, and Economics covering key topics from the syllabus. Attempt this to gauge your understanding and improve answers on contemporary issues. This is a shortened practice set: 17 questions worth 40 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "90 minutes",
     "totalMarks": 40,
     "sections": [
       {
@@ -452,7 +452,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 10 English Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper covers Reading Comprehension, Writing, Grammar, and Literature based on the latest CBSE syllabus. Practice this to improve language skills and scoring in the board exam. This is a shortened practice set: 12 questions worth 36 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "80 minutes",
     "totalMarks": 36,
     "sections": [
       {
@@ -567,7 +567,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 9 Maths Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper covers all chapters of Class 9 Maths with questions on number systems, polynomials, geometry, and statistics. Solve this to strengthen your foundation for Class 10. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "80 minutes",
     "totalMarks": 35,
     "sections": [
       {
@@ -701,7 +701,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 9 Science Sample Paper 2026 (with Solutions)",
     "intro": "This comprehensive sample paper covers Physics, Chemistry, and Biology chapters for Class 9. Practice to understand concepts thoroughly and prepare effectively for your board exams. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "80 minutes",
     "totalMarks": 35,
     "sections": [
       {
@@ -835,7 +835,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 9 English Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper integrates reading, writing, grammar, and literature covering all prescribed texts. Practice this paper to develop language proficiency and score well in the exam. This is a shortened practice set: 11 questions worth 42 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "95 minutes",
     "totalMarks": 42,
     "sections": [
       {
@@ -945,7 +945,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 9 Social Science Sample Paper 2026 (with Solutions)",
     "intro": "This integrated sample paper covers History, Geography, Political Science, and Economics for Class 9. Solve this to master concepts and prepare for your annual examination. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "80 minutes",
     "totalMarks": 35,
     "sections": [
       {
@@ -1079,7 +1079,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 12 Maths Sample Paper 2026 (with Solutions)",
     "intro": "This advanced sample paper covers calculus, algebra, and statistics with focus on board exam patterns. Practice this comprehensive paper to secure high marks in the final exam. This is a shortened practice set: 15 questions worth 39 marks, following the 100-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "90 minutes",
     "totalMarks": 39,
     "sections": [
       {
@@ -1208,7 +1208,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 12 Physics Sample Paper 2026 (with Solutions)",
     "intro": "This comprehensive physics sample paper covers electromagnetism, optics, modern physics, and mechanics. Prepare thoroughly using this paper to excel in the board examination. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "75 minutes",
     "totalMarks": 34,
     "sections": [
       {
@@ -1337,7 +1337,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 12 Chemistry Sample Paper 2026 (with Solutions)",
     "intro": "This integrated chemistry sample paper covers organic, inorganic, and physical chemistry aligned with the board syllabus. Solve this to strengthen your chemistry concepts and exam readiness. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "75 minutes",
     "totalMarks": 34,
     "sections": [
       {
@@ -1466,7 +1466,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 12 Biology Sample Paper 2026 (with Solutions)",
     "intro": "This comprehensive biology sample paper covers genetics, evolution, ecology, and human physiology aligned with the latest curriculum. Practice this to master all concepts for the board exam. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "75 minutes",
     "totalMarks": 34,
     "sections": [
       {
@@ -1595,7 +1595,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 11 Maths Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper covers complex numbers, sequences, trigonometry, and basic calculus concepts for Class 11. Practice this to build a strong foundation for advanced mathematics. This is a shortened practice set: 16 questions worth 43 marks, following the 100-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "95 minutes",
     "totalMarks": 43,
     "sections": [
       {
@@ -1729,7 +1729,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 11 Physics Sample Paper 2026 (with Solutions)",
     "intro": "This foundational physics sample paper covers mechanics, thermodynamics, and waves for Class 11. Practice this to master core concepts essential for Class 12 and competitive exams. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "75 minutes",
     "totalMarks": 34,
     "sections": [
       {
@@ -1853,7 +1853,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-10-maths-set-2",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 10 Mathematics Sample Paper 2026 Set 2 (with Solutions)",
@@ -2150,7 +2150,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-10-science-set-2",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 10 Science Sample Paper 2026 Set 2 (with Solutions)",
@@ -2447,7 +2447,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-10-hindi",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Hindi",
     "board": "CBSE",
     "title": "CBSE Class 10 Hindi Sample Paper 2026 (with Solutions)",
@@ -2565,7 +2565,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-9-maths-set-2",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 9 Mathematics Sample Paper 2026 Set 2 (with Solutions)",
@@ -2862,7 +2862,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-8-maths",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 8 Mathematics Sample Paper 2026 (with Solutions)",
@@ -3077,7 +3077,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-12-english",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "English",
     "board": "CBSE",
     "title": "CBSE Class 12 English Sample Paper 2026 (with Solutions)",
@@ -5964,7 +5964,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-8-english",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "English",
     "board": "CBSE",
     "title": "Class 8 English Sample Paper Set 1",
@@ -6089,7 +6089,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-8-social-science",
-    "classLevel": "8",
+    "classLevel": "Class 8",
     "subject": "Social Science",
     "board": "CBSE",
     "title": "Class 8 Social Science Sample Paper Set 1",
@@ -6216,7 +6216,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-7-maths-set-2",
-    "classLevel": "7",
+    "classLevel": "Class 7",
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "Class 7 Mathematics Sample Paper Set 2",
@@ -6343,7 +6343,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-6-maths",
-    "classLevel": "6",
+    "classLevel": "Class 6",
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "Class 6 Mathematics Sample Paper",
@@ -6477,7 +6477,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-6-science",
-    "classLevel": "6",
+    "classLevel": "Class 6",
     "subject": "Science",
     "board": "CBSE",
     "title": "Class 6 Science Sample Paper",
@@ -6604,7 +6604,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-11-biology",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Biology",
     "board": "CBSE",
     "title": "Class 11 Biology Sample Paper",
@@ -6731,7 +6731,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-11-english",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "English",
     "board": "CBSE",
     "title": "Class 11 English Sample Paper",
@@ -6841,7 +6841,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-12-english-set-2",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "English",
     "board": "CBSE",
     "title": "Class 12 English Sample Paper Set 2",
@@ -6956,7 +6956,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-10-hindi-set-2",
-    "classLevel": "10",
+    "classLevel": "Class 10",
     "subject": "Hindi",
     "board": "CBSE",
     "title": "Class 10 Hindi Sample Paper Set 2",
@@ -7070,7 +7070,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-9-english-set-2",
-    "classLevel": "9",
+    "classLevel": "Class 9",
     "subject": "English",
     "board": "CBSE",
     "title": "Class 9 English Sample Paper Set 2",
@@ -7185,7 +7185,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-12-computer-science-set-2",
-    "classLevel": "12",
+    "classLevel": "Class 12",
     "subject": "Computer Science",
     "board": "CBSE",
     "title": "Class 12 Computer Science Sample Paper Set 2",
@@ -7309,7 +7309,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
   },
   {
     "slug": "class-11-economics-set-2",
-    "classLevel": "11",
+    "classLevel": "Class 11",
     "subject": "Economics",
     "board": "CBSE",
     "title": "Class 11 Economics Sample Paper Set 2",
@@ -7441,7 +7441,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "board": "CBSE",
     "title": "CBSE Class 7 Science Sample Paper 2026 (with Solutions)",
     "intro": "This sample paper covers all major topics in Class 7 Science including nutrition, respiration, transportation, and physical phenomena. Practice this paper to strengthen your understanding of foundational science concepts. This is a shortened practice set: 23 questions worth 45 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "3 hours",
+    "duration": "100 minutes",
     "totalMarks": 45,
     "sections": [
       {
