@@ -41,6 +41,90 @@ const SITE = 'https://syllab.in';
 
 // ─── Per-route SEO data (must stay in sync with App.tsx PAGE_SEO) ──────────
 // Keys are the URL paths (without leading slash where used as dir names).
+/**
+ * Duplicate URLs retired after the cannibalisation audit, keyed by cluster.
+ *
+ * 48 groups of pages shipped an IDENTICAL <title>. Two pages targeting one
+ * query split their signals and each holds part of the material.
+ *
+ * THE KEEPER IN EACH GROUP WAS CHOSEN BY EVIDENCE, NOT BY SLUG STYLE, and that
+ * matters: /revision-notes kept class-11-chemistry-structure-of-atom (5,929
+ * words) over structure-atom (544), but kept class-11-physics-laws-motion
+ * (5,659) over laws-of-motion (615). Opposite slug shapes. Any rule like
+ * "prefer the shorter slug" would have retired a 5,929-word page — three of
+ * these groups contain chapters deepened earlier the same day.
+ *
+ * Retired URLs still RESOLVE and ship noindex,follow: deleting them would 404
+ * inbound links for no benefit, while noindex ends the competition. The keeper
+ * always holds at least as much content, so nothing is lost from the index.
+ *
+ * KEEP IN STEP with the mirror in generate-sitemap.mjs, and re-run
+ * `npm run audit:cannibalisation` before editing.
+ */
+const RETIRED_SLUGS = {
+  '/mcqs': new Set([
+    'class-10-maths-real-numbers-mcq',
+    'class-10-maths-polynomials-mcq',
+    'class-10-maths-triangles-mcq',
+    'class-10-maths-trigonometry-mcq',
+    'class-10-maths-circles-mcq',
+    'class-10-sst-nationalism-india-mcq',
+    'class-9-science-matter-mcq',
+    'class-9-science-atoms-molecules-mcq',
+    'class-9-science-cell-mcq',
+    'class-10-science-heredity-mcq',
+    'class-10-science-our-environment-mcq',
+  ]),
+  '/revision-notes': new Set([
+    'class-10-maths-pair-linear-equations',
+    'class-10-maths-surface-areas-and-volumes',
+    'class-10-social-science-agriculture',
+    'class-10-sst-nationalism-in-europe',
+    'class-11-chemistry-structure-atom',
+    'class-11-physics-laws-of-motion',
+    'class-11-physics-units-measurements',
+    'class-8-maths-squares-and-square-roots',
+    'class-8-science-force-and-pressure',
+    'class-8-science-reproduction-in-animals',
+    'class-9-science-atoms-and-molecules',
+    'class-9-science-force-and-laws-of-motion',
+    'class-9-science-is-matter-around-us-pure',
+    'class-9-science-matter-in-our-surroundings',
+    'class-9-science-structure-of-the-atom',
+    'class-9-science-the-fundamental-unit-of-life',
+    'class-9-science-work-and-energy',
+    'class-9-social-science-climate',
+    'class-9-social-science-constitutional-design',
+  ]),
+  '/pyqs': new Set([
+    'class-11-chemistry-basic-concepts',
+    'class-11-chemistry-chemical-bonding-and-molecular-structure',
+    'class-11-chemistry-structure-of-atom',
+    'class-11-physics-laws-of-motion',
+    'class-11-physics-units-measurements',
+    'class-9-science-matter-surroundings',
+  ]),
+  '/solved-examples': new Set([
+    'class-10-maths-arithmetic-progressions-numericals',
+    'class-10-maths-coordinate-geometry-numericals',
+    'class-10-maths-probability-numericals',
+    'class-10-maths-surface-areas-volumes-numericals',
+    'class-11-chemistry-mole-concept-numericals',
+    'class-12-physics-current-electricity-numericals',
+    'class-12-probability-numericals',
+    'class-9-maths-polynomials-numericals',
+    'class-9-physics-gravitation-numericals',
+    'class-9-physics-work-and-energy-numericals',
+  ]),
+  '/concepts': new Set([
+    'periodic-table-periodicity',
+  ]),
+  '/gk-facts': new Set([
+    'currency-of-countries',
+  ]),
+};
+const isRetired = (base, slug) => Boolean(RETIRED_SLUGS[base] && RETIRED_SLUGS[base].has(slug));
+
 const ROUTES = [
   {
     // Homepage — without this, dist/index.html ships with no <link rel="canonical">,
@@ -2203,6 +2287,10 @@ for (const r of REVISION_DATA) {
     title: `${r.chapter} ${r.classLevel} ${r.subject} — Revision Notes | Syllab.in`,
     description: r.intro,
     keywords: `${r.chapter.toLowerCase()} revision notes, ${r.classLevel.toLowerCase()} ${(r.subject||'').toLowerCase()} ${r.chapter.toLowerCase()} notes, cbse ${(r.subject||'').toLowerCase()} notes`,
+    // /revision-notes builds its routes outside STUDY_CLUSTERS, so it consults
+    // the retirement map directly. Three of its retired slugs are duplicates of
+    // chapters deepened on 2026-08-16 — the keeper is the 5,000-word page.
+    ...(isRetired('/revision-notes', r.slug) ? { noindex: true } : {}),
     bodyHtml: revisionBody(r, sibs),
     // Deep entries carry extra FAQs; they join the on-page list AND the schema.
     jsonLd: rnFaqs(r).length ? [breadcrumb, faqJsonLd(rnFaqs(r))] : breadcrumb,
@@ -2360,42 +2448,11 @@ try {
   const { generateMemoryPoster } = await import('./memoryPoster.mjs');
   generateMemoryPoster(ROOT, VISUAL_LESSONS_FULL);
 } catch (e) { console.warn('⚠️  Memory poster generation error:', e?.message || e); }
-/**
- * /mcqs slugs retired 2026-08-16 after the first cannibalisation audit.
- *
- * Eleven chapters existed TWICE under two slugs with an identical <title> —
- * class-10-maths-circles and class-10-maths-circles-mcq, plus ten more — each
- * holding 10 of the chapter's questions. Two pages competed for one query with
- * half the material each.
- *
- * The 108 questions are now merged into the keeper (~20 per chapter). The
- * retired URL still RESOLVES but ships noindex,follow: deleting the entry would
- * 404 any inbound link for no benefit, while noindex ends the competition.
- * None of the 22 pages carried a single impression in the 2026-08-13 export, so
- * no ranking was at stake either way.
- *
- * KEEP IN STEP with the same list in generate-sitemap.mjs — a noindex page left
- * in the sitemap tells Google two different things about one URL.
- * Re-run `npm run audit:cannibalisation` before adding to this list.
- */
-const MCQ_RETIRED_SLUGS = new Set([
-  'class-10-maths-real-numbers-mcq',
-  'class-10-maths-polynomials-mcq',
-  'class-10-maths-triangles-mcq',
-  'class-10-maths-trigonometry-mcq',
-  'class-10-maths-circles-mcq',
-  'class-10-sst-nationalism-india-mcq',
-  'class-9-science-matter-mcq',
-  'class-9-science-atoms-molecules-mcq',
-  'class-9-science-cell-mcq',
-  'class-10-science-heredity-mcq',
-  'class-10-science-our-environment-mcq',
-]);
 
 const STUDY_CLUSTERS = [
   { base: '/maths-tables', name: 'Maths Tables & Charts', kw: 'maths tables, multiplication table, squares cubes primes', data: getMathsTables(ROOT), label: (x) => x.title, titleSuffix: '— Full Chart & Quick Revision', body: mathsTableBody },
   { base: '/english-writing', name: 'English Writing Skills', kw: 'essay writing, letter writing, notice article speech writing', data: getEnglishWriting(ROOT), label: (x) => x.title, body: englishWritingBody },
-  { base: '/mcqs', name: 'Chapter-wise MCQs', kw: 'MCQ with answers, objective questions, online test CBSE', data: getChapterMcqs(ROOT), label: (x) => `${x.chapter} (${x.classLevel} ${x.subject})`, body: mcqBody, retired: (x) => MCQ_RETIRED_SLUGS.has(x.slug) },
+  { base: '/mcqs', name: 'Chapter-wise MCQs', kw: 'MCQ with answers, objective questions, online test CBSE', data: getChapterMcqs(ROOT), label: (x) => `${x.chapter} (${x.classLevel} ${x.subject})`, body: mcqBody },
   { base: '/gk-facts', name: 'General Knowledge', kw: 'general knowledge, static GK, GK for exams', data: getStaticGk(ROOT), label: (x) => x.title, body: gkBody },
   { base: '/vocabulary', name: 'English Vocabulary', kw: 'idioms and phrases, proverbs, one word substitution, synonyms antonyms', data: getEnglishVocab(ROOT), label: (x) => x.title, body: vocabBody },
   { base: '/english-literature', name: 'English Literature', kw: 'english summary, character sketch, NCERT english chapter summary', data: getEnglishLiterature(ROOT), label: (x) => `${x.chapter} (${x.classLevel} English)`, body: litBody },
@@ -2423,7 +2480,7 @@ for (const c of STUDY_CLUSTERS) {
       // A cluster may retire a URL without deleting it — see MCQ_RETIRED_SLUGS.
       // The page still resolves so inbound links do not 404; noindex,follow
       // stops it competing with the page its content was merged into.
-      ...(c.retired && c.retired(x) ? { noindex: true } : {}),
+      ...(isRetired(c.base, x.slug) ? { noindex: true } : {}),
       jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: c.name, item: `${SITE}${c.base}` },
         { '@type': 'ListItem', position: 2, name: nm, item: `${SITE}${c.base}/${x.slug}` },

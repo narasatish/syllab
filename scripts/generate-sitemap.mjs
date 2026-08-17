@@ -88,6 +88,74 @@ async function readTopics() {
 function buildUrls({ languages, topicsByLang }) {
   const urls = [];
 
+  // Mirror of RETIRED_SLUGS in generate-prerender.mjs. Duplicated on purpose:
+  // this script must not import the prerenderer. A noindex URL left in the
+  // sitemap tells Google "index this" while the page says "don't".
+  const RETIRED_SLUGS = {
+    '/concepts': new Set([
+      'periodic-table-periodicity',
+    ]),
+    '/gk-facts': new Set([
+      'currency-of-countries',
+    ]),
+    '/mcqs': new Set([
+      'class-10-maths-circles-mcq',
+      'class-10-maths-polynomials-mcq',
+      'class-10-maths-real-numbers-mcq',
+      'class-10-maths-triangles-mcq',
+      'class-10-maths-trigonometry-mcq',
+      'class-10-science-heredity-mcq',
+      'class-10-science-our-environment-mcq',
+      'class-10-sst-nationalism-india-mcq',
+      'class-9-science-atoms-molecules-mcq',
+      'class-9-science-cell-mcq',
+      'class-9-science-matter-mcq',
+    ]),
+    '/pyqs': new Set([
+      'class-11-chemistry-basic-concepts',
+      'class-11-chemistry-chemical-bonding-and-molecular-structure',
+      'class-11-chemistry-structure-of-atom',
+      'class-11-physics-laws-of-motion',
+      'class-11-physics-units-measurements',
+      'class-9-science-matter-surroundings',
+    ]),
+    '/revision-notes': new Set([
+      'class-10-maths-pair-linear-equations',
+      'class-10-maths-surface-areas-and-volumes',
+      'class-10-social-science-agriculture',
+      'class-10-sst-nationalism-in-europe',
+      'class-11-chemistry-structure-atom',
+      'class-11-physics-laws-of-motion',
+      'class-11-physics-units-measurements',
+      'class-8-maths-squares-and-square-roots',
+      'class-8-science-force-and-pressure',
+      'class-8-science-reproduction-in-animals',
+      'class-9-science-atoms-and-molecules',
+      'class-9-science-force-and-laws-of-motion',
+      'class-9-science-is-matter-around-us-pure',
+      'class-9-science-matter-in-our-surroundings',
+      'class-9-science-structure-of-the-atom',
+      'class-9-science-the-fundamental-unit-of-life',
+      'class-9-science-work-and-energy',
+      'class-9-social-science-climate',
+      'class-9-social-science-constitutional-design',
+    ]),
+    '/solved-examples': new Set([
+      'class-10-maths-arithmetic-progressions-numericals',
+      'class-10-maths-coordinate-geometry-numericals',
+      'class-10-maths-probability-numericals',
+      'class-10-maths-surface-areas-volumes-numericals',
+      'class-11-chemistry-mole-concept-numericals',
+      'class-12-physics-current-electricity-numericals',
+      'class-12-probability-numericals',
+      'class-9-maths-polynomials-numericals',
+      'class-9-physics-gravitation-numericals',
+      'class-9-physics-work-and-energy-numericals',
+    ]),
+  };
+  const isRetired = (base, slug) => Boolean(RETIRED_SLUGS[base] && RETIRED_SLUGS[base].has(slug));
+
+
   // Home — top priority
   urls.push({ loc: '/',                    priority: 1.0, changefreq: 'daily' });
 
@@ -347,6 +415,9 @@ function buildUrls({ languages, topicsByLang }) {
   // Revision Notes cluster
   urls.push({ loc: '/revision-notes', priority: 0.8, changefreq: 'weekly' });
   for (const r of getRevisionNotes(ROOT)) {
+    // /revision-notes is listed outside the STUDY_CLUSTERS loop, so it needs
+    // the retirement check applied here as well.
+    if (isRetired('/revision-notes', r.slug)) continue;
     urls.push({ loc: `/revision-notes/${r.slug}`, priority: 0.7, changefreq: 'monthly' });
   }
 
@@ -356,18 +427,6 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/sample-papers/${p.slug}`, priority: 0.7, changefreq: 'monthly' });
   }
 
-  // Mirror of MCQ_RETIRED_SLUGS in generate-prerender.mjs. Duplicated on
-  // purpose: this script must not import the prerenderer. If the two ever
-  // disagree, the site tells Google two different things about one URL.
-  const MCQ_RETIRED_SLUGS = new Set([
-    'class-10-maths-real-numbers-mcq', 'class-10-maths-polynomials-mcq',
-    'class-10-maths-triangles-mcq', 'class-10-maths-trigonometry-mcq',
-    'class-10-maths-circles-mcq', 'class-10-sst-nationalism-india-mcq',
-    'class-9-science-matter-mcq', 'class-9-science-atoms-molecules-mcq',
-    'class-9-science-cell-mcq', 'class-10-science-heredity-mcq',
-    'class-10-science-our-environment-mcq',
-  ]);
-
   // New study clusters (maths tables, writing, mcqs, gk, vocab, literature)
   for (const [base, fn] of [['/maths-tables', getMathsTables], ['/english-writing', getEnglishWriting], ['/mcqs', getChapterMcqs], ['/gk-facts', getStaticGk], ['/vocabulary', getEnglishVocab], ['/english-literature', getEnglishLiterature], ['/concepts', getConcepts], ['/solved-examples', getSolvedExamples], ['/lab-practicals', getLabPracticals], ['/visual-learning', getVisualLessons], ['/timelines', getTimelines], ['/what-to-study', getWhatToStudy], ['/pyqs', getPyqs]]) {
     urls.push({ loc: base, priority: 0.8, changefreq: 'weekly' });
@@ -376,7 +435,7 @@ function buildUrls({ languages, topicsByLang }) {
       // generate-prerender.mjs). Listing a noindex URL here would tell Google
       // "index this" in the sitemap while the page says "don't" — keep the two
       // lists in step.
-      if (base === '/mcqs' && MCQ_RETIRED_SLUGS.has(x.slug)) continue;
+      if (isRetired(base, x.slug)) continue;
       urls.push({ loc: `${base}/${x.slug}`, priority: 0.7, changefreq: 'monthly' });
     }
   }
