@@ -111,7 +111,11 @@ export function getEnglishVocab(root) {
 export function getEnglishLiterature(root) {
   return readArray(root, 'englishLiterature.ts', 'export const LIT_CHAPTERS: LitChapter[] = ')
     .filter((l) => l && l.slug && l.chapter)
-    .map((l) => ({ slug: l.slug, classLevel: l.classLevel, book: l.book, chapter: l.chapter, intro: String(l.intro || '').slice(0, 155), summary: String(l.summary || ''), characters: Array.isArray(l.characters) ? l.characters : [], themes: Array.isArray(l.themes) ? l.themes : [], faqs: Array.isArray(l.faqs) ? l.faqs : [] }));
+    // `devices` and `textbookQA` MUST be listed here. This projection drops
+    // anything it does not name, so a field added to the bank would load fine,
+    // typecheck fine, render in React and never reach a built page — the same
+    // failure that cost /concepts 112,900 words.
+    .map((l) => ({ slug: l.slug, classLevel: l.classLevel, book: l.book, chapter: l.chapter, intro: String(l.intro || '').slice(0, 155), summary: String(l.summary || ''), characters: Array.isArray(l.characters) ? l.characters : [], themes: Array.isArray(l.themes) ? l.themes : [], devices: Array.isArray(l.devices) ? l.devices : [], textbookQA: Array.isArray(l.textbookQA) ? l.textbookQA : [], faqs: Array.isArray(l.faqs) ? l.faqs : [] }));
 }
 export function getConcepts(root) {
   return readArray(root, 'conceptExplainers.ts', 'export const CONCEPT_EXPLAINERS: ConceptExplainer[] = ')

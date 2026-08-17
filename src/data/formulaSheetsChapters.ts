@@ -724,6 +724,22 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
           {
             "name": "Special angles",
             "formula": "0°, 30°, 45°, 60°, 90° — memorize sin/cos/tan values"
+          },
+          {
+            "name": "The 3 main ratios",
+            "formula": "sin θ = opposite/hypotenuse · cos θ = adjacent/hypotenuse · tan θ = opposite/adjacent"
+          },
+          {
+            "name": "The 3 identities",
+            "formula": "sin²θ + cos²θ = 1 · 1 + tan²θ = sec²θ · 1 + cot²θ = cosec²θ"
+          },
+          {
+            "name": "Standard values of sin",
+            "formula": "sin 0°=0, sin 30°=1/2, sin 45°=1/√2, sin 60°=√3/2, sin 90°=1"
+          },
+          {
+            "name": "Standard values of cos",
+            "formula": "cos 0°=1, cos 30°=√3/2, cos 45°=1/√2, cos 60°=1/2, cos 90°=0"
           }
         ]
       }
@@ -1018,6 +1034,10 @@ export const FORMULA_SHEETS_CHAPTERS: FormulaSheet[] = [
           {
             "name": "Clinometer/theodolite setup",
             "formula": "Measure angle of elevation, apply tan rule"
+          },
+          {
+            "name": "The key relation",
+            "formula": "Use tan θ = height / horizontal distance (draw the right triangle first)."
           }
         ]
       }

@@ -92,6 +92,15 @@ function buildUrls({ languages, topicsByLang }) {
   // this script must not import the prerenderer. A noindex URL left in the
   // sitemap tells Google "index this" while the page says "don't".
   const RETIRED_SLUGS = {
+    '/formula-sheets': new Set([
+      // Class 10 shipped FOUR trigonometry sheets for NCERT's TWO chapters. The
+      // formulas from these two are merged into the sheets that match real
+      // chapters — Introduction to Trigonometry (Ch 8) and Some Applications of
+      // Trigonometry (Ch 9) — which gained the explicit sin/cos standard-value
+      // tables the keeper previously told students to "memorize" without listing.
+      'class-10-maths-trigonometry',
+      'class-10-maths-applications-of-trigonometry',
+    ]),
     '/concepts': new Set([
       'periodic-table-periodicity',
     ]),
@@ -363,6 +372,9 @@ function buildUrls({ languages, topicsByLang }) {
   // Formula Sheets cluster (free PDF revision assets) — subject + per-chapter sheets
   urls.push({ loc: '/formula-sheets', priority: 0.8, changefreq: 'monthly' });
   for (const s of getFormulaSheets(ROOT)) {
+    // Listed outside the STUDY_CLUSTERS loop, so the retirement check is needed
+    // here too — otherwise the sitemap advertises a noindex page.
+    if (isRetired('/formula-sheets', s.slug)) continue;
     urls.push({ loc: `/formula-sheets/${s.slug}`, priority: 0.7, changefreq: 'monthly' });
   }
   // State Board Solutions (AP / TS / Karnataka / Maharashtra)

@@ -62,6 +62,15 @@ const SITE = 'https://syllab.in';
  * `npm run audit:cannibalisation` before editing.
  */
 const RETIRED_SLUGS = {
+  '/formula-sheets': new Set([
+    // Class 10 shipped FOUR trigonometry sheets for NCERT's TWO chapters. The
+    // formulas from these two are merged into the sheets that match real
+    // chapters — Introduction to Trigonometry (Ch 8) and Some Applications of
+    // Trigonometry (Ch 9) — which gained the explicit sin/cos standard-value
+    // tables the keeper previously told students to "memorize" without listing.
+    'class-10-maths-trigonometry',
+    'class-10-maths-applications-of-trigonometry',
+  ]),
   '/mcqs': new Set([
     'class-10-maths-real-numbers-mcq',
     'class-10-maths-polynomials-mcq',
@@ -1624,6 +1633,9 @@ for (const s of FORMULA_SHEETS_DATA) {
   const relHtml = sibs.length ? `<h2>More Class ${esc(s.classLevel)} ${esc(s.subject)} Formula Sheets</h2><ul>${sibs.map((y) => `<li><a href="/formula-sheets/${y.slug}">${esc(y.title)}</a></li>`).join('')}</ul>` : '';
   ROUTES.push({
     path: `/formula-sheets/${s.slug}`,
+    // /formula-sheets builds its routes here rather than through
+    // STUDY_CLUSTERS, so the retirement check has to be applied explicitly.
+    ...(isRetired('/formula-sheets', s.slug) ? { noindex: true } : {}),
     title: `${s.title} (PDF) — All Important Formulas Free | Syllab.in`,
     description: `Free ${s.title.toLowerCase()} — all ${flat.length} key formulas on one page, downloadable as PDF for fast revision before CBSE board exams${Number(s.classLevel) >= 11 ? ', JEE & NEET' : ''}. No signup.`,
     keywords: `${s.title.toLowerCase()}, ${s.title.toLowerCase()} pdf, formula sheet, all formulas`,
@@ -2052,7 +2064,16 @@ function litBody(x, sibs, base) {
   const summary = x.summary ? `<h2>${esc(x.chapter)} — Summary</h2><p>${nl2br(x.summary)}</p>` : '';
   const chars = (x.characters || []).length ? `<h2>Characters</h2><ul>${x.characters.map((c) => `<li><strong>${esc(c.name)}:</strong> ${esc(c.description)}</li>`).join('')}</ul>` : '';
   const themes = (x.themes || []).length ? `<h2>Themes</h2><ul>${x.themes.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : '';
-  return `<p class="speakable">${esc(x.intro)}</p>${summary}${chars}${themes}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} English Chapters`)}${aiCta}`;
+  // Poetic/literary devices and the NCERT exercise answered. These are what a
+  // student searching "<chapter> question answers" or "<poem> poetic devices"
+  // is actually after, and /english-literature converts at 3.44 clicks per
+  // page — the best answer-and-practice cluster on the site — on pages that
+  // previously carried only a summary, themes and two FAQs.
+  const devices = (x.devices || []).length
+    ? `<h2>Poetic and Literary Devices</h2><dl>${x.devices.map((d) => `<dt><strong>${esc(d.name)}</strong></dt><dd>${esc(d.example)}</dd>`).join('')}</dl>` : '';
+  const tbq = (x.textbookQA || []).length
+    ? `<h2>NCERT Textbook Questions — Answered</h2>${x.textbookQA.map((q, i) => `<h3>Q${i + 1}. ${esc(q.q)}</h3><p>${esc(q.a)}</p>`).join('')}` : '';
+  return `<p class="speakable">${esc(x.intro)}</p>${summary}${chars}${themes}${devices}${tbq}${faqBlock(x.faqs)}${relBlock(sibs, base, `More ${esc(x.classLevel)} English Chapters`)}${aiCta}`;
 }
 function labBody(x, sibs, base) {
   const list = (arr, h) => (arr || []).length ? `<h2>${esc(h)}</h2><ul>${arr.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : '';

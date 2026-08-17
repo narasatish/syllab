@@ -1756,6 +1756,54 @@ export const LIT_CHAPTERS: LitChapter[] = [
         "q": "What is the irony presented in the poem?",
         "a": "The irony is that the photograph, intended to preserve a moment forever, actually highlights the impermanence of youth and beauty, and the ways that time has altered or separated the people it captures."
       }
+    ],
+    "devices": [
+      {
+        "name": "Metaphor",
+        "example": "\"cardboard\" stands for the photograph itself, and the word's flatness and fragility mirror how little of a life a picture holds."
+      },
+      {
+        "name": "Transferred epithet",
+        "example": "\"terribly transient feet\" — it is not the feet that are transient but the childhood, the moment, the life itself."
+      },
+      {
+        "name": "Imagery",
+        "example": "The sea, the beach, the three girls holding hands — a still visual image set against the moving one of the sea \"which appears to have changed less\"."
+      },
+      {
+        "name": "Irony",
+        "example": "The sea, which is vast and restless, changes less than the human beings who stood beside it for a moment."
+      },
+      {
+        "name": "Oxymoron",
+        "example": "\"laboured ease\" — the practised, effortful lightness of the mother's later laughter about the photograph."
+      },
+      {
+        "name": "Symbolism",
+        "example": "The sea symbolises permanence and the photograph symbolises the fleeting; the poem sets them against each other."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "What does the word \"cardboard\" denote in the poem? Why has the poet used this word?",
+        "a": "It denotes the photograph, mounted as photographs once were on stiff cardboard. The poet uses the material rather than the image to stress how ordinary and fragile the object is: a whole afternoon of a person's childhood survives only as a piece of card, which says something about how little of a life any keepsake actually preserves."
+      },
+      {
+        "q": "What has the camera captured?",
+        "a": "The camera captured the poet's mother as a girl of about twelve, on a sea holiday with her two girl cousins, Betty and Dolly. The three are paddling, holding one another's hands, with the mother the middle and tallest of the three, and all of them smiling through their hair at the camera."
+      },
+      {
+        "q": "What has this to say about the transience of human life?",
+        "a": "The sea in the background \"appears to have changed less\" than the girls who stood in it — the natural world outlasts the human. The girl in the photograph became a woman who laughed at the picture, and that woman is now herself gone, so the poem moves through three vanished stages of one life and finds only silence at the end."
+      },
+      {
+        "q": "The three stanzas depict three different phases. What are they?",
+        "a": "The first stanza describes the photograph itself and the mother's girlhood sea holiday. The second describes the mother in middle age, laughing at the old picture and at how her cousins dressed her for the beach. The third is the poet's present, twelve years after the mother's death, when both the moment and the laughter are gone and the poet is left with \"its silence silences\"."
+      },
+      {
+        "q": "What does the poet mean by \"its silence silences\"?",
+        "a": "The photograph says nothing, and that speechlessness defeats the poet — grief past a certain point has no words for it. The circumstance of loss is so overwhelming that both the picture and the poet fall silent, and the poem ends on that unanswerable stillness rather than on consolation."
+      }
     ]
   },
   {
@@ -1785,6 +1833,58 @@ export const LIT_CHAPTERS: LitChapter[] = [
       {
         "q": "What does the laburnum tree represent?",
         "a": "The laburnum tree represents life itself or the universe, which is mostly still and dormant but is occasionally energized and transformed by the presence of vital forces before returning to silence."
+      }
+    ],
+    "devices": [
+      {
+        "name": "Simile",
+        "example": "\"like a lizard\" — the goldfinch's quick, darting, alert movement is compared to a lizard's, sharing suddenness and wariness."
+      },
+      {
+        "name": "Metaphor",
+        "example": "\"engine of her family\" — the mother bird is the machine powering the whole nest, driving its activity."
+      },
+      {
+        "name": "Onomatopoeia",
+        "example": "\"chirrup\", \"trillings\" — words whose sound imitates the birds' calls."
+      },
+      {
+        "name": "Imagery",
+        "example": "Visual (\"yellow September sunlight\", \"September's eye\") and auditory (\"machine starts up\") images run side by side."
+      },
+      {
+        "name": "Alliteration",
+        "example": "\"trembles and thrills\" repeats the \"tr\" sound; \"stokes it full\" repeats the \"s\"."
+      },
+      {
+        "name": "Personification",
+        "example": "The tree is \"silent, quite still\" and then \"trembles and thrills\" — given the ability to feel."
+      },
+      {
+        "name": "Contrast",
+        "example": "The poem opens and closes on stillness; the middle bursts with sound and motion. The structure itself enacts the theme."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "What do you notice about the beginning and the ending of the poem?",
+        "a": "The poem begins and ends with the same image of stillness — the laburnum tree silent and motionless in the yellow September sunlight. This circular structure frames the burst of activity in the middle, and it enacts the poem's meaning: the vitality the goldfinches bring is borrowed and temporary, and the tree returns to exactly the emptiness it began in."
+      },
+      {
+        "q": "To what is the bird's movement compared? What is the basis for the comparison?",
+        "a": "The goldfinch's movement is compared to a lizard's. The basis is the sudden, darting, alert quality of both — the bird is \"sleek as a lizard, and alert and abrupt\", moving in quick starts and stops rather than smoothly, and remaining watchful throughout."
+      },
+      {
+        "q": "Why is the image of the engine evoked by the poet?",
+        "a": "The mother goldfinch is called \"the engine of her family\" because she is the source of all the nest's energy. When she arrives the whole tree \"starts up\" like a machine — the chicks come alive, the tree trembles and thrills. The engine image captures both the mechanical suddenness of the transformation and the fact that the power comes entirely from her."
+      },
+      {
+        "q": "What does \"her\" in \"till the whole tree trembles and thrills\" refer to?",
+        "a": "It refers to the mother goldfinch. Her arrival at the nest sets off the chicks' noisy feeding, and that commotion spreads through the tree until the tree itself seems to tremble and thrill with the movement she has caused."
+      },
+      {
+        "q": "Why does the poem end with the tree described as silent again?",
+        "a": "When the mother bird leaves, the borrowed energy goes with her. The tree is \"empty\" and returns to silence, which is the point of the poem: life and vitality visit, animate a thing briefly, and depart, leaving the world as still as it was before."
       }
     ]
   },
@@ -2221,6 +2321,46 @@ export const LIT_CHAPTERS: LitChapter[] = [
       {
         "q": "What is the significance of the toy tiger at the end?",
         "a": "The toy tiger is profoundly ironic. The maharaja, who sought to kill real tigers as a measure of his prowess, dies from a harmless toy. This emphasizes that his death comes from an unexpected quarter and that fate, not his hunting prowess, determines his destiny."
+      }
+    ],
+    "devices": [
+      {
+        "name": "Satire",
+        "example": "The whole story mocks autocratic power — a king who can order a hundred tigers killed but cannot escape a wooden toy."
+      },
+      {
+        "name": "Irony",
+        "example": "The Maharaja spends his life defeating the prophecy, and is killed by a splinter from a wooden tiger — the hundredth tiger, in the end, does kill him."
+      },
+      {
+        "name": "Hyperbole",
+        "example": "Kingdoms are risked over hunting rights, and a British officer's displeasure over a photograph nearly costs the Maharaja his throne."
+      },
+      {
+        "name": "Humour and understatement",
+        "example": "The narrator reports outrageous events in a flat, matter-of-fact voice, which makes the absurdity sharper."
+      }
+    ],
+    "textbookQA": [
+      {
+        "q": "The story is a satire on the conceit of those in power. How does the author bring this out?",
+        "a": "Kalki shows a ruler who bends an entire state to a personal obsession: officials are dismissed for bringing bad news, a dewan drags an old tiger from the zoo to keep the count going, villages are taxed to supply tigers, and a British officer must be appeased with fifty diamond rings for a photograph. Absolute power is shown to be both enormous and ridiculous — and finally useless, since the king dies from an infected splinter off a toy."
+      },
+      {
+        "q": "What is the prophecy about the Maharaja, and how does he try to defeat it?",
+        "a": "At his birth the astrologers foretell that the prince will die, and the chief astrologer adds that the death will come from a tiger. The Maharaja therefore vows to kill a hundred tigers, banning everyone else from hunting them, and marries into a royal family with a large tiger population when his own supply runs out. He kills ninety-nine, and the hundredth is a weak old animal that in fact only faints — a hunter kills it later without telling him."
+      },
+      {
+        "q": "How does the Maharaja finally die?",
+        "a": "He buys a cheap wooden tiger as a birthday gift for his son. A sliver of wood from its badly finished surface pierces his right hand, the wound becomes infected and spreads, and he dies after an operation. The hundredth \"tiger\" — a wooden one — takes his life, so the prophecy is fulfilled exactly as foretold and entirely against his expectation."
+      },
+      {
+        "q": "What is the significance of the title \"The Tiger King\"?",
+        "a": "The title works two ways. The Maharaja is king over tigers, hunting them at will, and he is also tiger-like himself in his predatory use of power. But it is ironic: the man who styles himself master of tigers is destroyed by the crudest possible tiger, which underlines how little his authority was ever worth against fate."
+      },
+      {
+        "q": "Do you think the prophecy came true, or was the death a coincidence?",
+        "a": "The story deliberately leaves this open, and either reading works. Read literally, the prophecy is fulfilled with grim precision — the hundredth tiger kills him. Read as satire, the \"fulfilment\" is an accident that the Maharaja's own vanity arranged: he bought the toy, and his obsession is what made the coincidence meaningful. The ambiguity is the point of the joke."
       }
     ]
   },
