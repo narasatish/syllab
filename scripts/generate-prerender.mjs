@@ -150,6 +150,14 @@ const RETIRED_SLUGS = {
     'thapar-patiala',
     'lpu-jalandhar',
   ]),
+  '/medical-colleges': new Set([
+    // Amrita's Kochi medical school was published twice. The retired record
+    // stored Rs 25,00,000/yr against a Rs 2,50,00,000 total (the 10x pattern)
+    // and NIRF #5; the keeper stores a self-consistent Rs 12,20,000/yr over
+    // Rs 61,00,000. Neither figure is verifiable, so the record whose own two
+    // numbers agree is the one kept.
+    'amrita-institute-kochi',
+  ]),
   '/concepts': new Set([
     'periodic-table-periodicity',
   ]),
@@ -2554,7 +2562,35 @@ for (const c of STUDY_CLUSTERS) {
 }
 
 // ─── Medical / MBBS colleges (/medical-colleges, /:state, /:state/:slug) ──────
-const { states: MED_STATES, colleges: MED_COLLEGES } = getMedicalManifest(ROOT);
+const { states: MED_STATES, colleges: MED_COLLEGES_ALL } = getMedicalManifest(ROOT);
+// Detail pages are still emitted for every record so retired URLs keep resolving
+// under noindex; listings use the deduplicated set.
+const MED_COLLEGES = MED_COLLEGES_ALL.filter((c) => !isRetired('/medical-colleges', c.slug));
+
+/**
+ * Full-course MBBS fee — printed ONLY when it agrees with the per-year figure.
+ *
+ * 39 of the 55 records holding both numbers contradict themselves, in clean
+ * clusters: 16 store the total as exactly 10x the annual fee, 11 as 6x, 9 as 60x
+ * and 3 as 8x. MBBS is 4.5 years of tuition, so at most one number in each pair
+ * can be right, and which one cannot be settled without official fee schedules.
+ * Printing the stored total anyway put lines like "₹25,00,000/yr (₹2,50,00,000
+ * full course)" in front of families choosing where to spend a decade of savings.
+ *
+ * Where the two disagree, publish the per-year figure alone rather than guess. A
+ * curated range string ("₹25–30 L") is human-written rather than derived, so it
+ * is trusted as-is.
+ */
+const medFullCourse = (c) => {
+  const raw = String(c.feesTotal ?? '');
+  if (!raw) return null;
+  if (/[₹L–]/.test(raw)) return c.feesTotal;
+  const y = Number(String(c.feesPerYear).replace(/[^0-9.]/g, ''));
+  const t = Number(raw.replace(/[^0-9.]/g, ''));
+  if (!(y > 0) || !(t > 0)) return null;
+  return Math.abs(t / y - 4.5) <= 1.0 ? c.feesTotal : null; // MBBS = 4.5 years of tuition
+};
+
 ROUTES.push({
   path: '/medical-colleges',
   title: 'Top Medical Colleges in India (MBBS/BDS) — NEET Cutoffs, Fees & Admission | Syllab.in',
@@ -2574,14 +2610,15 @@ for (const s of MED_STATES) {
     jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Medical Colleges in ${s.name}`, url: `${SITE}/medical-colleges/${s.slug}`, inLanguage: 'en-IN' },
   });
 }
-for (const c of MED_COLLEGES) {
+for (const c of MED_COLLEGES_ALL) {
   const u = `${SITE}/medical-colleges/${c.stateSlug}/${c.slug}`;
   ROUTES.push({
     path: `/medical-colleges/${c.stateSlug}/${c.slug}`,
+    ...(isRetired('/medical-colleges', c.slug) ? { noindex: true } : {}),
     title: `${c.name} — MBBS Fees, NEET Cutoff, Seats & Admission | Syllab.in`,
     description: `${c.name}, ${c.city}: MBBS fees ${c.feesPerYear}/yr, ${c.neetCutoff}, ${c.mbbsSeats} seats${c.nirf ? `, NIRF #${c.nirf}` : ''}. Admission via NEET UG — full process, courses, internship & hostel.`,
     keywords: `${c.name} fees, ${c.shortName} NEET cutoff, ${c.name} MBBS admission, ${c.name} seats, ${c.city} medical college`,
-    bodyHtml: `<p>${esc(c.about)}</p><p><strong>MBBS fees:</strong> ${esc(c.feesPerYear)}/yr (${esc(c.feesTotal)} full course). <strong>Seats:</strong> ${c.mbbsSeats}. <strong>NEET cutoff (indicative):</strong> ${esc(c.neetCutoff)}.</p><h2>Admission process (NEET UG)</h2><ol>${(c.admissionSteps || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ol>`,
+    bodyHtml: `<p>${esc(c.about)}</p><p><strong>MBBS fees:</strong> ${esc(c.feesPerYear)}/yr${medFullCourse(c) ? ` (${esc(medFullCourse(c))}${/full|course/i.test(String(medFullCourse(c))) ? '' : ' full course'})` : ''}. <strong>Seats:</strong> ${c.mbbsSeats}. <strong>NEET cutoff (indicative):</strong> ${esc(c.neetCutoff)}.</p><h2>Admission process (NEET UG)</h2><ol>${(c.admissionSteps || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ol>`,
     jsonLd: { '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name, foundingDate: String(c.established), url: `https://${c.website}`, address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.state, addressCountry: 'IN' } },
   });
 }

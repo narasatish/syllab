@@ -11,7 +11,7 @@ import PageHero from '../components/PageHero';
 import HubNav, { HubNavItem } from '../components/HubNav';
 import { usePathname } from '../lib/isomorphic';
 import {
-  MEDICAL_STATE_INFO, MEDICAL_COLLEGES, medCollegesByState, findMedCollege,
+  MEDICAL_STATE_INFO, MEDICAL_COLLEGES, medCollegesByState, findMedCollege, medFullCourse,
   type MedicalCollege,
 } from '../data/medicalColleges';
 
@@ -189,7 +189,7 @@ function Detail({ c, go, goBack }: { c: MedicalCollege; go: (to: string) => void
 
       <Section title="Fees & Seats">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          <Detail2 label="Per year" value={c.feesPerYear} /><Detail2 label="Full course" value={c.feesTotal} /><Detail2 label="MBBS seats" value={String(c.mbbsSeats)} />
+          <Detail2 label="Per year" value={c.feesPerYear} /><Detail2 label="Full course" value={medFullCourse(c) ?? '—'} /><Detail2 label="MBBS seats" value={String(c.mbbsSeats)} />
         </div>
       </Section>
 

@@ -546,120 +546,254 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Social Science",
     "board": "CBSE",
     "title": "CBSE Class 10 Social Science Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper integrates History, Geography, Political Science, and Economics covering key topics from the syllabus. Attempt this to gauge your understanding and improve answers on contemporary issues. This is a shortened practice set: 17 questions worth 40 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "90 minutes",
-    "totalMarks": 40,
+    "intro": "This is a full-length CBSE Class 10 Social Science paper built to the current board blueprint: 41 questions across six sections for 80 marks in 3 hours, drawing on History, Geography, Political Science and Economics in the proportions the board uses. Sections A to E run from objective to case-based, and Section F covers the map skill, phrased so that you can name each location and then mark it on any outline map of India. Every question is followed by a full model answer.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - Multiple Choice",
-        "marks": 4,
-        "instructions": "Answer all 16 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 20,
+        "instructions": "Questions 1–18 are multiple choice. Questions 19 and 20 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "In which year did India adopt the Constitution?",
+            "q": "Who was the founder of the secret society 'Young Italy'?",
             "marks": 1,
-            "answer": "1950"
+            "answer": "Giuseppe Mazzini. He founded Young Italy in Marseilles in 1831 to work for a unified Italian republic."
           },
           {
-            "q": "Which river is the longest in India?",
+            "q": "The Treaty of Constantinople of 1832 recognised the independence of",
             "marks": 1,
-            "answer": "Ganga"
+            "answer": "Greece. Greek independence from the Ottoman Empire was recognised by this treaty."
           },
           {
-            "q": "The National Flag of India was adopted on",
+            "q": "The Non-Cooperation Movement was withdrawn by Gandhiji after the incident at",
             "marks": 1,
-            "answer": "July 22, 1947"
+            "answer": "Chauri Chaura, in February 1922, where a crowd set fire to a police station; Gandhiji called off the movement because it had turned violent."
           },
           {
-            "q": "Who was the first President of independent India?",
+            "q": "The Simon Commission was boycotted in India because",
             "marks": 1,
-            "answer": "Dr. Rajendra Prasad"
+            "answer": "It had no Indian member. Every one of its members was British, so it was met with the slogan 'Simon Go Back'."
+          },
+          {
+            "q": "Which soil type is most widespread in India and best suited to agriculture?",
+            "marks": 1,
+            "answer": "Alluvial soil. Deposited by the rivers of the northern plains, it is rich in potash and lime and supports intensive cultivation."
+          },
+          {
+            "q": "Bamboo, in the Indian context, is classified as",
+            "marks": 1,
+            "answer": "A grass, not a tree — although it is widely used as timber and is an important minor forest produce."
+          },
+          {
+            "q": "Which of these is a rabi crop: rice, wheat, or cotton?",
+            "marks": 1,
+            "answer": "Wheat. Rabi crops are sown in winter, around October to December, and harvested in summer."
+          },
+          {
+            "q": "The Bhakra Nangal project is built on which river?",
+            "marks": 1,
+            "answer": "The Sutlej. It serves both irrigation and hydroelectric generation."
+          },
+          {
+            "q": "Which mineral is the 'backbone of industry' and is found in Kudremukh?",
+            "marks": 1,
+            "answer": "Iron ore. The Kudremukh mines in Karnataka hold one of the largest deposits in the world."
+          },
+          {
+            "q": "Power resources such as coal, petroleum and natural gas are called",
+            "marks": 1,
+            "answer": "Conventional and non-renewable sources of energy — they were formed over geological time and cannot be replenished on a human timescale."
+          },
+          {
+            "q": "A federal government means",
+            "marks": 1,
+            "answer": "Power is divided between a central authority and various constituent units, each with its own jurisdiction, and the division is written into the constitution."
+          },
+          {
+            "q": "Which is the third tier of government in India?",
+            "marks": 1,
+            "answer": "Local self-government — panchayats in rural areas and municipalities in urban ones, given constitutional status by the 73rd and 74th amendments in 1992."
+          },
+          {
+            "q": "The Belgian model of power sharing is often described as",
+            "marks": 1,
+            "answer": "Community government — an arrangement in which a separate government is elected by people belonging to one language community, holding power over cultural, educational and language matters."
+          },
+          {
+            "q": "A political party that seeks to control power through constitutional means is characterised by which three components?",
+            "marks": 1,
+            "answer": "Leaders, active members and followers. A party also needs a recognised set of policies and programmes to pursue in the collective good."
+          },
+          {
+            "q": "The tertiary sector is also known as the",
+            "marks": 1,
+            "answer": "Service sector. It does not produce goods but supports the primary and secondary sectors — transport, banking, trade, communication, education and health."
+          },
+          {
+            "q": "Which sector employs the largest share of India's workforce?",
+            "marks": 1,
+            "answer": "The primary sector, chiefly agriculture, even though it contributes a much smaller share of GDP — an imbalance that gives rise to widespread underemployment."
+          },
+          {
+            "q": "The main function of the Reserve Bank of India in the credit system is to",
+            "marks": 1,
+            "answer": "Supervise the functioning of formal sources of loans — it monitors bank lending, sets the terms on which credit is given, and requires banks to report on their lending to different sectors."
+          },
+          {
+            "q": "Globalisation has been mainly driven by",
+            "marks": 1,
+            "answer": "Multinational corporations, along with rapid improvements in transport and information technology and the removal of trade barriers."
+          },
+          {
+            "q": "Assertion (A): Democracies are better at accommodating social diversity. Reason (R): Democracy involves competition among various political parties.",
+            "marks": 1,
+            "answer": "(b) Both are true but R does not explain A. Democracies accommodate diversity through power sharing and respect for minority rights; party competition alone can as easily sharpen divisions as reconcile them."
+          },
+          {
+            "q": "Assertion (A): Consumers have the right to be informed about the goods they buy. Reason (R): The Consumer Protection Act 1986 provides for consumer rights.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. The right to information — details of price, quantity, ingredients and expiry — is one of the rights that COPRA gives statutory force to."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
-        "marks": 14,
-        "instructions": "Answer all 7 questions, each carrying 2 marks.",
+        "name": "Section B — Very Short Answer (2 marks each)",
+        "marks": 8,
+        "instructions": "Answer all 4 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "What is democracy? Name any two features of democracy.",
+            "q": "What was the Zollverein? State one of its effects.",
             "marks": 2,
-            "answer": "Democracy is government by the people. Features: equal rights, freedom of speech, regular elections."
+            "answer": "The Zollverein was a customs union formed in 1834 under Prussian leadership, which abolished tariff barriers between most German states and reduced the number of currencies. It bound the states into a single economic zone, and that economic unity became a powerful force behind political unification."
           },
           {
-            "q": "Define inflation. How does it affect consumers?",
+            "q": "Distinguish between subsistence farming and commercial farming.",
             "marks": 2,
-            "answer": "Inflation is sustained increase in price levels. It reduces purchasing power of consumers."
+            "answer": "Subsistence farming is practised on small holdings with simple tools and family labour, and the produce is grown mainly to feed the farmer's own household. Commercial farming uses modern inputs — high-yielding seeds, fertilisers, irrigation and machinery — on larger holdings, and the produce is grown for sale in the market."
           },
           {
-            "q": "What is the Indian monsoon? When does it occur?",
+            "q": "What is meant by 'majoritarianism'? Give one example.",
             "marks": 2,
-            "answer": "Monsoon is seasonal wind system bringing heavy rainfall. It occurs from June to September in India."
+            "answer": "Majoritarianism is the belief that the majority community should be able to rule a country as it wishes, disregarding the wishes of minorities. In Sri Lanka the Sinhala-speaking majority adopted measures such as making Sinhala the sole official language and giving Buddhism state preference, which alienated the Sri Lankan Tamils."
           },
           {
-            "q": "Who led the Quit India Movement? When was it launched?",
+            "q": "Why are banks required to keep only a small proportion of deposits as cash?",
             "marks": 2,
-            "answer": "Mahatma Gandhi led it in 1942 demanding immediate British withdrawal."
-          },
-          {
-            "q": "What is sustainable development?",
-            "marks": 2,
-            "answer": "Development that meets current needs without harming future generations."
-          },
-          {
-            "q": "Name any two major cities in the Indo-Gangetic Plain.",
-            "marks": 2,
-            "answer": "Delhi, Kanpur, Lucknow, Varanasi are major cities."
-          },
-          {
-            "q": "What is the role of the Prime Minister in the Indian government?",
-            "marks": 2,
-            "answer": "PM is the executive head of government and leader of the ruling party in Parliament."
+            "answer": "Because on any given day only a small fraction of depositors come to withdraw money, and their withdrawals are largely offset by fresh deposits. Banks therefore keep about 15 per cent as cash to meet demand and lend out the rest, which is how they earn income and how credit is created in the economy."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (3 marks)",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 15,
+        "instructions": "Answer all 5 questions. Each carries 3 marks.",
+        "questions": [
+          {
+            "q": "Explain any three causes of the growth of nationalism in Europe after 1815.",
+            "marks": 3,
+            "answer": "First, the ideas of liberalism spread by the French Revolution — equality before the law, the end of privilege, and government by consent — gave people a common political identity beyond the local one. Second, the conservative order imposed at Vienna in 1815, which restored monarchies and censored the press, provoked secret revolutionary societies such as Young Italy that were explicitly national in aim. Third, economic change bound regions together: customs unions like the Zollverein, and later railways, created a single market and made the nation a practical unit as well as an idea."
+          },
+          {
+            "q": "Describe any three features of the Civil Disobedience Movement.",
+            "marks": 3,
+            "answer": "It began with Gandhiji's Dandi March in March 1930, when he broke the salt law by making salt from seawater — salt was chosen because it was consumed by rich and poor alike and its taxation was resented by all. Unlike Non-Cooperation, it asked people not merely to refuse cooperation but to break colonial laws: to boycott foreign cloth, refuse taxes, and picket liquor shops. Its participation was very wide — rich peasants such as the Patidars, poorer tenants, business classes seeking protection against imports, and above all large numbers of women who came out to protest for the first time — although the Depressed Classes largely stayed away."
+          },
+          {
+            "q": "Why is conservation of resources essential? Suggest any two ways of conserving mineral resources.",
+            "marks": 3,
+            "answer": "Minerals form over millions of years and are finite, while the rate of extraction is rapid, so unchecked use will exhaust the reserves and leave nothing for future generations; extraction also damages land, forests and water. Two ways to conserve them are recycling scrap metal so that the same material is used repeatedly instead of mining fresh ore, and using substitutes and improved technologies that lower waste during mining and processing — for example using fibre optics in place of copper wire."
+          },
+          {
+            "q": "Explain any three merits of democracy.",
+            "marks": 3,
+            "answer": "A democracy is accountable: rulers must face the people at regular elections, so they have to explain their decisions and can be removed. It is better at handling differences and conflicts, because it provides a peaceful and institutional way of negotiating between groups rather than suppressing them. And it enhances the dignity of the citizen: every adult has one vote of equal value, which gives even the poorest a political weight equal to the richest, and this legitimacy makes democratic decisions more acceptable."
+          },
+          {
+            "q": "What is the informal sector of credit? Why do poor households remain dependent on it?",
+            "marks": 3,
+            "answer": "The informal sector of credit consists of moneylenders, traders, employers, relatives and friends, whose lending is supervised by no organisation and who charge whatever rate they choose — often very high. Poor households remain dependent on it because banks demand collateral and documentation that the poor rarely possess, and the paperwork is difficult for those without literacy or formal employment records. The consequence is a debt trap: a large part of what they earn goes to repaying interest, so borrowing that was meant to help ends up deepening poverty."
+          }
+        ]
+      },
+      {
+        "name": "Section D — Long Answer (5 marks each)",
+        "marks": 20,
+        "instructions": "Answer all 4 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "Describe the process of unification of Germany between 1848 and 1871.",
+            "marks": 5,
+            "answer": "The liberal middle classes attempted unification in 1848 through the Frankfurt Parliament, which offered the crown of a united Germany to the Prussian king; he refused it, the assembly was dissolved, and the liberal initiative failed. Leadership then passed to Prussia and to its chief minister Otto von Bismarck, who pursued unification through the state, its army and its bureaucracy — the policy of 'blood and iron'. Over seven years Prussia fought three wars: against Denmark in 1864, against Austria in 1866, which removed Austria from German affairs, and against France in 1870–71. Each victory drew the German states closer around Prussia. In January 1871 the Prussian king William I was proclaimed German Emperor in the Hall of Mirrors at Versailles. The new empire placed strong emphasis on modernising the currency, banking, legal and judicial systems, but it was unified from above by a conservative monarchy rather than by the liberal revolution of 1848."
+          },
+          {
+            "q": "What is meant by sustainable development? Explain any four ways in which water resources can be conserved and managed in India.",
+            "marks": 5,
+            "answer": "Sustainable development means development that meets the needs of the present without compromising the ability of future generations to meet their own needs — using resources so that they remain available. Water can be conserved in several ways. Rainwater harvesting collects and stores rain from rooftops and open areas so that it recharges groundwater instead of running off; in Rajasthan underground tankas store rooftop rainwater for drinking. Multi-purpose river projects and dams store water for irrigation, generate electricity and control floods, though they must be planned carefully because they displace people and disturb aquatic life. Watershed development treats a whole drainage area — building check dams, contour bunds and planting vegetation — so that runoff slows and infiltrates. Finally, efficient irrigation such as drip and sprinkler systems delivers water directly to the roots and greatly reduces the losses of flood irrigation, and treating and recycling industrial and domestic wastewater reduces the demand for fresh water."
+          },
+          {
+            "q": "'Democracy is better than any other form of government.' Evaluate this statement with reference to its outcomes on economic growth, inequality and dignity.",
+            "marks": 5,
+            "answer": "On economic growth the record is mixed: within poor countries dictatorships have sometimes posted marginally higher growth rates than democracies, so democracy cannot be defended on growth alone. When the difference is small, the other advantages of democracy make it the preferable choice. On economic inequality democracies have a poor record — most sustain great disparities of income, and the poor, though equal at the ballot box, remain unequal in wealth; democracies have not been able to reduce this as much as was hoped. Where democracy clearly outperforms every alternative is in accommodating social diversity and in upholding dignity. It provides institutional channels for negotiating differences, so conflicts are resolved rather than suppressed, and it grants every citizen an equal vote, which makes the citizen the source of authority rather than the subject of it. Democracy also permits the correction of its own mistakes: bad decisions can be exposed by a free press and reversed at the next election, which no closed system allows. Judged as a whole, therefore, it is better than the alternatives even where its economic record disappoints."
+          },
+          {
+            "q": "What is globalisation? Explain any four factors that have enabled globalisation, and state one positive and one negative effect on India.",
+            "marks": 5,
+            "answer": "Globalisation is the rapid integration of the economies of different countries through the freer movement of goods, services, investment, technology and, to a lesser extent, people. Four factors have enabled it. Rapid improvement in transport technology, especially containerisation, has cut the cost and time of shipping goods over long distances. Advances in information and communication technology — telephones, the internet and satellite communication — allow services to be delivered instantly across continents. The liberalisation of trade and investment policies, in India from 1991, removed the barriers and licensing that had restricted imports and foreign investment. And multinational corporations, seeking cheap labour and new markets, have set up production across many countries and linked them into single supply chains. In India the positive effect has been greater choice and quality for consumers, new employment in services such as IT and BPO, and higher standards among firms that met foreign competition. The negative effect has been the pressure on small domestic producers — many small manufacturing units in toys, tyres and dairy could not match imported prices and shut down, costing jobs — while the gains have not been shared evenly between the skilled and the unskilled."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Case-based questions (4 marks each)",
         "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "instructions": "Answer all 3 case-based questions. Each has sub-parts totalling 4 marks.",
         "questions": [
           {
-            "q": "Describe the main features of the Indian Constitution.",
-            "marks": 3,
-            "answer": "It is the world's largest, provides fundamental rights, establishes a secular democratic republic."
+            "q": "CASE STUDY 1 — In 1885 the Indian National Congress was founded; by 1920 it had become a mass movement under Gandhiji, drawing in peasants, workers, students and women who had earlier stood outside politics. (i) Name the movement that first made the Congress a mass organisation. (ii) State any two reasons why people joined it. (iii) Why did Gandhiji regard the charkha as important?",
+            "marks": 4,
+            "answer": "(i) The Non-Cooperation Movement, launched in 1920. (ii) People joined for varied reasons: the towns saw students leave government schools and lawyers give up practice as a matter of national honour, while in the countryside peasants joined to protest against high rents and begar, understanding swaraj as an end to their own oppression; the Khilafat issue also brought large numbers of Muslims into a common cause. (iii) The charkha stood for self-reliance and the dignity of labour. Khadi could be made in every home, which gave the poor work and kept money in the village instead of sending it to Manchester's mills, so it turned an economic boycott into an act every Indian could perform daily."
           },
           {
-            "q": "What is poverty? Explain the causes of poverty in India.",
-            "marks": 3,
-            "answer": "Poverty is inability to meet basic needs. Causes: lack of education, unemployment, poor healthcare."
+            "q": "CASE STUDY 2 — India's total geographical area is about 3.28 million sq km. Of this, roughly 43 per cent is plains, 30 per cent mountains and 27 per cent plateaus. Land is put to different uses, and the pattern is determined by both physical and human factors. (i) Name any two physical factors determining land use. (ii) Name any two human factors. (iii) Why is the net sown area declining in some states?",
+            "marks": 4,
+            "answer": "(i) Topography, climate, soil type and the availability of minerals are the physical factors — level, fertile, well-watered plains support cultivation, while steep or arid land does not. (ii) Population density, technology, capital and human skill are the human factors that decide how the available land is actually used. (iii) The net sown area is falling in several states because farmland is being converted to non-agricultural uses — housing, roads, industry and urban expansion as cities grow — and because land degradation from overgrazing, waterlogging and salinity has made some areas unfit for cultivation."
           },
           {
-            "q": "Explain the three-tier system of government in India.",
-            "marks": 3,
-            "answer": "Central (Union), State, and Local (Panchayat/Municipal Corporation) governments share powers."
-          },
-          {
-            "q": "What were the causes of the Indian Rebellion of 1857?",
-            "marks": 3,
-            "answer": "Economic exploitation, religious policies, greased cartridges issue, resentment against British rule."
+            "q": "CASE STUDY 3 — In a village, a small farmer borrows ₹5,000 from a moneylender at 5 per cent interest per month to buy seed, promising to repay after the harvest. The crop fails. (i) Calculate the annual rate of interest. (ii) What is likely to happen to the farmer? (iii) Name this situation. (iv) Suggest one measure that would help.",
+            "marks": 4,
+            "answer": "(i) At 5 per cent a month the simple annual rate is 5 × 12 = 60 per cent. (ii) With the crop failed, the farmer has no income to repay and must borrow again to pay the interest, so the debt grows; he may have to sell land or cattle, or work for the lender to clear it. (iii) This is a debt trap, in which borrowing leaves the borrower worse off than before. (iv) Expanding formal credit through cooperative societies and self-help groups would help, because these lend at far lower rates and without collateral; SHGs in particular allow poor women to pool savings and borrow from the group itself, and their record of repayment is good enough for banks to lend to them."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (5 marks)",
-        "marks": 10,
-        "instructions": "Answer all 2 questions with internal choice; each carrying 5 marks.",
+        "name": "Section F — Map skill (5 marks)",
+        "marks": 5,
+        "instructions": "Answer all 5 questions. Each carries 1 mark. Take any outline map of India and mark each place you name — the answers below give the location so you can check your marking.",
         "questions": [
           {
-            "q": "Explain the concept of national integration. What are its challenges in India? OR How is India addressing gender inequality in education and employment?",
-            "marks": 5,
-            "answer": "Integration means unity of diverse groups. Challenges: communalism, regional disparities. OR Government schemes like Mid Day Meal, Beti Bachao promote equality."
+            "q": "Name the place in Gujarat where Gandhiji broke the salt law in 1930, and the district it lies in.",
+            "marks": 1,
+            "answer": "Dandi, on the coast of Navsari district in southern Gujarat. Gandhiji reached it on 6 April 1930 after marching about 240 km from Sabarmati."
           },
           {
-            "q": "Describe the Cold War and its impact on international relations.",
-            "marks": 5,
-            "answer": "Ideological conflict between USA and USSR; led to space race, arms race, proxy wars, and nuclear tension."
+            "q": "Name the city in Uttar Pradesh where the Indian National Congress and the Muslim League held their joint sessions in 1916 and signed a pact.",
+            "marks": 1,
+            "answer": "Lucknow, on the river Gomti in central Uttar Pradesh. The Lucknow Pact of 1916 brought the Congress and the Muslim League together on a common demand for self-government."
+          },
+          {
+            "q": "Name the state in which the Bhakra Nangal dam is situated and the river it impounds.",
+            "marks": 1,
+            "answer": "The dam is on the river Sutlej at Bhakra in Bilaspur district, Himachal Pradesh, with the Nangal barrage just downstream in Punjab."
+          },
+          {
+            "q": "Name the iron-ore mining area of Karnataka that lies in the Western Ghats.",
+            "marks": 1,
+            "answer": "Kudremukh, in Chikkamagaluru district of Karnataka, in the Western Ghats — one of the largest iron-ore deposits in the world."
+          },
+          {
+            "q": "Name the major software technology park located in Karnataka.",
+            "marks": 1,
+            "answer": "Bengaluru, in south-eastern Karnataka on the Deccan plateau, the largest of India's software technology parks."
           }
         ]
       }
@@ -685,96 +819,167 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "CBSE Class 10 English Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper covers Reading Comprehension, Writing, Grammar, and Literature based on the latest CBSE syllabus. Practice this to improve language skills and scoring in the board exam. This is a shortened practice set: 12 questions worth 36 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "80 minutes",
-    "totalMarks": 36,
+    "intro": "This is a full-length CBSE Class 10 English (Language and Literature) paper built to the board's own pattern: 80 marks in 3 hours, split as 20 marks of reading, 20 of writing and grammar, and 40 of literature. Both reading passages are printed in full on this page, so every comprehension question can actually be answered from what is in front of you. The literature section refers to the prescribed texts First Flight and Footprints Without Feet and asks for your own words rather than reproduced extracts. Every question is followed by a full model answer, and the longer answers explain what a full-credit response needs to contain.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - Reading Comprehension",
-        "marks": 6,
-        "instructions": "Read the given passages and answer the questions based on them.",
-        "questions": [
-          {
-            "q": "Why is reading important for students? (Based on a passage about the benefits of reading)",
-            "marks": 2,
-            "answer": "Reading expands vocabulary, improves imagination, and increases knowledge."
-          },
-          {
-            "q": "What is the main idea of the passage? Explain in 2-3 sentences.",
-            "marks": 3,
-            "answer": "The passage highlights how literature shapes our understanding of society and human nature."
-          },
-          {
-            "q": "Find a word from the passage that means 'extremely poor or needy'.",
-            "marks": 1,
-            "answer": "Destitute or impoverished"
-          }
-        ],
-        "passage": "A boy who reads is never entirely alone. Every book he opens hands him a vocabulary he did not have that morning, an imagination stretched a little wider than the room he sits in, and a stock of knowledge he will draw on for years without remembering where it came from. This is why reading matters so much to students: it expands vocabulary, improves imagination and increases knowledge, all at once and almost without effort.\n\nBut literature does something larger than instruct. A novel set in a village he has never visited teaches him how a stranger thinks. A poem about loss prepares him, quietly, for a grief that has not arrived yet. Literature shapes our understanding of society and of human nature — it lets a reader live, briefly, inside a life not his own, and return more capable of imagining other people.\n\nConsider the beggar in Premchand's stories, destitute and yet unwilling to surrender his dignity. A reader who has met such a character on the page recognises him differently on the street. That recognition is not sentimentality; it is the beginning of judgement. The habit of reading, begun early and kept up, is among the few habits that improve every other subject a student studies."
-      },
-      {
-        "name": "Section B - Writing",
+        "name": "Section A — Reading: Passage I (10 marks)",
         "marks": 10,
-        "instructions": "Complete the writing tasks as instructed.",
+        "passage": "Every year, a little before the first rains, the swifts return to the old post office in our town. They come without announcement. One evening the sky above the tiled roof is empty, and the next it is full of thin black crescents cutting the air at a speed that makes the eye give up following them. The birds have flown from somewhere beyond the mountains, and they will leave again in September, and nobody in the town can say precisely where they go.\n\nWhat is remarkable about a swift is not its speed, though it is among the fastest of birds in level flight. It is that a swift barely lands. It feeds in the air, taking insects on the wing. It drinks by skimming the surface of a tank. It gathers the material for its nest — a floating feather, a wisp of straw lifted by the wind — without once settling. Young swifts, after leaving the nest, are believed to remain airborne for two years or more before they touch anything at all, sleeping as they fly, half the brain resting while the other half keeps watch.\n\nOur postmaster, who retired long ago but still comes to sit on the steps, says the birds have used the same eaves since he joined service in 1971. He is not sentimental about them. He notes their arrival in a small diary, the way he once recorded registered letters, and he is annoyed when they are late. Last year they came eleven days after their usual date, and he took this personally, as though the birds had failed in a duty.\n\nThe building itself is due to be demolished. A new office of glass and aluminium will stand in its place, and it will be a better office in every measurable way: brighter, cooler, with a counter that does not flood in July. The plans do not mention the eaves. It has not occurred to anyone that they should. And so a journey of some thousands of kilometres, repeated faithfully for fifty years and probably far longer, will end not in a storm or a predator but in a decision taken in a room where nobody has ever looked up.",
+        "instructions": "Read the passage given above and answer the questions that follow. Each question carries the marks shown against it.",
         "questions": [
           {
-            "q": "Write a letter to your Principal requesting permission to organize a science fair in school. (Word limit: 100-120)",
-            "marks": 5,
-            "answer": "Letter should include sender's address, date, proper salutation, clear purpose, reasons, and closing."
-          },
-          {
-            "q": "Write a notice for the school notice board announcing a sports day event.",
-            "marks": 5,
-            "answer": "Notice should include title, date, event details, venue, time, eligibility, and registration deadline."
-          }
-        ]
-      },
-      {
-        "name": "Section C - Grammar",
-        "marks": 7,
-        "instructions": "Attempt all grammar questions.",
-        "questions": [
-          {
-            "q": "Fill in the blanks with appropriate articles: ___ apple a day keeps ___ doctor away.",
+            "q": "Why does the writer say the swifts 'come without announcement'? (1 mark)",
             "marks": 1,
-            "answer": "An, the"
+            "answer": "Because their arrival is sudden and unheralded — one evening the sky above the roof is empty and the next it is full of birds, with nothing to signal the change in advance."
           },
           {
-            "q": "Identify the tense: She has been living in Delhi for five years.",
+            "q": "State any two ways in which a swift carries out ordinary activities without landing. (2 marks)",
             "marks": 2,
-            "answer": "Present Perfect Continuous Tense"
+            "answer": "It feeds in the air, catching insects on the wing, and it drinks by skimming the surface of a tank as it flies. It also collects nesting material — a floating feather or a wisp of straw — without ever settling."
           },
           {
-            "q": "Correct the sentence: If you will study hard, you will pass the exam.",
+            "q": "What does the passage say about young swifts and sleep? (2 marks)",
             "marks": 2,
-            "answer": "If you study hard, you will pass the exam. (Remove 'will' after if)"
+            "answer": "Young swifts are believed to stay airborne for two years or more after leaving the nest, without touching anything at all. They sleep while flying, resting one half of the brain at a time while the other half stays awake and keeps watch."
           },
           {
-            "q": "Change the voice: The teacher teaches us English. (Active to Passive)",
+            "q": "How does the postmaster's attitude to the birds differ from what one might expect? (2 marks)",
             "marks": 2,
-            "answer": "English is taught to us by the teacher."
+            "answer": "One might expect an old man watching birds to be sentimental, but he is not. He treats their arrival as an administrative matter, noting the date in a diary exactly as he once recorded registered letters, and he is genuinely annoyed when they are late — as though the birds had neglected an official duty."
+          },
+          {
+            "q": "Why does the writer call the new building 'better in every measurable way'? What is implied by the word 'measurable'? (2 marks)",
+            "marks": 2,
+            "answer": "The new office will be brighter, cooler and free of the flooding that troubles the old one in July, so on every count that can be counted it is an improvement. The word 'measurable' implies that what will be lost cannot be measured — the nesting site, and the fifty-year migration that depends on it, do not appear on any plan and so carry no weight in the decision."
+          },
+          {
+            "q": "Explain the closing sentence: the journey 'will end not in a storm or a predator but in a decision taken in a room where nobody has ever looked up.' (1 mark)",
+            "marks": 1,
+            "answer": "It means the swifts will be defeated not by any natural danger they are equipped to survive, but by human carelessness — by planners who never noticed the birds at all, so that the loss is not even intended."
           }
         ]
       },
       {
-        "name": "Section D - Literature",
-        "marks": 13,
-        "instructions": "Answer questions based on prescribed texts and poems. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
+        "name": "Section A — Reading: Passage II (10 marks)",
+        "marks": 10,
+        "passage": "In 1854, a physician named John Snow walked the streets of Soho in London with a notebook, and in doing so changed what it means to know something in medicine. Cholera had broken out, and within ten days more than five hundred people in a few streets were dead. The accepted explanation was miasma — bad air rising from filth — and it was accepted by nearly everyone with authority to have an opinion.\n\nSnow doubted it, but doubting was not enough. What he did instead was to mark on a map of the district every death he could confirm, one stroke of the pen for each. The strokes did not spread evenly, as bad air drifting over a neighbourhood would. They clustered. At the centre of the cluster stood a public water pump on Broad Street.\n\nHe then went looking for the cases that did not fit, because those are the ones that decide the matter. A workhouse of several hundred inmates stood inside the affected area and had almost no deaths; it had its own well. A brewery nearby lost nobody; its workers drank beer. Two deaths occurred far away in Hampstead, which should have been impossible — until Snow found that the widow who died there had a cart bring her water from Broad Street because she preferred its taste, and that her visiting niece had drunk a glass.\n\nSnow persuaded the parish to remove the handle of the pump. The outbreak was already declining, and honest historians note that the removal probably saved fewer lives than the story suggests. That is not the point. The point is that a man who could not see a bacterium — the organism would not be identified for another thirty years — established how a disease travelled, by collecting ordinary facts, arranging them so that a pattern could show itself, and taking the awkward cases seriously instead of explaining them away.",
+        "instructions": "Read the passage given above and answer the questions that follow. Each question carries the marks shown against it.",
         "questions": [
           {
-            "q": "What is the theme of the novel/story studied? Explain with examples.",
-            "marks": 4,
-            "answer": "The theme involves struggle against adversity, showcasing human resilience and hope."
+            "q": "What was the accepted explanation of cholera in 1854? (1 mark)",
+            "marks": 1,
+            "answer": "The accepted explanation was miasma — the belief that the disease was carried by bad air rising from filth — and it was held by nearly everyone in authority."
           },
           {
-            "q": "Analyze the character of the protagonist. How does he/she change throughout the story?",
+            "q": "How did Snow's map reveal that the miasma theory was wrong? (2 marks)",
+            "marks": 2,
+            "answer": "He marked every confirmed death on a map of the district. Bad air drifting over a neighbourhood would have produced deaths spread more or less evenly, but the marks clustered tightly instead, and the centre of that cluster was a single public water pump on Broad Street."
+          },
+          {
+            "q": "Why did Snow deliberately look for cases that did not fit his idea? (2 marks)",
+            "marks": 2,
+            "answer": "Because the exceptions are what settle a question. A pattern can be a coincidence, but if the apparent exceptions turn out on investigation to obey the same rule, the explanation is confirmed; if they do not, it is refuted. Snow therefore treated the awkward cases as the real test of his theory rather than as nuisances."
+          },
+          {
+            "q": "Explain how the workhouse and the brewery supported Snow's conclusion. (2 marks)",
+            "marks": 2,
+            "answer": "Both stood in the affected area and so should have suffered heavily under the miasma theory, yet the workhouse of several hundred inmates had almost no deaths and the brewery lost nobody. The workhouse had its own well and the brewery's workers drank beer, so neither group took water from the Broad Street pump — which is exactly what Snow's explanation predicted."
+          },
+          {
+            "q": "How were the two deaths in distant Hampstead explained? (2 marks)",
+            "marks": 2,
+            "answer": "They appeared impossible until Snow discovered that the widow who died there had water brought to her by cart from the Broad Street pump because she preferred its taste, and that her niece, who was visiting, had drunk a glass of it. The apparent exception thus turned into the strongest confirmation of his case."
+          },
+          {
+            "q": "What, according to the writer, is the real significance of Snow's work? (1 mark)",
+            "marks": 1,
+            "answer": "That he established how a disease travelled without being able to see the organism responsible — by gathering ordinary facts, arranging them so a pattern could emerge, and taking the inconvenient cases seriously rather than explaining them away."
+          }
+        ]
+      },
+      {
+        "name": "Section B — Writing and Grammar (20 marks)",
+        "marks": 20,
+        "instructions": "Answer all questions. Marks are shown against each question.",
+        "questions": [
+          {
+            "q": "You are Rohan/Rohini Sharma of 14, Nehru Road, Pune. Write a letter to the Editor of a national daily drawing attention to the loss of nesting sites for birds when old buildings in your city are demolished, and suggesting what builders could do. (5 marks)",
             "marks": 5,
-            "answer": "Character undergoes transformation through challenges, learning valuable life lessons."
+            "answer": "A full-credit answer follows the formal letter format: sender's address and date at the top left, then the receiver's designation and address (The Editor, name of the newspaper, city), the subject line, the salutation 'Sir/Madam', three short paragraphs, and the complimentary close 'Yours truly' with the sender's name. The first paragraph states the purpose — to draw attention through the columns of the paper to the loss of nesting sites as old buildings are pulled down. The second gives the substance: swifts, sparrows and swallows nest in eaves, ledges and ventilators that modern glass and aluminium façades do not provide; the birds return to the same site for decades and cannot simply move; and their disappearance is followed by a rise in insect populations. The third suggests remedies: requiring builders to include nesting bricks or ledges in new façades, surveying a building for nests before demolition, and timing demolition outside the breeding season. The register stays formal throughout, with no contractions and no slang."
           },
           {
-            "q": "What is the message conveyed by a poem you have studied? Explain with reference to the text.",
+            "q": "Write a short analytical paragraph in about 120 words on the topic: 'Data is useless until someone arranges it.' Use the example of John Snow from Passage II. (5 marks)",
+            "marks": 5,
+            "answer": "A strong answer makes a single claim and supports it. For example: The facts of the 1854 outbreak were available to everyone in Soho — the deaths, the addresses, the pump. What nobody had done was arrange them. John Snow's contribution was not the collection of new information but the imposition of order on information already lying about: by marking each death on a map he turned a list into a shape, and the shape pointed at a single water pump. Miasma could not explain a cluster; it predicted a smear. The lesson holds well beyond medicine. Raw numbers assert nothing on their own, and the work of understanding is largely the work of arrangement — of finding the form in which the data can finally speak. (Approximately 120 words, with a clear claim, an example and a general conclusion.)"
+          },
+          {
+            "q": "Fill in the blanks with the correct form of the verb: (i) By the time we reached the station, the train ______ (leave). (ii) She ______ (work) in this school since 2019. (iii) If it ______ (rain) tomorrow, we shall cancel the match. (3 marks)",
+            "marks": 3,
+            "answer": "(i) had left — the past perfect is needed because the departure was completed before the past action of reaching. (ii) has been working — the present perfect continuous, since the action began in 2019 and continues now. (iii) rains — in a first conditional the 'if' clause takes the simple present even though the meaning is future."
+          },
+          {
+            "q": "Report the following: (i) The teacher said to the students, 'Do not waste your time.' (ii) He said, 'I am reading a novel.' (2 marks)",
+            "marks": 2,
+            "answer": "(i) The teacher advised/told the students not to waste their time. The imperative becomes an infinitive with 'not', the reporting verb changes to 'advised' or 'told', and 'your' becomes 'their'. (ii) He said that he was reading a novel. The present continuous shifts back to the past continuous and the pronoun 'I' becomes 'he'."
+          },
+          {
+            "q": "Rearrange the following words to form meaningful sentences: (i) birds / the / return / same / to / eaves / every / year (ii) evidence / arranged / until / it / is / silent / is (2 marks)",
+            "marks": 2,
+            "answer": "(i) The birds return to the same eaves every year. (ii) Evidence is silent until it is arranged."
+          },
+          {
+            "q": "Identify and correct the error in each sentence: (i) Neither of the two boys were present. (ii) He is senior than me. (iii) The news are disturbing. (3 marks)",
+            "marks": 3,
+            "answer": "(i) 'were' should be 'was' — 'neither' is singular and takes a singular verb. (ii) 'than' should be 'to' — adjectives of Latin origin such as senior, junior, superior and inferior take 'to', giving 'He is senior to me.' (iii) 'are' should be 'is' — 'news' is an uncountable noun that is singular despite its final s."
+          }
+        ]
+      },
+      {
+        "name": "Section C — Literature (40 marks)",
+        "marks": 40,
+        "instructions": "Answer all questions with reference to the prescribed textbooks First Flight and Footprints Without Feet. Marks are shown against each question. Answer in your own words; do not copy from the text.",
+        "questions": [
+          {
+            "q": "In 'A Letter to God', why does Lencho write to God, and what does his reaction to the reply reveal about him? (4 marks)",
             "marks": 4,
-            "answer": "The poem conveys that nature teaches patience and perseverance through its cycles."
+            "answer": "Lencho writes because the hailstorm has destroyed his entire field of ripe corn, leaving his family with nothing to eat until the next harvest, and he has an unshakeable faith that God will help him if he asks. He requests a hundred pesos to sow again and to live on until the crop comes. When he receives only seventy — the postmaster having made up what he could from his own salary and his employees' — Lencho is not surprised that God has answered, only annoyed at the shortfall, and he concludes that the post office employees must have stolen the rest, calling them 'a bunch of crooks'. This reveals both the completeness of his faith, which never for a moment doubts the source of the money, and its narrowness: he cannot imagine human kindness, and so repays a genuine act of it with suspicion."
+          },
+          {
+            "q": "How does Nelson Mandela describe the cost of apartheid to those who imposed it, in 'Long Walk to Freedom'? (4 marks)",
+            "marks": 4,
+            "answer": "Mandela argues that oppression damages the oppressor as surely as the oppressed. A man who takes away another's freedom, he says, is a prisoner of hatred, locked behind the bars of prejudice and narrow-mindedness, and is therefore not free himself. He observes that the policy of apartheid produced in his country a deeper wound than any war, but it also created a generation of men of extraordinary courage on both sides. He insists that no one is born hating another because of the colour of his skin — people must learn to hate, and if they can learn it, they can be taught love, which comes more naturally to the human heart. His conclusion is that the oppressor must be liberated just as surely as the oppressed."
+          },
+          {
+            "q": "What is the central contrast in Robert Frost's 'Dust of Snow', and how does the poem's structure reinforce it? (4 marks)",
+            "marks": 4,
+            "answer": "The contrast is between the poet's initial mood of despondency and the change worked in him by a trivial natural accident: a crow shakes down a light fall of snow from a hemlock tree onto him. Both the crow and the hemlock are conventionally associated with gloom and even with poison, so the agents of the change are themselves images of darkness — which is the point. The structure reinforces it: the poem is a single sentence spread over two short stanzas, the first describing the action and the second its effect, and the sense runs on across the stanza break without a pause. Because the reader cannot stop until the end, the small event and its consequence are bound together, and the reversal — a saved part of a day he had rued — arrives with the quiet suddenness of the snow itself."
+          },
+          {
+            "q": "In 'The Ball Poem', what does the poet mean by 'the epistemology of loss'? Why does he not offer the boy money for another ball? (4 marks)",
+            "marks": 4,
+            "answer": "The phrase means the knowledge or understanding of loss — the boy is not merely losing a ball but learning, for the first time, what it is to lose something and to know that it will not come back. The poet deliberately refuses to intrude with money or comfort, because a new ball would teach nothing. Loss is a lesson every human being must learn, and it can only be learned by being felt; to buy the boy out of the experience would rob him of the understanding that the experience alone can give. The poet therefore stands aside and lets the boy learn 'how to stand up', because the world is full of possessions and every one of them will one day be lost."
+          },
+          {
+            "q": "Compare the attitudes of the narrator and Dr Herriot's patient's owner in 'A Triumph of Surgery', and state what the story satirises. (4 marks)",
+            "marks": 4,
+            "answer": "Mrs Pumphrey adores her dog Tricki to the point of harming him, ignoring the vet's instructions and feeding him cream cakes, chocolates and malt between meals until he becomes grossly overweight and listless. Dr Herriot, the narrator, is professionally detached and clear-eyed: he sees at once that the dog needs no medicine but simply less food and more exercise, and he takes Tricki into the surgery where a diet of plain food and free running with the other dogs restores him within a fortnight. The story satirises misplaced indulgence — the wealthy owner's sentimentality is a form of self-gratification rather than care — and it gently mocks her willingness to credit a 'triumph of surgery' when in fact nothing was done except to stop overfeeding the animal."
+          },
+          {
+            "q": "In 'The Midnight Visitor', how does Ausable differ from the conventional secret agent, and how does he defeat Max? (4 marks)",
+            "marks": 4,
+            "answer": "Ausable is the opposite of the romantic image of a spy: he is very fat, he speaks with a slight American accent overlaid by French, and his room is a small, unromantic one at the top of a gloomy French hotel — Fowler, the young writer, is openly disappointed by him. He defeats Max not by force but by presence of mind. Finding Max in the room with a pistol, he invents a balcony beneath his window, complains that intruders have used it twice, and mentions that he is expecting the police. When a knock comes at the door — in fact the waiter he had ordered a drink from — Max panics, climbs out of the window onto the balcony that does not exist, and falls. The story's point is that intelligence and nerve are the real weapons of the trade."
+          },
+          {
+            "q": "Discuss the theme of courage in 'Footprints Without Feet' or in any one prose lesson you have studied, in about 100–120 words. (8 marks)",
+            "marks": 8,
+            "answer": "A full-credit answer states a clear thesis, supports it with at least two specific incidents from the chosen text, and closes with an evaluation. Taking 'Footprints Without Feet': Griffin's story shows that ability without moral restraint is not courage but recklessness. He is a brilliant scientist who discovers how to make himself invisible, yet every use he puts the discovery to is an act of cowardice — he sets fire to his landlord's house to escape a debt, he steals from a shop and a clergyman's desk, and he attacks Mrs Hall's household when he is questioned. Real courage would have meant facing the consequences of his experiments openly and publishing his work. Instead invisibility allows him to act without being answerable, and the story suggests that it is accountability, not power, that makes a person behave well. The lesson is that a discovery is neither good nor bad in itself; what matters is the character of the person who holds it."
+          },
+          {
+            "q": "'The value of a poem often lies in what it leaves unsaid.' Discuss with reference to any one poem from First Flight, in about 100–120 words. (8 marks)",
+            "marks": 8,
+            "answer": "A full-credit answer argues the proposition rather than merely summarising a poem. Taking Frost's 'Fire and Ice': the poem is nine lines long and names two ways the world might end, aligning fire with desire and ice with hate. What it does not do is explain, argue or moralise. It never says that desire consumes a person or that hatred freezes relationships — the reader supplies that, and supplies it more forcefully than any statement could. The understatement of the last line, that ice 'would suffice', is deliberately flat where the subject is annihilation, and the gap between the enormity of the subject and the mildness of the word is where the poem's force lives. Had Frost spelled out his meaning, the poem would have become an opinion; by leaving it unsaid, he makes the reader complete it, and what a reader completes is what a reader believes."
           }
         ]
       }
@@ -800,115 +1005,232 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 9 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper covers all chapters of Class 9 Maths with questions on number systems, polynomials, geometry, and statistics. Solve this to strengthen your foundation for Class 10. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "80 minutes",
-    "totalMarks": 35,
+    "intro": "This is a full-length CBSE Class 9 Mathematics paper built to the board's own pattern: 38 questions across five sections for 80 marks in 3 hours, covering number systems, polynomials, coordinate geometry, linear equations, geometry, mensuration, statistics and probability. Section A is objective and Section E is case-based. Every question is followed by a fully worked solution showing each step, so you can check your method as well as your answer.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - MCQs",
-        "marks": 5,
-        "instructions": "Answer all 20 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 20,
+        "instructions": "Questions 1–18 are multiple choice. Questions 19 and 20 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "Which of the following is a rational number? a) pi b) root 2 c) 3/4 d) e",
+            "q": "Every rational number is",
             "marks": 1,
-            "answer": "c) 3/4"
+            "answer": "A real number. Rational numbers form a subset of the reals, but not every real number is rational — √2, for instance, is not."
           },
           {
-            "q": "The degree of polynomial 3x^2 + 2x + 5 is",
+            "q": "The decimal expansion of an irrational number is",
             "marks": 1,
-            "answer": "2"
+            "answer": "Non-terminating and non-recurring. A terminating or recurring expansion always represents a rational number."
           },
           {
-            "q": "If x = 2, then the value of x^3 + 3x^2 - x - 3 is",
+            "q": "The value of (√5 + √2)(√5 − √2) is",
             "marks": 1,
-            "answer": "15"
+            "answer": "3. Using (a + b)(a − b) = a² − b², the product is 5 − 2 = 3."
           },
           {
-            "q": "The angle in a semicircle is",
+            "q": "The degree of the polynomial 4x³ − 7x² + 2x − 9 is",
             "marks": 1,
-            "answer": "90 degrees"
+            "answer": "3 — the highest power of the variable appearing in the polynomial."
           },
           {
-            "q": "The volume of a sphere with radius r is",
+            "q": "If p(x) = x² − 3x + 2, then p(1) equals",
             "marks": 1,
-            "answer": "4/3 * pi * r^3"
+            "answer": "0. p(1) = 1 − 3 + 2 = 0, so x = 1 is a zero of the polynomial."
+          },
+          {
+            "q": "The point (−3, 5) lies in which quadrant?",
+            "marks": 1,
+            "answer": "The second quadrant, where x is negative and y is positive."
+          },
+          {
+            "q": "The point (0, −4) lies on",
+            "marks": 1,
+            "answer": "The y-axis, 4 units below the origin. Any point with x = 0 lies on the y-axis."
+          },
+          {
+            "q": "The equation of a line parallel to the x-axis at a distance 3 units above it is",
+            "marks": 1,
+            "answer": "y = 3. Every point on such a line has the same y-coordinate."
+          },
+          {
+            "q": "In the linear equation 2x + 3y = 12, if x = 3 then y equals",
+            "marks": 1,
+            "answer": "2. Substituting, 6 + 3y = 12, so 3y = 6 and y = 2."
+          },
+          {
+            "q": "Two angles of a triangle measure 45° and 65°. The third angle is",
+            "marks": 1,
+            "answer": "70°. The angles of a triangle sum to 180°, so the third is 180 − 110 = 70°."
+          },
+          {
+            "q": "In a parallelogram, the diagonals",
+            "marks": 1,
+            "answer": "Bisect each other. They are not necessarily equal or perpendicular — those hold for rectangles and rhombuses respectively."
+          },
+          {
+            "q": "The sum of the interior angles of a quadrilateral is",
+            "marks": 1,
+            "answer": "360°. A quadrilateral splits into two triangles, each contributing 180°."
+          },
+          {
+            "q": "Two triangles are congruent by the SSS rule when",
+            "marks": 1,
+            "answer": "All three sides of one triangle are equal to the corresponding three sides of the other."
+          },
+          {
+            "q": "The area of a triangle with base 10 cm and height 6 cm is",
+            "marks": 1,
+            "answer": "30 cm². Area = ½ × base × height = ½ × 10 × 6 = 30 cm²."
+          },
+          {
+            "q": "The volume of a cube of edge 4 cm is",
+            "marks": 1,
+            "answer": "64 cm³. Volume = a³ = 4³ = 64 cm³."
+          },
+          {
+            "q": "The curved surface area of a cylinder of radius 7 cm and height 10 cm is (use π = 22/7)",
+            "marks": 1,
+            "answer": "440 cm². CSA = 2πrh = 2 × (22/7) × 7 × 10 = 440 cm²."
+          },
+          {
+            "q": "The mean of the first five natural numbers is",
+            "marks": 1,
+            "answer": "3. Their sum is 1 + 2 + 3 + 4 + 5 = 15, and 15 ÷ 5 = 3."
+          },
+          {
+            "q": "A coin is tossed once. The probability of getting a tail is",
+            "marks": 1,
+            "answer": "1/2. There are two equally likely outcomes and one of them is a tail."
+          },
+          {
+            "q": "Assertion (A): √2 is an irrational number. Reason (R): The square root of every prime number is irrational.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. Since 2 is prime, the general result in R covers the particular case in A."
+          },
+          {
+            "q": "Assertion (A): The point (3, 0) lies on the x-axis. Reason (R): A point lies on the x-axis when its y-coordinate is zero.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. The point has y = 0, which is exactly the condition stated in the reason."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
+        "instructions": "Answer all 5 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Simplify: (2^3 * 3^2) / (2^2 * 3)",
+            "q": "Rationalise the denominator of 1/(√7 − √3).",
             "marks": 2,
-            "answer": "6"
+            "answer": "Multiply numerator and denominator by the conjugate √7 + √3: 1/(√7 − √3) × (√7 + √3)/(√7 + √3) = (√7 + √3)/(7 − 3) = (√7 + √3)/4."
           },
           {
-            "q": "Factorize: x^2 + 5x + 6",
+            "q": "Find the value of k if x = 2 is a zero of the polynomial p(x) = x² + kx + 6.",
             "marks": 2,
-            "answer": "(x + 2)(x + 3)"
+            "answer": "If x = 2 is a zero then p(2) = 0, so 4 + 2k + 6 = 0. Hence 2k = −10 and k = −5."
           },
           {
-            "q": "Find the area of a circle with radius 7 cm.",
+            "q": "Write two solutions of the linear equation 3x + 4y = 12.",
             "marks": 2,
-            "answer": "154 sq cm"
+            "answer": "Put x = 0: 4y = 12, so y = 3, giving (0, 3). Put y = 0: 3x = 12, so x = 4, giving (4, 0). Both pairs satisfy the equation, and there are infinitely many others."
           },
           {
-            "q": "Find the median of 5, 7, 3, 9, 1",
+            "q": "In triangle ABC, AB = AC and angle B = 50°. Find angle A.",
             "marks": 2,
-            "answer": "5"
+            "answer": "Since AB = AC the triangle is isosceles and the angles opposite the equal sides are equal, so angle C = angle B = 50°. Then angle A = 180 − 50 − 50 = 80°."
           },
           {
-            "q": "If angle A = 60 degrees, what is angle B in a right triangle if the third angle is 30 degrees?",
+            "q": "Find the total surface area of a cube of edge 5 cm.",
             "marks": 2,
-            "answer": "90 degrees"
+            "answer": "A cube has six square faces, so TSA = 6a² = 6 × 25 = 150 cm²."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (3 marks)",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 18,
+        "instructions": "Answer all 6 questions. Each carries 3 marks.",
+        "questions": [
+          {
+            "q": "Represent √3 on the number line.",
+            "marks": 3,
+            "answer": "Draw a number line and mark OA = 1 unit from the origin O. At A erect a perpendicular AB of 1 unit; then OB = √(1² + 1²) = √2 by the Pythagoras theorem. Now at B erect a perpendicular BC of 1 unit; then OC = √((√2)² + 1²) = √3. With O as centre and radius OC, draw an arc cutting the number line at P. The point P represents √3."
+          },
+          {
+            "q": "Factorise x³ − 3x² − 9x − 5.",
+            "marks": 3,
+            "answer": "Try x = −1: (−1) − 3(1) − 9(−1) − 5 = −1 − 3 + 9 − 5 = 0, so (x + 1) is a factor. Dividing gives x³ − 3x² − 9x − 5 = (x + 1)(x² − 4x − 5). The quadratic factors as (x − 5)(x + 1). Hence the full factorisation is (x + 1)²(x − 5)."
+          },
+          {
+            "q": "If x + y = 12 and xy = 27, find the value of x³ + y³.",
+            "marks": 3,
+            "answer": "Use the identity x³ + y³ = (x + y)³ − 3xy(x + y). Substituting, x³ + y³ = 12³ − 3(27)(12) = 1728 − 972 = 756."
+          },
+          {
+            "q": "Prove that the angles opposite to equal sides of a triangle are equal.",
+            "marks": 3,
+            "answer": "Let triangle ABC have AB = AC, and draw AD as the bisector of angle A, meeting BC at D. In triangles ABD and ACD: AB = AC (given), angle BAD = angle CAD (by construction) and AD = AD (common). Hence the triangles are congruent by the SAS rule, and by CPCT angle B = angle C. So the angles opposite the equal sides are equal."
+          },
+          {
+            "q": "The sides of a triangle are 13 cm, 14 cm and 15 cm. Find its area using Heron's formula.",
+            "marks": 3,
+            "answer": "The semi-perimeter is s = (13 + 14 + 15)/2 = 21 cm. By Heron's formula, area = √(s(s−a)(s−b)(s−c)) = √(21 × 8 × 7 × 6) = √7056 = 84 cm²."
+          },
+          {
+            "q": "The following are the marks of 10 students: 25, 30, 35, 30, 40, 45, 30, 50, 35, 40. Find the mean, median and mode.",
+            "marks": 3,
+            "answer": "The sum is 25 + 30 + 35 + 30 + 40 + 45 + 30 + 50 + 35 + 40 = 360, so the mean is 360/10 = 36. Arranged in order: 25, 30, 30, 30, 35, 35, 40, 40, 45, 50; with ten values the median is the mean of the 5th and 6th, that is (35 + 35)/2 = 35. The value 30 occurs three times, more than any other, so the mode is 30."
+          }
+        ]
+      },
+      {
+        "name": "Section D — Long Answer (5 marks each)",
+        "marks": 20,
+        "instructions": "Answer all 4 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "Prove that the diagonal of a parallelogram divides it into two congruent triangles, and hence that opposite sides of a parallelogram are equal.",
+            "marks": 5,
+            "answer": "Let ABCD be a parallelogram and join the diagonal AC. Since AB ∥ DC and AC is a transversal, angle BAC = angle DCA (alternate angles). Since AD ∥ BC and AC is a transversal, angle DAC = angle BCA (alternate angles). Also AC = CA is common. Hence triangles ABC and CDA are congruent by the ASA rule. By CPCT, AB = CD and BC = AD, so the opposite sides of a parallelogram are equal — which is what was to be proved."
+          },
+          {
+            "q": "A cone of height 24 cm has a curved surface area of 550 cm². Find its radius, slant height and volume. (Use π = 22/7)",
+            "marks": 5,
+            "answer": "Let the radius be r and the slant height l, with l = √(r² + h²) = √(r² + 576). CSA = πrl = 550, so (22/7)r√(r² + 576) = 550, giving r√(r² + 576) = 175. Squaring, r²(r² + 576) = 30625. Let u = r²: u² + 576u − 30625 = 0, so u = (−576 + √(331776 + 122500))/2 = (−576 + √454276)/2 = (−576 + 674)/2 = 49. Hence r = 7 cm, and l = √(49 + 576) = √625 = 25 cm. The volume is (1/3)πr²h = (1/3)(22/7)(49)(24) = 1232 cm³."
+          },
+          {
+            "q": "The angles of a quadrilateral are in the ratio 3 : 5 : 9 : 13. Find all four angles, and state what kind of quadrilateral it cannot be.",
+            "marks": 5,
+            "answer": "Let the angles be 3x, 5x, 9x and 13x. Their sum is 360°, so 30x = 360 and x = 12. The angles are therefore 36°, 60°, 108° and 156°. Since no two angles are equal, and a parallelogram requires opposite angles to be equal, the quadrilateral cannot be a parallelogram — nor, for the same reason, a rectangle, rhombus or square. It is an ordinary irregular quadrilateral, and having one angle greater than 90° more than once it is not cyclic either, since 36 + 108 ≠ 180 and 60 + 156 ≠ 180."
+          },
+          {
+            "q": "The heights (in cm) of 20 students are 150, 152, 155, 160, 158, 162, 151, 157, 159, 156, 154, 156, 161, 153, 158, 157, 163, 166, 168, 155. Group them into classes of width 5 starting at 150, using the convention that a class includes its lower limit but not its upper. State the modal class and the class with the fewest students.",
+            "marks": 5,
+            "answer": "Sorting the values: 150, 151, 152, 153, 154, 155, 155, 156, 156, 157, 157, 158, 158, 159, 160, 161, 162, 163, 166, 168. Class 150–155 takes 150, 151, 152, 153, 154 — frequency 5. Class 155–160 takes 155, 155, 156, 156, 157, 157, 158, 158, 159 — frequency 9. Class 160–165 takes 160, 161, 162, 163 — frequency 4. Class 165–170 takes 166, 168 — frequency 2. The frequencies 5, 9, 4 and 2 total 20, which checks against the count. The modal class is 155–160, since it has the highest frequency of 9, and the class with the fewest students is 165–170 with a frequency of 2. The distribution is therefore concentrated around the middle of the range and thins out towards the taller heights."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Case-based questions (4 marks each)",
         "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "instructions": "Answer all 3 case-based questions. Each has sub-parts totalling 4 marks.",
         "questions": [
           {
-            "q": "Express 0.37 as a fraction.",
-            "marks": 3,
-            "answer": "37/100"
-          },
-          {
-            "q": "Prove that root 3 is irrational.",
-            "marks": 3,
-            "answer": "Assume root 3 is rational; derive a contradiction from even/odd division properties."
-          },
-          {
-            "q": "Find the surface area of a cylinder with radius 5 cm and height 10 cm.",
-            "marks": 3,
-            "answer": "471.4 sq cm (or 150 pi sq cm)"
-          },
-          {
-            "q": "A line passes through points (1, 2) and (3, 6). Find its equation.",
-            "marks": 3,
-            "answer": "y = 2x, or 2x - y = 0"
-          }
-        ]
-      },
-      {
-        "name": "Section D - Long Answer (4 marks)",
-        "marks": 8,
-        "instructions": "Answer all 2 questions, each carrying 4 marks.",
-        "questions": [
-          {
-            "q": "Construct an angle of 75 degrees using compass and ruler.",
+            "q": "CASE STUDY 1 — A school wants to build a rectangular garden of length 20 m and breadth 15 m, and lay a path of uniform width 2 m all around it on the outside. (i) Find the area of the garden. (ii) Find the dimensions of the outer rectangle. (iii) Find the area of the path.",
             "marks": 4,
-            "answer": "Construct 60 degrees, then bisect the 30 degree angle; combine to get 75 degrees."
+            "answer": "(i) Area of the garden = 20 × 15 = 300 m². (ii) The path adds 2 m on each of the four sides, so the outer rectangle measures (20 + 4) by (15 + 4), that is 24 m by 19 m. (iii) Area of the outer rectangle = 24 × 19 = 456 m², so the area of the path = 456 − 300 = 156 m²."
           },
           {
-            "q": "Find the volume and surface area of a cube with side 5 cm.",
+            "q": "CASE STUDY 2 — A water tank in the shape of a cylinder has a radius of 3.5 m and a height of 4 m. (Use π = 22/7) (i) Find its volume in cubic metres. (ii) Find how many litres it holds. (iii) Find the cost of painting its curved surface at ₹20 per m².",
             "marks": 4,
-            "answer": "Volume = 125 cu cm, Surface Area = 150 sq cm"
+            "answer": "(i) Volume = πr²h = (22/7)(3.5)²(4) = (22/7)(12.25)(4) = 154 m³. (ii) One cubic metre is 1000 litres, so the tank holds 154,000 litres. (iii) Curved surface area = 2πrh = 2 × (22/7) × 3.5 × 4 = 88 m², so the cost is 88 × 20 = ₹1,760."
+          },
+          {
+            "q": "CASE STUDY 3 — In a survey of 60 families, the number of children per family was recorded: 0 children in 5 families, 1 in 12, 2 in 25, 3 in 13 and 4 in 5. (i) Find the total number of children. (ii) Find the mean number of children per family. (iii) A family is chosen at random — find the probability that it has at least two children.",
+            "marks": 4,
+            "answer": "(i) Total children = 0(5) + 1(12) + 2(25) + 3(13) + 4(5) = 0 + 12 + 50 + 39 + 20 = 121. (ii) Mean = 121/60 ≈ 2.02 children per family. (iii) Families with at least two children number 25 + 13 + 5 = 43, so the probability is 43/60 ≈ 0.717."
           }
         ]
       }
@@ -934,115 +1256,237 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Science",
     "board": "CBSE",
     "title": "CBSE Class 9 Science Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive sample paper covers Physics, Chemistry, and Biology chapters for Class 9. Practice to understand concepts thoroughly and prepare effectively for your board exams. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "80 minutes",
-    "totalMarks": 35,
+    "intro": "This is a full-length CBSE Class 9 Science paper built to the board's own pattern: 39 questions across five sections for 80 marks in 3 hours, covering matter, atoms and molecules, cell biology and tissues, motion, force, gravitation, work and energy, and sound in the proportions the board uses. Section A is objective and Section E is case-based. Every question carries a full worked solution setting out the reasoning, not just the final answer.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - Multiple Choice",
-        "marks": 5,
-        "instructions": "Answer all 20 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 20,
+        "instructions": "Questions 1–18 are multiple choice. Questions 19 and 20 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "The SI unit of force is",
+            "q": "The process by which a solid changes directly into a gas is called",
             "marks": 1,
-            "answer": "Newton"
+            "answer": "Sublimation. Camphor, naphthalene and ammonium chloride all sublime on heating."
           },
           {
-            "q": "Pure water has a pH of",
+            "q": "Evaporation causes cooling because",
             "marks": 1,
-            "answer": "7"
+            "answer": "The escaping particles take latent heat from the liquid and its surroundings, lowering their temperature."
           },
           {
-            "q": "The process by which plants make their own food is",
+            "q": "A solution of common salt in water is an example of",
             "marks": 1,
-            "answer": "Photosynthesis"
+            "answer": "A homogeneous mixture — the composition is uniform throughout and the particles cannot be seen or separated by filtration."
           },
           {
-            "q": "The basic unit of life is",
+            "q": "Which of these is a compound: air, brass, or water?",
             "marks": 1,
-            "answer": "Cell"
+            "answer": "Water. Air and brass are mixtures, whereas water has hydrogen and oxygen chemically combined in a fixed 2 : 1 ratio by atoms."
           },
           {
-            "q": "Which element is essential for plant growth?",
+            "q": "The technique used to separate a mixture of two miscible liquids with boiling points differing by less than 25 K is",
             "marks": 1,
-            "answer": "Nitrogen"
+            "answer": "Fractional distillation, using a fractionating column that provides repeated condensation and vaporisation."
+          },
+          {
+            "q": "The atomicity of a phosphorus molecule, P₄, is",
+            "marks": 1,
+            "answer": "Four — the molecule contains four atoms of phosphorus."
+          },
+          {
+            "q": "The number of moles in 22 g of carbon dioxide (molar mass 44 g/mol) is",
+            "marks": 1,
+            "answer": "0.5 mol. Moles = mass/molar mass = 22/44 = 0.5."
+          },
+          {
+            "q": "Isotopes of an element have",
+            "marks": 1,
+            "answer": "The same atomic number but different mass numbers — the same number of protons and a different number of neutrons."
+          },
+          {
+            "q": "The particle discovered by James Chadwick was the",
+            "marks": 1,
+            "answer": "Neutron, an electrically neutral particle of mass roughly equal to that of a proton."
+          },
+          {
+            "q": "The plastid that gives a green colour to plant cells is the",
+            "marks": 1,
+            "answer": "Chloroplast, which contains the pigment chlorophyll and is the site of photosynthesis."
+          },
+          {
+            "q": "The tissue that transports food in plants is",
+            "marks": 1,
+            "answer": "Phloem. Xylem carries water and minerals; phloem carries the products of photosynthesis in both directions."
+          },
+          {
+            "q": "Which animal tissue connects muscle to bone?",
+            "marks": 1,
+            "answer": "Tendon — a strong, inelastic connective tissue. Ligaments, by contrast, connect bone to bone and are elastic."
+          },
+          {
+            "q": "The SI unit of force is the",
+            "marks": 1,
+            "answer": "Newton, defined as the force that gives a mass of one kilogram an acceleration of one metre per second squared."
+          },
+          {
+            "q": "A body moving with uniform velocity has",
+            "marks": 1,
+            "answer": "Zero acceleration, since acceleration is the rate of change of velocity and the velocity is not changing."
+          },
+          {
+            "q": "The momentum of a 5 kg body moving at 4 m/s is",
+            "marks": 1,
+            "answer": "20 kg m/s. Momentum p = mv = 5 × 4 = 20 kg m/s, directed along the motion."
+          },
+          {
+            "q": "The work done when a force of 10 N moves a body 5 m in the direction of the force is",
+            "marks": 1,
+            "answer": "50 J. Work W = F × s = 10 × 5 = 50 joules."
+          },
+          {
+            "q": "The frequency of a sound wave of wavelength 2 m travelling at 340 m/s is",
+            "marks": 1,
+            "answer": "170 Hz. From v = fλ, f = 340/2 = 170 Hz."
+          },
+          {
+            "q": "The acceleration due to gravity on the surface of the Moon is about",
+            "marks": 1,
+            "answer": "One sixth of that on Earth, roughly 1.63 m/s², because the Moon has both a much smaller mass and a smaller radius."
+          },
+          {
+            "q": "Assertion (A): A sponge is a solid though it can be compressed. Reason (R): A sponge has minute holes filled with air that escape when it is pressed.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. The sponge keeps a definite shape and volume of its own material; what compresses is the trapped air, exactly as the reason says."
+          },
+          {
+            "q": "Assertion (A): The mass of a body remains constant everywhere. Reason (R): Weight depends on the acceleration due to gravity at the place.",
+            "marks": 1,
+            "answer": "(b) Both are true but R does not explain A. Mass is constant because it measures the quantity of matter; the behaviour of weight is a separate fact and does not account for that constancy."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
-        "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
-        "questions": [
-          {
-            "q": "Define velocity and speed. How do they differ?",
-            "marks": 2,
-            "answer": "Speed is scalar (magnitude only); velocity is vector (magnitude and direction)."
-          },
-          {
-            "q": "What is an atom? Name its subatomic particles.",
-            "marks": 2,
-            "answer": "Atom is the basic unit of matter; contains protons, neutrons, and electrons."
-          },
-          {
-            "q": "What is the function of chloroplast?",
-            "marks": 2,
-            "answer": "Photosynthesis occurs in chloroplast, converting light energy to chemical energy."
-          },
-          {
-            "q": "Define acceleration. Give one example.",
-            "marks": 2,
-            "answer": "Acceleration is rate of change of velocity. Example: A car increasing its speed."
-          },
-          {
-            "q": "What is the difference between mixture and compound?",
-            "marks": 2,
-            "answer": "Mixture can be separated physically; compound requires chemical methods to separate."
-          }
-        ]
-      },
-      {
-        "name": "Section C - Long Answer (3 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "instructions": "Answer all 6 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Explain Newton's first law of motion with an example.",
-            "marks": 3,
-            "answer": "Objects at rest stay at rest unless acted upon by force. Example: Sudden braking jerks passengers forward."
+            "q": "Why do gases exert more pressure than solids and liquids on the walls of a container?",
+            "marks": 2,
+            "answer": "In a gas the particles are very far apart and move at high speed in all directions, so they collide frequently with the walls of the container. Each collision exerts a force, and the large number of collisions per second over the whole surface gives rise to the pressure."
           },
           {
-            "q": "What is mass number? How is it related to protons and neutrons?",
-            "marks": 3,
-            "answer": "Mass number is total protons plus neutrons in a nucleus."
+            "q": "State the law of conservation of mass and give one example.",
+            "marks": 2,
+            "answer": "In a chemical reaction, mass can neither be created nor destroyed, so the total mass of the products equals the total mass of the reactants. For example, when 12 g of carbon burns completely in 32 g of oxygen, exactly 44 g of carbon dioxide is formed."
           },
           {
-            "q": "Describe the structure of a plant cell with functions of its organelles.",
-            "marks": 3,
-            "answer": "Plant cell has cell wall, chloroplasts, vacuoles; nucleus controls functions."
+            "q": "Write two differences between a plant cell and an animal cell.",
+            "marks": 2,
+            "answer": "A plant cell has a rigid cell wall of cellulose outside the plasma membrane, while an animal cell has only the plasma membrane. A plant cell contains plastids, including chloroplasts, and usually one large central vacuole, whereas an animal cell has no plastids and only small vacuoles if any."
           },
           {
-            "q": "What is respiration? Distinguish between aerobic and anaerobic respiration.",
-            "marks": 3,
-            "answer": "Respiration releases energy from food. Aerobic uses oxygen; anaerobic does not."
+            "q": "State Newton's third law of motion and give one everyday example.",
+            "marks": 2,
+            "answer": "To every action there is an equal and opposite reaction, and the two act on different bodies. When a swimmer pushes the water backwards with her hands, the water pushes her forwards with an equal force, which is what moves her through the pool."
+          },
+          {
+            "q": "Define echo and state the minimum distance needed to hear one clearly.",
+            "marks": 2,
+            "answer": "An echo is the repetition of a sound caused by its reflection from a distant obstacle. The sensation of sound persists in the brain for about 0.1 s, so the reflected sound must return after at least that interval; at 344 m/s the sound must cover 34.4 m in going and returning, so the obstacle must be at least 17.2 m away."
+          },
+          {
+            "q": "Why is the weight of an object on the Moon less than on the Earth?",
+            "marks": 2,
+            "answer": "Weight is the gravitational force on the object, W = mg, and the value of g depends on the mass and radius of the body producing the field. The Moon's mass is much smaller than the Earth's, so its g is about one sixth of the Earth's and the same object weighs about one sixth as much, even though its mass is unchanged."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (4 marks)",
-        "marks": 8,
-        "instructions": "Answer all 2 questions, each carrying 4 marks.",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 21,
+        "instructions": "Answer all 7 questions. Each carries 3 marks.",
         "questions": [
           {
-            "q": "Explain the water cycle. How is it important for life on Earth?",
-            "marks": 4,
-            "answer": "Evaporation, condensation, precipitation cycle; distributes water and regulates climate."
+            "q": "Explain why the temperature of a substance does not rise while it is melting, even though heat is being supplied.",
+            "marks": 3,
+            "answer": "During melting the heat supplied does not increase the kinetic energy of the particles, so the thermometer reading does not change. Instead it is used to overcome the forces of attraction holding the particles in their fixed positions in the solid lattice. This hidden heat is the latent heat of fusion, and only when the whole solid has become liquid does further heating begin to raise the temperature again."
           },
           {
-            "q": "Describe the process of digestion in the human body starting from the mouth.",
+            "q": "Distinguish between a mixture and a compound, giving two points of difference and one example of each.",
+            "marks": 3,
+            "answer": "The components of a mixture are present in any proportion and keep their own properties, whereas a compound has its elements combined in a fixed proportion by mass and shows entirely new properties. A mixture can be separated by physical means such as filtration or distillation, while a compound can be broken up only by a chemical reaction. Air is a mixture of gases; water is a compound of hydrogen and oxygen."
+          },
+          {
+            "q": "Calculate the number of molecules in 9 g of water. (Molar mass of water = 18 g/mol, Avogadro number = 6.022 × 10²³)",
+            "marks": 3,
+            "answer": "Number of moles = mass/molar mass = 9/18 = 0.5 mol. The number of molecules = number of moles × Avogadro number = 0.5 × 6.022 × 10²³ = 3.011 × 10²³ molecules."
+          },
+          {
+            "q": "Describe the structure and function of the mitochondrion.",
+            "marks": 3,
+            "answer": "The mitochondrion is a double-membraned organelle; its outer membrane is smooth and porous, while the inner membrane is deeply folded into cristae that greatly increase the surface area available for reactions. The space inside holds the matrix, which contains enzymes along with the organelle's own DNA and ribosomes, so it can make some of its own proteins. Its function is aerobic respiration: it completes the oxidation of glucose and releases energy as ATP, which is why it is called the powerhouse of the cell."
+          },
+          {
+            "q": "A car accelerates uniformly from 18 km/h to 36 km/h in 5 s. Calculate the acceleration and the distance covered.",
+            "marks": 3,
+            "answer": "Convert to SI: 18 km/h = 18 × 5/18 = 5 m/s and 36 km/h = 10 m/s. Acceleration a = (v − u)/t = (10 − 5)/5 = 1 m/s². Distance s = ut + ½at² = 5(5) + ½(1)(25) = 25 + 12.5 = 37.5 m."
+          },
+          {
+            "q": "State the law of conservation of energy and verify it for a body falling freely from a height h.",
+            "marks": 3,
+            "answer": "Energy can neither be created nor destroyed, only changed from one form to another, so the total energy of an isolated system stays constant. For a body of mass m released from height h: at the top its velocity is zero, so the energy is entirely potential, mgh. At a height x above the ground it has fallen (h − x) and gained a speed given by v² = 2g(h − x), so the kinetic energy is ½mv² = mg(h − x) and the potential energy is mgx; the total is mgh again. Just before striking the ground the potential energy is zero and v² = 2gh, so the kinetic energy is ½m(2gh) = mgh. The total is mgh at every stage."
+          },
+          {
+            "q": "Explain how sound is produced and why sound cannot travel through vacuum.",
+            "marks": 3,
+            "answer": "Sound is produced by a vibrating body. As the surface moves forward it pushes the particles of the surrounding medium together, creating a compression, and as it moves back it leaves them further apart, creating a rarefaction. These compressions and rarefactions travel outward as a longitudinal wave, and the particles themselves only oscillate about their mean positions rather than travelling with the wave. Since the wave needs particles to pass the disturbance from one to the next, and a vacuum contains no particles, sound cannot travel through it — which is why an electric bell in an evacuated jar becomes inaudible."
+          }
+        ]
+      },
+      {
+        "name": "Section D — Long Answer (5 marks each)",
+        "marks": 15,
+        "instructions": "Answer all 3 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "(a) State the postulates of Bohr's model of the atom. (b) Write the electronic configuration of an element with atomic number 18. (c) Define valency and give the valency of that element.",
+            "marks": 5,
+            "answer": "(a) Bohr proposed that electrons revolve round the nucleus only in certain permitted circular orbits called energy levels or shells; that while an electron stays in such an orbit it does not radiate energy, so the atom is stable; and that energy is absorbed or emitted only when an electron jumps from one orbit to another, the difference in energy appearing as radiation. (b) An element with atomic number 18 has 18 electrons, filled as K = 2, L = 8, M = 8, written 2, 8, 8 — this is argon. (c) Valency is the combining capacity of an atom, given by the number of electrons it must gain, lose or share to attain a completely filled outermost shell. Argon already has eight electrons in its outermost shell, so it neither gains nor loses electrons and its valency is zero, which is why it is chemically inert."
+          },
+          {
+            "q": "(a) Describe the three types of muscle tissue in animals, giving one location and one distinguishing feature of each. (b) Why is areolar tissue called packing tissue?",
+            "marks": 5,
+            "answer": "(a) Striated or skeletal muscle is made of long, cylindrical, unbranched multinucleate fibres with alternating light and dark bands; it is attached to bones, as in the limbs, and is under voluntary control, contracting rapidly and tiring quickly. Smooth or unstriated muscle has spindle-shaped, uninucleate cells without bands; it occurs in the walls of the alimentary canal, blood vessels and iris, and works involuntarily and slowly without tiring. Cardiac muscle has branched, uninucleate striated fibres joined by intercalated discs; it is found only in the heart and contracts rhythmically and involuntarily throughout life without fatigue. (b) Areolar tissue fills the space inside organs, fastens skin to the muscle beneath, and lies between and around the tissues it surrounds, holding them in place while allowing movement. Because its main role is to occupy the gaps and support neighbouring structures rather than to perform a specialised function of its own, it is described as packing tissue; it also aids repair after injury."
+          },
+          {
+            "q": "(a) State the universal law of gravitation and write its mathematical form. (b) Explain why a sheet of paper falls more slowly than a stone though gravity acts equally on both. (c) A body of mass 10 kg is at a height of 5 m. Calculate its potential energy. (Take g = 10 m/s²)",
+            "marks": 5,
+            "answer": "(a) Every body in the universe attracts every other body with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centres: F = G m₁m₂/r², where G is the universal gravitational constant, 6.67 × 10⁻¹¹ N m² kg⁻². (b) In free fall all bodies would have the same acceleration g, independent of mass. What differs is air resistance: the sheet of paper has a very large surface area for its small weight, so the upward drag on it is comparable to its weight and it slows greatly, whereas the stone's weight is far larger than the drag on its small area. In an evacuated tube the two fall side by side, which shows that gravity indeed acts alike on both. (c) Potential energy = mgh = 10 × 10 × 5 = 500 J."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Case-based questions (4 marks each)",
+        "marks": 12,
+        "instructions": "Answer all 3 case-based questions. Each has sub-parts totalling 4 marks.",
+        "questions": [
+          {
+            "q": "CASE STUDY 1 — A student places some ice in a beaker and heats it steadily, recording the temperature every minute. The temperature rises from −10 °C to 0 °C, then stays at 0 °C for several minutes, then rises again to 100 °C, where it stays constant while the water boils. (i) Why does the temperature stay constant at 0 °C? (ii) Name the heat involved. (iii) Why does it stay constant again at 100 °C? (iv) Which requires more heat per kilogram?",
             "marks": 4,
-            "answer": "Mouth breaks food mechanically and chemically; stomach and small intestine continue breakdown."
+            "answer": "(i) At 0 °C the ice is melting, and the heat supplied is being used to break the forces holding the particles in the solid lattice rather than to raise their kinetic energy, so the temperature does not change until all the ice has melted. (ii) This is the latent heat of fusion of ice, about 3.34 × 10⁵ J/kg. (iii) At 100 °C the water is boiling, and the heat is being used to separate the particles completely against the attractive forces to form vapour — the latent heat of vaporisation. (iv) Vaporisation requires far more heat per kilogram, about 22.6 × 10⁵ J/kg against 3.34 × 10⁵ J/kg, because the particles must be separated completely rather than merely freed to slide past one another."
+          },
+          {
+            "q": "CASE STUDY 2 — A bus starting from rest moves with a uniform acceleration of 0.1 m/s² for 2 minutes. (i) Convert the time to seconds. (ii) Find the speed acquired. (iii) Find the distance travelled. (iv) If the brakes then bring it to rest in 20 s, find the retardation.",
+            "marks": 4,
+            "answer": "(i) 2 minutes = 120 s. (ii) v = u + at = 0 + 0.1 × 120 = 12 m/s. (iii) s = ut + ½at² = 0 + ½(0.1)(120)² = ½(0.1)(14400) = 720 m. (iv) Now u = 12 m/s, v = 0 and t = 20 s, so a = (0 − 12)/20 = −0.6 m/s². The negative sign shows retardation of 0.6 m/s²."
+          },
+          {
+            "q": "CASE STUDY 3 — A ship sends a sound pulse towards the sea bed and receives the echo after 3 s. The speed of sound in seawater is 1500 m/s. (i) Name this technique. (ii) Why is the time halved in the calculation? (iii) Calculate the depth. (iv) Give one other use of this technique.",
+            "marks": 4,
+            "answer": "(i) Echo ranging, or SONAR — sound navigation and ranging. (ii) The 3 s is the time for the pulse to travel down to the sea bed AND back to the ship, so the one-way time is half of it, 1.5 s. (iii) Depth = speed × one-way time = 1500 × 1.5 = 2250 m. (iv) The same principle is used to locate shoals of fish, submarines, icebergs and sunken wrecks, and in medicine an ultrasound scanner images internal organs by the same echo method."
           }
         ]
       }
@@ -1068,91 +1512,157 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "English",
     "board": "CBSE",
     "title": "CBSE Class 9 English Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper integrates reading, writing, grammar, and literature covering all prescribed texts. Practice this paper to develop language proficiency and score well in the exam. This is a shortened practice set: 11 questions worth 42 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "95 minutes",
-    "totalMarks": 42,
+    "intro": "This is a full-length CBSE Class 9 English (Language and Literature) paper built to the board's own pattern: 80 marks in 3 hours, split as 20 marks of reading, 20 of writing and grammar, and 40 of literature. Both reading passages are printed in full on this page, so every comprehension question can actually be answered from what is in front of you. The literature section refers to the prescribed textbooks Beehive and Moments and asks for your own words rather than reproduced extracts. Every question is followed by a full model answer, and the longer answers set out what a full-credit response needs to contain.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - Reading Comprehension",
-        "marks": 11,
-        "instructions": "Read the passages and answer questions based on comprehension.",
-        "questions": [
-          {
-            "q": "What is the central theme of the passage? Explain in 3-4 sentences.",
-            "marks": 4,
-            "answer": "The passage explores themes of friendship, loyalty, and personal growth through relationships."
-          },
-          {
-            "q": "Find synonyms from the passage for the following words: difficult, important, honest.",
-            "marks": 3,
-            "answer": "Challenging, crucial, truthful"
-          },
-          {
-            "q": "Why did the character make this decision? Provide textual evidence.",
-            "marks": 4,
-            "answer": "Character made the decision because of concern for family welfare, as evidenced by specific passage reference."
-          }
-        ],
-        "passage": "Meera had been Kabir's closest friend since Class 3, and in eleven years she had never once broken a promise to him. So when the letter from the engineering college in Pune arrived — the seat he had worked towards for two years — she was the first person he told, and the only one who noticed that his voice did not lift.\n\nThe truth was that his father's small printing press had been struggling for months. Leaving for Pune would mean no one to manage the shop, and the family's only income would stop. Kabir had already decided. He would defer the seat by a year, work at the press, and reapply when things were steadier. \"They fed me for eighteen years,\" he said quietly. \"One year is not a sacrifice. It's arithmetic.\"\n\nMeera did not try to argue him out of it, which was itself a kind of loyalty. She knew that some decisions are challenging not because the right path is unclear, but because the right path costs something. What she did instead was crucial: she spent that year helping him keep his mathematics sharp, sitting with him in the back room of the press between customers.\n\nKabir has always said that the year taught him more than the degree eventually did. He learned to be truthful with customers about what the press could and could not deliver, and he learned that growing up is mostly the business of discovering what you are willing to give up for the people you love. A friendship that survives that discovery, he says, is the only kind worth keeping."
-      },
-      {
-        "name": "Section B - Writing",
+        "name": "Section A — Reading: Passage I (10 marks)",
         "marks": 10,
-        "instructions": "Attempt the writing tasks as instructed.",
+        "passage": "The oldest living thing in the district is not in the forest. It stands at the edge of a bus stand, behind a tea stall, and it is a tamarind tree that the municipal records list simply as an obstruction.\n\nNobody planted it on purpose. An old woman who sold tamarind in the market is said to have spat out a seed there some time before Independence, and the seed did what seeds do. The tree grew crookedly, because a wall was built too close to it in 1962 and it had to lean out over the road to find light. That lean is now the most useful thing about it: the whole bus stand sits in its shadow, and on an afternoon in May the difference between standing under the tamarind and standing four steps outside it is the difference between waiting and suffering.\n\nA tree of this size moves an extraordinary quantity of water. On a hot day a large tamarind can lift more than two hundred litres from the soil and release it through its leaves as vapour, and every litre that evaporates carries heat away with it. This is why the air under a big tree is cooler than the air under a tin roof of the same size. The roof only blocks the sun. The tree blocks the sun and runs a pump.\n\nThe tea stall owner, Kamala, has kept the tree alive twice. Once she argued with a contractor who wanted to cut it for a wider footpath, and once she paid, out of her own takings, for the concrete to be broken open around its base, because the roots were being strangled and the upper branches had begun to die back. She does not describe either act as conservation. She says that people sit longer where it is cool, and that a person who sits longer drinks two teas instead of one.",
+        "instructions": "Read the passage given above and answer the questions that follow. Each question carries the marks shown against it.",
         "questions": [
           {
-            "q": "Write a paragraph of 100-120 words on the topic: My Favorite Hobby",
-            "marks": 5,
-            "answer": "Paragraph should describe hobby, explain interest, and discuss its benefits or impact on life."
+            "q": "How did the tamarind tree come to grow at the bus stand? (1 mark)",
+            "marks": 1,
+            "answer": "Nobody planted it deliberately. An old woman who sold tamarind in the market is said to have spat out a seed at that spot some time before Independence, and the seed germinated and grew."
           },
           {
-            "q": "Write a formal letter to the principal requesting exemption from school assembly.",
-            "marks": 5,
-            "answer": "Letter should include proper format, valid reason, and respectful tone."
-          }
-        ]
-      },
-      {
-        "name": "Section C - Grammar",
-        "marks": 7,
-        "instructions": "Complete all grammar exercises.",
-        "questions": [
-          {
-            "q": "Identify and correct the error: She dont like to play cricket.",
+            "q": "Why does the tree lean out over the road, and why is that lean useful? (2 marks)",
             "marks": 2,
-            "answer": "She does not like to play cricket. (dont should be does not or doesn't)"
+            "answer": "A wall was built too close to the tree in 1962, so it had to grow outwards over the road to reach the light. The lean is useful because it places the tree's canopy over the bus stand, so the whole waiting area now falls within its shade."
           },
           {
-            "q": "Fill in with correct preposition: He is afraid ___ dogs.",
-            "marks": 2,
-            "answer": "of"
-          },
-          {
-            "q": "Convert to indirect speech: She said, I am feeling tired.",
+            "q": "Explain the difference the writer draws between a tree and a tin roof of the same size. (3 marks)",
             "marks": 3,
-            "answer": "She said that she was feeling tired."
+            "answer": "A tin roof only blocks the sun, so it stops direct radiation but does nothing to lower the temperature of the air beneath it. A tree does both: it blocks the sun and, in addition, draws water up from the soil and releases it through its leaves as vapour. Because evaporation absorbs heat, every litre that leaves the leaves carries heat away with it, so the tree actively cools the air rather than merely shading it — the writer sums this up by saying the tree 'blocks the sun and runs a pump'."
+          },
+          {
+            "q": "What two things has Kamala done to keep the tree alive? (2 marks)",
+            "marks": 2,
+            "answer": "She argued with a contractor who intended to cut the tree down in order to widen the footpath, and she paid from her own earnings to have the concrete around its base broken open, because the roots were being strangled and the upper branches had started to die back."
+          },
+          {
+            "q": "What does Kamala's explanation of her actions tell us about her? (2 marks)",
+            "marks": 2,
+            "answer": "She refuses to describe what she did as conservation and explains it in plain commercial terms — people sit longer where it is cool, and someone who sits longer buys two teas instead of one. This suggests a practical, unsentimental woman who does not claim any nobler motive than she has; it also quietly makes the writer's point that protecting a tree and acting in one's own interest need not be opposed."
           }
         ]
       },
       {
-        "name": "Section D - Literature",
-        "marks": 14,
-        "instructions": "Answer questions based on prescribed poems and stories. Answer with reference to ANY ONE text you have studied in your NCERT textbook this year. There is no single correct answer — the model answer below shows the structure and depth an examiner looks for, not the only acceptable content.",
+        "name": "Section A — Reading: Passage II (10 marks)",
+        "marks": 10,
+        "passage": "When a violin is played well, no part of it is doing anything complicated. A horsehair bow, coated with resin, is dragged across a stretched string. The resin makes the hair grip the string and pull it sideways until the tension is too great; the string snaps back, is caught again, and pulled again. This happens some hundreds of times a second, and the ear hears it not as a series of catches and releases but as a single steady note.\n\nThe string itself moves almost no air, and on its own it would be nearly inaudible. What makes the sound is the body of the instrument. The vibration passes through the bridge, a thin piece of maple standing on the belly of the violin, and sets the whole wooden shell shaking. Inside, a small rod called the sound post — held in place by nothing but pressure, and never glued — carries the vibration from the front plate to the back. Move that rod two millimetres and the instrument changes voice.\n\nThis is why a violin cannot be fully designed. The maker can control the arching of the plates, their thickness, the density of the spruce and the maple, but the finished sound emerges from the interaction of all of them, and it is not predictable in advance. Makers proceed by tapping the plates and listening, thinning them a shaving at a time, and stopping when the tone seems right — a method that would embarrass an engineer.\n\nAnd yet the instruments that are most prized are three hundred years old, made in a small Italian town by men who had no acoustics, no measurement, and no way to see what they were doing. Every attempt to explain their superiority — the varnish, the density of Alpine wood grown in a cold century, the shape of the f-holes — has been argued for and argued against. It is possible that the real answer is duller and more humbling: that they made a very great number of violins, listened carefully, and kept what worked.",
+        "instructions": "Read the passage given above and answer the questions that follow. Each question carries the marks shown against it.",
         "questions": [
           {
-            "q": "What is the message of the poem? Explain with reference to the text.",
-            "marks": 5,
-            "answer": "The poem conveys importance of courage and perseverance in facing life's challenges."
+            "q": "Describe briefly how a bow makes a violin string sound. (2 marks)",
+            "marks": 2,
+            "answer": "The bow's horsehair is coated with resin, which makes it grip the string and drag it sideways until the tension becomes too great. The string then snaps back, is caught by the hair again and pulled again. This catching and releasing happens hundreds of times a second."
           },
           {
-            "q": "Analyze the character of the protagonist in the novel/story studied.",
-            "marks": 5,
-            "answer": "Protagonist demonstrates growth through overcoming internal conflicts and external obstacles."
+            "q": "Why does the ear hear a steady note rather than a series of catches? (1 mark)",
+            "marks": 1,
+            "answer": "Because the catch-and-release cycle repeats so rapidly — some hundreds of times a second — that the ear cannot separate the individual events and merges them into one continuous note."
           },
           {
-            "q": "Explain the significance of the title of the work studied.",
+            "q": "What is the function of the bridge and the sound post? (3 marks)",
+            "marks": 3,
+            "answer": "The string by itself moves almost no air and would be nearly inaudible, so the sound must come from the body of the instrument. The bridge, a thin piece of maple standing on the belly of the violin, carries the string's vibration down into the wooden shell and sets the whole of it shaking. The sound post, a small rod inside the instrument held only by pressure and never glued, transmits that vibration from the front plate through to the back, so that the entire body resonates — and because its position is so critical, moving it two millimetres changes the instrument's voice."
+          },
+          {
+            "q": "Why does the writer say that a violin 'cannot be fully designed'? (2 marks)",
+            "marks": 2,
+            "answer": "Because although the maker can control individual variables — the arching of the plates, their thickness, the density of the spruce and maple — the finished sound arises from the interaction of all of them together, and that result cannot be predicted in advance from the parts. Makers therefore work by tapping the plates, listening, and removing a shaving at a time until the tone seems right, rather than by calculation."
+          },
+          {
+            "q": "What 'duller and more humbling' explanation does the writer offer for the excellence of the old Italian violins? (2 marks)",
+            "marks": 2,
+            "answer": "That there may be no secret at all — no special varnish, wood or shape. The makers may simply have produced a very large number of violins, listened carefully to each, and kept what worked, so that the excellence came from patient trial and selection rather than from any hidden knowledge."
+          }
+        ]
+      },
+      {
+        "name": "Section B — Writing and Grammar (20 marks)",
+        "marks": 20,
+        "instructions": "Answer all questions. Marks are shown against each question.",
+        "questions": [
+          {
+            "q": "You are Ananya/Aditya, Head Boy/Head Girl of Green Valley School, Nagpur. Write a notice in about 50 words informing students of a tree-plantation drive to be held on the school grounds next Saturday, with timings and what to bring. (5 marks)",
+            "marks": 5,
+            "answer": "A full-credit notice is enclosed in a box, with the school name at the top, the word NOTICE centred, the date on the left, and a short underlined heading such as 'Tree Plantation Drive'. The body, in about fifty words, states what is happening, when, where, who should come and what to bring: for example that a tree-plantation drive will be held on the school grounds on Saturday, 24 August, from 8.00 a.m. to 11.00 a.m.; that students of classes VIII to X may participate; that they should report in sports uniform and bring a small spade or trowel and a water bottle; and that names must be given to the class teacher by Thursday. It ends with the writer's signature, name and designation — Ananya/Aditya, Head Girl/Head Boy. The notice uses no first person and no complete-sentence storytelling; it is brief and factual."
+          },
+          {
+            "q": "Write a short descriptive paragraph in about 100 words on 'A tree I pass every day', using at least three details of sight, sound or touch. (5 marks)",
+            "marks": 5,
+            "answer": "A strong answer chooses concrete detail over general praise. For example: The gulmohar at the corner of our lane is not a beautiful tree for most of the year. Its bark is grey and cracked, and a strip of it has been rubbed smooth where the milkman leans his cycle every morning. In April, though, it turns scarlet almost overnight, and for three weeks the road beneath it is covered with fallen petals that stick to the soles of your shoes after rain. Sparrows quarrel in it at six o'clock with a noise out of all proportion to their size. I have never once seen anyone stop to look at it. (About 100 words, with details of sight, sound and touch, and a closing observation rather than a summary.)"
+          },
+          {
+            "q": "Fill in the blanks with the correct tense form: (i) The bell ______ (ring) before we reached the classroom. (ii) Water ______ (boil) at 100 degrees Celsius. (iii) Look! The baby ______ (cry). (3 marks)",
+            "marks": 3,
+            "answer": "(i) had rung — the past perfect, because the ringing was completed before the past action of reaching. (ii) boils — the simple present, used for a general or scientific truth. (iii) is crying — the present continuous, since 'Look!' signals something happening at this moment."
+          },
+          {
+            "q": "Combine each pair into a single sentence as directed: (i) He was tired. He continued walking. (Use 'although') (ii) She is honest. Everyone knows it. (Use a noun clause) (2 marks)",
+            "marks": 2,
+            "answer": "(i) Although he was tired, he continued walking. (ii) Everyone knows that she is honest."
+          },
+          {
+            "q": "Change the voice: (i) The gardener waters the plants every morning. (ii) A new bridge is being built across the river. (2 marks)",
+            "marks": 2,
+            "answer": "(i) The plants are watered by the gardener every morning. (ii) They are building a new bridge across the river. In the second the passive is turned into the active, and since the doer is not named an indefinite subject such as 'they' or 'workers' is supplied."
+          },
+          {
+            "q": "Correct the errors: (i) He is one of the best student in the class. (ii) I have went there yesterday. (iii) Each of the boys have a bag. (3 marks)",
+            "marks": 3,
+            "answer": "(i) 'student' should be 'students' — 'one of the' is followed by a plural noun: 'He is one of the best students in the class.' (ii) 'have went' should be 'went' — 'yesterday' fixes a finished past time, so the simple past is required: 'I went there yesterday.' (iii) 'have' should be 'has' — 'each' is singular, so the verb must be singular: 'Each of the boys has a bag.'"
+          }
+        ]
+      },
+      {
+        "name": "Section C — Literature (40 marks)",
+        "marks": 40,
+        "instructions": "Answer all questions with reference to the prescribed textbooks Beehive and Moments. Marks are shown against each question. Answer in your own words; do not copy from the text.",
+        "questions": [
+          {
+            "q": "In 'The Fun They Had', what does Margie find strange about the old kind of school, and what does she come to feel about it by the end? (4 marks)",
             "marks": 4,
-            "answer": "The title symbolically represents the central theme of transformation and self-discovery."
+            "answer": "Margie is astonished by almost everything in the old school. She cannot understand why children of different ages would be taught together in one building, why a man rather than a machine would be the teacher, or why a teacher would take the pupils' homework away instead of marking it instantly as her mechanical teacher does. She is puzzled that a man could know as much as a telebook teacher. By the end her puzzlement has turned into longing: she thinks about the children walking to school together, sitting in the same room, helping one another with their homework and laughing on the way home, and she realises they must have enjoyed it. The story's irony is that the mechanical teacher gives her a lesson while she is dreaming of the school that had no machines at all."
+          },
+          {
+            "q": "How does the poet present the wind in 'Wind', and what attitude does he finally recommend? (4 marks)",
+            "marks": 4,
+            "answer": "In the first part of the poem the wind is presented as a destructive bully: it breaks shutters, scatters papers, throws down books, and it crumbles weak houses, weak doors, weak rafters, weak bodies, weak hearts and weak lives. It mocks the frail and destroys them. But the poet observes that the wind does not damage what is strong — it only fans a strong fire and makes it roar and flourish. His conclusion is that we should not plead with the wind but prepare for it: build firm houses, strengthen the body, make the heart steadfast. The wind becomes a symbol of hardship, and the recommended attitude is not resistance or complaint but the building of strength, since adversity destroys the weak and improves the strong."
+          },
+          {
+            "q": "Why does the narrator call Evelyn Glennie's success 'a triumph of will' in 'The Sound of Music'? (4 marks)",
+            "marks": 4,
+            "answer": "Evelyn Glennie began to lose her hearing at the age of eight and was profoundly deaf by eleven, a condition that would ordinarily end any hope of a musical career. She refused to accept it. She persuaded a percussionist, Ron Forbes, to teach her, and he showed her to detect the notes not through her ears but through her body — feeling the higher drum from the waist up and the lower drum from the waist down. She learned to sense music through her fingertips, her cheekbones, her skin and her feet, sometimes playing barefoot so that the vibrations travelled up through the floor. Against her teachers' advice she applied to the Royal Academy of Music and won its highest awards, and she went on to become the world's first full-time solo percussionist. Her achievement was not a matter of luck or accident but of a sustained refusal to be defeated, which is why it is called a triumph of will."
+          },
+          {
+            "q": "In 'The Little Girl', how does Kezia's view of her father change, and what causes the change? (4 marks)",
+            "marks": 4,
+            "answer": "At the beginning Kezia is frightened of her father. He seems huge and severe, his voice is loud, and her stammering in his presence irritates him; when she accidentally tears up his important speech to stuff a pincushion for his birthday, he beats her hands with a ruler and she concludes that he is simply a cruel giant. The change comes when her grandmother is away and her mother is taken ill to hospital, and Kezia, alone in the house, has a nightmare. Her father comes to her, carries her to his own bed, tells her to rub her feet against his legs to get warm, and falls asleep beside her. Lying there she notices how tired he is, and she understands for the first time that he works hard all day and has no one to look after him, and that his shortness is exhaustion rather than cruelty. Her fear turns into a protective tenderness — she realises he has a 'big heart'."
+          },
+          {
+            "q": "What lesson does the narrator learn in 'Iswaran the Storyteller' or 'The Beggar', and how is it conveyed? (4 marks)",
+            "marks": 4,
+            "answer": "In 'The Beggar' the lesson is that a person is changed not by charity but by being given work and being treated as capable of it. Lushkoff begs by telling a false story of being a dismissed schoolteacher, and Sergei, who catches the lie, offers him not money but the job of chopping wood. Lushkoff is barely able to do it, and the reader later learns that the cook Olga in fact did the chopping for him while scolding and pitying him. Two years afterwards Lushkoff, now a notary earning a salary, tells Sergei that it was Olga who saved him — her words and her example changed him, and the work gave him back his self-respect. The lesson is conveyed through this reversal: the man who thought he was reforming the beggar had less effect than the servant who quietly did the work beside him."
+          },
+          {
+            "q": "In 'A Truly Beautiful Mind', what qualities of Einstein does the chapter emphasise besides his scientific genius? (4 marks)",
+            "marks": 4,
+            "answer": "The chapter is careful to present Einstein as more than a physicist. It stresses that he was a slow developer who did not speak fluently until he was well past two, was called Bruder Langweil — brother boring — by the family maid, and disliked the regimented schooling of Munich so much that he left the school and the country at fifteen. It emphasises his independence of mind: he questioned what he was told rather than memorising it, and this same habit produced both his trouble at school and his physics. Above all it dwells on his moral seriousness. He wrote to President Roosevelt warning that Germany might build an atomic bomb, was appalled when the weapon was used on Hiroshima and Nagasaki, and afterwards campaigned publicly for nuclear disarmament and world peace, so that by his death he was regarded as a world citizen as much as a scientist. The title refers to that combination of intellect and conscience."
+          },
+          {
+            "q": "Discuss the theme of courage in any one prose lesson you have studied, in about 100–120 words. (8 marks)",
+            "marks": 8,
+            "answer": "A full-credit answer states a thesis, supports it with two or more specific incidents, and closes with an evaluation. Taking 'The Snake and the Mirror': courage in the story is comically absent and that is the point. The homeopathic doctor, who has just been admiring his own handsome face in the mirror and planning to marry a rich woman with a fat purse, is reduced to complete helplessness when a snake coils itself round his arm and holds its hood inches from the mirror. He sits absolutely still, not out of bravery but out of terror, and makes silent resolutions to be humble if he survives. When the snake finally slides away he escapes at once, and a thief later strips his room of everything he owned. The story suggests that self-importance is fragile — one genuine danger dissolves it entirely — and that the vanity a man believes to be confidence is not courage at all."
+          },
+          {
+            "q": "'A poem can teach without preaching.' Discuss with reference to any one poem from Beehive, in about 100–120 words. (8 marks)",
+            "marks": 8,
+            "answer": "A full-credit answer argues the claim rather than summarising. Taking 'The Road Not Taken': Frost never tells the reader what to do. He describes a traveller in a yellow wood facing two paths, choosing one, and keeping the other for another day while knowing he will probably never return. The poem's moral force comes from a detail the careless reader misses — the two roads were 'really about the same', worn 'about the same', and equally covered in untrodden leaves. The famous closing lines, spoken 'with a sigh' and set 'ages and ages hence', are the traveller's future account of himself, not the poet's verdict; he will claim a difference that the poem has already denied. In refusing to preach, Frost teaches something sharper than any instruction: that we make our choices with far less knowledge than we later pretend, and that we edit them into significance afterwards."
           }
         ]
       }
@@ -1178,115 +1688,253 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Social Science",
     "board": "CBSE",
     "title": "CBSE Class 9 Social Science Sample Paper 2026 (with Solutions)",
-    "intro": "This integrated sample paper covers History, Geography, Political Science, and Economics for Class 9. Solve this to master concepts and prepare for your annual examination. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "80 minutes",
-    "totalMarks": 35,
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - Multiple Choice",
-        "marks": 5,
-        "instructions": "Answer all 20 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 20,
+        "instructions": "Questions 1–18 are multiple choice. Questions 19 and 20 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "The French Revolution took place in",
+            "q": "The French Revolution began in the year",
             "marks": 1,
-            "answer": "1789"
+            "answer": "1789, with the storming of the Bastille prison in Paris on 14 July."
           },
           {
-            "q": "The Prime Meridian passes through",
+            "q": "The Third Estate in French society consisted of",
             "marks": 1,
-            "answer": "Greenwich, London"
+            "answer": "Everyone outside the clergy and the nobility — big businessmen, merchants, lawyers, peasants, artisans and servants. Only this estate paid taxes."
           },
           {
-            "q": "India's first President was",
+            "q": "Who wrote 'The Social Contract'?",
             "marks": 1,
-            "answer": "Dr. Rajendra Prasad"
+            "answer": "Jean-Jacques Rousseau, who argued for a government based on a contract between the people and their representatives."
           },
           {
-            "q": "The Indian Constitution came into effect on",
+            "q": "The Bolshevik Revolution of October 1917 was led by",
             "marks": 1,
-            "answer": "January 26, 1950"
+            "answer": "Vladimir Lenin, whose Bolshevik party seized power from the Provisional Government."
           },
           {
-            "q": "Which of the following is a fundamental right in India?",
+            "q": "Hitler's Nazi party came to power in Germany in",
             "marks": 1,
-            "answer": "Right to Equality"
+            "answer": "1933, when President Hindenburg offered him the Chancellorship on 30 January."
+          },
+          {
+            "q": "The southernmost point of the Indian mainland is",
+            "marks": 1,
+            "answer": "Kanniyakumari. Indira Point in the Nicobar Islands is the southernmost point of Indian territory, but it is not on the mainland."
+          },
+          {
+            "q": "The Standard Meridian of India is",
+            "marks": 1,
+            "answer": "82°30'E, passing through Mirzapur in Uttar Pradesh; the local time there is taken as Indian Standard Time."
+          },
+          {
+            "q": "Which is the longest river of peninsular India?",
+            "marks": 1,
+            "answer": "The Godavari, often called the Dakshin Ganga, rising in the Western Ghats near Nashik."
+          },
+          {
+            "q": "The 'Loo' is",
+            "marks": 1,
+            "answer": "A strong, hot and dry wind that blows over the northern plains during the day in May and June; exposure to it can be fatal."
+          },
+          {
+            "q": "The vegetation type found in areas receiving over 200 cm of rainfall is",
+            "marks": 1,
+            "answer": "Tropical evergreen forest, which remains green throughout the year as the trees have no fixed time to shed leaves."
+          },
+          {
+            "q": "A one-horned rhinoceros is found in the",
+            "marks": 1,
+            "answer": "Kaziranga National Park in Assam, in the swampy grasslands of the Brahmaputra valley."
+          },
+          {
+            "q": "Democracy is a form of government in which",
+            "marks": 1,
+            "answer": "The rulers are elected by the people, who can change them through regular, free and fair elections."
+          },
+          {
+            "q": "The Constituent Assembly of India adopted the Constitution on",
+            "marks": 1,
+            "answer": "26 November 1949, and it came into force on 26 January 1950."
+          },
+          {
+            "q": "Which fundamental right is called 'the heart and soul of the Constitution' by Dr Ambedkar?",
+            "marks": 1,
+            "answer": "The Right to Constitutional Remedies, which allows a citizen to move the courts directly when a fundamental right is violated."
+          },
+          {
+            "q": "The minimum age to vote in India is",
+            "marks": 1,
+            "answer": "18 years, lowered from 21 by the 61st Constitutional Amendment in 1988."
+          },
+          {
+            "q": "The head of the Election Commission of India is the",
+            "marks": 1,
+            "answer": "Chief Election Commissioner, appointed by the President but not removable by the government, which secures the Commission's independence."
+          },
+          {
+            "q": "Poverty line in India is determined on the basis of",
+            "marks": 1,
+            "answer": "A minimum level of income or consumption expenditure needed to satisfy basic needs — food measured in calories, along with clothing, footwear, fuel and light, education and medical requirements."
+          },
+          {
+            "q": "The Public Distribution System is the government's chief instrument for",
+            "marks": 1,
+            "answer": "Ensuring food security — distributing foodgrains at subsidised prices through ration shops to those who need them."
+          },
+          {
+            "q": "Assertion (A): The Constitution of India guarantees the Right to Equality. Reason (R): Untouchability has been abolished under Article 17.",
+            "marks": 1,
+            "answer": "(b) Both are true but R does not explain A. Abolishing untouchability is one specific provision within the Right to Equality, not the reason the right exists."
+          },
+          {
+            "q": "Assertion (A): India has a monsoon type of climate. Reason (R): The direction of prevailing winds over India reverses between summer and winter.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. The word monsoon means a seasonal reversal of wind direction, which is precisely the phenomenon described in the reason."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
-        "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
-        "questions": [
-          {
-            "q": "What is socialism? Name any two socialist leaders.",
-            "marks": 2,
-            "answer": "Socialism advocates equal distribution of wealth. Leaders: Lenin, Stalin."
-          },
-          {
-            "q": "What are the layers of Earth? Name them.",
-            "marks": 2,
-            "answer": "Crust, Mantle, Core (outer and inner)"
-          },
-          {
-            "q": "What is the significance of the Preamble to the Indian Constitution?",
-            "marks": 2,
-            "answer": "It outlines the vision and values of the Constitution: justice, liberty, equality, fraternity."
-          },
-          {
-            "q": "Define economic development. Give one example from India.",
-            "marks": 2,
-            "answer": "Economic development is improvement in living standards; Green Revolution in India is an example."
-          },
-          {
-            "q": "What is the difference between latitude and longitude?",
-            "marks": 2,
-            "answer": "Latitude measures distance north-south; longitude measures distance east-west on Earth."
-          }
-        ]
-      },
-      {
-        "name": "Section C - Long Answer (3 marks)",
-        "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
-        "questions": [
-          {
-            "q": "Explain the causes of the French Revolution.",
-            "marks": 3,
-            "answer": "Financial crisis, food scarcity, enlightenment ideas, and feudal oppression led to revolution."
-          },
-          {
-            "q": "Describe the climate zones of India.",
-            "marks": 3,
-            "answer": "Tropical, subtropical, temperate zones exist; monsoon heavily influences Indian climate."
-          },
-          {
-            "q": "What are fundamental duties? List any three from the Indian Constitution.",
-            "marks": 3,
-            "answer": "Constitutional obligations: respect Constitution, uphold sovereignty, defend nation, promote harmony."
-          },
-          {
-            "q": "Explain the concept of poverty. How can it be reduced?",
-            "marks": 3,
-            "answer": "Poverty is deprivation of basic needs; reduced through education, employment, and social programs."
-          }
-        ]
-      },
-      {
-        "name": "Section D - Long Answer (4 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 8,
-        "instructions": "Answer all 2 questions, each carrying 4 marks.",
+        "instructions": "Answer all 4 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Describe the impact of Industrial Revolution on society and economy.",
-            "marks": 4,
-            "answer": "Industrialization changed manufacturing, urbanization, working conditions, and created modern capitalist economy."
+            "q": "What was the Reign of Terror in France?",
+            "marks": 2,
+            "answer": "It was the period from 1793 to 1794 during which Robespierre and the Jacobins governed with extreme severity. Anyone regarded as an enemy of the republic — nobles, clergy, and even members of his own party who disagreed — was arrested, tried by a revolutionary tribunal and, if convicted, guillotined. It ended when Robespierre himself was convicted and executed in July 1794."
           },
           {
-            "q": "Explain the formation of soil. What are the factors affecting soil formation?",
+            "q": "Why is the Indian subcontinent said to have a 'monsoon' climate?",
+            "marks": 2,
+            "answer": "Because the prevailing winds reverse direction with the seasons: in summer moist winds blow from the sea towards the land bringing heavy rain, and in winter dry winds blow from the land towards the sea. The rhythm of Indian agriculture and life is tied to this seasonal reversal, which is what the word monsoon denotes."
+          },
+          {
+            "q": "What is a constitution? Why does a country need one?",
+            "marks": 2,
+            "answer": "A constitution is the supreme law that lays down the basic rules by which the people of a country live together — the form of government, the powers of each organ, and the rights of citizens. A country needs one so that power is exercised within agreed limits, so that citizens' rights are protected against the government of the day, and so that the different organs of the state know the boundaries of their authority."
+          },
+          {
+            "q": "Distinguish between seasonal unemployment and disguised unemployment.",
+            "marks": 2,
+            "answer": "Seasonal unemployment occurs when people find work only during certain parts of the year and are idle in the rest, as farm labourers are between sowing and harvest. Disguised unemployment occurs when more people are employed on a task than are actually needed, so that removing some would leave output unchanged — as when eight members of a family work a field that four could manage."
+          }
+        ]
+      },
+      {
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 15,
+        "instructions": "Answer all 5 questions. Each carries 3 marks.",
+        "questions": [
+          {
+            "q": "Explain any three causes of the French Revolution.",
+            "marks": 3,
+            "answer": "The first was the financial crisis: long wars and a lavish court had left the treasury empty, so the state raised taxes on a population already burdened. The second was the injustice of the estates system, in which the clergy and nobility enjoyed privileges and paid no taxes while the Third Estate paid all of them, including the tithe to the church and the taille to the state. The third was the spread of Enlightenment ideas: Locke, Montesquieu and Rousseau had argued against the divine right of kings and for a government based on the consent of the people, and these ideas circulated in salons and coffee-houses until the middle classes came to see the existing order as neither natural nor necessary."
+          },
+          {
+            "q": "Describe any three features of the Himalayan rivers that distinguish them from peninsular rivers.",
+            "marks": 3,
+            "answer": "Himalayan rivers are perennial: they are fed by both rainfall and the melting of Himalayan snow, so they carry water throughout the year, whereas peninsular rivers depend on rain alone and shrink greatly in the dry season. They have long courses from the mountains to the sea and perform intense erosion, carrying enormous loads of silt that build the fertile northern plains and large deltas. And they meander freely over the flat plains, forming ox-bow lakes and shifting their channels, while the peninsular rivers flow in shallow, largely fixed valleys carved into hard rock."
+          },
+          {
+            "q": "What is the role of the Election Commission in conducting free and fair elections in India?",
+            "marks": 3,
+            "answer": "The Election Commission is an independent body that takes every decision concerning the conduct of elections, from announcing the schedule to declaring the results. It prepares and revises the electoral rolls, allots symbols to parties, and enforces the Model Code of Conduct, ordering candidates and parties to stop practices that violate it. During the election period the government machinery works under its direction rather than under the ministers, and it can order a repoll or countermand an election where malpractice is found. Its independence is protected because the Chief Election Commissioner, once appointed, cannot be removed by the government."
+          },
+          {
+            "q": "Explain any three causes of poverty in India.",
+            "marks": 3,
+            "answer": "One cause is the low rate of growth for several decades after independence, especially in agriculture, which left too few jobs for a rapidly growing population. A second is the unequal distribution of land and other resources: those without land or capital depend on irregular wage labour, and land reforms were poorly implemented in most states. A third is high indebtedness combined with social obligations: small farmers borrow at high interest to meet the cost of cultivation and of ceremonies, and when the crop fails they cannot repay, which pushes them further into poverty rather than out of it."
+          },
+          {
+            "q": "What is food security? Explain its three dimensions.",
+            "marks": 3,
+            "answer": "Food security means that food is available to all people at all times, in sufficient quantity and quality for an active and healthy life. Its first dimension is availability — enough food produced in the country, together with stocks and imports. The second is accessibility — food must be within reach of every person, which is a question of transport, distribution and the absence of discrimination. The third is affordability — a household must have enough income to buy sufficient, safe and nutritious food. A country can fail on the second or third even when the first is met, which is why India holds buffer stocks and runs a public distribution system."
+          }
+        ]
+      },
+      {
+        "name": "Section D — Long Answer (5 marks each)",
+        "marks": 20,
+        "instructions": "Answer all 4 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "Describe the circumstances that led to the Russian Revolution of 1917 and its immediate effects.",
+            "marks": 5,
+            "answer": "By 1917 Russia was an autocracy under Tsar Nicholas II, with no parliament worth the name and a police force that suppressed opposition. The vast majority were peasants who wanted the land of the nobility, and the small industrial working class endured long hours in dangerous factories on very low wages. The First World War made every grievance worse: Russia suffered enormous casualties, supplies of food and fuel failed in the cities, and the Tsar's decision to take personal command of the army linked every defeat to him. In February 1917 strikes and bread riots in Petrograd, joined by soldiers who refused to fire on the crowds, forced the Tsar to abdicate, and a Provisional Government took over. It continued the war and delayed land reform, so support shifted to the Bolsheviks under Lenin, whose slogan promised peace, land and bread. In October 1917 they seized power. The immediate effects were the withdrawal of Russia from the war by the Treaty of Brest-Litovsk, the nationalisation of land, banks and industry, and the beginning of a civil war between the Reds and the Whites which the Bolsheviks eventually won."
+          },
+          {
+            "q": "Explain the mechanism of the Indian monsoon and describe the four seasons of India.",
+            "marks": 5,
+            "answer": "The monsoon arises from the differential heating of land and sea. In summer the landmass of Asia heats rapidly and a low-pressure area develops over north-western India, while the Indian Ocean stays comparatively cool and remains at higher pressure. Air therefore moves from sea to land, and these moisture-laden south-west winds bring rain. In winter the pattern reverses: the land cools faster than the sea, a high-pressure area forms over the north, and dry winds blow outward from land to sea. The shift of the Inter-Tropical Convergence Zone northwards in summer and the presence of the jet streams strengthen the reversal. India has four seasons. The cold weather season, from mid-November to February, brings clear skies, low temperatures and some rain in the north-west from western disturbances. The hot weather season, from March to May, brings rising temperatures, the loo, and local storms. The advancing monsoon, from June to September, brings the bulk of the country's rainfall as the south-west monsoon breaks. The retreating monsoon, in October and November, brings clear skies, oppressive humidity known as October heat, and cyclones on the eastern coast."
+          },
+          {
+            "q": "'Democracy is better than other forms of government.' Give any five arguments in support.",
+            "marks": 5,
+            "answer": "First, a democratic government is more accountable, because it must answer to the people at regular elections and can be removed by them. Second, it improves the quality of decision-making: decisions pass through discussion, negotiation and consultation, so hasty or irresponsible choices are less likely. Third, it provides a peaceful method of handling differences and conflicts, since no single group can impose its will permanently and every group has a legitimate way to press its case. Fourth, it enhances the dignity of the citizen, because every adult has one vote of equal value, which recognises each person as an equal member of the political community regardless of wealth or caste. Fifth, democracy allows its own mistakes to be corrected: there is room for public criticism, a free press can expose failures, and a government that persists in error can be voted out — no other form of government has this built-in mechanism for self-correction."
+          },
+          {
+            "q": "What is the difference between fundamental rights and directive principles? Describe any three fundamental rights guaranteed by the Indian Constitution.",
+            "marks": 5,
+            "answer": "Fundamental rights are justiciable — a citizen can go to court if they are violated, and the courts can strike down a law that infringes them. Directive principles are guidelines to the state for making policy; they are not enforceable in court, though they are fundamental to the governance of the country. Rights protect the individual against the state, while directive principles direct the state towards social and economic welfare. Among the fundamental rights, the Right to Equality guarantees equality before the law and forbids discrimination on grounds of religion, race, caste, sex or place of birth; it abolishes untouchability and titles. The Right to Freedom gives every citizen the freedom of speech and expression, assembly, association, movement, residence and the practice of any profession, subject to reasonable restrictions, and protects life and personal liberty. The Right against Exploitation forbids trafficking in human beings, forced labour and begar, and prohibits the employment of children below fourteen in hazardous work."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Case-based questions (4 marks each)",
+        "marks": 12,
+        "instructions": "Answer all 3 case-based questions. Each has sub-parts totalling 4 marks.",
+        "questions": [
+          {
+            "q": "CASE STUDY 1 — In the summer of 1789 the price of bread rose sharply in France. Crowds of angry women stormed into bakers' shops, and on 14 July a mob attacked the Bastille. (i) Why had bread become so expensive? (ii) What did the Bastille symbolise? (iii) Name the document adopted in August 1789. (iv) State any one right it declared.",
             "marks": 4,
-            "answer": "Soil forms from rock weathering; factors: climate, organisms, time, topography, parent rock material."
+            "answer": "(i) A series of bad harvests had cut the supply of grain while the population was growing, so the price of bread rose faster than wages — a subsistence crisis. (ii) The Bastille was a fortress prison that held those imprisoned on the king's personal orders, so it stood for the despotic power of the monarchy; that is why the crowd attacked it rather than a more useful target. (iii) The Declaration of the Rights of Man and of the Citizen. (iv) It declared that men are born free and equal in rights, and it guaranteed the right to liberty, to property, to security and to resistance to oppression, along with freedom of speech and opinion."
+          },
+          {
+            "q": "CASE STUDY 2 — A village in Rajasthan receives less than 50 cm of rain a year. The people grow bajra and rear goats and camels, and the natural vegetation consists of thorny bushes and acacia with long roots. (i) Name the vegetation type. (ii) Give two adaptations of these plants. (iii) Why is bajra suited to this region? (iv) Name one wildlife species of this region.",
+            "marks": 4,
+            "answer": "(i) Thorn forests and scrub, the vegetation of semi-arid regions. (ii) The leaves are reduced to thorns or are very small and thick, which cuts the loss of water by transpiration, and the roots are long and go deep to reach the water table far below the surface; stems are often fleshy and store water. (iii) Bajra is a hardy millet that needs little water, tolerates high temperature and poor sandy soil, and matures quickly, so it can complete its growth within the short rainy period. (iv) The Indian wild ass in the Rann of Kachchh, along with the desert fox, camel and the great Indian bustard."
+          },
+          {
+            "q": "CASE STUDY 3 — In a village, a family of five owns two acres of land. During sowing and harvest all five work in the field; for the rest of the year there is little to do, but nobody leaves the farm. (i) Name the kind of unemployment during the idle months. (ii) Name the kind present even in the busy season if the same output could come from three workers. (iii) State one consequence for the family. (iv) Suggest one remedy.",
+            "marks": 4,
+            "answer": "(i) Seasonal unemployment, since work is available only in particular parts of the year. (ii) Disguised unemployment — the extra workers add nothing to output, so their marginal productivity is effectively zero even though they appear to be employed. (iii) The family's income has to support five people while being produced by the work of three, so income per head is very low and savings are impossible, keeping the household near or below the poverty line. (iv) Creating non-farm employment nearby — dairying, poultry, small-scale industry or work under employment guarantee schemes — and providing vocational training so that surplus workers can move into other occupations."
+          }
+        ]
+      },
+      {
+        "name": "Section F — Map skill (5 marks)",
+        "marks": 5,
+        "instructions": "Answer all 5 questions. Each carries 1 mark. Take any outline map of India and mark each place you name — the answers give the location so you can check your marking.",
+        "questions": [
+          {
+            "q": "Name the mountain range that forms the northern boundary of India, and the highest peak in the Indian portion of it.",
+            "marks": 1,
+            "answer": "The Himalayas, running roughly 2,400 km from the Indus valley in the west to the Brahmaputra in the east. Kangchenjunga in Sikkim, 8,586 m, is the highest peak within India."
+          },
+          {
+            "q": "Name the river that rises at Gangotri and the state in which it enters the plains.",
+            "marks": 1,
+            "answer": "The Ganga, which rises at the Gangotri glacier in Uttarakhand and enters the plains at Haridwar in the same state."
+          },
+          {
+            "q": "Name the plateau that lies between the Western and Eastern Ghats, and one state it covers.",
+            "marks": 1,
+            "answer": "The Deccan Plateau, a triangular landmass south of the Narmada, covering parts of Maharashtra, Karnataka, Telangana and Andhra Pradesh."
+          },
+          {
+            "q": "Name the state through which the Standard Meridian of India passes near Mirzapur, and give the meridian.",
+            "marks": 1,
+            "answer": "Uttar Pradesh. The Standard Meridian is 82°30'E, and the local time along it is taken as Indian Standard Time."
+          },
+          {
+            "q": "Name the national park in Assam famous for the one-horned rhinoceros, and the river valley it lies in.",
+            "marks": 1,
+            "answer": "Kaziranga National Park, in the floodplain of the Brahmaputra in Assam."
           }
         ]
       }
@@ -1304,7 +1952,8 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
         "q": "How should I approach essay-type questions?",
         "a": "Plan your answer, write key points with examples, support with evidence, and organize logically."
       }
-    ]
+    ],
+    "intro": "This is a full-length CBSE Class 9 Social Science paper built to the board's own pattern: 41 questions across six sections for 80 marks in 3 hours, drawing on History, Geography, Political Science and Economics in the proportions the board uses. Sections A to E run from objective to case-based, and Section F covers the map skill, phrased so you can name each location and then mark it on any outline map of India. Every question is followed by a full model answer."
   },
   {
     "slug": "class-12-maths",
@@ -1312,110 +1961,232 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 12 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This advanced sample paper covers calculus, algebra, and statistics with focus on board exam patterns. Practice this comprehensive paper to secure high marks in the final exam. This is a shortened practice set: 15 questions worth 39 marks, following the 100-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "90 minutes",
-    "totalMarks": 39,
+    "intro": "This is a full-length CBSE Class 12 Mathematics paper built to the current board blueprint: 38 questions across five sections for 80 marks in 3 hours, spanning relations and functions, matrices and determinants, calculus, vectors and three-dimensional geometry, linear programming and probability. Section A is objective, Section E is case-based, and every question is followed by a fully worked solution with each step of the algebra shown.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - MCQs",
-        "marks": 5,
-        "instructions": "Answer all 20 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 20,
+        "instructions": "Questions 1–18 are multiple choice. Questions 19 and 20 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "The derivative of e^x with respect to x is",
+            "q": "If A is a square matrix of order 3 and |A| = 5, then |2A| equals",
             "marks": 1,
-            "answer": "e^x"
+            "answer": "40. For an n × n matrix, |kA| = kⁿ|A|, so |2A| = 2³ × 5 = 40."
           },
           {
-            "q": "The order of matrix AB where A is 3x2 and B is 2x4 is",
+            "q": "If A is a 3 × 3 matrix with |A| = 4, then |adj A| equals",
             "marks": 1,
-            "answer": "3x4"
+            "answer": "16. |adj A| = |A|ⁿ⁻¹ = 4² = 16 for n = 3."
           },
           {
-            "q": "The area under the curve y = x from x=0 to x=2 is",
+            "q": "The principal value of sin⁻¹(−1/2) is",
             "marks": 1,
-            "answer": "2"
+            "answer": "−π/6. The principal branch of sin⁻¹ is [−π/2, π/2], and sin(−π/6) = −1/2."
           },
           {
-            "q": "If A is a 2x2 matrix with det(A) = 5, then det(A^T) is",
+            "q": "The value of tan⁻¹(1) + cos⁻¹(−1/2) is",
             "marks": 1,
-            "answer": "5"
+            "answer": "11π/12. tan⁻¹(1) = π/4 and cos⁻¹(−1/2) = 2π/3, so the sum is 3π/12 + 8π/12 = 11π/12."
           },
           {
-            "q": "The integral of cos(x) is",
+            "q": "The function f(x) = |x| is",
             "marks": 1,
-            "answer": "sin(x) + c"
+            "answer": "Continuous everywhere but not differentiable at x = 0, where the left-hand derivative is −1 and the right-hand derivative is +1."
+          },
+          {
+            "q": "If y = log(sin x), then dy/dx equals",
+            "marks": 1,
+            "answer": "cot x. By the chain rule dy/dx = (1/sin x)·cos x = cot x."
+          },
+          {
+            "q": "The derivative of x^x with respect to x is",
+            "marks": 1,
+            "answer": "x^x(1 + log x). Taking logs, log y = x log x; differentiating, (1/y)y' = log x + 1, so y' = x^x(1 + log x)."
+          },
+          {
+            "q": "The interval in which f(x) = x² − 4x + 6 is strictly increasing is",
+            "marks": 1,
+            "answer": "(2, ∞). f'(x) = 2x − 4 > 0 when x > 2."
+          },
+          {
+            "q": "∫ (1/x) dx equals",
+            "marks": 1,
+            "answer": "log|x| + C. The modulus is required because the integrand is defined for negative x as well."
+          },
+          {
+            "q": "∫₀^(π/2) sin x dx equals",
+            "marks": 1,
+            "answer": "1. The antiderivative is −cos x, and [−cos x]₀^(π/2) = −0 − (−1) = 1."
+          },
+          {
+            "q": "The area bounded by the curve y = x², the x-axis and the lines x = 0 and x = 3 is",
+            "marks": 1,
+            "answer": "9 square units. ∫₀³ x² dx = [x³/3]₀³ = 27/3 = 9."
+          },
+          {
+            "q": "The order and degree of the differential equation (d²y/dx²)³ + (dy/dx)² = 0 are",
+            "marks": 1,
+            "answer": "Order 2 and degree 3. The order is that of the highest derivative, and the degree is its power once the equation is polynomial in the derivatives."
+          },
+          {
+            "q": "The integrating factor of dy/dx + y = e^x is",
+            "marks": 1,
+            "answer": "e^x. For dy/dx + Py = Q the integrating factor is e^∫P dx, and here P = 1."
+          },
+          {
+            "q": "If vectors a and b are perpendicular, then",
+            "marks": 1,
+            "answer": "Their dot product is zero, a·b = 0, since a·b = |a||b|cos 90° = 0."
+          },
+          {
+            "q": "The magnitude of the vector 2i − 3j + 6k is",
+            "marks": 1,
+            "answer": "7. √(4 + 9 + 36) = √49 = 7."
+          },
+          {
+            "q": "The angle between the lines with direction ratios (1, 0, 0) and (0, 1, 0) is",
+            "marks": 1,
+            "answer": "90°. cos θ = (1·0 + 0·1 + 0·0)/(1 × 1) = 0, so θ = π/2."
+          },
+          {
+            "q": "If P(A) = 0.3, P(B) = 0.4 and A and B are independent, then P(A ∩ B) equals",
+            "marks": 1,
+            "answer": "0.12. For independent events P(A ∩ B) = P(A)·P(B) = 0.3 × 0.4 = 0.12."
+          },
+          {
+            "q": "A die is thrown twice. The probability of getting a sum of 9 is",
+            "marks": 1,
+            "answer": "1/9. The favourable outcomes are (3,6), (4,5), (5,4) and (6,3) — four out of 36, which is 1/9."
+          },
+          {
+            "q": "Assertion (A): The relation R on the set {1, 2, 3} given by R = {(1,1), (2,2), (3,3)} is an equivalence relation. Reason (R): A relation is an equivalence relation if it is reflexive, symmetric and transitive.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. R contains every (a, a) so it is reflexive, and having no other pairs it is vacuously symmetric and transitive — it satisfies exactly the three conditions in the reason."
+          },
+          {
+            "q": "Assertion (A): The function f(x) = x³ has a local maximum at x = 0. Reason (R): f'(0) = 0 for this function.",
+            "marks": 1,
+            "answer": "(d) A is false, R is true. f'(0) = 0 indeed, but the sign of f' does not change at 0, so x = 0 is a point of inflection, not a maximum — a vanishing derivative alone does not establish an extremum."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
+        "instructions": "Answer all 5 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Find the derivative of log(x) + x^3 with respect to x.",
+            "q": "Show that the relation R on the set of integers defined by aRb if a − b is even, is symmetric.",
             "marks": 2,
-            "answer": "1/x + 3x^2"
+            "answer": "Suppose aRb, so a − b is even, say a − b = 2k for an integer k. Then b − a = −2k, which is also even, so bRa holds. Since aRb implies bRa for all integers a and b, the relation is symmetric."
           },
           {
-            "q": "Solve the differential equation dy/dx = 2x",
+            "q": "Find dy/dx if y = sin⁻¹(2x√(1 − x²)).",
             "marks": 2,
-            "answer": "y = x^2 + c"
+            "answer": "Put x = sin θ, so √(1 − x²) = cos θ and 2x√(1 − x²) = 2 sin θ cos θ = sin 2θ. Then y = sin⁻¹(sin 2θ) = 2θ = 2 sin⁻¹x, and dy/dx = 2/√(1 − x²)."
           },
           {
-            "q": "Find the inverse of matrix [[1, 2], [3, 4]]",
+            "q": "Evaluate ∫ x·e^x dx.",
             "marks": 2,
-            "answer": "[[-2, 1], [3/2, -1/2]]"
+            "answer": "Integrate by parts with u = x and dv = e^x dx, so du = dx and v = e^x. Then ∫x e^x dx = x e^x − ∫e^x dx = x e^x − e^x + C = e^x(x − 1) + C."
           },
           {
-            "q": "Evaluate the integral from 0 to 1 of x dx",
+            "q": "Find a unit vector in the direction of a = 3i + 4j.",
             "marks": 2,
-            "answer": "1/2"
+            "answer": "|a| = √(9 + 16) = 5, so the unit vector is â = a/|a| = (3i + 4j)/5, that is (3/5)i + (4/5)j."
           },
           {
-            "q": "Find the critical points of f(x) = x^3 - 3x + 2",
+            "q": "If A and B are events with P(A) = 0.5, P(B) = 0.3 and P(A ∩ B) = 0.2, find P(A | B).",
             "marks": 2,
-            "answer": "x = 1, x = -1"
+            "answer": "P(A | B) = P(A ∩ B)/P(B) = 0.2/0.3 = 2/3 ≈ 0.667."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (4 marks)",
-        "marks": 12,
-        "instructions": "Answer all 3 questions, each carrying 4 marks.",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 18,
+        "instructions": "Answer all 6 questions. Each carries 3 marks.",
         "questions": [
           {
-            "q": "Solve the system of linear equations using matrices: 2x + y = 5, x + 2y = 4",
-            "marks": 4,
-            "answer": "x = 2, y = 1"
+            "q": "Prove that the function f(x) = 2x³ − 6x² + 6x + 5 is increasing for all real x.",
+            "marks": 3,
+            "answer": "f'(x) = 6x² − 12x + 6 = 6(x² − 2x + 1) = 6(x − 1)². A square is never negative, so f'(x) ≥ 0 for every real x, with equality only at the single point x = 1. A function whose derivative is non-negative throughout, vanishing only at isolated points, is increasing on the whole real line."
           },
           {
-            "q": "Find the area bounded by the curve y = x^2, the x-axis, x = 1, and x = 2.",
-            "marks": 4,
-            "answer": "Area = 7/3 square units"
+            "q": "Evaluate ∫ (2x + 3)/((x + 1)(x + 2)) dx using partial fractions.",
+            "marks": 3,
+            "answer": "Write (2x + 3)/((x+1)(x+2)) = A/(x+1) + B/(x+2), so 2x + 3 = A(x+2) + B(x+1). Putting x = −1 gives 1 = A, and x = −2 gives −1 = −B, so B = 1. The integral is ∫dx/(x+1) + ∫dx/(x+2) = log|x+1| + log|x+2| + C = log|(x+1)(x+2)| + C."
           },
           {
-            "q": "Prove that the function f(x) = x^3 is strictly increasing on all real numbers.",
-            "marks": 4,
-            "answer": "f'(x) = 3x^2 >= 0, and equals zero only at isolated point x=0."
+            "q": "Solve the differential equation dy/dx = (1 + y²)/(1 + x²).",
+            "marks": 3,
+            "answer": "The variables separate: dy/(1 + y²) = dx/(1 + x²). Integrating both sides gives tan⁻¹y = tan⁻¹x + C. Taking the tangent of both sides, the solution can also be written as y = tan(tan⁻¹x + C)."
+          },
+          {
+            "q": "Find the area of the triangle with vertices A(1, 1, 1), B(1, 2, 3) and C(2, 3, 1) using vectors.",
+            "marks": 3,
+            "answer": "AB = (0, 1, 2) and AC = (1, 2, 0). Their cross product is AB × AC = i(1·0 − 2·2) − j(0·0 − 2·1) + k(0·2 − 1·1) = (−4, 2, −1). Its magnitude is √(16 + 4 + 1) = √21. The area of the triangle is half of this, √21/2 square units."
+          },
+          {
+            "q": "Find the shortest distance between the lines r = i + j + λ(2i − j + k) and r = 2i + j − k + μ(3i − 5j + 2k).",
+            "marks": 3,
+            "answer": "Here a₂ − a₁ = (1, 0, −1), b₁ = (2, −1, 1) and b₂ = (3, −5, 2). Now b₁ × b₂ = i((−1)(2) − (1)(−5)) − j((2)(2) − (1)(3)) + k((2)(−5) − (−1)(3)) = (3, −1, −7), with magnitude √(9 + 1 + 49) = √59. The shortest distance is |(a₂ − a₁)·(b₁ × b₂)|/|b₁ × b₂| = |3 + 0 + 7|/√59 = 10/√59 units."
+          },
+          {
+            "q": "A bag contains 4 red and 6 black balls. Two balls are drawn at random without replacement. Find the probability that both are red.",
+            "marks": 3,
+            "answer": "P(first red) = 4/10. After removing one red ball, 3 red remain among 9, so P(second red | first red) = 3/9. By the multiplication rule the probability that both are red is (4/10) × (3/9) = 12/90 = 2/15."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (6 marks)",
-        "marks": 12,
-        "instructions": "Answer all 2 questions with internal choices; each carrying 6 marks.",
+        "name": "Section D — Long Answer (5 marks each)",
+        "marks": 20,
+        "instructions": "Answer all 4 questions. Each carries 5 marks.",
         "questions": [
           {
-            "q": "Solve the differential equation: dy/dx - 2y = e^(3x). OR Find the second derivative of sin(x^2) with respect to x.",
-            "marks": 6,
-            "answer": "Solution involves integrating factor method OR Chain rule applied twice."
+            "q": "Solve the system of equations using matrices: x + 2y + z = 7, x + 3z = 11, 2x − 3y = 1.",
+            "marks": 5,
+            "answer": "Write AX = B with A = [[1,2,1],[1,0,3],[2,−3,0]], X = [x,y,z]ᵀ and B = [7,11,1]ᵀ. Expanding along the first row, |A| = 1(0·0 − 3·(−3)) − 2(1·0 − 3·2) + 1(1·(−3) − 0·2) = 9 + 12 − 3 = 18, which is non-zero, so a unique solution exists. Solving by elimination: from the second equation x = 11 − 3z. Substituting into the third, 2(11 − 3z) − 3y = 1 gives 22 − 6z − 3y = 1, so 3y = 21 − 6z and y = 7 − 2z. Substituting both into the first, (11 − 3z) + 2(7 − 2z) + z = 7 gives 11 − 3z + 14 − 4z + z = 7, so 25 − 6z = 7 and z = 3. Then x = 11 − 9 = 2 and y = 7 − 6 = 1. Hence x = 2, y = 1, z = 3."
           },
           {
-            "q": "Find the maximum and minimum values of f(x) = x^3 - 3x^2 + 1 on the interval [0, 3].",
-            "marks": 6,
-            "answer": "Maximum = 1 at x = 0, Minimum = -3 at x = 2"
+            "q": "Find the area of the region bounded by the parabola y² = 4x and the line y = 2x.",
+            "marks": 5,
+            "answer": "Find the intersections: substituting y = 2x into y² = 4x gives 4x² = 4x, so x² = x and x = 0 or x = 1. The points are (0, 0) and (1, 2). For a given x between 0 and 1 the parabola gives y = 2√x and the line gives y = 2x, and since √x ≥ x on this interval the parabola lies above. The area is ∫₀¹ (2√x − 2x) dx = [2·(2/3)x^(3/2) − x²]₀¹ = 4/3 − 1 = 1/3 square units."
+          },
+          {
+            "q": "A manufacturer produces two products A and B. Each unit of A needs 2 hours on machine I and 1 hour on machine II; each unit of B needs 1 hour on machine I and 2 hours on machine II. Machine I is available for 10 hours and machine II for 8 hours. Profit is ₹50 per unit of A and ₹40 per unit of B. Formulate as an LPP and find the maximum profit.",
+            "marks": 5,
+            "answer": "Let x units of A and y units of B be produced. Maximise Z = 50x + 40y subject to 2x + y ≤ 10, x + 2y ≤ 8, x ≥ 0 and y ≥ 0. The corner points of the feasible region are (0, 0), (5, 0), (0, 4) and the intersection of the two constraint lines. Solving 2x + y = 10 with x + 2y = 8: doubling the second gives 2x + 4y = 16, and subtracting the first gives 3y = 6, so y = 2 and x = 4. Evaluating Z: at (0,0) it is 0, at (5,0) it is 250, at (0,4) it is 160, and at (4,2) it is 200 + 80 = 280. The maximum profit is ₹280, obtained by making 4 units of A and 2 units of B."
+          },
+          {
+            "q": "A factory has three machines producing 25%, 35% and 40% of the total output, with defect rates of 5%, 4% and 2% respectively. An item drawn at random is found defective. Find the probability that it was produced by the third machine.",
+            "marks": 5,
+            "answer": "Let E₁, E₂ and E₃ be the events that the item came from machines 1, 2 and 3, with P(E₁) = 0.25, P(E₂) = 0.35 and P(E₃) = 0.40, and let D be the event that it is defective, with P(D|E₁) = 0.05, P(D|E₂) = 0.04 and P(D|E₃) = 0.02. By the law of total probability, P(D) = 0.25(0.05) + 0.35(0.04) + 0.40(0.02) = 0.0125 + 0.014 + 0.008 = 0.0345. By Bayes' theorem, P(E₃|D) = 0.008/0.0345 = 80/345 = 16/69 ≈ 0.232. So there is about a 23.2% chance the defective item came from the third machine."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Case-based questions (4 marks each)",
+        "marks": 12,
+        "instructions": "Answer all 3 case-based questions. Each has sub-parts totalling 4 marks.",
+        "questions": [
+          {
+            "q": "CASE STUDY 1 — A window is in the shape of a rectangle surmounted by a semicircle, and its total perimeter is 10 m. Let the width of the rectangle be 2x and its height h. (i) Express the perimeter in terms of x and h. (ii) Express the area of the window in terms of x. (iii) Find the value of x that maximises the area.",
+            "marks": 4,
+            "answer": "(i) The perimeter consists of the two vertical sides, the base and the semicircular arc: P = 2h + 2x + πx = 10. (ii) From that, h = (10 − 2x − πx)/2. The area is the rectangle plus the semicircle: A = 2x·h + ½πx² = x(10 − 2x − πx) + ½πx² = 10x − 2x² − πx² + ½πx² = 10x − 2x² − ½πx². (iii) dA/dx = 10 − 4x − πx, which vanishes when x = 10/(4 + π) ≈ 1.40 m. Since d²A/dx² = −(4 + π) < 0, this gives a maximum."
+          },
+          {
+            "q": "CASE STUDY 2 — The number of bacteria in a culture grows at a rate proportional to the number present. The culture starts with 1000 bacteria and doubles in 2 hours. (i) Write the differential equation. (ii) Solve it for N(t). (iii) Find the growth constant k. (iv) How many bacteria are present after 6 hours?",
+            "marks": 4,
+            "answer": "(i) dN/dt = kN, where N is the number of bacteria and k the growth constant. (ii) Separating variables, dN/N = k dt, so log N = kt + C and N = N₀e^(kt), with N₀ = 1000. (iii) Doubling in 2 hours means 2000 = 1000e^(2k), so e^(2k) = 2, giving 2k = log 2 and k = (log 2)/2 ≈ 0.3466 per hour. (iv) After 6 hours — three doubling periods — N = 1000 × 2³ = 8000 bacteria."
+          },
+          {
+            "q": "CASE STUDY 3 — Two friends each throw a fair die once. (i) Write the sample space size. (ii) Find the probability that both get the same number. (iii) Find the probability that the sum is at least 10. (iv) Find the probability that at least one gets a six.",
+            "marks": 4,
+            "answer": "(i) Each die has 6 outcomes, so the sample space has 6 × 6 = 36 equally likely outcomes. (ii) The matching outcomes are (1,1) through (6,6), six in all, so the probability is 6/36 = 1/6. (iii) A sum of at least 10 arises from (4,6), (5,5), (6,4), (5,6), (6,5) and (6,6) — six outcomes, giving 6/36 = 1/6. (iv) It is easier to use the complement: neither shows a six in 5 × 5 = 25 outcomes, so P(at least one six) = 1 − 25/36 = 11/36."
           }
         ]
       }
@@ -1667,110 +2438,207 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Chemistry",
     "board": "CBSE",
     "title": "CBSE Class 12 Chemistry Sample Paper 2026 (with Solutions)",
-    "intro": "This integrated chemistry sample paper covers organic, inorganic, and physical chemistry aligned with the board syllabus. Solve this to strengthen your chemistry concepts and exam readiness. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "75 minutes",
-    "totalMarks": 34,
+    "intro": "This is a full-length CBSE Class 12 Chemistry paper built to the current board blueprint: 33 questions across five sections for 70 marks in 3 hours, the remaining 30 marks being the practical component assessed in school. Section A is objective, Section D is case-based and Section E carries the long answers. Every question is followed by a complete worked solution, with the reasoning and the calculation set out step by step rather than just a final value.",
+    "duration": "3 hours",
+    "totalMarks": 70,
     "sections": [
       {
-        "name": "Section A - Multiple Choice",
-        "marks": 4,
-        "instructions": "Answer all 16 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 16,
+        "instructions": "Questions 1–14 are multiple choice. Questions 15 and 16 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "The conjugate acid of HSO4- is",
+            "q": "The molal elevation constant of a solvent depends on",
             "marks": 1,
-            "answer": "H2SO4"
+            "answer": "The nature of the solvent alone. Kb is a property of the solvent — it is independent of the solute added."
           },
           {
-            "q": "Which transition element has the highest melting point?",
+            "q": "Which of the following aqueous solutions has the highest boiling point at the same molality: glucose, NaCl, or CaCl₂?",
             "marks": 1,
-            "answer": "Tungsten (W)"
+            "answer": "CaCl₂. Elevation depends on the number of particles; CaCl₂ gives three ions (i ≈ 3) against two for NaCl and one for glucose."
           },
           {
-            "q": "The IUPAC name of CH3-CH(OH)-CH3 is",
+            "q": "For a first-order reaction, the half-life is",
             "marks": 1,
-            "answer": "Propan-2-ol"
+            "answer": "Independent of the initial concentration, t½ = 0.693/k. This constancy is the standard test for first-order kinetics."
           },
           {
-            "q": "Which of the following is a primary amine?",
+            "q": "The rate constant of a reaction doubles when the temperature rises by 10 K. This is explained by",
             "marks": 1,
-            "answer": "CH3NH2 (Methylamine)"
+            "answer": "The Arrhenius equation, k = Ae^(−Ea/RT): a small rise in T sharply increases the fraction of molecules with energy above Ea."
+          },
+          {
+            "q": "The standard EMF of a cell with E°(cathode) = +0.34 V and E°(anode) = −0.76 V is",
+            "marks": 1,
+            "answer": "+1.10 V. E°cell = E°cathode − E°anode = 0.34 − (−0.76) = 1.10 V. This is the Daniell cell."
+          },
+          {
+            "q": "The oxidation state of chromium in the dichromate ion, Cr₂O₇²⁻, is",
+            "marks": 1,
+            "answer": "+6. Let x be the oxidation state: 2x + 7(−2) = −2, so 2x = 12 and x = +6."
+          },
+          {
+            "q": "Which of the following is a transition element: Zn, Sc, or Ca?",
+            "marks": 1,
+            "answer": "Sc. A transition element has a partly filled d subshell in its ground state or a common oxidation state; Zn is d¹⁰ throughout and Ca has no d electrons."
+          },
+          {
+            "q": "The coordination number of the central metal in [Co(en)₃]³⁺ is",
+            "marks": 1,
+            "answer": "Six. Ethylenediamine is bidentate, so three molecules occupy six coordination sites."
+          },
+          {
+            "q": "The IUPAC name of CH₃CH₂CHO is",
+            "marks": 1,
+            "answer": "Propanal. A three-carbon chain ending in −CHO takes the suffix -al."
+          },
+          {
+            "q": "Which reagent distinguishes an aldehyde from a ketone?",
+            "marks": 1,
+            "answer": "Tollens' reagent (ammoniacal silver nitrate). An aldehyde reduces it to a silver mirror; a ketone does not."
+          },
+          {
+            "q": "The compound formed when phenol is treated with bromine water is",
+            "marks": 1,
+            "answer": "2,4,6-tribromophenol, a white precipitate. The −OH group is strongly activating and ortho/para directing, so all three positions brominate."
+          },
+          {
+            "q": "SN1 reactions proceed fastest with",
+            "marks": 1,
+            "answer": "Tertiary alkyl halides. The rate-determining step forms a carbocation, and a tertiary carbocation is the most stabilised by hyperconjugation and inductive effects."
+          },
+          {
+            "q": "The monomer of natural rubber is",
+            "marks": 1,
+            "answer": "Isoprene (2-methyl-1,3-butadiene). Natural rubber is its cis-1,4 polymer."
+          },
+          {
+            "q": "Insulin belongs to which class of biomolecules?",
+            "marks": 1,
+            "answer": "Proteins — it is a polypeptide hormone made of two chains linked by disulphide bridges."
+          },
+          {
+            "q": "Assertion (A): Transition metals form coloured compounds. Reason (R): They have partly filled d orbitals allowing d–d electronic transitions.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. Absorption of visible light promotes a d electron to a higher d level, and the transmitted light gives the colour."
+          },
+          {
+            "q": "Assertion (A): The boiling point of an aqueous solution is higher than that of pure water. Reason (R): The vapour pressure of the solution is lower than that of pure water.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. A non-volatile solute lowers vapour pressure, so a higher temperature is needed to reach atmospheric pressure."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
+        "instructions": "Answer all 5 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "What is the oxidation state of nitrogen in HNO3 and NO2?",
+            "q": "Define molarity and molality, and state which one changes with temperature and why.",
             "marks": 2,
-            "answer": "In HNO3: +5; In NO2: +4"
+            "answer": "Molarity is the number of moles of solute per litre of solution; molality is the number of moles of solute per kilogram of solvent. Molarity changes with temperature because the volume of the solution expands or contracts, while molality does not, since mass is temperature-independent."
           },
           {
-            "q": "Define hydrolysis. Give an example of a salt that undergoes hydrolysis.",
+            "q": "State Raoult's law for a solution of a non-volatile solute in a volatile solvent.",
             "marks": 2,
-            "answer": "Hydrolysis is reaction with water affecting pH. Example: Na2CO3 salt hydrolyzes to produce basic solution."
+            "answer": "The relative lowering of vapour pressure equals the mole fraction of the solute: (p° − p)/p° = x_solute. Equivalently, the vapour pressure of the solution equals the vapour pressure of the pure solvent multiplied by its mole fraction, p = p°·x_solvent."
           },
           {
-            "q": "What is Le Chatelier's principle? State it.",
+            "q": "Write the cell reaction and the Nernst equation for the Daniell cell.",
             "marks": 2,
-            "answer": "When equilibrium is disturbed, system shifts to counteract the disturbance."
+            "answer": "Cell reaction: Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s). Nernst equation at 298 K: Ecell = E°cell − (0.059/2)·log([Zn²⁺]/[Cu²⁺]), with n = 2 electrons transferred."
           },
           {
-            "q": "Name two methods for the preparation of alcohols.",
+            "q": "What are lanthanoid contraction and one of its consequences?",
             "marks": 2,
-            "answer": "Hydration of alkenes, reduction of carbonyl compounds."
+            "answer": "Lanthanoid contraction is the steady decrease in atomic and ionic radii across the lanthanoid series, caused by the poor shielding of the nuclear charge by 4f electrons. As a consequence the second and third transition series have almost identical radii — for example Zr and Hf — which makes them chemically very hard to separate."
           },
           {
-            "q": "What is the difference between esterification and saponification?",
+            "q": "Distinguish between an addition polymer and a condensation polymer, with one example of each.",
             "marks": 2,
-            "answer": "Esterification: alcohol + acid = ester; Saponification: ester + base = soap + alcohol."
+            "answer": "An addition polymer forms by repeated addition of monomers containing double bonds, with no loss of any molecule — for example polythene from ethene. A condensation polymer forms by reaction between bifunctional monomers with the elimination of a small molecule such as water — for example nylon-6,6 from adipic acid and hexamethylenediamine."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (3 marks)",
-        "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 21,
+        "instructions": "Answer all 7 questions. Each carries 3 marks.",
         "questions": [
           {
-            "q": "Explain the structure of benzene and why it is stable.",
+            "q": "A solution containing 18 g of glucose (molar mass 180 g/mol) in 500 g of water. Calculate its molality and the boiling point elevation. (Kb for water = 0.52 K kg/mol)",
             "marks": 3,
-            "answer": "Hexagonal structure with delocalized electrons; resonance provides stability; aromatic character."
+            "answer": "Moles of glucose = 18/180 = 0.1 mol. Molality = 0.1 mol / 0.5 kg = 0.2 mol/kg. Elevation ΔTb = Kb·m = 0.52 × 0.2 = 0.104 K, so the solution boils at about 100.10 °C."
           },
           {
-            "q": "How are polymers classified? Name examples of each type.",
+            "q": "The rate constant of a first-order reaction is 2.303 × 10⁻³ s⁻¹. Calculate the time required for the reaction to be 90% complete.",
             "marks": 3,
-            "answer": "Natural: starch, cellulose; Synthetic: polyethylene, PVC; Semi-synthetic: cellulose acetate."
+            "answer": "For a first-order reaction t = (2.303/k)·log([A]₀/[A]). When 90% is complete, [A] = 0.1[A]₀, so the ratio is 10 and log 10 = 1. Therefore t = 2.303/(2.303 × 10⁻³) × 1 = 1000 s, that is about 16.7 minutes."
           },
           {
-            "q": "Explain the chromatic properties of transition metal complexes.",
+            "q": "Explain why transition metals show variable oxidation states, and give the common oxidation states of manganese.",
             "marks": 3,
-            "answer": "Color due to d-d transitions of electrons; wavelength of absorbed light determines color."
+            "answer": "In transition metals the (n−1)d and ns orbitals are very close in energy, so electrons from both can take part in bonding, and the energy needed to remove successive electrons rises only gradually. That allows several stable oxidation states differing by one unit. Manganese shows +2, +3, +4, +6 and +7, with +2 the most stable in aqueous solution and +7 in KMnO₄, its strongest oxidising form."
           },
           {
-            "q": "What is the principle behind chromatography? Name the types.",
+            "q": "Write the IUPAC names and draw the structures of the geometrical isomers of [Pt(NH₃)₂Cl₂].",
             "marks": 3,
-            "answer": "Separation based on differential adsorption. Types: thin-layer, paper, gas, liquid chromatography."
+            "answer": "The complex is square planar, so it has cis and trans isomers. In the cis isomer the two chloride ligands occupy adjacent corners, and it is named cis-diamminedichloridoplatinum(II) — this is the anticancer drug cisplatin. In the trans isomer the chlorides are diagonally opposite, giving trans-diamminedichloridoplatinum(II), which is biologically inactive."
+          },
+          {
+            "q": "How do you convert ethanol to ethanoic acid, and ethanoic acid to ethanamide? Give the reagents and equations.",
+            "marks": 3,
+            "answer": "Ethanol is oxidised to ethanoic acid by acidified potassium dichromate: CH₃CH₂OH + 2[O] →(K₂Cr₂O₇/H⁺) CH₃COOH + H₂O. Ethanoic acid is converted to ethanamide by treating it with ammonia to give ammonium ethanoate, which on heating loses water: CH₃COOH + NH₃ → CH₃COONH₄ →(heat) CH₃CONH₂ + H₂O."
+          },
+          {
+            "q": "Explain the mechanism of the SN2 reaction of bromomethane with hydroxide ion, and state its stereochemical outcome.",
+            "marks": 3,
+            "answer": "The hydroxide ion attacks the carbon from the side directly opposite the bromine, so bond formation and bond breaking happen together in a single step through a five-coordinate transition state in which the carbon is partially bonded to both. There is no intermediate. Because attack is from the back, the three remaining bonds turn inside out and the configuration is inverted — the Walden inversion. The rate depends on both reactants, so it is second order overall."
+          },
+          {
+            "q": "Define enzymes and explain, with one example, why enzyme catalysis is highly specific.",
+            "marks": 3,
+            "answer": "Enzymes are biological catalysts, almost all globular proteins, that greatly accelerate reactions in living cells under mild conditions. Their specificity arises from the active site, a small pocket whose shape and chemical groups fit only a particular substrate, as a key fits one lock. Maltase, for instance, hydrolyses maltose but not sucrose, because only maltose fits the active site correctly."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (4 marks)",
+        "name": "Section D — Case-based questions (4 marks each)",
         "marks": 8,
-        "instructions": "Answer all 2 questions, each carrying 4 marks.",
+        "instructions": "Answer both case-based questions. Each has sub-parts totalling 4 marks.",
         "questions": [
           {
-            "q": "Explain the mechanism of SN2 reaction with an example.",
+            "q": "CASE STUDY 1 — Seawater freezes below 0 °C, and salt is spread on icy roads in cold countries to melt the ice. A student prepares a solution by dissolving 5.85 g of NaCl (molar mass 58.5 g/mol) in 1000 g of water. (Kf for water = 1.86 K kg/mol) (i) Which colligative property explains road salting? (ii) Calculate the molality. (iii) Calculate the expected freezing point, assuming complete dissociation.",
             "marks": 4,
-            "answer": "One-step bimolecular process; nucleophile attacks carbon from opposite side; inversion of configuration."
+            "answer": "(i) Depression of freezing point — the dissolved solute lowers the temperature at which ice and liquid are in equilibrium, so the ice melts. (ii) Moles of NaCl = 5.85/58.5 = 0.1 mol in 1 kg of water, so molality = 0.1 mol/kg. (iii) NaCl dissociates completely into two ions, so the van 't Hoff factor i = 2. ΔTf = i·Kf·m = 2 × 1.86 × 0.1 = 0.372 K, and the solution freezes at about −0.37 °C."
           },
           {
-            "q": "Describe the reactivity of carbonyl compounds. How do they undergo nucleophilic addition?",
+            "q": "CASE STUDY 2 — Aspirin, an ester of salicylic acid, is one of the most widely used medicines. It is prepared by treating salicylic acid with acetic anhydride. (i) Name the functional groups present in salicylic acid. (ii) Name the type of reaction used to make aspirin. (iii) Why is aspirin taken after food rather than on an empty stomach? (iv) Name the class of drug aspirin belongs to.",
             "marks": 4,
-            "answer": "Carbonyl carbon is electron-deficient; nucleophile attacks forming tetrahedral intermediate; elimination of water."
+            "answer": "(i) Salicylic acid contains a carboxylic acid group (−COOH) and a phenolic hydroxyl group (−OH) on the benzene ring. (ii) Acetylation — an esterification in which the phenolic −OH is converted to an ester group by acetic anhydride. (iii) Aspirin is acidic and irritates the stomach lining, and can cause bleeding, so it is taken after food to reduce contact with the mucous membrane. (iv) It is an analgesic and antipyretic — a non-narcotic pain reliever that also reduces fever."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Long Answer (5 marks each)",
+        "marks": 15,
+        "instructions": "Answer all 3 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "(a) Define conductivity and molar conductivity, and give their units. (b) Explain how each varies with dilution for a strong electrolyte. (c) State Kohlrausch's law and one of its applications.",
+            "marks": 5,
+            "answer": "(a) Conductivity κ is the conductance of a solution held between two electrodes of unit area separated by unit distance, with units S m⁻¹. Molar conductivity Λm = κ/c is the conducting power of all the ions from one mole of electrolyte, with units S m² mol⁻¹. (b) On dilution, conductivity DECREASES, because the number of ions per unit volume falls. Molar conductivity INCREASES, because the total volume containing one mole of electrolyte rises and the ions move more freely; for a strong electrolyte it rises slowly and approaches a limiting value Λ°m. (c) Kohlrausch's law states that the limiting molar conductivity of an electrolyte is the sum of the individual contributions of its cation and anion. It allows Λ°m of a weak electrolyte such as acetic acid — which cannot be found by extrapolation — to be calculated from strong-electrolyte values, and hence its degree of dissociation and dissociation constant."
+          },
+          {
+            "q": "(a) Give the structure of the amino acid glycine at physiological pH and explain why amino acids are amphoteric. (b) What is a peptide bond? (c) Distinguish between the primary and secondary structure of a protein. (d) What is denaturation?",
+            "marks": 5,
+            "answer": "(a) At physiological pH glycine exists as a zwitterion, ⁺H₃N−CH₂−COO⁻: the carboxyl group has donated its proton to the amino group. Amino acids are amphoteric because they carry both an acidic −COOH and a basic −NH₂ group, so they react with both acids and bases. (b) A peptide bond is the amide linkage −CO−NH− formed when the carboxyl group of one amino acid condenses with the amino group of the next, with the loss of water. (c) Primary structure is the sequence of amino acids in the chain, held by covalent peptide bonds. Secondary structure is the local folding of that chain into an α-helix or β-pleated sheet, held by hydrogen bonds between the backbone C=O and N−H groups. (d) Denaturation is the loss of secondary and tertiary structure — by heat, acid or heavy metal ions — leaving the primary structure intact; the protein loses its biological activity, as when egg white coagulates on boiling."
+          },
+          {
+            "q": "(a) Explain the difference between an ideal and a non-ideal solution, with one example of each type of deviation. (b) A solution of two liquids shows a positive deviation from Raoult's law — comment on the sign of ΔHmix and ΔVmix. (c) What is an azeotrope, and why can such a mixture not be separated by fractional distillation?",
+            "marks": 5,
+            "answer": "(a) An ideal solution obeys Raoult's law at all compositions, with solute–solvent interactions equal in strength to the solute–solute and solvent–solvent interactions, so ΔHmix = 0 and ΔVmix = 0 — benzene and toluene, for example. A non-ideal solution disobeys it: a mixture of ethanol and acetone shows positive deviation, while chloroform and acetone show negative deviation because hydrogen bonding between unlike molecules is stronger. (b) In positive deviation the new interactions are WEAKER than the original ones, so energy is absorbed and the volume expands: ΔHmix is positive and ΔVmix is positive. (c) An azeotrope is a mixture that boils at a constant temperature and distils unchanged in composition, because at that composition the vapour has the same composition as the liquid. Fractional distillation separates components by exploiting the difference between vapour and liquid composition, and since no such difference exists at the azeotropic point, the method fails there."
           }
         ]
       }
@@ -1796,110 +2664,207 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Biology",
     "board": "CBSE",
     "title": "CBSE Class 12 Biology Sample Paper 2026 (with Solutions)",
-    "intro": "This comprehensive biology sample paper covers genetics, evolution, ecology, and human physiology aligned with the latest curriculum. Practice this to master all concepts for the board exam. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "75 minutes",
-    "totalMarks": 34,
+    "intro": "This is a full-length CBSE Class 12 Biology paper built to the current board blueprint: 33 questions across five sections for 70 marks in 3 hours, the remaining 30 marks being the practical component assessed in school. It covers reproduction, genetics and evolution, biology in human welfare, biotechnology and ecology in the proportions the board uses. Every question is followed by a complete worked answer written the way a full-credit board answer is expected to read.",
+    "duration": "3 hours",
+    "totalMarks": 70,
     "sections": [
       {
-        "name": "Section A - Multiple Choice",
-        "marks": 4,
-        "instructions": "Answer all 16 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 16,
+        "instructions": "Questions 1–14 are multiple choice. Questions 15 and 16 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "The process by which organisms adapt to environment over generations is called",
+            "q": "The part of the flower that develops into the fruit is the",
             "marks": 1,
-            "answer": "Evolution"
+            "answer": "The ovary. After fertilisation the ovary wall becomes the pericarp of the fruit, while the ovules become the seeds."
           },
           {
-            "q": "Mendel's law of segregation applies to",
+            "q": "Double fertilisation in angiosperms produces",
             "marks": 1,
-            "answer": "Alleles of a gene during meiosis"
+            "answer": "A diploid zygote and a triploid primary endosperm nucleus. One male gamete fuses with the egg, the other with the two polar nuclei."
           },
           {
-            "q": "The enzyme that unwinds DNA double helix during replication is",
+            "q": "In humans, the site of fertilisation is the",
             "marks": 1,
-            "answer": "Helicase"
+            "answer": "The ampullary–isthmic junction of the fallopian tube, not the uterus."
           },
           {
-            "q": "Which of the following is a vector for plant genetic engineering?",
+            "q": "The hormone responsible for the milk ejection reflex is",
             "marks": 1,
-            "answer": "Ti plasmid from Agrobacterium tumefaciens"
+            "answer": "Oxytocin, released from the posterior pituitary; prolactin governs milk production rather than its ejection."
+          },
+          {
+            "q": "A cross between a tall heterozygous pea plant (Tt) and a short one (tt) gives a phenotypic ratio of",
+            "marks": 1,
+            "answer": "1 tall : 1 short. This is a test cross, and the offspring are half Tt and half tt."
+          },
+          {
+            "q": "Haemophilia is an example of",
+            "marks": 1,
+            "answer": "An X-linked recessive disorder. It appears far more often in males, who carry only one X chromosome and so cannot mask the allele."
+          },
+          {
+            "q": "The enzyme that joins DNA fragments during replication is",
+            "marks": 1,
+            "answer": "DNA ligase. It seals the nicks between Okazaki fragments on the lagging strand by forming phosphodiester bonds."
+          },
+          {
+            "q": "In the lac operon, the inducer is",
+            "marks": 1,
+            "answer": "Lactose (specifically allolactose). It binds the repressor, which then cannot bind the operator, so transcription proceeds."
+          },
+          {
+            "q": "The genetic material of the HIV virus is",
+            "marks": 1,
+            "answer": "Single-stranded RNA. HIV is a retrovirus and uses reverse transcriptase to make DNA from its RNA."
+          },
+          {
+            "q": "Which of these is a primary lymphoid organ: spleen, thymus, or tonsils?",
+            "marks": 1,
+            "answer": "The thymus. Primary lymphoid organs are where lymphocytes mature; the spleen and tonsils are secondary organs where they encounter antigens."
+          },
+          {
+            "q": "The bacterium used to produce the Bt toxin is",
+            "marks": 1,
+            "answer": "Bacillus thuringiensis. Its cry genes are transferred into crops such as Bt cotton to give insect resistance."
+          },
+          {
+            "q": "Restriction endonucleases cut DNA at",
+            "marks": 1,
+            "answer": "Specific palindromic sequences, usually producing staggered cuts that leave sticky ends able to pair with complementary fragments."
+          },
+          {
+            "q": "An organism's ecological niche is best described as",
+            "marks": 1,
+            "answer": "Its functional role in the ecosystem — what it eats, what eats it, and the range of conditions it tolerates — as opposed to its habitat, which is merely where it lives."
+          },
+          {
+            "q": "In an ecological pyramid, the pyramid of energy is always",
+            "marks": 1,
+            "answer": "Upright. Energy is lost as heat at every transfer, so each level necessarily holds less energy than the one below it."
+          },
+          {
+            "q": "Assertion (A): Pollen grains of many species cause severe allergies. Reason (R): Pollen grains have a highly resistant outer wall made of sporopollenin.",
+            "marks": 1,
+            "answer": "(b) Both are true but R does not explain A. The allergy is caused by proteins carried on the pollen, not by the durability of sporopollenin."
+          },
+          {
+            "q": "Assertion (A): DNA is a better hereditary material than RNA. Reason (R): DNA is chemically less reactive and structurally more stable.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. The 2'-OH group absent in DNA makes RNA more reactive, and the thymine in place of uracil aids repair — together these make DNA the more stable store of information."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
+        "instructions": "Answer all 5 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Define biodiversity. Why is it important?",
+            "q": "Define parthenocarpy and give one example.",
             "marks": 2,
-            "answer": "Biodiversity is variety of organisms and genes; important for ecosystem stability and human survival."
+            "answer": "Parthenocarpy is the development of a fruit without fertilisation, so the fruit is seedless. Bananas are the standard example, and the effect can be induced artificially by applying growth hormones such as auxins to unpollinated flowers."
           },
           {
-            "q": "What is a genotype? How does it differ from phenotype?",
+            "q": "What is the difference between spermatogenesis and oogenesis in terms of the number of gametes produced?",
             "marks": 2,
-            "answer": "Genotype is genetic makeup; phenotype is observable characteristics determined by genotype and environment."
+            "answer": "Spermatogenesis produces four functional sperm from each primary spermatocyte. Oogenesis produces only one functional ovum from each primary oocyte, the other three nuclei being discarded as polar bodies, so that nearly all the cytoplasm is retained by the single egg."
           },
           {
-            "q": "Explain the process of transcription. Where does it occur?",
+            "q": "State the law of independent assortment.",
             "marks": 2,
-            "answer": "DNA converted to RNA by RNA polymerase; occurs in nucleus in eukaryotes."
+            "answer": "When two pairs of contrasting characters are considered together, the alleles of one pair segregate independently of the alleles of the other pair during gamete formation. Mendel's dihybrid cross gave the 9 : 3 : 3 : 1 ratio that follows from this. The law holds for genes on different chromosomes or far apart on the same one."
           },
           {
-            "q": "What is DNA replication? State the semi-conservative replication mechanism.",
+            "q": "Write the full form of PCR and name the enzyme that makes it possible.",
             "marks": 2,
-            "answer": "Each DNA strand serves as template for new strand; results in two identical DNA molecules."
+            "answer": "PCR is the polymerase chain reaction, used to amplify a specific DNA segment into millions of copies. It depends on Taq polymerase, a heat-stable DNA polymerase from the thermophilic bacterium Thermus aquaticus, which survives the repeated denaturation step at about 94 °C."
           },
           {
-            "q": "Define mutation. Give an example.",
+            "q": "Distinguish between innate and acquired immunity.",
             "marks": 2,
-            "answer": "Mutation is change in DNA sequence. Example: Point mutation causing sickle cell anemia."
+            "answer": "Innate immunity is present from birth, is non-specific, and acts the same way against any pathogen — skin, mucus, phagocytes and inflammation. Acquired immunity develops after exposure to a specific pathogen, is specific to it, and carries memory, so the second response to the same antigen is faster and stronger."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (3 marks)",
-        "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 21,
+        "instructions": "Answer all 7 questions. Each carries 3 marks.",
         "questions": [
           {
-            "q": "Explain the process of photosynthesis and its two main stages.",
+            "q": "Describe the structure of a mature embryo sac in a flowering plant, naming its cells.",
             "marks": 3,
-            "answer": "Light reactions occur in thylakoids producing ATP and NADPH; dark reactions in stroma fix CO2 into glucose."
+            "answer": "A typical mature embryo sac is 7-celled and 8-nucleate. At the micropylar end sits the egg apparatus: one egg cell flanked by two synergids bearing the filiform apparatus that guides the pollen tube. At the opposite chalazal end lie three antipodal cells. In the centre is one large central cell containing two polar nuclei, which after fertilisation form the triploid endosperm."
           },
           {
-            "q": "Describe the pathway of food through the digestive system.",
+            "q": "Explain the roles of FSH, LH and progesterone in the human menstrual cycle.",
             "marks": 3,
-            "answer": "Mouth -> esophagus -> stomach -> small intestine -> large intestine -> rectum -> anus."
+            "answer": "FSH from the anterior pituitary stimulates the growth of the ovarian follicle and its secretion of oestrogen during the follicular phase. A sharp surge of LH at about day 14 triggers ovulation, the release of the secondary oocyte, and then converts the ruptured follicle into the corpus luteum. Progesterone secreted by the corpus luteum thickens and maintains the endometrium for implantation; if fertilisation does not occur, the corpus luteum degenerates, progesterone falls and menstruation follows."
           },
           {
-            "q": "What is the immune response? Explain innate and adaptive immunity.",
+            "q": "A colour-blind man marries a woman with no history of colour blindness in her family. Work out the probability of colour blindness in their children.",
             "marks": 3,
-            "answer": "Body's defense against pathogens. Innate: non-specific, immediate; Adaptive: specific, develops over time."
+            "answer": "Colour blindness is X-linked recessive. The father is X^c Y and the mother is X^X (homozygous normal). All daughters receive X^c from the father and X from the mother, so every daughter is X^c X — a carrier with normal vision. All sons receive the father's Y and the mother's normal X, so every son is X Y and is normal. Therefore none of the children is colour blind, but every daughter is a carrier."
           },
           {
-            "q": "Explain the process of reproduction and importance of meiosis.",
+            "q": "Describe the process of transcription in prokaryotes, naming the three stages.",
             "marks": 3,
-            "answer": "Meiosis produces haploid gametes; maintains chromosome number across generations; promotes genetic diversity."
+            "answer": "In initiation, RNA polymerase with its sigma factor binds the promoter and unwinds the DNA. In elongation, the polymerase moves along the template strand in the 3'→5' direction, adding ribonucleotides to the growing RNA at its 3' end following complementary base pairing, with uracil in place of thymine. In termination, the polymerase reaches the terminator sequence, the rho factor or a hairpin structure causes release of the transcript, and the enzyme detaches. In prokaryotes the transcript needs no processing and can be translated even before transcription is finished."
+          },
+          {
+            "q": "What is biofortification? Give two examples and state why it matters.",
+            "marks": 3,
+            "answer": "Biofortification is the breeding of crops for higher levels of vitamins, minerals or proteins, so that nutrition improves through the ordinary diet rather than through supplements. Examples include the wheat variety Atlas 66 rich in protein, maize hybrids with twice the lysine and tryptophan, and iron-fortified rice. It matters because it reaches poor populations who cannot afford supplements, using seed they already plant."
+          },
+          {
+            "q": "Explain the process of gel electrophoresis and state why DNA moves towards the anode.",
+            "marks": 3,
+            "answer": "DNA fragments obtained by restriction digestion are loaded into wells in an agarose gel and an electric field is applied. The fragments move through the pores of the gel, smaller fragments travelling faster and therefore further, so the mixture separates by size. The separated bands are stained with ethidium bromide and viewed under UV light as bright orange bands. DNA migrates towards the anode because the phosphate groups of its backbone carry a net negative charge at the pH used."
+          },
+          {
+            "q": "Define population density and describe any two ways it can be measured.",
+            "marks": 3,
+            "answer": "Population density is the number of individuals of a species per unit area or volume at a given time. Direct counting works for large, visible or sessile organisms, such as counting trees in a marked quadrat. For mobile animals the mark–recapture method is used: a sample is captured, marked and released, and the proportion of marked individuals in a later sample gives an estimate of the total. Where counting individuals is impractical, percentage cover or biomass serves as a relative measure."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (4 marks)",
+        "name": "Section D — Case-based questions (4 marks each)",
         "marks": 8,
-        "instructions": "Answer all 2 questions, each carrying 4 marks.",
+        "instructions": "Answer both case-based questions. Each has sub-parts totalling 4 marks.",
         "questions": [
           {
-            "q": "Explain the genetic code and the process of translation.",
+            "q": "CASE STUDY 1 — A couple has been unable to conceive for four years. Investigation shows the husband produces very few sperm, while the wife's reproductive tract is normal. (i) Name the condition in the husband. (ii) Suggest a suitable assisted reproductive technique and explain it. (iii) Name one technique used when the sperm count is extremely low. (iv) State one ethical concern with these technologies.",
             "marks": 4,
-            "answer": "Three nucleotides code for one amino acid; tRNA brings amino acids; ribosome assembles protein chains."
+            "answer": "(i) Oligospermia — an abnormally low sperm count. (ii) Intra-uterine insemination, in which semen is collected, concentrated and introduced directly into the uterus, bypassing the need for a high count in the cervix; alternatively IVF, where egg and sperm are fused outside the body and the embryo transferred. (iii) ICSI, intracytoplasmic sperm injection, in which a single sperm is injected directly into the ovum. (iv) These techniques raise concerns about the fate of surplus embryos, the high cost placing them out of reach for most couples, and their potential misuse for sex selection, which is illegal in India."
           },
           {
-            "q": "Describe the process of respiration and ATP synthesis in mitochondria.",
+            "q": "CASE STUDY 2 — A lake near a town receives untreated sewage. Over several months the water turns green, fish die in large numbers and the water begins to smell. (i) Name the phenomenon. (ii) Explain why the fish die, referring to BOD. (iii) What does a high BOD indicate? (iv) Suggest one remedy.",
             "marks": 4,
-            "answer": "Glycolysis, Krebs cycle, electron transport chain; total ATP production approximately 30-32 per glucose."
+            "answer": "(i) Eutrophication — nutrient enrichment of the water body, here caused by the nitrates and phosphates in sewage. (ii) The nutrients cause an algal bloom; when the algae die, decomposer bacteria multiply and consume dissolved oxygen to break them down. The oxygen level falls so far that fish suffocate. (iii) A high biochemical oxygen demand means a large amount of biodegradable organic matter, and therefore heavy pollution — clean water has a low BOD. (iv) Treat the sewage before discharge in a sewage treatment plant, so that the organic load is oxidised before the effluent reaches the lake."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Long Answer (5 marks each)",
+        "marks": 15,
+        "instructions": "Answer all 3 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "(a) Describe the structure of DNA as proposed by Watson and Crick. (b) State Chargaff's rule. (c) Explain what is meant by semi-conservative replication and name the experiment that proved it.",
+            "marks": 5,
+            "answer": "(a) DNA is a double helix of two antiparallel polynucleotide chains, one running 5'→3' and the other 3'→5', wound round a common axis in a right-handed sense. The sugar–phosphate backbones lie outside and the nitrogenous bases point inwards, paired by hydrogen bonds — adenine with thymine by two bonds and guanine with cytosine by three. The helix has a pitch of 3.4 nm with about ten base pairs per turn, so adjacent pairs are 0.34 nm apart. (b) Chargaff's rule states that in any double-stranded DNA the amount of adenine equals that of thymine and the amount of guanine equals that of cytosine, so A + G = T + C. (c) In semi-conservative replication each daughter molecule keeps one parental strand and gains one newly synthesised strand. Meselson and Stahl proved it by growing E. coli in heavy nitrogen ¹⁵N and transferring it to ¹⁴N: after one generation all the DNA was of intermediate density, and after two generations half was intermediate and half light — exactly what the semi-conservative model predicts."
+          },
+          {
+            "q": "(a) What is meant by an ecosystem's productivity? Distinguish gross and net primary productivity. (b) Explain the 10 per cent law with an example. (c) Why are pyramids of biomass in an aquatic ecosystem often inverted?",
+            "marks": 5,
+            "answer": "(a) Productivity is the rate at which biomass is produced per unit area in unit time. Gross primary productivity is the total rate at which producers capture and fix chemical energy through photosynthesis. A part of it is spent in the producers' own respiration, and what remains as new biomass is the net primary productivity: NPP = GPP − R. Only NPP is available to herbivores. (b) The 10 per cent law states that only about a tenth of the energy at one trophic level is transferred to the next, the rest being lost as heat and in metabolism. So if producers hold 10,000 J, herbivores obtain about 1,000 J and primary carnivores about 100 J. (c) In a pond the producers are tiny, short-lived phytoplankton with a very high turnover rate. At any instant their standing biomass is small, yet over time they support a much larger biomass of longer-lived zooplankton and fish. The pyramid measures biomass at a single moment, so it appears inverted even though the energy pyramid remains upright."
+          },
+          {
+            "q": "(a) What is recombinant DNA technology? List the three basic steps. (b) Name the tools required and state the function of each. (c) Give one application in medicine.",
+            "marks": 5,
+            "answer": "(a) Recombinant DNA technology is the set of methods by which a gene from one organism is isolated and introduced into another, so that the host expresses the desired product. The three basic steps are the isolation of the gene of interest, its insertion into a suitable vector to form recombinant DNA, and the transfer of that construct into a host cell where it multiplies and is expressed. (b) Restriction endonucleases cut DNA at specific palindromic sites, producing sticky ends. DNA ligase joins the fragment to the vector by sealing the phosphodiester backbone. A vector, usually a plasmid such as pBR322 or a bacteriophage, carries the gene into the host and provides an origin of replication and selectable markers. A host cell, commonly E. coli, replicates and expresses the construct. Polymerases amplify the gene, and gel electrophoresis separates and checks the fragments. (c) Human insulin, marketed as Humulin, is produced by inserting the genes for the A and B chains into E. coli, growing the bacteria, then extracting and joining the chains — giving a supply free of the immune reactions that animal insulin sometimes caused."
           }
         ]
       }
@@ -1925,115 +2890,232 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 11 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper covers complex numbers, sequences, trigonometry, and basic calculus concepts for Class 11. Practice this to build a strong foundation for advanced mathematics. This is a shortened practice set: 16 questions worth 43 marks, following the 100-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "95 minutes",
-    "totalMarks": 43,
+    "intro": "This is a full-length CBSE Class 11 Mathematics paper built to the board's own pattern: 38 questions across five sections for 80 marks in 3 hours, covering sets and functions, trigonometry, complex numbers, permutations and combinations, sequences and series, straight lines and conic sections, three-dimensional geometry, limits and statistics. Section A is objective and Section E is case-based, and every question is followed by a fully worked solution showing each step of the algebra.",
+    "duration": "3 hours",
+    "totalMarks": 80,
     "sections": [
       {
-        "name": "Section A - MCQs",
-        "marks": 5,
-        "instructions": "Answer all 20 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 20,
+        "instructions": "Questions 1–18 are multiple choice. Questions 19 and 20 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "The value of i^4 + i^8 + i^12 + i^16 is",
+            "q": "If A = {1, 2, 3}, the number of subsets of A is",
             "marks": 1,
-            "answer": "4"
+            "answer": "8. A set with n elements has 2ⁿ subsets, and 2³ = 8."
           },
           {
-            "q": "If the nth term of an AP is 5n - 2, then the 10th term is",
+            "q": "If n(A) = 3 and n(B) = 4, then n(A × B) equals",
             "marks": 1,
-            "answer": "48"
+            "answer": "12. The cartesian product has n(A) × n(B) = 3 × 4 = 12 ordered pairs."
           },
           {
-            "q": "The value of tan(15 degrees) is",
+            "q": "The domain of the function f(x) = 1/(x − 2) is",
             "marks": 1,
-            "answer": "2 - root 3"
+            "answer": "All real numbers except 2, written R − {2}, since the denominator vanishes at x = 2."
           },
           {
-            "q": "The combination C(n, 0) + C(n, 1) + ... + C(n, n) equals",
+            "q": "The value of sin 75° is",
             "marks": 1,
-            "answer": "2^n"
+            "answer": "(√6 + √2)/4. Using sin(45° + 30°) = sin45 cos30 + cos45 sin30 = (√2/2)(√3/2) + (√2/2)(1/2) = (√6 + √2)/4."
           },
           {
-            "q": "If A = {1, 2, 3} and B = {3, 4, 5}, then A intersect B is",
+            "q": "The general solution of sin x = 0 is",
             "marks": 1,
-            "answer": "{3}"
+            "answer": "x = nπ, where n is any integer."
+          },
+          {
+            "q": "The value of i⁴ⁿ⁺³ for any positive integer n is",
+            "marks": 1,
+            "answer": "−i. Since i⁴ = 1, i⁴ⁿ⁺³ = i³ = −i."
+          },
+          {
+            "q": "The modulus of the complex number 3 + 4i is",
+            "marks": 1,
+            "answer": "5. |z| = √(3² + 4²) = √25 = 5."
+          },
+          {
+            "q": "The solution set of the inequality 2x + 3 < 7 is",
+            "marks": 1,
+            "answer": "x < 2, that is the interval (−∞, 2)."
+          },
+          {
+            "q": "The number of ways of arranging the letters of the word 'MATHS' is",
+            "marks": 1,
+            "answer": "120. All five letters are distinct, so the count is 5! = 120."
+          },
+          {
+            "q": "The value of ⁿC₀ + ⁿC₁ + … + ⁿCₙ is",
+            "marks": 1,
+            "answer": "2ⁿ. Putting x = 1 in the binomial expansion of (1 + x)ⁿ gives exactly this sum."
+          },
+          {
+            "q": "The 10th term of the AP 3, 7, 11, … is",
+            "marks": 1,
+            "answer": "39. aₙ = a + (n − 1)d = 3 + 9 × 4 = 39."
+          },
+          {
+            "q": "The sum of an infinite GP with first term 4 and common ratio 1/2 is",
+            "marks": 1,
+            "answer": "8. S∞ = a/(1 − r) = 4/(1 − 0.5) = 8, valid because |r| < 1."
+          },
+          {
+            "q": "The slope of the line joining (2, 3) and (4, 7) is",
+            "marks": 1,
+            "answer": "2. m = (y₂ − y₁)/(x₂ − x₁) = (7 − 3)/(4 − 2) = 4/2 = 2."
+          },
+          {
+            "q": "The equation of a circle with centre (0, 0) and radius 5 is",
+            "marks": 1,
+            "answer": "x² + y² = 25 — the standard form x² + y² = r² with r = 5."
+          },
+          {
+            "q": "The eccentricity of a parabola is",
+            "marks": 1,
+            "answer": "Exactly 1. An ellipse has e < 1 and a hyperbola e > 1."
+          },
+          {
+            "q": "The distance of the point (1, 2, 3) from the origin is",
+            "marks": 1,
+            "answer": "√14. √(1² + 2² + 3²) = √(1 + 4 + 9) = √14."
+          },
+          {
+            "q": "The value of lim(x→0) (sin x)/x is",
+            "marks": 1,
+            "answer": "1 — a standard limit, with x measured in radians."
+          },
+          {
+            "q": "The derivative of x⁵ with respect to x is",
+            "marks": 1,
+            "answer": "5x⁴, by the power rule d(xⁿ)/dx = nxⁿ⁻¹."
+          },
+          {
+            "q": "Assertion (A): The empty set is a subset of every set. Reason (R): A set A is a subset of B if every element of A belongs to B.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. The empty set has no elements, so the condition in R is satisfied vacuously for any B."
+          },
+          {
+            "q": "Assertion (A): The function f(x) = x² is one-one on the set of real numbers. Reason (R): A function is one-one if distinct inputs give distinct outputs.",
+            "marks": 1,
+            "answer": "(d) A is false, R is true. The definition in R is correct, but f(−2) = f(2) = 4, so x² is not one-one on all of R — it is one-one only when restricted to non-negative reals."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
+        "instructions": "Answer all 5 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Find the modulus and argument of the complex number 1 + i.",
+            "q": "If A = {1, 2, 3, 4} and B = {3, 4, 5}, find A ∪ B and A ∩ B.",
             "marks": 2,
-            "answer": "Modulus = root 2, Argument = pi/4"
+            "answer": "The union collects every element of either set without repetition: A ∪ B = {1, 2, 3, 4, 5}. The intersection keeps only the common elements: A ∩ B = {3, 4}."
           },
           {
-            "q": "Find the sum of the first 15 terms of AP: 3, 6, 9, ...",
+            "q": "Prove that sin²x + cos²x = 1 using the unit circle.",
             "marks": 2,
-            "answer": "S15 = 360"
+            "answer": "Take a point P on the unit circle at angle x from the positive x-axis; by definition its coordinates are (cos x, sin x). The distance of P from the origin is the radius, 1, so by the distance formula cos²x + sin²x = 1² = 1, which is the required identity."
           },
           {
-            "q": "Prove that sin(A + B) = sinA cosB + cosA sinB.",
+            "q": "Find the conjugate and modulus of z = 2 − 5i.",
             "marks": 2,
-            "answer": "Use geometric or algebraic derivation with unit circle."
+            "answer": "The conjugate is obtained by reversing the sign of the imaginary part: z̄ = 2 + 5i. The modulus is |z| = √(2² + (−5)²) = √(4 + 25) = √29."
           },
           {
-            "q": "Find the number of ways to arrange 5 books on a shelf.",
+            "q": "How many three-digit numbers can be formed from the digits 1, 2, 3, 4, 5 without repetition?",
             "marks": 2,
-            "answer": "5! = 120"
+            "answer": "The hundreds place can be filled in 5 ways, the tens in 4 ways from those left, and the units in 3 ways, giving 5 × 4 × 3 = 60. Equivalently this is the permutation ⁵P₃ = 60."
           },
           {
-            "q": "If f(x) = 2x + 3, find f(f(2)).",
+            "q": "Find the equation of the line passing through (1, 2) with slope 3.",
             "marks": 2,
-            "answer": "f(f(2)) = 17"
+            "answer": "Using the point-slope form y − y₁ = m(x − x₁): y − 2 = 3(x − 1), so y − 2 = 3x − 3 and the equation is y = 3x − 1, or 3x − y − 1 = 0."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (4 marks)",
-        "marks": 16,
-        "instructions": "Answer all 4 questions, each carrying 4 marks.",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 18,
+        "instructions": "Answer all 6 questions. Each carries 3 marks.",
         "questions": [
           {
-            "q": "Solve: (2 + i)^2 and express in the form a + ib.",
-            "marks": 4,
-            "answer": "3 + 4i"
+            "q": "In a class of 60 students, 30 play cricket, 25 play football and 10 play both. Find how many play neither.",
+            "marks": 3,
+            "answer": "By the inclusion–exclusion principle, the number playing at least one game is n(C ∪ F) = n(C) + n(F) − n(C ∩ F) = 30 + 25 − 10 = 45. Therefore those who play neither number 60 − 45 = 15."
           },
           {
-            "q": "Find the equation of a circle with center (2, 3) and radius 5.",
-            "marks": 4,
-            "answer": "(x - 2)^2 + (y - 3)^2 = 25"
+            "q": "Prove that cos 3x = 4cos³x − 3cos x.",
+            "marks": 3,
+            "answer": "Write cos 3x = cos(2x + x) = cos 2x cos x − sin 2x sin x. Substituting cos 2x = 2cos²x − 1 and sin 2x = 2 sin x cos x gives cos 3x = (2cos²x − 1)cos x − 2 sin²x cos x. Replacing sin²x by 1 − cos²x, this becomes 2cos³x − cos x − 2cos x(1 − cos²x) = 2cos³x − cos x − 2cos x + 2cos³x = 4cos³x − 3cos x."
           },
           {
-            "q": "Prove that cos(3A) = 4cos^3(A) - 3cos(A).",
-            "marks": 4,
-            "answer": "Use multiple angle formula or expand cos(A + 2A)."
+            "q": "Solve the quadratic equation x² + 4 = 0 in the set of complex numbers.",
+            "marks": 3,
+            "answer": "Rearranging, x² = −4. Since i² = −1, we may write −4 = 4i², so x² = 4i² and x = ±2i. The roots are 2i and −2i, a conjugate pair, as expected for a real quadratic with negative discriminant."
           },
           {
-            "q": "Find the general solution of sin(x) = 1/2.",
-            "marks": 4,
-            "answer": "x = pi/6 + 2npi or x = 5pi/6 + 2npi, where n is an integer."
+            "q": "Find the sum of the first 20 terms of the AP 5, 9, 13, …",
+            "marks": 3,
+            "answer": "Here a = 5 and d = 4, with n = 20. Using Sₙ = n/2[2a + (n − 1)d], S₂₀ = 10[10 + 19 × 4] = 10[10 + 76] = 10 × 86 = 860."
+          },
+          {
+            "q": "Find the coordinates of the focus and the length of the latus rectum of the parabola y² = 12x.",
+            "marks": 3,
+            "answer": "Comparing with the standard form y² = 4ax gives 4a = 12, so a = 3. The parabola opens rightwards, so the focus is at (a, 0) = (3, 0), the directrix is the line x = −3, and the length of the latus rectum is 4a = 12 units."
+          },
+          {
+            "q": "Evaluate lim(x→2) (x² − 4)/(x − 2).",
+            "marks": 3,
+            "answer": "Direct substitution gives 0/0, so factorise the numerator: x² − 4 = (x − 2)(x + 2). For x ≠ 2 the expression simplifies to x + 2, and the limit is the value this approaches as x → 2, namely 4. The cancellation is valid because a limit concerns values near 2 and not at 2 itself."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (6 marks)",
+        "name": "Section D — Long Answer (5 marks each)",
+        "marks": 20,
+        "instructions": "Answer all 4 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "Prove by the principle of mathematical induction that 1 + 2 + 3 + … + n = n(n + 1)/2 for all natural numbers n.",
+            "marks": 5,
+            "answer": "Let P(n) be the statement that the sum of the first n natural numbers is n(n + 1)/2. Base step: for n = 1 the left side is 1 and the right side is 1 × 2/2 = 1, so P(1) holds. Inductive step: assume P(k) is true, that is 1 + 2 + … + k = k(k + 1)/2. Adding (k + 1) to both sides gives 1 + 2 + … + k + (k + 1) = k(k + 1)/2 + (k + 1) = (k + 1)[k/2 + 1] = (k + 1)(k + 2)/2. This is precisely the statement P(k + 1). Since P(1) is true and P(k) implies P(k + 1), by the principle of mathematical induction P(n) holds for every natural number n."
+          },
+          {
+            "q": "Find the sum of the series 1 + 3 + 5 + … up to n terms, and hence find the sum of the first 25 odd numbers.",
+            "marks": 5,
+            "answer": "The series is an AP with first term a = 1 and common difference d = 2. Using Sₙ = n/2[2a + (n − 1)d], Sₙ = n/2[2 + 2(n − 1)] = n/2[2n] = n². So the sum of the first n odd numbers is n², a neat result worth remembering. For the first 25 odd numbers the sum is 25² = 625. As a check, the 25th odd number is 1 + 24 × 2 = 49, and the average of the first and last terms is (1 + 49)/2 = 25, which multiplied by 25 terms gives 625."
+          },
+          {
+            "q": "Find the equation of the circle passing through the points (0, 0), (4, 0) and (0, 6).",
+            "marks": 5,
+            "answer": "Take the general equation x² + y² + 2gx + 2fy + c = 0. Substituting (0, 0) gives c = 0. Substituting (4, 0): 16 + 8g = 0, so g = −2. Substituting (0, 6): 36 + 12f = 0, so f = −3. The equation is therefore x² + y² − 4x − 6y = 0. Completing the squares, (x − 2)² + (y − 3)² = 4 + 9 = 13, so the circle has centre (2, 3) and radius √13. As a check, the distance from (2, 3) to the origin is √(4 + 9) = √13, as required."
+          },
+          {
+            "q": "Calculate the mean and standard deviation of the data 6, 8, 10, 12, 14.",
+            "marks": 5,
+            "answer": "The mean is x̄ = (6 + 8 + 10 + 12 + 14)/5 = 50/5 = 10. The deviations from the mean are −4, −2, 0, 2 and 4, and their squares are 16, 4, 0, 4 and 16, summing to 40. The variance is σ² = Σ(x − x̄)²/n = 40/5 = 8, so the standard deviation is σ = √8 = 2√2 ≈ 2.83. The data are evenly spaced about the mean, which is why the deviations are symmetric and the mean sits exactly at the middle value."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Case-based questions (4 marks each)",
         "marks": 12,
-        "instructions": "Answer all 2 questions with internal choices; each carrying 6 marks.",
+        "instructions": "Answer all 3 case-based questions. Each has sub-parts totalling 4 marks.",
         "questions": [
           {
-            "q": "Derive the formula for the sum of n terms of a GP. OR Solve the inequality |x - 1| < 3 and represent on number line.",
-            "marks": 6,
-            "answer": "Sn = a(1-r^n)/(1-r) for r != 1. OR -2 < x < 4."
+            "q": "CASE STUDY 1 — A school of 200 students was surveyed on reading habits. 120 read newspapers, 90 read magazines and 40 read both. (i) How many read at least one? (ii) How many read only newspapers? (iii) How many read neither?",
+            "marks": 4,
+            "answer": "(i) n(N ∪ M) = n(N) + n(M) − n(N ∩ M) = 120 + 90 − 40 = 170 students read at least one. (ii) Those reading only newspapers are n(N) − n(N ∩ M) = 120 − 40 = 80. (iii) Those reading neither are 200 − 170 = 30 students."
           },
           {
-            "q": "Find the equation of the parabola with vertex (0, 0) and focus (2, 0).",
-            "marks": 6,
-            "answer": "y^2 = 8x"
+            "q": "CASE STUDY 2 — A ball is dropped from a height of 80 m and on each bounce rises to half the height from which it fell. (i) Identify the type of progression formed by the heights. (ii) Write its first term and common ratio. (iii) Find the height after the fourth bounce. (iv) Find the total distance the ball would travel before coming to rest.",
+            "marks": 4,
+            "answer": "(i) The successive heights form a geometric progression, since each is a fixed fraction of the one before. (ii) The first term is 80 m and the common ratio is 1/2. (iii) After the fourth bounce the height is 80 × (1/2)⁴ = 80/16 = 5 m. (iv) The ball first falls 80 m; thereafter it rises and falls through each bounce height. The total is 80 + 2(40 + 20 + 10 + …) = 80 + 2 × [40/(1 − 1/2)] = 80 + 2 × 80 = 240 m."
+          },
+          {
+            "q": "CASE STUDY 3 — A committee of 5 is to be formed from 6 boys and 4 girls. (i) In how many ways can it be formed with no restriction? (ii) In how many ways if it must contain exactly 2 girls? (iii) In how many ways if it must contain at least 3 boys?",
+            "marks": 4,
+            "answer": "(i) Choosing 5 from 10 gives ¹⁰C₅ = 252 ways. (ii) Choose 2 girls from 4 and 3 boys from 6: ⁴C₂ × ⁶C₃ = 6 × 20 = 120 ways. (iii) At least 3 boys means 3, 4 or 5 boys: ⁶C₃×⁴C₂ + ⁶C₄×⁴C₁ + ⁶C₅×⁴C₀ = 20×6 + 15×4 + 6×1 = 120 + 60 + 6 = 186 ways."
           }
         ]
       }
@@ -2059,110 +3141,207 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Physics",
     "board": "CBSE",
     "title": "CBSE Class 11 Physics Sample Paper 2026 (with Solutions)",
-    "intro": "This foundational physics sample paper covers mechanics, thermodynamics, and waves for Class 11. Practice this to master core concepts essential for Class 12 and competitive exams. This is a shortened practice set: 15 questions worth 34 marks, following the 70-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
-    "duration": "75 minutes",
-    "totalMarks": 34,
+    "intro": "This is a full-length CBSE Class 11 Physics paper built to the board's own pattern: 33 questions across five sections for 70 marks in 3 hours, the remaining 30 marks being the practical component assessed in school. It covers units and measurement, kinematics, laws of motion, work energy and power, rotational motion, gravitation, thermodynamics, kinetic theory and oscillations. Every question is followed by a complete worked solution with the derivation set out step by step.",
+    "duration": "3 hours",
+    "totalMarks": 70,
     "sections": [
       {
-        "name": "Section A - Multiple Choice",
-        "marks": 4,
-        "instructions": "Answer all 16 multiple choice questions.",
+        "name": "Section A — Objective (1 mark each)",
+        "marks": 16,
+        "instructions": "Questions 1–14 are multiple choice. Questions 15 and 16 are Assertion–Reason: mark (a) if both A and R are true and R explains A, (b) if both are true but R does not explain A, (c) if A is true and R is false, (d) if A is false and R is true.",
         "questions": [
           {
-            "q": "A vector cannot have",
+            "q": "The dimensional formula of pressure is",
             "marks": 1,
-            "answer": "A component greater than its magnitude"
+            "answer": "[ML⁻¹T⁻²]. Pressure is force per unit area, so [MLT⁻²]/[L²] = [ML⁻¹T⁻²]."
           },
           {
-            "q": "The SI unit of acceleration is",
+            "q": "The number of significant figures in 0.00230 is",
             "marks": 1,
-            "answer": "m/s^2"
+            "answer": "Three — 2, 3 and the final 0. Leading zeros only fix the decimal point, while the trailing zero after a decimal is significant."
           },
           {
-            "q": "Which of the following is a scalar quantity?",
+            "q": "A body thrown vertically upward returns to the thrower. Its displacement is",
             "marks": 1,
-            "answer": "Temperature or speed or mass"
+            "answer": "Zero, since it ends where it began, although the distance covered is twice the maximum height."
           },
           {
-            "q": "In a projectile motion, at the highest point, the velocity is",
+            "q": "The area under a velocity–time graph gives",
             "marks": 1,
-            "answer": "Horizontal (in the direction of horizontal component)"
+            "answer": "The displacement of the body over that interval; the slope of the same graph gives the acceleration."
+          },
+          {
+            "q": "For a projectile launched at angle θ with speed u, the range is maximum when θ equals",
+            "marks": 1,
+            "answer": "45°. The range is (u² sin 2θ)/g, which is greatest when sin 2θ = 1, that is 2θ = 90°."
+          },
+          {
+            "q": "The centripetal acceleration of a body moving in a circle of radius r with speed v is",
+            "marks": 1,
+            "answer": "v²/r, directed towards the centre of the circle."
+          },
+          {
+            "q": "Newton's first law of motion defines",
+            "marks": 1,
+            "answer": "Inertia, and thereby the concept of force — a body changes its state of rest or uniform motion only when an external force acts."
+          },
+          {
+            "q": "The impulse of a force equals the change in",
+            "marks": 1,
+            "answer": "Momentum. Impulse = F·Δt = Δp, which is the impulse–momentum theorem."
+          },
+          {
+            "q": "A body of mass 2 kg moving at 3 m/s has kinetic energy",
+            "marks": 1,
+            "answer": "9 J. KE = ½mv² = ½(2)(9) = 9 joules."
+          },
+          {
+            "q": "The work done by a centripetal force on a body in uniform circular motion is",
+            "marks": 1,
+            "answer": "Zero, because the force is always perpendicular to the displacement, and W = Fs cos 90° = 0."
+          },
+          {
+            "q": "The moment of inertia of a solid sphere of mass M and radius R about its diameter is",
+            "marks": 1,
+            "answer": "(2/5)MR². For a hollow sphere the corresponding value is (2/3)MR²."
+          },
+          {
+            "q": "The escape velocity from the surface of the Earth is approximately",
+            "marks": 1,
+            "answer": "11.2 km/s, obtained from v = √(2GM/R) — independent of the mass of the escaping body."
+          },
+          {
+            "q": "In an isothermal process the quantity that stays constant is",
+            "marks": 1,
+            "answer": "Temperature, so for an ideal gas the internal energy is unchanged and the heat supplied equals the work done."
+          },
+          {
+            "q": "The time period of a simple pendulum depends on",
+            "marks": 1,
+            "answer": "Its length and the acceleration due to gravity, T = 2π√(l/g) — it does not depend on the mass of the bob or on the amplitude, provided the swing is small."
+          },
+          {
+            "q": "Assertion (A): A body can have zero velocity and still be accelerating. Reason (R): Acceleration is the rate of change of velocity.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. At the top of its flight a body thrown upward has zero velocity but its velocity is still changing at g, so it is accelerating — exactly what the reason describes."
+          },
+          {
+            "q": "Assertion (A): The internal energy of an ideal gas depends only on its temperature. Reason (R): There are no intermolecular forces in an ideal gas.",
+            "marks": 1,
+            "answer": "(a) Both true and R explains A. With no intermolecular forces there is no potential energy term, so the internal energy is purely the kinetic energy of the molecules, which depends only on temperature."
           }
         ]
       },
       {
-        "name": "Section B - Short Answer (2 marks)",
+        "name": "Section B — Very Short Answer (2 marks each)",
         "marks": 10,
-        "instructions": "Answer all 5 questions, each carrying 2 marks.",
+        "instructions": "Answer all 5 questions. Each carries 2 marks.",
         "questions": [
           {
-            "q": "Define relative velocity. Give one example.",
+            "q": "State the principle of homogeneity of dimensions and give one use of it.",
             "marks": 2,
-            "answer": "Velocity of one object with respect to another. Example: Boat velocity relative to water."
+            "answer": "The principle states that every term on both sides of a physically correct equation must have the same dimensions. It is used to check the correctness of an equation and to derive relations between quantities — for example it shows at once that s = ut + ½at² is dimensionally consistent, since every term has the dimension of length."
           },
           {
-            "q": "State the three laws of motion given by Newton.",
+            "q": "Distinguish between distance and displacement.",
             "marks": 2,
-            "answer": "Inertia, Force and acceleration (F=ma), Action-reaction."
+            "answer": "Distance is the total length of the path actually covered, is a scalar, and can never be negative or zero for a moving body. Displacement is the shortest straight-line vector from the initial to the final position, has both magnitude and direction, and can be zero even when the distance is large — as for a body returning to its starting point."
           },
           {
-            "q": "What is elastic collision? Give one example.",
+            "q": "Why is it easier to pull a lawn roller than to push it?",
             "marks": 2,
-            "answer": "Collision where kinetic energy is conserved. Example: Collision between billiard balls."
+            "answer": "When the roller is pulled, the vertical component of the applied force acts upward and reduces the normal reaction, so friction, which is proportional to the normal reaction, decreases. When it is pushed, that component presses downward, increasing the normal reaction and hence the friction. Pulling therefore needs a smaller effort."
           },
           {
-            "q": "Define simple harmonic motion. Name one example.",
+            "q": "Define angular momentum and state the condition under which it is conserved.",
             "marks": 2,
-            "answer": "Periodic motion where acceleration is proportional to displacement. Example: Simple pendulum."
+            "answer": "Angular momentum is the rotational analogue of linear momentum, L = Iω for a rigid body, or r × p for a particle. It is conserved when the net external torque acting on the system is zero — which is why a spinning skater speeds up on drawing her arms in, reducing I and so raising ω."
           },
           {
-            "q": "What is an ideal gas? State the ideal gas law.",
+            "q": "State the first law of thermodynamics and identify each term.",
             "marks": 2,
-            "answer": "Gas with negligible molecular size and intermolecular forces. PV = nRT."
+            "answer": "ΔQ = ΔU + ΔW, where ΔQ is the heat supplied to the system, ΔU is the increase in its internal energy, and ΔW is the work done by the system on its surroundings. It is a statement of conservation of energy applied to thermal processes."
           }
         ]
       },
       {
-        "name": "Section C - Long Answer (3 marks)",
-        "marks": 12,
-        "instructions": "Answer all 4 questions, each carrying 3 marks.",
+        "name": "Section C — Short Answer (3 marks each)",
+        "marks": 21,
+        "instructions": "Answer all 7 questions. Each carries 3 marks.",
         "questions": [
           {
-            "q": "Derive the equation of motion: v = u + at",
+            "q": "Derive the equation v = u + at using the definition of acceleration.",
             "marks": 3,
-            "answer": "Using definition of acceleration a = (v-u)/t, rearranging gives v = u + at."
+            "answer": "Acceleration is the rate of change of velocity, a = (v − u)/t for uniform acceleration, where u is the velocity at t = 0 and v at time t. Multiplying both sides by t gives at = v − u, and rearranging gives v = u + at. The derivation assumes the acceleration is constant throughout the interval."
           },
           {
-            "q": "Explain the law of conservation of energy with an example.",
+            "q": "A ball is thrown at 20 m/s at 30° to the horizontal. Find its time of flight and maximum height. (g = 10 m/s²)",
             "marks": 3,
-            "answer": "Total mechanical energy is conserved. Example: Falling ball converts potential to kinetic energy."
+            "answer": "The vertical component of the initial velocity is u sin θ = 20 × 0.5 = 10 m/s. Time of flight T = 2u sin θ/g = 2 × 10/10 = 2 s. Maximum height H = (u sin θ)²/2g = 100/20 = 5 m."
           },
           {
-            "q": "Describe the process of heat conduction and explain it microscopically.",
+            "q": "Explain why a passenger falls forward when a moving bus stops suddenly.",
             "marks": 3,
-            "answer": "Heat transfer through vibration of atoms; faster atoms transfer energy to slower ones."
+            "answer": "While the bus is moving, the passenger's whole body moves with it at the same speed. When the brakes are applied, the force acts on the bus and, through friction with the floor, on the passenger's feet, which stop with it. The upper part of the body has no such force acting on it and, by the law of inertia, continues to move forward at the original speed. The result is that the upper body is thrown forward relative to the feet."
           },
           {
-            "q": "What is Doppler effect? Give real-life examples.",
+            "q": "A machine gun fires 60 bullets per minute, each of mass 50 g at 400 m/s. Calculate the force needed to hold the gun.",
             "marks": 3,
-            "answer": "Change in frequency due to relative motion. Examples: Ambulance siren, radar speed detection."
+            "answer": "Sixty bullets per minute is one bullet per second. The momentum carried away by each bullet is p = mv = 0.05 × 400 = 20 kg m/s. The rate of change of momentum is therefore 20 kg m/s per second, and by Newton's second law the force required to hold the gun steady against the recoil is 20 N."
+          },
+          {
+            "q": "State and prove the work–energy theorem for a constant force.",
+            "marks": 3,
+            "answer": "The theorem states that the work done by the net force on a body equals the change in its kinetic energy. For a constant force F producing acceleration a over a displacement s, W = Fs = mas. From the equation of motion v² = u² + 2as, we have as = (v² − u²)/2. Substituting, W = m(v² − u²)/2 = ½mv² − ½mu², which is the final kinetic energy minus the initial kinetic energy."
+          },
+          {
+            "q": "Derive an expression for the orbital velocity of a satellite close to the Earth's surface.",
+            "marks": 3,
+            "answer": "For a satellite of mass m in a circular orbit of radius r about the Earth of mass M, the gravitational attraction supplies the centripetal force: GMm/r² = mv²/r. Cancelling m and one factor of r gives v² = GM/r, so v = √(GM/r). For an orbit close to the surface r ≈ R, and since GM = gR², this becomes v = √(gR) ≈ √(9.8 × 6.4 × 10⁶) ≈ 7.9 km/s."
+          },
+          {
+            "q": "Explain why the boiling point of water decreases at high altitudes.",
+            "marks": 3,
+            "answer": "A liquid boils when its saturated vapour pressure becomes equal to the external pressure on its surface. At high altitude the atmospheric pressure is lower, so the vapour pressure reaches that smaller value at a lower temperature and the water boils below 100 °C. Because the water is cooler, food takes longer to cook, which is why a pressure cooker — which raises the pressure and hence the boiling point — is used in the hills."
           }
         ]
       },
       {
-        "name": "Section D - Long Answer (4 marks)",
+        "name": "Section D — Case-based questions (4 marks each)",
         "marks": 8,
-        "instructions": "Answer all 2 questions, each carrying 4 marks.",
+        "instructions": "Answer both case-based questions. Each has sub-parts totalling 4 marks.",
         "questions": [
           {
-            "q": "Derive the centripetal force equation for circular motion.",
+            "q": "CASE STUDY 1 — A car of mass 1000 kg travelling at 20 m/s is brought to rest in 5 s by braking. (i) Find the retardation. (ii) Find the braking force. (iii) Find the distance travelled while stopping. (iv) State the energy conversion that takes place.",
             "marks": 4,
-            "answer": "F = m*a_c = m*v^2/r = m*omega^2*r for uniform circular motion."
+            "answer": "(i) a = (v − u)/t = (0 − 20)/5 = −4 m/s², a retardation of 4 m/s². (ii) F = ma = 1000 × 4 = 4000 N, opposing the motion. (iii) s = ut + ½at² = 20(5) + ½(−4)(25) = 100 − 50 = 50 m. (iv) The kinetic energy of the car, ½(1000)(400) = 2 × 10⁵ J, is converted almost entirely into heat in the brake pads and tyres, with a little into sound."
           },
           {
-            "q": "Explain the first law of thermodynamics and derive its mathematical form.",
+            "q": "CASE STUDY 2 — A simple pendulum of length 1 m oscillates with small amplitude at a place where g = 9.8 m/s². (i) Write the formula for its time period. (ii) Calculate the time period. (iii) What happens to the period if the bob's mass is doubled? (iv) What happens if the pendulum is taken to the Moon?",
             "marks": 4,
-            "answer": "dQ = dU + dW; relates heat absorbed, internal energy change, and work done."
+            "answer": "(i) T = 2π√(l/g). (ii) T = 2π√(1/9.8) = 2π × 0.3194 ≈ 2.0 s. (iii) Nothing — the period is independent of the mass of the bob, since the restoring force and the inertia both scale with mass and the effect cancels. (iv) On the Moon g is about one sixth of its value on Earth, and since T is inversely proportional to √g, the period becomes about √6 ≈ 2.45 times longer, roughly 4.9 s — the pendulum swings much more slowly."
+          }
+        ]
+      },
+      {
+        "name": "Section E — Long Answer (5 marks each)",
+        "marks": 15,
+        "instructions": "Answer all 3 questions. Each carries 5 marks.",
+        "questions": [
+          {
+            "q": "(a) State the law of conservation of linear momentum and derive it from Newton's third law. (b) Explain the recoil of a gun using it. (c) A 4 kg gun fires a 20 g bullet at 200 m/s — find the recoil velocity.",
+            "marks": 5,
+            "answer": "(a) In the absence of an external force, the total linear momentum of a system of bodies remains constant. Consider two bodies A and B colliding. By the third law the force A exerts on B is equal and opposite to that B exerts on A, so F_AB = −F_BA. Since force is the rate of change of momentum, the momentum gained by one is exactly the momentum lost by the other over the same interval of contact, and the total change is zero. Hence the total momentum before the collision equals that after it. (b) Before firing, gun and bullet are at rest and the total momentum is zero. After firing, the bullet carries forward momentum, so the gun must carry an equal momentum backwards for the total to remain zero — this backward motion is the recoil. (c) 0 = m₁v₁ + m₂v₂, so (0.02)(200) + (4)v = 0, giving 4v = −4 and v = −1 m/s. The gun recoils at 1 m/s, opposite to the bullet."
+          },
+          {
+            "q": "(a) Define the coefficient of static and kinetic friction. (b) Why is kinetic friction less than static friction? (c) A block of mass 5 kg rests on a horizontal surface with μs = 0.4 — find the least force needed to start it moving. (g = 10 m/s²)",
+            "marks": 5,
+            "answer": "(a) The coefficient of static friction μs is the ratio of the maximum force of static friction to the normal reaction, μs = f_max/N — it governs the force needed to start motion. The coefficient of kinetic friction μk is the ratio of the force of kinetic friction to the normal reaction while the body slides, μk = f_k/N. (b) When two surfaces are at rest in contact, the microscopic irregularities interlock and cold welds form at the points of contact, and these must be broken to begin motion. Once sliding begins the surfaces are in contact at any given point for too short a time for such bonds to form fully, so the resisting force is smaller — hence μk < μs. (c) N = mg = 5 × 10 = 50 N. The limiting friction is f_max = μs N = 0.4 × 50 = 20 N, so a force just exceeding 20 N is needed to start the block moving."
+          },
+          {
+            "q": "(a) State the assumptions of the kinetic theory of gases. (b) Derive the relation between the pressure of an ideal gas and the mean square speed of its molecules. (c) Hence show that the average kinetic energy per molecule is proportional to the absolute temperature.",
+            "marks": 5,
+            "answer": "(a) A gas consists of a very large number of identical molecules in constant random motion; their own volume is negligible compared with the volume of the container; there are no intermolecular forces except during collisions; all collisions between molecules and with the walls are perfectly elastic; and the time of a collision is negligible compared with the time between collisions. (b) Consider N molecules each of mass m in a cube of side L. A molecule moving along x with velocity vₓ rebounds elastically from a wall, changing its momentum by 2mvₓ, and returns to the same wall after a time 2L/vₓ. The force it exerts is therefore 2mvₓ/(2L/vₓ) = mvₓ²/L. Summing over all molecules and dividing by the wall area L² gives P = m(Σvₓ²)/L³. Since the motion is random, the mean square speed satisfies v² = vₓ² + v_y² + v_z² = 3vₓ², so P = (1/3)(Nm/V)v̄², that is PV = (1/3)Nmv̄². (c) Comparing with the ideal gas equation PV = NkT gives (1/3)Nmv̄² = NkT, so ½mv̄² = (3/2)kT. The average kinetic energy per molecule is thus (3/2)kT — directly proportional to the absolute temperature and independent of the nature of the gas."
           }
         ]
       }

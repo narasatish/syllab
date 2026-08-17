@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { COLLEGES, COLLEGES_LIVE, COLLEGE_STATE_INFO, DUPLICATE_COLLEGE_SLUGS } from './colleges';
-import { MEDICAL_COLLEGES, MEDICAL_STATE_INFO } from './medicalColleges';
+import { MEDICAL_COLLEGES, MEDICAL_STATE_INFO, medFullCourse } from './medicalColleges';
 
 describe('engineering COLLEGES integrity', () => {
   const stateNames = new Set(COLLEGE_STATE_INFO.map((s) => s.name));
@@ -152,5 +152,61 @@ describe('NIRF ranks match the official published table', async () => {
       expect(COLLEGES.some((c) => c.slug === slug), `${slug} was deleted; its URL would 404`).toBe(true);
       expect(COLLEGES_LIVE.some((c) => c.slug === slug), `${slug} must not appear in listings`).toBe(false);
     }
+  });
+});
+
+/**
+ * The medical dataset carried the same fabricated-rank defect as the engineering
+ * one, and worse: 21 ranks were claimed by two or three colleges at once, and the
+ * AIIMS entries looked numbered sequentially rather than ranked — AIIMS Bhopal
+ * stored #4 against an actual #25, Medical College Kolkata #15 against #41. NIRF
+ * publishes a top 50 only for Medical, with no rank bands, so a college absent
+ * from that list has no published rank at all.
+ */
+describe('medical NIRF ranks match the official published table', async () => {
+  const MED = (await import('./nirf2025Medical.json')).default as { ranks: Record<string, number> };
+  const official = new Set(Object.values(MED.ranks));
+
+  it('the checked-in table is a complete 1-50 with no gaps or repeats', () => {
+    expect([...official].sort((a, b) => a - b)).toEqual(Array.from({ length: 50 }, (_, i) => i + 1));
+  });
+
+  it('every stored rank is a position that exists in the official top 50', () => {
+    for (const c of MEDICAL_COLLEGES) {
+      if (c.nirf == null) continue;
+      expect(official.has(c.nirf), `${c.slug} stores NIRF ${c.nirf}; Medical publishes only ranks 1-50`).toBe(true);
+    }
+  });
+
+  it('no two medical colleges claim the same rank', () => {
+    const seen = new Map<number, string>();
+    for (const c of MEDICAL_COLLEGES) {
+      if (c.nirf == null) continue;
+      const prev = seen.get(c.nirf);
+      expect(prev, `rank #${c.nirf} claimed by both ${prev} and ${c.slug}`).toBeUndefined();
+      seen.set(c.nirf, c.slug);
+    }
+  });
+
+  it('a full-course fee is only shown when it agrees with the per-year figure', () => {
+    for (const c of MEDICAL_COLLEGES) {
+      const shown = medFullCourse(c);
+      if (shown == null || /[₹L–]/.test(String(shown))) continue;
+      const y = Number(String(c.feesPerYear).replace(/[^0-9.]/g, ''));
+      const t = Number(String(shown).replace(/[^0-9.]/g, ''));
+      expect(Math.abs(t / y - 4.5) <= 1.0, `${c.slug} shows full-course ${shown} against ${c.feesPerYear}/yr`).toBe(true);
+    }
+  });
+
+  it('contradictory totals are suppressed rather than silently rendered', () => {
+    const contradictory = MEDICAL_COLLEGES.filter((c) => {
+      const raw = String(c.feesTotal ?? '');
+      if (!raw || /[₹L–]/.test(raw)) return false;
+      const y = Number(String(c.feesPerYear).replace(/[^0-9.]/g, ''));
+      const t = Number(raw.replace(/[^0-9.]/g, ''));
+      return y > 0 && t > 0 && Math.abs(t / y - 4.5) > 1.0;
+    });
+    for (const c of contradictory) expect(medFullCourse(c), `${c.slug} still renders a contradictory total`).toBeNull();
+    expect(contradictory.length).toBeGreaterThan(0);
   });
 });

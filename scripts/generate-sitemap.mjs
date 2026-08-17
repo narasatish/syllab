@@ -118,6 +118,14 @@ function buildUrls({ languages, topicsByLang }) {
       'thapar-patiala',
       'lpu-jalandhar',
     ]),
+    '/medical-colleges': new Set([
+      // Amrita's Kochi medical school was published twice. The retired record
+      // stored Rs 25,00,000/yr against a Rs 2,50,00,000 total (the 10x pattern)
+      // and NIRF #5; the keeper stores a self-consistent Rs 12,20,000/yr over
+      // Rs 61,00,000. Neither figure is verifiable, so the record whose own two
+      // numbers agree is the one kept.
+      'amrita-institute-kochi',
+    ]),
     '/concepts': new Set([
       'periodic-table-periodicity',
     ]),
@@ -415,6 +423,7 @@ function buildUrls({ languages, topicsByLang }) {
     if (med.colleges.some((c) => c.stateSlug === s.slug)) urls.push({ loc: `/medical-colleges/${s.slug}`, priority: 0.7, changefreq: 'weekly' });
   }
   for (const c of med.colleges) {
+    if (isRetired('/medical-colleges', c.slug)) continue;
     urls.push({ loc: `/medical-colleges/${c.stateSlug}/${c.slug}`, priority: 0.6, changefreq: 'monthly' });
   }
   // College Finder — colleges-accepting/<exam> + best-colleges/<course>
