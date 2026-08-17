@@ -2360,10 +2360,42 @@ try {
   const { generateMemoryPoster } = await import('./memoryPoster.mjs');
   generateMemoryPoster(ROOT, VISUAL_LESSONS_FULL);
 } catch (e) { console.warn('⚠️  Memory poster generation error:', e?.message || e); }
+/**
+ * /mcqs slugs retired 2026-08-16 after the first cannibalisation audit.
+ *
+ * Eleven chapters existed TWICE under two slugs with an identical <title> —
+ * class-10-maths-circles and class-10-maths-circles-mcq, plus ten more — each
+ * holding 10 of the chapter's questions. Two pages competed for one query with
+ * half the material each.
+ *
+ * The 108 questions are now merged into the keeper (~20 per chapter). The
+ * retired URL still RESOLVES but ships noindex,follow: deleting the entry would
+ * 404 any inbound link for no benefit, while noindex ends the competition.
+ * None of the 22 pages carried a single impression in the 2026-08-13 export, so
+ * no ranking was at stake either way.
+ *
+ * KEEP IN STEP with the same list in generate-sitemap.mjs — a noindex page left
+ * in the sitemap tells Google two different things about one URL.
+ * Re-run `npm run audit:cannibalisation` before adding to this list.
+ */
+const MCQ_RETIRED_SLUGS = new Set([
+  'class-10-maths-real-numbers-mcq',
+  'class-10-maths-polynomials-mcq',
+  'class-10-maths-triangles-mcq',
+  'class-10-maths-trigonometry-mcq',
+  'class-10-maths-circles-mcq',
+  'class-10-sst-nationalism-india-mcq',
+  'class-9-science-matter-mcq',
+  'class-9-science-atoms-molecules-mcq',
+  'class-9-science-cell-mcq',
+  'class-10-science-heredity-mcq',
+  'class-10-science-our-environment-mcq',
+]);
+
 const STUDY_CLUSTERS = [
   { base: '/maths-tables', name: 'Maths Tables & Charts', kw: 'maths tables, multiplication table, squares cubes primes', data: getMathsTables(ROOT), label: (x) => x.title, titleSuffix: '— Full Chart & Quick Revision', body: mathsTableBody },
   { base: '/english-writing', name: 'English Writing Skills', kw: 'essay writing, letter writing, notice article speech writing', data: getEnglishWriting(ROOT), label: (x) => x.title, body: englishWritingBody },
-  { base: '/mcqs', name: 'Chapter-wise MCQs', kw: 'MCQ with answers, objective questions, online test CBSE', data: getChapterMcqs(ROOT), label: (x) => `${x.chapter} (${x.classLevel} ${x.subject})`, body: mcqBody },
+  { base: '/mcqs', name: 'Chapter-wise MCQs', kw: 'MCQ with answers, objective questions, online test CBSE', data: getChapterMcqs(ROOT), label: (x) => `${x.chapter} (${x.classLevel} ${x.subject})`, body: mcqBody, retired: (x) => MCQ_RETIRED_SLUGS.has(x.slug) },
   { base: '/gk-facts', name: 'General Knowledge', kw: 'general knowledge, static GK, GK for exams', data: getStaticGk(ROOT), label: (x) => x.title, body: gkBody },
   { base: '/vocabulary', name: 'English Vocabulary', kw: 'idioms and phrases, proverbs, one word substitution, synonyms antonyms', data: getEnglishVocab(ROOT), label: (x) => x.title, body: vocabBody },
   { base: '/english-literature', name: 'English Literature', kw: 'english summary, character sketch, NCERT english chapter summary', data: getEnglishLiterature(ROOT), label: (x) => `${x.chapter} (${x.classLevel} English)`, body: litBody },
@@ -2388,6 +2420,10 @@ for (const c of STUDY_CLUSTERS) {
       title: `${nm} ${c.titleSuffix || ''} | Syllab.in`.replace(/\s+\|/, ' |'),
       description: x.intro || nm,
       keywords: `${nm.toLowerCase()}, ${c.kw}`,
+      // A cluster may retire a URL without deleting it — see MCQ_RETIRED_SLUGS.
+      // The page still resolves so inbound links do not 404; noindex,follow
+      // stops it competing with the page its content was merged into.
+      ...(c.retired && c.retired(x) ? { noindex: true } : {}),
       jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: c.name, item: `${SITE}${c.base}` },
         { '@type': 'ListItem', position: 2, name: nm, item: `${SITE}${c.base}/${x.slug}` },

@@ -39,7 +39,7 @@ export const SAMPLE_PAPERS: SamplePaper[] = [
     "subject": "Mathematics",
     "board": "CBSE",
     "title": "CBSE Class 10 Maths Sample Paper 2026 (with Solutions)",
-    "intro": "This sample paper follows the latest CBSE Class 10 Maths exam pattern with 40 questions spread across four sections. Practice this paper to master all chapters and boost your board exam score. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
+    "intro": "This sample paper follows the latest CBSE Class 10 Maths exam pattern, with questions spread across four sections. Practice it to revise every chapter and build board-exam confidence. This is a shortened practice set: 16 questions worth 35 marks, following the 80-mark CBSE paper pattern. Use it for timed practice, not as a full-length mock.",
     "duration": "3 hours",
     "totalMarks": 35,
     "sections": [

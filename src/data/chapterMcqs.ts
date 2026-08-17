@@ -1676,6 +1676,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 2,
         "explanation": "The Khilafat Movement was led by the Ali Brothers (Muhammad Ali and Shaukat Ali) with Gandhi's support."
+      },
+      {
+        "q": "What triggered the Sepoy Mutiny of 1857?",
+        "options": [
+          "High taxes",
+          "Religious discrimination",
+          "Forced labor",
+          "Use of cow and pig fat in cartridges"
+        ],
+        "correct": 3,
+        "explanation": "The mutiny was triggered by the use of cow and pig fat in rifle cartridges, which was offensive to both Hindu and Muslim soldiers."
+      },
+      {
+        "q": "When was the Indian National Congress founded?",
+        "options": [
+          "1885",
+          "1857",
+          "1920",
+          "1905"
+        ],
+        "correct": 0,
+        "explanation": "The Indian National Congress was established in 1885, becoming the main platform for nationalist movements."
+      },
+      {
+        "q": "Who was the first president of the Indian National Congress?",
+        "options": [
+          "Ashutosh Mukherjee",
+          "Womesh Chandra Banerjee",
+          "Surendranath Banerjee",
+          "Dadabhai Naoroji"
+        ],
+        "correct": 1,
+        "explanation": "Womesh Chandra Banerjee was the first president of the Indian National Congress."
+      },
+      {
+        "q": "What is Swaraj?",
+        "options": [
+          "British rule",
+          "Social reform",
+          "Self-rule or independence",
+          "Equality"
+        ],
+        "correct": 2,
+        "explanation": "Swaraj means self-rule or independence, and became the main goal of Indian nationalists."
+      },
+      {
+        "q": "Who gave the call for Quit India Movement?",
+        "options": [
+          "Sardar Vallabhbhai Patel",
+          "Subhas Chandra Bose",
+          "Jawaharlal Nehru",
+          "Mahatma Gandhi"
+        ],
+        "correct": 3,
+        "explanation": "Mahatma Gandhi gave the call for Quit India Movement on August 8, 1942."
+      },
+      {
+        "q": "What was the Salt March?",
+        "options": [
+          "Protest against salt tax by walking to the sea",
+          "Trade expedition",
+          "Military movement",
+          "Religious procession"
+        ],
+        "correct": 0,
+        "explanation": "The Salt March in 1930 was a non-violent protest led by Gandhi against the British salt monopoly."
+      },
+      {
+        "q": "Who was known as Lokmanya Tilak?",
+        "options": [
+          "A freedom fighter",
+          "Bal Gangadhar Tilak, a nationalist leader",
+          "A social reformer",
+          "A British official"
+        ],
+        "correct": 1,
+        "explanation": "Bal Gangadhar Tilak was called Lokmanya (people's leader) and championed Swaraj and Swadeshi movements."
+      },
+      {
+        "q": "What does Swadeshi mean?",
+        "options": [
+          "National pride",
+          "Independence",
+          "Support for indigenous goods and rejection of foreign goods",
+          "Self-government"
+        ],
+        "correct": 2,
+        "explanation": "Swadeshi promotes using Indian goods and rejecting British/foreign products, part of nationalist economic strategy."
+      },
+      {
+        "q": "When did India gain independence?",
+        "options": [
+          "1950",
+          "1930",
+          "1942",
+          "1947"
+        ],
+        "correct": 3,
+        "explanation": "India gained independence on August 15, 1947, ending British colonial rule."
+      },
+      {
+        "q": "Who was the first Prime Minister of independent India?",
+        "options": [
+          "Jawaharlal Nehru",
+          "Sardar Vallabhbhai Patel",
+          "Mahatma Gandhi",
+          "Dr. Rajendra Prasad"
+        ],
+        "correct": 0,
+        "explanation": "Jawaharlal Nehru became the first Prime Minister of independent India."
       }
     ],
     "faqs": [
@@ -2170,6 +2280,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 3,
         "explanation": "Water boils at 100 degrees Celsius at standard atmospheric pressure of 1 atm."
+      },
+      {
+        "q": "What are the three states of matter?",
+        "options": [
+          "Hot, cold, warm",
+          "Solid, liquid, plasma",
+          "Visible, invisible, transparent",
+          "Solid, liquid, gas"
+        ],
+        "correct": 3,
+        "explanation": "Matter exists in three states: solid (fixed shape and volume), liquid (fixed volume, takes container shape), gas (no fixed shape or volume)."
+      },
+      {
+        "q": "Which state of matter has a definite shape and definite volume?",
+        "options": [
+          "Solid",
+          "Gas",
+          "Plasma",
+          "Liquid"
+        ],
+        "correct": 0,
+        "explanation": "Solids have definite shape and definite volume due to strong intermolecular forces holding particles in fixed positions."
+      },
+      {
+        "q": "What is the process of conversion of solid to liquid called?",
+        "options": [
+          "Evaporation",
+          "Melting",
+          "Sublimation",
+          "Condensation"
+        ],
+        "correct": 1,
+        "explanation": "Melting is the change of state from solid to liquid when temperature increases."
+      },
+      {
+        "q": "What is the process of conversion of liquid to gas called?",
+        "options": [
+          "Melting",
+          "Freezing",
+          "Evaporation",
+          "Deposition"
+        ],
+        "correct": 2,
+        "explanation": "Evaporation is the process of conversion of liquid to gas at the surface, which occurs at any temperature."
+      },
+      {
+        "q": "What is boiling?",
+        "options": [
+          "Evaporation at surface only",
+          "Melting of solid",
+          "Freezing of liquid",
+          "Rapid evaporation throughout the liquid at fixed temperature"
+        ],
+        "correct": 3,
+        "explanation": "Boiling is rapid evaporation that occurs throughout a liquid at its boiling point, a fixed temperature."
+      },
+      {
+        "q": "What is sublimation?",
+        "options": [
+          "Solid to gas directly",
+          "Solid to liquid",
+          "Liquid to gas",
+          "Gas to liquid"
+        ],
+        "correct": 0,
+        "explanation": "Sublimation is direct conversion of solid to gas without passing through liquid state, like dry ice."
+      },
+      {
+        "q": "What is the freezing point of water?",
+        "options": [
+          "4 degrees Celsius",
+          "0 degrees Celsius",
+          "-10 degrees Celsius",
+          "100 degrees Celsius"
+        ],
+        "correct": 1,
+        "explanation": "Water freezes at 0 degrees Celsius at standard atmospheric pressure."
+      },
+      {
+        "q": "What is the boiling point of water?",
+        "options": [
+          "200 degrees Celsius",
+          "0 degrees Celsius",
+          "100 degrees Celsius",
+          "50 degrees Celsius"
+        ],
+        "correct": 2,
+        "explanation": "Water boils at 100 degrees Celsius at standard atmospheric pressure."
+      },
+      {
+        "q": "What is density?",
+        "options": [
+          "Area of object",
+          "Weight of object",
+          "Volume of object",
+          "Mass per unit volume"
+        ],
+        "correct": 3,
+        "explanation": "Density is the mass per unit volume, expressed as d = m/v."
+      },
+      {
+        "q": "Why does ice float on water?",
+        "options": [
+          "Ice has lower density than water",
+          "Ice is lighter",
+          "Ice takes less space",
+          "Water pushes ice up"
+        ],
+        "correct": 0,
+        "explanation": "Ice has lower density than liquid water (ice expands when water freezes), so it floats."
       }
     ],
     "faqs": [
@@ -2428,6 +2648,105 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 3,
         "explanation": "Lysosomes contain powerful digestive enzymes that can break down cellular components if released."
+      },
+      {
+        "q": "What is the cell?",
+        "options": [
+          "Part of tissue",
+          "Basic unit of life",
+          "Part of organ",
+          "Part of atom"
+        ],
+        "correct": 1,
+        "explanation": "The cell is the basic structural and functional unit of all living organisms."
+      },
+      {
+        "q": "What are the two main types of cells?",
+        "options": [
+          "Plant and animal cells",
+          "Active and inactive cells",
+          "Large and small cells",
+          "Prokaryotic and eukaryotic cells"
+        ],
+        "correct": 3,
+        "explanation": "Cells are classified as prokaryotic (no membrane-bound nucleus) or eukaryotic (with membrane-bound nucleus)."
+      },
+      {
+        "q": "What is the control center of the cell?",
+        "options": [
+          "Nucleus",
+          "Mitochondria",
+          "Ribosome",
+          "Cell membrane"
+        ],
+        "correct": 0,
+        "explanation": "The nucleus is the control center that contains genetic material and controls cell activities."
+      },
+      {
+        "q": "What is the powerhouse of the cell?",
+        "options": [
+          "Ribosome",
+          "Mitochondria",
+          "Nucleus",
+          "Chloroplast"
+        ],
+        "correct": 1,
+        "explanation": "Mitochondria is the powerhouse of the cell, producing ATP energy through respiration."
+      },
+      {
+        "q": "Which organelle is responsible for photosynthesis?",
+        "options": [
+          "Nucleus",
+          "Mitochondria",
+          "Chloroplast",
+          "Ribosome"
+        ],
+        "correct": 2,
+        "explanation": "Chloroplasts are present in plant cells and perform photosynthesis to produce food and oxygen."
+      },
+      {
+        "q": "What is the cell membrane?",
+        "options": [
+          "Inside the nucleus",
+          "Part of cytoplasm",
+          "A rigid outer wall",
+          "A flexible barrier controlling what enters and exits cell"
+        ],
+        "correct": 3,
+        "explanation": "The cell membrane is a semi-permeable boundary that controls the movement of substances in and out of the cell."
+      },
+      {
+        "q": "What is cytoplasm?",
+        "options": [
+          "Thick fluid inside cell containing organelles",
+          "Outside cell boundary",
+          "Genetic material",
+          "Part of nucleus"
+        ],
+        "correct": 0,
+        "explanation": "Cytoplasm is the jelly-like substance filling the cell, containing all organelles except the nucleus."
+      },
+      {
+        "q": "Which is true of plant cells but not animal cells?",
+        "options": [
+          "Nucleus",
+          "Cell wall and chloroplasts",
+          "Cell membrane",
+          "Mitochondria"
+        ],
+        "correct": 1,
+        "explanation": "Plant cells have cell walls (outside membrane) and chloroplasts, which animal cells lack."
+      },
+      {
+        "q": "What are ribosomes?",
+        "options": [
+          "Energy producers",
+          "Storage organelles",
+          "Sites of protein synthesis",
+          "Genetic material"
+        ],
+        "correct": 2,
+        "explanation": "Ribosomes are organelles where proteins are synthesized following instructions from DNA."
       }
     ],
     "faqs": [
@@ -8682,6 +9001,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 1,
         "explanation": "2 moles of Cl2 contains 2 × 2 = 4 moles of Cl atoms. Number of atoms = 4 × 6.022 × 10^23 = 2.409 × 10^24 ≈ 2.411 × 10^24."
+      },
+      {
+        "q": "Who proposed the Dalton's atomic theory?",
+        "options": [
+          "John Dalton",
+          "Bohr",
+          "Thomson",
+          "Rutherford"
+        ],
+        "correct": 0,
+        "explanation": "John Dalton proposed the atomic theory in 1808, stating that matter consists of tiny indivisible particles called atoms."
+      },
+      {
+        "q": "The mass number of an atom is equal to:",
+        "options": [
+          "Number of electrons + neutrons",
+          "Number of protons + neutrons",
+          "Number of protons",
+          "Number of electrons"
+        ],
+        "correct": 1,
+        "explanation": "The mass number is the sum of protons and neutrons, which constitute most of the atom's mass."
+      },
+      {
+        "q": "Which of the following is the correct electronic configuration of Oxygen (O)?",
+        "options": [
+          "2, 4",
+          "2, 8",
+          "2, 6",
+          "8, 2"
+        ],
+        "correct": 2,
+        "explanation": "Oxygen has atomic number 8, so its electronic configuration is 2, 6 (2 electrons in first shell, 6 in second)."
+      },
+      {
+        "q": "The molecular mass of CO2 is approximately:",
+        "options": [
+          "32",
+          "28",
+          "64",
+          "44"
+        ],
+        "correct": 3,
+        "explanation": "Molecular mass of CO2 = 12 + (16 x 2) = 12 + 32 = 44 g/mol."
+      },
+      {
+        "q": "An ion with a positive charge is called:",
+        "options": [
+          "Cation",
+          "Anion",
+          "Atom",
+          "Radical"
+        ],
+        "correct": 0,
+        "explanation": "A cation is an ion with a positive charge, formed when an atom loses electrons."
+      },
+      {
+        "q": "The atomic mass unit is defined as:",
+        "options": [
+          "Mass of proton",
+          "1/12 of carbon-12 mass",
+          "1/16 of oxygen mass",
+          "Mass of electron"
+        ],
+        "correct": 1,
+        "explanation": "One atomic mass unit (u) is defined as 1/12 of the mass of a carbon-12 atom."
+      },
+      {
+        "q": "The formula for common salt is:",
+        "options": [
+          "Na2Cl2",
+          "NaCl2",
+          "NaCl",
+          "Na2Cl"
+        ],
+        "correct": 2,
+        "explanation": "The formula for sodium chloride (common salt) is NaCl, with one sodium and one chloride ion."
+      },
+      {
+        "q": "Which of the following is a diatomic molecule?",
+        "options": [
+          "O3",
+          "P4",
+          "S8",
+          "H2"
+        ],
+        "correct": 3,
+        "explanation": "H2 (hydrogen) is a diatomic molecule consisting of two hydrogen atoms bonded together."
+      },
+      {
+        "q": "The valency of oxygen in most compounds is:",
+        "options": [
+          "2",
+          "4",
+          "3",
+          "1"
+        ],
+        "correct": 0,
+        "explanation": "Oxygen has a valency of 2 in most compounds because it needs 2 more electrons to complete its octet."
+      },
+      {
+        "q": "The molar mass of H2SO4 is approximately:",
+        "options": [
+          "102",
+          "98",
+          "100",
+          "96"
+        ],
+        "correct": 1,
+        "explanation": "Molar mass of H2SO4 = (2 x 1) + 32 + (4 x 16) = 2 + 32 + 64 = 98 g/mol."
       }
     ],
     "faqs": [
@@ -9714,6 +10143,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 3,
         "explanation": "Vestigial structures (like human tailbones) are remnants from ancestral forms and provide evidence that organisms share common ancestors."
+      },
+      {
+        "q": "What is the unit of heredity called?",
+        "options": [
+          "Chromosome",
+          "Gene",
+          "Nucleus",
+          "Allele"
+        ],
+        "correct": 1,
+        "explanation": "A gene is the unit of heredity that carries information for specific traits and is passed from parents to offspring."
+      },
+      {
+        "q": "Who is known as the father of genetics?",
+        "options": [
+          "Louis Pasteur",
+          "Robert Hooke",
+          "Gregor Mendel",
+          "Charles Darwin"
+        ],
+        "correct": 2,
+        "explanation": "Gregor Mendel conducted experiments on pea plants and established the fundamental laws of inheritance."
+      },
+      {
+        "q": "In Mendel's monohybrid cross, what was the phenotypic ratio in F2 generation?",
+        "options": [
+          "1:2:1",
+          "1:1",
+          "9:3:3:1",
+          "3:1"
+        ],
+        "correct": 3,
+        "explanation": "The 3:1 ratio appeared in the F2 generation showing that the dominant trait appeared three times more often than the recessive."
+      },
+      {
+        "q": "What are alleles?",
+        "options": [
+          "Different forms of the same gene",
+          "Recessive genes only",
+          "Dominant genes only",
+          "Different genes on same chromosome"
+        ],
+        "correct": 0,
+        "explanation": "Alleles are alternate forms of a gene that code for different versions of the same trait."
+      },
+      {
+        "q": "Which of the following is a dominant trait in humans?",
+        "options": [
+          "Blue eyes",
+          "Rolling tongue",
+          "Attached earlobes",
+          "Red hair"
+        ],
+        "correct": 1,
+        "explanation": "The ability to roll the tongue is a dominant trait, requiring only one dominant allele for expression."
+      },
+      {
+        "q": "What is a homozygous genotype?",
+        "options": [
+          "Aa or Bb",
+          "Different alleles",
+          "AA or aa",
+          "Aa"
+        ],
+        "correct": 2,
+        "explanation": "Homozygous means both alleles are the same, either AA (homozygous dominant) or aa (homozygous recessive)."
+      },
+      {
+        "q": "In a test cross, what is the ratio obtained when a homozygous dominant is crossed with homozygous recessive?",
+        "options": [
+          "1:2:1",
+          "1:1",
+          "3:1",
+          "All dominant"
+        ],
+        "correct": 3,
+        "explanation": "A test cross with a homozygous recessive produces all dominant offspring in the F1 generation."
+      },
+      {
+        "q": "Which chromosome pair determines the sex in humans?",
+        "options": [
+          "Chromosome 23",
+          "Chromosome 10",
+          "Chromosome 1",
+          "Chromosome 5"
+        ],
+        "correct": 0,
+        "explanation": "Chromosome 23 is the sex chromosome pair (XX for females, XY for males) that determines biological sex."
+      },
+      {
+        "q": "What is a variation in biology?",
+        "options": [
+          "Change in environment",
+          "Differences between individuals of same species",
+          "Disease in organism",
+          "Mutation in genes"
+        ],
+        "correct": 1,
+        "explanation": "Variation refers to the differences in traits among individuals of the same species due to genetic and environmental factors."
+      },
+      {
+        "q": "Which process leads to evolution according to Darwin?",
+        "options": [
+          "Mutation",
+          "Genetic drift",
+          "Natural selection",
+          "Adaptation"
+        ],
+        "correct": 2,
+        "explanation": "Natural selection is the mechanism Darwin proposed where organisms with favorable traits survive and reproduce more successfully."
       }
     ],
     "faqs": [
@@ -9843,6 +10382,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 1,
         "explanation": "The question asks for the single largest contributor. Burning coal, oil and gas is by far the biggest source of anthropogenic CO₂, which is why \"all of the above\" cannot be the answer to a \"most impact\" question."
+      },
+      {
+        "q": "What is an ecosystem?",
+        "options": [
+          "Only soil",
+          "Only animals in an area",
+          "Only plants in an area",
+          "Living organisms and their physical environment in an area"
+        ],
+        "correct": 3,
+        "explanation": "An ecosystem includes all living organisms (biotic) and non-living things (abiotic) in an area, along with their interactions."
+      },
+      {
+        "q": "What are producers in an ecosystem?",
+        "options": [
+          "Green plants that make their own food",
+          "Humans",
+          "Organisms that decompose",
+          "Animals that eat plants"
+        ],
+        "correct": 0,
+        "explanation": "Producers are autotrophs, mainly green plants, that produce food through photosynthesis using sunlight."
+      },
+      {
+        "q": "What are decomposers in an ecosystem?",
+        "options": [
+          "Parasites",
+          "Organisms that break down dead organic matter",
+          "Carnivores",
+          "Herbivores"
+        ],
+        "correct": 1,
+        "explanation": "Decomposers like bacteria and fungi break down dead organic matter and release nutrients back into the soil."
+      },
+      {
+        "q": "What is a food chain?",
+        "options": [
+          "A line of animals",
+          "A chain of restaurants",
+          "A sequence showing energy transfer from producers to consumers",
+          "A type of food"
+        ],
+        "correct": 2,
+        "explanation": "A food chain is a linear sequence showing the transfer of energy from producers through various levels of consumers."
+      },
+      {
+        "q": "What percentage of energy is transferred from one trophic level to the next?",
+        "options": [
+          "50%",
+          "25%",
+          "100%",
+          "10%"
+        ],
+        "correct": 3,
+        "explanation": "Approximately 10% of energy is transferred from one trophic level to the next, with the rest lost as heat and in metabolism."
+      },
+      {
+        "q": "What is biomagnification?",
+        "options": [
+          "Accumulation of toxic substances in higher trophic levels",
+          "Increase in organism size",
+          "Growth of biomass",
+          "Increase in food chain length"
+        ],
+        "correct": 0,
+        "explanation": "Biomagnification is the accumulation of harmful substances like pesticides in organisms at higher trophic levels in greater concentrations."
+      },
+      {
+        "q": "What is the main cause of ozone layer depletion?",
+        "options": [
+          "Methane",
+          "Chlorofluorocarbons (CFCs)",
+          "Nitrogen oxides",
+          "Carbon dioxide"
+        ],
+        "correct": 1,
+        "explanation": "CFCs are chlorine-containing compounds that break down ozone molecules in the stratosphere, creating the ozone hole."
+      },
+      {
+        "q": "What is the greenhouse effect?",
+        "options": [
+          "Acid rain",
+          "Growing plants in a greenhouse",
+          "Trapping of heat in the atmosphere by gases",
+          "Depletion of ozone"
+        ],
+        "correct": 2,
+        "explanation": "The greenhouse effect is the warming of Earth's atmosphere due to infrared radiation being trapped by gases like CO2 and methane."
+      },
+      {
+        "q": "Which gas is primarily responsible for global warming?",
+        "options": [
+          "Oxygen",
+          "Nitrogen",
+          "Argon",
+          "Carbon dioxide"
+        ],
+        "correct": 3,
+        "explanation": "Carbon dioxide is the major greenhouse gas contributing to global warming, released mainly by burning fossil fuels."
+      },
+      {
+        "q": "What is waste management?",
+        "options": [
+          "Minimize waste and dispose responsibly through reduce, reuse, recycle",
+          "Burying waste",
+          "Burning waste",
+          "Throwing waste away"
+        ],
+        "correct": 0,
+        "explanation": "Waste management involves reducing waste generation, reusing materials, and recycling to minimize environmental impact."
       }
     ],
     "faqs": [
@@ -9972,6 +10621,105 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 2,
         "explanation": "Irrational numbers have non-terminating, non-repeating decimal expansions and cannot be expressed as simple fractions."
+      },
+      {
+        "q": "The HCF of two numbers is 12 and their LCM is 180. If one number is 36, what is the other?",
+        "options": [
+          "72",
+          "96",
+          "60",
+          "84"
+        ],
+        "correct": 2,
+        "explanation": "Using HCF x LCM = Product of two numbers: 12 x 180 = 36 x other, so other = 2160/36 = 60."
+      },
+      {
+        "q": "The decimal expansion of a rational number is:",
+        "options": [
+          "Terminating or non-terminating repeating",
+          "Always terminating",
+          "Non-terminating and non-repeating",
+          "Always non-terminating"
+        ],
+        "correct": 0,
+        "explanation": "Rational numbers have either terminating decimals or non-terminating repeating decimals."
+      },
+      {
+        "q": "If a = 2^3 x 3^2 x 5 and b = 2^2 x 3 x 5^2, then LCM(a,b) is:",
+        "options": [
+          "2^2 x 3 x 5",
+          "2^3 x 3^2 x 5^2",
+          "2^3 x 3^2 x 5",
+          "2^2 x 3^2 x 5^2"
+        ],
+        "correct": 1,
+        "explanation": "LCM is found by taking the highest power of each prime factor: 2^3 x 3^2 x 5^2."
+      },
+      {
+        "q": "Euclid's division lemma states that for integers a and b, a = bq + r where:",
+        "options": [
+          "r >= b",
+          "r < 0",
+          "0 <= r < b",
+          "r >= 0"
+        ],
+        "correct": 2,
+        "explanation": "In Euclid's division lemma, the remainder r must satisfy 0 <= r < b for any integer division."
+      },
+      {
+        "q": "The sum of two rational numbers is always:",
+        "options": [
+          "Irrational",
+          "Sometimes rational",
+          "Neither rational nor irrational",
+          "Rational"
+        ],
+        "correct": 3,
+        "explanation": "The sum of two rational numbers is always rational because the set of rational numbers is closed under addition."
+      },
+      {
+        "q": "sqrt(2) + sqrt(3) is:",
+        "options": [
+          "Irrational",
+          "Neither",
+          "Rational",
+          "Can be rational or irrational"
+        ],
+        "correct": 0,
+        "explanation": "The sum of two irrational numbers can be irrational. In this case, sqrt(2) + sqrt(3) is irrational."
+      },
+      {
+        "q": "If p and q are primes and p divides q, then:",
+        "options": [
+          "p > q",
+          "p = q",
+          "p < q",
+          "p divides q"
+        ],
+        "correct": 1,
+        "explanation": "If a prime p divides another prime q, then p must equal q because primes have no other divisors."
+      },
+      {
+        "q": "The HCF of 36 and 48 is:",
+        "options": [
+          "6",
+          "24",
+          "12",
+          "36"
+        ],
+        "correct": 2,
+        "explanation": "36 = 2² x 3² and 48 = 2⁴ x 3. The HCF takes the lowest power of each common prime: 2² x 3 = 12."
+      },
+      {
+        "q": "The product of a non-zero rational and an irrational number is:",
+        "options": [
+          "Rational",
+          "Neither",
+          "Zero",
+          "Irrational"
+        ],
+        "correct": 3,
+        "explanation": "The product of a non-zero rational and an irrational number is always irrational."
       }
     ],
     "faqs": [
@@ -10101,6 +10849,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 0,
         "explanation": "Degree = 3 (from (x+1)³) + 2 (from (x-2)²) + 1 (from (x+3)) = 6."
+      },
+      {
+        "q": "If x = 2 is a zero of the polynomial p(x) = x^2 - 2x + k, then k is:",
+        "options": [
+          "0",
+          "2",
+          "4",
+          "-2"
+        ],
+        "correct": 0,
+        "explanation": "If x = 2 is a zero, then p(2) = 0. So 4 - 4 + k = 0, which gives k = 0."
+      },
+      {
+        "q": "The degree of the polynomial 4x^3 - 5x^2 + 2x - 1 is:",
+        "options": [
+          "1",
+          "3",
+          "4",
+          "2"
+        ],
+        "correct": 1,
+        "explanation": "The degree of a polynomial is the highest power of the variable, which is 3 in this case."
+      },
+      {
+        "q": "If the sum of zeros of the polynomial x^2 - 5x + 6 is s, then s is:",
+        "options": [
+          "3",
+          "6",
+          "5",
+          "-5"
+        ],
+        "correct": 2,
+        "explanation": "For a quadratic ax^2 + bx + c, sum of zeros = -b/a = -(-5)/1 = 5."
+      },
+      {
+        "q": "The product of zeros of the polynomial 2x^2 - 8x + 6 is:",
+        "options": [
+          "-4",
+          "-3",
+          "4",
+          "3"
+        ],
+        "correct": 3,
+        "explanation": "For a quadratic ax^2 + bx + c, product of zeros = c/a = 6/2 = 3."
+      },
+      {
+        "q": "When p(x) = x^3 - 2x^2 + x - 1 is divided by (x - 1), the remainder is:",
+        "options": [
+          "-1",
+          "0",
+          "-2",
+          "-3"
+        ],
+        "correct": 0,
+        "explanation": "By the Remainder Theorem the remainder is p(1) = 1 - 2 + 1 - 1 = -1."
+      },
+      {
+        "q": "Which of the following is a factor of x^3 - 8?",
+        "options": [
+          "x + 2",
+          "x - 2",
+          "x^2 + 2x + 4",
+          "All of the above"
+        ],
+        "correct": 3,
+        "explanation": "x^3 - 8 = (x - 2)(x^2 + 2x + 4), so all three are factors of this polynomial."
+      },
+      {
+        "q": "The number of zeros of a cubic polynomial is at most:",
+        "options": [
+          "1",
+          "3",
+          "4",
+          "2"
+        ],
+        "correct": 1,
+        "explanation": "A polynomial of degree n has at most n zeros. A cubic polynomial has degree 3, so it has at most 3 zeros."
+      },
+      {
+        "q": "If (x - 1) is a factor of x^3 + ax^2 - 2x - 1, then a is:",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "-1"
+        ],
+        "correct": 2,
+        "explanation": "If (x - 1) is a factor, then p(1) = 0. So 1 + a - 2 - 1 = 0, which gives a = 2."
+      },
+      {
+        "q": "The zeros of the polynomial (x - 3)(x + 2)(x - 1) are:",
+        "options": [
+          "-3, -2, -1",
+          "3, 2, 1",
+          "-3, 2, -1",
+          "3, -2, 1"
+        ],
+        "correct": 3,
+        "explanation": "The zeros are the values of x that make the polynomial equal to 0, which are 3, -2, and 1."
+      },
+      {
+        "q": "If the polynomial x^2 - px + q has zeros a and b, then:",
+        "options": [
+          "a + b = p, ab = q",
+          "a + b = -p, ab = -q",
+          "a + b = p, ab = -q",
+          "a + b = q, ab = p"
+        ],
+        "correct": 0,
+        "explanation": "By Vieta's formulas, sum of zeros = p and product of zeros = q for the polynomial x^2 - px + q."
       }
     ],
     "faqs": [
@@ -10230,6 +11088,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 2,
         "explanation": "The triangle inequality theorem states that the sum of any two sides must be greater than the third side."
+      },
+      {
+        "q": "If two triangles are similar, then their corresponding angles are:",
+        "options": [
+          "Supplementary",
+          "Proportional",
+          "Complementary",
+          "Equal"
+        ],
+        "correct": 3,
+        "explanation": "If two triangles are similar, their corresponding angles are equal and corresponding sides are proportional."
+      },
+      {
+        "q": "The basic proportionality theorem states that if a line is drawn parallel to one side of a triangle, then it divides the other two sides:",
+        "options": [
+          "Proportionally",
+          "Equally",
+          "In ratio 1:1",
+          "At their midpoints"
+        ],
+        "correct": 0,
+        "explanation": "The basic proportionality theorem (Thales' theorem) states that a line parallel to one side divides the other two sides proportionally."
+      },
+      {
+        "q": "If in triangle ABC, AB = 3 cm, BC = 4 cm, and AC = 5 cm, then triangle ABC is:",
+        "options": [
+          "Equilateral",
+          "Right-angled",
+          "Obtuse-angled",
+          "Acute-angled"
+        ],
+        "correct": 1,
+        "explanation": "Since 3^2 + 4^2 = 9 + 16 = 25 = 5^2, triangle ABC is right-angled at B."
+      },
+      {
+        "q": "The area of a triangle with sides a, b, and c is given by:",
+        "options": [
+          "a x b x c",
+          "sqrt(a^2 + b^2 - 2ab cosC)",
+          "sqrt(s(s-a)(s-b)(s-c))",
+          "(1/2) x base x height"
+        ],
+        "correct": 2,
+        "explanation": "Heron's formula gives the area of a triangle as sqrt(s(s-a)(s-b)(s-c)) where s = (a+b+c)/2."
+      },
+      {
+        "q": "If triangle ABC is similar to triangle PQR, and AB:PQ = 2:3, then the ratio of their areas is:",
+        "options": [
+          "2:3",
+          "8:27",
+          "6:9",
+          "4:9"
+        ],
+        "correct": 3,
+        "explanation": "The ratio of areas of similar triangles is the square of the ratio of corresponding sides: (2/3)^2 = 4/9."
+      },
+      {
+        "q": "Two triangles are congruent if:",
+        "options": [
+          "SSS, SAS, ASA, or AAS conditions are satisfied",
+          "They are similar",
+          "Their corresponding angles are equal",
+          "They have the same area"
+        ],
+        "correct": 0,
+        "explanation": "Two triangles are congruent if they satisfy any of the congruence criteria: SSS, SAS, ASA, AAS, or RHS."
+      },
+      {
+        "q": "In a right-angled triangle, if the hypotenuse is 13 cm and one side is 5 cm, the other side is:",
+        "options": [
+          "8 cm",
+          "12 cm",
+          "10 cm",
+          "9 cm"
+        ],
+        "correct": 1,
+        "explanation": "Using Pythagorean theorem: other side = sqrt(13^2 - 5^2) = sqrt(169 - 25) = sqrt(144) = 12 cm."
+      },
+      {
+        "q": "The angle bisector theorem states that the angle bisector divides the opposite side in the ratio of:",
+        "options": [
+          "1:1",
+          "The altitudes",
+          "The adjacent sides",
+          "The other two angles"
+        ],
+        "correct": 2,
+        "explanation": "The angle bisector theorem states that the angle bisector divides the opposite side in the ratio of the adjacent sides."
+      },
+      {
+        "q": "If the altitude from vertex A to side BC of triangle ABC is 6 cm and BC = 8 cm, the area is:",
+        "options": [
+          "48 cm^2",
+          "12 cm^2",
+          "36 cm^2",
+          "24 cm^2"
+        ],
+        "correct": 3,
+        "explanation": "Area of triangle = (1/2) x base x height = (1/2) x 8 x 6 = 24 cm^2."
+      },
+      {
+        "q": "If triangle ABC has sides 6 cm, 8 cm, and 10 cm, then the radius of its circumcircle is:",
+        "options": [
+          "5 cm",
+          "3 cm",
+          "6 cm",
+          "4 cm"
+        ],
+        "correct": 0,
+        "explanation": "For a right-angled triangle, the circumradius = hypotenuse/2 = 10/2 = 5 cm."
       }
     ],
     "faqs": [
@@ -10359,6 +11327,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 0,
         "explanation": "Any angle inscribed in a semicircle (with the diameter as one side) is always a right angle (90°)."
+      },
+      {
+        "q": "What is the relationship between a tangent and radius at the point of contact?",
+        "options": [
+          "They are equal",
+          "They are complementary",
+          "They are parallel",
+          "They are perpendicular"
+        ],
+        "correct": 3,
+        "explanation": "A tangent to a circle is perpendicular to the radius at the point of contact."
+      },
+      {
+        "q": "How many tangents can be drawn from an external point to a circle?",
+        "options": [
+          "2",
+          "Infinite",
+          "1",
+          "3"
+        ],
+        "correct": 0,
+        "explanation": "Exactly 2 tangents can be drawn from an external point to a circle, and they are equal in length."
+      },
+      {
+        "q": "What is a secant to a circle?",
+        "options": [
+          "A line parallel to radius",
+          "A line intersecting circle at two points",
+          "A line touching circle at one point",
+          "A line inside circle"
+        ],
+        "correct": 1,
+        "explanation": "A secant is a line that intersects a circle at two distinct points."
+      },
+      {
+        "q": "What is the angle subtended by a diameter at any point on the circle?",
+        "options": [
+          "180 degrees",
+          "60 degrees",
+          "90 degrees",
+          "45 degrees"
+        ],
+        "correct": 2,
+        "explanation": "By Thales' theorem, angle subtended by diameter at any point on the circle is 90 degrees."
+      },
+      {
+        "q": "What is the relationship between inscribed angle and central angle subtending the same arc?",
+        "options": [
+          "They are equal",
+          "They sum to 180 degrees",
+          "Central angle is half of inscribed angle",
+          "Inscribed angle is half of central angle"
+        ],
+        "correct": 3,
+        "explanation": "The inscribed angle is half the central angle when both subtend the same arc."
+      },
+      {
+        "q": "What is the power of a point theorem?",
+        "options": [
+          "If two chords intersect inside circle, then PA*PB = PC*PD",
+          "Tangent equals chord",
+          "Two chords intersect",
+          "Radius equals diameter"
+        ],
+        "correct": 0,
+        "explanation": "If two chords AB and CD intersect at point P inside a circle, then PA*PB = PC*PD."
+      },
+      {
+        "q": "What is the circumference of a circle with radius r?",
+        "options": [
+          "πr",
+          "2πr",
+          "πr^2",
+          "πd"
+        ],
+        "correct": 1,
+        "explanation": "The circumference formula is C = 2πr, where r is the radius."
+      },
+      {
+        "q": "What is the area of a circle with radius r?",
+        "options": [
+          "πr^2/2",
+          "2πr",
+          "πr^2",
+          "πr"
+        ],
+        "correct": 2,
+        "explanation": "The area of a circle is A = πr^2."
+      },
+      {
+        "q": "What are the lengths of two tangents drawn from an external point?",
+        "options": [
+          "Product equals radius",
+          "Different",
+          "Sum to radius",
+          "Equal"
+        ],
+        "correct": 3,
+        "explanation": "The two tangents drawn from an external point to a circle are equal in length."
+      },
+      {
+        "q": "What is the angle between a tangent and a chord at point of contact?",
+        "options": [
+          "Equals inscribed angle in alternate segment",
+          "Equals central angle",
+          "Equals 90 degrees",
+          "Random"
+        ],
+        "correct": 0,
+        "explanation": "By the alternate segment theorem, the angle between tangent and chord equals the inscribed angle in the alternate segment."
       }
     ],
     "faqs": [
@@ -10488,6 +11566,116 @@ export const MCQ_CHAPTERS: McqChapter[] = [
         ],
         "correct": 2,
         "explanation": "cot(θ) = 1/tan(θ) = cos(θ)/sin(θ) = adjacent/opposite."
+      },
+      {
+        "q": "In a right-angled triangle, sin A =",
+        "options": [
+          "Hypotenuse / Opposite",
+          "Opposite / Hypotenuse",
+          "Adjacent / Hypotenuse",
+          "Opposite / Adjacent"
+        ],
+        "correct": 1,
+        "explanation": "Sin A = Opposite / Hypotenuse, which is one of the basic trigonometric ratios."
+      },
+      {
+        "q": "If sin A = 3/5 and angle A is acute, then cos A =",
+        "options": [
+          "5/4",
+          "3/4",
+          "4/5",
+          "5/3"
+        ],
+        "correct": 2,
+        "explanation": "Using sin^2 A + cos^2 A = 1: (3/5)^2 + cos^2 A = 1, so cos^2 A = 16/25, thus cos A = 4/5."
+      },
+      {
+        "q": "The value of sin 0 degrees is:",
+        "options": [
+          "-1",
+          "1/2",
+          "1",
+          "0"
+        ],
+        "correct": 3,
+        "explanation": "sin 0 = 0, which is a standard trigonometric value."
+      },
+      {
+        "q": "tan A = cot A when A =",
+        "options": [
+          "45 degrees",
+          "60 degrees",
+          "30 degrees",
+          "90 degrees"
+        ],
+        "correct": 0,
+        "explanation": "tan A = cot A when tan A = 1/tan A, which means tan^2 A = 1, so A = 45 degrees."
+      },
+      {
+        "q": "If sin A = cos B and A and B are acute angles, then A + B =",
+        "options": [
+          "180 degrees",
+          "90 degrees",
+          "45 degrees",
+          "60 degrees"
+        ],
+        "correct": 1,
+        "explanation": "If sin A = cos B, then A and B are complementary angles, so A + B = 90 degrees."
+      },
+      {
+        "q": "The value of sec 60 degrees is:",
+        "options": [
+          "sqrt(2)",
+          "sqrt(3)/2",
+          "2",
+          "2/sqrt(3)"
+        ],
+        "correct": 2,
+        "explanation": "sec 60 = 1/cos 60 = 1/(1/2) = 2."
+      },
+      {
+        "q": "If tan A = 1/sqrt(3), then A =",
+        "options": [
+          "90 degrees",
+          "60 degrees",
+          "45 degrees",
+          "30 degrees"
+        ],
+        "correct": 3,
+        "explanation": "tan 30 = 1/sqrt(3), so A = 30 degrees."
+      },
+      {
+        "q": "sin^2 A + cos^2 A =",
+        "options": [
+          "1",
+          "0",
+          "2",
+          "-1"
+        ],
+        "correct": 0,
+        "explanation": "sin^2 A + cos^2 A = 1 is the fundamental trigonometric identity."
+      },
+      {
+        "q": "If a ladder of length 10 m leans against a wall making 60 degrees with the ground, the height at which it touches the wall is:",
+        "options": [
+          "5 m",
+          "5sqrt(3) m",
+          "10sqrt(3) m",
+          "10 m"
+        ],
+        "correct": 1,
+        "explanation": "Height = 10 x sin 60 = 10 x sqrt(3)/2 = 5sqrt(3) m."
+      },
+      {
+        "q": "The angle of elevation from a point on the ground to the top of a 20 m building is 30 degrees. The distance from the point to the base of the building is:",
+        "options": [
+          "10sqrt(3) m",
+          "40/sqrt(3) m",
+          "20sqrt(3) m",
+          "10 m"
+        ],
+        "correct": 2,
+        "explanation": "Distance = 20 / tan 30 = 20 / (1/sqrt(3)) = 20sqrt(3) m."
       }
     ],
     "faqs": [

@@ -356,10 +356,29 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/sample-papers/${p.slug}`, priority: 0.7, changefreq: 'monthly' });
   }
 
+  // Mirror of MCQ_RETIRED_SLUGS in generate-prerender.mjs. Duplicated on
+  // purpose: this script must not import the prerenderer. If the two ever
+  // disagree, the site tells Google two different things about one URL.
+  const MCQ_RETIRED_SLUGS = new Set([
+    'class-10-maths-real-numbers-mcq', 'class-10-maths-polynomials-mcq',
+    'class-10-maths-triangles-mcq', 'class-10-maths-trigonometry-mcq',
+    'class-10-maths-circles-mcq', 'class-10-sst-nationalism-india-mcq',
+    'class-9-science-matter-mcq', 'class-9-science-atoms-molecules-mcq',
+    'class-9-science-cell-mcq', 'class-10-science-heredity-mcq',
+    'class-10-science-our-environment-mcq',
+  ]);
+
   // New study clusters (maths tables, writing, mcqs, gk, vocab, literature)
   for (const [base, fn] of [['/maths-tables', getMathsTables], ['/english-writing', getEnglishWriting], ['/mcqs', getChapterMcqs], ['/gk-facts', getStaticGk], ['/vocabulary', getEnglishVocab], ['/english-literature', getEnglishLiterature], ['/concepts', getConcepts], ['/solved-examples', getSolvedExamples], ['/lab-practicals', getLabPracticals], ['/visual-learning', getVisualLessons], ['/timelines', getTimelines], ['/what-to-study', getWhatToStudy], ['/pyqs', getPyqs]]) {
     urls.push({ loc: base, priority: 0.8, changefreq: 'weekly' });
-    for (const x of fn(ROOT)) urls.push({ loc: `${base}/${x.slug}`, priority: 0.7, changefreq: 'monthly' });
+    for (const x of fn(ROOT)) {
+      // Retired duplicates ship noindex,follow (see MCQ_RETIRED_SLUGS in
+      // generate-prerender.mjs). Listing a noindex URL here would tell Google
+      // "index this" in the sitemap while the page says "don't" — keep the two
+      // lists in step.
+      if (base === '/mcqs' && MCQ_RETIRED_SLUGS.has(x.slug)) continue;
+      urls.push({ loc: `${base}/${x.slug}`, priority: 0.7, changefreq: 'monthly' });
+    }
   }
 
   // AMP Web Stories (Google Discover) — one per visual lesson + the hub.
