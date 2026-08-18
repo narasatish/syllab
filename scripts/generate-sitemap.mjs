@@ -364,10 +364,26 @@ function buildUrls({ languages, topicsByLang }) {
     10: ['mathematics', 'science', 'social-science', 'english'], 11: ['physics', 'chemistry', 'biology', 'mathematics'],
     12: ['physics', 'chemistry', 'biology', 'mathematics'],
   };
+  // A subject hub with no chapters behind it ships noindex (see the same test in
+  // generate-prerender.mjs). Listing it here as well would have the sitemap say
+  // "index this" while the page says "do not" — the contradiction that put a
+  // soft-404 in the sitemap the last time these two files disagreed.
+  const iqSubjName = (x) => x.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
+  const iqClsOf = (x) => (String(x.classLevel).match(/\d+/) || [''])[0];
+  const IQ_M = getChapterMcqs(ROOT), IQ_P = getPyqs(ROOT), IQ_R = getRevisionNotes(ROOT), IQ_L = getEnglishLiterature(ROOT);
+  const iqHasChapters = (c, slug) => {
+    const name = iqSubjName(slug);
+    const hit = (arr) => arr.some((x) => iqClsOf(x) === String(c) && x.subject === name);
+    if (hit(IQ_M) || hit(IQ_P) || hit(IQ_R)) return true;
+    return slug === 'english' && IQ_L.some((x) => iqClsOf(x) === String(c));
+  };
   urls.push({ loc: '/important-questions', priority: 0.8, changefreq: 'weekly' });
   for (const [c, subs] of Object.entries(IQ)) {
     urls.push({ loc: `/important-questions/class-${c}`, priority: 0.7, changefreq: 'monthly' });
-    for (const s of subs) urls.push({ loc: `/important-questions/class-${c}/${s}`, priority: 0.6, changefreq: 'monthly' });
+    for (const s of subs) {
+      if (!iqHasChapters(c, s)) continue;
+      urls.push({ loc: `/important-questions/class-${c}/${s}`, priority: 0.6, changefreq: 'monthly' });
+    }
   }
   // Linkable assets — printable formula posters (static files in public/posters/).
   for (const p of POSTER_SHEETS) urls.push({ loc: posterHref(p.slug), priority: 0.7, changefreq: 'monthly' });

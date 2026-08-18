@@ -1396,6 +1396,111 @@ for (const c of [5, 6, 7, 8, 9, 10, 11, 12]) {
 }
 
 // ─── Important Questions — programmatic cluster (Class 6–12, per subject) ─────
+/**
+ * Bodies for the /important-questions hubs.
+ *
+ * 35 pages carried nothing but a breadcrumb in JSON-LD. "Important Questions for
+ * Class 10 Science (Chapter-wise, Free)" rendered a title, its own meta
+ * description repeated as a TL;DR, and a nav strip — while the MCQ, PYQ and
+ * revision banks already held 47 chapters for exactly that class and subject,
+ * each with a page of its own. The hub's job is to route a student to them, and
+ * it was routing nobody anywhere.
+ *
+ * Nothing is authored here: every row is a chapter that exists, and a column is
+ * only a link when that bank actually has that chapter.
+ */
+function iqSubjectBody(cls, subjSlug, subjectName, banks, weightage) {
+  const { mcqs, pyqs, revision, lit } = banks;
+  const chapters = new Map();
+  const add = (rec, kind) => {
+    const key = String(rec.chapter || rec.title || rec.slug).trim();
+    const e = chapters.get(key) || { name: key };
+    e[kind] = rec.slug;
+    chapters.set(key, e);
+  };
+  mcqs.forEach((r) => add(r, 'mcq'));
+  pyqs.forEach((r) => add(r, 'pyq'));
+  revision.forEach((r) => add(r, 'rev'));
+  lit.forEach((r) => add(r, 'lit'));
+  const rows = [...chapters.values()].sort((a, b) => a.name.localeCompare(b.name));
+  if (!rows.length) return '';
+
+  const nPyq = rows.filter((r) => r.pyq).length;
+  const nMcq = rows.filter((r) => r.mcq).length;
+  const nRev = rows.filter((r) => r.rev).length;
+  const heavy = (weightage && weightage.units || []).slice().sort((a, b) => b.marks - a.marks).slice(0, 3);
+
+  const faqs = [
+    { q: `Which chapters are most important for Class ${cls} ${subjectName}?`, a: heavy.length
+      ? `By marks, ${heavy.map((u) => `${u.name} (${u.marks})`).join(', ')} carry the most in the board paper — see the weightage table above. Within those, the chapters listed below with past-year questions are the ones examiners have actually returned to.`
+      : `The chapters below are the ones with question banks behind them — ${nPyq} have past-year questions, which is the most reliable signal of what gets asked. Start there rather than with the first chapter in the book.` },
+    { q: `How should I use important questions when revising?`, a: `Read the chapter first, then attempt its questions closed-book, and only then check the solutions. Working the questions before revising the chapter tells you what you do not know, which is useful; working them with the answers open tells you nothing at all.` },
+    nPyq ? { q: `Are previous year questions available for Class ${cls} ${subjectName}?`, a: `Yes — ${nPyq} of the ${rows.length} chapters listed have a past-year question set with worked solutions, linked in the table above.` } : null,
+  ].filter(Boolean);
+
+  const cell = (slug, base, label) => (slug ? `<a href="${base}/${slug}">${label}</a>` : '—');
+
+  return `
+    <p class="speakable">Chapter-wise important questions for <strong>Class ${cls} ${esc(subjectName)}</strong>. ${rows.length} ${rows.length === 1 ? 'chapter is' : 'chapters are'} covered below${nPyq ? `, ${nPyq} with past-year questions` : ''}${nMcq ? ` and ${nMcq} with objective practice` : ''} — every link goes to a full set with worked solutions, free and without a login.</p>
+
+    ${heavy.length ? `<h2>Where the Marks Are — Class ${cls} ${esc(subjectName)}</h2>
+    <p>${esc(weightage.intro || '')}</p>
+    <table><thead><tr><th>Unit</th><th>Marks</th><th>Focus on</th></tr></thead><tbody>
+      ${(weightage.units || []).slice().sort((a, b) => b.marks - a.marks).map((u) => `<tr><td>${esc(u.name)}</td><td>${u.marks}</td><td>${esc(u.tip || '')}</td></tr>`).join('')}
+    </tbody></table>
+    <p><a href="/what-to-study/${esc(weightage.slug)}">Full marks weightage for Class ${cls} ${esc(subjectName)} →</a></p>` : ''}
+
+    <h2>Chapter-wise Important Questions</h2>
+    <p>Each row links to the material that exists for that chapter. A dash means we do not have that format for the chapter yet — it is not a broken link.</p>
+    <table><thead><tr><th>Chapter</th><th>Past-year questions</th><th>Objective / MCQs</th><th>Revision notes</th></tr></thead><tbody>
+      ${rows.map((r) => `<tr><td>${esc(r.name)}</td><td>${cell(r.pyq, '/pyqs', 'PYQs')}</td><td>${cell(r.mcq, '/mcqs', 'MCQs')}</td><td>${cell(r.rev || r.lit, r.rev ? '/revision-notes' : '/english-literature', r.rev ? 'Notes' : 'Summary')}</td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>How to Work Through These</h2>
+    <p>Take the chapters in order of marks, not in order of the textbook. For each one, read the revision notes to fix the ideas, then do the past-year questions under time — those show you the phrasing examiners actually use, which is usually narrower than the chapter itself. Objective questions are best left for the last week, when they become a fast way to find gaps rather than a way to learn.</p>
+    <p>A chapter is finished when you can produce the answer without looking, not when you have read the solution and agreed with it.</p>
+
+    ${faqBlock(faqs)}
+
+    <p><a href="/important-questions/class-${cls}">All Class ${cls} subjects →</a> · <a href="/sample-papers">Full-length sample papers →</a> · <a href="/pyqs">All previous-year questions →</a></p>`;
+}
+
+/** Class-level hub: route to the subjects that actually have material. */
+function iqClassBody(cls, entries) {
+  const live = entries.filter((e) => e.count > 0);
+  if (!live.length) return '';
+  return `
+    <p class="speakable">Important questions for <strong>Class ${cls}</strong>, arranged by subject. ${live.length} ${live.length === 1 ? 'subject has' : 'subjects have'} chapter-wise question sets with worked solutions — pick a subject to see its chapters.</p>
+
+    <h2>Class ${cls} — Subjects</h2>
+    <table><thead><tr><th>Subject</th><th>Chapters covered</th><th></th></tr></thead><tbody>
+      ${live.map((e) => `<tr><td>${esc(e.name)}</td><td>${e.count}</td><td><a href="/important-questions/class-${cls}/${e.slug}">Important questions →</a></td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>What Counts as an "Important" Question</h2>
+    <p>The phrase is only useful if it means something measurable. Here it means a question that has appeared in a past board or school paper, or that sits in a unit carrying heavy marks in the official blueprint — not a question somebody guessed might be asked. Where a subject has a published marks weightage, it is shown on that subject's page so you can see which chapters are worth the time.</p>
+
+    <p><a href="/important-questions">All classes →</a> · <a href="/sample-papers">Sample papers →</a> · <a href="/what-to-study">Marks weightage by subject →</a></p>`;
+}
+
+// Chapter banks keyed by class + subject, so the hubs can link to what exists.
+const IQ_MCQS = getChapterMcqs(ROOT);
+const IQ_PYQS = getPyqs(ROOT);
+const IQ_REV = getRevisionNotes(ROOT);
+const IQ_LIT = getEnglishLiterature(ROOT);
+const IQ_WEIGHT = getWhatToStudy(ROOT);
+const iqCls = (x) => (String(x.classLevel).match(/\d+/) || [''])[0];
+function iqBanks(cls, subjSlug, subjectName) {
+  const pick = (arr) => arr.filter((x) => iqCls(x) === String(cls) && x.subject === subjectName);
+  return {
+    mcqs: pick(IQ_MCQS),
+    pyqs: pick(IQ_PYQS),
+    revision: pick(IQ_REV),
+    lit: subjSlug === 'english' ? IQ_LIT.filter((x) => iqCls(x) === String(cls)) : [],
+  };
+}
+const iqCount = (b) => new Set([...b.mcqs, ...b.pyqs, ...b.revision, ...b.lit].map((x) => String(x.chapter || x.title || x.slug))).size;
+
 const IQ_SUBJECTS = {
   '6': ['mathematics', 'science', 'social-science', 'english'],
   '7': ['mathematics', 'science', 'social-science', 'english'],
@@ -1408,14 +1513,37 @@ const IQ_SUBJECTS = {
 const subjName = (s) => s.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
 ROUTES.push({
   path: '/important-questions',
+  bodyHtml: (() => {
+    const rows = Object.entries(IQ_SUBJECTS).map(([c, subs]) => ({
+      cls: c,
+      live: subs.filter((sl) => iqCount(iqBanks(c, sl, subjName(sl))) > 0),
+      total: subs.reduce((n, sl) => n + iqCount(iqBanks(c, sl, subjName(sl))), 0),
+    })).filter((r) => r.total > 0);
+    if (!rows.length) return '';
+    const grand = rows.reduce((n, r) => n + r.total, 0);
+    return `
+    <p class="speakable">Chapter-wise important questions for Classes 6 to 12, covering <strong>${grand} chapters</strong> across ${rows.length} classes. Every chapter links to past-year questions, objective practice or revision notes with worked solutions — free, no login.</p>
+
+    <h2>Important Questions by Class</h2>
+    <table><thead><tr><th>Class</th><th>Subjects covered</th><th>Chapters</th><th></th></tr></thead><tbody>
+      ${rows.map((r) => `<tr><td>Class ${r.cls}</td><td>${r.live.map((sl) => esc(subjName(sl))).join(', ')}</td><td>${r.total}</td><td><a href="/important-questions/class-${r.cls}">Open →</a></td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>What Makes a Question "Important"</h2>
+    <p>Only two things justify the label: the question has appeared in a past board or school paper, or it belongs to a unit that carries heavy marks in the official blueprint. Everything here is drawn from one of those two — past-year sets and the published marks weightage — rather than from a guess about what might come up. Where a subject has a weightage table, it is shown on that subject's page so you can see why the chapters are ordered as they are.</p>
+
+    <p><a href="/sample-papers">Full-length sample papers →</a> · <a href="/pyqs">Previous-year questions →</a> · <a href="/what-to-study">Marks weightage by subject →</a></p>`;
+  })(),
   title: 'Important Questions for Class 6 to 12 — Chapter-wise (Free) | Syllab.in',
   description: 'Free chapter-wise important questions and key chapters for Class 6 to 12 — Maths, Science, Physics, Chemistry, Biology, Social Science & more, CBSE/NCERT-aligned for Indian students.',
   keywords: 'important questions, important questions class 10, important questions class 9, cbse important questions, ncert important questions, important chapters',
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Important Questions for Class 6–12', url: `${SITE}/important-questions`, inLanguage: 'en-IN', isAccessibleForFree: true },
 });
 for (const [c, subs] of Object.entries(IQ_SUBJECTS)) {
+  const iqEntries = subs.map((sl) => ({ slug: sl, name: subjName(sl), count: iqCount(iqBanks(c, sl, subjName(sl))) }));
   ROUTES.push({
     path: `/important-questions/class-${c}`,
+    bodyHtml: iqClassBody(c, iqEntries),
     title: `Important Questions for Class ${c} — All Subjects (Free) | Syllab.in`,
     description: `Chapter-wise important questions and key chapters for Class ${c} — pick a subject. Free, CBSE/NCERT-aligned practice for Indian students.`,
     keywords: `important questions class ${c}, class ${c} important chapters, cbse class ${c} important questions`,
@@ -1427,6 +1555,10 @@ for (const [c, subs] of Object.entries(IQ_SUBJECTS)) {
   for (const s of subs) {
     ROUTES.push({
       path: `/important-questions/class-${c}/${s}`,
+      // A hub with no chapters behind it is a promise the page cannot keep, so it
+      // is kept resolving but taken out of the index rather than left to compete.
+      ...(iqCount(iqBanks(c, s, subjName(s))) === 0 ? { noindex: true } : {}),
+      bodyHtml: iqSubjectBody(c, s, subjName(s), iqBanks(c, s, subjName(s)), IQ_WEIGHT.find((w) => iqCls(w) === String(c) && w.subject === subjName(s))),
       title: `Important Questions for Class ${c} ${subjName(s)} (Chapter-wise, Free) | Syllab.in`,
       description: `Important questions and high-weightage chapters for Class ${c} ${subjName(s)} — chapter-wise key topics with free practice. CBSE/NCERT-aligned.`,
       keywords: `important questions class ${c} ${s.replace(/-/g, ' ')}, class ${c} ${s.replace(/-/g, ' ')} important chapters, cbse class ${c} ${s.replace(/-/g, ' ')}`,
