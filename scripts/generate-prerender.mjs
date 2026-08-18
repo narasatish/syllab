@@ -791,6 +791,60 @@ ROUTES.push({
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Top Engineering Colleges in India', url: `${SITE}/colleges` },
 });
 
+// Currency helpers. These live here rather than lower down because the college
+// hub bodies below are built during module evaluation: a `const` declared after
+// that point is still in its temporal dead zone when the loop runs, which threw
+// "Cannot access 'inr' before initialization" and killed the whole build.
+const inr = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? `₹${n.toLocaleString('en-IN')}` : null; };
+const lakh = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? `₹${(n / 100000).toFixed(n % 100000 === 0 ? 0 : 1)} lakh` : null; };
+
+/**
+ * Body for a college hub — the state pages and the city pages.
+ *
+ * Both emitted an ItemList in JSON-LD naming every college and then rendered NO
+ * list at all: the schema told Google there were nine colleges in Bengaluru
+ * while the page showed none of them. That is 49 pages telling crawlers one
+ * thing and readers another, and it wastes the one asset a hub has — the
+ * internal links down to the detail pages.
+ *
+ * Everything below comes from the college records themselves; a column is left
+ * as an em dash when the field is empty rather than filled with a guess.
+ */
+function collegeHubBody(list, placeName, kind) {
+  if (!list.length) return '';
+  const byRank = [...list].sort((a, b) => (a.nirf ?? 9999) - (b.nirf ?? 9999));
+  const num = (v) => { const n = Number(String(v ?? '').replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? n : null; };
+  const feeVals = list.map((c) => num(c.feesPerYear)).filter(Boolean).sort((a, b) => a - b);
+  const ranked = byRank.filter((c) => c.nirf);
+  const top = ranked[0];
+  const govt = list.filter((c) => /Government|IIT|NIT/i.test(c.type)).length;
+  const exams = [...new Set(list.flatMap((c) => c.exams || []))];
+
+  const faqs = [
+    { q: `How many engineering colleges are there in ${placeName}?`, a: `This directory covers ${list.length} engineering ${list.length === 1 ? 'college' : 'colleges'} in ${placeName}${govt ? `, of which ${govt} ${govt === 1 ? 'is' : 'are'} government-funded (IIT, NIT or state government)` : ''}. Each is listed above with its fees, cutoff and placement figures.` },
+    top ? { q: `Which is the top-ranked engineering college in ${placeName}?`, a: `${top.name} is the highest-ranked here at #${top.nirf} in NIRF Engineering 2025. Rank is only one input though — fees, branch availability and your own entrance rank usually decide the outcome.` } : null,
+    feeVals.length >= 2 ? { q: `What are the B.Tech fees in ${placeName}?`, a: `Annual tuition across these colleges runs from about ${inr(feeVals[0])} to ${inr(feeVals[feeVals.length - 1])} per year. Government institutions sit at the lower end; private and deemed universities at the upper. Hostel and mess are charged separately everywhere.` } : null,
+    exams.length ? { q: `Which entrance exams do engineering colleges in ${placeName} accept?`, a: `Between them these colleges admit through ${exams.join(', ')}. Check each college's row above, since a single campus often accepts more than one exam for different quotas.` } : null,
+  ].filter(Boolean);
+
+  return `
+    <p class="speakable">There ${list.length === 1 ? 'is' : 'are'} <strong>${list.length}</strong> engineering ${list.length === 1 ? 'college' : 'colleges'} in ${esc(placeName)} in this directory${ranked.length ? `, ${ranked.length} of which ${ranked.length === 1 ? 'appears' : 'appear'} in the NIRF Engineering 2025 rankings` : ''}. The table below compares them on the figures that actually decide an admission — rank, annual fees, cutoff and placements.</p>
+
+    <h2>Engineering Colleges in ${esc(placeName)} — Compared</h2>
+    <table><thead><tr><th>College</th><th>NIRF 2025</th><th>${kind === 'city' ? 'Type' : 'City'}</th><th>Fees / year</th><th>Cutoff (indicative)</th><th>Avg package</th></tr></thead><tbody>
+      ${byRank.map((c) => `<tr><td><a href="/colleges/${c.stateSlug}/${c.slug}">${esc(c.shortName || c.name)}</a></td><td>${c.nirf ? `#${c.nirf}` : c.nirfBand ? esc(c.nirfBand) : '—'}</td><td>${esc(kind === 'city' ? c.type : c.city)}</td><td>${esc(inr(c.feesPerYear) || c.feesPerYear || '—')}</td><td>${esc(c.cutoff || '—')}</td><td>${esc(inr(c.placementAvg) || c.placementAvg || '—')}</td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>How to Choose Between Them</h2>
+    <p>Start with the entrance exam you are actually sitting, since that decides which of these colleges are open to you at all. Then use your expected rank against the cutoff column to sort the list into reach, match and safe options. Only after that does fee become the deciding factor — a college you cannot afford for four years is not a real option, and the annual figure above excludes hostel, mess and one-time charges, which commonly add a further 20 to 40 per cent.</p>
+    <p>Treat the placement column as an average, not a promise: it is pulled up by a handful of very high offers, and the median student earns less. Where two colleges are close, the branch matters more than the badge — a strong department at the second-ranked college usually beats a weak one at the first.</p>
+
+    ${faqBlock(faqs)}
+
+    <p><a href="/colleges">All engineering colleges by state →</a> · <a href="/college-predictor">Free college predictor →</a> · <a href="/cutoffs">Compare cutoffs →</a></p>
+    <p><em>All figures (fees, NIRF rank, cutoffs, placements) are indicative for guidance and should be verified on the official college or counselling website before any decision.</em></p>`;
+}
+
 for (const s of COLLEGE_STATES_M) {
   const inState = COLLEGES_LIVE.filter(c => c.stateSlug === s.slug);
   ROUTES.push({
@@ -798,6 +852,7 @@ for (const s of COLLEGE_STATES_M) {
     title: `Top ${inState.length} Engineering Colleges in ${s.name} 2026 — Fees, Cutoff & Ranking | Syllab.in`,
     description: `Best engineering colleges in ${s.name} 2026 — NIRF rank, B.Tech fees, cutoffs, placements and admission process. ${s.blurb}`,
     keywords: `top engineering colleges ${s.name}, best engineering colleges ${s.name} 2026, ${s.name} engineering college fees, engineering admission ${s.name}, college cutoff ${s.name}`,
+    bodyHtml: collegeHubBody(inState, s.name, 'state'),
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'ItemList', name: `Top Engineering Colleges in ${s.name}`,
       itemListElement: inState.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, url: `${SITE}/colleges/${s.slug}/${c.slug}` })),
@@ -806,8 +861,6 @@ for (const s of COLLEGE_STATES_M) {
 }
 
 // Indian-format a rupee amount from a raw number/string ("300000" → "₹3,00,000").
-const inr = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? `₹${n.toLocaleString('en-IN')}` : null; };
-const lakh = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? `₹${(n / 100000).toFixed(n % 100000 === 0 ? 0 : 1)} lakh` : null; };
 for (const c of COLLEGES_M) {
   // Data-driven body from the manifest (fees/cutoff/placement all present for every
   // college). 4-year B.Tech tuition = per-year × 4; hostel/mess noted as separate
@@ -947,7 +1000,7 @@ for (const c of COLLEGES_M) {
 
 // City college hubs — "Top Engineering Colleges in {City}" (cities with 2+ colleges).
 const cityHubMap = new Map();
-for (const c of COLLEGES_M) {
+for (const c of COLLEGES_LIVE) {
   const slug = c.city.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const e = cityHubMap.get(slug) || { city: c.city, slug, state: c.stateName, list: [] };
   e.list.push(c);
@@ -961,6 +1014,7 @@ for (const ci of cityHubMap.values()) {
     title: `Top ${ci.list.length} Engineering Colleges in ${ci.city} 2026 — Fees, Cutoff & Ranking | Syllab.in`,
     description: `Best engineering colleges in ${ci.city}, ${ci.state} 2026 — NIRF rank, B.Tech fees, cutoffs, placements and admission process. Compare the top engineering colleges in ${ci.city}.`,
     keywords: `top engineering colleges in ${ci.city}, best engineering colleges in ${ci.city}, engineering colleges in ${ci.city} fees, ${ci.city} btech admission, ${ci.city} college cutoff 2026`,
+    bodyHtml: collegeHubBody(sorted, ci.city, 'city'),
     jsonLd: {
       '@context': 'https://schema.org', '@type': 'ItemList', name: `Top Engineering Colleges in ${ci.city}`,
       itemListElement: sorted.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, url: `${SITE}/colleges/${c.stateSlug}/${c.slug}` })),
@@ -1993,7 +2047,16 @@ for (const f of FULL_FORMS_DATA) {
 // ─── Glossary (/glossary, /glossary/:slug) ────────────────────────────────────
 // ── Rich crawlable body builders: surface the REAL Q&A / notes / examples that
 //    currently render client-side only, so Google sees substantive pages. ──
-const faqBlock = (faqs) => (faqs && faqs.length) ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}` : '';
+// Declared as a hoisted FUNCTION, not a const arrow: this module does real work
+// at evaluation time, and a const is in its temporal dead zone until its own
+// line runs, so any top-level loop above this point that called it died with
+// "Cannot access 'faqBlock' before initialization". A function declaration
+// hoists and is safe for callers at any position in the file.
+function faqBlock(faqs) {
+  return (faqs && faqs.length)
+    ? `<h2>Frequently Asked Questions</h2>${faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}`
+    : '';
+}
 const sibLabel = (s) => s.chapter || s.title || s.term || s.slug;
 const relBlock = (sibs, base, heading) => (sibs && sibs.length) ? `<h2>${esc(heading)}</h2><ul>${sibs.map((s) => `<li><a href="${base}/${s.slug}">${esc(sibLabel(s))}</a></li>`).join('')}</ul>` : '';
 const aiCta = `<p>🤖 <a href="/ai-tutor">Stuck on any of these? Ask Syllab's free AI Tutor to explain step by step →</a></p>`;

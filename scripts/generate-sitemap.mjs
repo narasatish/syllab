@@ -253,6 +253,12 @@ function buildUrls({ languages, topicsByLang }) {
   // City college hubs — "Top Engineering Colleges in {City}" (cities with 2+ colleges).
   const cityCounts = new Map();
   for (const c of colleges) {
+    // Retired duplicates must not be counted. The prerenderer builds its city map
+    // from the deduplicated list, so counting them here put a city over the
+    // 2-college threshold in the sitemap that the prerenderer never emitted a page
+    // for — Varanasi, whose second "college" was the retired iit-bhu twin. That is
+    // a soft-404 pointed at by our own sitemap.
+    if (isRetired('/colleges', c.slug)) continue;
     const slug = c.city.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     cityCounts.set(slug, (cityCounts.get(slug) || 0) + 1);
   }
