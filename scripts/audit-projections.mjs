@@ -35,12 +35,14 @@ import { fileURLToPath } from 'node:url';
 import * as clusters from './studyClusters.mjs';
 import * as differencesData from './differencesData.mjs';
 import * as aiHubTopics from './aiHubTopics.mjs';
+import * as blogArticles from './blogArticles.mjs';
+import * as collegesData from './collegesData.mjs';
 import * as ncertChapters from './ncertChapters.mjs';
 import * as stateBoardChapters from './stateBoardChapters.mjs';
 import * as medicalCollegesData from './medicalColleges.mjs';
 
 /** Loader modules this audit knows about, beyond studyClusters.mjs. */
-const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics };
+const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -114,6 +116,7 @@ const BANKS = [
   // aiHub.ts is valid JSON, so this parses normally. It was simply never listed —
   // and its loader projected 3 of 7 fields, dropping 107 sections and 64 FAQs.
   ['getAiHubTopics', 'aiHub.ts', 'AI_TOPICS: AiTopic[] = ', 'aiHubTopics'],
+  ['getFullArticles', 'updateArticles.ts', 'export const FULL_ARTICLES: FullArticle[] = ', 'blogArticles'],
   ['getFullForms', 'fullForms.ts', 'export const FULL_FORMS: FullForm[] = '],
   ['getSamplePapers', 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = '],
 
@@ -126,6 +129,19 @@ const BANKS = [
 
 /** `${loader}.${field}` -> why it is deliberately not carried through. */
 const ALLOWED = {
+  // getFullArticles exists to supply the BODY of an /updates page. Everything
+  // below is either metadata or already sourced elsewhere, so none of it is
+  // content going missing.
+  'getFullArticles.id': 'internal key, never rendered',
+  'getFullArticles.emoji': 'decoration for the in-app card, not page content',
+  'getFullArticles.readingTime': 'in-app card badge',
+  'getFullArticles.tags': 'in-app filtering, not rendered on the page',
+  'getFullArticles.title': 'the route takes its title from getBlogArticles, the source Updates.tsx also uses',
+  'getFullArticles.summary': 'same — the route builds its description from getBlogArticles',
+  'getFullArticles.seoTitle': 'alternative meta the route does not currently use; switching to it is a separate decision, not a missing render',
+  'getFullArticles.seoDescription': 'as above',
+  'getFullArticles.relatedLinks': '{ label, tab } targets an in-app tab, not a URL — the same reason getVisualLessons.practice is allowed',
+
   // { label, tab } — a target for an in-app tab, not page content. The static
   // page cannot turn a tab id into a URL without guessing, and a wrong internal
   // link is worse than an absent one.
