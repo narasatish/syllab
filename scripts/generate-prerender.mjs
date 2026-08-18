@@ -2118,18 +2118,6 @@ for (const slug of CAREER_GUIDE_SLUGS) {
 // ─── College Predictor landing pages (JEE/NEET/EAMCET/KCET/MHT-CET/WBJEE/BITSAT) ─
 const CP_EXAMS = { 'jee-main': 'JEE Main', 'neet': 'NEET', 'ts-eapcet': 'TS EAPCET', 'ap-eapcet': 'AP EAPCET', 'kcet': 'KCET', 'mht-cet': 'MHT-CET', 'wbjee': 'WBJEE', 'bitsat': 'BITSAT' };
 ROUTES.push({ path: '/college-predictor', title: 'Free College Predictor 2026 — JEE Main, NEET, EAMCET, KCET & More | Syllab.in', description: 'Free college predictors for Indian students — predict your colleges by rank for JEE Main, NEET, TS/AP EAPCET, KCET, MHT-CET, WBJEE and BITSAT, with category and quota. Indicative & free.', keywords: 'college predictor free, jee main college predictor, neet college predictor, eamcet college predictor, college predictor by rank', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'College Predictors', url: `${SITE}/college-predictor`, inLanguage: 'en-IN', isAccessibleForFree: true } });
-for (const [slug, name] of Object.entries(CP_EXAMS)) {
-  ROUTES.push({
-    path: `/college-predictor/${slug}`,
-    title: `${name} College Predictor 2026 — Predict Colleges by Rank (Free) | Syllab.in`,
-    description: `Free ${name} college predictor — estimate the colleges you can get by rank, category and quota. Indicative and free for Indian students on Syllab.in.`,
-    keywords: `${name.toLowerCase()} college predictor, ${name.toLowerCase()} college predictor by rank, ${name.toLowerCase()} rank predictor, ${name.toLowerCase()} college predictor 2026 free`,
-    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'College Predictor', item: `${SITE}/college-predictor` },
-      { '@type': 'ListItem', position: 2, name: `${name} Predictor`, item: `${SITE}/college-predictor/${slug}` },
-    ] },
-  });
-}
 
 // ─── Previous Year Questions (PYQ) & Sample Papers cluster ────────────────────
 const PYQ_GUIDES = { 'cbse-class-10': 'CBSE Class 10', 'cbse-class-12': 'CBSE Class 12', 'jee-main': 'JEE Main', 'neet': 'NEET', 'ts-eamcet': 'TS EAMCET', 'ap-eamcet': 'AP EAMCET', 'cbse-class-9': 'CBSE Class 9', 'kcet': 'KCET', 'mht-cet': 'MHT-CET', 'wbjee': 'WBJEE', 'bitsat': 'BITSAT', 'cuet': 'CUET' };
@@ -2310,6 +2298,15 @@ for (const [slug, title, desc] of AI_HUB) {
 // ─── Difference Between (/difference-between, /difference-between/:slug) ───────
 const DIFFS = getDifferences(ROOT);
 ROUTES.push({
+  bodyHtml: (() => {
+    if (!DIFFS.length) return '';
+    const bySubject = {};
+    for (const d of DIFFS) (bySubject[d.subject || 'General'] ||= []).push(d);
+    return `<p class="speakable">${DIFFS.length} side-by-side comparisons for Class 6 to 12 — the pairs students most often mix up, each set out as a table of differences rather than two paragraphs to reconcile.</p>
+    ${Object.entries(bySubject).sort((a, b) => b[1].length - a[1].length).map(([subj, list]) => `<h2>${esc(subj)} (${list.length})</h2><ul>${list.map((d) => `<li><a href="/difference-between/${d.slug}">${esc(d.title)}</a></li>`).join('')}</ul>`).join('')}
+    <h2>Why a Table Beats a Paragraph Here</h2>
+    <p>Two ideas are easiest to separate when their differences sit on the same row — definition against definition, example against example. A paragraph forces you to hold one description in your head while reading the other, which is precisely where the confusion starts. Every page below is laid out that way.</p>`;
+  })(),
   path: '/difference-between',
   title: 'Difference Between — Topic-wise Comparisons for Students | Syllab.in',
   description: `Free 'difference between' comparison tables for Class 6–12 — ${DIFFS.length}+ side-by-side comparisons across Biology, Physics, Chemistry, Maths and more, with key points and FAQs. CBSE/NCERT aligned.`,
@@ -3174,6 +3171,26 @@ const medFullCourse = (c) => {
 };
 
 ROUTES.push({
+  bodyHtml: (() => {
+    if (!MED_COLLEGES.length) return '';
+    const byState = {};
+    for (const c of MED_COLLEGES) (byState[c.state] ||= []).push(c);
+    const ranked = MED_COLLEGES.filter((c) => c.nirf).sort((a, b) => a.nirf - b.nirf).slice(0, 10);
+    const seats = MED_COLLEGES.reduce((n, c) => n + (Number(c.mbbsSeats) || 0), 0);
+    return `<p class="speakable">${MED_COLLEGES.length} medical colleges across ${Object.keys(byState).length} states, ${seats.toLocaleString('en-IN')} MBBS seats between them. Every entry carries its NIRF 2025 standing, fees, seat count and indicative NEET cutoff.</p>
+
+    <h2>Highest Ranked (NIRF Medical 2025)</h2>
+    <table><thead><tr><th>#</th><th>College</th><th>City</th><th>MBBS seats</th><th>NEET cutoff</th></tr></thead><tbody>
+      ${ranked.map((c) => `<tr><td>${c.nirf}</td><td><a href="/medical-colleges/${c.stateSlug}/${c.slug}">${esc(c.shortName || c.name)}</a></td><td>${esc(c.city)}</td><td>${c.mbbsSeats}</td><td>${esc(c.neetCutoff || '—')}</td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>By State</h2>
+    ${Object.entries(byState).sort((a, b) => b[1].length - a[1].length).map(([st, list]) => `<h3>${esc(st)} (${list.length})</h3><ul>${list.map((c) => `<li><a href="/medical-colleges/${c.stateSlug}/${c.slug}">${esc(c.shortName || c.name)}</a> — ${esc(c.city)}, ${c.mbbsSeats} seats</li>`).join('')}</ul>`).join('')}
+
+    <h2>Reading a NEET Cutoff</h2>
+    <p>A closing rank is the last rank admitted in a given round, for a given category and quota — not a pass mark. It moves every year with the number of candidates and the seats released, and the All India Quota and state quota close at very different points. Use the figures here to judge whether a college is within reach, then confirm on the MCC or your state counselling site before locking a choice.</p>
+    <p><em>All figures are indicative and must be verified officially before any decision.</em></p>`;
+  })(),
   path: '/medical-colleges',
   title: 'Top Medical Colleges in India (MBBS/BDS) — NEET Cutoffs, Fees & Admission | Syllab.in',
   description: 'Browse the top medical colleges in India by state — AIIMS, JIPMER and the best government & private MBBS colleges. Compare NEET cutoffs, MBBS fees, seats and the full admission process. Free.',
@@ -3309,16 +3326,148 @@ for (const c of MED_COLLEGES_ALL) {
   });
 }
 
+/**
+ * /colleges-accepting/:exam, /best-colleges/:course and /college-predictor/:exam.
+ *
+ * 31 pages carried a title, a meta description and JSON-LD, and no body. They
+ * are built from the main colleges bank — 213 engineering records whose NIRF
+ * ranks were verified against the official table today, plus the 70 medical
+ * records — rather than the 37-entry parallel directory in predictorData.ts,
+ * because the main bank is larger, deduplicated and already checked.
+ */
+const CF_NUM = (v) => { const n = Number(String(v ?? '').replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? n : null; };
+
+/** Colleges admitting through a given exam label, best rank first. */
+function collegesForExam(label) {
+  if (/^NEET$/i.test(label)) {
+    return MED_COLLEGES.map((c) => ({
+      name: c.shortName || c.name, href: `/medical-colleges/${c.stateSlug}/${c.slug}`,
+      place: `${c.city}, ${c.state}`, nirf: c.nirf, band: null,
+      fees: c.feesPerYear, cutoff: c.neetCutoff, extra: `${c.mbbsSeats} MBBS seats`,
+    })).sort((a, b) => (a.nirf ?? 9999) - (b.nirf ?? 9999));
+  }
+  return COLLEGES_LIVE.filter((c) => (c.exams || []).includes(label)).map((c) => ({
+    name: c.shortName || c.name, href: `/colleges/${c.stateSlug}/${c.slug}`,
+    place: `${c.city}, ${c.stateName}`, nirf: c.nirf, band: c.nirfBand,
+    fees: c.feesPerYear, cutoff: c.cutoff, extra: c.placementAvg,
+  })).sort((a, b) => (a.nirf ?? 9999) - (b.nirf ?? 9999));
+}
+
+function cfTable(rows, cutoffHead, extraHead) {
+  return `<table><thead><tr><th>College</th><th>NIRF 2025</th><th>Location</th><th>Fees / year</th><th>${esc(cutoffHead)}</th><th>${esc(extraHead)}</th></tr></thead><tbody>
+    ${rows.map((r) => `<tr><td><a href="${r.href}">${esc(r.name)}</a></td><td>${r.nirf ? `#${r.nirf}` : r.band ? esc(r.band) : '—'}</td><td>${esc(r.place)}</td><td>${esc(inr(r.fees) || r.fees || '—')}</td><td>${esc(r.cutoff || '—')}</td><td>${esc(inr(r.extra) || r.extra || '—')}</td></tr>`).join('')}
+  </tbody></table>`;
+}
+
+function collegesAcceptingBody(slug, label) {
+  const rows = collegesForExam(label);
+  if (!rows.length) return '';
+  const medical = /^NEET$/i.test(label);
+  const fees = rows.map((r) => CF_NUM(r.fees)).filter(Boolean).sort((a, b) => a - b);
+  const ranked = rows.filter((r) => r.nirf);
+  const faqs = [
+    { q: `How many colleges accept ${label}?`, a: `This directory lists ${rows.length} ${medical ? 'medical colleges' : 'engineering colleges'} admitting through ${label}${ranked.length ? `, of which ${ranked.length} appear in the NIRF 2025 rankings` : ''}. Every one is listed above with its fees and indicative cutoff.` },
+    fees.length >= 2 ? { q: `What do these colleges cost per year?`, a: `Annual fees across them run from about ${inr(fees[0])} to ${inr(fees[fees.length - 1])}. Government institutions sit at the lower end and private or deemed universities at the upper; hostel and mess are charged separately everywhere.` } : null,
+    ranked[0] ? { q: `Which is the highest-ranked college accepting ${label}?`, a: `${ranked[0].name} at #${ranked[0].nirf} in NIRF 2025. Rank is one input among several — your own score, the branch you want and what you can afford for four or five years usually decide the outcome.` } : null,
+  ].filter(Boolean);
+  return `
+    <p class="speakable"><strong>${rows.length}</strong> ${medical ? 'medical' : 'engineering'} colleges in this directory admit students through <strong>${esc(label)}</strong>, listed below with NIRF rank, fees and the indicative closing standard.</p>
+
+    <h2>Colleges Accepting ${esc(label)}</h2>
+    ${cfTable(rows, medical ? 'NEET cutoff' : 'Cutoff (indicative)', medical ? 'Seats' : 'Avg package')}
+
+    <h2>Reading This List</h2>
+    <p>Sort your options by cutoff against the score you expect, not by rank alone — a college two places higher that you cannot reach is not an option. Cutoffs move every year with the number of candidates and the seats released in each counselling round, so treat the column above as a guide to whether a college is within reach rather than as a threshold.</p>
+    <p>Fees are annual tuition. Over four years, and with hostel and mess added, the total is commonly a third higher again than the figure shown, which is worth working out before you fill a choice list.</p>
+
+    ${faqBlock(faqs)}
+    <p><a href="/colleges-accepting">All entrance exams →</a> · <a href="/college-predictor/${esc(slug)}">${esc(label)} college predictor →</a> · <a href="/cutoffs">Compare cutoffs →</a></p>`;
+}
+
+function bestCollegesBody(slug, short, full) {
+  const MATCH = {
+    cse: ['cse', 'computer'], 'ai-ml': ['ai', 'ml', 'data science', 'artificial'], ece: ['ece', 'electronics'],
+    it: ['it', 'information technology'], electrical: ['electrical'], mechanical: ['mechanical'], civil: ['civil'],
+  };
+  let rows;
+  if (slug === 'mbbs') {
+    rows = collegesForExam('NEET');
+  } else {
+    const m = MATCH[slug] || [slug];
+    rows = COLLEGES_LIVE.filter((c) => (c.topBranches || []).some((b) => m.some((x) => b.toLowerCase().includes(x))))
+      .map((c) => ({ name: c.shortName || c.name, href: `/colleges/${c.stateSlug}/${c.slug}`, place: `${c.city}, ${c.stateName}`, nirf: c.nirf, band: c.nirfBand, fees: c.feesPerYear, cutoff: c.cutoff, extra: c.placementAvg }))
+      .sort((a, b) => (a.nirf ?? 9999) - (b.nirf ?? 9999));
+  }
+  if (!rows.length) return '';
+  const ranked = rows.filter((r) => r.nirf);
+  const faqs = [
+    { q: `Which is the best college for ${full} in India?`, a: ranked[0] ? `${ranked[0].name} is the highest-ranked here at #${ranked[0].nirf} in NIRF 2025. "Best" depends on your entrance rank and budget as much as on ranking, so read the table as a shortlist rather than an order of merit.` : `The colleges above all offer ${full}; compare them on cutoff and fees against your own position.` },
+    { q: `How many colleges offer ${full}?`, a: `${rows.length} in this directory list ${full} among their main branches. That is not the complete national count — it is the set covered here, each with fees and cutoff you can check.` },
+  ];
+  return `
+    <p class="speakable"><strong>${rows.length}</strong> colleges offering <strong>${esc(full)}</strong>, ordered by NIRF 2025 rank where one is published, with fees and indicative cutoffs.</p>
+
+    <h2>Best ${esc(short)} Colleges</h2>
+    ${cfTable(rows, 'Cutoff (indicative)', slug === 'mbbs' ? 'Seats' : 'Avg package')}
+
+    <h2>Choosing a Branch, Not Just a College</h2>
+    <p>A strong department at a lower-ranked college usually beats a weak one at a higher-ranked college, and the institute's overall NIRF position says little about any single branch. Where two options are close, look at what the department actually offers — labs, electives, who recruits from it — rather than the badge on the certificate.</p>
+
+    ${faqBlock(faqs)}
+    <p><a href="/best-colleges">All courses →</a> · <a href="/colleges">Colleges by state →</a> · <a href="/college-predictor">Predict by rank →</a></p>`;
+}
+
+function collegePredictorBody(slug, name) {
+  const rows = collegesForExam(name === 'NEET' ? 'NEET' : name);
+  const withCut = rows.filter((r) => r.cutoff);
+  const faqs = [
+    { q: `How accurate is a ${name} college predictor?`, a: `It is indicative, never a guarantee. Cutoffs shift each year with candidate numbers, paper difficulty and the seats released in each round, and category and quota change the picture again. Use it to build a shortlist of reach, match and safe options, then confirm every figure on the official counselling site before you lock a choice.` },
+    { q: `What do I need to use it?`, a: `Your ${name} rank or score, your category, and your home state if the exam has a state quota. Those three decide most of the outcome.` },
+    withCut.length ? { q: `Which colleges accept ${name}?`, a: `${rows.length} colleges in this directory admit through ${name}, ${withCut.length} of them with an indicative closing standard listed below.` } : null,
+  ].filter(Boolean);
+  return `
+    <p class="speakable">Estimate which colleges your <strong>${esc(name)}</strong> rank can reach. ${rows.length} colleges in this directory admit through ${esc(name)}; their indicative closing standards are listed below so you can judge the range before predicting.</p>
+
+    <h2>How to Use a Rank Predictor Honestly</h2>
+    <p>A predictor turns last year's closing ranks into this year's guess. That is useful for sorting colleges into reach, match and safe, and useless as a promise — a shift of a few thousand ranks at the margin is normal. Build a list with a few of each kind rather than a single target.</p>
+    <p>Category and quota usually matter more than the raw rank. A home-state quota can move a closing rank by a wide margin, so always compare against the column for your own category rather than the general one.</p>
+
+    ${rows.length ? `<h2>${esc(name)} — Indicative Closing Standards</h2>${cfTable(rows.slice(0, 40), 'Cutoff (indicative)', name === 'NEET' ? 'Seats' : 'Avg package')}` : ''}
+
+    ${faqBlock(faqs)}
+    <p><em>All cutoffs are indicative and must be confirmed on the official counselling website before any decision.</em></p>
+    <p><a href="/college-predictor">All predictors →</a> · <a href="/colleges-accepting/${esc(slug)}">Colleges accepting ${esc(name)} →</a> · <a href="/cutoffs">Compare cutoffs →</a></p>`;
+}
+
 // ─── College Finder: colleges-accepting/<exam> + best-colleges/<course> ───────
 const CF_EXAMS = [['jee-main','JEE Main'],['jee-advanced','JEE Advanced'],['neet','NEET'],['bitsat','BITSAT'],['viteee','VITEEE'],['tnea','TNEA'],['kcet','KCET'],['comedk','COMEDK'],['mht-cet','MHT-CET'],['ts-eapcet','TS EAPCET'],['ap-eapcet','AP EAPCET'],['wbjee','WBJEE']];
 const CF_COURSES = [['cse','CSE','Computer Science Engineering'],['ai-ml','AI/ML','AI, ML & Data Science'],['ece','ECE','Electronics & Communication'],['it','IT','Information Technology'],['electrical','Electrical','Electrical Engineering'],['mechanical','Mechanical','Mechanical Engineering'],['civil','Civil','Civil Engineering'],['mbbs','MBBS','MBBS (Medical)']];
 ROUTES.push({ path: '/colleges-accepting', title: 'Colleges Accepting JEE, NEET, EAMCET, KCET & More (2026) | Syllab.in', description: 'Find the colleges that accept each entrance exam — JEE Main, JEE Advanced, NEET, BITSAT, VITEEE, KCET, COMEDK, MHT-CET, EAMCET, WBJEE. Fees, cutoffs & admission, free.', keywords: 'colleges accepting jee main, colleges accepting neet, colleges accepting kcet, exam wise college list india', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Colleges by Entrance Exam', url: `${SITE}/colleges-accepting`, inLanguage: 'en-IN' } });
 for (const [slug, label] of CF_EXAMS) {
-  ROUTES.push({ path: `/colleges-accepting/${slug}`, title: `Colleges Accepting ${label} (2026) — Full List, Fees & Cutoffs | Syllab.in`, description: `Complete list of top colleges that accept ${label} — fees, cutoffs, seats and the admission process. Free and indicative for guidance.`, keywords: `colleges accepting ${label.toLowerCase()}, ${label.toLowerCase()} college list, ${label.toLowerCase()} cutoff colleges, ${label.toLowerCase()} colleges fees`, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Colleges accepting ${label}`, url: `${SITE}/colleges-accepting/${slug}`, inLanguage: 'en-IN' } });
+  ROUTES.push({ bodyHtml: collegesAcceptingBody(slug, label), path: `/colleges-accepting/${slug}`, title: `Colleges Accepting ${label} (2026) — Full List, Fees & Cutoffs | Syllab.in`, description: `Complete list of top colleges that accept ${label} — fees, cutoffs, seats and the admission process. Free and indicative for guidance.`, keywords: `colleges accepting ${label.toLowerCase()}, ${label.toLowerCase()} college list, ${label.toLowerCase()} cutoff colleges, ${label.toLowerCase()} colleges fees`, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Colleges accepting ${label}`, url: `${SITE}/colleges-accepting/${slug}`, inLanguage: 'en-IN' } });
+}
+
+// Moved down from its original position above: collegePredictorBody reads
+// MED_COLLEGES for the NEET page, and that const is declared later in this
+// file. Building these routes earlier threw "Cannot access before
+// initialization" — the same temporal-dead-zone trap this module has produced
+// five times now, because it does real work during module evaluation.
+for (const [slug, name] of Object.entries(CP_EXAMS)) {
+  ROUTES.push({
+    path: `/college-predictor/${slug}`,
+    bodyHtml: collegePredictorBody(slug, name),
+    title: `${name} College Predictor 2026 — Predict Colleges by Rank (Free) | Syllab.in`,
+    description: `Free ${name} college predictor — estimate the colleges you can get by rank, category and quota. Indicative and free for Indian students on Syllab.in.`,
+    keywords: `${name.toLowerCase()} college predictor, ${name.toLowerCase()} college predictor by rank, ${name.toLowerCase()} rank predictor, ${name.toLowerCase()} college predictor 2026 free`,
+    jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'College Predictor', item: `${SITE}/college-predictor` },
+      { '@type': 'ListItem', position: 2, name: `${name} Predictor`, item: `${SITE}/college-predictor/${slug}` },
+    ] },
+  });
 }
 ROUTES.push({ path: '/best-colleges', title: 'Best Colleges by Course — CSE, ECE, MBBS & More (2026 Rankings) | Syllab.in', description: 'Find the best colleges in India for your course — CSE, AI/ML, ECE, IT, Mechanical, Civil and MBBS. Ranked by NIRF with fees, cutoffs & placements. Free.', keywords: 'best CSE colleges India, best MBBS colleges India, best ECE colleges, course wise college ranking', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Best Colleges by Course', url: `${SITE}/best-colleges`, inLanguage: 'en-IN' } });
 for (const [slug, short, full] of CF_COURSES) {
-  ROUTES.push({ path: `/best-colleges/${slug}`, title: `Best ${short} Colleges in India 2026 — Ranking, Fees & Cutoffs | Syllab.in`, description: `Top ${full} colleges in India — ranked by NIRF with fees, cutoffs, placements and admission. Free and indicative.`, keywords: `best ${short.toLowerCase()} colleges india, top ${short.toLowerCase()} colleges, ${short.toLowerCase()} college ranking, ${full.toLowerCase()} fees cutoff`, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Best ${short} Colleges in India`, url: `${SITE}/best-colleges/${slug}`, inLanguage: 'en-IN' } });
+  ROUTES.push({ bodyHtml: bestCollegesBody(slug, short, full), path: `/best-colleges/${slug}`, title: `Best ${short} Colleges in India 2026 — Ranking, Fees & Cutoffs | Syllab.in`, description: `Top ${full} colleges in India — ranked by NIRF with fees, cutoffs, placements and admission. Free and indicative.`, keywords: `best ${short.toLowerCase()} colleges india, top ${short.toLowerCase()} colleges, ${short.toLowerCase()} college ranking, ${full.toLowerCase()} fees cutoff`, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Best ${short} Colleges in India`, url: `${SITE}/best-colleges/${slug}`, inLanguage: 'en-IN' } });
 }
 
 // ─── Scholarships (free, highly-linkable resource page) ───────────────────────

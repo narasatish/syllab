@@ -32,6 +32,26 @@ const DATA = path.join(ROOT, 'src', 'data');
  * able to check it.
  */
 const APP_ONLY = {
+  // predictorData.ts drives the interactive College/Career Predictor in
+  // CareerPredictor.tsx — the user enters a rank and the tool computes against
+  // these tables client-side. The prerendered /college-predictor pages are built
+  // from the main colleges bank instead, which is larger and NIRF-verified.
+  JOSAA_CUTOFFS: 'in-app predictor engine (CareerPredictor.tsx) — computed against a user-entered rank',
+  NEET_COLLEGE_CUTOFFS: 'in-app predictor engine — computed against a user-entered rank',
+  STREAM_GUIDES: 'in-app career-quiz output, shown after the user answers',
+  ENG_EXAMS: 'in-app predictor engine — exam input scales and rank conversion tables',
+  CAREER_LIBRARY: 'in-app career-quiz output',
+  COLLEGE_DIRECTORY: 'in-app predictor result set; the prerendered pages use the main colleges bank',
+  COLLEGE_PREDICTORS: 'registry of in-app predictor tools, not page content',
+  // Question pools are the quiz engine's source. Rendering them would publish
+  // every answer and destroy the quiz.
+  BIOLOGY_POOL: 'NEET quiz engine question pool — rendering it would publish the answers',
+  JEE_CHEM_POOL: 'JEE quiz engine question pool — rendering it would publish the answers',
+  JEE_PHY_POOL: 'JEE quiz engine question pool — rendering it would publish the answers',
+  JEE_MATH_POOL: 'JEE quiz engine question pool — rendering it would publish the answers',
+  PYQ_EXAMS: 'exam filter list for the in-app /pyqs browser, not body content',
+  FINANCIAL_LITERACY: 'in-app lesson module; no /financial-literacy route exists to render it',
+
   STUDY_QUOTES: 'study-room UI copy, shown in-app only',
   STUDY_TIPS: 'study-room UI copy, shown in-app only',
   BREAK_IDEAS: 'study-room UI copy, shown in-app only',
@@ -53,7 +73,13 @@ const APP_ONLY = {
   FUN_FACTS: 'in-app fact rotator',
 };
 
-const loaderSrc = ['studyClusters.mjs', 'generate-prerender.mjs', 'generate-sitemap.mjs', 'collegesData.mjs', 'medicalColleges.mjs', 'blogArticles.mjs', 'ncertChapters.mjs', 'stateBoardChapters.mjs', 'aiHubTopics.mjs', 'differencesData.mjs']
+// Read EVERY script, not a hand-listed subset. The first version named the
+// loader files explicitly and went stale the same day: kidsData.mjs and
+// microModules.mjs were added, and their nine banks were still reported dark. A
+// tool built to replace a registry you must remember to update should not itself
+// depend on one.
+const loaderSrc = readdirSync(path.join(ROOT, 'scripts'))
+  .filter((f) => f.endsWith('.mjs') && !f.startsWith('audit-'))
   .map((f) => { try { return readFileSync(path.join(ROOT, 'scripts', f), 'utf8'); } catch { return ''; } })
   .join('\n');
 
@@ -107,4 +133,24 @@ if (unexplained.length) {
   console.log('✓ every bank is either consumed by a loader or declared app-only.');
 }
 
+/**
+ * A ratchet, not a wall.
+ *
+ * Wiring --strict into npm test while banks are still unrendered would give a
+ * gate that fails on day one, and a permanently red check is one people learn
+ * to skip. --max=N fails only when the count RISES above a recorded baseline,
+ * so the suite stays green today and a NEW dark bank breaks the build
+ * immediately. Lower the number as the list is worked down; it should never go
+ * up without a reason in the commit message.
+ */
+const maxArg = process.argv.find((a) => a.startsWith('--max='));
+if (maxArg) {
+  const max = Number(maxArg.split('=')[1]);
+  if (unexplained.length > max) {
+    console.log(`\n✗ ${unexplained.length} unexplained dark bank(s), above the agreed ceiling of ${max}.`);
+    console.log('  Render the new bank, or add it to APP_ONLY with a reason.');
+    process.exit(1);
+  }
+  console.log(`\n✓ ${unexplained.length} unexplained, at or below the ceiling of ${max}.`);
+}
 if (process.argv.includes('--strict') && unexplained.length) process.exit(1);
