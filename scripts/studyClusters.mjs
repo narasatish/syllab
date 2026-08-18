@@ -160,10 +160,46 @@ export function getVisualLessons(root) {
     if (start < 0) return [];
     const body = ts.slice(start);
     const out = [];
-    const re = /slug:\s*'([^']+)',\s*\n\s*title:\s*'([^']+)',\s*\n\s*subject:\s*'([^']+)',\s*\n\s*classLevel:\s*'([^']+)',\s*\n\s*intro:\s*'([^']*)'/g;
-    let m;
-    while ((m = re.exec(body)) !== null) {
-      out.push({ slug: m[1], title: m[2], subject: m[3], classLevel: m[4], intro: m[5].slice(0, 155) });
+    // These records quote with BOTH '...' and `...`; the old single-quote regex
+    // matched only `intro`, so every other authored field was dropped.
+    const chunks = body.split(/\n  \{\n/).slice(1);
+    for (const ch of chunks) {
+      const g = (k) => {
+        const m = ch.match(new RegExp(k + ":\\s*(?:'((?:[^'\\\\]|\\\\.)*)'|`((?:[^`\\\\]|\\\\.)*)`)"));
+        return m ? (m[1] ?? m[2]).replace(/\\'/g, "'") : '';
+      };
+      const slug = g('slug');
+      if (!slug) continue;
+      const strList = (k) => {
+        const b = ch.match(new RegExp(k + ':\\s*\\[([\\s\\S]*?)\\n\\s*\\],'));
+        if (!b) return [];
+        return [...b[1].matchAll(/(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)\s*,/g)]
+          .map((m) => (m[1] ?? m[2]).replace(/\\'/g, "'"))
+          .filter((s) => s.trim().length > 1);
+      };
+      const recall = [];
+      const rb = ch.match(/recall:\s*\[([\s\S]*?)\n\s*\],/);
+      if (rb) {
+        for (const m of rb[1].matchAll(/\{\s*q:\s*(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)\s*,\s*a:\s*(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)/g)) {
+          recall.push({ q: (m[1] ?? m[2] ?? '').replace(/\\'/g, "'"), a: (m[3] ?? m[4] ?? '').replace(/\\'/g, "'") });
+        }
+      }
+      // Step captions are plain teaching text; the accompanying svg is not content.
+      const steps = [...ch.matchAll(/caption:\s*(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)/g)]
+        .map((m) => (m[1] ?? m[2]).replace(/\\'/g, "'"));
+      out.push({
+        slug,
+        title: g('title'),
+        subject: g('subject'),
+        classLevel: g('classLevel'),
+        intro: g('intro'),
+        whyItMatters: g('whyItMatters'),
+        memoryHook: g('memoryHook'),
+        realLifeExample: g('realLifeExample'),
+        cruxNotes: strList('cruxNotes'),
+        recall,
+        steps,
+      });
     }
     return out;
   } catch { return []; }
@@ -177,10 +213,36 @@ export function getWhatToStudy(root) {
     if (start < 0) return [];
     const body = ts.slice(start);
     const out = [];
-    const re = /slug:\s*'([^']+)',\s*\n\s*classLevel:\s*'([^']+)',\s*subject:\s*'([^']+)'/g;
-    let m;
-    while ((m = re.exec(body)) !== null) {
-      out.push({ slug: m[1], classLevel: m[2], subject: m[3], title: `${m[2]} ${m[3]}`, intro: `Most important chapters in ${m[2]} ${m[3]} by marks weightage.` });
+    // Split on record boundaries, then read each field individually. The previous
+    // regex demanded slug/classLevel/subject on consecutive lines and captured
+    // nothing else, so the authored intro and the whole units table were lost and
+    // a generic sentence was invented in their place.
+    const chunks = body.split(/\n  \{\n/).slice(1);
+    for (const ch of chunks) {
+      const g = (k) => {
+        const m = ch.match(new RegExp(k + ":\\s*(?:'((?:[^'\\\\]|\\\\.)*)'|`((?:[^`\\\\]|\\\\.)*)`)"));
+        return m ? (m[1] ?? m[2]).replace(/\\'/g, "'") : '';
+      };
+      const slug = g('slug');
+      if (!slug) continue;
+      const num = (k) => { const m = ch.match(new RegExp(k + ':\\s*(\\d+)')); return m ? Number(m[1]) : null; };
+      const units = [];
+      const ub = ch.match(/units:\s*\[([\s\S]*?)\n\s*\],/);
+      if (ub) {
+        for (const um of ub[1].matchAll(/\{\s*name:\s*'([^']*)',\s*marks:\s*(\d+),\s*tip:\s*(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)/g)) {
+          units.push({ name: um[1], marks: Number(um[2]), tip: (um[3] ?? um[4] ?? '').replace(/\\'/g, "'") });
+        }
+      }
+      const classLevel = g('classLevel');
+      const subject = g('subject');
+      out.push({
+        slug, classLevel, subject,
+        exam: g('exam'),
+        totalMarks: num('totalMarks'),
+        title: `${classLevel} ${subject}`,
+        intro: g('intro'),
+        units,
+      });
     }
     return out;
   } catch { return []; }

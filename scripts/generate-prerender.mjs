@@ -2509,6 +2509,44 @@ try {
   generateMemoryPoster(ROOT, VISUAL_LESSONS_FULL);
 } catch (e) { console.warn('⚠️  Memory poster generation error:', e?.message || e); }
 
+
+/**
+ * Body builders for three clusters that had none, so each page rendered only its
+ * intro — 124 to 155 words — while the banks behind them held the real content.
+ *
+ * /what-to-study was the worst of the three: the loader could not parse the
+ * authored intro, so it invented "Most important chapters in X by marks
+ * weightage" and dropped the units table, which is the only reason the page
+ * exists. A student searching "class 10 maths weightage" got a generic sentence.
+ */
+function weightageBody(x, sibs, base) {
+  const units = (x.units || []).slice().sort((a, b) => b.marks - a.marks);
+  const total = units.reduce((n, u) => n + u.marks, 0);
+  const top = units.slice(0, 2);
+  const rel = sibs.length ? `<h2>Weightage for Other Subjects</h2><ul>${sibs.map((s) => `<li><a href="${base}/${s.slug}">${esc(s.title)} — marks weightage</a></li>`).join('')}</ul>` : '';
+  if (!units.length) return `<p>${esc(x.intro || '')}</p>${rel}`;
+  const faqs = [
+    { q: `Which chapters carry the most marks in ${x.title}?`, a: `${top.map((u) => `${u.name} (${u.marks} marks)`).join(' and ')} carry the most — ${top.reduce((n, u) => n + u.marks, 0)} of ${x.totalMarks || total} between them. Securing these two before anything else is the single highest-return decision in your revision plan.` },
+    { q: `What is the total marks for ${x.title}?`, a: `${x.exam || 'The paper'} carries ${x.totalMarks || total} marks in theory. The unit-wise split above accounts for all of them.` },
+    { q: `Should I skip the low-weightage units?`, a: `No. The smallest units here are worth ${Math.min(...units.map((u) => u.marks))} marks, which is more than the gap between most grade boundaries, and they are usually the quickest to prepare. Order your revision by weightage; do not delete anything from it.` },
+  ];
+  return `
+    <p class="speakable">${esc(x.intro || '')}</p>
+
+    <h2>${esc(x.title)} — Unit-wise Marks Weightage</h2>
+    <p>${x.exam ? `${esc(x.exam)} — ` : ''}${x.totalMarks ? `${x.totalMarks} marks in theory` : `${total} marks`}, listed heaviest first so you can see where your revision time actually earns marks.</p>
+    <table><thead><tr><th>Unit</th><th>Marks</th><th>Share</th><th>What to focus on</th></tr></thead><tbody>
+      ${units.map((u) => `<tr><td>${esc(u.name)}</td><td>${u.marks}</td><td>${Math.round((u.marks / (x.totalMarks || total)) * 100)}%</td><td>${esc(u.tip || '')}</td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>How to Use This Weightage</h2>
+    <p>Work down the table rather than through the textbook in order. ${esc(top.map((u) => u.name).join(' and '))} alone account for ${top.reduce((n, u) => n + u.marks, 0)} of ${x.totalMarks || total} marks, so a week spent there moves your score further than a week spent on the last three units combined. Once the heavy units are secure, the lighter ones are usually short and formula-driven, which makes them efficient to finish last.</p>
+    <p>Treat the tips in the final column as the specific sub-topics examiners return to. They are where the marks in each unit actually sit.</p>
+
+    ${faqBlock(faqs)}
+    ${rel}`;
+}
+
 const STUDY_CLUSTERS = [
   { base: '/maths-tables', name: 'Maths Tables & Charts', kw: 'maths tables, multiplication table, squares cubes primes', data: getMathsTables(ROOT), label: (x) => x.title, titleSuffix: '— Full Chart & Quick Revision', body: mathsTableBody },
   { base: '/english-writing', name: 'English Writing Skills', kw: 'essay writing, letter writing, notice article speech writing', data: getEnglishWriting(ROOT), label: (x) => x.title, body: englishWritingBody },
@@ -2521,7 +2559,7 @@ const STUDY_CLUSTERS = [
   { base: '/lab-practicals', name: 'Lab Practicals & Viva', kw: 'lab practical, science experiment procedure, viva questions, CBSE practical', data: getLabPracticals(ROOT), label: (x) => `${x.title} (${x.classLevel} ${x.subject} Practical)`, body: labBody },
   { base: '/visual-learning', name: 'Visual Learning — Interactive Diagrams', kw: 'animated diagrams, interactive diagrams, step by step science diagrams, water cycle photosynthesis heart', data: VISUAL_LESSONS_FULL.map((x) => (x.recall && x.recall.length ? { ...x, faqs: x.recall } : x)), label: (x) => `${x.title} — Interactive Diagram`, body: visualBody },
   { base: '/timelines', name: 'History Timelines', kw: 'history timeline, indian freedom struggle timeline, mughal empire timeline, important dates history', data: getTimelines(ROOT), label: (x) => `${x.title} — Interactive Timeline`, body: timelineBody },
-  { base: '/what-to-study', name: 'What to Study — Marks Weightage', kw: 'important chapters by marks, cbse weightage, what to study for boards, marks distribution', data: getWhatToStudy(ROOT), label: (x) => `Most Important Chapters — ${x.title}` },
+  { base: '/what-to-study', name: 'What to Study — Marks Weightage', kw: 'important chapters by marks, cbse weightage, what to study for boards, marks distribution', data: getWhatToStudy(ROOT), label: (x) => `Most Important Chapters — ${x.title}` , body: weightageBody },
   { base: '/pyqs', name: 'Previous Year Questions (PYQ)', kw: 'previous year questions, pyq chapter wise, board questions with solutions, important questions', data: getPyqs(ROOT), label: (x) => `${x.chapter} — Previous Year Questions (${x.classLevel} ${x.subject})`, body: pyqBody },
 ];
 for (const c of STUDY_CLUSTERS) {
@@ -2610,6 +2648,107 @@ for (const s of MED_STATES) {
     jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Medical Colleges in ${s.name}`, url: `${SITE}/medical-colleges/${s.slug}`, inLanguage: 'en-IN' },
   });
 }
+const OWNER = (t) => {
+  const s = String(t || '');
+  if (/AIIMS/i.test(s)) return 'central government institute of national importance';
+  if (/Government|Govt/i.test(s)) return 'government medical college';
+  if (/Deemed/i.test(s)) return 'deemed-to-be university';
+  if (/Private/i.test(s)) return 'private medical college';
+  return 'medical college';
+};
+
+/** Peer set for the comparison table: same state first, then same ownership type. */
+const medPeers = (c) => {
+  const pool = MED_COLLEGES.filter((o) => o.slug !== c.slug);
+  let peers = pool.filter((o) => o.stateSlug === c.stateSlug);
+  if (peers.length < 2) peers = pool.filter((o) => o.type === c.type);
+  const byRank = (a, b) => (a.nirf ?? 9999) - (b.nirf ?? 9999);
+  return [c, ...peers.sort(byRank).slice(0, 4)].sort(byRank);
+};
+
+/** FAQ entries, shared between the visible block and the FAQPage schema. */
+const medFaqs = (c) => {
+  const feeYr = inr(c.feesPerYear) || c.feesPerYear;
+  const full = medFullCourse(c);
+  const rankLine = c.nirf
+    ? `ranked #${c.nirf} in NIRF Medical 2025`
+    : 'outside the NIRF Medical 2025 top 50, which is the full list that ranking publishes';
+  return [
+    { q: `What are the MBBS fees at ${c.shortName}?`, a: `MBBS tuition at ${c.name} is about ${feeYr} per year${full ? `, and roughly ${full} for the whole course` : ''}. Hostel, mess and one-time charges are billed separately, so budget above the tuition figure.` },
+    { q: `What is the NEET cutoff for ${c.shortName}?`, a: `${c.neetCutoff}. Cutoffs move every year with the number of candidates, the difficulty of the paper and the seats released in each counselling round, so treat this as indicative rather than a fixed threshold.` },
+    { q: `How many MBBS seats does ${c.shortName} have?`, a: `${c.name} has ${c.mbbsSeats} MBBS seats. Seats are filled through NEET UG counselling, divided between the All India Quota and the state quota depending on the college.` },
+    { q: `How do I get admission to ${c.shortName}?`, a: `${(c.admissionSteps || []).join('; ')}. Admission is entirely through NEET UG — there is no separate entrance test for the MBBS seats.` },
+    (c.courses && c.courses.length) ? { q: `Which courses does ${c.shortName} offer?`, a: `${c.name} offers ${c.courses.join(', ')}.` } : null,
+    c.accommodation ? { q: `Does ${c.shortName} provide hostel accommodation?`, a: `${c.accommodation}` } : null,
+    c.internship ? { q: `What is the internship at ${c.shortName} like?`, a: `${c.internship}` } : null,
+    { q: `Is ${c.shortName} a good medical college?`, a: `${c.name} is a ${OWNER(c.type)} in ${c.city}, established in ${c.established} and ${rankLine}. It offers ${c.mbbsSeats} MBBS seats at about ${feeYr} a year. Whether it suits you depends on your NEET rank, your budget and whether you want to study in ${c.state}.` },
+  ].filter(Boolean);
+};
+
+/**
+ * Full detail page for a medical college.
+ *
+ * These pages averaged 219 words and carried a single <h2> — "Admission process"
+ * — while the engineering college pages, which serve the same kind of decision,
+ * ran to 775 words across ten sections. Every field in the medical bank is
+ * populated for all 70 records (only `nirf` is legitimately sparse), so the depth
+ * existed in the data and was simply never rendered. Nothing here is invented:
+ * each section is omitted when the field behind it is empty.
+ */
+const medBody = (c) => {
+  const feeYr = inr(c.feesPerYear) || c.feesPerYear;
+  const full = medFullCourse(c);
+  const peers = medPeers(c);
+  const hasPeers = peers.length > 1;
+  return `
+    <p class="speakable"><strong>${esc(c.name)}</strong>${c.shortName && c.shortName !== c.name ? ` (${esc(c.shortName)})` : ''} is a ${esc(OWNER(c.type))} in ${esc(c.city)}, ${esc(c.state)}, established in ${c.established}. It offers ${c.mbbsSeats} MBBS seats at about ${esc(String(feeYr))} per year and admits students through NEET UG.</p>
+    ${c.about ? `<p>${esc(c.about)}</p>` : ''}
+
+    <h2>${esc(c.shortName)} — Quick Facts</h2>
+    <table><tbody>
+      <tr><td>Type</td><td>${esc(OWNER(c.type))}</td></tr>
+      <tr><td>Established</td><td>${c.established}</td></tr>
+      <tr><td>Location</td><td>${esc(c.city)}, ${esc(c.state)}</td></tr>
+      <tr><td>NIRF Medical 2025</td><td>${c.nirf ? `#${c.nirf}` : 'Not in the published top 50'}</td></tr>
+      <tr><td>MBBS seats</td><td>${c.mbbsSeats}</td></tr>
+      <tr><td>MBBS fees</td><td>${esc(String(feeYr))} per year${full ? ` (${esc(String(full))})` : ''}</td></tr>
+      <tr><td>NEET cutoff (indicative)</td><td>${esc(c.neetCutoff)}</td></tr>
+      <tr><td>Entrance exam</td><td>${esc((c.exams || ['NEET UG']).join(', '))}</td></tr>
+    </tbody></table>
+
+    ${(c.courses && c.courses.length) ? `<h2>Courses Offered at ${esc(c.shortName)}</h2><ul>${c.courses.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+
+    <h2>${esc(c.shortName)} MBBS Fees</h2>
+    <p>Tuition is about <strong>${esc(String(feeYr))} per year</strong>${full ? `, which works out to roughly <strong>${esc(String(full))}</strong> across the course` : ''}. The MBBS course runs four and a half years of teaching followed by a compulsory rotating internship, so plan for five and a half years in total. Hostel, mess, uniform and examination charges are additional and are not included in the tuition figure above.</p>
+
+    <h2>NEET Cutoff &amp; Eligibility</h2>
+    <p>The indicative closing standard is <strong>${esc(c.neetCutoff)}</strong>. To be eligible you must have passed Class 12 with Physics, Chemistry and Biology, be at least 17 years old by 31 December of the admission year, and qualify NEET UG in the same year. The cutoff shifts each year with the number of candidates and the seats released in each round, so use it to judge whether the college is within reach rather than as a fixed line.</p>
+
+    <h2>Admission Process (NEET UG)</h2>
+    <ol>${(c.admissionSteps || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
+
+    ${c.internship ? `<h2>Internship</h2><p>${esc(c.internship)}</p>` : ''}
+    ${c.accommodation ? `<h2>Campus &amp; Accommodation</h2><p>${esc(c.accommodation)}</p>` : ''}
+
+    ${hasPeers ? `<h2>${esc(c.shortName)} vs Other Medical Colleges — Comparison</h2>
+    <p>How ${esc(c.shortName)} compares with neighbouring colleges on the numbers students actually weigh. All figures are indicative and must be checked on the official counselling website before any decision.</p>
+    <table><thead><tr><th>College</th><th>NIRF 2025</th><th>MBBS seats</th><th>Fees / year</th><th>NEET cutoff</th></tr></thead><tbody>
+      ${peers.map((o) => `<tr><td>${o.slug === c.slug ? `<strong>${esc(o.shortName)}</strong>` : `<a href="/medical-colleges/${o.stateSlug}/${o.slug}">${esc(o.shortName)}</a>`}</td><td>${o.nirf ? `#${o.nirf}` : '—'}</td><td>${o.mbbsSeats}</td><td>${esc(String(inr(o.feesPerYear) || o.feesPerYear || '—'))}</td><td>${esc(o.neetCutoff || '—')}</td></tr>`).join('')}
+    </tbody></table>` : ''}
+
+    <h2>Official Links</h2>
+    <ul>
+      ${c.website ? `<li><a href="https://${esc(c.website)}" rel="nofollow noopener">Official website (${esc(c.website)})</a></li>` : ''}
+      <li><a href="https://mcc.nic.in" rel="nofollow noopener">MCC — All India Quota NEET UG counselling</a></li>
+      <li><a href="https://neet.nta.nic.in" rel="nofollow noopener">NTA NEET UG — exam, admit card and results</a></li>
+    </ul>
+
+    ${faqBlock(medFaqs(c))}
+
+    <p><a href="/medical-colleges/${c.stateSlug}">More medical colleges in ${esc(c.state)} →</a> · <a href="/medical-colleges">All medical colleges by state →</a></p>
+    <p><em>All figures (fees, NEET cutoffs, seats, NIRF rank) are indicative for guidance and should be verified on the official college or counselling website before any decision.</em></p>`;
+};
+
 for (const c of MED_COLLEGES_ALL) {
   const u = `${SITE}/medical-colleges/${c.stateSlug}/${c.slug}`;
   ROUTES.push({
@@ -2618,8 +2757,11 @@ for (const c of MED_COLLEGES_ALL) {
     title: `${c.name} — MBBS Fees, NEET Cutoff, Seats & Admission | Syllab.in`,
     description: `${c.name}, ${c.city}: MBBS fees ${c.feesPerYear}/yr, ${c.neetCutoff}, ${c.mbbsSeats} seats${c.nirf ? `, NIRF #${c.nirf}` : ''}. Admission via NEET UG — full process, courses, internship & hostel.`,
     keywords: `${c.name} fees, ${c.shortName} NEET cutoff, ${c.name} MBBS admission, ${c.name} seats, ${c.city} medical college`,
-    bodyHtml: `<p>${esc(c.about)}</p><p><strong>MBBS fees:</strong> ${esc(c.feesPerYear)}/yr${medFullCourse(c) ? ` (${esc(medFullCourse(c))}${/full|course/i.test(String(medFullCourse(c))) ? '' : ' full course'})` : ''}. <strong>Seats:</strong> ${c.mbbsSeats}. <strong>NEET cutoff (indicative):</strong> ${esc(c.neetCutoff)}.</p><h2>Admission process (NEET UG)</h2><ol>${(c.admissionSteps || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ol>`,
-    jsonLd: { '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name, foundingDate: String(c.established), url: `https://${c.website}`, address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.state, addressCountry: 'IN' } },
+    bodyHtml: medBody(c),
+    jsonLd: [
+      { '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name, foundingDate: String(c.established), url: `https://${c.website}`, address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.state, addressCountry: 'IN' } },
+      { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: medFaqs(c).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+    ],
   });
 }
 

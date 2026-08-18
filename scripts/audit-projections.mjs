@@ -44,6 +44,31 @@ const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Same reader studyClusters.mjs uses, so raw and projected share one source. */
+/**
+ * Field names at record depth, for banks JSON.parse cannot read.
+ *
+ * readArray() JSON.parses the raw source, which only works for banks that are
+ * JSON.stringify output. The hand-authored ones — single quotes, backticks,
+ * FRAME(...) calls — throw, so three banks sat outside this audit completely.
+ * That is precisely where the damage was: getVisualLessons dropped six authored
+ * fields and getWhatToStudy discarded the units table and invented an intro,
+ * and this tool reported the site clean throughout. Reading the field NAMES out
+ * of the source gives no values, so no word counts, but it does answer the only
+ * question that matters: does every stored field reach the projection?
+ */
+function readFieldNames(file, marker) {
+  const out = new Set();
+  try {
+    const ts = readFileSync(path.join(ROOT, 'src', 'data', file), 'utf8');
+    const start = ts.indexOf(marker);
+    if (start < 0) return out;
+    const end = ts.indexOf('\n];', start);
+    const body = ts.slice(start, end < 0 ? undefined : end);
+    for (const m of body.matchAll(/^\s{4}([a-zA-Z][a-zA-Z0-9]*):/gm)) out.add(m[1]);
+  } catch { /* fall through to an empty set */ }
+  return out;
+}
+
 function readArray(file, marker) {
   try {
     const ts = readFileSync(path.join(ROOT, 'src', 'data', file), 'utf8');
@@ -77,6 +102,12 @@ const BANKS = [
   ['getMathsTables', 'mathsTables.ts', 'export const MATHS_TABLES: MathRef[] = '],
   ['getStaticGk', 'staticGk.ts', 'export const GK_TOPICS: GkTopic[] = '],
   ['getFormulaSheets', 'formulaSheets.ts', 'export const FORMULA_SHEETS: FormulaSheet[] = '],
+  // Added after these three were found to be outside the audit entirely. They are
+  // hand-authored TS, so they are covered by the field-name scan above rather than
+  // by JSON.parse — an audit that cannot read a bank must say so, not skip it.
+  ['getWhatToStudy', 'whatToStudy.ts', 'export const WEIGHTAGE_SUBJECTS: WeightageSubject[] = '],
+  ['getTimelines', 'timelines.ts', 'export const TIMELINES: HistoryTimeline[] = '],
+  ['getVisualLessons', 'visualLessons.ts', 'export const VISUAL_LESSONS: VisualLesson[] = '],
   ['getFullForms', 'fullForms.ts', 'export const FULL_FORMS: FullForm[] = '],
   ['getSamplePapers', 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = '],
 
@@ -89,6 +120,11 @@ const BANKS = [
 
 /** `${loader}.${field}` -> why it is deliberately not carried through. */
 const ALLOWED = {
+  // { label, tab } — a target for an in-app tab, not page content. The static
+  // page cannot turn a tab id into a URL without guessing, and a wrong internal
+  // link is worse than an absent one.
+  'getVisualLessons.practice': 'in-app tab target, not body content',
+
   // Presentation-only: the detail page derives its own heading from classLevel
   // and subject, and the exam label is already in the route title.
   'getPyqs.exam': 'route title already carries the exam name; not body content',
@@ -127,8 +163,14 @@ const unaudited = [];
 for (const [fn, file, marker, moduleName = 'clusters'] of BANKS) {
   const mod = MODULES[moduleName];
   if (!mod || typeof mod[fn] !== 'function') { unaudited.push(`${fn} — not exported by ${moduleName}`); continue; }
-  const raw = readArray(file, marker);
-  if (!raw || !raw.length) { unaudited.push(`${fn} (${file}) — marker not found, NOT AUDITED`); continue; }
+  let raw = readArray(file, marker);
+  let namesOnly = false;
+  if (!raw || !raw.length) {
+    const names = readFieldNames(file, marker);
+    if (!names.size) { unaudited.push(`${fn} (${file}) — marker not found, NOT AUDITED`); continue; }
+    raw = [Object.fromEntries([...names].map((k) => [k, 1]))];
+    namesOnly = true;
+  }
   let projected = mod[fn](ROOT);
   // Some loaders return a manifest object rather than a bare array.
   if (projected && !Array.isArray(projected)) {
@@ -144,7 +186,7 @@ for (const [fn, file, marker, moduleName = 'clusters'] of BANKS) {
       n: raw.reduce((a, r) => a + (r && r[k] !== undefined ? words(r[k]) : 0), 0),
       items: raw.filter((r) => r && r[k] !== undefined).length,
     }))
-    .filter((d) => d.n > 0)
+    .filter((d) => namesOnly || d.n > 0)
     .sort((a, b) => b.n - a.n);
 
   const unexplained = dropped.filter((d) => !ALLOWED[`${fn}.${d.k}`]);
