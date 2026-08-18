@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v332-2026-08-18-career-guides-render-dark-bank-audit';
+const CACHE_VERSION = 'syllab-v333-2026-08-18-updates-render-full-articles';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
