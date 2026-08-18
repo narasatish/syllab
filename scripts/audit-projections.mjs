@@ -37,12 +37,13 @@ import * as differencesData from './differencesData.mjs';
 import * as aiHubTopics from './aiHubTopics.mjs';
 import * as blogArticles from './blogArticles.mjs';
 import * as collegesData from './collegesData.mjs';
+import * as kidsData from './kidsData.mjs';
 import * as ncertChapters from './ncertChapters.mjs';
 import * as stateBoardChapters from './stateBoardChapters.mjs';
 import * as medicalCollegesData from './medicalColleges.mjs';
 
 /** Loader modules this audit knows about, beyond studyClusters.mjs. */
-const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData };
+const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData, kidsData };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -68,6 +69,15 @@ function readFieldNames(file, marker) {
     const end = ts.indexOf('\n];', start);
     const body = ts.slice(start, end < 0 ? undefined : end);
     for (const m of body.matchAll(/^\s{4}([a-zA-Z][a-zA-Z0-9]*):/gm)) out.add(m[1]);
+    // Some banks put a whole record on one line — `{ letter: 'A', word: 'Apple' }`
+    // — so there are no indented keys to find and the scan came back empty,
+    // reporting the bank as unreadable. Fall back to reading keys anywhere inside
+    // a record brace. Slightly broader, but a name-only comparison is all this
+    // mode claims to do, and an over-broad name list errs towards reporting a
+    // drop rather than hiding one.
+    if (!out.size) {
+      for (const m of body.matchAll(/[{,]\s*([a-zA-Z][a-zA-Z0-9]*):/g)) out.add(m[1]);
+    }
   } catch { /* fall through to an empty set */ }
   return out;
 }
@@ -117,6 +127,17 @@ const BANKS = [
   // and its loader projected 3 of 7 fields, dropping 107 sections and 64 FAQs.
   ['getAiHubTopics', 'aiHub.ts', 'AI_TOPICS: AiTopic[] = ', 'aiHubTopics'],
   ['getFullArticles', 'updateArticles.ts', 'export const FULL_ARTICLES: FullArticle[] = ', 'blogArticles'],
+  // Syllab Junior. These live in src/data/kids/, so the file path carries the
+  // subdirectory — readArray joins it under src/data.
+  ['getKidsStories', 'kids/stories.ts', 'export const MORAL_STORIES: MoralStory[] = ', 'kidsData'],
+  ['getKidsRhymes', 'kids/rhymes.ts', 'export const nurseryRhymes: NurseryRhyme[] = ', 'kidsData'],
+  ['getKidsActionRhymes', 'kids/actionRhymes.ts', 'export const ACTION_RHYMES: ActionRhyme[] = ', 'kidsData'],
+  ['getKidsLearnTopics', 'kids/learnTopics.ts', 'export const LEARN_TOPICS: LearnTopic[] = ', 'kidsData'],
+  ['getKidsAlphabet', 'kids/alphabet.ts', 'export const alphabetTiles: AlphabetTile[] = ', 'kidsData'],
+  ['getKidsNumbers', 'kids/numbers.ts', 'export const numberTiles: NumberTile[] = ', 'kidsData'],
+  ['getKidsShapes', 'kids/shapes.ts', 'export const shapeTiles: ShapeTile[] = ', 'kidsData'],
+  ['getKidsColoring', 'kids/coloring.ts', 'export const coloringPages: ColoringPage[] = ', 'kidsData'],
+  ['getKidsMatchSets', 'kids/matchSets.ts', 'export const MATCH_SETS: MatchSet[] = ', 'kidsData'],
   ['getFullForms', 'fullForms.ts', 'export const FULL_FORMS: FullForm[] = '],
   ['getSamplePapers', 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = '],
 
@@ -129,6 +150,16 @@ const BANKS = [
 
 /** `${loader}.${field}` -> why it is deliberately not carried through. */
 const ALLOWED = {
+  // The colouring artwork itself. It is SVG markup, not readable text, and the
+  // page embeds it client-side; the title, description and age group ARE rendered.
+  'getKidsColoring.svg': 'SVG artwork, embedded client-side — markup rather than readable content',
+
+  // Not a data field at all. numbers.ts builds its dot positions with
+  // `Array.from({ length: 11 }, ...)`, and the one-line-record fallback scan sees
+  // that `length:` as a key. Left visible rather than silenced in the scanner,
+  // because narrowing the scan to hide it would risk hiding real fields too.
+  'getKidsNumbers.length': 'artefact of the one-line-record scan — from Array.from({ length: n }), not a stored field',
+
   // getFullArticles exists to supply the BODY of an /updates page. Everything
   // below is either metadata or already sourced elsewhere, so none of it is
   // content going missing.

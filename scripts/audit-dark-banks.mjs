@@ -58,8 +58,17 @@ const loaderSrc = ['studyClusters.mjs', 'generate-prerender.mjs', 'generate-site
   .join('\n');
 
 const banks = [];
-for (const file of readdirSync(DATA)) {
-  if (!file.endsWith('.ts') || file.includes('.test.')) continue;
+// Recurse. This scanned only the top level of src/data, so the nine banks under
+// src/data/kids/ — 71 KB of rhymes, stories and picture topics — were invisible
+// to the very audit built to find invisible banks.
+const dataFiles = [];
+(function walk(dir, prefix = '') {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) walk(path.join(dir, entry.name), prefix + entry.name + '/');
+    else if (entry.name.endsWith('.ts') && !entry.name.includes('.test.')) dataFiles.push(prefix + entry.name);
+  }
+})(DATA);
+for (const file of dataFiles) {
   const src = readFileSync(path.join(DATA, file), 'utf8');
   for (const m of src.matchAll(/^export const ([A-Z][A-Z0-9_]+)\s*:\s*[^=]+\[\]\s*=/gm)) {
     banks.push({ name: m[1], file, kb: Math.round(src.length / 1024) });

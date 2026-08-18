@@ -23,6 +23,7 @@ import { getBlogArticles, getFullArticles, isThinArticle } from './blogArticles.
 import { getNcertChapters } from './ncertChapters.mjs';
 import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
+import { getKidsStories, getKidsRhymes, getKidsActionRhymes, getKidsLearnTopics, getKidsAlphabet, getKidsNumbers, getKidsShapes, getKidsColoring, getKidsMatchSets } from './kidsData.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { DIFF_REINDEX, DIFF_REINDEX_SLUGS } from './diff-reindex.mjs';
@@ -1269,7 +1270,217 @@ for (const a of [
 }
 
 // ─── Kids / Pre-school (Pre-KG → Class 3) — high-volume early-learning SEO ─────
+/**
+ * Syllab Junior page bodies.
+ *
+ * 37 indexable /kids pages rendered ~157 words while nine banks held the actual
+ * material: 30 nursery rhymes with full lyrics, 10 moral stories, 8 action
+ * rhymes, 28 tap-and-listen topics with 359 items, and the alphabet, number and
+ * shape tables. All of it authored, none of it reaching a page.
+ *
+ * The audience here is a parent or teacher searching on a phone — "nursery
+ * rhymes lyrics", "moral stories for kids", "hindi varnamala". They want the
+ * text itself, so the text is what these render, with a short, specific note on
+ * how to use it. The notes are deliberately concrete; a page that pads itself
+ * with encouragement is worse than one that stays short.
+ */
+const KIDS_LOAD = {
+  matchSets: getKidsMatchSets(ROOT),
+  stories: getKidsStories(ROOT),
+  rhymes: getKidsRhymes(ROOT),
+  actionRhymes: getKidsActionRhymes(ROOT),
+  learn: getKidsLearnTopics(ROOT),
+  alphabet: getKidsAlphabet(ROOT),
+  numbers: getKidsNumbers(ROOT),
+  shapes: getKidsShapes(ROOT),
+  coloring: getKidsColoring(ROOT),
+};
+
+function kidsRhymesBody() {
+  const r = KIDS_LOAD.rhymes;
+  if (!r.length) return '';
+  return `
+    <p class="speakable">${r.length} traditional nursery rhymes with full lyrics — Twinkle Twinkle, Humpty Dumpty, Jack and Jill and more. Free to read, sing or print, with no login.</p>
+
+    <h2>Why Rhymes Come First</h2>
+    <p>Rhymes teach a child to hear that words are made of smaller sounds — that "cat" and "hat" differ by one piece. That awareness, called phonological awareness, is the single strongest predictor of how easily a child later learns to read, and it develops through the ear long before a child recognises a letter. Singing the same rhyme repeatedly is not repetition for its own sake: the child is learning to predict what comes next, which is the beginning of comprehension.</p>
+
+    ${r.map((x) => `<h2>${esc(x.emoji || '')} ${esc(x.title)}</h2><p>${x.lyrics.map((l) => esc(l)).join('<br />')}</p>`).join('')}
+
+    <h2>How to Use These at Home</h2>
+    <p>Sing one rhyme a day rather than many at once, and let the child finish the last word of each line — pausing before "star" in "Twinkle, twinkle, little&nbsp;…" makes them listen for the sound rather than recite from memory. Clapping the beat helps a child feel syllables, which is the same skill they will need for spelling. Two or three minutes is a full session at this age.</p>
+
+    <p><a href="/kids/action-rhymes">Action rhymes with movements →</a> · <a href="/kids/stories">Moral stories →</a> · <a href="/kids">All of Syllab Junior →</a></p>`;
+}
+
+function kidsStoriesBody() {
+  const s = KIDS_LOAD.stories;
+  if (!s.length) return '';
+  return `
+    <p class="speakable">${s.length} short moral stories from Aesop and the Panchatantra — the Thirsty Crow, the Lion and the Mouse, the Hare and the Tortoise — each a few lines long with its moral stated plainly at the end.</p>
+
+    <h2>Stories</h2>
+    ${s.map((x) => `<h3>${esc(x.emoji || '')} ${esc(x.title)}</h3>${x.lines.map((l) => `<p>${esc(l)}</p>`).join('')}${x.moral ? `<p><strong>Moral:</strong> ${esc(x.moral)}</p>` : ''}`).join('')}
+
+    <h2>Reading These With a Child</h2>
+    <p>Stop before the moral and ask what the child thinks the character should have done. A four-year-old will often produce a better answer than the printed moral, and arriving at it themselves is what makes it stick. Reading the moral first turns the story into a lesson to be endured rather than a puzzle to be solved.</p>
+    <p>These are short on purpose. A child who can retell the Thirsty Crow in their own words has done more real comprehension work than one who has sat through a longer story passively.</p>
+
+    <p><a href="/kids/rhymes">Nursery rhymes with lyrics →</a> · <a href="/kids">All of Syllab Junior →</a></p>`;
+}
+
+function kidsActionRhymesBody() {
+  const a = KIDS_LOAD.actionRhymes;
+  if (!a.length) return '';
+  return `
+    <p class="speakable">${a.length} action rhymes to sing and move to — the words are below, and each line has an action a child can copy.</p>
+
+    ${a.map((x) => `<h2>${esc(x.emoji || '')} ${esc(x.title)}</h2>${x.lines.map((l) => `<p>${esc(l)}</p>`).join('')}`).join('')}
+
+    <h2>Why Movement Helps</h2>
+    <p>Attaching a gesture to a word gives a young child a second route to the memory — they recall "shoulders" partly through the movement of touching them. This is why action rhymes hold attention far longer than sitting still with the same words, and why they suit a child who is not yet ready to sit for a story.</p>
+
+    <p><a href="/kids/rhymes">Nursery rhymes →</a> · <a href="/kids/stories">Moral stories →</a> · <a href="/kids">All of Syllab Junior →</a></p>`;
+}
+
+function kidsAlphabetBody() {
+  const a = KIDS_LOAD.alphabet;
+  if (!a.length) return '';
+  return `
+    <p class="speakable">The English alphabet with a picture word for every letter — ${a.length} letters, capital and small, with the sound each one makes.</p>
+
+    <h2>A to Z with Picture Words</h2>
+    <table><thead><tr><th>Capital</th><th>Small</th><th>Word</th></tr></thead><tbody>
+      ${a.map((x) => `<tr><td>${esc(x.letter)}</td><td>${esc(x.lowercase || x.letter.toLowerCase())}</td><td>${esc(x.emoji || '')} ${esc(x.word || '')}</td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>Teach the Sound Before the Name</h2>
+    <p>A child who knows that the letter is called "em" still cannot read "mat"; a child who knows it says <em>mmm</em> can. Start with the sound each letter makes and leave the alphabet song for later — it is a lovely song but it teaches names, not reading. Capital letters come first in most Indian schools, so both forms are shown side by side above.</p>
+
+    <p><a href="/kids/numbers">Numbers &amp; counting →</a> · <a href="/kids/rhymes">Nursery rhymes →</a> · <a href="/kids">All of Syllab Junior →</a></p>`;
+}
+
+function kidsNumbersBody() {
+  const n = KIDS_LOAD.numbers;
+  if (!n.length) return '';
+  return `
+    <p class="speakable">Numbers 1 to ${n.length} with their names and a count to match — for Pre-KG, LKG and UKG children learning to count.</p>
+
+    <h2>Numbers and Their Names</h2>
+    <table><thead><tr><th>Number</th><th>Name</th><th>Count</th></tr></thead><tbody>
+      ${n.map((x) => `<tr><td>${x.number}</td><td>${esc(x.word || '')}</td><td>${esc(x.emoji || '')}${x.dots ? ` × ${x.dots}` : ''}</td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>Counting Is Not Reciting</h2>
+    <p>Many children can say "one two three four five" long before they can hand you three spoons. The skill that matters is one-to-one correspondence — touching each object exactly once while saying exactly one number — and it only develops with real objects. Count the stairs, the rotis, the buttons on a shirt. The table above is for recognising the written numeral, which is a separate and later step.</p>
+
+    <p><a href="/kids/alphabet">Alphabet &amp; phonics →</a> · <a href="/kids/shapes">Shapes &amp; colours →</a> · <a href="/kids">All of Syllab Junior →</a></p>`;
+}
+
+function kidsShapesBody() {
+  const s = KIDS_LOAD.shapes;
+  if (!s.length) return '';
+  return `
+    <p class="speakable">${s.length} basic shapes and colours with a plain description of each — the vocabulary a child needs before starting formal maths.</p>
+
+    <h2>Shapes and Colours</h2>
+    <table><thead><tr><th>Name</th><th>Looks like</th><th>Colour</th></tr></thead><tbody>
+      ${s.map((x) => `<tr><td>${esc(x.emoji || '')} ${esc(x.name)}</td><td>${esc(x.description || '')}</td><td>${esc(x.colorName || '')}</td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>Find Them in the Room</h2>
+    <p>Shape names stick when a child spots them outside a worksheet — the clock is a circle, the door is a rectangle, the samosa is a triangle. Ask for one example of each before moving on; a child who can only find shapes on a page has learned the picture, not the idea.</p>
+
+    <p><a href="/kids/numbers">Numbers &amp; counting →</a> · <a href="/kids/coloring">Colouring pages →</a> · <a href="/kids">All of Syllab Junior →</a></p>`;
+}
+
+function kidsColoringBody() {
+  const c = KIDS_LOAD.coloring;
+  if (!c.length) return '';
+  const byAge = {};
+  for (const x of c) (byAge[x.ageGroup || 'All ages'] ||= []).push(x);
+  return `
+    <p class="speakable">${c.length} free colouring pages you can print or colour on screen — animals, vehicles, festivals and shapes, grouped by age.</p>
+
+    ${Object.entries(byAge).map(([age, list]) => `<h2>${esc(age)}</h2><ul>${list.map((x) => `<li>${esc(x.emoji || '')} <strong>${esc(x.title)}</strong>${x.description ? ` — ${esc(x.description)}` : ''}</li>`).join('')}</ul>`).join('')}
+
+    <h2>Colouring Is Handwriting Practice</h2>
+    <p>Staying inside a line is the same control a child will need to form letters, and it builds the small hand muscles that make writing possible without pain. A child who tires after two minutes is not being difficult — those muscles genuinely are not ready, and short frequent turns build them faster than one long sitting.</p>
+
+    <p><a href="/kids/shapes">Shapes &amp; colours →</a> · <a href="/kids">All of Syllab Junior →</a></p>`;
+}
+
+function kidsLearnBody(slug) {
+  const t = KIDS_LOAD.learn.find((x) => x.id === slug);
+  if (!t) return '';
+  const hasSay = t.items.some((i) => i.say);
+  return `
+    <p class="speakable">${esc(t.subtitle || t.title)} — ${t.items.length} ${t.items.length === 1 ? 'item' : 'items'}, each one tap away from being read aloud.</p>
+
+    <h2>${esc(t.title)}</h2>
+    <table><thead><tr><th>${hasSay ? 'Picture' : ''}</th><th>Name</th>${hasSay ? '<th>Say</th>' : ''}</tr></thead><tbody>
+      ${t.items.map((i) => `<tr><td>${esc(i.emoji || '')}</td><td>${esc(i.label)}</td>${hasSay ? `<td>${esc(i.say || '')}</td>` : ''}</tr>`).join('')}
+    </tbody></table>
+
+    <h2>Using This List</h2>
+    <p>Cover the name and let the child say it from the picture, then swap and read the name while they find the picture. Going both ways is what turns recognition into recall. Five or six items in one sitting is plenty — a list this length is a week's worth, not a single lesson.</p>
+
+    <p><a href="/kids">All Syllab Junior topics →</a> · <a href="/kids/rhymes">Nursery rhymes →</a></p>`;
+}
+
+
+function kidsGamesBody() {
+  const m = KIDS_LOAD.matchSets;
+  if (!m.length) return '';
+  const pairs = m.reduce((n, x) => n + x.pairs.length, 0);
+  return `
+    <p class="speakable">${m.length} matching games with ${pairs} pairs in all — match each animal to its sound, each capital letter to its small one, each number to its count. The answers are listed below so a parent can check without playing.</p>
+
+    ${m.map((set) => `<h2>${esc(set.emoji || '')} ${esc(set.title)}</h2>
+    <table><thead><tr><th>Match this</th><th>To this</th></tr></thead><tbody>
+      ${set.pairs.map((p) => `<tr><td>${esc(p.left)}</td><td>${esc(p.right)}</td></tr>`).join('')}
+    </tbody></table>`).join('')}
+
+    <h2>Why Matching Comes Before Writing</h2>
+    <p>Matching asks a child only to recognise, not to produce — which is the easier half of knowing something, and the half that develops first. A child who can point to the cow when you say "moo" is demonstrating real understanding well before they can write either word. Games like these are worth more at this age than any worksheet, because recognition is where the learning actually starts.</p>
+
+    <p><a href="/kids/learn/animals">Animals &amp; their sounds →</a> · <a href="/kids/alphabet">Alphabet &amp; phonics →</a> · <a href="/kids">All of Syllab Junior →</a></p>`;
+}
+
+function kidsIndexBody() {
+  const L = KIDS_LOAD;
+  const total = L.rhymes.length + L.stories.length + L.actionRhymes.length + L.coloring.length
+    + L.learn.reduce((n, t) => n + t.items.length, 0) + L.alphabet.length + L.numbers.length + L.shapes.length;
+  return `
+    <p class="speakable">Free learning for Pre-KG to Class 3 — ${L.rhymes.length} nursery rhymes with lyrics, ${L.stories.length} moral stories, ${L.actionRhymes.length} action rhymes, ${L.coloring.length} colouring pages and ${L.learn.length} tap-and-listen picture topics. ${total} items in all, no login and nothing to buy.</p>
+
+    <h2>Read and Sing</h2>
+    <ul>
+      <li><a href="/kids/rhymes">Nursery Rhymes</a> — ${L.rhymes.length} traditional rhymes with full lyrics</li>
+      <li><a href="/kids/stories">Moral Stories</a> — ${L.stories.length} short Aesop and Panchatantra tales with their morals</li>
+      <li><a href="/kids/action-rhymes">Action Rhymes</a> — ${L.actionRhymes.length} rhymes to sing and move to</li>
+    </ul>
+
+    <h2>First Lessons</h2>
+    <ul>
+      <li><a href="/kids/alphabet">Alphabet &amp; Phonics</a> — ${L.alphabet.length} letters with picture words</li>
+      <li><a href="/kids/numbers">Numbers &amp; Counting</a> — 1 to ${L.numbers.length} with names and counts</li>
+      <li><a href="/kids/shapes">Shapes &amp; Colours</a> — ${L.shapes.length} shapes described in plain words</li>
+      <li><a href="/kids/coloring">Colouring Pages</a> — ${L.coloring.length} free printables</li>
+    </ul>
+
+    <h2>Games</h2>
+    <ul><li><a href="/kids/games">Matching Games</a> — ${L.matchSets.length} sets, ${L.matchSets.reduce((n, x) => n + x.pairs.length, 0)} pairs</li></ul>
+
+    <h2>Tap and Listen</h2>
+    <ul>${L.learn.map((t) => `<li><a href="/kids/learn/${t.id}">${esc(t.emoji || '')} ${esc(t.title)}</a> — ${t.items.length} items</li>`).join('')}</ul>
+
+    <h2>A Note for Parents</h2>
+    <p>Everything here is meant for short turns — two or three minutes, several times a day, beats one long session by a wide margin at this age. Children of three and four learn through repetition and through hearing an adult's voice, so reading a rhyme aloud together is worth more than any amount of independent screen time. Nothing on these pages requires an account, and none of it needs to be completed in order.</p>`;
+}
+
 ROUTES.push({
+  bodyHtml: kidsIndexBody(),
   path: '/kids',
   title: 'Syllab Junior — Free Pre-KG, LKG & UKG Learning, Rhymes & Coloring | Syllab.in',
   description: 'Free playful learning for Indian kids (Pre-KG to Class 3): alphabet & phonics, numbers, shapes & colors, nursery rhymes and printable coloring pages — fun, safe and free.',
@@ -1285,6 +1496,7 @@ for (const k of [
 ]) {
   ROUTES.push({
     path: `/kids/${k.slug}`,
+    bodyHtml: ({ alphabet: kidsAlphabetBody, numbers: kidsNumbersBody, shapes: kidsShapesBody, rhymes: kidsRhymesBody, coloring: kidsColoringBody }[k.slug] || (() => ''))(),
     title: `${k.name} for Kids — Free & Printable | Syllab Junior`,
     description: `Free ${k.name.toLowerCase()} for Pre-KG, LKG, UKG and early-primary kids — playful, mobile-friendly and free on Syllab Junior.`,
     keywords: k.kw,
@@ -1325,6 +1537,7 @@ for (const t of [
 ]) {
   ROUTES.push({
     path: `/kids/learn/${t.slug}`,
+    bodyHtml: kidsLearnBody(t.slug),
     title: `${t.name} for Kids — Free Learning (Tap & Listen) | Syllab Junior`,
     description: `Learn ${t.name.toLowerCase()} the fun way — tap each picture to hear it. Free GK for Pre-KG, LKG, UKG and Class 1 kids in India.`,
     keywords: t.kw,
@@ -1334,6 +1547,7 @@ for (const t of [
 
 // Moral stories, action rhymes, matching games — big evergreen kid searches.
 ROUTES.push({
+  bodyHtml: kidsStoriesBody(),
   path: '/kids/stories',
   title: 'Moral Stories for Kids — Short Bedtime Stories with Morals | Syllab Junior',
   description: 'Free short moral stories for kids — Thirsty Crow, Lion and the Mouse, Hare and the Tortoise and more Panchatantra & Aesop favourites, read aloud. For Pre-KG to Class 3.',
@@ -1341,6 +1555,7 @@ ROUTES.push({
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Moral Stories for Kids', url: `${SITE}/kids/stories`, inLanguage: 'en-IN', isAccessibleForFree: true },
 });
 ROUTES.push({
+  bodyHtml: kidsActionRhymesBody(),
   path: '/kids/action-rhymes',
   title: 'Action Rhymes for Kids — Sing & Move | Syllab Junior',
   description: 'Free action rhymes for preschoolers — Head Shoulders Knees and Toes, Wheels on the Bus, Itsy Bitsy Spider and more, with simple actions to do. For Pre-KG to Class 1.',
@@ -1348,6 +1563,7 @@ ROUTES.push({
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Action Rhymes for Kids', url: `${SITE}/kids/action-rhymes`, inLanguage: 'en-IN', isAccessibleForFree: true },
 });
 ROUTES.push({
+  bodyHtml: kidsGamesBody(),
   path: '/kids/games',
   title: 'Matching Games for Kids — Free Fun Learning Games | Syllab Junior',
   description: 'Free matching games for kids — match animals to sounds, capital to small letters, numbers to counts, fruits to colours and more. Fun learning for Pre-KG to Class 2.',
