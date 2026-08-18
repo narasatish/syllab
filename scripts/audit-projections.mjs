@@ -39,12 +39,14 @@ import * as blogArticles from './blogArticles.mjs';
 import * as collegesData from './collegesData.mjs';
 import * as kidsData from './kidsData.mjs';
 import * as microModules from './microModules.mjs';
+import * as gkData from './gkData.mjs';
+import * as scholarshipsData from './scholarshipsData.mjs';
 import * as ncertChapters from './ncertChapters.mjs';
 import * as stateBoardChapters from './stateBoardChapters.mjs';
 import * as medicalCollegesData from './medicalColleges.mjs';
 
 /** Loader modules this audit knows about, beyond studyClusters.mjs. */
-const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData, kidsData, microModules };
+const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData, kidsData, microModules, gkData, scholarshipsData };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -147,6 +149,8 @@ const BANKS = [
   // and an audit that silently skips a loader is the same shape of blind spot
   // it exists to catch. A 4th element names the module.
   ['getDifferences', 'differences.ts', 'export const DIFFERENCES: DiffTopic[] = ', 'differencesData'],
+  ['getGkQuestions', 'generalKnowledge.ts', 'export const GK_QUESTIONS: GKItem[] = ', 'gkData'],
+  ['getScholarships', 'scholarships.ts', 'export const SCHOLARSHIPS: Scholarship[] = ', 'scholarshipsData'],
   ['getMedicalManifest', 'medicalColleges.ts', 'export const MEDICAL_COLLEGES: MedicalCollege[] = ', 'medicalCollegesData'],
 ];
 

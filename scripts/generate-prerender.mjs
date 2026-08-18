@@ -26,6 +26,9 @@ import { getAiHubTopics } from './aiHubTopics.mjs';
 import { getMicroModules } from './microModules.mjs';
 import { getKidsStories, getKidsRhymes, getKidsActionRhymes, getKidsLearnTopics, getKidsAlphabet, getKidsNumbers, getKidsShapes, getKidsColoring, getKidsMatchSets } from './kidsData.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
+import { getWorksheets } from './worksheetsData.mjs';
+import { getGkQuestions } from './gkData.mjs';
+import { getScholarships } from './scholarshipsData.mjs';
 import { getDifferences } from './differencesData.mjs';
 import { DIFF_REINDEX, DIFF_REINDEX_SLUGS } from './diff-reindex.mjs';
 import { mappedChapterSlug } from './mcq-chapter-map.mjs';
@@ -1649,8 +1652,100 @@ for (const m of ['quadratic-formula','newtons-first-law','trigonometry-ratios','
   });
 }
 
+// ─── GK Questions — bank-backed bodies ───────────────────────────────────────
+/**
+ * GK_QUESTIONS holds 180 questions with four options, the correct index, a
+ * written explanation and the classes each suits. All nine /gk-questions pages
+ * rendered a six-item topic list and about 240 words of it — the bank reached
+ * no build script at all.
+ *
+ * Classes overlap by design: a question tagged [8,9,10,11,12] belongs on five
+ * pages. Rendering every applicable question in full on every page would make
+ * class-9 through class-12 near-copies of each other, so each page gives the
+ * FULL treatment (options, answer, explanation) to the questions that first
+ * become appropriate at that level, and a compact answer line to the ones
+ * carried forward, linking to the class where they are set out in full.
+ */
+const GK_ALL = getGkQuestions(ROOT);
+const GK_CATS = [
+  ['history', 'History'],
+  ['geography', 'Geography'],
+  ['polity', 'Polity & Civics'],
+  ['science', 'Science'],
+  ['static', 'Static GK'],
+  ['current-affairs', 'Current Affairs'],
+];
+const gkIntroClass = (q) => Math.min(...q.classLevels);
+
+/** Full treatment: the question, all four options, the answer and why. */
+function gkFull(q, n) {
+  return `<div style="margin:1.1rem 0;padding:0.9rem 1rem;border-left:3px solid #0066cc;background:#f7fafd;">
+    <p style="margin:0 0 0.5rem;font-weight:600;">${n}. ${esc(q.question)}</p>
+    <ol type="A" style="margin:0 0 0.6rem;padding-left:1.4rem;">${q.options.map((o) => `<li>${esc(o)}</li>`).join('')}</ol>
+    <p style="margin:0 0 0.35rem;"><strong>Answer:</strong> ${esc(q.options[q.correctIndex] || '')}</p>
+    <p style="margin:0;color:#444;">${esc(q.explanation)}</p>
+  </div>`;
+}
+
+/** Carried forward: answer and explanation, pointing at the full version. */
+function gkCompact(q) {
+  const src = gkIntroClass(q);
+  return `<li style="margin-bottom:0.55rem;">${esc(q.question)}<br><strong>${esc(q.options[q.correctIndex] || '')}</strong> — ${esc(q.explanation)} <a href="/gk-questions/class-${src}" style="color:#0066cc;">(set out in full in Class ${src})</a></li>`;
+}
+
+function gkGroups(list, render, wrap) {
+  return GK_CATS.map(([key, label]) => {
+    const inCat = list.filter((q) => q.category === key);
+    if (!inCat.length) return '';
+    let n = 0;
+    const inner = inCat.map((q) => render(q, ++n)).join('');
+    return `<h3>${label} (${inCat.length})</h3>${wrap ? `<ul>${inner}</ul>` : inner}`;
+  }).join('');
+}
+
+function gkQuestionsBody(c) {
+  if (!GK_ALL.length) return '';
+  const applicable = c ? GK_ALL.filter((q) => q.classLevels.includes(c)) : GK_ALL;
+  if (!applicable.length) return '';
+  let fullSet = c ? applicable.filter((q) => gkIntroClass(q) === c) : GK_ALL;
+  // Class 11 and 12 introduce nothing new — every question in the bank that
+  // suits them already suited Class 10. Giving them the senior tier in full,
+  // rather than an empty section, is what makes the page worth landing on.
+  if (c && !fullSet.length) fullSet = applicable.filter((q) => gkIntroClass(q) >= 10);
+  const fullIds = new Set(fullSet.map((q) => q.id));
+  const carried = applicable.filter((q) => !fullIds.has(q.id));
+  const catCount = GK_CATS.filter(([k]) => applicable.some((q) => q.category === k)).length;
+
+  const head = c
+    ? `<p class="speakable">${applicable.length} General Knowledge questions suitable for Class ${c}, across ${catCount} areas — ${GK_CATS.filter(([k]) => applicable.some((q) => q.category === k)).map(([, l]) => l.toLowerCase()).join(', ')}. Every question carries its four options, the correct answer and an explanation of why it is right.</p>
+    <p>${fullSet.length} of them are set out in full below${carried.length ? `, and ${carried.length} more that you should already know are listed with their answers underneath` : ''}.</p>`
+    : `<p class="speakable">${GK_ALL.length} General Knowledge questions with answers and explanations, for Indian students from Class 5 to 12 — history, geography, polity, science, static GK and current affairs. Free, no sign-up.</p>`;
+
+  const classIndex = `<h2>GK Questions by Class</h2>
+    <table><thead><tr><th>Class</th><th>Questions</th><th>New at this level</th></tr></thead><tbody>
+    ${[5, 6, 7, 8, 9, 10, 11, 12].map((n) => {
+      const app = GK_ALL.filter((q) => q.classLevels.includes(n)).length;
+      const nw = GK_ALL.filter((q) => gkIntroClass(q) === n).length;
+      return `<tr><td><a href="/gk-questions/class-${n}">Class ${n} GK</a></td><td>${app}</td><td>${nw || '—'}</td></tr>`;
+    }).join('')}
+    </tbody></table>`;
+
+  const howTo = `<h2>How to Use These</h2>
+    <p>Read the question, commit to one option before you look down, then read the explanation whether you were right or wrong. The explanation is the part that carries over to the next question; the answer on its own does not. Questions you get wrong are worth writing out by hand — a fact you have written once is recalled far more reliably than one you have read five times.</p>
+    <p>For quizzes and olympiads, work through a single category end to end rather than skipping between them. Static GK and geography reward exactly that kind of blocked practice, because the facts sit in the same mental map. History and current affairs reward the opposite — spacing them out over weeks, since both are about sequence and cause rather than isolated names.</p>`;
+
+  return `${head}
+    <h2>${c ? `Questions in Full — ${fullSet.length}` : `All ${GK_ALL.length} Questions`}</h2>
+    ${gkGroups(fullSet, gkFull, false)}
+    ${carried.length ? `<h2>Also Applicable at This Level (${carried.length})</h2><p>These first appear in an earlier class and are worth revising before an exam or quiz.</p>${gkGroups(carried, gkCompact, true)}` : ''}
+    ${classIndex}
+    ${howTo}
+    <p><a href="/gk-quiz">Play the timed GK quiz →</a></p>`;
+}
+
 // ─── GK Questions — programmatic SEO cluster (index + per class) ─────────────
 ROUTES.push({
+  bodyHtml: gkQuestionsBody(null),
   path: '/gk-questions',
   title: 'GK Questions for Students — Class 5 to 12 (Free, with Answers) | Syllab.in',
   description: 'Free General Knowledge questions and answers for Indian students Class 5 to 12 — history, geography, polity, science, static GK and current affairs, with clear explanations.',
@@ -1659,6 +1754,7 @@ ROUTES.push({
 });
 for (const c of [5, 6, 7, 8, 9, 10, 11, 12]) {
   ROUTES.push({
+    bodyHtml: gkQuestionsBody(c),
     path: `/gk-questions/class-${c}`,
     title: `GK Questions for Class ${c} with Answers (Free) | Syllab.in`,
     description: `Free General Knowledge questions and answers for Class ${c} — GK across history, geography, polity, science and current affairs, with clear explanations for Indian students.`,
@@ -2468,6 +2564,26 @@ for (const d of DIFFS) {
 // ─── Full Forms (/full-forms, /full-forms/:slug) ──────────────────────────────
 const FULL_FORMS_DATA = getFullForms(ROOT);
 ROUTES.push({
+  bodyHtml: (() => {
+    if (!FULL_FORMS_DATA.length) return '';
+    const byCat = {};
+    for (const x of FULL_FORMS_DATA) (byCat[x.category] ||= []).push(x);
+    const cats = Object.keys(byCat).sort((a, b) => byCat[b].length - byCat[a].length);
+    const letters = {};
+    for (const x of FULL_FORMS_DATA) (letters[String(x.term)[0].toUpperCase()] ||= []).push(x);
+    return `<p class="speakable">${FULL_FORMS_DATA.length} abbreviations with their full forms and what they actually mean, across ${cats.length} areas — ${cats.slice(0, 5).map((c) => esc(c)).join(', ')} and more. Free, and every one has its own page with the meaning explained.</p>
+
+    ${cats.map((c) => {
+      const list = byCat[c];
+      return `<h2>${esc(c)} (${list.length})</h2><ul>${list.slice(0, 60).map((x) => `<li><a href="/full-forms/${x.slug}">${esc(x.term)}</a> — ${esc(x.fullForm)}</li>`).join('')}</ul>${list.length > 60 ? `<p>${list.length - 60} more ${esc(c.toLowerCase())} abbreviations are listed under their letter below.</p>` : ''}`;
+    }).join('')}
+
+    <h2>Browse A to Z</h2>
+    ${Object.keys(letters).sort().map((L) => `<h3>${L} (${letters[L].length})</h3><p>${letters[L].map((x) => `<a href="/full-forms/${x.slug}">${esc(x.term)}</a>`).join(' · ')}</p>`).join('')}
+
+    <h2>Why the Expansion Is Not the Answer</h2>
+    <p>Knowing that CPU stands for Central Processing Unit tells you almost nothing about what a CPU does, and an exam question rarely asks for the expansion alone. Each page here gives the expansion first and then the one or two sentences that make it usable — what the thing is, where you meet it in your syllabus, and what it is commonly confused with.</p>`;
+  })(),
   path: '/full-forms',
   title: 'Full Forms — A to Z List for Students (NCERT, CPU, NEET…) | Syllab.in',
   description: `Free A-to-Z full forms list — ${FULL_FORMS_DATA.length}+ abbreviations across education, computer, science, medical and banking with meanings.`,
@@ -3472,6 +3588,36 @@ for (const [slug, short, full] of CF_COURSES) {
 
 // ─── Scholarships (free, highly-linkable resource page) ───────────────────────
 ROUTES.push({
+  bodyHtml: (() => {
+    const SCH = getScholarships(ROOT);
+    if (!SCH.length) return '';
+    const byCat = {};
+    for (const x of SCH) (byCat[x.category] ||= []).push(x);
+    const order = ['Government', 'State', 'Merit', 'Private'];
+    const cats = Object.keys(byCat).sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
+    return `<p class="speakable">${SCH.length} scholarships open to Indian school and college students — ${cats.map((c) => `${byCat[c].length} ${c.toLowerCase()}`).join(', ')}. Each entry gives who it is for, how much it pays, when the window opens and how to apply.</p>
+
+    <h2>At a Glance</h2>
+    <table><thead><tr><th>Scholarship</th><th>For</th><th>Amount</th><th>Window</th></tr></thead><tbody>
+      ${SCH.map((x) => `<tr><td><strong>${esc(x.name)}</strong></td><td>${esc(x.level)}</td><td>${esc(x.amount)}</td><td>${esc(x.window)}</td></tr>`).join('')}
+    </tbody></table>
+
+    ${cats.map((c) => `<h2>${esc(c)} Scholarships (${byCat[c].length})</h2>
+      ${byCat[c].map((x) => `<div style="margin:1.2rem 0;padding:1rem;border-left:3px solid #0066cc;background:#f7fafd;">
+        <h3 style="margin:0 0 0.5rem;">${x.emoji || ''} ${esc(x.name)}</h3>
+        <p style="margin:0 0 0.4rem;color:#555;"><strong>Offered by:</strong> ${esc(x.provider)} · <strong>Level:</strong> ${esc(x.level)}</p>
+        <p style="margin:0 0 0.4rem;"><strong>Who can apply:</strong> ${esc(x.forWhom)}</p>
+        <p style="margin:0 0 0.4rem;"><strong>What you get:</strong> ${esc(x.amount)}</p>
+        <p style="margin:0 0 0.4rem;"><strong>When to apply:</strong> ${esc(x.window)}</p>
+        <p style="margin:0 0 0.4rem;"><strong>How to apply:</strong> ${esc(x.howToApply)}</p>
+        <p style="margin:0;"><strong>Official portal:</strong> ${esc(x.official)}</p>
+      </div>`).join('')}`).join('')}
+
+    <h2>Applying Without Losing the Deadline</h2>
+    <p>Most of these run through a single portal and a single window, and the commonest reason an eligible student misses out is documents rather than merit. Get the income certificate, caste certificate where it applies, bank passbook in the student's own name and Aadhaar seeded to that account ready before the window opens — each of those takes weeks to obtain and none can be produced overnight once the form is live.</p>
+    <p>Apply through your school or institution where the scheme requires it: on the National Scholarship Portal an application that the institution never verifies expires unverified, and it looks identical to a submitted one from the student's side. Check the status yourself after submitting rather than assuming.</p>
+    <p><em>Amounts and windows here are indicative and change year to year. Confirm every figure on the official portal listed above before you rely on it.</em></p>`;
+  })(),
   path: '/scholarships',
   title: 'Scholarships for Students in India 2026 — Govt, State & Private (Free List) | Syllab.in',
   description: 'Free, updated list of scholarships for Indian students — NSP pre/post-matric, NMMS, PM YASASVI, INSPIRE, AICTE Pragati/Saksham, Reliance, Tata & more. Eligibility, amount, deadlines and how to apply.',
@@ -4859,28 +5005,9 @@ function buildBodyContent(route) {
   }
 
   // GK Questions cluster — unique intro + topic coverage + class cross-links
-  else if (!route.bodyHtml && (route.path === '/gk-questions' || route.path.startsWith('/gk-questions/class-'))) {
-    const m = route.path.match(/class-(\d+)/);
-    const c = m ? m[1] : null;
-    const topics = ['History', 'Geography', 'Polity & Civics', 'Science', 'Static GK', 'Current Affairs'];
-    richContent = `
-      <div style="margin-top: 1.5rem; color: #444; line-height: 1.8; font-size: 0.97rem;">
-        <p>${c
-          ? `Practise free <strong>General Knowledge questions for Class ${c}</strong> with answers and clear explanations. Every question is age-appropriate and aligned to what Indian students learn in school and need for quizzes, olympiads and competitive exams.`
-          : `Free <strong>General Knowledge questions and answers</strong> for Indian students from Class 5 to 12 — with explanations, organised by topic, and a timed quiz to test yourself.`}
-        </p>
-        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333;">Topics covered</h2>
-        <ul style="margin: 0; padding-left: 1.25rem;">
-          ${topics.map((t) => `<li>${t}</li>`).join('')}
-        </ul>
-        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #333;">GK questions by class</h2>
-        <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          ${[5, 6, 7, 8, 9, 10, 11, 12].map((n) => `<li><a href="/gk-questions/class-${n}" style="color:#0066cc;text-decoration:none;">Class ${n} GK</a></li>`).join('')}
-        </ul>
-        <p style="margin-top: 1.25rem;"><a href="/gk-quiz" style="color:#0066cc;font-weight:600;text-decoration:none;">▶ Play the interactive GK Quiz</a></p>
-      </div>
-    `;
-  }
+  // (/gk-questions bodies now come from the bank via gkBody(); the stub that
+  // stood here rendered a six-item topic list and none of the 180 questions.)
+
 
   // Free alternatives page — show comparison table + list
   else if (!route.bodyHtml && route.path === '/free-alternatives') {
@@ -4939,15 +5066,94 @@ function buildBodyContent(route) {
   }
 
   // Homepage — brief overview
+  /**
+   * /worksheets promised "100+ free printable worksheets" across twelve named
+   * categories and listed none of them — 172 words. The catalog builds 200
+   * sheets and every one has a title, a category and an age band.
+   */
+  else if (!route.bodyHtml && route.path === '/worksheets') {
+    const WS = getWorksheets(ROOT);
+    if (WS.length) {
+      const byCat = {};
+      for (const w of WS) (byCat[w.category] ||= []).push(w);
+      const byBand = {};
+      for (const w of WS) (byBand[w.band] ||= []).push(w);
+      const bandOrder = ['Pre-KG', 'LKG', 'UKG', 'Class 1', 'Class 2'];
+      const bands = Object.keys(byBand).sort((a, b) => (bandOrder.indexOf(a) + 1 || 99) - (bandOrder.indexOf(b) + 1 || 99));
+      richContent = `<div style="margin-top:1.5rem;line-height:1.7;">
+        <p class="speakable">${WS.length} printable worksheets across ${Object.keys(byCat).length} categories, for Pre-KG to Class 2. Every sheet is an original A4 page you can print or save as PDF — free, no login, and nothing to install.</p>
+
+        <h2>By Age Group</h2>
+        <table><thead><tr><th>Level</th><th>Worksheets</th><th>Mostly</th></tr></thead><tbody>
+          ${bands.map((b) => {
+            const cats = {};
+            for (const w of byBand[b]) cats[w.category] = (cats[w.category] || 0) + 1;
+            const top = Object.entries(cats).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([c]) => c).join(', ');
+            return `<tr><td>${esc(b)}</td><td>${byBand[b].length}</td><td>${esc(top)}</td></tr>`;
+          }).join('')}
+        </tbody></table>
+
+        ${Object.entries(byCat).map(([cat, list]) => `<h2>${esc(cat)} (${list.length})</h2><ul>${list.map((w) => `<li>${w.emoji || ''} ${esc(w.title)} <span style="color:#888;">— ${esc(w.band)}</span></li>`).join('')}</ul>`).join('')}
+
+        <h2>Printing These Well</h2>
+        <p>Each sheet is drawn to A4 at print resolution, so set your printer's scaling to 100% rather than "fit to page" — tracing rows are sized to a four-year-old's grip and shrinking them by 6% is enough to make the letters awkward to form. Print in black and white for everything except the colour-by-key sheets, which need the key legible.</p>
+        <p>One sheet at a sitting is plenty at Pre-KG and LKG. A child who finishes a page and wants another has learned something; a child working through a stack has stopped reading the instructions. The tracing sheets in particular are worth repeating on different days rather than doing three at once — letter formation is motor memory, and motor memory is built by spacing, not by volume.</p>
+      </div>`;
+    }
+  }
+
   else if (!route.bodyHtml && route.path === '/') {
-    richContent = `
-      <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px;">
-        <h2 style="margin: 0 0 0.5rem 0;">Free AI Learning for Indian Students</h2>
-        <p style="margin: 0; font-size: 0.95rem; line-height: 1.5;">
-          Access NCERT solutions, mock tests, AI tutoring, coding courses, and career planning — all completely free for Class 1–12. No subscriptions, no ads.
-        </p>
-      </div>
-    `;
+    /**
+     * The homepage prerendered 185 words: the title, the description, and one
+     * gradient box repeating them. It is the most linked page on the domain and
+     * it named none of the twenty-odd clusters underneath it, so a crawler
+     * reaching it found no route into the site beyond the nav strip.
+     *
+     * The counts below are taken from ROUTES, which is the set of pages this
+     * run is about to write. They cannot drift from what is published, because
+     * they ARE what is published.
+     */
+    const count = (prefix) => ROUTES.filter((r) => r.path.startsWith(prefix + '/')).length;
+    const SECTIONS = [
+      ['/ncert-solutions', 'NCERT Solutions', 'Chapter-by-chapter answers for Class 6–12 science, maths and social science, worked rather than stated.'],
+      ['/mcqs', 'MCQ Practice', 'Chapter-wise multiple-choice questions with the reasoning for each answer.'],
+      ['/mock-tests', 'Mock Tests', 'Full-length papers for JEE, NEET, EAMCET and the boards, timed and scored.'],
+      ['/pyqs', 'Previous Year Questions', 'Real questions from past board and entrance papers, sorted by chapter.'],
+      ['/revision-notes', 'Revision Notes', 'Condensed chapter notes for the week before an exam.'],
+      ['/formula-sheets', 'Formula Sheets', 'Every formula a chapter uses, on one page, with what each symbol means.'],
+      ['/sample-papers', 'Sample Papers', 'Board-blueprint papers with marking schemes.'],
+      ['/important-questions', 'Important Questions', 'The questions that recur across years, by subject and class.'],
+      ['/solved-examples', 'Solved Examples', 'Worked problems with the steps shown, not just the result.'],
+      ['/concepts', 'Concept Explainers', 'One idea per page, explained from the beginning.'],
+      ['/glossary', 'Glossary', 'Definitions written for the class that meets the term, not for a dictionary.'],
+      ['/difference-between', 'Difference Between', 'Side-by-side tables for the pairs students most often mix up.'],
+      ['/full-forms', 'Full Forms', 'Abbreviations expanded and then explained.'],
+      ['/coding', 'Coding Courses', 'Python, JavaScript, data science and AI, from the first line onward.'],
+      ['/colleges', 'Engineering Colleges', 'NIRF-ranked colleges with fees, cutoffs and placements.'],
+      ['/medical-colleges', 'Medical Colleges', 'MBBS seats, NEET cutoffs and fees, state by state.'],
+      ['/english-writing', 'English Writing', 'Letters, essays, notices and reports with model answers.'],
+      ['/english-literature', 'English Literature', 'Chapter summaries and character notes for prescribed texts.'],
+      ['/vocabulary', 'Vocabulary', 'Word sets with meanings and the sentence that fixes them.'],
+      ['/gk-facts', 'GK Facts', 'General knowledge organised by topic rather than as a list.'],
+      ['/kids', 'For Younger Children', 'Rhymes, stories, phonics and first numbers for Pre-KG to Class 2.'],
+      ['/lab-practicals', 'Lab Practicals', 'Aim, procedure, observation and viva questions for each experiment.'],
+    ].map(([p, name, blurb]) => ({ p, name, blurb, n: count(p) })).filter((x) => x.n > 0);
+
+    richContent = `<div style="margin-top:1.5rem;line-height:1.7;">
+      <p class="speakable">Syllab is a free learning site for Indian students from Class 1 to 12 — ${ROUTES.length.toLocaleString('en-IN')} pages of NCERT solutions, practice questions, mock tests, notes and college information, with an AI tutor for anything not covered. No subscription, no login, no advertising.</p>
+
+      <h2>What Is Here</h2>
+      <table><thead><tr><th>Section</th><th>Pages</th><th>What it is</th></tr></thead><tbody>
+        ${SECTIONS.map((x) => `<tr><td><a href="${x.p}">${esc(x.name)}</a></td><td>${x.n.toLocaleString('en-IN')}</td><td>${esc(x.blurb)}</td></tr>`).join('')}
+      </tbody></table>
+
+      <h2>Free, and What That Means Here</h2>
+      <p>Everything above opens without an account. There is no paid tier holding back the solutions, no watermark on the worksheets, and no point at which a chapter stops halfway and asks for a card. The site is free because the content is written once and read by many, not because a trial is running out.</p>
+
+      <h2>Where to Start</h2>
+      <p>If you are revising for a board exam, the chapter you are weakest on is the place to begin — open its notes, then its important questions, then a sample paper, in that order. If you are preparing for JEE or NEET, start with a timed mock test rather than with theory: knowing which chapters cost you marks is worth more in the first week than another pass through material you already hold.</p>
+      <p>For a specific doubt, the AI tutor answers with the working shown, and it is free and unlimited. For choosing a college, the predictors take a rank and give the colleges within reach — every figure indicative, and worth confirming on the official counselling site before you lock a choice.</p>
+    </div>`;
   }
 
   // Homepage uses H2 because the React app renders the primary H1 ("Learn smarter with AI by your side").

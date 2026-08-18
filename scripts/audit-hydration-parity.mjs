@@ -79,7 +79,7 @@ if (!all) {
 const { render } = await import(pathToFileURL(path.join(ROOT, 'dist-ssr', 'entry-server.js')).href);
 
 const gaps = [];
-let compared = 0, failed = 0;
+let compared = 0, failed = 0, unresolved = 0;
 for (const p of sample) {
   let ssr;
   try {
@@ -89,8 +89,23 @@ for (const p of sample) {
     continue;
   }
   if (!ssr || ssr.length < 200) continue;      // SSR produced nothing usable
-  const preWords = words(text(p.html));
-  const ssrWords = words(text(ssr));
+
+  // Compare LIKE FOR LIKE. The prerendered file's <main> holds the body we
+  // inject; the SSR output is a whole document including nav, footer and
+  // marketing chrome. Comparing one against the other made every page look like
+  // it was hiding thousands of words — the first run of this script reported 43
+  // gaps that were almost entirely shell text.
+  const ssrMain = (ssr.match(/<main[^>]*>([\s\S]*?)<\/main>/i) || [, ''])[1];
+  const preMain = (p.html.match(/<(article|main)[^>]*>([\s\S]*?)<\/\1>/i) || [, '', ''])[2];
+  if (!ssrMain || !preMain) continue;
+
+  // Most routes lazy-load their page chunk, which SSR does not resolve: <main>
+  // comes back as "Loading module...". That proves nothing either way, so it is
+  // skipped and counted separately rather than reported as a gap.
+  if (/Loading module/i.test(ssrMain) || words(text(ssrMain)) < 30) { unresolved++; continue; }
+
+  const preWords = words(text(preMain));
+  const ssrWords = words(text(ssrMain));
   if (preWords < 50) continue;                 // shell-only page, nothing to compare
   compared++;
   // Flag only a LARGE gap. Small differences are normal: the hydrated app adds
@@ -105,13 +120,32 @@ gaps.sort((a, b) => b.ratio - a.ratio);
 
 console.log(`Pages compared (${all ? 'all' : 'sampled per cluster'}): ${compared}`);
 if (failed) console.log(`SSR render failed on            : ${failed} (not counted either way)`);
+if (unresolved) console.log(`SSR could not resolve the chunk : ${unresolved} (lazy-loaded page, inconclusive)`);
 console.log(`Hydrated view >2x prerendered   : ${gaps.length}\n`);
 
 for (const g of gaps.slice(0, 20)) {
   console.log(`  ${g.ratio.toFixed(1)}x  ${g.url}`);
   console.log(`        prerendered ${g.preWords} words · hydrated ${g.ssrWords}`);
 }
-if (!gaps.length) console.log('✓ no page shows the reader substantially more than the crawler.');
+if (!gaps.length && compared > 0) console.log('✓ no page shows the reader substantially more than the crawler.');
+
+/**
+ * Nothing compared means nothing was checked. Say so.
+ *
+ * Every route in this app lazy-loads its page chunk, and the SSR bundle does not
+ * resolve those imports — <main> comes back as "Loading module..." for all 148
+ * sampled routes. So this script, as designed, cannot measure parity here at
+ * all, and printing a tick on zero comparisons would be the exact failure it
+ * exists to prevent: a check that reports clean about something it never looked
+ * at. Measuring this properly needs a real browser (Playwright) to hydrate the
+ * page, not the SSR bundle.
+ */
+if (compared === 0) {
+  console.log('\n✗ NOTHING WAS COMPARED — this run proves nothing.');
+  console.log(`  All ${unresolved} sampled routes lazy-load their page chunk and SSR returns`);
+  console.log('  "Loading module..." for <main>. Parity here needs a real browser, not SSR.');
+  process.exit(1);
+}
 
 const maxArg = process.argv.find((a) => a.startsWith('--max='));
 if (maxArg && gaps.length > Number(maxArg.split('=')[1])) {

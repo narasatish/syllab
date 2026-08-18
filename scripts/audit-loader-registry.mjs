@@ -39,6 +39,7 @@ const EXEMPT = {
   getCollegesManifest: 'colleges.ts stores one record per line, so neither JSON.parse nor the 4-space field-name scan in audit-projections can read it; covered instead by src/data/collegesIntegrity.test.ts',
   getMathRef: 'generator helper in generate-maths-tables.mjs — writes mathsTables.ts, does not read a bank',
   getBlogArticles: 'reads src/pages/Updates.tsx, not a bank under src/data — audit-projections resolves files relative to src/data',
+  getWorksheets: 'the catalog is not stored data — src/lib/worksheets.ts BUILDS 200 sheets from twelve generator modules, so there are no stored fields for audit-projections to compare against; covered instead by src/lib/worksheets.test.ts',
   getNcertChapters: 'reads public/data/ncert-solutions.json, a build artefact rather than an authored bank',
   getStateBoardChapters: 'reads public/data/state-board-solutions.json, a build artefact rather than an authored bank',
 };

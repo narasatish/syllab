@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "audit:parity": "node scripts/audit-hydration-parity.mjs --max=43",
+    "audit:parity": "node scripts/audit-hydration-parity.mjs",
     "build:sitemap": "node scripts/generate-sitemap.mjs",
     "build:mocks": "node scripts/generate-mocks.mjs",
     "build:prerender": "node scripts/generate-prerender.mjs",
@@ -18,7 +18,7 @@
     "preview": "vite preview",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "lint": "eslint .",
-    "test": "node scripts/audit-loader-registry.mjs --strict && node scripts/audit-dark-banks.mjs --max=8 && node scripts/audit-promise-kept.mjs --max=1 && node scripts/audit-projections.mjs --strict && node scripts/audit-seo.mjs && node scripts/check-test-coverage.mjs",
+    "test": "node scripts/audit-loader-registry.mjs --strict && node scripts/audit-dark-banks.mjs --max=5 && node scripts/audit-promise-kept.mjs --max=1 && node scripts/audit-projections.mjs --strict && node scripts/audit-seo.mjs && node scripts/check-test-coverage.mjs",
     "test:watch": "vitest",
     "test:seo": "node scripts/audit-seo.mjs",
     "cwv": "node scripts/measure-cwv.mjs",
