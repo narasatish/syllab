@@ -32,7 +32,7 @@ import { POSTER_SHEETS, posterHref } from './posters.mjs';
 import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
 import { EXAM_LIST, EXAM_CATEGORIES } from './exam-slugs.mjs';
 const HINDI_CONCEPT_SLUGS = new Set(HINDI_CONCEPTS.map((c) => c.slug));
-import { getEnglishTopics, getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
+import { getCareerGuides, getEnglishTopics, getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1805,12 +1805,31 @@ for (const slug of ENGLISH_TOPIC_SLUGS) {
     ] },
   });
 }
+
+/** A career guide page: every section is a field the bank already held. */
+function careerBody(g) {
+  const ul = (items) => `<ul>${items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
+  return `
+    <p class="speakable">${esc(g.overview || '')}</p>
+    ${g.whoShouldChoose ? `<h2>Who This Is For</h2><p>${esc(g.whoShouldChoose)}</p>` : ''}
+    ${(g.subjects || []).length ? `<h2>Subjects to Focus On</h2>${ul(g.subjects)}` : ''}
+    ${(g.coursesAfter || []).length ? `<h2>Courses You Can Take</h2>${ul(g.coursesAfter)}` : ''}
+    ${(g.entranceExams || []).length ? `<h2>Entrance Exams</h2>${ul(g.entranceExams)}` : ''}
+    ${(g.skills || []).length ? `<h2>Skills That Matter</h2>${ul(g.skills)}` : ''}
+    ${g.salaryRange ? `<h2>Indicative Salary Range</h2><p>${esc(g.salaryRange)}</p><p><em>Salary figures are indicative and vary widely by city, employer and experience. Treat them as a rough order of magnitude, not a promise.</em></p>` : ''}
+    ${(g.roadmap || []).length ? `<h2>Step-by-Step Roadmap</h2><ol>${g.roadmap.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}
+    ${faqBlock(g.faqs || [])}
+    <p><a href="/career">All career guides →</a> · <a href="/career-predictor">Career predictor →</a> · <a href="/colleges">Colleges by state →</a></p>`;
+}
+
+const CAREER_GUIDE_DATA = getCareerGuides(ROOT);
 const CAREER_GUIDE_SLUGS = ['which-stream-after-10th', 'which-stream-after-12th', 'how-to-become-engineer', 'how-to-become-doctor', 'how-to-become-data-scientist', 'how-to-become-software-engineer', 'how-to-become-chartered-accountant', 'how-to-become-lawyer', 'how-to-become-ias-officer', 'careers-after-12th-commerce', 'careers-after-12th-arts', 'careers-after-12th-science'];
-ROUTES.push({ path: '/career', title: 'Career Guidance for Students — Streams, Courses & Roadmaps (Free) | Syllab.in', description: 'Free career guidance for Indian students — which stream after 10th/12th, how to become an engineer, doctor, data scientist, CA, lawyer and more, with courses, exams, skills and roadmaps.', keywords: 'career guidance students india, which stream after 10th, which stream after 12th, career options after 12th', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Career Guidance for Students', url: `${SITE}/career`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+ROUTES.push({ bodyHtml: `<p class="speakable">Free career guidance for Indian students — ${CAREER_GUIDE_DATA.length} guides covering streams, courses, entrance exams, the skills each path needs and a step-by-step roadmap.</p><h2>Career Guides</h2><ul>${CAREER_GUIDE_DATA.map((g) => `<li><a href="/career/${g.slug}">${esc(g.title)}</a></li>`).join('')}</ul>`, path: '/career', title: 'Career Guidance for Students — Streams, Courses & Roadmaps (Free) | Syllab.in', description: 'Free career guidance for Indian students — which stream after 10th/12th, how to become an engineer, doctor, data scientist, CA, lawyer and more, with courses, exams, skills and roadmaps.', keywords: 'career guidance students india, which stream after 10th, which stream after 12th, career options after 12th', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Career Guidance for Students', url: `${SITE}/career`, inLanguage: 'en-IN', isAccessibleForFree: true } });
 for (const slug of CAREER_GUIDE_SLUGS) {
   const T = tcSlug(slug);
   ROUTES.push({
     path: `/career/${slug}`,
+    bodyHtml: (CAREER_GUIDE_DATA.find((g) => g.slug === slug) ? careerBody(CAREER_GUIDE_DATA.find((g) => g.slug === slug)) : ''),
     title: `${T} — Courses, Exams, Skills & Roadmap | Syllab.in`,
     description: `${T}: subjects to focus on, courses, entrance exams, skills, an indicative salary range and a step-by-step roadmap for Indian students.`,
     keywords: `${T.toLowerCase()}, ${slug.replace(/-/g, ' ')}, career roadmap india`,

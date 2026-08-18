@@ -109,6 +109,7 @@ const BANKS = [
   ['getTimelines', 'timelines.ts', 'export const TIMELINES: HistoryTimeline[] = '],
   ['getVisualLessons', 'visualLessons.ts', 'export const VISUAL_LESSONS: VisualLesson[] = '],
   ['getEnglishTopics', 'englishTopics.ts', 'export const ENGLISH_TOPICS: EnglishTopic[] = '],
+  ['getCareerGuides', 'careerGuides.ts', 'export const CAREER_GUIDES: CareerGuide[] = '],
   ['getFullForms', 'fullForms.ts', 'export const FULL_FORMS: FullForm[] = '],
   ['getSamplePapers', 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = '],
 
