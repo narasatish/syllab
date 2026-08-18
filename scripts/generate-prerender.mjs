@@ -23,6 +23,7 @@ import { getBlogArticles, getFullArticles, isThinArticle } from './blogArticles.
 import { getNcertChapters } from './ncertChapters.mjs';
 import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
+import { getMicroModules } from './microModules.mjs';
 import { getKidsStories, getKidsRhymes, getKidsActionRhymes, getKidsLearnTopics, getKidsAlphabet, getKidsNumbers, getKidsShapes, getKidsColoring, getKidsMatchSets } from './kidsData.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
 import { getDifferences } from './differencesData.mjs';
@@ -1572,7 +1573,64 @@ ROUTES.push({
 });
 
 // ─── Microlearning: index + bite-sized module pages ──────────────────────────
+
+/**
+ * A 5-minute microlearning module. Each page's own description promised "a clear
+ * explanation, a worked example and a quick quiz"; the bank held all three for
+ * all 15 modules and the routes carried no body, so the pages rendered ~155
+ * words of that promise and nothing behind it.
+ *
+ * The quiz renders with its answers visible. These are revision modules, not an
+ * assessment — a student checking themselves needs to see whether they were
+ * right, and a crawler needs the answer text for the page to be worth ranking.
+ */
+const MICRO_MODULES = new Map(getMicroModules(ROOT).map((m) => [m.slug, m]));
+
+function microBody(slug) {
+  const m = MICRO_MODULES.get(slug);
+  if (!m) return '';
+  const ex = m.example;
+  return `
+    <p class="speakable">${esc(m.summary || '')}</p>
+    <p><strong>${esc(m.subject || '')}</strong>${m.classLevel ? ` · Class ${esc(m.classLevel)}` : ''}${m.estMinutes ? ` · about ${m.estMinutes} minutes` : ''}</p>
+
+    ${m.explanation ? `<h2>The Idea</h2>${mdLite(m.explanation)}` : ''}
+
+    ${ex ? `<h2>Worked Example${ex.title ? `: ${esc(ex.title)}` : ''}</h2>
+    ${ex.problem ? `<p><strong>Problem.</strong> ${esc(ex.problem)}</p>` : ''}
+    ${ex.solution ? `<p><strong>Solution.</strong></p>${mdLite(ex.solution)}` : ''}` : ''}
+
+    ${m.quickQuiz.length ? `<h2>Quick Quiz</h2>
+    <p>Answer each one before reading the explanation beneath it.</p>
+    ${m.quickQuiz.map((q, i) => `<h3>${i + 1}. ${esc(q.q)}</h3>
+      <ul>${q.options.map((o) => `<li>${esc(o.text)}${o.isCorrect ? ' — <strong>correct</strong>' : ''}</li>`).join('')}</ul>
+      ${q.answer ? `<p>${esc(q.answer)}</p>` : ''}`).join('')}` : ''}
+
+    <p><a href="/micro">All 5-minute modules →</a> · <a href="/revision-notes">Full chapter notes →</a> · <a href="/mcqs">Chapter-wise MCQs →</a></p>`;
+}
+
+function microIndexBody() {
+  const all = [...MICRO_MODULES.values()];
+  if (!all.length) return '';
+  const bySubject = {};
+  for (const m of all) (bySubject[m.subject || 'Other'] ||= []).push(m);
+  const totalMin = all.reduce((n, m) => n + (m.estMinutes || 0), 0);
+  return `
+    <p class="speakable">${all.length} bite-sized revision modules, each about five minutes: one idea explained, one worked example, and a short quiz with the answers shown. ${totalMin} minutes of material in all, free and without a login.</p>
+
+    ${Object.entries(bySubject).map(([subj, list]) => `<h2>${esc(subj)}</h2>
+    <table><thead><tr><th>Module</th><th>Class</th><th>Time</th></tr></thead><tbody>
+      ${list.map((m) => `<tr><td><a href="/micro/${m.slug}">${esc(m.title)}</a></td><td>${esc(m.classLevel || '')}</td><td>${m.estMinutes ? m.estMinutes + ' min' : ''}</td></tr>`).join('')}
+    </tbody></table>`).join('')}
+
+    <h2>Why Five Minutes Works</h2>
+    <p>A short module forces one idea per sitting, which is the opposite of how most revision goes wrong — rereading a whole chapter feels productive and leaves very little behind. Each module here ends with a question precisely because retrieving an answer, rather than recognising it on a page, is what moves it into memory. If you get one wrong, the explanation is directly beneath it, so the correction lands while the attempt is still fresh.</p>
+
+    <p><a href="/revision-notes">Full chapter notes →</a> · <a href="/mcqs">Chapter-wise MCQs →</a> · <a href="/sample-papers">Full-length papers →</a></p>`;
+}
+
 ROUTES.push({
+  bodyHtml: microIndexBody(),
   path: '/micro',
   title: 'Microlearning — Free 5-Minute Revision Modules for Class 6–12 | Syllab.in',
   description: 'Learn any concept in 5 minutes — free bite-sized modules with a quick explanation, worked example and instant quiz. Mobile-friendly, low-data revision for Indian students.',
@@ -1583,6 +1641,7 @@ for (const m of ['quadratic-formula','newtons-first-law','trigonometry-ratios','
   const mname = m.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   ROUTES.push({
     path: `/micro/${m}`,
+    bodyHtml: microBody(m),
     title: `${mname} in 5 Minutes — Free Quick Revision | Syllab.in`,
     description: `Learn ${mname} in about 5 minutes — a free bite-sized module with a clear explanation, a worked example and a quick quiz for Indian students.`,
     keywords: `${mname} in 5 minutes, ${mname} quick revision, learn ${mname} fast`,

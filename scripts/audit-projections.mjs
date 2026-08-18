@@ -38,12 +38,13 @@ import * as aiHubTopics from './aiHubTopics.mjs';
 import * as blogArticles from './blogArticles.mjs';
 import * as collegesData from './collegesData.mjs';
 import * as kidsData from './kidsData.mjs';
+import * as microModules from './microModules.mjs';
 import * as ncertChapters from './ncertChapters.mjs';
 import * as stateBoardChapters from './stateBoardChapters.mjs';
 import * as medicalCollegesData from './medicalColleges.mjs';
 
 /** Loader modules this audit knows about, beyond studyClusters.mjs. */
-const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData, kidsData };
+const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData, kidsData, microModules };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -138,6 +139,7 @@ const BANKS = [
   ['getKidsShapes', 'kids/shapes.ts', 'export const shapeTiles: ShapeTile[] = ', 'kidsData'],
   ['getKidsColoring', 'kids/coloring.ts', 'export const coloringPages: ColoringPage[] = ', 'kidsData'],
   ['getKidsMatchSets', 'kids/matchSets.ts', 'export const MATCH_SETS: MatchSet[] = ', 'kidsData'],
+  ['getMicroModules', 'microlearning/modules.ts', 'export const MICROLEARNING_MODULES: MicroModule[] = ', 'microModules'],
   ['getFullForms', 'fullForms.ts', 'export const FULL_FORMS: FullForm[] = '],
   ['getSamplePapers', 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = '],
 
