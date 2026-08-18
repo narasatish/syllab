@@ -4174,6 +4174,12 @@ function buildBodyContent(route) {
   // parentheses, which this block's slug-derived lookup cannot find, so it
   // failed to overwrite. The pages with real data were the ones being clobbered.
   const ncertMatch = route.path.match(/^\/ncert-solutions\/class-(\d+)\/([a-z-]+)\/([a-z-]+)$/);
+  // EVERY branch below must test !route.bodyHtml. This is one chain, and a
+  // route that supplies its own body must not have it overwritten by a
+  // path-shaped fallback. When only this first branch was guarded, 34
+  // indexable /coding pages silently dropped 234 KB of body between them,
+  // and /updates shipped 195 crawlable words where the reader saw a full
+  // article. Adding a branch here without the guard reintroduces that.
   if (!route.bodyHtml && ncertMatch) {
     const [, classLevel, subjSlug, chapSlug] = ncertMatch;
     const ncertKey = `${classLevel}::${slugToSubject(subjSlug)}::${chapSlug}`;
@@ -4271,7 +4277,7 @@ function buildBodyContent(route) {
   }
 
   // Coding tutorial pages (individual topic) — show rich topic content + numbered list + table
-  else if (route.path.match(/^\/coding\/[a-z-]+\/[a-z0-9-]+$/)) {
+  else if (!route.bodyHtml && route.path.match(/^\/coding\/[a-z-]+\/[a-z0-9-]+$/)) {
     const [, lang, topic] = route.path.match(/^\/coding\/([a-z-]+)\/([a-z0-9-]+)$/);
     const topicContent = route.topicContent;
     if (topicContent && topicContent.theoryText) {
@@ -4299,7 +4305,7 @@ function buildBodyContent(route) {
   }
 
   // Coding language landing pages — show list of available topics (but keep small)
-  else if (route.path.match(/^\/coding\/[a-z-]+$/)) {
+  else if (!route.bodyHtml && route.path.match(/^\/coding\/[a-z-]+$/)) {
     const lang = route.path.split('/')[2];
     const topics = CODE_TOPICS[lang] || [];
     if (topics.length > 0) {
@@ -4406,7 +4412,7 @@ function buildBodyContent(route) {
   }
 
   // GK Questions cluster — unique intro + topic coverage + class cross-links
-  else if (route.path === '/gk-questions' || route.path.startsWith('/gk-questions/class-')) {
+  else if (!route.bodyHtml && (route.path === '/gk-questions' || route.path.startsWith('/gk-questions/class-'))) {
     const m = route.path.match(/class-(\d+)/);
     const c = m ? m[1] : null;
     const topics = ['History', 'Geography', 'Polity & Civics', 'Science', 'Static GK', 'Current Affairs'];
@@ -4430,7 +4436,7 @@ function buildBodyContent(route) {
   }
 
   // Free alternatives page — show comparison table + list
-  else if (route.path === '/free-alternatives') {
+  else if (!route.bodyHtml && route.path === '/free-alternatives') {
     richContent = `
       <div style="margin-top: 2rem;">
         <h2 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: #333;">Free Features of Syllab:</h2>
@@ -4486,7 +4492,7 @@ function buildBodyContent(route) {
   }
 
   // Homepage — brief overview
-  else if (route.path === '/') {
+  else if (!route.bodyHtml && route.path === '/') {
     richContent = `
       <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px;">
         <h2 style="margin: 0 0 0.5rem 0;">Free AI Learning for Indian Students</h2>
