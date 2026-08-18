@@ -19,7 +19,20 @@ export function getAiHubTopics(root) {
   const json = ts.slice(from, e + 2).trim(); // "[ ... ]"
   let arr;
   try { arr = JSON.parse(json); } catch { return []; }
+    // Carry the WHOLE record. This used to project { slug, title, desc } only, so
+  // 19 guides shipped their title and first sentence while 59,789 characters of
+  // authored sections and their FAQs stayed in the file. The bank is valid JSON,
+  // so there was never a parsing reason to drop them.
   return arr
-    .filter((t) => t && t.slug && t.title)
-    .map((t) => ({ slug: t.slug, title: t.title, desc: String(t.intro || '').slice(0, 155) }));
+    .filter((t) => t && t.slug)
+    .map((t) => ({
+      slug: t.slug,
+      title: t.title,
+      desc: String(t.intro || '').slice(0, 300),
+      intro: t.intro || '',
+      emoji: t.emoji || '',
+      category: t.category || '',
+      sections: Array.isArray(t.sections) ? t.sections : [],
+      faqs: Array.isArray(t.faqs) ? t.faqs : [],
+    }));
 }

@@ -1969,7 +1969,29 @@ for (const c of SB_CHAPTERS) {
 // Read every /ai-hub guide straight from src/data/aiHub.ts so prerender never
 // drifts from the app's actual AI-hub pages.
 const AI_HUB = getAiHubTopics(ROOT).map((t) => [t.slug, t.title, t.desc]);
-ROUTES.push({ path: '/ai-hub', title: 'AI for Students — Free Guides: ChatGPT, AI Tools, AI Careers | Syllab.in', description: 'Free, simple AI guides for students & teachers — what is AI & ChatGPT, best free AI study tools 2026, AI prompts for studying, is AI cheating, and how to become an AI engineer in India.', keywords: 'AI for students, what is ChatGPT, best free AI tools for students, AI prompts for studying, how to become AI engineer India', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'AI for Students Hub', url: `${SITE}/ai-hub`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+
+/**
+ * An /ai-hub guide. The bank holds an intro, several heading+body sections and
+ * FAQs for all 19 topics; the route carried a breadcrumb and nothing else, so
+ * the pages rendered ~162 words.
+ */
+function aiHubBody(t) {
+  if (!t) return '';
+  const secs = (t.sections || []).map((sec) => `<h2>${esc(sec.heading || '')}</h2>${mdLite(sec.body || '')}`).join('');
+  return `${t.intro ? `<p class="speakable">${esc(t.intro)}</p>` : ''}${secs}${faqBlock((t.faqs || []).map((f) => ({ q: f.q || f.question, a: f.a || f.answer })))}
+    <p><a href="/ai-hub">All AI guides →</a> · <a href="/ai-tutor">Free AI Tutor →</a> · <a href="/coding/ai-learning">Learn AI step by step →</a></p>`;
+}
+
+const AI_HUB_FULL = new Map(getAiHubTopics(ROOT).map((t) => [t.slug, t]));
+
+ROUTES.push({ bodyHtml: (() => {
+  const all = [...AI_HUB_FULL.values()];
+  if (!all.length) return '';
+  const byCat = {};
+  for (const t of all) (byCat[t.category || 'Guides'] ||= []).push(t);
+  return `<p class="speakable">${all.length} free AI guides for Indian students and teachers — what AI actually is, which free tools are worth using, how to prompt well, and where the careers are.</p>` +
+    Object.entries(byCat).map(([cat, list]) => `<h2>${esc(cat)}</h2><ul>${list.map((t) => `<li><a href="/ai-hub/${t.slug}">${esc(t.title)}</a></li>`).join('')}</ul>`).join('');
+})(), path: '/ai-hub', title: 'AI for Students — Free Guides: ChatGPT, AI Tools, AI Careers | Syllab.in', description: 'Free, simple AI guides for students & teachers — what is AI & ChatGPT, best free AI study tools 2026, AI prompts for studying, is AI cheating, and how to become an AI engineer in India.', keywords: 'AI for students, what is ChatGPT, best free AI tools for students, AI prompts for studying, how to become AI engineer India', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'AI for Students Hub', url: `${SITE}/ai-hub`, inLanguage: 'en-IN', isAccessibleForFree: true } });
 // AI Prompt Lab — hands-on prompt-writing practice (interactive, complements /ai-hub guides).
 ROUTES.push({
   path: '/prompt-lab',
@@ -1999,6 +2021,7 @@ ROUTES.push({
 for (const [slug, title, desc] of AI_HUB) {
   ROUTES.push({
     path: `/ai-hub/${slug}`,
+    bodyHtml: aiHubBody(AI_HUB_FULL.get(slug)),
     title: `${title} | AI for Students — Syllab.in`,
     description: desc,
     keywords: `${title.toLowerCase()}, AI for students, artificial intelligence students india`,

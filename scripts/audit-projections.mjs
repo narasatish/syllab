@@ -34,12 +34,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as clusters from './studyClusters.mjs';
 import * as differencesData from './differencesData.mjs';
+import * as aiHubTopics from './aiHubTopics.mjs';
 import * as ncertChapters from './ncertChapters.mjs';
 import * as stateBoardChapters from './stateBoardChapters.mjs';
 import * as medicalCollegesData from './medicalColleges.mjs';
 
 /** Loader modules this audit knows about, beyond studyClusters.mjs. */
-const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData };
+const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -110,6 +111,9 @@ const BANKS = [
   ['getVisualLessons', 'visualLessons.ts', 'export const VISUAL_LESSONS: VisualLesson[] = '],
   ['getEnglishTopics', 'englishTopics.ts', 'export const ENGLISH_TOPICS: EnglishTopic[] = '],
   ['getCareerGuides', 'careerGuides.ts', 'export const CAREER_GUIDES: CareerGuide[] = '],
+  // aiHub.ts is valid JSON, so this parses normally. It was simply never listed —
+  // and its loader projected 3 of 7 fields, dropping 107 sections and 64 FAQs.
+  ['getAiHubTopics', 'aiHub.ts', 'AI_TOPICS: AiTopic[] = ', 'aiHubTopics'],
   ['getFullForms', 'fullForms.ts', 'export const FULL_FORMS: FullForm[] = '],
   ['getSamplePapers', 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = '],
 
