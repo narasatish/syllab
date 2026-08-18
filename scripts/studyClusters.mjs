@@ -274,3 +274,50 @@ export function getTimelines(root) {
     return out;
   } catch { return []; }
 }
+
+/**
+ * English grammar topics. The bank holds intro, keyPoints, examples,
+ * commonMistakes, practice Q&A and FAQs for all 15 topics — precisely the four
+ * things each page's own description promises — and there was no loader at all,
+ * so /english-grammar/* rendered its title, that description repeated as a
+ * TL;DR, and nothing else. Single-quoted throughout with escaped apostrophes.
+ */
+export function getEnglishTopics(root) {
+  try {
+    const ts = readFileSync(path.join(root, 'src', 'data', 'englishTopics.ts'), 'utf8');
+    const start = ts.indexOf('export const ENGLISH_TOPICS');
+    if (start < 0) return [];
+    const body = ts.slice(start);
+    const out = [];
+    const STR = "'((?:[^'\\\\]|\\\\.)*)'";
+    const un = (v) => String(v || '').replace(/\\'/g, "'").replace(/\\\\/g, '\\');
+    for (const ch of body.split(/\n  \{\n/).slice(1)) {
+      const g = (k) => { const m = ch.match(new RegExp(k + ':\\s*' + STR)); return m ? un(m[1]) : ''; };
+      const slug = g('slug');
+      if (!slug) continue;
+      const list = (k) => {
+        const b = ch.match(new RegExp(k + ':\\s*\\[([\\s\\S]*?)\\n\\s*\\],'));
+        if (!b) return [];
+        return [...b[1].matchAll(new RegExp(STR + '\\s*,', 'g'))].map((m) => un(m[1])).filter((x) => x.trim().length > 1);
+      };
+      const pairs = (k) => {
+        const b = ch.match(new RegExp(k + ':\\s*\\[([\\s\\S]*?)\\n\\s*\\],'));
+        if (!b) return [];
+        return [...b[1].matchAll(new RegExp('\\{\\s*q:\\s*' + STR + '\\s*,\\s*a:\\s*' + STR, 'g'))]
+          .map((m) => ({ q: un(m[1]), a: un(m[2]) }));
+      };
+      out.push({
+        slug,
+        title: g('title'),
+        emoji: g('emoji'),
+        intro: g('intro'),
+        keyPoints: list('keyPoints'),
+        examples: list('examples'),
+        commonMistakes: list('commonMistakes'),
+        practice: pairs('practice'),
+        faqs: pairs('faqs'),
+      });
+    }
+    return out;
+  } catch { return []; }
+}

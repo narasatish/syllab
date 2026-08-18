@@ -108,6 +108,7 @@ const BANKS = [
   ['getWhatToStudy', 'whatToStudy.ts', 'export const WEIGHTAGE_SUBJECTS: WeightageSubject[] = '],
   ['getTimelines', 'timelines.ts', 'export const TIMELINES: HistoryTimeline[] = '],
   ['getVisualLessons', 'visualLessons.ts', 'export const VISUAL_LESSONS: VisualLesson[] = '],
+  ['getEnglishTopics', 'englishTopics.ts', 'export const ENGLISH_TOPICS: EnglishTopic[] = '],
   ['getFullForms', 'fullForms.ts', 'export const FULL_FORMS: FullForm[] = '],
   ['getSamplePapers', 'samplePapers.ts', 'export const SAMPLE_PAPERS: SamplePaper[] = '],
 

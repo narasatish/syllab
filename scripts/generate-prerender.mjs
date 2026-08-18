@@ -32,7 +32,7 @@ import { POSTER_SHEETS, posterHref } from './posters.mjs';
 import { HINDI_CONCEPTS } from './hindi-concepts.mjs';
 import { EXAM_LIST, EXAM_CATEGORIES } from './exam-slugs.mjs';
 const HINDI_CONCEPT_SLUGS = new Set(HINDI_CONCEPTS.map((c) => c.slug));
-import { getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
+import { getEnglishTopics, getFullForms, getGlossary, getRevisionNotes, getSamplePapers, getMathsTables, getEnglishWriting, getChapterMcqs, getStaticGk, getEnglishVocab, getEnglishLiterature, getConcepts, getSolvedExamples, getLabPracticals, getVisualLessons, getTimelines, getWhatToStudy, getPyqs, getFormulaSheets } from './studyClusters.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1758,12 +1758,44 @@ const tcSlug = (s) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase
   if (!MOCK_EXAMS_DATA) console.warn('⚠️  Exam guide bodies SKIPPED (no SSR bundle) — run the full `npm run build`.');
   else console.log(`📝 Competitive-exam pages: ${EXAM_LIST.length} (rich bodies from ${MOCK_EXAMS_DATA.length} exam records).`);
 }
+
+/**
+ * A grammar topic page. The bank already held everything the page's own
+ * description advertised — "simple rules, clear examples, common mistakes and
+ * free practice questions" — and rendered none of it.
+ */
+function grammarBody(t) {
+  const faqs = [...(t.faqs || [])];
+  return `
+    <p class="speakable">${esc(t.intro || '')}</p>
+
+    ${(t.keyPoints || []).length ? `<h2>${esc(t.title)} — The Rules</h2>
+    <ul>${t.keyPoints.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+
+    ${(t.examples || []).length ? `<h2>Examples</h2>
+    <ul>${t.examples.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+
+    ${(t.commonMistakes || []).length ? `<h2>Common Mistakes</h2>
+    <p>These are the errors that cost marks most often. Each line gives the mistake and the correction.</p>
+    <ul>${t.commonMistakes.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+
+    ${(t.practice || []).length ? `<h2>Practice Questions</h2>
+    <p>Attempt each one before reading the answer beneath it — checking first teaches nothing.</p>
+    ${t.practice.map((p) => `<h3>${esc(p.q)}</h3><p>${esc(p.a)}</p>`).join('')}` : ''}
+
+    ${faqBlock(faqs)}
+
+    <p><a href="/english-grammar">All English grammar topics →</a> · <a href="/english-writing">Writing formats →</a> · <a href="/vocabulary">Vocabulary →</a></p>`;
+}
+
+const ENGLISH_TOPIC_DATA = getEnglishTopics(ROOT);
 const ENGLISH_TOPIC_SLUGS = ['tenses', 'parts-of-speech', 'nouns', 'pronouns', 'verbs', 'adjectives', 'adverbs', 'articles', 'prepositions', 'active-passive-voice', 'direct-indirect-speech', 'subject-verb-agreement', 'essay-writing', 'letter-writing', 'reading-comprehension'];
-ROUTES.push({ path: '/english-grammar', title: 'English Grammar for Students — Free Lessons, Examples & Practice | Syllab.in', description: 'Learn English grammar free — tenses, parts of speech, articles, prepositions, voice, narration, essay & letter writing and more, with examples and practice for Indian students.', keywords: 'english grammar for students, learn english grammar free, grammar rules with examples, english practice', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'English Grammar for Students', url: `${SITE}/english-grammar`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+ROUTES.push({ bodyHtml: `<p class="speakable">Free English grammar lessons for Indian students — ${ENGLISH_TOPIC_DATA.length} topics, each with the rules, worked examples, the mistakes that cost marks, and practice questions with answers.</p><h2>Grammar Topics</h2><ul>${ENGLISH_TOPIC_DATA.map((t) => `<li><a href="/english-grammar/${t.slug}">${esc(t.title)}</a> — ${esc(String(t.intro || '').split('. ')[0])}.</li>`).join('')}</ul>`, path: '/english-grammar', title: 'English Grammar for Students — Free Lessons, Examples & Practice | Syllab.in', description: 'Learn English grammar free — tenses, parts of speech, articles, prepositions, voice, narration, essay & letter writing and more, with examples and practice for Indian students.', keywords: 'english grammar for students, learn english grammar free, grammar rules with examples, english practice', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'English Grammar for Students', url: `${SITE}/english-grammar`, inLanguage: 'en-IN', isAccessibleForFree: true } });
 for (const slug of ENGLISH_TOPIC_SLUGS) {
   const T = tcSlug(slug);
   ROUTES.push({
     path: `/english-grammar/${slug}`,
+    bodyHtml: (ENGLISH_TOPIC_DATA.find((t) => t.slug === slug) ? grammarBody(ENGLISH_TOPIC_DATA.find((t) => t.slug === slug)) : ''),
     title: `${T} — English Grammar Rules, Examples & Practice (Free) | Syllab.in`,
     description: `Learn ${T} in English grammar with simple rules, clear examples, common mistakes and free practice questions for students.`,
     keywords: `${T.toLowerCase()} english grammar, ${T.toLowerCase()} rules examples, ${T.toLowerCase()} practice for students`,
