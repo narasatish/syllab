@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
 import { ownershipLabel, recognitionLabel, eligibility as collegeEligibility, coursesOffered, documentsRequired, typicalFacilities, scholarships as collegeScholarships, newsLinks as collegeNewsLinks, comparisonSet } from './collegeEnrich.mjs';
 import { getMedicalManifest } from './medicalColleges.mjs';
-import { getBlogArticles, isThinArticle } from './blogArticles.mjs';
+import { getBlogArticles, getFullArticles, isThinArticle } from './blogArticles.mjs';
 import { getNcertChapters } from './ncertChapters.mjs';
 import { getStateBoardChapters } from './stateBoardChapters.mjs';
 import { getAiHubTopics } from './aiHubTopics.mjs';
@@ -3666,11 +3666,41 @@ ROUTES.push({
 });
 
 // ─── Per-article blog pages (/updates/:slug) — each becomes an indexable page ─
+
+/**
+ * Markdown-lite to HTML: the article bodies use **bold** and blank-line
+ * paragraphs, the same subset Updates.tsx renders client-side. Anything richer
+ * is left as text rather than guessed at.
+ */
+function mdLite(text) {
+  return String(text || '')
+    .split(/\n{2,}/)
+    .map((para) => {
+      const t = para.trim();
+      if (!t) return '';
+      if (/^[-*] /.test(t)) {
+        const items = t.split('\n').filter((l) => /^[-*] /.test(l)).map((l) => `<li>${esc(l.replace(/^[-*] /, ''))}</li>`).join('');
+        return `<ul>${items}</ul>`;
+      }
+      return `<p>${esc(t).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')}</p>`;
+    })
+    .join('');
+}
+
+const FULL_ARTICLE_BODIES = new Map(getFullArticles().map((a) => [a.slug, a]));
+
+function updateArticleBody(slug) {
+  const a = FULL_ARTICLE_BODIES.get(slug);
+  if (!a) return '';
+  return `${a.sections.map((sec) => `<h2>${esc(sec.heading)}</h2>${mdLite(sec.body)}`).join('')}${faqBlock(a.faq || [])}`;
+}
+
 for (const a of getBlogArticles()) {
   const desc = a.summary.length > 165 ? a.summary.slice(0, 162).trim() + '…' : a.summary;
   const today = new Date().toISOString().split('T')[0];
   ROUTES.push({
     path: `/updates/${a.slug}`,
+    bodyHtml: updateArticleBody(a.slug),
     title: `${a.title} | Syllab.in`,
     description: desc,
     // Thin auto-posts (< THIN_WORD_MIN words) ship `noindex, follow`: still
@@ -4301,7 +4331,13 @@ function buildBodyContent(route) {
   // crawlable words and the body appeared only after hydration. Prerendering a
   // page and then withholding its content defeats the purpose: the URL existed,
   // returned 200, and still had nothing for a crawler to rank.
-  else if (route.path.match(/^\/updates\/[a-z0-9-]+$/)) {
+  // GUARDED: this chain begins at `if (!route.bodyHtml && ncertMatch)`, and only
+  // that first condition checks bodyHtml. Every later branch inherits the fall
+  // through, so a route WITH its own body reached this one and had richContent
+  // reassigned to the summary box - silently discarding 2,404 characters of
+  // article. The same defect is documented above for NCERT chapters; it simply
+  // was never fixed in the sibling branches.
+  else if (!route.bodyHtml && route.path.match(/^\/updates\/[a-z0-9-]+$/)) {
     const slug = route.path.split('/')[2];
     const article = (getBlogArticles() || []).find((a) => a.slug === slug);
     if (article) {
