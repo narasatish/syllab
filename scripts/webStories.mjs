@@ -128,13 +128,25 @@ export function logoSvg() {
 }
 
 /** Plain-HTML hub listing all stories (crawlable directory page). */
-export function hubHtml(lessons) {
-  const cards = lessons.map((l) => {
+/**
+ * The hub for every story.
+ *
+ * It listed 36 of the 184 stories that get written: generateWebStories built it
+ * from the lesson set and generateConceptStories ran afterwards, so the 147
+ * concept stories had no entry point anywhere on the site. It also linked
+ * /web-stories/<slug>.html, and Firebase serves this project with cleanUrls, so
+ * every one of those links was a 301 — the same trap the canonical in
+ * buildConceptStoryHtml already avoids.
+ */
+export function hubHtml(lessons, concepts) {
+  const card = (l, prefix) => {
     const [from, to] = paletteFor(l.subject);
-    return `<a class="card" href="/web-stories/${l.slug}.html" style="background:linear-gradient(160deg,${from},${to})">
-      <span class="s">${esc(l.subject)} · ${esc(l.classLevel)}</span>
+    return `<a class="card" href="/web-stories/${prefix}${l.slug}" style="background:linear-gradient(160deg,${from},${to})">
+      <span class="s">${esc(l.subject || 'Concept')}${l.classLevel ? ' · ' + esc(l.classLevel) : ''}</span>
       <span class="t">${esc(l.title)}</span></a>`;
-  }).join('\n');
+  };
+  const cards = (lessons || []).map((l) => card(l, '')).join('\n');
+  const conceptCards = (concepts || []).map((c) => card(c, 'concept-')).join('\n');
   return `<!doctype html><html lang="en"><head>
 <meta charset="utf-8">
 <title>Visual Web Stories — Quick Science Revision | Syllab.in</title>
@@ -148,7 +160,8 @@ export function hubHtml(lessons) {
   header{padding:40px 20px 10px;max-width:1000px;margin:0 auto}
   h1{font-size:1.9rem;margin:0 0 6px;font-weight:900}
   header p{color:#475569;margin:0;font-weight:500}
-  .grid{max-width:1000px;margin:20px auto 60px;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .grid{max-width:1000px;margin:20px auto 40px;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .sec{max-width:1000px;margin:32px auto 0;padding:0 20px;font-size:1.15rem;font-weight:800}
   .card{aspect-ratio:3/4;border-radius:18px;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.12);transition:transform .15s}
   .card:hover{transform:translateY(-3px)}
   .card .s{color:#fff;font-size:.7rem;font-weight:800;opacity:.85;text-transform:uppercase;letter-spacing:1px}
@@ -156,8 +169,12 @@ export function hubHtml(lessons) {
   footer{text-align:center;padding:20px;color:#64748b;font-size:.85rem}
   @media(prefers-color-scheme:dark){body{background:#0f172a;color:#f1f5f9}header p{color:#94a3b8}}
 </style></head><body>
-<header><h1>📱 Visual Web Stories</h1><p>Tappable, 30-second science revision — memory tricks, real-life examples and quick quizzes. Free.</p></header>
-<main class="grid">${cards}</main>
+<header><h1>📱 Visual Web Stories</h1><p>${(lessons || []).length + (concepts || []).length} tappable, 30-second stories — memory tricks, real-life examples and quick quizzes. Free, no login.</p></header>
+<main>
+<h2 class="sec">Memory Tricks &amp; Real-Life Examples (${(lessons || []).length})</h2>
+<div class="grid">${cards}</div>
+${conceptCards ? `<h2 class="sec">Concepts Explained (${(concepts || []).length})</h2><div class="grid">${conceptCards}</div>` : ''}
+</main>
 <footer>© Syllab.in · Free learning for Indian students · <a href="/visual-learning">All visual lessons →</a></footer>
 </body></html>`;
 }
@@ -181,9 +198,17 @@ export async function generateWebStories(ROOT, lessons) {
     writeFileSync(path.join(outDir, `${l.slug}.html`), buildStoryHtml(l));
     writeFileSync(path.join(posterDir, `${l.slug}.png`), new Resvg(posterSvg(l), { fitTo: { mode: 'width', value: 640 } }).render().asPng());
   }
-  writeFileSync(path.join(outDir, 'index.html'), hubHtml(withMemory));
+  // The hub is written by writeStoryHub() once BOTH story sets exist.
   console.log(`📱 Web Stories: ${withMemory.length} AMP stories + posters + hub written to dist/web-stories/.`);
-  return withMemory.length;
+  return withMemory;
+}
+
+/** Write the hub once every story has been generated. */
+export function writeStoryHub(ROOT, lessons, concepts) {
+  const outDir = path.join(ROOT, 'dist', 'web-stories');
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(path.join(outDir, 'index.html'), hubHtml(lessons || [], concepts || []));
+  return (lessons || []).length + (concepts || []).length;
 }
 
 /** Build an AMP Web Story from a concept explainer (title + intro + FAQs). */
@@ -237,5 +262,5 @@ export async function generateConceptStories(ROOT, concepts) {
     writeFileSync(path.join(posterDir, `concept-${c.slug}.png`), new Resvg(posterSvg({ title: c.title, subject: c.subject || 'Concept', classLevel: c.classLevel || '' }), { fitTo: { mode: 'width', value: 640 } }).render().asPng());
   }
   console.log(`📱 Concept Web Stories: ${usable.length} AMP stories + posters written to dist/web-stories/.`);
-  return usable.length;
+  return usable;
 }

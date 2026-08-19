@@ -41,12 +41,13 @@ import * as kidsData from './kidsData.mjs';
 import * as microModules from './microModules.mjs';
 import * as gkData from './gkData.mjs';
 import * as scholarshipsData from './scholarshipsData.mjs';
+import * as paperGuides from './paperGuides.mjs';
 import * as ncertChapters from './ncertChapters.mjs';
 import * as stateBoardChapters from './stateBoardChapters.mjs';
 import * as medicalCollegesData from './medicalColleges.mjs';
 
 /** Loader modules this audit knows about, beyond studyClusters.mjs. */
-const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData, kidsData, microModules, gkData, scholarshipsData };
+const MODULES = { clusters, differencesData, ncertChapters, stateBoardChapters, medicalCollegesData, aiHubTopics, blogArticles, collegesData, kidsData, microModules, gkData, scholarshipsData, paperGuides };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -151,6 +152,7 @@ const BANKS = [
   ['getDifferences', 'differences.ts', 'export const DIFFERENCES: DiffTopic[] = ', 'differencesData'],
   ['getGkQuestions', 'generalKnowledge.ts', 'export const GK_QUESTIONS: GKItem[] = ', 'gkData'],
   ['getScholarships', 'scholarships.ts', 'export const SCHOLARSHIPS: Scholarship[] = ', 'scholarshipsData'],
+  ['getPaperGuides', 'previousYearPapers.ts', 'export const PAPER_GUIDES: PaperGuide[] = ', 'paperGuides'],
   ['getMedicalManifest', 'medicalColleges.ts', 'export const MEDICAL_COLLEGES: MedicalCollege[] = ', 'medicalCollegesData'],
 ];
 

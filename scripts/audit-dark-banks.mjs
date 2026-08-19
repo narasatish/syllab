@@ -51,6 +51,14 @@ const APP_ONLY = {
   JEE_MATH_POOL: 'JEE quiz engine question pool — rendering it would publish the answers',
   PYQ_EXAMS: 'exam filter list for the in-app /pyqs browser, not body content',
   FINANCIAL_LITERACY: 'in-app lesson module; no /financial-literacy route exists to render it',
+  // The four below were checked against their consumers before being exempted,
+  // not assumed. Each feeds the running app; none has a page that would render
+  // it, so forcing them onto one would be content invented to satisfy an audit.
+  JUNIOR_SYLLABUS: 'Class 1-5 chapter list; syllabus.ts folds it into SYLLABUS, which drives the in-app /syllabus, /practice and dashboard views — the prerendered class pages are built from the NCERT artefact instead',
+  STATE_BOARD_SYLLABUS: 'state-board chapter seeds, folded into the same in-app SYLLABUS; chapterMatchesBoard() filters them client-side by the board the user picked',
+  BOARD_OPTIONS: 'the board selector itself (id, label, ncertAligned) — UI control data, not page content',
+  EXAM_CALENDAR: 'exam-date rows rendered client-side by CareerPredictor.tsx and WhatToStudy.tsx; dates change through the year and are shown with the app disclaimer rather than baked into static HTML',
+
 
   STUDY_QUOTES: 'study-room UI copy, shown in-app only',
   STUDY_TIPS: 'study-room UI copy, shown in-app only',

@@ -26,6 +26,7 @@ import { getAiHubTopics } from './aiHubTopics.mjs';
 import { getMicroModules } from './microModules.mjs';
 import { getKidsStories, getKidsRhymes, getKidsActionRhymes, getKidsLearnTopics, getKidsAlphabet, getKidsNumbers, getKidsShapes, getKidsColoring, getKidsMatchSets } from './kidsData.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
+import { getPaperGuides } from './paperGuides.mjs';
 import { getWorksheets } from './worksheetsData.mjs';
 import { getGkQuestions } from './gkData.mjs';
 import { getScholarships } from './scholarshipsData.mjs';
@@ -2217,7 +2218,54 @@ ROUTES.push({ path: '/college-predictor', title: 'Free College Predictor 2026 �
 
 // ─── Previous Year Questions (PYQ) & Sample Papers cluster ────────────────────
 const PYQ_GUIDES = { 'cbse-class-10': 'CBSE Class 10', 'cbse-class-12': 'CBSE Class 12', 'jee-main': 'JEE Main', 'neet': 'NEET', 'ts-eamcet': 'TS EAMCET', 'ap-eamcet': 'AP EAMCET', 'cbse-class-9': 'CBSE Class 9', 'kcet': 'KCET', 'mht-cet': 'MHT-CET', 'wbjee': 'WBJEE', 'bitsat': 'BITSAT', 'cuet': 'CUET' };
-ROUTES.push({ path: '/previous-year-papers', title: 'Previous Year Question Papers & Sample Papers (Free) — CBSE, JEE, NEET, EAMCET | Syllab.in', description: 'Free guides to previous year question papers (PYQ) & sample papers for CBSE Class 10 & 12, JEE Main, NEET and EAMCET — exam pattern, high-weightage topics, how to use PYQs, and free mock tests for Indian students.', keywords: 'previous year question papers, sample papers, cbse previous year papers, jee main pyq, neet previous year papers, eamcet previous papers', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Previous Year Question Papers & Sample Papers', url: `${SITE}/previous-year-papers`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+/**
+ * The authored guide for each exam: pattern, method, weightage, tips, FAQs.
+ *
+ * Six of these twelve pages had 42 KB of written guidance sitting in
+ * previousYearPapers.ts and rendered a chapter link list instead. The guide is
+ * APPENDED to the chapter list rather than replacing it — the list is what the
+ * page is for; the guide is what the description already promised alongside it
+ * ("exam pattern, most-repeated topics").
+ */
+const PAPER_GUIDES_ALL = getPaperGuides(ROOT);
+const PAPER_GUIDE_BY_SLUG = new Map(PAPER_GUIDES_ALL.map((g) => [g.slug, g]));
+
+function paperGuideBody(slug) {
+  const g = PAPER_GUIDE_BY_SLUG.get(slug);
+  if (!g) return '';
+  const bullets = (heading, list) => (list.length
+    ? `<h2>${heading}</h2><ul>${list.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`
+    : '');
+  const topics = g.keyTopics.length
+    ? `<h2>Highest-Weightage Topics</h2><table><thead><tr><th>Subject</th><th>Chapters that carry the most marks</th></tr></thead><tbody>${g.keyTopics.map((k) => `<tr><td><strong>${esc(k.subject)}</strong></td><td>${esc(k.topics)}</td></tr>`).join('')}</tbody></table>`
+    : '';
+  const faqs = g.faqs.length
+    ? `<h2>${esc(g.exam)} PYQ — Questions Students Ask</h2>${g.faqs.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}`
+    : '';
+  const practice = g.practice.length
+    ? `<h2>Where to Practise</h2><ul>${g.practice.map((p) => `<li><a href="${esc(p.href || '/mock-tests')}">${esc(p.label)}</a></li>`).join('')}</ul>`
+    : '';
+  return `<h2>About ${esc(g.exam)} Previous Year Papers</h2><p>${esc(g.intro)}</p>
+    ${bullets('Exam Pattern', g.pattern)}
+    ${bullets('How to Use Previous Year Papers', g.howToUse)}
+    ${topics}
+    ${bullets('Scoring Tips', g.tips)}
+    ${faqs}
+    ${practice}`;
+}
+
+ROUTES.push({ bodyHtml: (() => {
+  if (!PAPER_GUIDES_ALL.length) return '';
+  return `<p class="speakable">Guides to the previous year question papers for ${Object.keys(PYQ_GUIDES).length} exams — what the paper actually looks like, which chapters carry the marks, and how to use past papers rather than merely collect them. Free, no login.</p>
+  <h2>Guides by Exam</h2><ul>${Object.entries(PYQ_GUIDES).map(([sl, nm]) => {
+    const g = PAPER_GUIDE_BY_SLUG.get(sl);
+    const gist = g ? ' \u2014 ' + esc(g.intro.split('. ')[0]) + '.' : '';
+    return '<li><a href="/previous-year-papers/' + sl + '">' + esc(nm) + ' previous year papers</a>' + gist + '</li>';
+  }).join('')}</ul>
+  <h2>Why Past Papers Beat More Notes</h2>
+  <p>A past paper is the only revision material that tells you what the examiner actually asks, in the proportion they ask it. Notes tell you what a chapter contains; a paper tells you which third of that chapter has carried marks for the last five years. Once the syllabus has been through once, a paper solved in one sitting is worth more than an evening of rereading.</p>
+  <p>Solve them under the real time limit from the start. Most marks lost in a board or entrance paper are lost to pace and to question order, not to a gap in knowledge, and neither of those shows up when you solve at your own speed with the book nearby.</p>`;
+})(), path: '/previous-year-papers', title: 'Previous Year Question Papers & Sample Papers (Free) — CBSE, JEE, NEET, EAMCET | Syllab.in', description: 'Free guides to previous year question papers (PYQ) & sample papers for CBSE Class 10 & 12, JEE Main, NEET and EAMCET — exam pattern, high-weightage topics, how to use PYQs, and free mock tests for Indian students.', keywords: 'previous year question papers, sample papers, cbse previous year papers, jee main pyq, neet previous year papers, eamcet previous papers', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Previous Year Question Papers & Sample Papers', url: `${SITE}/previous-year-papers`, inLanguage: 'en-IN', isAccessibleForFree: true } });
 // Map each guide to the classes whose real chapter-wise PYQs we link to.
 const PYQ_ALL = getPyqs(ROOT);
 const PYQ_BY_CLASS = {};
@@ -2250,7 +2298,8 @@ for (const [slug, name] of Object.entries(PYQ_GUIDES)) {
       { '@type': 'ListItem', position: 2, name: `${name} Previous Year Papers`, item: `${SITE}/previous-year-papers/${slug}` },
     ] },
   };
-  if (bodyHtml) route.bodyHtml = bodyHtml;
+  const guide = paperGuideBody(slug);
+  if (bodyHtml || guide) route.bodyHtml = (bodyHtml || '') + guide;
   ROUTES.push(route);
 }
 
@@ -3155,10 +3204,14 @@ let CONCEPT_TO_VISUAL = {};
 }
 // Generate AMP Web Stories (Google Discover channel) from the full lesson data.
 try {
-  const { generateWebStories, generateConceptStories } = await import('./webStories.mjs');
-  await generateWebStories(ROOT, VISUAL_LESSONS_FULL);
+  const { generateWebStories, generateConceptStories, writeStoryHub } = await import('./webStories.mjs');
+  const storyLessons = await generateWebStories(ROOT, VISUAL_LESSONS_FULL);
   // Also generate Web Stories from the concept explainers (more Discover surface).
-  await generateConceptStories(ROOT, getConcepts(ROOT).map((x) => (CONCEPT_FAQ[x.slug] ? { ...x, faqs: CONCEPT_FAQ[x.slug] } : x)));
+  const storyConcepts = await generateConceptStories(ROOT, getConcepts(ROOT).map((x) => (CONCEPT_FAQ[x.slug] ? { ...x, faqs: CONCEPT_FAQ[x.slug] } : x)));
+  // One hub covering both sets — it used to list only the first, leaving the
+  // concept stories with no link from anywhere on the site.
+  const hubCount = writeStoryHub(ROOT, storyLessons, storyConcepts);
+  console.log(`📱 Web Stories hub lists ${hubCount} stories.`);
 } catch (e) { console.warn('⚠️  Web Stories generation error:', e?.message || e); }
 // Shareable "Science Memory Tricks" cheat-sheet (printable linkable asset).
 try {
@@ -4674,6 +4727,87 @@ function getNcertData() {
  * Injected into <div id="root">...content...</div> so crawlers see semantic HTML
  * without JavaScript. React's createRoot().render() will replace this on mount.
  */
+/**
+ * A cluster hub's listing of its own children.
+ *
+ * 34 indexable hubs carried about 130 words each and 20 linked to NONE of their
+ * children: /mcqs had 128 child pages and not one link, /concepts 146,
+ * /glossary 154, /coding 907. 2,597 pages sat under a hub that did not
+ * acknowledge they existed — a thin page in its own right, and a crawl-depth
+ * problem, since the hub is what a crawler reaches first and what the head term
+ * would rank for.
+ *
+ * It APPENDS rather than replacing, and only when the page does not already
+ * link its children. Written as an else-branch first, it skipped the two hubs
+ * that needed it most: /formula-sheets had a body already (a poster box) and
+ * listed none of its 96 sheets, and /glossary's 154 children are all noindex,
+ * so a listing restricted to indexable children found nothing to show. Noindex
+ * children are still listed — noindex,follow pages are reached by readers and
+ * crawled for their links; not indexing a page is not a reason to hide it.
+ *
+ * Derived from ROUTES, so it cannot drift from what is published and a new
+ * cluster gets a listing without anyone remembering to add one.
+ */
+function hubListing(route, existing) {
+  if (route.noindex) return '';
+  const hub = route.path;
+  if (hub === '/') return '';
+  const kids = ROUTES.filter((r) => r.path.startsWith(hub + '/') && r.path !== hub);
+  if (kids.length < 5) return '';
+  // Already links its own children? Leave it alone.
+  const links = (String(existing || '').match(new RegExp('href="' + hub + '/', 'g')) || []).length;
+  if (links >= 3) return '';
+
+  const label = (r) => String(r.title || '').split(' | ')[0].replace(/\s*\((?:Free|free)\)\s*/g, ' ').replace(/\s{2,}/g, ' ').trim();
+  const SUBJ = { maths: 'Maths', math: 'Maths', science: 'Science', physics: 'Physics', chemistry: 'Chemistry', biology: 'Biology', english: 'English', hindi: 'Hindi', social: 'Social Science', sst: 'Social Science', evs: 'EVS', computer: 'Computer' };
+  const byPath = new Map(ROUTES.map((r) => [r.path, r]));
+
+  const groups = new Map();
+  let nested = false;
+  for (const r of kids) {
+    const seg = r.path.slice(hub.length + 1).split('/');
+    let key;
+    if (seg.length > 1) {
+      nested = true;
+      const sub = byPath.get(hub + '/' + seg[0]);
+      key = sub ? label(sub) : seg[0].replace(/-/g, ' ');
+    } else {
+      const m = seg[0].match(/^class-(\d+)-([a-z]+)/);
+      key = m ? `Class ${m[1]} · ${SUBJ[m[2]] || m[2].replace(/-/g, ' ')}` : seg[0][0].toUpperCase();
+    }
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(r);
+  }
+
+  const keys = [...groups.keys()].sort((a, b) => {
+    const ca = a.match(/^Class (\d+)/), cb = b.match(/^Class (\d+)/);
+    if (ca && cb) return Number(ca[1]) - Number(cb[1]) || a.localeCompare(b);
+    return nested ? groups.get(b).length - groups.get(a).length : a.localeCompare(b);
+  });
+
+  // A hub with hundreds of children lists its sections, not every leaf: 907
+  // links is a sitemap, not a hub.
+  const listAll = kids.length <= 320;
+  const CAP = 60;
+  const body = keys.map((k) => {
+    const list = groups.get(k);
+    const sub = nested ? byPath.get(hub + '/' + list[0].path.slice(hub.length + 1).split('/')[0]) : null;
+    const heading = sub ? `<h2><a href="${sub.path}">${esc(k)}</a> (${list.length})</h2>` : `<h2>${esc(k)} (${list.length})</h2>`;
+    if (!listAll) return heading;
+    const shown = list.slice(0, CAP);
+    return `${heading}<ul>${shown.map((r) => `<li><a href="${r.path}">${esc(label(r))}</a></li>`).join('')}</ul>${list.length > CAP ? `<p>${list.length - CAP} more in this group.</p>` : ''}`;
+  }).join('');
+
+  const shape = nested
+    ? `${keys.length} sections`
+    : (keys[0] || '').startsWith('Class ') ? `${keys.length} class-and-subject groups` : `${keys.length} letters`;
+  return `<div style="margin-top:1.5rem;line-height:1.7;">
+    <p>${kids.length.toLocaleString('en-IN')} pages in this section, organised into ${shape}. Every one is free and opens without an account.</p>
+    ${listAll ? '' : '<p>Each section below has its own page listing every topic it covers.</p>'}
+    ${body}
+  </div>`;
+}
+
 function buildBodyContent(route) {
   // Common components for all routes
   const stripTitle = (t) => t.replace(/\s*[\|—]\s*Syllab\.in.*$/i, '').trim();
@@ -5155,6 +5289,9 @@ function buildBodyContent(route) {
       <p>For a specific doubt, the AI tutor answers with the working shown, and it is free and unlimited. For choosing a college, the predictors take a rank and give the colleges within reach — every figure indicative, and worth confirming on the official counselling site before you lock a choice.</p>
     </div>`;
   }
+
+  // Hubs list their own children, appended to whatever the page already has.
+  richContent += hubListing(route, (route.bodyHtml || '') + richContent);
 
   // Homepage uses H2 because the React app renders the primary H1 ("Learn smarter with AI by your side").
   // For all other pages, use H1 for the page title.
