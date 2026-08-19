@@ -1178,7 +1178,7 @@ function ncertMcqHtml(key, title) {
     const opts = (m.options || []).map((o, j) =>
       `<li>${'ABCD'[j] ? `${'ABCD'[j]}. ` : ''}${esc(o)}</li>`).join('');
     const ans = (m.options || [])[m.correct];
-    return `<h4>MCQ ${i + 1}. ${esc(m.question)}</h4><ul>${opts}</ul>` +
+    return `<h3>MCQ ${i + 1}. ${esc(m.question)}</h3><ul>${opts}</ul>` +
       `<p><strong>Answer: ${'ABCD'[m.correct] ?? '?'}${ans ? `. ${esc(ans)}` : ''}</strong>` +
       `${m.explanation ? ` — ${esc(m.explanation)}` : ''}</p>`;
   }).join('');
@@ -2351,10 +2351,16 @@ const sbHubBody = (() => {
 ROUTES.push({ path: '/state-board-solutions', title: 'State Board Solutions — AP, Telangana, Karnataka & Maharashtra (Free) | Syllab.in', description: 'Free chapter-wise textbook solutions for AP (SSC), Telangana (SSC), Karnataka (SSLC) and Maharashtra (SSC) — Class 9 & 10 Maths and Science, step-by-step answers for board exam prep.', keywords: 'AP SSC solutions, TS SSC solutions, Karnataka SSLC solutions, Maharashtra SSC solutions, state board maths science solutions free', jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'State Board Solutions', url: `${SITE}/state-board-solutions`, inLanguage: 'en-IN', isAccessibleForFree: true }, bodyHtml: sbHubBody });
 for (const c of SB_CHAPTERS) {
   const u = `${SITE}/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`;
-  const lim = Math.min(5, c.qa.length);
-  let body = '<div style="margin-top:1.5rem;">';
-  for (let i = 0; i < lim; i++) body += `<div style="margin-bottom:1.25rem;padding:1rem;background:#f9f9f9;border-left:3px solid #0066cc;"><h3 style="margin:0 0 .5rem;font-size:1.02rem;">Q${i + 1}: ${esc(c.qa[i].q)}</h3><div style="font-size:.95rem;color:#555;line-height:1.5;white-space:pre-line;">${esc(c.qa[i].solution).slice(0, 500)}${c.qa[i].solution.length > 500 ? '…' : ''}</div></div>`;
-  if (c.qa.length > lim) body += `<p style="color:#666;font-size:.9rem;font-style:italic;">Showing ${lim} of ${c.qa.length} questions — full solutions on the page.</p>`;
+  // Every question, in full.
+  //
+  // This showed the first 5 and cut each answer at 500 characters, then told
+  // the reader "full solutions on the page" — 463 of the 1,333 stored answers
+  // (61,403 words) never reached any page at all, and 104,102 further
+  // characters were trimmed off the ones that did. The h2 also gives the Q&A
+  // headings a level to hang from: the page ran h1 straight to h3, which was
+  // the heading-level skip on all 174 of these pages.
+  let body = `<h2>${esc(c.title)} — Textbook Questions Answered (${c.qa.length})</h2><div style="margin-top:1rem;">`;
+  for (let i = 0; i < c.qa.length; i++) body += `<div style="margin-bottom:1.25rem;padding:1rem;background:#f9f9f9;border-left:3px solid #0066cc;"><h3 style="margin:0 0 .5rem;font-size:1.02rem;">Q${i + 1}: ${esc(c.qa[i].q)}</h3><div style="font-size:.95rem;color:#555;line-height:1.5;white-space:pre-line;">${esc(c.qa[i].solution)}</div></div>`;
   body += '</div>';
   ROUTES.push({
     path: `/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
@@ -3084,7 +3090,7 @@ function samplePaperBody(p) {
       ? `<blockquote>${String(s.passage).split('\n\n').map((para) => `<p>${esc(para)}</p>`).join('')}</blockquote>`
       : '';
     const qs = (s.questions || []).map((q, i) =>
-      `<div class="qa"><h4>Q${i + 1}. ${esc(q.q)} <em>(${q.marks} mark${q.marks > 1 ? 's' : ''})</em></h4><p><strong>Answer:</strong> ${esc(q.answer)}</p></div>`).join('');
+      `<div class="qa"><h3>Q${i + 1}. ${esc(q.q)} <em>(${q.marks} mark${q.marks > 1 ? 's' : ''})</em></h3><p><strong>Answer:</strong> ${esc(q.answer)}</p></div>`).join('');
     return `<h2>${esc(s.name)} — ${s.marks} marks</h2><p><em>${esc(s.instructions)}</em></p>${passage}${qs}`;
   }).join('');
   const faqs = (p.faqs || []).length
@@ -3550,7 +3556,7 @@ function collegesAcceptingBody(slug, label) {
     <p>Fees are annual tuition. Over four years, and with hostel and mess added, the total is commonly a third higher again than the figure shown, which is worth working out before you fill a choice list.</p>
 
     ${faqBlock(faqs)}
-    <p><a href="/colleges-accepting">All entrance exams →</a> · <a href="/college-predictor/${esc(slug)}">${esc(label)} college predictor →</a> · <a href="/cutoffs">Compare cutoffs →</a></p>`;
+    <p><a href="/colleges-accepting">All entrance exams →</a> · ${CP_EXAMS[slug] ? `<a href="/college-predictor/${esc(slug)}">${esc(label)} college predictor →</a> · ` : ''}<a href="/cutoffs">Compare cutoffs →</a></p>`;
 }
 
 function bestCollegesBody(slug, short, full) {
@@ -4630,6 +4636,155 @@ for (const lang of CODE_LANGS) {
   }
 }
 
+/**
+ * The intermediate levels every breadcrumb pointed at and no page occupied.
+ *
+ * 1,195 internal links across the site resolved to 66 hard 404s. They were not
+ * stray links: the breadcrumb builder linked EVERY path segment, so all 304
+ * NCERT chapter pages and all 174 state-board pages carried a "Class 10" and a
+ * "Physics" crumb that went nowhere. A reader clicking up from a chapter got
+ * "Page Not Found", and /ncert-solutions/class-10 — a query with obvious intent
+ * — simply did not exist.
+ *
+ * Two fixes, and both are needed. These routes fill the levels that deserve a
+ * page; buildBodyContent's breadcrumb now links only segments that resolve, so
+ * a future cluster cannot reintroduce the same dead crumbs.
+ *
+ * Each hub lists its real children with their chapter counts. The four Hindi
+ * subject hubs hold one or two chapters between them, so they ship
+ * noindex,follow: the crumb resolves and the links are followed, without
+ * putting a two-item page into the index.
+ */
+{
+  const chapLink = (href, title, count) =>
+    `<li><a href="${href}">${esc(title)}</a>${count ? ` — ${count} solved question${count > 1 ? 's' : ''}` : ''}</li>`;
+
+  // ── NCERT: /ncert-solutions/class-N and /ncert-solutions/class-N/<subject>
+  const byClass = {};
+  for (const c of NCERT_CHAPTERS) {
+    ((byClass[c.classLevel] ||= {})[c.subjSlug] ||= { subject: c.subject, list: [] }).list.push(c);
+  }
+  for (const cls of Object.keys(byClass).sort((a, b) => Number(a) - Number(b))) {
+    const subjects = byClass[cls];
+    const subjNames = Object.values(subjects).map((x) => x.subject);
+    const total = Object.values(subjects).reduce((n, x) => n + x.list.length, 0);
+
+    ROUTES.push({
+      path: `/ncert-solutions/class-${cls}`,
+      title: `NCERT Solutions for Class ${cls} — All Subjects, Chapter-wise (Free) | Syllab.in`,
+      description: `Free NCERT solutions for Class ${cls} — ${total} chapters across ${subjNames.join(', ')}, every answer worked step by step. No login, no subscription.`,
+      keywords: `ncert solutions class ${cls}, class ${cls} ncert solutions free, ncert solutions class ${cls} ${subjNames[0].toLowerCase()}, class ${cls} chapter wise solutions`,
+      bodyHtml: `<p class="speakable">${total} NCERT chapters for Class ${cls}, across ${subjNames.length} subject${subjNames.length > 1 ? 's' : ''} — ${subjNames.join(', ')}. Each chapter page works the NCERT questions through rather than stating the answer.</p>
+        ${Object.entries(subjects).map(([slug, x]) => `<h2><a href="/ncert-solutions/class-${cls}/${slug}">Class ${cls} ${esc(x.subject)}</a> (${x.list.length} chapters)</h2><ul>${x.list.map((c) => chapLink(`/ncert-solutions/class-${cls}/${slug}/${c.chapSlug}`, c.title, c.count)).join('')}</ul>`).join('')}
+        <h2>Using These Alongside the Textbook</h2>
+        <p>Attempt the NCERT question first and check afterwards. A solution read before the attempt teaches you to recognise a method; a solution read after a genuine attempt teaches you where your own reasoning broke, which is the part that transfers to the exam. Where the working here differs from yours and both reach the answer, both are usually acceptable — board marking rewards a correct method with the steps shown.</p>
+        <p><a href="/ncert-solutions">All NCERT solutions, Class 6–12 →</a> · <a href="/class-${cls}">Everything for Class ${cls} →</a></p>`,
+      jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'NCERT Solutions', item: `${SITE}/ncert-solutions` },
+        { '@type': 'ListItem', position: 2, name: `Class ${cls}`, item: `${SITE}/ncert-solutions/class-${cls}` },
+      ] },
+    });
+
+    for (const [slug, x] of Object.entries(subjects)) {
+      const thin = x.list.length < 3;
+      ROUTES.push({
+        path: `/ncert-solutions/class-${cls}/${slug}`,
+        ...(thin ? { noindex: true } : {}),
+        title: `NCERT Solutions for Class ${cls} ${x.subject} — Chapter-wise (Free) | Syllab.in`,
+        description: `Free NCERT solutions for Class ${cls} ${x.subject} — ${x.list.length} chapter${x.list.length > 1 ? 's' : ''} with every textbook question worked step by step. No login.`,
+        keywords: `ncert solutions class ${cls} ${x.subject.toLowerCase()}, class ${cls} ${x.subject.toLowerCase()} chapter wise solutions, class ${cls} ${x.subject.toLowerCase()} ncert answers`,
+        bodyHtml: `<p class="speakable">${x.list.length} chapter${x.list.length > 1 ? 's' : ''} of Class ${cls} ${esc(x.subject)}, with the NCERT textbook questions worked through.</p>
+          <ul>${x.list.map((c) => chapLink(`/ncert-solutions/class-${cls}/${slug}/${c.chapSlug}`, c.title, c.count)).join('')}</ul>
+          <p><a href="/ncert-solutions/class-${cls}">All Class ${cls} NCERT solutions →</a> · <a href="/mcqs">Chapter-wise MCQ practice →</a> · <a href="/revision-notes">Revision notes →</a></p>`,
+        jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'NCERT Solutions', item: `${SITE}/ncert-solutions` },
+          { '@type': 'ListItem', position: 2, name: `Class ${cls}`, item: `${SITE}/ncert-solutions/class-${cls}` },
+          { '@type': 'ListItem', position: 3, name: x.subject, item: `${SITE}/ncert-solutions/class-${cls}/${slug}` },
+        ] },
+      });
+    }
+  }
+
+  // ── State boards: board, board/class, board/class/subject
+  const byBoard = {};
+  for (const c of SB_CHAPTERS) {
+    const b = (byBoard[c.boardSlug] ||= { label: c.boardLabel, classes: {} });
+    ((b.classes[c.classLevel] ||= {})[c.subjSlug] ||= { subject: c.subject, list: [] }).list.push(c);
+  }
+  for (const [bSlug, b] of Object.entries(byBoard)) {
+    const classes = Object.keys(b.classes).sort((x, y) => Number(x) - Number(y));
+    const bTotal = classes.reduce((n, cl) => n + Object.values(b.classes[cl]).reduce((m, x) => m + x.list.length, 0), 0);
+
+    ROUTES.push({
+      path: `/state-board-solutions/${bSlug}`,
+      title: `${b.label} Textbook Solutions — Class ${classes.join(' & ')}, Chapter-wise (Free) | Syllab.in`,
+      description: `Free ${b.label} textbook solutions — ${bTotal} chapters for Class ${classes.join(' and ')}, worked question by question against the state syllabus. No login.`,
+      keywords: `${b.label.toLowerCase()} solutions, ${bSlug} board textbook solutions, ${b.label.toLowerCase()} class ${classes[0]} solutions free`,
+      bodyHtml: `<p class="speakable">${bTotal} chapters of ${esc(b.label)} textbook solutions, for Class ${classes.join(' and ')}. These follow the state textbook rather than NCERT, which matters wherever the two diverge in chapter order or in what a chapter includes.</p>
+        ${classes.map((cl) => `<h2><a href="/state-board-solutions/${bSlug}/class-${cl}">Class ${cl}</a></h2>${Object.entries(b.classes[cl]).map(([sl, x]) => `<h3><a href="/state-board-solutions/${bSlug}/class-${cl}/${sl}">${esc(x.subject)}</a> (${x.list.length})</h3><ul>${x.list.map((c) => chapLink(`/state-board-solutions/${bSlug}/class-${cl}/${sl}/${c.chapSlug}`, c.title, (c.qa || []).length)).join('')}</ul>`).join('')}`).join('')}
+        <p><a href="/state-board-solutions">All state boards →</a> · <a href="/ncert-solutions">NCERT solutions →</a></p>`,
+      jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'State Board Solutions', item: `${SITE}/state-board-solutions` },
+        { '@type': 'ListItem', position: 2, name: b.label, item: `${SITE}/state-board-solutions/${bSlug}` },
+      ] },
+    });
+
+    for (const cl of classes) {
+      const subjects = b.classes[cl];
+      const cTotal = Object.values(subjects).reduce((n, x) => n + x.list.length, 0);
+      ROUTES.push({
+        path: `/state-board-solutions/${bSlug}/class-${cl}`,
+        title: `${b.label} Class ${cl} Solutions — All Subjects, Chapter-wise (Free) | Syllab.in`,
+        description: `Free ${b.label} Class ${cl} textbook solutions — ${cTotal} chapters across ${Object.values(subjects).map((x) => x.subject).join(' and ')}, worked question by question. No login.`,
+        keywords: `${b.label.toLowerCase()} class ${cl} solutions, ${bSlug} class ${cl} textbook answers, ${b.label.toLowerCase()} class ${cl} chapter wise`,
+        bodyHtml: `<p class="speakable">${cTotal} chapters of ${esc(b.label)} Class ${cl}, across ${Object.keys(subjects).length} subject${Object.keys(subjects).length > 1 ? 's' : ''}.</p>
+          ${Object.entries(subjects).map(([sl, x]) => `<h2><a href="/state-board-solutions/${bSlug}/class-${cl}/${sl}">${esc(x.subject)}</a> (${x.list.length} chapters)</h2><ul>${x.list.map((c) => chapLink(`/state-board-solutions/${bSlug}/class-${cl}/${sl}/${c.chapSlug}`, c.title, (c.qa || []).length)).join('')}</ul>`).join('')}
+          <p><a href="/state-board-solutions/${bSlug}">All ${esc(b.label)} solutions →</a></p>`,
+        jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'State Board Solutions', item: `${SITE}/state-board-solutions` },
+          { '@type': 'ListItem', position: 2, name: b.label, item: `${SITE}/state-board-solutions/${bSlug}` },
+          { '@type': 'ListItem', position: 3, name: `Class ${cl}`, item: `${SITE}/state-board-solutions/${bSlug}/class-${cl}` },
+        ] },
+      });
+
+      for (const [sl, x] of Object.entries(subjects)) {
+        ROUTES.push({
+          path: `/state-board-solutions/${bSlug}/class-${cl}/${sl}`,
+          title: `${b.label} Class ${cl} ${x.subject} Solutions — Chapter-wise (Free) | Syllab.in`,
+          description: `Free ${b.label} Class ${cl} ${x.subject} solutions — all ${x.list.length} chapters with the textbook questions answered. No login, no subscription.`,
+          keywords: `${b.label.toLowerCase()} class ${cl} ${x.subject.toLowerCase()} solutions, ${bSlug} class ${cl} ${x.subject.toLowerCase()} answers`,
+          bodyHtml: `<p class="speakable">All ${x.list.length} chapters of ${esc(b.label)} Class ${cl} ${esc(x.subject)}, with the textbook questions answered.</p>
+            <ul>${x.list.map((c) => chapLink(`/state-board-solutions/${bSlug}/class-${cl}/${sl}/${c.chapSlug}`, c.title, (c.qa || []).length)).join('')}</ul>
+            <p><a href="/state-board-solutions/${bSlug}/class-${cl}">All ${esc(b.label)} Class ${cl} subjects →</a></p>`,
+          jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'State Board Solutions', item: `${SITE}/state-board-solutions` },
+            { '@type': 'ListItem', position: 2, name: b.label, item: `${SITE}/state-board-solutions/${bSlug}` },
+            { '@type': 'ListItem', position: 3, name: `Class ${cl}`, item: `${SITE}/state-board-solutions/${bSlug}/class-${cl}` },
+            { '@type': 'ListItem', position: 4, name: x.subject, item: `${SITE}/state-board-solutions/${bSlug}/class-${cl}/${sl}` },
+          ] },
+        });
+      }
+    }
+  }
+
+  // ── The two remaining crumb levels. Bodies come from hubListing(), which
+  // lists a hub's children straight out of ROUTES.
+  ROUTES.push({
+    path: '/colleges/city',
+    title: 'Engineering Colleges by City — Fees, Cutoffs & Placements (Free) | Syllab.in',
+    description: 'Engineering colleges city by city across India — NIRF standing, fees, cutoffs and placements for each, free and indicative.',
+    keywords: 'engineering colleges by city, best engineering colleges in my city, city wise engineering colleges india',
+    jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Engineering Colleges by City', url: `${SITE}/colleges/city`, inLanguage: 'en-IN' },
+  });
+  ROUTES.push({
+    path: '/kids/learn',
+    title: 'Learn with Pictures — First Words & Ideas for Little Children (Free) | Syllab.in',
+    description: 'Picture topics for Pre-KG to Class 1 — animals, colours, fruits, vehicles and more, each with the word, the picture and how to say it. Free, no login.',
+    keywords: 'picture learning for kids, first words for toddlers, learn animals colours fruits for kids free',
+    jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Learn with Pictures', url: `${SITE}/kids/learn`, inLanguage: 'en-IN' },
+  });
+}
+
 // ─── Cross-cluster internal-link mesh ────────────────────────────────────────
 // Chapter-level pages across clusters (NCERT solutions, MCQs, PYQs, revision
 // notes, solved examples, formula sheets, important questions) link to EACH
@@ -4637,6 +4792,9 @@ for (const lang of CODE_LANGS) {
 // class|subject-family|chapter — the family check lets Science↔Physics match
 // (the same chapter drifts between those labels across clusters) while keeping
 // e.g. Class 11 Maths "Statistics" apart from Economics "Statistics".
+/** Every path this run will write — the breadcrumb tests against it. */
+const ROUTE_PATHS = new Set(ROUTES.map((r) => r.path));
+
 const MESH_BY_PATH = new Map();
 {
   const normChap = (s) => String(s || '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -4826,7 +4984,13 @@ function buildBodyContent(route) {
       ${pathParts.map((p, i) => {
         const url = '/' + pathParts.slice(0, i + 1).join('/');
         const label = p.replace(/^class-/, 'Class ').replace(/-/g, ' ');
-        return ` › <a href="${esc(url)}" style="color: #0066cc; text-decoration: none;">${esc(label)}</a>`;
+        // A crumb for a level with no page is plain text, not a link. Linking
+        // every segment regardless is what put 1,195 links onto 66 hard 404s:
+        // every NCERT and state-board chapter page had a "Class 10" and a
+        // subject crumb that went nowhere.
+        return ROUTE_PATHS.has(url)
+          ? ` › <a href="${esc(url)}" style="color: #0066cc; text-decoration: none;">${esc(label)}</a>`
+          : ` › <span>${esc(label)}</span>`;
       }).join('')}
     </nav>
   `;

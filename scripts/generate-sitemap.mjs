@@ -294,8 +294,26 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/${s}`, priority: 0.7, changefreq: 'monthly' });
   }
 
+  urls.push({ loc: '/colleges/city', priority: 0.7, changefreq: 'weekly' });
+
   // NCERT solutions: index + each chapter that has solutions.
   urls.push({ loc: '/ncert-solutions', priority: 0.8, changefreq: 'weekly' });
+  {
+    // Class and class+subject hubs. generate-prerender.mjs builds these from the
+    // same loader, and ships the subject hubs with fewer than 3 chapters as
+    // noindex — those must NOT be listed here.
+    const byClass = {};
+    for (const c of getNcertChapters()) {
+      ((byClass[c.classLevel] ||= {})[c.subjSlug] ||= []).push(c);
+    }
+    for (const cls of Object.keys(byClass)) {
+      urls.push({ loc: `/ncert-solutions/class-${cls}`, priority: 0.75, changefreq: 'weekly' });
+      for (const [slug, list] of Object.entries(byClass[cls])) {
+        if (list.length < 3) continue;
+        urls.push({ loc: `/ncert-solutions/class-${cls}/${slug}`, priority: 0.7, changefreq: 'weekly' });
+      }
+    }
+  }
   for (const c of getNcertChapters()) {
     urls.push({ loc: `/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`, priority: 0.6, changefreq: 'monthly' });
   }
@@ -435,6 +453,22 @@ function buildUrls({ languages, topicsByLang }) {
   }
   // State Board Solutions (AP / TS / Karnataka / Maharashtra)
   urls.push({ loc: '/state-board-solutions', priority: 0.8, changefreq: 'weekly' });
+  {
+    // Board, board+class and board+class+subject hubs — all indexable, since
+    // every one of them carries at least twelve chapters.
+    const seen = new Set();
+    for (const c of getStateBoardChapters()) {
+      for (const loc of [
+        `/state-board-solutions/${c.boardSlug}`,
+        `/state-board-solutions/${c.boardSlug}/class-${c.classLevel}`,
+        `/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}`,
+      ]) {
+        if (seen.has(loc)) continue;
+        seen.add(loc);
+        urls.push({ loc, priority: 0.72, changefreq: 'weekly' });
+      }
+    }
+  }
   for (const c of getStateBoardChapters()) {
     urls.push({ loc: `/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`, priority: 0.6, changefreq: 'monthly' });
   }
@@ -533,6 +567,7 @@ function buildUrls({ languages, topicsByLang }) {
   for (const s of ['alphabet', 'numbers', 'shapes', 'rhymes', 'coloring', 'stories', 'action-rhymes', 'games']) {
     urls.push({ loc: `/kids/${s}`, priority: 0.7, changefreq: 'monthly' });
   }
+  urls.push({ loc: '/kids/learn', priority: 0.65, changefreq: 'monthly' });
   // Junior "learn by tapping" picture topics.
   for (const t of ['animals', 'birds', 'fruits', 'vegetables', 'body', 'colours', 'opposites', 'transport', 'helpers', 'habits',
     'wild', 'water', 'insects', 'flowers', 'family', 'days', 'seasons', 'national', 'festivals',

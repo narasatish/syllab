@@ -221,6 +221,16 @@
         ]
       },
       {
+        "//": "HTML must revalidate. The /index.html rule below never fires: cleanUrls means a page is requested as /gk-questions, not /gk-questions/index.html, so every prerendered page was served max-age=3600 and a reader could get an hour-stale page after a deploy. This rule matches everything; the immutable rule that follows overrides it for hashed assets.",
+        "source": "**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
         "source": "**/*.@(js|css|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2)",
         "headers": [
           {
