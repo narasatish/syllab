@@ -180,7 +180,10 @@ function buildBoardPage(b) {
 <meta name="keywords" content="${esc(b.title)}, ${esc(b.slug.replace('-', ' '))} class 10, ${esc(b.slug.replace('-', ' '))} class 12, हिन्दी नोट्स, exam pattern, passing marks">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="canonical" href="${url}">
-<link rel="alternate" hreflang="hi-IN" href="${url}">
+<!-- No hreflang: these board pages have no English counterpart, and a lone
+     self-referencing hi-IN tag is a self-only cluster — it tells Google nothing
+     and reads as a broken annotation. <html lang="hi"> already states the
+     language. -->
 <meta property="og:title" content="${esc(b.heading)}">
 <meta property="og:description" content="${esc(b.intro.slice(0, 155))}">
 <meta property="og:image" content="${SITE}/og-image.png">

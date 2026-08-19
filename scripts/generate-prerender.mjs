@@ -847,7 +847,7 @@ function collegeHubBody(list, placeName, kind) {
 
     ${faqBlock(faqs)}
 
-    <p><a href="/colleges">All engineering colleges by state →</a> · <a href="/college-predictor">Free college predictor →</a> · <a href="/cutoffs">Compare cutoffs →</a></p>
+    <p><a href="/colleges/city">Browse engineering colleges by city</a> · <a href="/colleges">All engineering colleges by state →</a> · <a href="/college-predictor">Free college predictor →</a> · <a href="/cutoffs">Compare cutoffs →</a></p>
     <p><em>All figures (fees, NIRF rank, cutoffs, placements) are indicative for guidance and should be verified on the official college or counselling website before any decision.</em></p>`;
 }
 
@@ -3279,7 +3279,9 @@ const STUDY_CLUSTERS = [
   { base: '/pyqs', name: 'Previous Year Questions (PYQ)', kw: 'previous year questions, pyq chapter wise, board questions with solutions, important questions', data: getPyqs(ROOT), label: (x) => `${x.chapter} — Previous Year Questions (${x.classLevel} ${x.subject})`, body: pyqBody },
 ];
 for (const c of STUDY_CLUSTERS) {
-  ROUTES.push({ path: c.base, title: `${c.name} — Free for Students | Syllab.in`, description: `${c.name} — ${c.data.length}+ free resources for Indian students. ${c.kw}.`, keywords: c.kw, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: c.name, url: `${SITE}${c.base}`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+  // The Hindi concepts hub points at /concepts as its en-IN alternate. Without
+  // the return pointer the pair is non-reciprocal and the annotation is ignored.
+  ROUTES.push({ path: c.base, ...(c.base === '/concepts' ? { hreflangAlt: [{ lang: 'hi-IN', href: `${SITE}/hi/concepts` }], bodyHtml: `<p><a href="/hi/concepts">इन विषयों को हिन्दी में पढ़ें — read these concepts in Hindi</a></p>` } : {}), title: `${c.name} — Free for Students | Syllab.in`, description: `${c.name} — ${c.data.length}+ free resources for Indian students. ${c.kw}.`, keywords: c.kw, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: c.name, url: `${SITE}${c.base}`, inLanguage: 'en-IN', isAccessibleForFree: true } });
   // Group for sibling internal links (by category/subject/class when available).
   const gKey = (x) => x.category || x.subject || x.classLevel || 'all';
   const byGroup = {};
@@ -3310,6 +3312,10 @@ for (const c of STUDY_CLUSTERS) {
     // Reciprocal hreflang to the Hindi version, where one exists (see hindi-concepts.mjs).
     if (c.base === '/concepts' && HINDI_CONCEPT_SLUGS.has(x.slug)) {
       route.hreflangAlt = [{ lang: 'hi-IN', href: `${SITE}/hi/concepts/${x.slug}` }];
+      // A visible link as well as the tag. hreflang tells a crawler the
+      // translation exists; nothing told a reader, and nothing linked into the
+      // Hindi cluster at all — all 17 /hi pages were unreachable.
+      route.bodyHtml = `${route.bodyHtml || ''}<p><a href="/hi/concepts/${x.slug}">यह पेज हिन्दी में पढ़ें — read this page in Hindi</a></p>`;
     }
     ROUTES.push(route);
   }
@@ -4946,7 +4952,10 @@ function hubListing(route, existing) {
   // A hub with hundreds of children lists its sections, not every leaf: 907
   // links is a sitemap, not a hub.
   const listAll = kids.length <= 320;
-  const CAP = 60;
+  // 60 stranded the tail of any letter group larger than that — four
+  // /english-writing pages were reachable from nowhere because of it. 120 lists
+  // every group this site actually has in full.
+  const CAP = 120;
   const body = keys.map((k) => {
     const list = groups.get(k);
     const sub = nested ? byPath.get(hub + '/' + list[0].path.slice(hub.length + 1).split('/')[0]) : null;
@@ -5092,7 +5101,7 @@ function buildBodyContent(route) {
         richContent += `<li style="margin-bottom: 0.5rem;">${esc(qa.q.length > 80 ? qa.q.slice(0, 77) + '…' : qa.q)}</li>`;
       }
       if (qas.length > displayLimit) {
-        richContent += `<li style="margin-top: 0.5rem; color: #999; font-size: 0.9rem;">+ ${qas.length - displayLimit} more questions in the full chapter</li>`;
+        richContent += `<li style="margin-top: 0.5rem; color: #6e6e6e; font-size: 0.9rem;">+ ${qas.length - displayLimit} more questions in the full chapter</li>`;
       }
       richContent += `</ol></div>`;
 
@@ -5114,7 +5123,7 @@ function buildBodyContent(route) {
         richContent += `
               <tr style="border-bottom: 1px solid #eee;">
                 <td style="padding: 0.75rem;">${esc(qa.q.length > 60 ? qa.q.slice(0, 57) + '…' : qa.q)}</td>
-                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">✓ Solved</span></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #2e7d32; font-weight: 600;">✓ Solved</span></td>
               </tr>
         `;
       }
@@ -5210,7 +5219,7 @@ function buildBodyContent(route) {
                 <a href="/coding/${lang}/${t}" style="color: #0066cc; text-decoration: none;">→ ${esc(titleCase(t))}</a>
               </li>
             `).join('')}
-            ${topics.length > 5 ? `<li style="padding: 0.5rem 0; color: #999; font-size: 0.85rem;">+ ${topics.length - 5} more topics in the interactive editor</li>` : ''}
+            ${topics.length > 5 ? `<li style="padding: 0.5rem 0; color: #6e6e6e; font-size: 0.85rem;">+ ${topics.length - 5} more topics in the interactive editor</li>` : ''}
           </ul>
         </div>
       `;
@@ -5326,34 +5335,34 @@ function buildBodyContent(route) {
             <thead style="background: #f5f5f5;">
               <tr>
                 <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #0066cc; font-weight: 600;">Feature</th>
-                <th style="padding: 0.75rem; text-align: center; border-bottom: 2px solid #0066cc; font-weight: 600; color: #4caf50;">Syllab</th>
+                <th style="padding: 0.75rem; text-align: center; border-bottom: 2px solid #0066cc; font-weight: 600; color: #2e7d32;">Syllab</th>
                 <th style="padding: 0.75rem; text-align: center; border-bottom: 2px solid #0066cc; font-weight: 600;">Premium Apps</th>
               </tr>
             </thead>
             <tbody>
               <tr style="border-bottom: 1px solid #eee;">
                 <td style="padding: 0.75rem;"><strong>Cost</strong></td>
-                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">100% Free</span></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #2e7d32; font-weight: 600;">100% Free</span></td>
                 <td style="padding: 0.75rem; text-align: center;">Subscriptions ₹299–999/mo</td>
               </tr>
               <tr style="border-bottom: 1px solid #eee;">
                 <td style="padding: 0.75rem;"><strong>Mock Tests</strong></td>
-                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">✓ Unlimited</span></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #2e7d32; font-weight: 600;">✓ Unlimited</span></td>
                 <td style="padding: 0.75rem; text-align: center;">Limited to premium</td>
               </tr>
               <tr style="border-bottom: 1px solid #eee;">
                 <td style="padding: 0.75rem;"><strong>AI Doubt Solver</strong></td>
-                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">✓ Yes</span></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #2e7d32; font-weight: 600;">✓ Yes</span></td>
                 <td style="padding: 0.75rem; text-align: center;">Paid add-ons</td>
               </tr>
               <tr style="border-bottom: 1px solid #eee;">
                 <td style="padding: 0.75rem;"><strong>Coding Courses</strong></td>
-                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">✓ Included</span></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #2e7d32; font-weight: 600;">✓ Included</span></td>
                 <td style="padding: 0.75rem; text-align: center;">Not available</td>
               </tr>
               <tr>
                 <td style="padding: 0.75rem;"><strong>Sign-up Required</strong></td>
-                <td style="padding: 0.75rem; text-align: center;"><span style="color: #4caf50; font-weight: 600;">No</span></td>
+                <td style="padding: 0.75rem; text-align: center;"><span style="color: #2e7d32; font-weight: 600;">No</span></td>
                 <td style="padding: 0.75rem; text-align: center;">Yes</td>
               </tr>
             </tbody>
@@ -5391,7 +5400,7 @@ function buildBodyContent(route) {
           }).join('')}
         </tbody></table>
 
-        ${Object.entries(byCat).map(([cat, list]) => `<h2>${esc(cat)} (${list.length})</h2><ul>${list.map((w) => `<li>${w.emoji || ''} ${esc(w.title)} <span style="color:#888;">— ${esc(w.band)}</span></li>`).join('')}</ul>`).join('')}
+        ${Object.entries(byCat).map(([cat, list]) => `<h2>${esc(cat)} (${list.length})</h2><ul>${list.map((w) => `<li>${w.emoji || ''} ${esc(w.title)} <span style="color:#6e6e6e;">— ${esc(w.band)}</span></li>`).join('')}</ul>`).join('')}
 
         <h2>Printing These Well</h2>
         <p>Each sheet is drawn to A4 at print resolution, so set your printer's scaling to 100% rather than "fit to page" — tracing rows are sized to a four-year-old's grip and shrinking them by 6% is enough to make the letters awkward to form. Print in black and white for everything except the colour-by-key sheets, which need the key legible.</p>
@@ -5437,6 +5446,34 @@ function buildBodyContent(route) {
       ['/lab-practicals', 'Lab Practicals', 'Aim, procedure, observation and viva questions for each experiment.'],
     ].map(([p, name, blurb]) => ({ p, name, blurb, n: count(p) })).filter((x) => x.n > 0);
 
+    /**
+     * Everything the curated list above does not already name.
+     *
+     * Hand-maintaining that list left 286 indexable pages with no path from the
+     * homepage in the prerendered HTML — whole clusters, not stragglers:
+     * /maths-tables (43), /updates (35), /colleges (34), /ai-hub (20),
+     * /timelines (20), /english-grammar (16), /gk-questions (9), /scholarships.
+     * They were in the sitemap, which is discovery, but link equity travels
+     * through links. Deriving the remainder from ROUTES means the next cluster
+     * appears here on the build that creates it.
+     */
+    const named = new Set(SECTIONS.map((x) => x.p));
+    const extraHubs = [];
+    const extraPages = [];
+    for (const r of ROUTES) {
+      if (r.noindex || r.path === '/') continue;
+      const seg = r.path.split('/').filter(Boolean);
+      if (seg.length !== 1) continue;               // top level only
+      const p = '/' + seg[0];
+      if (named.has(p)) continue;
+      named.add(p);
+      const kids = count(p);
+      const label = String(r.title || '').split(' | ')[0].split(' — ')[0].replace(/\s*\((?:Free|free)\)\s*/g, ' ').trim();
+      (kids > 0 ? extraHubs : extraPages).push({ p, name: label, n: kids });
+    }
+    extraHubs.sort((a, b) => b.n - a.n);
+    extraPages.sort((a, b) => a.name.localeCompare(b.name));
+
     richContent = `<div style="margin-top:1.5rem;line-height:1.7;">
       <p class="speakable">Syllab is a free learning site for Indian students from Class 1 to 12 — ${ROUTES.length.toLocaleString('en-IN')} pages of NCERT solutions, practice questions, mock tests, notes and college information, with an AI tutor for anything not covered. No subscription, no login, no advertising.</p>
 
@@ -5444,6 +5481,10 @@ function buildBodyContent(route) {
       <table><thead><tr><th>Section</th><th>Pages</th><th>What it is</th></tr></thead><tbody>
         ${SECTIONS.map((x) => `<tr><td><a href="${x.p}">${esc(x.name)}</a></td><td>${x.n.toLocaleString('en-IN')}</td><td>${esc(x.blurb)}</td></tr>`).join('')}
       </tbody></table>
+
+      ${extraHubs.length ? `<h2>More Sections</h2><table><thead><tr><th>Section</th><th>Pages</th></tr></thead><tbody>${extraHubs.map((x) => `<tr><td><a href="${x.p}">${esc(x.name)}</a></td><td>${x.n.toLocaleString('en-IN')}</td></tr>`).join('')}</tbody></table>` : ''}
+
+      ${extraPages.length ? `<h2>Tools and Single Pages</h2><p>${extraPages.map((x) => `<a href="${x.p}">${esc(x.name)}</a>`).join(' · ')}</p>` : ''}
 
       <h2>Free, and What That Means Here</h2>
       <p>Everything above opens without an account. There is no paid tier holding back the solutions, no watermark on the worksheets, and no point at which a chapter stops halfway and asks for a card. The site is free because the content is written once and read by many, not because a trial is running out.</p>
@@ -5470,7 +5511,7 @@ function buildBodyContent(route) {
       ${richContent}
       ${MESH_BY_PATH.get(route.path) || ''}
       ${mainNav}
-      <footer style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #999;">
+      <footer style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #6e6e6e;">
         <p style="margin: 0;">Syllab.in — Free learning for Indian students, Class 1–12</p>
       </footer>
     </article>
@@ -5515,9 +5556,37 @@ function buildHeadBlock(route) {
     : 'index,follow,max-image-preview:large,max-snippet:-1';
   const ogImg = `${SITE}/${ogImageFor(route.path)}.png`;
 
+  const fitTitle = (t) => {
+    let out = String(t || '');
+    if (out.length <= 65) return out;
+    for (const drop of [/\s*\((?:Free|free)\)/, /\s*\(PDF\)/, /\s*\(Free, with Answers\)/, /\s*—\s*Free[^|]*(?=\s\|)/, /\s*\|\s*Syllab\.in$/]) {
+      if (out.length <= 65) break;
+      // A floor of 45 characters. Without it the "— Free ..." strip took
+      // /ai-tutor from 72 characters to "AI Tutor | Syllab.in" — 20 — which
+      // wastes the result line instead of using it. A long title Google
+      // truncates itself beats a short one we truncated badly.
+      const next = out.replace(drop, '').trim();
+      if (next.length < out.length && next.length >= 45) out = next;
+    }
+    return out;
+  };
+  const fitDesc = (d) => {
+    const out = String(d || '');
+    if (out.length <= 160) return out;
+    // Prefer a sentence end, else the last word boundary, so the snippet always
+    // ends on a complete thought rather than mid-word.
+    const window = out.slice(0, 158);
+    const stop = Math.max(window.lastIndexOf('. '), window.lastIndexOf('! '), window.lastIndexOf('? '));
+    if (stop > 90) return window.slice(0, stop + 1);
+    const sp = window.lastIndexOf(' ');
+    return (sp > 90 ? window.slice(0, sp) : window).replace(/[\s,;:—-]+$/, '');
+  };
+  const fittedTitle = fitTitle(route.title);
+  const fittedDesc = fitDesc(route.description);
+
   const lines = [
-    `  <title>${esc(route.title)}</title>`,
-    `  <meta name="description" content="${esc(route.description)}" />`,
+    `  <title>${esc(fittedTitle)}</title>`,
+    `  <meta name="description" content="${esc(fittedDesc)}" />`,
     `  <meta name="keywords" content="${esc(route.keywords || '')}" />`,
     `  <meta name="robots" content="${robots}" />`,
     `  <meta name="googlebot" content="${robots}" />`,
@@ -5536,8 +5605,8 @@ function buildHeadBlock(route) {
         ]
       : []),
     `  <link rel="alternate" type="application/rss+xml" title="Syllab.in Blog — Free Exam Prep & Study Updates" href="${SITE}/feed.xml" />`,
-    `  <meta property="og:title" content="${esc(route.title)}" />`,
-    `  <meta property="og:description" content="${esc(route.description)}" />`,
+    `  <meta property="og:title" content="${esc(fittedTitle)}" />`,
+    `  <meta property="og:description" content="${esc(fittedDesc)}" />`,
     `  <meta property="og:url" content="${canonical}" />`,
     `  <meta property="og:type" content="website" />`,
     `  <meta property="og:site_name" content="Syllab.in" />`,
@@ -5548,8 +5617,8 @@ function buildHeadBlock(route) {
     `  <meta property="og:image:type" content="image/png" />`,
     `  <meta property="og:image:alt" content="${esc(route.title)}" />`,
     `  <meta name="twitter:card" content="summary_large_image" />`,
-    `  <meta name="twitter:title" content="${esc(route.title)}" />`,
-    `  <meta name="twitter:description" content="${esc(route.description)}" />`,
+    `  <meta name="twitter:title" content="${esc(fittedTitle)}" />`,
+    `  <meta name="twitter:description" content="${esc(fittedDesc)}" />`,
     `  <meta name="twitter:image" content="${ogImg}" />`,
     `  <meta name="twitter:image:alt" content="${esc(route.title)}" />`,
   ];
