@@ -16,6 +16,8 @@
 import { promises as fs, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
 import { getCollegesManifest } from './collegesData.mjs';
 import { ownershipLabel, recognitionLabel, eligibility as collegeEligibility, coursesOffered, documentsRequired, typicalFacilities, scholarships as collegeScholarships, newsLinks as collegeNewsLinks, comparisonSet } from './collegeEnrich.mjs';
 import { getMedicalManifest } from './medicalColleges.mjs';
@@ -1030,6 +1032,37 @@ for (const ci of cityHubMap.values()) {
 
 // ─── NCERT Solutions: index + per-chapter pages (high-volume "NCERT solutions") ─
 const today = new Date().toISOString().split('T')[0];
+
+/**
+ * When a body of content was actually first published and last changed.
+ *
+ * Article nodes carried datePublished: today, refreshed on every build — so a
+ * chapter written in June claimed to have been published on the day of the most
+ * recent deploy, every deploy. That is a false signal, and a page whose
+ * publication date moves forward daily is exactly what a freshness check is
+ * meant to catch. The dates below come from git history of the file the content
+ * lives in: when it was added, and when it last changed. Both are true, and
+ * both are stable across builds.
+ *
+ * If git is unavailable (a clean export, a CI checkout without history) it
+ * falls back to today rather than failing the build — the old behaviour, but
+ * only as a fallback rather than as the rule.
+ */
+const dateCache = new Map();
+function contentDates(relFile) {
+  if (dateCache.has(relFile)) return dateCache.get(relFile);
+  let out = { published: today, modified: today };
+  try {
+    const { execFileSync } = require('node:child_process');
+    const run = (args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    const added = run(['log', '--diff-filter=A', '--format=%aI', '--', relFile]).split('\n').filter(Boolean).pop();
+    const changed = run(['log', '-1', '--format=%aI', '--', relFile]);
+    if (added) out.published = added.split('T')[0];
+    if (changed) out.modified = changed.split('T')[0];
+  } catch { /* keep the fallback */ }
+  dateCache.set(relFile, out);
+  return out;
+}
 const NCERT_CHAPTERS = getNcertChapters();
 // Static link hub: list every chapter as a real <a> so crawlers discover the
 // chapter pages from the index without running JS (internal linking + PageRank flow).
@@ -1223,8 +1256,10 @@ for (const c of NCERT_CHAPTERS) {
       inLanguage: 'en-IN', isAccessibleForFree: true,
       author: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
       publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
-      datePublished: today,
-      dateModified: today,
+      // Article rich results want an image; 492 Article nodes had none. Every
+      // page already has an OG image chosen by cluster — the same one.
+      image: [`${SITE}/${ogImageFor(`/ncert-solutions/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`)}.png`],
+      ...(() => { const d = contentDates('public/data/ncert-solutions.json'); return { datePublished: d.published, dateModified: d.modified }; })(),
     },
   });
 }
@@ -2021,6 +2056,7 @@ for (const [c, subs] of Object.entries(IQ_SUBJECTS)) {
             url, inLanguage: 'en-IN', isAccessibleForFree: true,
             author: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
             publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
+            image: [`${SITE}/${ogImageFor(url.replace(SITE, ''))}.png`],
             datePublished: today, dateModified: today },
           { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Important Questions', item: `${SITE}/important-questions` },
@@ -2369,7 +2405,7 @@ for (const c of SB_CHAPTERS) {
     keywords: `${c.title} ${c.board} solutions, ${c.boardLabel} class ${c.classLevel} ${c.subject.toLowerCase()} ${c.title.toLowerCase()}, state board ${c.title.toLowerCase()} answers free`,
     bodyHtml: body,
     jsonLd: [
-      { '@context': 'https://schema.org', '@type': 'Article', headline: `${c.title} — ${c.boardLabel} Class ${c.classLevel} ${c.subject} Solutions`, url: u, inLanguage: 'en-IN', isAccessibleForFree: true, author: { '@type': 'Organization', name: 'Syllab.in', url: SITE } },
+      { '@context': 'https://schema.org', '@type': 'Article', headline: `${c.title} — ${c.boardLabel} Class ${c.classLevel} ${c.subject} Solutions`, url: u, inLanguage: 'en-IN', isAccessibleForFree: true, author: { '@type': 'Organization', name: 'Syllab.in', url: SITE }, publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } }, image: [`${SITE}/${ogImageFor(`/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`)}.png`], ...(() => { const d = contentDates('public/data/state-board-solutions.json'); return { datePublished: d.published, dateModified: d.modified }; })() },
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'State Board Solutions', item: `${SITE}/state-board-solutions` },
         { '@type': 'ListItem', position: 2, name: `${c.boardLabel} Class ${c.classLevel} ${c.subject}`, item: `${SITE}/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}` },
@@ -4801,6 +4837,9 @@ for (const lang of CODE_LANGS) {
 /** Every path this run will write — the breadcrumb tests against it. */
 const ROUTE_PATHS = new Set(ROUTES.map((r) => r.path));
 
+/** Readable breadcrumb labels for path segments that are codes, not words. */
+const CRUMB_LABELS = new Map(SB_CHAPTERS.map((c) => [c.boardSlug, c.boardLabel]));
+
 const MESH_BY_PATH = new Map();
 {
   const normChap = (s) => String(s || '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -4992,7 +5031,11 @@ function buildBodyContent(route) {
       <a href="/" style="color: #0066cc; text-decoration: none;">Home</a>
       ${pathParts.map((p, i) => {
         const url = '/' + pathParts.slice(0, i + 1).join('/');
-        const label = p.replace(/^class-/, 'Class ').replace(/-/g, ' ');
+        // A slug is not always a word. "/state-board-solutions/ts" rendered as
+        // the anchor text "ts" on 58 pages and "ap" on 31 — uninformative to a
+        // reader and worthless as anchor text. The board names come from the
+        // chapter data, so the map cannot drift from the routes.
+        const label = CRUMB_LABELS.get(p) || p.replace(/^class-/, 'Class ').replace(/-/g, ' ');
         // A crumb for a level with no page is plain text, not a link. Linking
         // every segment regardless is what put 1,195 links onto 66 hard 404s:
         // every NCERT and state-board chapter page had a "Class 10" and a

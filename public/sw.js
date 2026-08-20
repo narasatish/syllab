@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v342-2026-08-19-contrast-reachability-hreflang-meta-fit';
+const CACHE_VERSION = 'syllab-v343-2026-08-19-article-schema-real-dates-crumb-labels';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
