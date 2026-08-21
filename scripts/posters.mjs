@@ -16,4 +16,15 @@ export const POSTER_SHEETS = [
   { slug: 'class-12-chemistry', label: 'Class 12 Chemistry', level: 'Class 12' },
 ];
 
-export const posterHref = (slug) => `/posters/${slug}-formulas.html`;
+/**
+ * Clean URL, no .html.
+ *
+ * Firebase serves this project with cleanUrls, so /posters/x-formulas.html is a
+ * 301 to /posters/x-formulas. The eight links on /formula-sheets therefore each
+ * sent readers and Googlebot through a redirect for no reason. The sitemap was
+ * never affected — writeSitemap strips a trailing .html before emitting a <loc>,
+ * which is why every one of the 2,741 sitemap URLs already returns 200.
+ *
+ * The file on disk keeps its .html name; only the link does not say so.
+ */
+export const posterHref = (slug) => `/posters/${slug}-formulas`;
