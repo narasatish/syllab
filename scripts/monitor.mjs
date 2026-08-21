@@ -16,7 +16,40 @@ const ALERT_EMAIL = process.env.ALERT_EMAIL || 'narasatish966@gmail.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev';
 const SLOW_MS = parseInt(process.env.SLOW_MS || '20000', 10);
 
+/**
+ * robots.txt is the highest-stakes file on the site and was not being watched.
+ *
+ * When robots.txt returns 5xx or times out — as opposed to 404 — Googlebot stops
+ * crawling the WHOLE site, not just that file. On 16-17 August 2026 that is
+ * exactly what happened: Search Console recorded zero Googlebot requests on both
+ * days, the only two such days in 89, while DNS and server connectivity stayed
+ * healthy. Crawling resumed on the 18th and the site had lost about 40
+ * positions; clicks went 44 -> 0 overnight. Because robots.txt is fetched only a
+ * few times a day, a mere handful of failures reads as a "high fail rate" to
+ * Google.
+ *
+ * expectText also guards the silent version of this failure. If robots.txt ever
+ * goes missing from a deploy, the firebase.json `**` rewrite serves index.html
+ * in its place with a perfectly healthy 200 — so a status-only check passes
+ * while Google receives HTML where directives should be. Hence the explicit
+ * "must not look like HTML" assertion.
+ */
 const checks = [
+  {
+    name: 'robots.txt',
+    url: `${SITE}/robots.txt`,
+    expectText: (t) => {
+      if (t.trimStart().startsWith('<')) return 'served HTML — the SPA rewrite is answering instead of the file';
+      if (!/user-agent:/i.test(t)) return 'no User-agent directive';
+      if (!/sitemap:/i.test(t)) return 'no Sitemap: line';
+      return null;
+    },
+  },
+  {
+    name: 'sitemap.xml',
+    url: `${SITE}/sitemap.xml`,
+    expectText: (t) => (t.includes('<urlset') || t.includes('<sitemapindex') ? null : 'not an XML sitemap'),
+  },
   { name: 'Home', url: `${SITE}/` },
   { name: 'Practice', url: `${SITE}/practice` },
   { name: 'Coding', url: `${SITE}/coding` },
@@ -34,6 +67,11 @@ async function run(check) {
     clearTimeout(t);
     const ms = Date.now() - start;
     if (!res.ok) return { ...check, ok: false, ms, reason: `HTTP ${res.status}` };
+    if (check.expectText) {
+      const body = await res.text();
+      const problem = check.expectText(body);
+      if (problem) return { ...check, ok: false, ms, reason: problem };
+    }
     if (check.expectJsonOk) {
       const j = await res.json().catch(() => ({}));
       if (!j.ok) return { ...check, ok: false, ms, reason: `health ok:false (${JSON.stringify(j).slice(0, 80)})` };
