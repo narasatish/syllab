@@ -40,10 +40,28 @@ export function mcqSlug(classLevel: string | number, subject: string, chapter: s
   return `class-${part(String(classLevel))}-${part(subject)}-${part(chapter)}`.slice(0, 80).replace(/-$/, '');
 }
 
+/**
+ * "Class 7", "class-7" and "7" are the same class.
+ *
+ * SYLLABUS stores a bare number ("1", "10"); the MCQ bank stores "Class 1".
+ * chapterKey stripped punctuation but kept the word, so "class1" never matched
+ * "1" — for EVERY class, not just one. findGaps therefore believed every
+ * chapter held zero questions, and mergeChapter found no existing chapter to
+ * merge into and appended a second copy under the same slug. One scheduled run
+ * on 2026-08-20 added 8 duplicate Class 1 Mathematics chapters and broke five
+ * integrity tests; left alone it would have added `--limit` more every day.
+ */
+export function canonicalClassLevel(classLevel: string | number): string {
+  const digits = String(classLevel).match(/\d+/);
+  return digits ? `Class ${digits[0]}` : String(classLevel).trim();
+}
+
 /** Identity of a chapter independent of slug spelling, so gaps aren't double-counted. */
 export function chapterKey(classLevel: string | number, subject: string, chapter: string): string {
   const norm = (s: string) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '');
-  return `${norm(String(classLevel))}::${norm(subject)}::${norm(chapter)}`;
+  // Reduce the class to its number so both spellings land on the same key.
+  const cls = norm(String(classLevel)).replace(/^class/, '');
+  return `${cls}::${norm(subject)}::${norm(chapter)}`;
 }
 
 export interface Gap {

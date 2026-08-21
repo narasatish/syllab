@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  mcqSlug, chapterKey, findGaps, validateMcq, dedupeMcqs, mergeChapter, serializeBank,
+  mcqSlug, chapterKey, canonicalClassLevel, findGaps, validateMcq, dedupeMcqs, mergeChapter, serializeBank,
   type BankChapter, type BankMcq,
 } from './mcqBank';
 
@@ -34,6 +34,60 @@ describe('chapterKey', () => {
   });
   it('separates different chapters', () => {
     expect(chapterKey('10', 'Science', 'Light')).not.toBe(chapterKey('10', 'Science', 'Sound'));
+  });
+
+  /**
+   * SYLLABUS stores a bare number, the bank stores "Class N", and nothing
+   * reconciled them. findGaps therefore read every chapter as empty and
+   * mergeChapter appended a second copy under an identical slug: one scheduled
+   * run added 8 duplicate Class 1 Mathematics chapters and broke five integrity
+   * tests, and every later run would have added more.
+   */
+  it('treats "Class 7" and "7" as the same class', () => {
+    expect(chapterKey('Class 7', 'Science', 'Light')).toBe(chapterKey('7', 'Science', 'Light'));
+    expect(chapterKey('class-1', 'Mathematics', 'Addition')).toBe(chapterKey('1', 'Mathematics', 'Addition'));
+  });
+
+  it('still separates different classes', () => {
+    expect(chapterKey('Class 7', 'Science', 'Light')).not.toBe(chapterKey('Class 8', 'Science', 'Light'));
+  });
+});
+
+describe('canonicalClassLevel', () => {
+  it('normalises every spelling onto the form the bank stores', () => {
+    expect(canonicalClassLevel('1')).toBe('Class 1');
+    expect(canonicalClassLevel(10)).toBe('Class 10');
+    expect(canonicalClassLevel('Class 12')).toBe('Class 12');
+    expect(canonicalClassLevel('class-9')).toBe('Class 9');
+  });
+});
+
+describe('mergeChapter across class spellings', () => {
+  const existing = {
+    slug: 'class-1-mathematics-addition',
+    classLevel: 'Class 1', subject: 'Mathematics', chapter: 'Addition',
+    intro: 'x', faqs: [],
+    mcqs: [{ q: 'What is 1 + 1?', options: ['1', '2', '3', '4'], correct: 1, explanation: 'two' }],
+  };
+
+  it('merges into the existing chapter instead of appending a duplicate', () => {
+    const out = mergeChapter([existing], {
+      slug: 'class-1-mathematics-addition',
+      classLevel: '1', subject: 'Mathematics', chapter: 'Addition',
+      intro: 'y', faqs: [],
+      mcqs: [{ q: 'What is 2 + 2?', options: ['3', '4', '5', '6'], correct: 1, explanation: 'four' }],
+    });
+    expect(out).toHaveLength(1);
+    expect(out[0].mcqs).toHaveLength(2);
+    expect(new Set(out.map((c) => c.slug)).size).toBe(out.length);
+  });
+
+  it('does not report a gap for a chapter already full under the other spelling', () => {
+    const full = { ...existing, mcqs: Array.from({ length: 10 }, (_, i) => ({
+      q: `Q${i}`, options: ['a', 'b', 'c', 'd'], correct: 0, explanation: 'e',
+    })) };
+    const gaps = findGaps([{ classLevel: '1', subject: 'Mathematics', title: 'Addition' }], [full], 10);
+    expect(gaps).toEqual([]);
   });
 });
 

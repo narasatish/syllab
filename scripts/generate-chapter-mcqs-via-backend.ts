@@ -23,7 +23,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SYLLABUS } from '../src/data/syllabus';
 import {
-  findGaps, validateMcq, mergeChapter, serializeBank, mcqSlug,
+  findGaps, validateMcq, mergeChapter, serializeBank, mcqSlug, canonicalClassLevel,
   type BankChapter, type BankMcq, type Gap,
 } from '../src/lib/mcqBank';
 
@@ -184,7 +184,10 @@ async function main() {
     if (!mcqs.length) { console.log('skipped'); continue; }
     bank = mergeChapter(bank, {
       slug: mcqSlug(gap.classLevel, gap.subject, gap.chapter),
-      classLevel: gap.classLevel, subject: gap.subject, chapter: gap.chapter,
+      // The bank stores "Class N"; SYLLABUS supplies a bare number. Writing the
+      // bare form here is what put `classLevel: "1"` next to `"Class 1"` in the
+      // bank and tripped the classLevel-consistency test.
+      classLevel: canonicalClassLevel(gap.classLevel), subject: gap.subject, chapter: gap.chapter,
       intro: `Practise chapter-wise MCQs for Class ${gap.classLevel} ${gap.subject} — ${gap.chapter}. Every question comes with the correct answer and an explanation.`,
       mcqs, faqs: [],
     });
