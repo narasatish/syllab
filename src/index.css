@@ -516,3 +516,72 @@
   }
   .reveal, .reveal-zoom { opacity: 1; transform: none; transition: none; }
 }
+
+/* ── Prerendered prose, revealed ─────────────────────────────────────────
+ * The page body that used to live only inside the hidden #prerender-seo
+ * block. revealPrerenderedProse() strips the prerenderer's inline styles
+ * (they hard-code a light palette and would beat any stylesheet), so every
+ * rule the revealed content needs lives here.
+ *
+ * Colours are AA on both themes; the site's own text colours were audited to
+ * 4.5:1 and this must not reintroduce the problem it sits next to. */
+.prerender-prose {
+  /* width:100% + min-width:0 + box-sizing, not just max-width.
+   * As a flex child the section took its width from its widest descendant —
+   * the 32rem min-width table pushed the box to 587px inside a 375px viewport
+   * and the whole page scrolled sideways. min-width:0 is what lets a flex item
+   * shrink below its content, and it is the reason the scroller below can do
+   * its job at all. */
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  max-width: 62rem;
+  margin: 2.5rem auto 0;
+  padding: 2rem 1.25rem 0;
+  border-top: 1px solid rgb(226 232 240);
+  color: rgb(51 65 85);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+html.dark .prerender-prose { border-top-color: rgb(51 65 65 / 0.6); color: rgb(203 213 225); }
+
+.prerender-prose h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 2rem 0 0.75rem;
+  color: rgb(15 23 42);
+}
+.prerender-prose h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem;
+  color: rgb(30 41 59);
+}
+html.dark .prerender-prose h2 { color: rgb(241 245 249); }
+html.dark .prerender-prose h3 { color: rgb(226 232 240); }
+
+.prerender-prose p { margin: 0 0 1rem; }
+.prerender-prose ul,
+.prerender-prose ol { margin: 0 0 1.25rem; padding-left: 1.4rem; }
+.prerender-prose li { margin-bottom: 0.4rem; }
+.prerender-prose a { color: rgb(4 108 78); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+html.dark .prerender-prose a { color: rgb(52 211 153); }
+.prerender-prose strong { color: rgb(15 23 42); }
+html.dark .prerender-prose strong { color: rgb(241 245 249); }
+
+/* A wide table scrolls inside its own box. Several of these carry seven
+ * columns of college data; without this the table sets the page width and a
+ * phone scrolls the whole document sideways. */
+.prerender-prose__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 1.25rem; width: 100%; max-width: 100%; min-width: 0; }
+.prerender-prose table { border-collapse: collapse; width: 100%; min-width: 32rem; font-size: 0.92rem; }
+.prerender-prose th,
+.prerender-prose td { border: 1px solid rgb(226 232 240); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+.prerender-prose th { background: rgb(248 250 252); font-weight: 700; color: rgb(15 23 42); }
+html.dark .prerender-prose th,
+html.dark .prerender-prose td { border-color: rgb(51 65 85); }
+html.dark .prerender-prose th { background: rgb(30 41 59); color: rgb(241 245 249); }
+
+@media (max-width: 640px) {
+  .prerender-prose { padding-left: 1rem; padding-right: 1rem; margin-top: 2rem; }
+  .prerender-prose h2 { font-size: 1.2rem; }
+}

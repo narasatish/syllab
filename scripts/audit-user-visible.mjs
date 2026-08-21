@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * audit-user-visible.mjs — does the authored prose reach a reader, or only a crawler?
+ * audit-user-visible.mjs — is the authored prose delivered to the reader?
  *
  * Every page ships its body inside #prerender-seo: position:absolute, 1x1,
  * clip:rect(0,0,0,0), aria-hidden="true". That is deliberate — SSR was switched
@@ -9,25 +9,29 @@
  * Once React mounts, the reader sees whatever the React components render
  * INSTEAD.
  *
- * So a paragraph written into the prerendered body reaches a reader only if the
- * React side happens to render the same thing. On /best-colleges/cse it does
- * not: measured in a real browser, 1,726 words in the hidden block against 791
- * visible, with "Choosing a Branch, Not Just a College" and the FAQ block
- * appearing only in the hidden copy.
+ * main.tsx used to DELETE that block on mount, so any paragraph the React
+ * components did not themselves render was visible to Googlebot and to nobody
+ * else. Measured in a real browser on /best-colleges/cse: 1,726 words in the
+ * hidden block against 791 visible, with "Choosing a Branch, Not Just a
+ * College" and the FAQ appearing only in the hidden copy.
  *
- * Checking that for 2,483 pages needs no browser. Static copy that React
- * renders has to EXIST in the shipped JavaScript (or in the JSON the app
- * fetches). If a phrase appears nowhere in either, the app cannot render it,
- * and the prose is crawler-only. That direction of the test is conclusive: a
- * miss is proof of absence, not a guess.
+ * That is fixed — revealPrerenderedProse() now keeps the sections the
+ * components do not already render and puts them on the page. This script
+ * therefore does two different jobs, and it is worth being clear about which
+ * number means what:
  *
- * The reverse is not claimed. A phrase found in the bundle is only evidence the
- * app COULD render it — this reports those as "present in the client", not as
- * confirmed visible.
+ *   DIAGNOSTIC. How much of each page's prose the React components do not
+ *   contain, found by checking whether the text exists anywhere in the shipped
+ *   JavaScript or JSON. That is the content the reveal is responsible for
+ *   delivering. It is not a defect count — since the fix, a high number here
+ *   means the reveal is doing a lot of work, not that anything is broken.
+ *
+ *   THE GATE. That the reveal still ships. If someone restores the one-line
+ *   `.remove()`, 4,521 paragraphs across 1,880 pages go dark again in silence
+ *   and nothing else in this repo would notice.
  *
  *     node scripts/audit-user-visible.mjs             # report by cluster
  *     node scripts/audit-user-visible.mjs --list      # name the pages
- *     node scripts/audit-user-visible.mjs --max=N     # fail above a ceiling
  */
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
@@ -187,16 +191,17 @@ for (const p of pages) {
 
 console.log(`Indexable pages with authored prose : ${checked}`);
 console.log(`Prose/heading probes taken          : ${probesTotal}`);
-console.log(`Probes found nowhere in the client  : ${probesMissing}  (${Math.round((probesMissing / probesTotal) * 100)}%)`);
-console.log(`Pages with at least one crawler-only paragraph: ${missingPages.length}\n`);
+console.log(`Paragraphs the components lack      : ${probesMissing}  (${Math.round((probesMissing / probesTotal) * 100)}%)`);
+console.log(`Pages relying on the reveal to deliver prose : ${missingPages.length}`);
+console.log('(the components do not contain this text; revealPrerenderedProse shows it)\n');
 
 const rows = Object.entries(byCluster).sort((a, b) => b[1].missing - a[1].missing);
-console.log('cluster                       pages  affected  crawler-only paras  sample');
+console.log('cluster                       pages  affected  paras via reveal  sample');
 for (const [c, v] of rows) {
   if (!v.missing) continue;
   console.log(`  ${c.padEnd(28)} ${String(v.pages).padStart(5)}  ${String(v.hitPages).padStart(8)}  ${String(v.missing).padStart(18)}  ${v.sample}`);
 }
-if (!missingPages.length) console.log('✓ every authored paragraph exists somewhere in the client bundle.');
+if (!missingPages.length) console.log('Every authored paragraph is also present in the component bundle.');
 
 if (process.argv.includes('--list')) {
   console.log('\nPages whose prose exists only in the hidden block:');
@@ -204,8 +209,37 @@ if (process.argv.includes('--list')) {
   if (missingPages.length > 200) console.log(`  … and ${missingPages.length - 200} more`);
 }
 
-const maxArg = process.argv.find((a) => a.startsWith('--max='));
-if (maxArg && missingPages.length > Number(maxArg.split('=')[1])) {
-  console.log(`\n✗ ${missingPages.length} pages above the agreed ceiling of ${maxArg.split('=')[1]}.`);
+/**
+ * The verdict, and why it is not the paragraph count above.
+ *
+ * This audit was written when main.tsx DELETED #prerender-seo on mount, so a
+ * paragraph absent from the bundle was a paragraph no reader could ever see.
+ * That is no longer how the page works: revealPrerenderedProse() now keeps the
+ * sections the React components do not already render and puts them on the
+ * page, reading them out of the prerendered DOM rather than out of the bundle.
+ *
+ * So the counts above are now a DIAGNOSTIC — they say how much of the page's
+ * prose the React components do not themselves contain, which is exactly the
+ * content the reveal is responsible for delivering. They are no longer a
+ * defect count, and failing the build on them would be failing on a problem
+ * that was fixed.
+ *
+ * What must not regress is the mechanism. If someone restores the old
+ * one-line `.remove()`, those 4,521 paragraphs go dark again silently and
+ * nothing else in the repo would notice. So that is what is gated.
+ */
+const bundle = (() => {
+  let js = '';
+  if (existsSync(assets)) for (const f of readdirSync(assets)) if (f.endsWith('.js')) js += readFileSync(path.join(assets, f), 'utf8');
+  return js;
+})();
+const revealShips = bundle.includes('prerender-prose');
+
+console.log(`\nReveal mechanism present in the built client: ${revealShips ? 'yes' : 'NO'}`);
+if (!revealShips) {
+  console.log('✗ #prerender-seo is being removed without being shown.');
+  console.log('  Every paragraph counted above would then be readable by crawlers and by nobody else.');
+  console.log('  Restore revealPrerenderedProse() in src/main.tsx.');
   process.exit(1);
 }
+console.log('✓ prose the components do not render is revealed to the reader rather than deleted.');

@@ -8,6 +8,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import { installGlobalErrorReporting } from './lib/errorReporter'
 import { initAnalytics } from './lib/analytics'
 import { initScrollReveal } from './lib/scrollReveal'
+import { revealPrerenderedProseWhenReady } from './lib/revealPrerendered'
 
 // Capture uncaught errors / promise rejections → email alert to the owner.
 installGlobalErrorReporting()
@@ -71,9 +72,15 @@ if (rootEl.firstElementChild && document.documentElement.dataset.ssr === 'true')
   createRoot(rootEl).render(tree)
 }
 
-// Legacy: older builds shipped a hidden #prerender-seo block; remove it if present
-// (no-op for SSR builds, which don't emit it).
-requestAnimationFrame(() => { document.getElementById('prerender-seo')?.remove(); });
+// The prerendered body is not junk to be deleted — it is the page's authored
+// prose, and deleting it made 4,521 paragraphs across 1,880 pages readable by
+// Googlebot and by nobody else. revealPrerenderedProse() keeps the sections the
+// React components do not already render and puts them on the page.
+//
+// setTimeout, not requestAnimationFrame: rAF is suspended while a tab is hidden,
+// so a page opened in a background tab kept the invisible block in the DOM
+// indefinitely. A timeout runs either way.
+revealPrerenderedProseWhenReady();
 
 // Scroll-reveal animations (transform/opacity only; respects reduced-motion).
 initScrollReveal();
