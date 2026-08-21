@@ -2653,6 +2653,110 @@ for (const d of DIFFS) {
 }
 
 // ─── Full Forms (/full-forms, /full-forms/:slug) ──────────────────────────────
+/**
+ * The handful of full-form pages that deserve to be indexed, and why the other
+ * 443 do not.
+ *
+ * All 471 detail pages were noindexed on 2026-06-27 as "thin templated content",
+ * and that call was right: strip the chrome and each one is an expansion plus a
+ * sentence, which is exactly what Google now answers inline in the result. The
+ * measured consequence is stark — over three months the cluster drew 66,595
+ * impressions and 37 clicks. A CTR of 0.06% against 0.75% site-wide. Re-indexing
+ * the lot would restore about 31% of the site's impressions and roughly 2% of
+ * its clicks, while putting 443 thin pages back in front of a quality system
+ * that demoted them for being thin.
+ *
+ * So this is deliberately not that. These are the terms where an Indian student
+ * genuinely wants more than the expansion AND where this site already holds the
+ * depth to give it — an SSLC page that routes to Karnataka board solutions is
+ * worth a click in a way that "ASAP means as soon as possible" never will be.
+ * Everything else stays noindex.
+ *
+ * The prose below states only what is generally true of each qualification. No
+ * fees, cut-offs, ranks or dates: those change yearly, families plan around
+ * them, and this file is not where they should come from.
+ */
+const FF_REINDEX = new Map([
+  ['sslc-karnataka', {
+    gist: 'SSLC is the certificate awarded for completing Class 10 under the Karnataka State Board. It is the qualification a student presents when moving on to PUC, to a diploma, or to any course or role that asks for a school-leaving certificate.',
+    links: [
+      ['/state-board-solutions/karnataka', 'Karnataka board textbook solutions, chapter by chapter'],
+      ['/sample-papers', 'Sample papers with marking schemes'],
+      ['/mock-tests', 'Free timed mock tests'],
+    ],
+  }],
+  ['puc-karnataka', {
+    gist: 'PUC covers the two pre-university years — Classes 11 and 12 — under the Karnataka board. The second-year result is the one most degree admissions read, and it is also the base a student sits entrance exams from.',
+    links: [
+      ['/state-board-solutions/karnataka', 'Karnataka board solutions'],
+      ['/previous-year-papers', 'Previous year question papers'],
+      ['/college-predictor', 'See which colleges a rank can reach'],
+    ],
+  }],
+  ['jee-main', {
+    gist: 'JEE Main is the national entrance examination for undergraduate engineering admission to the NITs, IIITs and other centrally funded institutes. It is also the qualifying stage for JEE Advanced, which is the route to the IITs.',
+    links: [
+      ['/previous-year-papers/jee-main', 'JEE Main previous year papers, chapter by chapter'],
+      ['/mock-tests', 'Full-length timed mock tests'],
+      ['/college-predictor/jee-main', 'JEE Main college predictor'],
+    ],
+  }],
+  ['jee-advanced', {
+    gist: 'JEE Advanced is the second stage, taken by candidates who clear the JEE Main cut-off. It is the examination used for admission to the IITs, and it is set to a noticeably different standard from Main — the same syllabus, asked far more demandingly.',
+    links: [
+      ['/previous-year-papers/jee-main', 'JEE previous year papers'],
+      ['/formula-sheets', 'Formula sheets for Physics, Chemistry and Maths'],
+      ['/colleges/national', 'IITs, NITs and IIITs with fees and cutoffs'],
+    ],
+  }],
+  ['cuet', {
+    gist: 'CUET is the common entrance test used for undergraduate admission to central and participating universities in India, so a single examination replaces a set of separate university entrance tests.',
+    links: [
+      ['/previous-year-papers/cuet', 'CUET previous year papers'],
+      ['/mock-tests', 'Free mock tests'],
+      ['/ncert-solutions', 'NCERT solutions, Class 6 to 12'],
+    ],
+  }],
+  ['nit', {
+    gist: 'The NITs are centrally funded technical institutes spread across the country, and admission runs through JEE Main followed by JoSAA counselling rather than through any separate NIT examination.',
+    links: [
+      ['/colleges/national', 'NITs, IITs and IIITs — NIRF standing, fees and cutoffs'],
+      ['/college-predictor/jee-main', 'Predict colleges from a JEE Main rank'],
+      ['/best-colleges', 'Best colleges by course'],
+    ],
+  }],
+  ['jipmer', {
+    gist: 'JIPMER is a central medical institute. It no longer runs its own entrance examination — admission is through NEET UG, as it is for the other central medical institutes.',
+    links: [
+      ['/medical-colleges', 'Medical colleges with MBBS seats and NEET cutoffs'],
+      ['/previous-year-papers/neet', 'NEET previous year papers'],
+      ['/mock-tests', 'NEET mock tests'],
+    ],
+  }],
+  ['cgpa', {
+    gist: 'CGPA is the average of the grade points a student earns across subjects, reported instead of a raw percentage. Boards publish their own conversion, so a CGPA means different things on different mark sheets and is worth converting before comparing.',
+    links: [
+      ['/calculators', 'Convert CGPA to a percentage'],
+      ['/sample-papers', 'Board sample papers and marking schemes'],
+    ],
+  }],
+  ['isc', {
+    gist: 'ISC is the Class 12 examination of the CISCE board, the senior counterpart to its ICSE Class 10 examination.',
+    links: [
+      ['/sample-papers', 'Sample papers with marking schemes'],
+      ['/ncert-solutions', 'Chapter-wise solutions'],
+      ['/previous-year-papers', 'Previous year question papers'],
+    ],
+  }],
+  ['scert', {
+    gist: 'An SCERT is a state-level body that frames school curriculum, produces the state textbooks and trains teachers, which is why a state board syllabus can differ from NCERT in both order and emphasis.',
+    links: [
+      ['/state-board-solutions', 'State board textbook solutions'],
+      ['/ncert-solutions', 'NCERT solutions for comparison'],
+    ],
+  }],
+]);
+
 const FULL_FORMS_DATA = getFullForms(ROOT);
 ROUTES.push({
   bodyHtml: (() => {
@@ -2704,6 +2808,12 @@ for (const f of FULL_FORMS_DATA) {
     <p>${esc(f.description)}</p>
     <h2>${esc(t)} Full Form in Detail</h2>
     <p>The abbreviation <strong>${esc(t)}</strong> expands to <strong>${esc(f.fullForm)}</strong>${f.category ? ` and is commonly used in ${esc(f.category)}` : ''}. Knowing what ${esc(t)} stands for helps you read questions, notes and notices faster.</p>
+    ${(() => {
+      const x = FF_REINDEX.get(f.slug);
+      if (!x) return '';
+      return `<h2>What ${esc(t)} Means in Practice</h2><p>${esc(x.gist)}</p>
+        <h2>Where to Go Next</h2><ul>${x.links.map(([href, label]) => `<li><a href="${href}">${esc(label)}</a></li>`).join('')}</ul>`;
+    })()}
     ${relHtml}
     <p><a href="/full-forms">Browse all full forms (A–Z) →</a></p>`;
   ROUTES.push({
@@ -2714,7 +2824,10 @@ for (const f of FULL_FORMS_DATA) {
     title: `${t} Full Form — Meaning, Definition & Uses | Syllab.in`,
     description: desc,
     keywords: `${t.toLowerCase()} full form, full form of ${t.toLowerCase()}, what does ${t.toLowerCase()} stand for, ${t.toLowerCase()} meaning, ${t.toLowerCase()} abbreviation`,
-    noindex: true, // Post-March-2026 update: thin templated content (1–2 sentences) drags domain quality.
+    // Thin templated content drags domain quality, so the cluster stays noindex
+    // by default. FF_REINDEX names the exceptions: terms with real search demand
+    // that this site can answer properly, and which carry the extra section below.
+    ...(FF_REINDEX.has(f.slug) ? {} : { noindex: true }),
     jsonLd: [
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Full Forms', item: `${SITE}/full-forms` },

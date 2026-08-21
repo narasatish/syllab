@@ -509,6 +509,13 @@ function buildUrls({ languages, topicsByLang }) {
   // minimal unique value). These are SEO-scaled templates that drag domain quality.
   // Index only the hub, not individual forms.
   urls.push({ loc: '/full-forms', priority: 0.8, changefreq: 'weekly' });
+  // The detail pages are noindex apart from a curated few. This list must stay
+  // in step with FF_REINDEX in generate-prerender.mjs — the two files have
+  // drifted three times before, each time advertising a URL the build did not
+  // publish or omitting one it did. audit-seo checks both directions.
+  for (const slug of ['sslc-karnataka', 'puc-karnataka', 'jee-main', 'jee-advanced', 'cuet', 'nit', 'jipmer', 'cgpa', 'isc', 'scert']) {
+    urls.push({ loc: `/full-forms/${slug}`, priority: 0.65, changefreq: 'monthly' });
+  }
   // Individual full form pages are omitted to avoid thin-content penalty
 
   // Glossary cluster — marked noindex (thin content). Index only hub.
