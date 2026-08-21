@@ -29,6 +29,18 @@ jobs:
       - name: Install deps
         run: npm install --no-audit --no-fund
 
+      # The scheduled run is the only thing that looks at production between
+      # deploys. --live adds the checks that need real HTTP: robots.txt status
+      # and content type, sitemap URLs returning 200, and X-Robots-Tag. It needs
+      # a build first because the offline half reads dist/.
+      - name: Build (traffic-health reads dist/)
+        run: npm run build
+        env:
+          CI: 'true'
+
+      - name: Traffic health (live)
+        run: node scripts/traffic-health.mjs --live
+
       - name: Run uptime checks
         # These were commented out, so a failing check could only ever print to
         # a log nobody reads. monitor.mjs already no-ops gracefully when the key

@@ -2057,7 +2057,7 @@ for (const [c, subs] of Object.entries(IQ_SUBJECTS)) {
             author: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
             publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
             image: [`${SITE}/${ogImageFor(url.replace(SITE, ''))}.png`],
-            datePublished: today, dateModified: today },
+            ...(() => { const d = contentDates('scripts/iq-pilot.mjs'); return { datePublished: d.published, dateModified: d.modified }; })() },
           { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Important Questions', item: `${SITE}/important-questions` },
             { '@type': 'ListItem', position: 2, name: `Class ${p.cls}`, item: `${SITE}/important-questions/class-${p.cls}` },
@@ -4527,8 +4527,11 @@ for (const a of getBlogArticles()) {
       inLanguage: 'en-IN',
       author: { '@type': 'Organization', name: 'Syllab.in', url: SITE },
       publisher: { '@type': 'Organization', name: 'Syllab.in', logo: { '@type': 'ImageObject', url: `${SITE}/og-image.png` } },
-      datePublished: today,
-      dateModified: today,
+      // Real dates, from git. `today` here meant every article claimed to be
+      // published on the day of the latest deploy — a freshness signal that
+      // moves forward daily and is false every time. Same fix already applied
+      // to the NCERT and state-board Article nodes.
+      ...(() => { const d = contentDates('src/data/updateArticles.ts'); return { datePublished: d.published, dateModified: d.modified }; })(),
     },
   });
 }
