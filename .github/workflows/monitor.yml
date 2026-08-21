@@ -8,7 +8,11 @@ name: Synthetic uptime monitor
 
 on:
   schedule:
-    - cron: '0 6 * * *'     # 06:00 UTC = 11:30 IST daily
+    # Every 6 hours, not daily. robots.txt going unfetchable stops Googlebot
+    # crawling the entire site; on 16-17 Aug 2026 that ran for two full days
+    # before anything noticed, and cost ~40 positions. Four checks a day bounds
+    # the blind window to six hours.
+    - cron: '0 */6 * * *'
   workflow_dispatch: {}      # allow manual runs from the Actions tab
 
 permissions:
@@ -26,8 +30,10 @@ jobs:
         run: npm install --no-audit --no-fund
 
       - name: Run uptime checks
-        # Uncomment and set email env vars if monitor.mjs needs them
-        # env:
-        #   ALERT_EMAIL: narasatish966@gmail.com
-        #   RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        # These were commented out, so a failing check could only ever print to
+        # a log nobody reads. monitor.mjs already no-ops gracefully when the key
+        # is absent, so wiring them costs nothing if the secret is unset.
+        env:
+          ALERT_EMAIL: narasatish966@gmail.com
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: node scripts/monitor.mjs

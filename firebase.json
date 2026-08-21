@@ -240,6 +240,25 @@
         ]
       },
       {
+        "//": "robots.txt and sitemap.xml get a real TTL so the CDN answers them. The blanket max-age=0 rule above forces a revalidation to origin on EVERY fetch, and robots.txt is the one file where an origin blip is catastrophic: a 5xx or timeout there stops Googlebot crawling the WHOLE site, which is what happened on 16-17 August 2026 (zero crawl requests for two days, then a ~40-position drop). Google re-reads robots.txt about once a day, so an hour of edge caching costs nothing and removes almost all origin exposure.",
+        "source": "/robots.txt",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/sitemap.xml",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
         "source": "/index.html",
         "headers": [
           {
