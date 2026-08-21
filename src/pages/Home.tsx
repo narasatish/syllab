@@ -193,10 +193,7 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           0% { opacity: 0; transform: translateY(24px); }
           100% { opacity: 1; transform: translateY(0); }
         }
-        @keyframes shine {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
+
         .anim-float-slow { animation: float-slow 5s ease-in-out infinite; }
         .anim-float-medium { animation: float-medium 4s ease-in-out infinite; }
         .anim-float-fast { animation: float-fast 3.5s ease-in-out infinite; }
@@ -205,13 +202,20 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         .anim-delay-2 { animation-delay: 0.25s; }
         .anim-delay-3 { animation-delay: 0.4s; }
         .anim-delay-4 { animation-delay: 0.55s; }
+        /* No animation here. This span sits inside the H1 that the comment
+           below identifies as the LCP element, and the shine keyframe animated
+           background-position — a property the compositor cannot handle, so
+           every frame repainted the largest text block on the page, forever.
+           Lighthouse flagged it as the site's one non-composited animation and
+           field LCP is 3.3s against a 2.5s budget. The gradient stays; only the
+           shimmer is gone. Same reasoning as the entrance animation that was
+           already removed from this heading — do not re-add either. */
         .hero-gradient-text {
           background: linear-gradient(135deg, #f43f5e 0%, #8b5cf6 50%, #3b82f6 100%);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          animation: shine 4s linear infinite;
         }
         .card-hover {
           transition: transform 0.2s ease, box-shadow 0.2s ease;
