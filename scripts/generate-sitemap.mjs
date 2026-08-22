@@ -92,18 +92,17 @@ function buildUrls({ languages, topicsByLang }) {
   // this script must not import the prerenderer. A noindex URL left in the
   // sitemap tells Google "index this" while the page says "don't".
   const RETIRED_SLUGS = {
+    // MUST match RETIRED_SLUGS in generate-prerender.mjs. Swapped 2026-08-22:
+    // the three removed here earned 14, 13 and 3 clicks while suppressed, and
+    // the pages they were merged into earned 0, 0 and 1. See the note in
+    // generate-prerender.mjs for the numbers.
     '/formula-sheets': new Set([
       'class-10-chemistry-acids-bases-salts',
       'class-10-chemistry-carbon-its-compounds',
-      'class-10-chemistry-chemical-reactions-equations',
       'class-10-physics-light-reflection-refraction',
-      // Class 10 shipped FOUR trigonometry sheets for NCERT's TWO chapters. The
-      // formulas from these two are merged into the sheets that match real
-      // chapters — Introduction to Trigonometry (Ch 8) and Some Applications of
-      // Trigonometry (Ch 9) — which gained the explicit sin/cos standard-value
-      // tables the keeper previously told students to "memorize" without listing.
-      'class-10-maths-trigonometry',
-      'class-10-maths-applications-of-trigonometry',
+      'class-10-chemistry-chemical-reactions-and-equations',
+      'class-10-maths-introduction-to-trigonometry',
+      'class-10-maths-some-applications-of-trigonometry',
     ]),
     '/colleges': new Set([
       // Six institutions were each published TWICE under different slugs, with
@@ -175,11 +174,16 @@ function buildUrls({ languages, topicsByLang }) {
       'class-9-social-science-constitutional-design',
     ]),
     '/solved-examples': new Set([
+      // The twins of the two un-retired earners above. Both of these titled
+      // themselves identically to the page they duplicate and earned 0 clicks
+      // against that page's 4 and 2. Retiring them keeps exactly one indexed
+      // page per concept, which is what the retirement list is for.
+      'class-12-physics-current-electricity-solved-examples',
+      'class-11-chemistry-thermodynamics-solved-examples',
       'class-10-maths-statistics-numericals',
       'class-11-gravitation-numericals',
       'class-11-physics-work-power-energy-numericals',
       'class-11-sequences-series-numericals',
-      'class-11-thermodynamics-chemistry-numericals',
       'class-11-thermodynamics-numericals',
       'class-9-maths-herons-formula-numericals',
       'class-9-physics-sound-numericals',
@@ -188,7 +192,6 @@ function buildUrls({ languages, topicsByLang }) {
       'class-10-maths-probability-numericals',
       'class-10-maths-surface-areas-volumes-numericals',
       'class-11-chemistry-mole-concept-numericals',
-      'class-12-physics-current-electricity-numericals',
       'class-12-probability-numericals',
       'class-9-maths-polynomials-numericals',
       'class-9-physics-gravitation-numericals',

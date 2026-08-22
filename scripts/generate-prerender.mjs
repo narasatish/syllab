@@ -70,18 +70,35 @@ const SITE = 'https://syllab.in';
  * `npm run audit:cannibalisation` before editing.
  */
 const RETIRED_SLUGS = {
+  /**
+   * Retire the duplicate that does NOT earn, not the one that does.
+   *
+   * These lists were written from structure — which slug best matched an NCERT
+   * chapter — without checking which URL Google actually ranks. The 2026-08-21
+   * Search Console export says the choice was wrong three times here, and each
+   * time it suppressed the only page of the pair that earned anything:
+   *
+   *   chemical-reactions-equations      257 impr  14 clicks   was RETIRED
+   *   chemical-reactions-and-equations    0 impr   0 clicks   was the keeper
+   *
+   *   class-10-maths-trigonometry       134 impr  13 clicks   was RETIRED
+   *   introduction-to-trigonometry        0 impr   0 clicks   was the keeper
+   *
+   *   applications-of-trigonometry       41 impr   3 clicks   was RETIRED
+   *   some-applications-of-trigonometry  26 impr   1 click    was the keeper
+   *
+   * Swapped. Still exactly one indexed page per concept — the pedagogic
+   * argument for chapter-shaped slugs was sound, it just lost to the evidence
+   * about which URL students actually reach. The other three retirements here
+   * are correct and stay: their keepers earn 125, 177 and 73 impressions.
+   */
   '/formula-sheets': new Set([
     'class-10-chemistry-acids-bases-salts',
     'class-10-chemistry-carbon-its-compounds',
-    'class-10-chemistry-chemical-reactions-equations',
     'class-10-physics-light-reflection-refraction',
-    // Class 10 shipped FOUR trigonometry sheets for NCERT's TWO chapters. The
-    // formulas from these two are merged into the sheets that match real
-    // chapters — Introduction to Trigonometry (Ch 8) and Some Applications of
-    // Trigonometry (Ch 9) — which gained the explicit sin/cos standard-value
-    // tables the keeper previously told students to "memorize" without listing.
-    'class-10-maths-trigonometry',
-    'class-10-maths-applications-of-trigonometry',
+    'class-10-chemistry-chemical-reactions-and-equations',
+    'class-10-maths-introduction-to-trigonometry',
+    'class-10-maths-some-applications-of-trigonometry',
   ]),
   '/mcqs': new Set([
     'class-10-maths-real-numbers-mcq',
@@ -125,12 +142,24 @@ const RETIRED_SLUGS = {
     'class-11-physics-units-measurements',
     'class-9-science-matter-surroundings',
   ]),
+  /**
+   * Two retirements reversed on the same evidence. current-electricity-numericals
+   * earned 4 clicks at a 10.8% CTR while noindexed and the page it was merged
+   * into does not exist at all; thermodynamics-chemistry-numericals earned 2 at
+   * 11.1% while BOTH variants were noindex, so the concept had no indexed page
+   * anywhere. The traffic had nowhere to go in either case.
+   */
   '/solved-examples': new Set([
+    // The twins of the two un-retired earners above. Both of these titled
+    // themselves identically to the page they duplicate and earned 0 clicks
+    // against that page's 4 and 2. Retiring them keeps exactly one indexed
+    // page per concept, which is what the retirement list is for.
+    'class-12-physics-current-electricity-solved-examples',
+    'class-11-chemistry-thermodynamics-solved-examples',
     'class-10-maths-statistics-numericals',
     'class-11-gravitation-numericals',
     'class-11-physics-work-power-energy-numericals',
     'class-11-sequences-series-numericals',
-    'class-11-thermodynamics-chemistry-numericals',
     'class-11-thermodynamics-numericals',
     'class-9-maths-herons-formula-numericals',
     'class-9-physics-sound-numericals',
@@ -139,7 +168,6 @@ const RETIRED_SLUGS = {
     'class-10-maths-probability-numericals',
     'class-10-maths-surface-areas-volumes-numericals',
     'class-11-chemistry-mole-concept-numericals',
-    'class-12-physics-current-electricity-numericals',
     'class-12-probability-numericals',
     'class-9-maths-polynomials-numericals',
     'class-9-physics-gravitation-numericals',
