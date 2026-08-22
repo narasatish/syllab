@@ -2513,6 +2513,17 @@ for (const [slug, title, desc] of AI_HUB) {
 
 // ─── Difference Between (/difference-between, /difference-between/:slug) ───────
 const DIFFS = getDifferences(ROOT);
+
+/**
+ * Class (and subject, where the source records one) for every page that feeds
+ * readers into the converting clusters. Built here because both banks are
+ * already loaded by this point; feederLinks() reads it at render time.
+ */
+const FEEDER_META = new Map();
+// Differences record the subject as `category` ("Physics", "Economics"); concepts as `subject`.
+// The subject is what stops a banking "current account" matching electric current.
+for (const d of DIFFS) FEEDER_META.set(`/difference-between/${d.slug}`, { cls: d.classLevel, subject: d.category, title: d.title });
+for (const c of getConcepts(ROOT)) FEEDER_META.set(`/concepts/${c.slug}`, { cls: c.classLevel, subject: c.subject, title: c.title });
 ROUTES.push({
   bodyHtml: (() => {
     if (!DIFFS.length) return '';
@@ -5159,6 +5170,165 @@ function hubListing(route, existing) {
   </div>`;
 }
 
+/**
+ * feederLinks — send the impressions we have to the pages that convert.
+ *
+ * The 2026-08-21 Search Console export makes the problem plain. Two thirds of
+ * this site's impressions land on pages nobody clicks, because Google answers
+ * the query inline:
+ *
+ *     /full-forms          66,595 impressions   0.06% CTR
+ *     /difference-between  52,784               0.38%
+ *     /colleges            33,319               0.29%
+ *     /concepts             9,449               0.24%
+ *
+ * while the pages that do convert are starved of them:
+ *
+ *     /revision-notes         122 impressions  17.21% CTR
+ *     /pyqs                   446              9.87%
+ *     /mcqs                   386              7.51%
+ *     /solved-examples      1,022              5.28%
+ *
+ * Those clusters are not broken — they are indexable, in the sitemap, 650-1,280
+ * words each. They simply have no impressions. Meanwhile a reader searching
+ * "difference between reflection and refraction" is a Class 10 student revising,
+ * and the best thing here for them is the Light chapter they are never shown.
+ *
+ * WHY THIS MATCHES ON TOPIC AND NOT JUST CLASS
+ *
+ * The first cut of this keyed on class alone. It produced 423 blocks and they
+ * were worthless: every Class 10 page got the same four links, so "acid and
+ * base" was offered Quadratic Equations. Identical blocks across hundreds of
+ * pages are also precisely the mass-produced footprint that gets a site
+ * demoted. An unrelated link is not a small win, it is nothing — so the bar
+ * here is relevance, and a page that cannot clear it gets no block at all.
+ *
+ * Four guards, each added because a measured case demanded it:
+ *
+ *   1. IDF over chapter vocabulary, so "basic" counts for nothing and
+ *      "electrolysis" counts for a lot. (Without it, "acidic vs basic oxides"
+ *      matched an ACCOUNTANCY chapter on "basic concepts".)
+ *   2. A subject-family gate. (Without it, "saving and current account" —
+ *      Economics — matched "magnetic effects of electric current".)
+ *   3. A cross-subject guard inside science, since Class 11-12 split physics,
+ *      chemistry and biology. (Without it, "cell vs battery" matched
+ *      "Cell: The Unit of Life".)
+ *   4. Single shared words must be what BOTH pages are about — half of each
+ *      side's topic. Rarity alone was not enough: "law" is rare enough to pass
+ *      and still sent "electric current and ohm's law" to "Laws of Motion".
+ *
+ * Class is a ranking bonus, not a filter: a Class 10 "plant cell and animal
+ * cell" reader is well served by the Class 9 chapter where cells are taught.
+ *
+ * Pages whose topic has no chapter behind it ("CV and resume", "RAM and ROM")
+ * get no block, which is the point — filler would cost more than it earns.
+ */
+const FEED_STOP = new Set(['and', 'or', 'the', 'of', 'in', 'to', 'for', 'its', 'with', 'class', 'solved', 'examples', 'formulas', 'notes', 'solutions', 'between', 'difference', 'mcq', 'pyq', 'case', 'study', 'basic', 'concepts', 'introduction', 'important', 'questions', 'numericals', 'non', 'different', 'type', 'types', 'part', 'main', 'used', 'value', 'system', 'simple', 'explained']);
+
+const feedStem = (w) => w.replace(/ies$/, 'y').replace(/(?<!s)s$/, '');
+const feedToks = (s) => [...new Set(String(s || '').toLowerCase().split(/[^a-z0-9]+/)
+  .filter((w) => w.length > 2 && !FEED_STOP.has(w)).map(feedStem))];
+
+/** Broad subject family. Social is tested FIRST — "social-science" contains "science". */
+function feedFam(s) {
+  s = String(s || '').toLowerCase();
+  if (/(social|histor|geograph|civic|polit|econom|account|business)/.test(s)) return 'social';
+  if (/math/.test(s)) return 'maths';
+  if (/(science|physic|chemist|biolog)/.test(s)) return 'science';
+  if (/(english|hindi)/.test(s)) return 'language';
+  return 'other';
+}
+
+/** The specific science subject when the label names one; Class 9-10 "Science" covers all three. */
+function feedSubj(s) {
+  s = String(s || '').toLowerCase();
+  return /physic/.test(s) ? 'physics' : /chemist/.test(s) ? 'chemistry' : /biolog/.test(s) ? 'biology' : null;
+}
+
+let FEED_TARGETS = null;
+
+/** Chapter pages in the converting clusters, with their topic vocabulary. */
+function feedTargets() {
+  if (FEED_TARGETS) return FEED_TARGETS;
+  // Ordered by measured CTR — the first cluster to match is the first offered.
+  const FLAT = [['/revision-notes', 'Revision notes'], ['/pyqs', 'Previous year questions'], ['/mcqs', 'Practice MCQs'], ['/solved-examples', 'Worked examples'], ['/formula-sheets', 'Formula sheet']];
+  const NESTED = [['/ncert-solutions', 'NCERT solutions'], ['/important-questions', 'Important questions']];
+  const out = [];
+  for (const r of ROUTES) {
+    if (r.noindex) continue;
+    for (const [base, label] of FLAT) {
+      if (!r.path.startsWith(base + '/')) continue;
+      const m = r.path.slice(base.length + 1).match(/^class-(\d+)-([a-z]+)-(.+)$/);
+      if (m) out.push({ base, label, path: r.path, cls: m[1], fam: feedFam(m[2]), subj: feedSubj(m[2]), t: feedToks(m[3]) });
+    }
+    for (const [base, label] of NESTED) {
+      if (!r.path.startsWith(base + '/')) continue;
+      const m = r.path.slice(base.length + 1).match(/^class-(\d+)\/([a-z-]+)\/(.+)$/);
+      if (m && !m[3].includes('/')) out.push({ base, label, path: r.path, cls: m[1], fam: feedFam(m[2]), subj: feedSubj(m[2]), t: feedToks(m[3]) });
+    }
+  }
+  const df = new Map();
+  for (const t of out) for (const w of t.t) df.set(w, (df.get(w) || 0) + 1);
+  const n = out.length || 1;
+  const idf = new Map([...df].map(([w, c]) => [w, Math.log(n / (1 + c))]));
+  console.log('🎯 Feeder targets: ' + out.length + ' chapter pages across ' + (FLAT.length + NESTED.length) + ' converting clusters.');
+  return (FEED_TARGETS = { list: out, idf });
+}
+
+/** Human-readable chapter name from a target route path. */
+function chapterLabel(t) {
+  const tail = t.path.split('/').pop();
+  const words = tail.replace(/^class-\d+-[a-z]+-/, '').replace(/-(mcq|pyq|numericals|formulas)$/, '').replace(/-/g, ' ');
+  return words.replace(/\b[a-z]/g, (c) => c.toUpperCase());
+}
+
+/** A relevance-matched "practise this" block, or '' when nothing here is relevant. */
+function feederLinks(route) {
+  const meta = FEEDER_META.get(route.path);
+  if (!meta) return '';
+  const clsMatch = String(meta.cls || '').match(/\d+/);
+  const cls = clsMatch ? clsMatch[0] : null;
+  const fam = feedFam(meta.subject);
+  const subj = feedSubj(meta.subject);
+  const srcT = feedToks(route.path.split('/').pop() + ' ' + (meta.title || ''));
+  if (!srcT.length || fam === 'other') return '';
+
+  const { list, idf } = feedTargets();
+  const scored = [];
+  for (const t of list) {
+    if (t.fam !== fam || t.path === route.path) continue;
+    const shared = t.t.filter((w) => srcT.includes(w));
+    if (!shared.length) continue;
+    // A physics "cell" is not a biology "cell": across subjects, demand real overlap.
+    if (subj && t.subj && subj !== t.subj && shared.length < 2) continue;
+    const srcCov = shared.length / srcT.length;
+    const tgtCov = shared.length / t.t.length;
+    // One shared word only counts when it is what BOTH pages are about.
+    if (shared.length < 2 && (srcCov < 0.5 || tgtCov < 0.5)) continue;
+    const score = shared.reduce((a, w) => a + (idf.get(w) || 0), 0) + 1.5 * tgtCov + (t.cls === cls ? 2.0 : 0);
+    scored.push({ t, score });
+  }
+  if (scored.length < 2) return '';
+  scored.sort((a, b) => b.score - a.score);
+
+  const picked = [];
+  const seen = new Set();
+  for (const s of scored) {
+    if (seen.has(s.t.base)) continue;
+    seen.add(s.t.base);
+    picked.push(s.t);
+    if (picked.length >= 4) break;
+  }
+  if (picked.length < 2) return '';
+
+  const who = cls ? 'Class ' + cls : 'this topic';
+  const items = picked.map((t) => '<li><a href="' + t.path + '" style="color: #0066cc; text-decoration: none; font-weight: 600;">' + esc(t.label) + ': ' + esc(chapterLabel(t)) + ' &rarr;</a></li>').join('');
+  return '\n        <div style="margin-top: 1.5rem; padding: 1rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;">'
+    + '\n          <h2 style="font-size: 1.05rem; margin: 0 0 0.5rem 0; color: #1e40af;">Revising ' + esc(who) + '? Practise this chapter</h2>'
+    + '\n          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.9;">' + items + '</ul>'
+    + '\n        </div>';
+}
+
 function buildBodyContent(route) {
   // Common components for all routes
   const stripTitle = (t) => t.replace(/\s*[\|—]\s*Syllab\.in.*$/i, '').trim();
@@ -5685,6 +5855,9 @@ function buildBodyContent(route) {
 
   // Hubs list their own children, appended to whatever the page already has.
   richContent += hubListing(route, (route.bodyHtml || '') + richContent);
+
+  // Route low-CTR impressions into the clusters that convert.
+  richContent += feederLinks(route);
 
   // Homepage uses H2 because the React app renders the primary H1 ("Learn smarter with AI by your side").
   // For all other pages, use H1 for the page title.
