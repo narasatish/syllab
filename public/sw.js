@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v350-2026-08-22-retirements-follow-the-evidence';
+const CACHE_VERSION = 'syllab-v351-2026-08-22-route-chunk-preload-lcp';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

@@ -28,6 +28,7 @@ import { getAiHubTopics } from './aiHubTopics.mjs';
 import { getMicroModules } from './microModules.mjs';
 import { getKidsStories, getKidsRhymes, getKidsActionRhymes, getKidsLearnTopics, getKidsAlphabet, getKidsNumbers, getKidsShapes, getKidsColoring, getKidsMatchSets } from './kidsData.mjs';
 import { IQ_PILOT } from './iq-pilot.mjs';
+import { chunkForPath } from './routeChunks.mjs';
 import { getPaperGuides } from './paperGuides.mjs';
 import { getWorksheets } from './worksheetsData.mjs';
 import { getGkQuestions } from './gkData.mjs';
@@ -5778,6 +5779,12 @@ function buildHeadBlock(route) {
     `  <meta name="robots" content="${robots}" />`,
     `  <meta name="googlebot" content="${robots}" />`,
     `  <link rel="canonical" href="${canonical}" />`,
+    // Start fetching this route's page chunk now, rather than after the entry
+    // bundle has downloaded, parsed and executed before discovering the dynamic
+    // import. One fewer serial round trip in front of the LCP paint. Returns
+    // null for any route whose chunk cannot be resolved with certainty, and
+    // emits nothing in that case.
+    ...(() => { const c = chunkForPath(ROOT, route.path); return c ? [`  <link rel="modulepreload" crossorigin href="${c}" />`] : []; })(),
     // Per-route language alternates (e.g. an English page that has a /hi/ version);
     // falls back to self-referencing en-IN/en/x-default.
     // Only emit hreflang where a genuine translated alternate exists. Pointing
