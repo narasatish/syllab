@@ -898,6 +898,26 @@ for (const s of COLLEGE_STATES_M) {
 }
 
 // Indian-format a rupee amount from a raw number/string ("300000" → "₹3,00,000").
+/**
+ * collegeSnippet — what the page offers, not the number the searcher wanted.
+ *
+ * Named sections are conditioned on the record actually holding them, so a
+ * college with no hostel data never promises hostel costs. No figure appears
+ * here: fees, cutoffs and packages are what a family budgets on, and they
+ * belong on the page beside their sourcing and the verify-first note, not in a
+ * snippet that Google may show months out of date.
+ */
+function collegeSnippet(c) {
+  const has = ['year-wise B.Tech fees'];
+  if (c.cutoff) has.push('branch-wise cutoffs');
+  if (c.placementAvg) has.push('placement averages');
+  if (c.accommodation) has.push('hostel costs');
+  has.push('scholarships');
+  const list = has.join(', ').replace(/, ([^,]*)$/, ' and $1');
+  const s = `${c.shortName || c.name}, ${c.city} — ${list}, in one page. Free, no sign-up.`;
+  return s.length <= 160 ? s : `${c.shortName || c.name}, ${c.city} — ${list}.`.slice(0, 160);
+}
+
 for (const c of COLLEGES_M) {
   // Data-driven body from the manifest (fees/cutoff/placement all present for every
   // college). 4-year B.Tech tuition = per-year × 4; hostel/mess noted as separate
@@ -1021,7 +1041,19 @@ for (const c of COLLEGES_M) {
     path: `/colleges/${c.stateSlug}/${c.slug}`,
     ...(isRetired('/colleges', c.slug) ? { noindex: true } : {}),
     title: `${c.shortName} Fees 2026 — B.Tech Fees, Cutoff & Placements | Syllab.in`,
-    description: `${c.name}, ${c.city}: B.Tech tuition ${feeYr || c.feesPerYear}/yr${fee4 ? ` (≈${fee4} for 4 years)` : ''}, ${c.cutoff} Average package ${pkg || c.placementAvg}. Full fees, cutoff & placements — free.`,
+    // Sixteen college pages rank at position 7-10 and convert at 0.09-1.04%
+    // (measured 2026-08-21; /pvp-siddhartha-vijayawada drew 3,159 impressions
+    // for 3 clicks). The old description spent its 160 characters printing the
+    // fee and the package, so a parent searching "ITER fees" read the number in
+    // the snippet and never arrived — and the "Full fees, cutoff & placements"
+    // promise was truncated away, because the string ran to ~172 characters.
+    // It also read "...rank ≤ 9,500 Average package ₹4.8" — no separator.
+    //
+    // So: promise the fuller picture the SERP cannot show, name only the
+    // sections this record actually has, and invent no figure. The numbers stay
+    // on the page, where they are sourced and carry the verify-before-deciding
+    // note that fees and cutoffs demand.
+    description: collegeSnippet(c),
     keywords: `${c.name} fees, ${c.shortName} fees for 4 years, ${c.shortName} cutoff 2026, ${c.shortName} placements, ${c.name} admission process, ${c.city} engineering college`,
     bodyHtml: body,
     jsonLd: [
@@ -2648,6 +2680,39 @@ function diffDeepHtml(slug, d) {
   return parts.join('');
 }
 
+/**
+ * diffSnippet — the meta description is the click, not the answer.
+ *
+ * These pages rank fine and are not clicked. Measured on 2026-08-21:
+ * /difference-between/weathering-vs-erosion sat at position 8.67 with 7,054
+ * impressions and a 0.41% CTR; /physical-and-political-map at 8.07 with 5,359
+ * impressions and 0.22%. Par for position 8 is nearer 4%. Seventeen pages in
+ * this cluster share the pattern, worth a modelled 680 clicks a quarter.
+ *
+ * The cause was in the description, which was `d.intro` — the sentence that
+ * answers the question. A searcher who reads "weathering is the breakdown of
+ * rocks in place, erosion is their movement" in the snippet has been served,
+ * and this site absorbs the impression and none of the click.
+ *
+ * So the snippet now describes what the page holds that a snippet cannot: the
+ * comparison table, the key points, the FAQs — counted from this page's own
+ * data, never asserted. A page with no table does not claim one.
+ */
+function diffSnippet(d, rowCount, kpCount, faqCount) {
+  const has = [];
+  if (rowCount) has.push(`a ${rowCount}-row comparison table`);
+  if (kpCount) has.push(`${kpCount} key points`);
+  if (faqCount) has.push(`${faqCount} exam FAQs`);
+  const offer = has.length
+    ? has.join(', ').replace(/, ([^,]*)$/, ' and $1')
+    : 'a point-by-point comparison';
+  const cls = String(d.classLevel || '').trim();
+  const where = cls ? `${/^class/i.test(cls) ? cls : `Class ${cls}`} ${d.category}` : d.category;
+  const s = `${d.termA} vs ${d.termB} compared side by side — ${offer}. ${where}, free and no sign-up.`;
+  // Google truncates near 160 characters; drop the tail promise before the offer.
+  return s.length <= 160 ? s : `${d.termA} vs ${d.termB} — ${offer}. ${where}.`.slice(0, 160);
+}
+
 for (const d of DIFFS) {
   const rows = (d.table || []).slice(0, 12);
   const tableHtml = rows.length
@@ -2680,8 +2745,10 @@ for (const d of DIFFS) {
   ROUTES.push({
     path: `/difference-between/${d.slug}`,
     bodyHtml,
-    title: `${d.termA} vs ${d.termB} — Difference (with Table & FAQs) | Syllab.in`,
-    description: d.intro,
+    // Only promise in the title what this page actually carries — the FAQ
+    // claim was previously made on every page, including those with none.
+    title: `${d.termA} vs ${d.termB} — Difference${rows.length ? ' (with Table' : ''}${rows.length && allFaqs ? ' & FAQs)' : rows.length ? ')' : ''} | Syllab.in`,
+    description: diffSnippet(d, rows.length, kp.length, allFaqs ? allFaqs.length : 0),
     keywords: `difference between ${d.termA.toLowerCase()} and ${d.termB.toLowerCase()}, ${d.termA.toLowerCase()} vs ${d.termB.toLowerCase()}, ${d.category.toLowerCase()} comparison, ${d.classLevel.toLowerCase()}`,
     // Re-indexed winners are deepened (table + key points + FAQ); the rest stay
     // noindex under the post-March-2026 thin-content policy.
