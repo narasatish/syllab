@@ -78,8 +78,8 @@ if (rootEl.firstElementChild && document.documentElement.dataset.ssr === 'true')
 // React components do not already render and puts them on the page.
 //
 // setTimeout, not requestAnimationFrame: rAF is suspended while a tab is hidden,
-// so a page opened in a background tab kept the invisible block in the DOM
-// indefinitely. A timeout runs either way.
+// so a page opened in a background tab kept an un-folded duplicate of the body
+// in the DOM indefinitely. A timeout runs either way.
 revealPrerenderedProseWhenReady();
 
 // Scroll-reveal animations (transform/opacity only; respects reduced-motion).

@@ -6106,11 +6106,35 @@ function injectMeta(baseHtml, route, ssrBody) {
     `$1\n\n${headBlock}\n\n  $3`,
   );
 
-  // Option A (CWV/CLS fix): instead of putting the SEO body INSIDE #root (where React
-  // wipes it on mount → massive layout shift), we put a stable boot SKELETON in #root
-  // (matches the app's fixed 80px header + content area → near-zero CLS when React takes
-  // over) and move the crawlable SEO content into a visually-hidden sibling (#prerender-seo).
-  // Non-JS crawlers still read the SEO content; React removes the hidden block on mount.
+  // A stable boot SKELETON goes in #root (it matches the app's fixed 80px header
+  // and content area, so CLS stays near zero when React takes over), and the
+  // page's authored body goes in a sibling, #prerender-seo.
+  //
+  // THAT SIBLING IS VISIBLE, AND MUST STAY VISIBLE.
+  //
+  // It used to ship clipped — position:absolute, 1x1, clip:rect(0,0,0,0),
+  // aria-hidden="true" — and main.tsx deleted it on mount. That is the pattern
+  // Google's spam policy names as hidden text, and worse, it made the crawled
+  // and rendered versions of every page disagree: the raw HTML carried 8-17k
+  // characters of content, and the rendered DOM carried none of it.
+  //
+  // What that cost is on the record. Rankings held from 25 June, when the block
+  // was introduced, through 17 August — Google's render pass is queued and lags
+  // crawling, so the site grew on the strength of the crawled HTML. A crawl
+  // outage on 16-17 August forced a broad refetch, the render verdict landed
+  // across all 4,376 pages at once, and on 18 August average position went from
+  // 12.3 to 52.3 and clicks from 44 to 0.
+  //
+  // So: no clip, no aria-hidden, real content in normal flow. A reader without
+  // JavaScript gets the page; a reader with it gets the same text de-duplicated
+  // into the app by revealPrerenderedProse(). If you are tempted to hide this
+  // again for a CLS win, the trade is a fraction of a CLS point against the
+  // site's entire organic traffic.
+  //
+  // The container pins a light background and dark text because bodyContent's
+  // markup inlines a light-theme palette (color:#333 on white); without that,
+  // a dark-mode reader would get near-black text on near-black for the moment
+  // before hydration strips those inline styles.
   const bootSkeleton =
     '<div id="boot-skeleton" aria-hidden="true">' +
     '<div class="bs-nav"><div class="bs-logo"></div></div>' +
@@ -6122,7 +6146,7 @@ function injectMeta(baseHtml, route, ssrBody) {
     '<div class="bs-blk bs-card"></div>' +
     '</div></div>';
   const seoBlock =
-    '<div id="prerender-seo" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">' +
+    '<div id="prerender-seo" style="max-width:64rem;margin:0 auto;padding:1.5rem 1rem 3rem;background:#fff;color:#333;font-family:system-ui,-apple-system,\'Segoe UI\',Roboto,sans-serif;line-height:1.7;">' +
     bodyContent + '</div>';
 
   if (ssrBody) {

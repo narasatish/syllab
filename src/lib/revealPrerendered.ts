@@ -1,20 +1,28 @@
 /**
  * revealPrerendered.ts — show the reader what the crawler was already getting.
  *
- * Every page ships its body inside #prerender-seo: position:absolute, 1x1,
- * clip:rect(0,0,0,0), aria-hidden="true". That block exists so a crawler without
- * JavaScript can read the page (SSR was switched off in v288 because it shipped
- * a permanent spinner — see DEFAULT_SSR_ROUTES in generate-prerender.mjs), and
- * main.tsx used to delete it on mount.
+ * Every page ships its body inside #prerender-seo, a VISIBLE sibling of #root.
+ * That block exists so a reader without JavaScript gets the page (SSR was
+ * switched off in v288 because it shipped a permanent spinner — see
+ * DEFAULT_SSR_ROUTES in generate-prerender.mjs).
  *
- * Deleting it meant every authored paragraph that the React components do not
- * happen to render themselves was visible to Googlebot and to nobody else.
- * Measured: 4,521 paragraphs across 1,880 pages exist nowhere in the client
- * bundle, so the app cannot be rendering them (scripts/audit-user-visible.mjs).
- * On /best-colleges/cse that is 1,726 crawler words against 791 the reader sees
- * — the rankings reach the reader, the explanation and the FAQs do not.
+ * It has been wrong twice, and both mistakes are worth remembering.
  *
- * So: keep the content, and put it on the page.
+ * First main.tsx simply deleted it on mount. That meant every authored
+ * paragraph the React components do not happen to render themselves was
+ * visible to Googlebot and to nobody else — 4,521 paragraphs across 1,880
+ * pages exist nowhere in the client bundle (scripts/audit-user-visible.mjs).
+ *
+ * Then it shipped clipped: position:absolute, 1x1, clip:rect(0,0,0,0),
+ * aria-hidden="true". Hidden text is against Google's spam policy, and because
+ * React deleted the block on mount, the crawled and rendered versions of every
+ * page disagreed. On 18 August 2026 average position went from 12.3 to 52.3
+ * and clicks from 44 to 0, the day a crawl outage forced Google to re-render
+ * the whole site at once.
+ *
+ * So the block is now plain, visible content, and this function's job is not to
+ * un-hide it but to FOLD it into the app: keep the sections the app does not
+ * render itself, drop the ones it does, and leave one copy on the page.
  *
  * Only the sections the app does NOT already show are kept. Each <h2> section is
  * tested against the visible text, so the college table the app renders itself

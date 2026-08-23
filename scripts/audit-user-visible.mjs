@@ -2,12 +2,17 @@
 /**
  * audit-user-visible.mjs — is the authored prose delivered to the reader?
  *
- * Every page ships its body inside #prerender-seo: position:absolute, 1x1,
- * clip:rect(0,0,0,0), aria-hidden="true". That is deliberate — SSR was switched
- * off in v288 because it shipped a permanent spinner (see DEFAULT_SSR_ROUTES in
- * generate-prerender.mjs) — and it is what lets a non-JS crawler read the page.
- * Once React mounts, the reader sees whatever the React components render
- * INSTEAD.
+ * Every page ships its body inside #prerender-seo, a VISIBLE sibling of #root —
+ * SSR was switched off in v288 because it shipped a permanent spinner (see
+ * DEFAULT_SSR_ROUTES in generate-prerender.mjs), so this block is what gives a
+ * reader without JavaScript the page. Once React mounts, revealPrerenderedProse
+ * folds it into the app and drops the sections the components render themselves.
+ *
+ * That block used to ship CLIPPED (position:absolute, 1x1, clip:rect(0,0,0,0),
+ * aria-hidden="true"). It is not clipped any more, and it must not be again:
+ * hidden text is against Google's spam policy, and on 2026-08-18 it took this
+ * site from average position 12.3 to 52.3 and from 44 clicks a day to 0.
+ * traffic-health.mjs now fails the build if the block is ever hidden again.
  *
  * main.tsx used to DELETE that block on mount, so any paragraph the React
  * components did not themselves render was visible to Googlebot and to nobody

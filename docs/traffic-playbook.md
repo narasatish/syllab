@@ -74,6 +74,29 @@ Recorded so they are not relitigated from scratch.
 - **Deploy less often.** Both days with robots.txt failures carried many
   separate deploys. robots.txt is fetched only a few times a day, so a failure
   during a deploy window reads to Google as a high failure rate. Batch changes.
+  18 August, the day rankings collapsed, carried **twelve** separate deploys.
+- **Never hide the page body, for any reason.** This is what the 18 August
+  collapse cost, and it is the most expensive lesson in this file. From 25 June
+  every page shipped its content in `#prerender-seo` — `position:absolute`,
+  1×1, `clip:rect(0,0,0,0)`, `aria-hidden="true"` — and React deleted it on
+  mount. Two separate violations: hidden text under Google's spam policy, and a
+  crawled-vs-rendered mismatch of 8–17k characters per page.
+  `scripts/traffic-health.mjs` now hard-fails if the block is ever hidden again.
+
+## Why the damage took seven weeks to appear
+
+Worth internalising, because it makes this class of bug feel safe when it is not.
+
+Google **crawls** and **renders** on separate schedules; the render queue lags
+crawling by days or weeks. The hidden-body bug shipped 25 June and the site kept
+growing until 17 August — its best impressions day in 92 days — because Google
+was still ranking it on the crawled HTML. The crawl outage on 16–17 August forced
+a broad refetch, the render verdict landed on all 4,376 pages at once, and the
+next day average position went 12.3 → 52.3 and clicks 44 → 0.
+
+So: **a rendering bug that looks harmless for a month is not harmless, it is
+queued.** Never conclude a rendering change is safe because traffic held.
+Check the rendered DOM directly instead — `scripts/audit-user-visible.mjs`.
 
 ## The measurement rule
 

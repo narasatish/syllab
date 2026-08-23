@@ -94,6 +94,48 @@ const decode = (s) => String(s || '').replace(/&amp;/g, '&').replace(/&quot;/g, 
 // The area that actually cost traffic. Everything here is a hard fail.
 
 {
+  // The check that would have caught the 18 August 2026 collapse.
+  //
+  // Every page's authored body ships in #prerender-seo. From 25 June it shipped
+  // CLIPPED — position:absolute, 1x1, clip:rect(0,0,0,0), aria-hidden="true" —
+  // and React deleted it on mount. That is hidden text under Google's spam
+  // policy, and it made the crawled and rendered versions of every page
+  // disagree: 8-17k characters in the raw HTML, none of it in the rendered DOM.
+  //
+  // Google's render pass is queued and lags crawling, so nothing happened for
+  // seven weeks and the site grew. Then a crawl outage on 16-17 August forced a
+  // broad refetch, the render verdict landed on all 4,376 pages at once, and on
+  // 18 August average position went from 12.3 to 52.3 and clicks from 44 to 0.
+  //
+  // Hiding it is always tempting, because clipping the block is worth a
+  // fraction of a CLS point. That trade is not available: it costs the site's
+  // organic traffic. This is a hard fail so the argument cannot be had again.
+  const HIDDEN = /(clip\s*:\s*rect|width\s*:\s*1px|height\s*:\s*1px|visibility\s*:\s*hidden|display\s*:\s*none|opacity\s*:\s*0|text-indent\s*:\s*-)/i;
+  const offenders = [];
+  let checked = 0;
+  for (const [url, v] of pages) {
+    const open = v.html.match(/<div id="prerender-seo"[^>]*>/i);
+    if (!open) continue;
+    checked++;
+    const tag = open[0];
+    const why = [];
+    if (HIDDEN.test(tag)) why.push('clipped/hidden by inline style');
+    if (/aria-hidden\s*=\s*"true"/i.test(tag)) why.push('aria-hidden="true"');
+    if (why.length && offenders.length < 5) offenders.push(`${url} (${why.join(', ')})`);
+    else if (why.length) offenders.push(url);
+  }
+  if (!checked) {
+    add('crawl', 'page body is visible, not hidden', WARN,
+      'no #prerender-seo block found in any page — if the build moved to SSR this check needs updating, not deleting');
+  } else {
+    add('crawl', 'page body is visible, not hidden', offenders.length ? FAIL : PASS,
+      offenders.length
+        ? `${offenders.length} of ${checked} pages hide their body — hidden text cost this site its rankings on 2026-08-18: ${offenders.slice(0, 3).join('; ')}`
+        : `${checked} pages ship their body as visible content`);
+  }
+}
+
+{
   // robots.txt is the highest-stakes file on the site: a 5xx or a timeout stops
   // Googlebot crawling EVERYTHING, not just that file.
   const f = path.join(DIST, 'robots.txt');
