@@ -174,6 +174,169 @@ const decode = (s) => String(s || '').replace(/&amp;/g, '&').replace(/&quot;/g, 
 }
 
 {
+  /**
+   * The sitemap ratchet — the check that would have caught 18 August.
+   *
+   * On that day the sitemap silently fell from 2,693 URLs to 2,618, and the 75
+   * it lost were concentrated in the clusters that actually convert: 19
+   * /revision-notes, 18 /solved-examples, 11 /mcqs, 6 /pyqs, 6 /formula-sheets.
+   * Nothing failed, nothing warned, and it was found a week later by diffing
+   * two git revisions by hand.
+   *
+   * So the URL count only ever ratchets UP on its own. A build that publishes
+   * as many URLs as the best build so far records the new high-water mark and
+   * passes. A build that loses more than 2% fails, and the only way to accept
+   * that is to edit the baseline deliberately, where it shows up in review as
+   * an intended decision rather than a silent regression.
+   */
+  const smFile = path.join(DIST, 'sitemap.xml');
+  const baseFile = path.join(ROOT, 'docs', 'traffic-health', 'sitemap-baseline.json');
+  if (existsSync(smFile)) {
+    const count = (readFileSync(smFile, 'utf8').match(/<loc>/g) || []).length;
+    let base = null;
+    try { base = JSON.parse(readFileSync(baseFile, 'utf8')); } catch { /* first run */ }
+    const save = (n, note) => {
+      mkdirSync(path.dirname(baseFile), { recursive: true });
+      writeFileSync(baseFile, `${JSON.stringify({ count: n, recorded: new Date().toISOString().slice(0, 10), note }, null, 2)}\n`);
+    };
+    if (!base || typeof base.count !== 'number') {
+      save(count, 'high-water mark; a build losing >2% of these URLs fails');
+      add('crawl', 'sitemap URL count holds', PASS, `baseline established at ${count} URLs`);
+    } else if (count >= base.count) {
+      if (count > base.count) save(count, 'high-water mark; a build losing >2% of these URLs fails');
+      add('crawl', 'sitemap URL count holds', PASS,
+        count > base.count ? `${count} URLs, up from ${base.count} — new high-water mark` : `${count} URLs, level with the baseline`);
+    } else {
+      const lost = base.count - count;
+      const pct = (100 * lost / base.count);
+      add('crawl', 'sitemap URL count holds', pct > 2 ? FAIL : WARN,
+        `${count} URLs, down ${lost} (${pct.toFixed(1)}%) from ${base.count} recorded ${base.recorded}. `
+        + (pct > 2
+          ? 'A silent drop like this cost this site its rankings on 2026-08-18. If the removal is intended, edit docs/traffic-health/sitemap-baseline.json.'
+          : 'Small drop — check it is intended.'));
+    }
+  }
+}
+
+{
+  // A URL listed twice splits its own signals. Cheap to check, easy to
+  // introduce when several generators append to one sitemap.
+  const smFile = path.join(DIST, 'sitemap.xml');
+  if (existsSync(smFile)) {
+    const locs = [...readFileSync(smFile, 'utf8').matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
+    const seen = new Set(), dupes = new Set();
+    for (const l of locs) (seen.has(l) ? dupes : seen).add(l);
+    add('crawl', 'no duplicate sitemap URLs', dupes.size ? FAIL : PASS,
+      dupes.size ? `${dupes.size} URL(s) listed more than once: ${[...dupes].slice(0, 3).join(', ')}` : `${locs.length} URLs, all distinct`);
+  }
+}
+
+{
+  // Canonical had NO standing check at all, which is how a canonical regression
+  // would have reached production unnoticed. Every indexable page must point at
+  // itself: a canonical aimed elsewhere hands the page's ranking to another URL.
+  const bad = [];
+  for (const [url, v] of indexable) {
+    const m = v.html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"/i);
+    if (!m) { bad.push(`${url} (none)`); continue; }
+    const want = `https://syllab.in${url === '/' ? '/' : url}`;
+    if (m[1].replace(/\/$/, '') !== want.replace(/\/$/, '')) bad.push(`${url} -> ${m[1]}`);
+  }
+  add('crawl', 'canonical is self-referential', bad.length ? FAIL : PASS,
+    bad.length ? `${bad.length} of ${indexable.length} indexable pages: ${bad.slice(0, 3).join('; ')}` : `all ${indexable.length} indexable pages point at themselves`);
+}
+
+{
+  /**
+   * robots.txt and the sitemap must not contradict each other.
+   *
+   * The failure this prevents is quiet and expensive: a Disallow rule added for
+   * one route can silently cover a whole cluster that the sitemap is still
+   * advertising. Google then sees a URL it is told to index and forbidden to
+   * fetch, and the page ranks on nothing. Nothing 404s, nothing looks wrong,
+   * and the pages simply stop earning.
+   *
+   * Three things are asserted here: every sitemap file robots.txt advertises
+   * actually exists in the build, no indexable page is blocked, and no URL the
+   * sitemap lists is blocked.
+   *
+   * Only the `User-agent: *` group is parsed. The named groups in this file are
+   * Allow-only (the AI answer engines) or apply to scrapers this site does not
+   * care about, so the wildcard group is what governs Googlebot here.
+   */
+  const rFile = path.join(DIST, 'robots.txt');
+  const smFile = path.join(DIST, 'sitemap.xml');
+  if (existsSync(rFile)) {
+    const txt = readFileSync(rFile, 'utf8');
+
+    // 1. Advertised sitemaps must exist in the build.
+    const advertised = [...txt.matchAll(/^\s*Sitemap:\s*(\S+)/gim)].map((m) => m[1]);
+    const missingSm = advertised.filter((u) => {
+      const rel = u.replace(/^https?:\/\/[^/]+/, '');
+      return !existsSync(path.join(DIST, rel.replace(/^\//, '')));
+    });
+    add('crawl', 'robots.txt advertises real sitemaps', missingSm.length ? FAIL : (advertised.length ? PASS : FAIL),
+      advertised.length
+        ? (missingSm.length ? `${missingSm.length} advertised sitemap(s) absent from the build: ${missingSm.join(', ')}` : `${advertised.length} sitemap(s) advertised, all present`)
+        : 'robots.txt names no Sitemap: — Google has to discover the sitemap some other way');
+
+    // 2. Parse the wildcard group's Disallow prefixes.
+    const lines = txt.split(/\r?\n/);
+    const disallow = [];
+    let inStar = false;
+    for (const raw of lines) {
+      const line = raw.replace(/#.*$/, '').trim();
+      if (!line) continue;
+      const ua = line.match(/^User-agent:\s*(.+)$/i);
+      if (ua) { inStar = ua[1].trim() === '*'; continue; }
+      if (!inStar) continue;
+      const d = line.match(/^Disallow:\s*(\S*)$/i);
+      if (d && d[1]) disallow.push(d[1]);
+    }
+    const blocked = (u) => disallow.some((p) => u === p || u.startsWith(p));
+
+    // 3. No indexable page may be blocked.
+    const blockedPages = indexable.filter(([u]) => blocked(u)).map(([u]) => u);
+    add('crawl', 'no indexable page blocked by robots.txt', blockedPages.length ? FAIL : PASS,
+      blockedPages.length
+        ? `${blockedPages.length} indexable page(s) match a Disallow rule — indexed but unfetchable: ${blockedPages.slice(0, 3).join(', ')}`
+        : `${indexable.length} indexable pages, none matching ${disallow.length} Disallow rule(s)`);
+
+    // 4. No sitemap URL may be blocked.
+    if (existsSync(smFile)) {
+      const locs = [...readFileSync(smFile, 'utf8').matchAll(/<loc>https:\/\/syllab\.in([^<]*)<\/loc>/g)].map((m) => m[1] || '/');
+      const blockedLocs = locs.filter(blocked);
+      add('crawl', 'no sitemap URL blocked by robots.txt', blockedLocs.length ? FAIL : PASS,
+        blockedLocs.length
+          ? `${blockedLocs.length} sitemap URL(s) are Disallowed — advertised and forbidden at once: ${blockedLocs.slice(0, 3).join(', ')}`
+          : `${locs.length} sitemap URLs, none blocked`);
+    }
+  }
+}
+
+{
+  // The first mobile viewport used to hold nothing but grey placeholder bars,
+  // so no contentful paint could happen until React booted and field LCP sat at
+  // 3.2s. It now carries the page's own heading and intro. If a future change
+  // empties it again, LCP quietly regresses for every page at once and no test
+  // would notice — so it is checked here.
+  let checked = 0;
+  const empty = [];
+  for (const [url, v] of pages) {
+    if (!v.html.includes('id="boot-skeleton"')) continue;
+    checked++;
+    const m = v.html.match(/<div class="bs-h1">([^<]*)<\/div>/);
+    if (!m || !m[1].trim()) empty.push(url);
+  }
+  if (checked) {
+    add('perf', 'first viewport paints real text', empty.length ? FAIL : PASS,
+      empty.length
+        ? `${empty.length} of ${checked} pages open with placeholder bars and nothing paintable: ${empty.slice(0, 3).join(', ')}`
+        : `${checked} pages open with their own heading and intro`);
+  }
+}
+
+{
   // A page no link reaches is a page only the sitemap knows about. 286 pages
   // sat in that state until August 2026 — whole clusters of them.
   const linksFrom = (u) => {
