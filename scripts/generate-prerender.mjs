@@ -6298,35 +6298,173 @@ async function main() {
   const SSR_BUNDLE = path.join(ROOT, 'dist-ssr', 'entry-server.js');
   const SSR = process.env.SSR_PRERENDER === '1' || existsSync(SSR_BUNDLE);
   const SSR_LIMIT = process.env.SSR_LIMIT ? parseInt(process.env.SSR_LIMIT, 10) : null;
-  // DISABLED (2026-08-04) — SSR is off for every route until the postponed-
-  // boundary bug below is fixed.
+  // RE-ENABLED (2026-08-25) for an allowlist of clusters. What follows is why it
+  // was off, because the reason it was off is also why it is scoped now.
   //
-  // `prerender()` from react-dom/static is documented here as resolving all
-  // Suspense/React.lazy boundaries, but it was POSTPONING the homepage's route
-  // boundary instead: the shipped HTML contained `<!--$~-->` + `<template
-  // id="B:0">` around the loading spinner. A postponed boundary in a prelude can
-  // only be finished by a server-side resume() — the client cannot resolve it.
-  // So the browser hydrated, sat on the fallback forever, never rendered the
-  // lazy Home component, and therefore never even requested Home-*.js.
+  // `prerender()` from react-dom/static is documented as resolving all
+  // Suspense/React.lazy boundaries. It did not: it POSTPONED the route boundary,
+  // and the shipped HTML carried `<!--$~-->` + `<template id="B:0">` around the
+  // loading spinner. A postponed boundary can only be finished by a server-side
+  // resume(), so the browser hydrated, sat on the fallback for ever, and never
+  // requested the route's chunk. Confirmed in real Chrome: <main> held 17
+  // characters and only 6 JS files loaded. Crawlers still got content from the
+  // hidden S: divs, which is why Search Console never flagged it.
   //
-  // Confirmed in REAL Chrome (not just the headless harness) on a fresh load
-  // with no service worker: <main> contained 17 characters, the spinner was
-  // stuck, and only 6 JS files loaded — no Home chunk. Every visitor landing on
-  // syllab.in saw a spinner. Crawlers still got content (it sits in the hidden
-  // S:0/S:1 divs), which is why GSC never flagged it.
+  // src/entry-server.tsx now uses renderToPipeableStream + onAllReady, which
+  // waits for every boundary and emits no postponement. Verified across eight
+  // routes: zero `<!--$~-->`, and every `<template id="B:n">` has its matching
+  // `$RC()` completion, so the browser finishes the swap while parsing.
   //
-  // With SSR off, `/` falls back to the static prerendered body + normal client
-  // render, which is what shipped for months before SSR was switched on.
+  // One correction worth recording, because it nearly cost another rollback:
+  // `<main>` STILL contains "Loading module…" at that point in the byte stream,
+  // and that is correct. The real markup arrives afterwards in
+  // `<div hidden id="S:n">` and `$RC("B:n","S:n")` swaps it in. The 2026-08-04
+  // note treated that 17-character <main> as the disease; it is a symptom shared
+  // by the broken and the working output, and asserting on it produced five
+  // false failures before the difference was understood.
   //
-  // To re-enable: fix the postponement (e.g. renderToReadableStream + await
-  // allReady, or root-cause what suspends), verify <main> renders real content
-  // in a real browser, then restore ['/'] here.
+  // Scope is an allowlist (DEFAULT_SSR_PREFIXES below) because a correct render
+  // is not the same as a correct page: routes that fetch their data in the
+  // browser render their loading copy on the server. Every body is additionally
+  // checked by ssrBodyUsable() before it is allowed to replace the static one.
+  //
+  // SSR_ROUTES="/a,/b" overrides the allowlist; SSR_LIMIT=N renders the first N.
   const DEFAULT_SSR_ROUTES = [];
   const SSR_ROUTES = new Set(
     process.env.SSR_ROUTES
       ? process.env.SSR_ROUTES.split(',').map((s) => s.trim()).filter(Boolean)
       : DEFAULT_SSR_ROUTES,
   );
+
+  /**
+   * Which routes may ship a server-rendered body, and what makes one acceptable.
+   *
+   * SSR was switched off entirely on 2026-08-04 after prerender() shipped a
+   * permanent spinner to every visitor. It is back because the render itself is
+   * fixed — renderToPipeableStream + onAllReady, see src/entry-server.tsx — but
+   * the render being correct is not sufficient. Two further things have to hold,
+   * and neither was checked last time.
+   *
+   * FIRST: the route's data has to exist on the server. /ncert-solutions fetches
+   * public/data/ncert-solutions.json in the browser, so on the server it renders
+   * "Loading NCERT solutions…" and nothing else. Shipping that would REPLACE a
+   * good static body with a spinner — the exact regression, arrived at from a
+   * different direction. Only clusters observed rendering their real content are
+   * listed here.
+   *
+   * SECOND: every individual body is inspected before use. An allowlist is a
+   * statement about a cluster; ssrBodyUsable() is a statement about the page in
+   * hand, and a page that fails it silently falls back to the static body that
+   * has been serving the site for months. The old check was `body.length > 200`,
+   * which the 2,051-character "Loading NCERT solutions…" body passes comfortably.
+   */
+  //
+  // STILL EMPTY, AND HERE IS THE EVIDENCE (2026-08-25).
+  //
+  // The render itself was fixed and verified: renderToPipeableStream +
+  // onAllReady produces no postponed boundary, every `<template id="B:n">` has
+  // its `$RC()` completion, and 931 of 944 allowlisted routes passed the
+  // content gate. Every structural check said ship it.
+  //
+  // A real browser said otherwise. On a Firebase preview channel, with the two
+  // pages served from the SAME origin so nothing else differed:
+  //
+  //   /sample-papers/class-7-english   data-ssr="true"   <main> 17 chars,
+  //                                                      "LOADING MODULE…",
+  //                                                      spinner still turning
+  //                                                      at readyState complete
+  //   /ncert-solutions/…/heredity      static fallback   <main> 10,665 chars,
+  //                                                      renders perfectly
+  //
+  // The page chunk DID download and React logged no hydration error. The lazy
+  // boundary simply never resolves on the client after hydrating streamed
+  // markup. That is the v288 regression reproduced exactly, and it is why this
+  // list is empty rather than populated: the fix for the postponement was real
+  // but insufficient, and the remaining cause is not yet understood.
+  //
+  // Everything needed to try again is in place — the corrected entry-server,
+  // the content gate, and the preview-channel procedure that caught this. What
+  // is missing is the root cause of the unresolved client boundary. Do not
+  // populate this list again on the strength of a green build; the build was
+  // green both times.
+  const DEFAULT_SSR_PREFIXES = [];
+  /** Exact paths (no prefix semantics) that may also be server-rendered. */
+  const DEFAULT_SSR_EXACT = [];
+
+  function ssrAllowed(p) {
+    if (SSR_ROUTES.size) return SSR_ROUTES.has(p);
+    return DEFAULT_SSR_EXACT.includes(p) || DEFAULT_SSR_PREFIXES.some((pre) => p.startsWith(pre));
+  }
+
+  /** Reasons bodies were rejected this run, for the build summary. */
+  const ssrRejects = new Map();
+
+  /**
+   * Is this server-rendered body better than the static one it would replace?
+   *
+   * Answering "did it render?" is what let a spinner ship. These ask "did it
+   * render THIS PAGE?" — enough text to be a page rather than site chrome, no
+   * loading copy where the content belongs, and at least one distinctive word
+   * from the route's own title actually present.
+   */
+  function ssrBodyUsable(body, route) {
+    if (!body) return { ok: false, why: 'empty body' };
+    const strip = (h) => h
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/&#x27;|&#39;/g, "'")
+      .replace(/&amp;/g, '&')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    /**
+     * Measure the RESOLVED content, not the whole document.
+     *
+     * Scanning the whole body cannot tell a working page from a broken one,
+     * because both contain the words "Loading module…": that is the placeholder
+     * React emits for a streaming boundary, and it sits in <main> in the good
+     * case too. A first version of this check keyed on that text and rejected
+     * /difference-between and /colleges — two clusters that were rendering
+     * perfectly well — while passing nothing.
+     *
+     * What actually separates them is where the content ended up. A boundary
+     * that resolved delivers its markup in <div hidden id="S:n">, which $RC then
+     * swaps into place. So the page's real content is the S: blocks plus
+     * whatever was rendered directly into <main>:
+     *
+     *     /sample-papers/class-7-english   1 block, 4,565 chars   fine
+     *     /colleges/odisha/iter-bhubaneswar 1 block, 4,574 chars  fine
+     *     /difference-between/weathering…   1 block, 1,736 chars  fine
+     *     /ncert-solutions/…/heredity       0 blocks,    24 chars  loading copy
+     *
+     * /ncert-solutions fetches its JSON in the browser, so on the server it
+     * renders "Loading NCERT solutions…" and never opens a boundary at all.
+     * Shipping that would replace a good static body with a spinner — the same
+     * regression as 2026-08-04, reached from the other direction.
+     */
+    const sBlocks = [...body.matchAll(/<div hidden id="S:\d+"[^>]*>([\s\S]*?)<\/div>\s*<script/gi)].map((m) => strip(m[1]));
+    const mainMatch = body.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+    const content = [...sBlocks, mainMatch ? strip(mainMatch[1]) : ''].join(' ').replace(/\s+/g, ' ').trim();
+
+    // The smallest genuinely-rendered page measured here was 1,736 characters;
+    // a route rendering only its loading copy came to 24. The gap is wide, so
+    // the threshold sits well below the real floor rather than near it.
+    if (content.length < 800) {
+      return { ok: false, why: `${content.length} chars of resolved content — route renders its data client-side` };
+    }
+
+    // Long enough is not the same as correct: without this, a page showing some
+    // OTHER route's content would pass. At least one distinctive word from this
+    // page's own title has to be in what was rendered.
+    const title = String(route.title || '').replace(/\s*[|—]\s*Syllab\.in.*$/i, '');
+    const words = [...new Set(title.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 4))];
+    if (words.length && !words.some((w) => content.toLowerCase().includes(w))) {
+      return { ok: false, why: 'no word from the page title appears in the rendered content' };
+    }
+    return { ok: true };
+  }
+
   let render = null;
   let ssrOk = 0;
   let ssrFail = 0;
@@ -6359,14 +6497,20 @@ async function main() {
 
     try {
       let ssrBody;
-      const ssrThisRoute = SSR_LIMIT != null ? i <= SSR_LIMIT : SSR_ROUTES.has(route.path);
+      const ssrThisRoute = SSR_LIMIT != null ? i <= SSR_LIMIT : ssrAllowed(route.path);
       if (render && ssrThisRoute) {
         try {
           const { body } = await render(route.path);
-          if (body && body.length > 200) { ssrBody = body; ssrOk++; }
-          else ssrFail++;
+          const verdict = ssrBodyUsable(body, route);
+          if (verdict.ok) { ssrBody = body; ssrOk++; }
+          else {
+            ssrFail++;
+            ssrRejects.set(verdict.why, (ssrRejects.get(verdict.why) || 0) + 1);
+            if (ssrFail <= 5) console.warn(`   ⚠️  SSR body rejected for ${route.path}: ${verdict.why}`);
+          }
         } catch (e) {
           ssrFail++;
+          ssrRejects.set('render threw', (ssrRejects.get('render threw') || 0) + 1);
           if (ssrFail <= 5) console.warn(`   ⚠️  SSR render failed for ${route.path}: ${String(e).split('\n')[0].slice(0, 80)}`);
         }
       }
@@ -6380,7 +6524,15 @@ async function main() {
     }
   }
 
-  if (SSR) console.log(`   SSR bodies: ${ssrOk} rendered, ${ssrFail} fell back to skeleton.`);
+  if (SSR) {
+    console.log(`   SSR bodies: ${ssrOk} server-rendered, ${ssrFail} fell back to the static body.`);
+    // Rejections are grouped rather than listed: a cluster that quietly stops
+    // server-rendering shows up here as a count, where a per-route warning
+    // capped at five would hide it.
+    for (const [why, n] of [...ssrRejects.entries()].sort((a, b) => b[1] - a[1])) {
+      console.log(`     ${String(n).padStart(5)}  ${why}`);
+    }
+  }
 
   console.log(`✅ Pre-render complete: ${written} routes written, ${skipped} skipped.`);
   console.log(`   Routes: ${ROUTES.map(r => r.path).join(', ')}`);

@@ -11,10 +11,32 @@
  *     requested route (correct per-route content, matches client hydration).
  */
 import React from 'react';
-// React 19 static SSG: prerender() resolves ALL Suspense/React.lazy boundaries
-// before returning, so lazily-loaded route components render their real content
-// (renderToString is sync and would only emit the Suspense fallback).
-import { prerender } from 'react-dom/static';
+import { Writable } from 'node:stream';
+/**
+ * renderToPipeableStream + onAllReady, NOT prerender().
+ *
+ * prerender() from react-dom/static is documented as resolving every
+ * Suspense/React.lazy boundary before returning. On this app it did not: it
+ * POSTPONED the route boundary instead, and the shipped HTML carried
+ * `<!--$~-->` and `<template id="B:0">` around the loading spinner. A postponed
+ * boundary in a prelude can only be finished by a server-side resume(), so the
+ * browser hydrated, sat on the fallback for ever, never rendered the lazy route
+ * component and never even requested its chunk. Confirmed in real Chrome on a
+ * cold load: <main> held 17 characters and no Home chunk was fetched. Crawlers
+ * still got content from the hidden divs, which is why Search Console never
+ * flagged it and it took a human noticing a spinner to find. SSR was switched
+ * off for every route on 2026-08-04 and has been off since.
+ *
+ * onAllReady is the fix, and it is a different guarantee: it fires only once
+ * every boundary has actually resolved, so the HTML that reaches the client is
+ * complete and hydratable with nothing left to resume. It is also the Node
+ * pipeable API rather than the web-stream one, which is what this build targets.
+ *
+ * Anything still unresolved at RENDER_TIMEOUT_MS is abandoned rather than
+ * shipped half-formed — the caller falls back to the static path for that route,
+ * which is the behaviour that has been serving the site safely for months.
+ */
+import { renderToPipeableStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { HelmetProvider, type HelmetServerState } from 'react-helmet-async';
 import App from './App';
@@ -48,36 +70,107 @@ export interface RenderResult {
 /** App root marker — React 19 hoists metadata ABOVE this; everything from here is body. */
 const APP_ROOT_RE = /<div class="flex min-h-screen/;
 
-async function streamToString(stream: ReadableStream<Uint8Array>): Promise<string> {
-  const reader = stream.getReader();
-  const decoder = new TextDecoder();
-  let out = '';
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    out += decoder.decode(value, { stream: true });
-  }
-  out += decoder.decode();
-  return out;
+/** A route that has not finished in this long is not worth shipping. */
+const RENDER_TIMEOUT_MS = 20_000;
+
+/**
+ * Render to a complete HTML string, waiting for every Suspense boundary.
+ *
+ * Rejects rather than resolving on a shell error or a timeout: the caller in
+ * generate-prerender.mjs treats a rejection as "use the static body for this
+ * route", so a route that cannot render cleanly is never shipped half-formed.
+ */
+function renderFully(tree: React.ReactElement): Promise<string> {
+  return new Promise((resolve, reject) => {
+    let out = '';
+    let settled = false;
+    const sink = new Writable({
+      write(chunk, _enc, cb) { out += chunk.toString('utf8'); cb(); },
+    });
+    sink.on('finish', () => { if (!settled) { settled = true; clearTimeout(timer); resolve(out); } });
+    sink.on('error', (e) => { if (!settled) { settled = true; clearTimeout(timer); reject(e); } });
+
+    const { pipe, abort } = renderToPipeableStream(tree, {
+      // Not onShellReady: that fires as soon as the shell is up and would ship
+      // the very Suspense fallbacks this exists to avoid.
+      onAllReady() { pipe(sink); },
+      onShellError(err) { if (!settled) { settled = true; clearTimeout(timer); reject(err); } },
+      onError(err) { lastRenderError = err; },
+    });
+
+    const timer = setTimeout(() => {
+      if (settled) return;
+      settled = true;
+      try { abort(); } catch { /* already torn down */ }
+      reject(new Error(`SSR render exceeded ${RENDER_TIMEOUT_MS}ms`));
+    }, RENDER_TIMEOUT_MS);
+  });
 }
+
+/** Last error React reported during a render; surfaced for the build log. */
+let lastRenderError: unknown = null;
 
 /** Render a single route (pathname, e.g. "/pyqs/class-10-...") to full HTML. */
 export async function render(url: string): Promise<RenderResult> {
   const helmetContext: { helmet?: HelmetServerState } = {};
-  const { prelude } = await prerender(
-    <React.StrictMode>
-      <ErrorBoundary>
-        <HelmetProvider context={helmetContext}>
-          <StaticRouter location={url}>
-            <SsrPathContext.Provider value={url}>
-              <App />
-            </SsrPathContext.Provider>
-          </StaticRouter>
-        </HelmetProvider>
-      </ErrorBoundary>
-    </React.StrictMode>,
+  lastRenderError = null;
+  const html = await renderFully(
+    // No StrictMode here. It double-invokes render on the server for no benefit
+    // — there is no client state to check — and doubles the cost of a build that
+    // renders thousands of routes.
+    <ErrorBoundary>
+      <HelmetProvider context={helmetContext}>
+        <StaticRouter location={url}>
+          <SsrPathContext.Provider value={url}>
+            <App />
+          </SsrPathContext.Provider>
+        </StaticRouter>
+      </HelmetProvider>
+    </ErrorBoundary>,
   );
-  const html = await streamToString(prelude as ReadableStream<Uint8Array>);
+
+  // The failure that shipped a spinner to every visitor for weeks. A postponed
+  // or still-pending boundary leaves these markers, and the client cannot
+  // resolve either — so refuse the render and let the caller fall back rather
+  // than publish HTML that hydrates into a permanent loading state.
+  // React's own error first: it is the cause, and the markers below are only
+  // the symptom it leaves behind. Reporting the symptom first sent one
+  // investigation chasing Suspense semantics when a component had simply thrown.
+  if (lastRenderError) throw lastRenderError instanceof Error ? lastRenderError : new Error(String(lastRenderError));
+
+  // SSR_DEBUG=1 returns the markup instead of refusing it, so the actual output
+  // can be read when a check disagrees with what React produced.
+  const debug = typeof process !== 'undefined' && process.env?.SSR_DEBUG === '1';
+  if (!debug) {
+    /**
+     * Two different things look alike here, and confusing them is what made the
+     * last investigation give up.
+     *
+     * `<!--$~-->` is a POSTPONED boundary. Only a server-side resume() can
+     * finish it, so shipping one guarantees a permanent fallback in the browser.
+     * That is what prerender() produced and what put a spinner on every page.
+     *
+     * `<!--$?-->` with a `<template id="B:n">` is ordinary streaming. It looks
+     * alarming and it is not: the real markup follows in `<div hidden id="S:n">`
+     * and an inline `$RC("B:n","S:n")` script swaps it in while the document is
+     * still parsing. No server, no round trip. A <main> holding "Loading
+     * module…" at that point in the byte stream is expected, not broken — the
+     * v288 note recorded exactly that symptom and read it as the disease.
+     *
+     * So: reject postponement outright, and reject a placeholder only when its
+     * content never arrived.
+     */
+    const postponed = /<!--\$~-->/.exec(html);
+    if (postponed) {
+      const ctx = html.slice(Math.max(0, postponed.index - 200), postponed.index + 200).replace(/\s+/g, ' ');
+      throw new Error(`SSR postponed a boundary in ${url} — only a server resume() can finish it, so this would hydrate into a permanent fallback. Context: …${ctx}…`);
+    }
+    const placeholders = (html.match(/<template id="B:\d/g) || []).length;
+    const completions = (html.match(/\$RC\(/g) || []).length;
+    if (placeholders > completions) {
+      throw new Error(`SSR left ${placeholders - completions} of ${placeholders} boundary placeholder(s) in ${url} with no content and no $RC completion — the client has nothing to swap in.`);
+    }
+  }
   const m = APP_ROOT_RE.exec(html);
   const body = m ? html.slice(m.index) : html;
   return { html, body, helmet: helmetContext.helmet };
