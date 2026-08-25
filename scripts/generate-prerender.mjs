@@ -6394,13 +6394,36 @@ async function main() {
   // another route's URL, the boundary mismatches, and PageFallback never leaves
   // the screen. The spinner was never a rendering bug at all.
   //
-  // sw.js now caches each URL under itself (v356), which removes the cause. SSR
-  // stays off regardless, because turning it on is a separate decision that
-  // needs its own verification on a preview channel, in a real browser, with a
-  // service worker active — the three conditions that had to coincide for this
-  // to show up. Do not populate this list on the strength of a green build: the
-  // build was green through both incidents, and so were eight structural checks
-  // written specifically to catch the first one.
+  // That SW bug was real and is fixed in v356. It was NOT the cause of this,
+  // and the correction matters more than the original claim.
+  //
+  // Re-tested on a preview channel after the SW fix, with 931 routes rendered:
+  // every SSR route still shows the spinner, homepage included. The evidence
+  // that rules the service worker out:
+  //
+  //   transferSize 10,945       the document came from the NETWORK, not a cache
+  //   cached '/'                correctly holds the homepage (v356 working)
+  //   curl                      returns the correct document for the URL
+  //   the file on disk          correct head AND correct #root body
+  //                             (6,649 chars, mentions "Sample Paper", no
+  //                             homepage copy)
+  //   the page chunk            downloaded
+  //   console                   no React error
+  //
+  // So the server sends a correct, complete document and the client still ends
+  // up in PageFallback. The homepage canonical seen in the DOM is a SYMPTOM, not
+  // the cause: while the page component is suspended, no route-level Helmet has
+  // mounted, so the app's default meta applies.
+  //
+  // One unexplained asymmetry, and it is the lead worth starting from: a build
+  // with a SINGLE SSR route rendered correctly in the same browser — 4,202
+  // characters in <main>, no spinner. The same page in a 931-route build does
+  // not. Whatever differs between those two builds is the bug.
+  //
+  // Do not populate this list on the strength of a green build. The build was
+  // green through both incidents, and so were the structural checks written
+  // specifically to catch the first one. Only a real browser has ever told the
+  // truth about this.
   const DEFAULT_SSR_PREFIXES = [];
   /** Exact paths (no prefix semantics) that may also be server-rendered. */
   const DEFAULT_SSR_EXACT = [];
