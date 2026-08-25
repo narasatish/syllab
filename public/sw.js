@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v355-2026-08-25-real-text-in-first-viewport';
+const CACHE_VERSION = 'syllab-v356-2026-08-25-sw-caches-each-url-under-itself';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
@@ -58,17 +58,38 @@ self.addEventListener('fetch', (event) => {
   // Our own API endpoints → always live network, never the SW.
   if (url.pathname.startsWith('/api/')) return;
 
-  // Navigation (HTML) → network-first, fall back to cached shell.
+  // Navigation (HTML) → network-first, fall back to this URL's own cached copy.
   // ALWAYS resolves to a real Response (never undefined → no respondWith crash).
+  //
+  // Every navigation used to be cached under the single key '/', and the offline
+  // fallback read that same key. So the cache entry for the homepage held
+  // whatever page was loaded last, and an offline visitor asking for any URL got
+  // it — verified in a real browser, where the cached '/' was holding the
+  // /sample-papers/class-7-english document.
+  //
+  // On a client-rendered SPA that is invisible: the HTML is a route-agnostic
+  // shell, so React reads window.location and renders the right page whichever
+  // document arrived. It stops being invisible the moment any HTML becomes
+  // route-SPECIFIC — which is exactly what SSR does. Serving one route's
+  // server-rendered markup for another URL makes hydrateRoot mismatch, and the
+  // route's Suspense boundary never leaves its fallback: a permanent spinner.
+  // That is the shape of the v288 SSR incident, and re-enabling SSR on top of
+  // this caching would have reproduced it.
+  //
+  // So each URL now caches under itself, and the fallback prefers this URL's own
+  // copy. The shared shell is a last resort and is only ever a safe answer while
+  // the served HTML stays route-agnostic.
   if (req.mode === 'navigate') {
     event.respondWith((async () => {
       try {
         const res = await fetch(req);
         const copy = res.clone();
-        caches.open(STATIC_CACHE).then((c) => c.put('/', copy)).catch(() => {});
+        caches.open(STATIC_CACHE).then((c) => c.put(req, copy)).catch(() => {});
         return res;
       } catch {
-        const shell = (await caches.match('/')) || (await caches.match('/index.html'));
+        const shell = (await caches.match(req))
+          || (await caches.match('/'))
+          || (await caches.match('/index.html'));
         return shell || new Response(
           '<!doctype html><meta charset="utf-8"><title>Offline</title><body style="font-family:system-ui,sans-serif;text-align:center;padding:60px"><h1>You\'re offline</h1><p>Reconnect and reload to continue.</p></body>',
           { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } },

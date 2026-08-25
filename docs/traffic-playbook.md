@@ -98,6 +98,31 @@ So: **a rendering bug that looks harmless for a month is not harmless, it is
 queued.** Never conclude a rendering change is safe because traffic held.
 Check the rendered DOM directly instead — `scripts/audit-user-visible.mjs`.
 
+## The service worker can serve one page's HTML for another URL
+
+Found 25 August 2026, while root-causing why SSR produced a permanent spinner.
+
+`sw.js` cached every navigation under the single key `/`, and its offline
+fallback read that same key. So the cache entry for the homepage held whatever
+page was loaded last, and any URL could be answered with it. Verified in a real
+browser: the cached `/` was holding the `/sample-papers/class-7-english`
+document, and the browser rendered the homepage on a sample-papers URL with
+`transferSize: 0`. `curl` returned the correct document every single time —
+**the bug is invisible to any check that does not go through a browser with a
+service worker active.**
+
+On a client-rendered SPA it is harmless, which is why it survived: the HTML is a
+route-agnostic shell, so React reads `window.location` and renders the right
+page whichever document arrived. Fixed in v356 — each URL now caches under
+itself.
+
+It matters beyond offline browsing, because it is the reason **SSR cannot simply
+be switched on**. SSR makes every document route-specific and marks it
+`data-ssr="true"`, so a mis-served shell hands `hydrateRoot` one route's markup
+on another route's URL. The boundary mismatches and the page sits in
+`PageFallback` for ever. That is the v288 incident, and it was misfiled for
+three weeks as a React Suspense problem.
+
 ## The measurement rule
 
 Every claim in this playbook came from a measurement, and several earlier

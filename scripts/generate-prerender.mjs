@@ -6376,17 +6376,31 @@ async function main() {
   //   /ncert-solutions/…/heredity      static fallback   <main> 10,665 chars,
   //                                                      renders perfectly
   //
-  // The page chunk DID download and React logged no hydration error. The lazy
-  // boundary simply never resolves on the client after hydrating streamed
-  // markup. That is the v288 regression reproduced exactly, and it is why this
-  // list is empty rather than populated: the fix for the postponement was real
-  // but insufficient, and the remaining cause is not yet understood.
+  // ROOT CAUSE (found 2026-08-25): the service worker, not React.
   //
-  // Everything needed to try again is in place — the corrected entry-server,
-  // the content gate, and the preview-channel procedure that caught this. What
-  // is missing is the root cause of the unresolved client boundary. Do not
-  // populate this list again on the strength of a green build; the build was
-  // green both times.
+  // curl returned the CORRECT document for that URL every time. The browser did
+  // not: it rendered the homepage, canonical "https://syllab.in/", with
+  // transferSize 0 — a service-worker response. sw.js cached every navigation
+  // under the single key '/' and its offline fallback read that same key, so any
+  // URL could be answered with a different page's HTML. Inspecting the live
+  // cache made it explicit: the entry for '/' was holding the
+  // /sample-papers/class-7-english document.
+  //
+  // On a client-rendered SPA that is harmless. The HTML is a route-agnostic
+  // shell, so React reads window.location and renders the right page whichever
+  // document arrived — which is why this bug sat there unnoticed. SSR removes
+  // the property it depends on: every document becomes route-specific and
+  // carries data-ssr="true", so hydrateRoot is handed one route's markup on
+  // another route's URL, the boundary mismatches, and PageFallback never leaves
+  // the screen. The spinner was never a rendering bug at all.
+  //
+  // sw.js now caches each URL under itself (v356), which removes the cause. SSR
+  // stays off regardless, because turning it on is a separate decision that
+  // needs its own verification on a preview channel, in a real browser, with a
+  // service worker active — the three conditions that had to coincide for this
+  // to show up. Do not populate this list on the strength of a green build: the
+  // build was green through both incidents, and so were eight structural checks
+  // written specifically to catch the first one.
   const DEFAULT_SSR_PREFIXES = [];
   /** Exact paths (no prefix semantics) that may also be server-rendered. */
   const DEFAULT_SSR_EXACT = [];
