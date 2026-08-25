@@ -547,6 +547,92 @@ if (LIVE) {
     } catch (e) { return { status: 0, error: String(e.message || e) }; }
   };
 
+
+  /**
+   * The infrastructure this site cannot survive losing.
+   *
+   * Everything else in this file checks the code. This checks the things that
+   * live in a DNS panel and a hosting console — outside the repo, changed by
+   * hand, and silently. Each one below has either already broken or would take
+   * the site down if it did, and none of them would fail a build.
+   *
+   * On 2026-08-25 GSC reported "Server connectivity: high fail rate" on
+   * www.syllab.in: 49% of Googlebot requests to that host could not be reached
+   * and 49% were redirects into the failure. The cause was a CNAME pointing
+   * www at the apex instead of at the Firebase site, so Firebase could never
+   * answer the ACME challenge and the certificate never minted. curl to the
+   * apex was perfectly healthy throughout — nothing in this repo could see it.
+   *
+   * These run only with --live, and monitor.yml runs them every 6 hours.
+   */
+  const DNS = await import('node:dns/promises');
+  /**
+   * A DNS query that cannot run is not a DNS record that is wrong.
+   *
+   * Sandboxed CI and some corporate networks refuse outbound port 53, and the
+   * first version of these checks reported that as three hard FAILURES against
+   * perfectly healthy records. A guard that cries wolf gets muted, and a muted
+   * guard is worse than none — so a transport failure reports SKIP and says so.
+   */
+  const dnsUnavailable = (e) => /ECONNREFUSED|EAI_AGAIN|ETIMEDOUT|ESERVFAIL|ENOTFOUND *$/.test(String(e && e.code || e && e.message || e));
+
+
+  const APEX = 'syllab.in';
+  const WWW = `www.${APEX}`;
+
+  // 1. www must reach the apex over a VALID certificate. A TLS failure here is
+  //    invisible to every other check: the apex stays green while Google is
+  //    told the host is unreachable.
+  try {
+    const r = await fetch(`https://${WWW}/`, { redirect: 'manual', signal: AbortSignal.timeout(20000) });
+    const loc = r.headers.get('location') || '';
+    const ok = r.status >= 300 && r.status < 400 && /^https:\/\/syllab\.in\//.test(loc);
+    add('live', 'www redirects to the apex', ok ? PASS : FAIL,
+      ok ? `${r.status} -> ${loc}` : `expected a 301 to https://syllab.in/, got ${r.status}${loc ? ' -> ' + loc : ''}`);
+  } catch (e) {
+    // fetch throwing here is almost always the certificate, which is exactly
+    // the failure that took a week to notice.
+    add('live', 'www redirects to the apex', FAIL,
+      `https://${WWW}/ could not be reached (${String(e.message || e).slice(0, 90)}). A TLS failure here reads to Google as a dead host — check the www CNAME points at the Firebase site, not at the apex.`);
+  }
+
+  // 2. The apex A record must still point at Firebase Hosting.
+  try {
+    const a = await DNS.resolve4(APEX);
+    add('live', 'apex DNS points at hosting', a.includes('199.36.158.100') ? PASS : FAIL,
+      a.includes('199.36.158.100') ? a.join(', ') : `A record is ${a.join(', ')} — expected Firebase Hosting at 199.36.158.100`);
+  } catch (e) {
+    add('live', 'apex DNS points at hosting', dnsUnavailable(e) ? SKIP : FAIL,
+      dnsUnavailable(e) ? 'no DNS resolver reachable from here — record NOT checked' : `A record lookup failed: ${String(e.message || e).slice(0, 80)}`);
+  }
+
+  // 3. Search Console ownership. Deleting this TXT de-verifies the property and
+  //    every report in it goes dark — including the ones used to diagnose all
+  //    of the above.
+  try {
+    const txt = (await DNS.resolveTxt(APEX)).map((c) => c.join(''));
+    const gsc = txt.some((t) => t.startsWith('google-site-verification='));
+    const fb = txt.some((t) => t.startsWith('hosting-site='));
+    add('live', 'domain verification TXT intact', gsc && fb ? PASS : FAIL,
+      gsc && fb ? 'google-site-verification and hosting-site both present'
+        : `missing: ${[!gsc && 'google-site-verification', !fb && 'hosting-site'].filter(Boolean).join(', ')} — removing these de-verifies Search Console / Firebase`);
+  } catch (e) {
+    add('live', 'domain verification TXT intact', dnsUnavailable(e) ? SKIP : FAIL,
+      dnsUnavailable(e) ? 'no DNS resolver reachable from here — record NOT checked' : `TXT lookup failed: ${String(e.message || e).slice(0, 80)}`);
+  }
+
+  // 4. Mail. Not SEO, but it shares the DNS panel with everything above, and a
+  //    stray edit while fixing a CNAME would silently stop mail with no error
+  //    anywhere else.
+  try {
+    const mx = await DNS.resolveMx(APEX);
+    add('live', 'MX records intact', mx.length ? PASS : FAIL,
+      mx.length ? `${mx.length} MX record(s): ${mx.map((m) => m.exchange).slice(0, 3).join(', ')}` : 'no MX records — inbound email is dead');
+  } catch (e) {
+    add('live', 'MX records intact', dnsUnavailable(e) ? SKIP : FAIL,
+      dnsUnavailable(e) ? 'no DNS resolver reachable from here — record NOT checked' : `MX lookup failed: ${String(e.message || e).slice(0, 80)}`);
+  }
+
   const rb = await get('/robots.txt');
   add('live', 'robots.txt serves 200', rb.status === 200 ? PASS : FAIL, `HTTP ${rb.status || rb.error}`);
   if (rb.status === 200) {
