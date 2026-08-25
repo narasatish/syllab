@@ -255,8 +255,19 @@
     #boot-skeleton .bs-line { height: 14px; }
     #boot-skeleton .bs-line.w90 { width: 90%; } #boot-skeleton .bs-line.w80 { width: 80%; } #boot-skeleton .bs-line.w70 { width: 70%; }
     #boot-skeleton .bs-card { height: 220px; margin-top: 22px; background: #f1f5f9; border-radius: 16px; }
+    /* Real text, occupying EXACTLY the space the placeholder bars held, so the
+       first viewport gains a paintable LCP element without moving anything.
+       .bs-h1 replaces .bs-title one-for-one: 34px tall, 22px margin.
+       .bs-intro replaces three .bs-line bars. Their run measured 70px — three
+       14px bars with two 14px margins between them — and the last bar's own
+       margin then collapsed against .bs-card's 22px margin-top. So this is 70px
+       with the same 14px margin, and the collapse behaves identically. Getting
+       this wrong by even one bar's margin would trade CLS for LCP, which is not
+       the deal: 3 x 23px of line-height fills 69px inside a 70px box. */
+    #boot-skeleton .bs-h1 { height: 34px; margin-bottom: 22px; font-size: 26px; line-height: 34px; font-weight: 800; color: #0f172a; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    #boot-skeleton .bs-intro { height: 70px; margin: 0 0 14px; font-size: 15px; line-height: 23px; color: #334155; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
     @keyframes bs-shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
-    @media (prefers-color-scheme: dark) { #boot-skeleton { background: #0f172a; } #boot-skeleton .bs-nav { background: rgba(15,23,42,0.9); border-color: #1e293b; } #boot-skeleton .bs-card { background: #1e293b; } }
+    @media (prefers-color-scheme: dark) { #boot-skeleton { background: #0f172a; } #boot-skeleton .bs-nav { background: rgba(15,23,42,0.9); border-color: #1e293b; } #boot-skeleton .bs-card { background: #1e293b; } #boot-skeleton .bs-h1 { color: #f1f5f9; } #boot-skeleton .bs-intro { color: #cbd5e1; } }
   </style>
 </head>
 <body>

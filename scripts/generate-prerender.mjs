@@ -6202,14 +6202,42 @@ function injectMeta(baseHtml, route, ssrBody) {
   // markup inlines a light-theme palette (color:#333 on white); without that,
   // a dark-mode reader would get near-black text on near-black for the moment
   // before hydration strips those inline styles.
+  // THE FIRST VIEWPORT MUST CONTAIN REAL TEXT.
+  //
+  // Field LCP sat at 3.2s on mobile against a 2.5s budget while CLS was a
+  // perfect 0, and the reason was structural rather than a matter of bytes:
+  // #root shipped a skeleton of grey placeholder bars that filled the whole
+  // first screen, and the page's actual words lived in #prerender-seo BELOW it.
+  // Nothing contentful could paint until React booted, so LCP was pinned to the
+  // end of the boot chain no matter how much was preloaded. The modulepreload
+  // added on 22 August removed a round trip from that chain; it could not
+  // remove the chain.
+  //
+  // So the skeleton now carries this page's own heading and intro, in exactly
+  // the space the bars occupied: the title bar was 34px with a 22px margin, and
+  // the three 14px lines ran 70px before the last one's margin collapsed into
+  // .bs-card's. .bs-h1 and .bs-intro in index.html reproduce those heights to
+  // the pixel, so the LCP element becomes real text served in the HTML and the
+  // CLS tuning is untouched. Trading CLS for LCP would not be a fix.
+  //
+  // A <div> rather than an <h1>: the authored <h1> is in the body below, and
+  // LCP counts any text block, so this takes the paint without giving the page
+  // a second top-level heading.
+  //
+  // aria-hidden is gone. It was correct while this was decorative bars; it
+  // would be wrong now that it holds the page's own words.
+  const bootTitle = String(route.title || '').replace(/\s*[|—]\s*Syllab\.in.*$/i, '').trim();
+  const bootIntro = String(route.description || '').trim();
   const bootSkeleton =
-    '<div id="boot-skeleton" aria-hidden="true">' +
+    '<div id="boot-skeleton">' +
     '<div class="bs-nav"><div class="bs-logo"></div></div>' +
     '<div class="bs-main">' +
-    '<div class="bs-blk bs-title"></div>' +
-    '<div class="bs-blk bs-line w90"></div>' +
-    '<div class="bs-blk bs-line w80"></div>' +
-    '<div class="bs-blk bs-line w70"></div>' +
+    (bootTitle
+      ? `<div class="bs-h1">${esc(bootTitle)}</div>`
+      : '<div class="bs-blk bs-title"></div>') +
+    (bootIntro
+      ? `<p class="bs-intro">${esc(bootIntro)}</p>`
+      : '<div class="bs-blk bs-line w90"></div><div class="bs-blk bs-line w80"></div><div class="bs-blk bs-line w70"></div>') +
     '<div class="bs-blk bs-card"></div>' +
     '</div></div>';
   const seoBlock =
