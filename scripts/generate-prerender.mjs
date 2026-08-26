@@ -5987,14 +5987,62 @@ function buildHeadBlock(route) {
   const fitTitle = (t) => {
     let out = String(t || '');
     if (out.length <= 65) return out;
-    for (const drop of [/\s*\((?:Free|free)\)/, /\s*\(PDF\)/, /\s*\(Free, with Answers\)/, /\s*—\s*Free[^|]*(?=\s\|)/, /\s*\|\s*Syllab\.in$/]) {
+    // Repeat the list until it stops changing anything.
+    //
+    // A single pass silently wasted most of these rules. The tails below are
+    // anchored to the end of the string, but the brand suffix is stripped LATE
+    // in the list — so when "— All Important Formulas Free$" was tried, the
+    // string still ended in "| Syllab.in" and the anchor could not match. By
+    // the time the brand was gone the loop had moved past it. All 76 formula
+    // sheets kept their boilerplate for exactly that reason, and the first
+    // three attempts at this fix moved 14 pages out of 646 without explaining
+    // why. Passing repeatedly costs nothing and makes the order irrelevant.
+    for (let pass = 0; pass < 4; pass++) {
+      const before = out;
+      out = applyDrops(out);
+      if (out === before) break;
+    }
+    return out;
+  };
+  const applyDrops = (input) => {
+    let out = input;
+    for (const drop of [
+      // A SECTION LABEL between the page's own title and the brand:
+      //   "AI Tools for Teachers: … | AI for Students — Syllab.in"
+      //                              ^^^^^^^^^^^^^^^^^^
+      // Two suffixes for one page. Measured on 2026-08-26: 483 of 2,548
+      // indexable pages carry this shape, and it costs about 26 characters —
+      // enough that the part a reader is actually scanning for gets truncated
+      // away in the result. The brand stays; the middle label goes. Tried first
+      // because it is the least meaningful thing in the string.
+      // The class ends on a non-space so the separator that follows keeps its
+      // spacing — without that the strip produced "…Grading— Syllab.in".
+      /\s*\|\s*[^|—]{2,38}[^|—\s](?=\s*—\s*Syllab\.in\s*$)/,
+      /\s*\|\s*[^|]{2,38}[^|\s](?=\s*\|\s*Syllab\.in\s*$)/,
+      // Filler tails on generated titles. Each one is boilerplate repeated
+      // across a whole cluster, and each pushes the part a searcher is scanning
+      // for past the truncation point. Counted on 2026-08-26: 76 formula
+      // sheets, 80 medical-college pages, 103 state-board pages.
+      //   "Class 10 Biology: Heredity Formulas — All Important Formulas Free"
+      //   "… — Andhra Pradesh (SSC) Class 10 Solutions — All Subjects, Chapter-wise"
+      //   "… — MBBS Fees, NEET Cutoff, Seats & Admission"
+      /\s*—\s*All Important Formulas Free\s*$/,
+      /\s*—\s*All Subjects,\s*Chapter-wise\s*$/,
+      /,\s*Seats\s*(?:&|&amp;)\s*Admission\s*$/,
+      /\s*\((?:Free|free)\)/, /\s*\(PDF\)/, /\s*\(Free, with Answers\)/, /\s*—\s*Free[^|]*(?=\s\|)/, /\s*\|\s*Syllab\.in$/,
+    ]) {
       if (out.length <= 65) break;
-      // A floor of 45 characters. Without it the "— Free ..." strip took
-      // /ai-tutor from 72 characters to "AI Tutor | Syllab.in" — 20 — which
-      // wastes the result line instead of using it. A long title Google
-      // truncates itself beats a short one we truncated badly.
+      // A length floor, because a title trimmed too far wastes the result line:
+      // without one, the "— Free …" strip took /ai-tutor from 72 characters to
+      // "AI Tutor | Syllab.in" — 20. A long title Google truncates itself beats
+      // a short one we truncated badly.
+      //
+      // 38, not 45. At 45 the floor was rejecting the trims it exists to allow:
+      // "Class 10 Biology: Life Processes Formulas — All Important Formulas
+      // Free" (71) drops its boilerplate tail to land on 41, which is a good
+      // title, and the floor was blocking it across all 76 formula sheets.
       const next = out.replace(drop, '').trim();
-      if (next.length < out.length && next.length >= 45) out = next;
+      if (next.length < out.length && next.length >= 38) out = next;
     }
     return out;
   };
