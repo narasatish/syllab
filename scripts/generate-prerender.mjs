@@ -6145,6 +6145,40 @@ function injectMeta(baseHtml, route, ssrBody) {
   // so each page keeps only its own self-referencing hreflang from the head block.
   baseHtml = baseHtml.replace(/\s*<link[^>]*rel="alternate"[^>]*hreflang=[^>]*>/gi, '');
 
+  /**
+   * Stop the stylesheet blocking first paint.
+   *
+   * This is why v355 moved FCP and not LCP. The boot skeleton carries the page's
+   * real heading, its CSS is inline, and it is ready to paint the moment the
+   * HTML is parsed — but Vite emits the app stylesheet as a plain
+   * <link rel="stylesheet">, which blocks ALL rendering until 263KB has
+   * arrived. On PSI's Slow-4G profile that is measured at FCP 2.3s, and by then
+   * the module script has run and createRoot() has wiped #root, taking the
+   * skeleton with it. The largest text on the page therefore never reached the
+   * screen at all, and Chrome settled on React's 24px navbar wordmark instead —
+   * 2,450ms of "element render delay" waiting for the boot chain.
+   *
+   * rel="preload" as="style" downloads at the same high priority and applies on
+   * load, so the skeleton paints on parse and becomes an early LCP candidate at
+   * roughly 375x34 rather than ~70x24. Chrome keeps the LCP entry after the
+   * element is removed, so React replacing the skeleton afterwards is fine.
+   *
+   * The <noscript> copy keeps a reader without JavaScript fully styled.
+   *
+   * Not verified by a build passing: the only evidence that counts here is a
+   * real browser at mobile width, because the failure mode is "the element was
+   * removed before it could paint", which nothing static can see.
+   */
+  baseHtml = baseHtml.replace(
+    /<link([^>]*?)rel="stylesheet"([^>]*?)href="([^"]+\.css)"([^>]*)>/gi,
+    (_m, a, b, href, c) => {
+      const attrs = `${a}${b}${c}`.replace(/\s+/g, ' ').trim();
+      const rest = attrs ? ` ${attrs}` : '';
+      return `<link rel="preload" as="style" href="${href}"${rest} onload="this.onload=null;this.rel='stylesheet'">`
+        + `<noscript><link rel="stylesheet" href="${href}"${rest}></noscript>`;
+    },
+  );
+
   // The base index.html injects a GENERIC site-wide FAQPage on every page — that
   // is an anti-pattern (irrelevant FAQ on every URL, and a duplicate on pages
   // that declare their own FAQ). Keep the generic FAQ only on the home page;
