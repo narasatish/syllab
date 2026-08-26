@@ -6004,8 +6004,40 @@ function buildHeadBlock(route) {
     }
     return out;
   };
+  /**
+   * Rewrites that SHORTEN without losing a search term.
+   *
+   * Applied only to titles already over the limit, and deliberately conservative,
+   * because truncation is a display effect — the full title is still indexed. So
+   * turning "Previous Year Questions" into "PYQs" would not reclaim a truncated
+   * phrase, it would delete a phrase people actually search for. Every rewrite
+   * below either removes a word the title already says twice, or is redundant
+   * with the words beside it.
+   *
+   * The long titles that remain after this are long because their SOURCE is long
+   * — "Pair of Linear Equations in Two Variables" is 41 characters before any
+   * suffix. Those need editorial decisions per cluster, not a regex.
+   */
+  const SHORTENINGS = [
+    // "… - Previous Year Questions Solved Examples (Class 10 Science)" says the
+    // same thing twice: the page is solved examples OF previous year questions.
+    // Keeping "Solved Examples" keeps the phrase the page actually ranks for.
+    [/\s*[-—]\s*Previous Year Questions Solved Examples\b/, ' — Solved Examples'],
+    // "(Class 10 Physics Practical)" inside /lab-practicals, where every page is
+    // a practical and the URL, H1 and breadcrumb all say so.
+    [/\(Class (\d+) ([A-Za-z ]+?) Practical\)/, '(Class $1 $2)'],
+    // "Top 14 Engineering Colleges in National (IIT/NIT)" — "National" is the
+    // internal state-slug leaking into a title, and the bracket already says it.
+    [/\bin National \(IIT\/NIT\)/, 'in India (IIT/NIT)'],
+  ];
+
   const applyDrops = (input) => {
     let out = input;
+    for (const [re, to] of SHORTENINGS) {
+      if (out.length <= 65) break;
+      const next = out.replace(re, to).replace(/\s+/g, ' ').trim();
+      if (next.length < out.length && next.length >= 38) out = next;
+    }
     for (const drop of [
       // A SECTION LABEL between the page's own title and the brand:
       //   "AI Tools for Teachers: … | AI for Students — Syllab.in"
