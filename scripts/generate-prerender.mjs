@@ -100,6 +100,22 @@ const RETIRED_SLUGS = {
     'class-10-chemistry-chemical-reactions-and-equations',
     'class-10-maths-introduction-to-trigonometry',
     'class-10-maths-some-applications-of-trigonometry',
+    // Two URLs for one chapter, both indexable, differing only by "mathematics"
+    // vs "maths" in the slug. Invisible until the title rule abbreviated
+    // Mathematics to Maths and the duplicate-title gate failed the build — the
+    // pages had been competing with each other the whole time.
+    //
+    // Retired by EARNINGS, following the rule at the top of this file rather
+    // than the slug convention. Instinct said keep "-maths-" because it matches
+    // every other slug here; Search Console said otherwise:
+    //
+    //   class-12-mathematics-probability   307 impressions, 2 clicks, pos 10.3
+    //   class-12-maths-probability           0 impressions
+    //
+    // So the mathematics one stays and the tidier-looking slug goes. Vectors
+    // earns nothing either way, so that pair keeps the conventional slug.
+    'class-12-maths-probability',
+    'class-12-mathematics-vectors',
   ]),
   '/mcqs': new Set([
     'class-10-maths-real-numbers-mcq',
@@ -6029,6 +6045,26 @@ function buildHeadBlock(route) {
     // "Top 14 Engineering Colleges in National (IIT/NIT)" — "National" is the
     // internal state-slug leaking into a title, and the bracket already says it.
     [/\bin National \(IIT\/NIT\)/, 'in India (IIT/NIT)'],
+
+    // ── Abbreviations that swap a term for the one people actually type ──────
+    //
+    // These DO change the indexed wording, so each is only here because the
+    // short form is the commoner search in India, not merely because it is
+    // shorter. Together they bring 154 more titles under the limit.
+    [/\bMathematics\b/g, 'Maths'],
+    [/\bAndhra Pradesh \(SSC\)/g, 'AP SSC'],
+    [/\bTelangana \(SSC\)/g, 'TS SSC'],
+    [/\bMaharashtra \(SSC\)/g, 'MH SSC'],
+    [/\bTamil Nadu \(SSLC\)/g, 'TN SSLC'],
+    [/\bKarnataka \(SSLC\)/g, 'Karnataka SSLC'],
+    [/\s*—\s*Fees, NIRF Rank, Cutoffs & Admission/, ' — Fees, Cutoffs, NIRF'],
+
+    // Deliberately NOT abbreviated, though both would save characters:
+    //   "Social Science" -> "SST"     — "social science" is what students search
+    //   dropping "& Ranking"          — "ranking" is why college pages get found
+    // Between them they would have fixed roughly 30 more titles. Truncation only
+    // hides text in the result; deleting it removes it from the index, and these
+    // two are worth more indexed than the characters are worth saved.
   ];
 
   const applyDrops = (input) => {

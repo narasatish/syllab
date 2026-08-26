@@ -103,6 +103,12 @@ function buildUrls({ languages, topicsByLang }) {
       'class-10-chemistry-chemical-reactions-and-equations',
       'class-10-maths-introduction-to-trigonometry',
       'class-10-maths-some-applications-of-trigonometry',
+      // Duplicate URLs for one chapter ("mathematics" vs "maths" slug), both
+      // indexable and competing. Retired by Search Console earnings, not by slug
+      // convention: class-12-mathematics-probability draws 307 impressions and
+      // the tidier class-12-maths-probability draws none, so the tidy one goes.
+      'class-12-maths-probability',
+      'class-12-mathematics-vectors',
     ]),
     '/colleges': new Set([
       // Six institutions were each published TWICE under different slugs, with
