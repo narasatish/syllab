@@ -211,6 +211,16 @@
         ]
       },
       {
+        "//": "Same rewrite shape as /profile and /parent — an invented path returns 200 with the homepage document, which says index,follow. This one stays Disallowed in robots.txt, unlike the other two: there is no backlog of /admin URLs stuck in the index to drain, and an admin path is better not advertised. The header is defence in depth, so a stray link cannot get one indexed. If Page Indexing ever shows /admin URLs stuck, unblock it the same way.",
+        "source": "/admin/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow"
+          }
+        ]
+      },
+      {
         "source": "**",
         "headers": [
           {
