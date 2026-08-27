@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v360-2026-08-26-title-abbreviations';
+const CACHE_VERSION = 'syllab-v361-2026-08-26-unblock-noindex-signed-in-areas';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

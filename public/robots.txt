@@ -15,10 +15,12 @@ Disallow: /api/
 # 1,289 pages filed as "Duplicate without user-selected canonical", 56% of
 # everything not indexed. These pages are behind auth and have zero search
 # value, so the correct answer is to stop them being crawled at all.
-Disallow: /profile
-Disallow: /profile/
-Disallow: /parent
-Disallow: /parent/
+# TEMPORARILY ALLOWED, on purpose. These paths serve X-Robots-Tag: noindex
+# (see firebase.json). Disallowing them was the mistake: a blocked URL cannot be
+# fetched, so Google could never read that header and the 1,291 URLs it already
+# knew about stayed filed as "Duplicate without user-selected canonical" for
+# ever. To REMOVE pages from the index Google has to be able to crawl them.
+# Re-add these Disallow lines once Page Indexing shows the count falling.
 
 # Help bots discover all important content
 Allow: /syllabus
