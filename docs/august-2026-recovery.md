@@ -145,10 +145,18 @@ did not.
 - **Mobile field LCP.** CrUX is a fixed 28-day window. v357 shipped 25 August,
   so the field number cannot move before roughly 22 September regardless of
   what anyone does.
-- **SSR.** Disabled. The postponement bug is fixed
-  (`renderToPipeableStream` + `onAllReady`), but a single-route build renders
-  correctly in a real browser where a 931-route build shows a permanent
-  spinner, and that difference is not yet understood.
+- **SSR.** Disabled. The postponement bug is fixed (`renderToPipeableStream`
+  + `onAllReady`). Scale was investigated on 27 August and RULED OUT — the
+  earlier "1 route works, 931 fails" reading was an uncontrolled comparison of
+  two channels running DIFFERENT client bundles. With the bundle held constant,
+  a 2-route build fails exactly as a 931-route build does. Also ruled out:
+  the prerenderer (output byte-identical at 2 and 931 routes from clean bases),
+  the service worker (reproduced with the fixed v362), Firebase serving (the
+  correct 60,052-byte document is returned), and chunk loading (the route chunk
+  downloads, no console error). The remaining variable is the CLIENT BUNDLE:
+  `index-DftKMM-N.js` renders correctly and `index-Bq-mRYwj.js` does not. Start
+  there, and hold every other variable fixed — three of the wrong turns here
+  came from comparing two things that differed in more than one way.
 - **397 long titles.** Genuinely long source templates; shortening them further
   trades indexed keywords for characters.
 
