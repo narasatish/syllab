@@ -123,8 +123,28 @@ function buildPage(c) {
 }
 
 // Hindi concepts index/hub page (links every Hindi page — crawl + UX).
+const hubAbout = `
+  <section style="margin-top:30px;border-top:1px solid #e2e8f0;padding-top:20px;">
+    <h2 style="font-size:18px;color:#065f46;">इन नोट्स में क्या मिलेगा</h2>
+    <p>हर कॉन्सेप्ट पेज एक ही अध्याय पर केंद्रित है और उसे तीन हिस्सों में रखा गया है — पहले सरल भाषा में परिभाषा, फिर विषय को खोलने वाले दो-तीन खंड (जैसे नियम, कारण, उपयोग), और अंत में परीक्षा में बार-बार पूछे जाने वाले प्रश्न उत्तर सहित।</p>
+    <p>तकनीकी शब्द हिन्दी में दिए गए हैं और साथ में कोष्ठक में अंग्रेज़ी शब्द भी — जैसे रंध्र (stomata), संक्षारण (corrosion)। इसका कारण यह है कि बोर्ड की उत्तर पुस्तिका में दोनों में से कोई भी शब्द स्वीकार्य होता है, और आगे कक्षा 11–12 की किताबें प्रायः अंग्रेज़ी शब्दावली का प्रयोग करती हैं।</p>
+    <h2 style="font-size:18px;color:#065f46;margin-top:22px;">किसके लिए है</h2>
+    <p>सामग्री कक्षा 9 और 10 के NCERT विज्ञान पाठ्यक्रम के अनुरूप है, इसलिए यह CBSE के साथ-साथ उन राज्य बोर्डों के लिए भी उपयोगी है जो NCERT का अनुसरण करते हैं — बिहार, उत्तर प्रदेश, मध्य प्रदेश, राजस्थान और झारखंड सहित। ऊपर दिए गए बोर्ड पेजों पर उस बोर्ड का पैटर्न और उत्तीर्ण अंक अलग से दिए गए हैं।</p>
+    <p>ये नोट्स पाठ्यपुस्तक का स्थान नहीं लेते। इनका उद्देश्य दोहराने में लगने वाला समय घटाना है — पूरा अध्याय दोबारा पढ़ने के बजाय मुख्य बिंदु और संभावित प्रश्न एक जगह देख लेना। संख्यात्मक प्रश्नों के अभ्यास के लिए अपनी पाठ्यपुस्तक के अभ्यास अवश्य हल करें।</p>
+    <p>सभी पेज मुफ़्त हैं, इनके लिए लॉगिन आवश्यक नहीं है, और किसी भी फ़ोन पर खुल जाते हैं।</p>
+  </section>`;
+
 function buildHub() {
-  const items = HINDI_CONCEPTS.map((c) => `<li><a href="/hi/concepts/${c.slug}">${esc(c.title)}</a> <span>(${esc(c.subject)}, ${esc(c.level)})</span></li>`).join('');
+  // Grouped by subject: fourteen chapters in one flat list is a wall to scan,
+  // and the subject is the first thing a student filters on.
+  const bySubject = new Map();
+  for (const c of HINDI_CONCEPTS) {
+    if (!bySubject.has(c.subject)) bySubject.set(c.subject, []);
+    bySubject.get(c.subject).push(c);
+  }
+  const items = [...bySubject.entries()].map(([subject, list]) => `
+    <h3 style="font-size:16px;color:#0f766e;margin:20px 0 2px;">${esc(subject)} <span style="font-weight:400;color:#64748b;font-size:13px;">(${list.length} कॉन्सेप्ट)</span></h3>
+    <ul>${list.map((c) => `<li><a href="/hi/concepts/${c.slug}">${esc(c.title)}</a> <span>(${esc(c.level)})</span></li>`).join('')}</ul>`).join('');
   return `<!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -154,7 +174,8 @@ function buildHub() {
   <h2 style="font-size:18px;color:#065f46;margin:18px 0 6px;">राज्य बोर्ड (State Boards)</h2>
   <ul>${HINDI_BOARDS.map((b) => `<li><a href="/hi/${b.slug}">${esc(b.title)}</a> <span>कक्षा 10 व 12 — पैटर्न, अंक, तैयारी</span></li>`).join('')}</ul>
   <h2 style="font-size:18px;color:#065f46;margin:22px 0 6px;">कॉन्सेप्ट नोट्स (Concepts)</h2>
-  <ul>${items}</ul>
+  ${items}
+  ${hubAbout}
 </main>
 </body>
 </html>
