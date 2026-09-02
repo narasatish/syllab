@@ -23,7 +23,7 @@ initially suspected.
 Three of three queries that went to zero kept their position within half a
 place. One improved.
 
-**Coverage — pages left the index:**
+**Coverage — indexed count fell, but nowhere near enough:**
 
 | date | indexed | impressions |
 |---|---|---|
@@ -31,14 +31,39 @@ place. One improved.
 | 17 Aug | 2,813 | 4,047 |
 | 18 Aug | **2,504** | **132** |
 
-547 pages left the index between 14 and 18 August, 309 of them on the collapse
-day itself.
+## CORRECTION (1 September) — the original reading of this was wrong
 
-> **The pages were removed from the index. They were not re-ranked.**
+This document previously concluded, in bold:
 
-A demotion cannot produce zero impressions at an unchanged position. This is
-why no amount of Core Web Vitals, SSR or CSS work addresses it: none of those
-can suppress impressions while rank holds.
+> The pages were removed from the index. They were not re-ranked.
+
+**That is false, and the arithmetic never supported it.** 547 pages of 3,051 is an
+18% drop in indexed pages. An 18% drop cannot produce a 97% loss of impressions.
+The question was never asked at the time.
+
+Checked live on 1 September, against Google itself rather than an export:
+
+- `site:syllab.in/sample-papers/class-7-english` returns the page, with its
+  correct title and description. It is **indexed**.
+- Searching its own query, *class 7 english question paper with answer 2026* —
+  200 impressions at position 7.5 before the drop — page one is Scribd, Vedantu,
+  Pinterest, Filo, StudiesToday, YouTube. **syllab.in is absent.**
+- Searching *difference between weathering and erosion* — 274 impressions at
+  position 9.6 before the drop — page one is BYJU'S, National Geographic,
+  Vedantu, Howard Community College, Brainly. **syllab.in is absent.**
+
+The pages are indexed and demoted. Not removed.
+
+**Why "average position held" fooled me.** GSC averages position only over
+impressions the page actually received. Lose the head terms, keep a handful of
+long-tail variants still ranking around 9, and the average still reads 9 while
+impressions collapse to 3% of before. Position holding steady was an artifact of
+averaging over a collapsed sample — it was never evidence that ranking was intact.
+
+**What this changes.** Requesting indexing for pages that are already indexed does
+not help because they are missing; it helps only insofar as it makes Google
+re-crawl the *fixed* version sooner. The recovery being waited on is a site-level
+quality re-assessment, not re-inclusion.
 
 ## The most likely cause
 
@@ -139,9 +164,13 @@ did not.
 
 ## Still open
 
-- **Rankings.** Not recovered. Gated on Google re-crawling ~4,300 pages at
-  ~130/day with 92.3% clean 200s. The only lever is URL Inspection →
-  Request Indexing, about 10 a day.
+- **Rankings.** Not recovered. This is a site-wide algorithmic demotion, not a
+  deindexing and not a manual action — the Manual Actions panel reads "no issues
+  detected" (checked 1 Sep), and no Google update was confirmed for 18 August.
+  Pages stay indexed and lose their head terms. Gated on Google re-crawling
+  ~4,300 pages at ~130/day and re-assessing site quality; algorithmic demotions
+  typically take weeks to months to lift after the cause is removed. URL
+  Inspection helps only to get the fixed version crawled sooner.
 - **Mobile field LCP.** CrUX is a fixed 28-day window. v357 shipped 25 August,
   so the field number cannot move before roughly 22 September regardless of
   what anyone does.
