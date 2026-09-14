@@ -192,25 +192,6 @@
     ],
     "headers": [
       {
-        "//": "Signed-in areas. These are SPA rewrites, so every invented path under them returns 200 with the HOMEPAGE document — which says index,follow. Google learned 1,291 such URLs that way (56% of everything not indexed on this property, filed as 'Duplicate without user-selected canonical'). robots.txt was then set to Disallow them, which made it permanent: a blocked URL cannot be fetched, so Google can never read the canonical or a noindex and can never drop them. The remedy is the opposite of blocking — serve noindex at the HTTP layer (the page itself cannot, since it IS the homepage document) and ALLOW the crawl so Google can see it. Once the count falls, these can be blocked again.",
-        "source": "/profile/**",
-        "headers": [
-          {
-            "key": "X-Robots-Tag",
-            "value": "noindex, nofollow"
-          }
-        ]
-      },
-      {
-        "source": "/parent/**",
-        "headers": [
-          {
-            "key": "X-Robots-Tag",
-            "value": "noindex, nofollow"
-          }
-        ]
-      },
-      {
         "//": "Same rewrite shape as /profile and /parent — an invented path returns 200 with the homepage document, which says index,follow. This one stays Disallowed in robots.txt, unlike the other two: there is no backlog of /admin URLs stuck in the index to drain, and an admin path is better not advertised. The header is defence in depth, so a stray link cannot get one indexed. If Page Indexing ever shows /admin URLs stuck, unblock it the same way.",
         "source": "/admin/**",
         "headers": [
@@ -312,15 +293,7 @@
         "destination": "/index.html"
       },
       {
-        "source": "/profile/**",
-        "destination": "/index.html"
-      },
-      {
         "source": "/parent",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/parent/**",
         "destination": "/index.html"
       },
       {

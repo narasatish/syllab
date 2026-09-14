@@ -7,20 +7,18 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /api/
 
-# Private, signed-in areas. These are SPA rewrites in firebase.json
-# (/profile/**, /parent/** -> /index.html), which means ANY invented path
-# under them returns 200 with the app shell and a canonical pointing at "/".
-# A crawler can therefore mint unlimited distinct URLs that all serve identical
-# content — a duplicate factory. The 2026-08-14 GSC Coverage export showed
-# 1,289 pages filed as "Duplicate without user-selected canonical", 56% of
-# everything not indexed. These pages are behind auth and have zero search
-# value, so the correct answer is to stop them being crawled at all.
-# TEMPORARILY ALLOWED, on purpose. These paths serve X-Robots-Tag: noindex
-# (see firebase.json). Disallowing them was the mistake: a blocked URL cannot be
-# fetched, so Google could never read that header and the 1,291 URLs it already
-# knew about stayed filed as "Duplicate without user-selected canonical" for
-# ever. To REMOVE pages from the index Google has to be able to crawl them.
-# Re-add these Disallow lines once Page Indexing shows the count falling.
+# Private, signed-in areas: only the bare /profile and /parent are real
+# routes. Fixed 2026-09-14: the wildcard rewrites (/profile/**, /parent/**
+# -> /index.html) were removed from firebase.json, since the app never uses
+# a path segment under either — so any invented sub-path now gets Firebase's
+# real 404 instead of 200 + the homepage document. That closes the duplicate
+# factory: a crawler minting /profile/<anything> now hits a 404 it can act on
+# immediately, rather than a 200 it has to fetch, classify, and eventually
+# reclassify as noindex. The 2026-08-14 fix (serve noindex, allow the crawl)
+# was a genuine improvement over the original Disallow, but "Duplicate without
+# user-selected canonical" moved only 1,291 -> 1,283 in three weeks — a 404
+# is a stronger, faster signal than noindex ever was, so no crawl allowance
+# is needed here any more.
 
 # Help bots discover all important content
 Allow: /syllabus
