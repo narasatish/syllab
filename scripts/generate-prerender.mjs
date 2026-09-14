@@ -4840,7 +4840,12 @@ function codingHubBody(lang, label, topicIds, contentMap) {
 }
 
 const titleCase = (slug) => slug.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-const langLabel = (l) => ({ 'ai-learning': 'AI & ML', 'data-analytics': 'Data Analytics', 'data-mining': 'Data Mining', 'app-dev': 'App Development', 'game-dev': 'Game Development', 'git-github': 'Git & GitHub', 'prompt-engineering': 'Prompt Engineering', 'cloud-computing': 'Cloud Computing', 'cybersecurity': 'Cyber Security', 'ai-agents': 'AI Agents' }[l] || titleCase(l));
+// Six of the 33 language ids are acronyms or product names that plain
+// titleCase mangles: c-cpp -> "C Cpp", dsa -> "Dsa", html -> "Html",
+// javascript -> "Javascript", power-bi -> "Power Bi", sql -> "Sql". Found
+// while fixing the topic-title bug below — same root cause, a naive
+// word-capitalise standing in for a real display name.
+const langLabel = (l) => ({ 'ai-learning': 'AI & ML', 'data-analytics': 'Data Analytics', 'data-mining': 'Data Mining', 'app-dev': 'App Development', 'game-dev': 'Game Development', 'git-github': 'Git & GitHub', 'prompt-engineering': 'Prompt Engineering', 'cloud-computing': 'Cloud Computing', 'cybersecurity': 'Cyber Security', 'ai-agents': 'AI Agents', 'c-cpp': 'C/C++', 'dsa': 'DSA', 'html': 'HTML', 'javascript': 'JavaScript', 'power-bi': 'Power BI', 'sql': 'SQL' }[l] || titleCase(l));
 const existingCoding = new Set(ROUTES.map(r => r.path));
 
 /**
@@ -4891,11 +4896,20 @@ for (const lang of CODE_LANGS) {
     });
   }
   for (const topic of (CODE_TOPICS[lang] || [])) {
+    // The topic's real, human-written title already sits in CODE_CONTENT
+    // (extracted straight from the tutorial file's own `title:` field) — use
+    // it. titleCase(topic) instead capitalised the raw id, which carries the
+    // file's short subject prefix (pbi-, ccpp-, ent-, dm-…) needed to keep ids
+    // unique across languages: "pbi-power-query-basics" -> "Pbi Power Query
+    // Basics", shipped as the page's <title> across all ~340 topic pages
+    // instead of the real "Connecting & Loading Data (Power Query Basics)".
+    // titleCase(topic) stays only as the fallback for a topic with no content.
+    const topicTitle = (CODE_CONTENT[lang] && CODE_CONTENT[lang][topic] && CODE_CONTENT[lang][topic].title) || titleCase(topic);
     ROUTES.push({
       path: `/coding/${lang}/${topic}`,
-      title: `${titleCase(topic)} — Free ${L} Tutorial | Syllab.in`,
-      description: `Learn ${titleCase(topic)} in ${L} with a free, beginner-friendly tutorial, examples and practice for Indian students on Syllab.in.`,
-      keywords: `${titleCase(topic)}, ${L} ${titleCase(topic)}, learn ${L} free, ${L} tutorial`,
+      title: `${topicTitle} — Free ${L} Tutorial | Syllab.in`,
+      description: `Learn ${topicTitle} in ${L} with a free, beginner-friendly tutorial, examples and practice for Indian students on Syllab.in.`,
+      keywords: `${topicTitle}, ${L} ${topicTitle}, learn ${L} free, ${L} tutorial`,
       topicContent: CODE_CONTENT[lang] && CODE_CONTENT[lang][topic],
       // Post-March-2026 thin-content policy. The 2026-08-13 GSC export shows the
       // whole /coding topic tail returning 293 impressions and ZERO clicks at an
@@ -5622,22 +5636,28 @@ function buildBodyContent(route) {
     const [, lang, topic] = route.path.match(/^\/coding\/([a-z-]+)\/([a-z0-9-]+)$/);
     const topicContent = route.topicContent;
     if (topicContent && topicContent.theoryText) {
+      // Real title from the tutorial file, not titleCase(topic) — the id carries
+      // a subject-prefix code (pbi-, ccpp-, ent-, dm-…) that isn't meant to be
+      // read, and rendering it verbatim shipped "Pbi Power Query Basics" as both
+      // the page's <title> and its on-page heading. See the route-building loop
+      // above for the full note.
+      const displayTitle = topicContent.title || titleCase(topic);
       // Render the topic's REAL theory paragraphs (unique per page) + syntax. No
       // generic "Learning Path" / "Key Concepts" boilerplate — that was identical
       // on every coding page (duplicate content) and added nothing.
       const paras = topicContent.theoryText.split('\n\n').map((p) => p.trim()).filter(Boolean);
       richContent = `
         <div style="margin-top: 1.5rem;">
-          <h2 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #333;">${esc(titleCase(topic))} in ${esc(langLabel(lang))}</h2>
+          <h2 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #333;">${esc(displayTitle)} in ${esc(langLabel(lang))}</h2>
           ${paras.map((p) => `<p style="margin: 0 0 0.9rem 0; font-size: 0.97rem; color: #444; line-height: 1.7;">${esc(p)}</p>`).join('')}
           ${topicContent.syntaxText ? `
             <div style="padding: 1rem; background: #f5f5f5; border-left: 3px solid #4caf50; margin: 1.25rem 0;">
-              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">${esc(titleCase(topic))} — Syntax</h3>
+              <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem; color: #333;">${esc(displayTitle)} — Syntax</h3>
               <pre style="margin: 0; font-size: 0.85rem; color: #333; white-space: pre-wrap; font-family: 'Courier New', monospace;">${esc(topicContent.syntaxText)}</pre>
             </div>
           ` : ''}
           <p style="font-size: 0.95rem; color: #444; line-height: 1.7; margin-top: 1rem;">
-            Learn <strong>${esc(titleCase(topic))}</strong> step by step with Syllab's free interactive ${esc(langLabel(lang))} tutorial — runnable code examples, practice exercises and instant AI feedback, all free with no signup.
+            Learn <strong>${esc(displayTitle)}</strong> step by step with Syllab's free interactive ${esc(langLabel(lang))} tutorial — runnable code examples, practice exercises and instant AI feedback, all free with no signup.
             <a href="/coding/${lang}" style="color: #0066cc; text-decoration: none; font-weight: 600;"> Explore the full ${esc(langLabel(lang))} course →</a>
           </p>
         </div>
@@ -5657,7 +5677,7 @@ function buildBodyContent(route) {
           <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; font-size: 0.9rem;">
             ${topics.slice(0, 5).map(t => `
               <li style="padding: 0.5rem 0;">
-                <a href="/coding/${lang}/${t}" style="color: #0066cc; text-decoration: none;">→ ${esc(titleCase(t))}</a>
+                <a href="/coding/${lang}/${t}" style="color: #0066cc; text-decoration: none;">→ ${esc((CODE_CONTENT[lang] && CODE_CONTENT[lang][t] && CODE_CONTENT[lang][t].title) || titleCase(t))}</a>
               </li>
             `).join('')}
             ${topics.length > 5 ? `<li style="padding: 0.5rem 0; color: #6e6e6e; font-size: 0.85rem;">+ ${topics.length - 5} more topics in the interactive editor</li>` : ''}
