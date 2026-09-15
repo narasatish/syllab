@@ -2446,6 +2446,10 @@ for (const s of FORMULA_SHEETS_DATA) {
 
 // ─── State Board Solutions (AP/TS/Karnataka/Maharashtra) — index + per-chapter ──
 const SB_CHAPTERS = getStateBoardChapters();
+// Cross-reference by classLevel + chapSlug against the NCERT bank that is
+// already loaded for the NCERT routes above -- so a link only ever points at
+// a page this same build actually creates, never a guessed URL.
+const NCERT_BY_CLASS_SLUG = new Map(NCERT_CHAPTERS.map((n) => [`${n.classLevel}::${n.chapSlug}`, n]));
 const sbHubBody = (() => {
   const byBoard = {};
   for (const c of SB_CHAPTERS) { ((byBoard[c.boardLabel] ||= {})[c.classLevel] ||= {})[c.subject] ||= []; byBoard[c.boardLabel][c.classLevel][c.subject].push(c); }
@@ -2475,6 +2479,24 @@ for (const c of SB_CHAPTERS) {
   let body = `<h2>${esc(c.title)} — Textbook Questions Answered (${c.qa.length})</h2><div style="margin-top:1rem;">`;
   for (let i = 0; i < c.qa.length; i++) body += `<div style="margin-bottom:1.25rem;padding:1rem;background:#f9f9f9;border-left:3px solid #0066cc;"><h3 style="margin:0 0 .5rem;font-size:1.02rem;">Q${i + 1}: ${esc(c.qa[i].q)}</h3><div style="font-size:.95rem;color:#555;line-height:1.5;white-space:pre-line;">${esc(c.qa[i].solution)}</div></div>`;
   body += '</div>';
+
+  // Related links -- every target here is read from data already loaded for
+  // this same build, never a guessed URL, so nothing here can 404. Three
+  // kinds: the matching NCERT chapter (same class + slug, when one exists --
+  // most Maharashtra Science chapters don't map 1:1 onto the CBSE syllabus,
+  // so this is often absent and that's correct, not a gap to force-fill),
+  // sibling chapters in the same board/class/subject, and the subject hub.
+  {
+    const ncertMatch = NCERT_BY_CLASS_SLUG.get(`${c.classLevel}::${c.chapSlug}`);
+    const siblings = SB_CHAPTERS.filter((s) => s.board === c.board && s.classLevel === c.classLevel && s.subject === c.subject && s.chapSlug !== c.chapSlug).slice(0, 4);
+    if (ncertMatch || siblings.length) {
+      body += '<h2>Related</h2><ul>';
+      if (ncertMatch) body += `<li><a href="/ncert-solutions/class-${ncertMatch.classLevel}/${ncertMatch.subjSlug}/${ncertMatch.chapSlug}">NCERT Solutions: ${esc(ncertMatch.title)}</a> — the CBSE version of this same topic.</li>`;
+      for (const s of siblings) body += `<li><a href="/state-board-solutions/${s.boardSlug}/class-${s.classLevel}/${s.subjSlug}/${s.chapSlug}">${esc(s.title)}</a> — more ${esc(c.boardLabel)} Class ${c.classLevel} ${esc(c.subject)}.</li>`;
+      body += `<li><a href="/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}">All ${esc(c.boardLabel)} Class ${c.classLevel} ${esc(c.subject)} chapters →</a></li>`;
+      body += '</ul>';
+    }
+  }
   ROUTES.push({
     path: `/state-board-solutions/${c.boardSlug}/class-${c.classLevel}/${c.subjSlug}/${c.chapSlug}`,
     title: `${c.title} — ${c.boardLabel} Class ${c.classLevel} ${c.subject} Solutions (Free) | Syllab.in`,
