@@ -504,6 +504,43 @@ const ROUTES = [
     title: 'Contact Syllab.in — Student Support & Partnership Enquiries',
     description: 'Get help from Syllab.in support for learning issues, platform questions, school partnerships, and academic queries.',
     keywords: 'contact Syllab, student support, help center, school partnership, edtech support India',
+    // Was a 240-word page: title/description restated as boilerplate TL;DR,
+    // nothing page-specific below it. Every fact here is already stated
+    // elsewhere in the codebase (Contact.tsx's email and 24-hour reply line,
+    // the site's own free/no-login positioning) -- nothing new is asserted.
+    bodyHtml: `
+      <p class="speakable">Syllab.in support handles four kinds of requests: academic doubts about a specific chapter or question, platform issues (something not loading or working as expected), reporting a wrong or unclear answer anywhere on the site, and school or institutional partnership enquiries. Email <strong>support@syllab.in</strong> with a short description, and for platform or content issues, include the page URL — replies typically go out within 24 hours.</p>
+
+      <h2>Before you write in</h2>
+      <p>Two things on the site answer most questions faster than waiting for a reply:</p>
+      <ul>
+        <li>For an academic doubt on a specific problem, the free <a href="/ai-tutor">AI Tutor</a> gives an instant, step-by-step explanation, any time, with no sign-up.</li>
+        <li>For questions about who runs Syllab.in and what it offers, see the <a href="/about">About page</a>.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is Syllab.in actually free?</h3>
+      <p>Yes — the practice questions, mock tests, NCERT solutions, and AI Tutor on this site are free to use, with no login required to read content.</p>
+      <h3>I found a wrong answer or a typo. How do I report it?</h3>
+      <p>Email support@syllab.in with the page URL and what looks wrong. Content corrections are the fastest category of request to act on, since they usually just need a quick check against the source.</p>
+      <h3>Can my school or coaching institute partner with Syllab.in?</h3>
+      <p>Yes — email support@syllab.in with your institution's name and what you have in mind, and the team will follow up.</p>
+      <h3>How long does a reply take?</h3>
+      <p>Typically within 24 hours.</p>
+    `,
+    // faqBlock/faqJsonLd are const-declared much later in this file (module
+    // top-level, evaluated top-to-bottom) -- calling them this early would
+    // hit the temporal dead zone, so this FAQ is written out directly above
+    // and the matching JSON-LD built inline here instead.
+    jsonLd: {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: 'Is Syllab.in actually free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — the practice questions, mock tests, NCERT solutions, and AI Tutor on this site are free to use, with no login required to read content.' } },
+        { '@type': 'Question', name: 'I found a wrong answer or a typo. How do I report it?', acceptedAnswer: { '@type': 'Answer', text: 'Email support@syllab.in with the page URL and what looks wrong. Content corrections are the fastest category of request to act on, since they usually just need a quick check against the source.' } },
+        { '@type': 'Question', name: 'Can my school or coaching institute partner with Syllab.in?', acceptedAnswer: { '@type': 'Answer', text: "Yes — email support@syllab.in with your institution's name and what you have in mind, and the team will follow up." } },
+        { '@type': 'Question', name: 'How long does a reply take?', acceptedAnswer: { '@type': 'Answer', text: 'Typically within 24 hours.' } },
+      ],
+    },
   },
   {
     path: '/blog',
