@@ -1447,13 +1447,15 @@ ROUTES.push({
   keywords: 'free alternative to byjus, unacademy free alternative, kahoot alternative India, vedantu free alternative, toppr alternative, free learning app India',
   jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Free Alternatives to Top Learning Apps', url: `${SITE}/free-alternatives` },
 });
-for (const a of [
+const ALT_BRAND_LIST = [
   { slug: 'kahoot-alternative', brand: 'Kahoot!' },
   { slug: 'byjus-alternative', brand: "BYJU'S" },
   { slug: 'unacademy-alternative', brand: 'Unacademy' },
   { slug: 'vedantu-alternative', brand: 'Vedantu' },
   { slug: 'toppr-alternative', brand: 'Toppr' },
-]) {
+];
+const ALT_BRANDS = Object.fromEntries(ALT_BRAND_LIST.map((a) => [`/${a.slug}`, a.brand]));
+for (const a of ALT_BRAND_LIST) {
   ROUTES.push({
     path: `/${a.slug}`,
     title: `Free Alternative to ${a.brand} — Syllab.in (2026)`,
@@ -5928,6 +5930,38 @@ function buildBodyContent(route) {
             </tbody>
           </table>
         </div>
+      </div>
+    `;
+  }
+
+  // Per-brand "free alternative to X" pages — these were shipping title/meta
+  // only with zero body text, the highest-signal thin-page bug on the site:
+  // /unacademy-alternative and /byjus-alternative already rank ~position 8-10
+  // in GSC with no promotion at all despite having nothing for a crawler to
+  // read past the <head>. Real body content, not a duplicate of
+  // /free-alternatives' generic table.
+  else if (!route.bodyHtml && ALT_BRANDS[route.path]) {
+    const brand = ALT_BRANDS[route.path];
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <p class="speakable">Looking for a free alternative to ${esc(brand)}? Syllab gives Indian students free NCERT solutions, an AI doubt-solving tutor, unlimited mock tests and live quizzes for Class 1–12 — with no subscription and no sign-up.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Why students look for a ${esc(brand)} alternative</h2>
+        <p>${esc(brand)} is a well-known paid learning platform in India, and most of its deeper features — full mock test series, doubt-solving support, structured coding courses — sit behind a subscription. That's the gap Syllab fills: the same categories of help, available free, without a trial period that later asks for payment.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">What's free on Syllab instead</h2>
+        <ul style="margin: 0; padding-left: 1.5rem; color: #555; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.5rem;"><strong>NCERT Solutions</strong> — chapter-wise answers for Class 6–12, free, no login</li>
+          <li style="margin-bottom: 0.5rem;"><strong>AI Tutor</strong> — a free doubt solver for homework questions, available any time</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Mock Tests</strong> — full-length practice tests for board exams and entrance exams</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Free Coding for Kids</strong> — Python and Scratch-style coding lessons, no payment</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Study Room</strong> — a free virtual study room with a Pomodoro timer for focused sessions</li>
+        </ul>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Is a free version of ${esc(brand)} the same as Syllab?</h2>
+        <p>Not exactly — Syllab isn't built as a clone of ${esc(brand)}, it's a separate free platform covering the same broad need (NCERT help, practice, doubt-solving) without the subscription model. If you specifically need ${esc(brand)}'s live-class format, this won't replace that; if you need free daily study support, this is built for it.</p>
+
+        <p><a href="/free-alternatives">See all free alternatives to premium learning apps →</a> · <a href="/ai-tutor">Try the AI Tutor →</a> · <a href="/study-room">Visit the Study Room →</a></p>
       </div>
     `;
   }
