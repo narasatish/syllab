@@ -960,6 +960,16 @@ for (const s of COLLEGE_STATES_M) {
  * belong on the page beside their sourcing and the verify-first note, not in a
  * snippet that Google may show months out of date.
  */
+// All 213 colleges in the manifest carry cutoff, placementAvg and
+// accommodation, so `has`/`list` below resolved to the exact same string on
+// every one of them -- the only part of the description that varied was the
+// name and city at the very front. Measured live: two college pages sharing
+// none of the same data still shared 39% of their total page text in 8-word
+// shingles, entirely from this one repeated sentence. Four real sentence
+// structures, chosen deterministically per college (not randomly, so the
+// same college always gets the same snippet across builds), replace the one
+// fixed template. Same content promise each time -- which sections this
+// record has, no numbers leaked into the snippet -- different wording.
 function collegeSnippet(c) {
   const has = ['year-wise B.Tech fees'];
   if (c.cutoff) has.push('branch-wise cutoffs');
@@ -967,8 +977,38 @@ function collegeSnippet(c) {
   if (c.accommodation) has.push('hostel costs');
   has.push('scholarships');
   const list = has.join(', ').replace(/, ([^,]*)$/, ' and $1');
-  const s = `${c.shortName || c.name}, ${c.city} — ${list}, in one page. Free, no sign-up.`;
-  return s.length <= 160 ? s : `${c.shortName || c.name}, ${c.city} — ${list}.`.slice(0, 160);
+  const name = c.shortName || c.name;
+  let hash = 0;
+  for (const ch of c.slug) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  // Each wrapper kept short enough that even a long name+city combination
+  // stays under 160 chars without falling back -- a shared fallback string
+  // would have silently re-collapsed most colleges back onto one sentence,
+  // which is exactly the bug the first version of this fix shipped with
+  // (only ~25% of colleges got a distinct description; the other ~75%
+  // overflowed their chosen template and landed on one identical fallback).
+  const templates = [
+    `${name}, ${c.city} — ${list}, in one page. Free, no sign-up.`,
+    `${name} (${c.city}): ${list}. Free, no account needed.`,
+    `${name}, ${c.city} — a single page for ${list}. Free, no login.`,
+    `Free college page for ${name}, ${c.city} — ${list}.`,
+  ];
+  return templates[hash % templates.length].slice(0, 160);
+}
+// Same bug as collegeSnippet, in the <title> instead: every one of the 213
+// colleges got the identical suffix "Fees 2026 — B.Tech Fees, Cutoff &
+// Placements", varying only in the shortName in front. Same fix -- four
+// short variants, picked deterministically per college.
+function collegeTitle(c) {
+  const name = c.shortName || c.name;
+  let hash = 0;
+  for (const ch of c.slug) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  const templates = [
+    `${name} Fees 2026 — B.Tech Fees, Cutoff & Placements`,
+    `${name} — B.Tech Fees, Cutoff & Placements 2026`,
+    `${name} 2026 — Fees, Cutoff & Placement Guide`,
+    `${name}: Fees, Cutoff & Placements (2026)`,
+  ];
+  return templates[hash % templates.length];
 }
 
 for (const c of COLLEGES_M) {
@@ -1093,7 +1133,7 @@ for (const c of COLLEGES_M) {
   ROUTES.push({
     path: `/colleges/${c.stateSlug}/${c.slug}`,
     ...(isRetired('/colleges', c.slug) ? { noindex: true } : {}),
-    title: `${c.shortName} Fees 2026 — B.Tech Fees, Cutoff & Placements | Syllab.in`,
+    title: `${collegeTitle(c)} | Syllab.in`,
     // Sixteen college pages rank at position 7-10 and convert at 0.09-1.04%
     // (measured 2026-08-21; /pvp-siddhartha-vijayawada drew 3,159 impressions
     // for 3 clicks). The old description spent its 160 characters printing the
