@@ -56,9 +56,17 @@ const pages = new Map();     // url -> { html, body, noindex }
       const html = readFileSync(p, 'utf8');
       const seo = html.match(/<div id="prerender-seo"[^>]*>([\s\S]*)$/i);
       const art = html.match(/<(article|main)[^>]*>([\s\S]*?)<\/\1>/i);
+      // seo[1] runs from the marker div to end-of-file, so every <script>
+      // (JSON-LD, the boot loader, inline reveal toggles) that follows the
+      // real content in the DOM sat inside it. words() only strips HTML
+      // tags, not script bodies, so minified JS was being counted as prose
+      // -- a page with ~190 real words and a normal-sized bundle could clear
+      // the 250-word floor on script bulk alone. Strip script blocks first.
+      const rawBody = seo ? seo[1] : (art ? art[2] : '');
+      const body = rawBody.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, ' ');
       pages.set(url || '/', {
         html,
-        body: seo ? seo[1] : (art ? art[2] : ''),
+        body,
         noindex: /content="noindex/.test(html),
       });
     } else if (statSync(p).isDirectory() && !/^(assets|audio|data|fonts|images|icons|posters|web-stories)$/.test(entry)) {

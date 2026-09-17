@@ -769,7 +769,31 @@ for (const ch of getNcertChapters()) {
 /** Crawlable per-subject chapter lists for a class hub. Empty string when we have no chapters. */
 function classChapterMesh(c) {
   const bySubject = CHAPTERS_BY_CLASS[String(c)];
-  if (!bySubject) return '';
+  if (!bySubject) {
+    // Classes 1-5 have no NCERT-solutions bank (it starts at Class 6), so this
+    // returned '' and the /class-1..5 hubs fell back to the shared TL;DR shell
+    // with nothing else — ~140 real words each. The actual content for this
+    // age group lives under /maths-for-kids, /science-for-kids,
+    // /english-for-kids and /kids (rhymes, stories, worksheets); link to the
+    // real thing instead of pretending NCERT-chapter solutions exist here.
+    if (c >= 1 && c <= 5) {
+      return `
+        <h2>Class ${c} — what's free on Syllab</h2>
+        <p>Class ${c} sits in Syllab's early-learning track rather than the NCERT chapter-solutions track (which starts at Class 6). For Class ${c}, the free resources are built around the four core subjects — Mathematics, EVS, English and Hindi — as games, worksheets, rhymes and short stories rather than textbook-chapter answers.</p>
+        <h3>Subject pages for this age group</h3>
+        <ul>
+          <li><a href="/maths-for-kids">Maths for Kids</a> — counting, shapes, addition and free printable worksheets.</li>
+          <li><a href="/science-for-kids">Science for Kids</a> (EVS) — animals, plants, the human body and weather with animated diagrams.</li>
+          <li><a href="/english-for-kids">English for Kids</a> — alphabet, phonics, sight words and stories with audio.</li>
+          <li><a href="/worksheets">Worksheets</a> — printable practice sheets across all four subjects.</li>
+        </ul>
+        <h3>Reading and rhymes</h3>
+        <p><a href="/kids/rhymes">Nursery rhymes with full lyrics</a> and <a href="/kids/stories">short moral stories</a> build the reading and listening habits this age group needs before moving into chapter-based study from Class 6 onward.</p>
+        <p>Once your child reaches Class 6, <a href="/class-6">the Class 6 hub</a> switches over to full NCERT chapter-wise solutions.</p>
+      `;
+    }
+    return '';
+  }
   const subjects = Object.keys(bySubject).sort();
   let html = `<h2>Class ${c} chapter-wise NCERT solutions</h2>`;
   html += `<p>Every Class ${c} chapter below has step-by-step NCERT solutions, free and without signup. Pick a subject and jump straight to the chapter you are studying.</p>`;
@@ -1455,6 +1479,255 @@ const ALT_BRAND_LIST = [
   { slug: 'toppr-alternative', brand: 'Toppr' },
 ];
 const ALT_BRANDS = Object.fromEntries(ALT_BRAND_LIST.map((a) => [`/${a.slug}`, a.brand]));
+
+// Skill/subject hub pages that shipped title + meta only, same thin-content
+// bug as the alt-brand pages: no bodyHtml, no matching branch in the
+// rich-content chain, so real word count sat at ~140-180 behind the shared
+// TL;DR shell. Each entry below reuses only facts already asserted in that
+// route's own title/description/keywords (defined earlier in this file) —
+// nothing new is claimed here, it's the same claim written out as real body
+// text instead of restated as a one-line meta description.
+const SKILL_HUB_BODIES = {
+  '/syllabus': {
+    h2: 'What this covers',
+    intro: 'A single index into every NCERT chapter Syllab has, organised by class and subject, so you can jump straight to a chapter\'s notes and questions instead of searching subject by subject.',
+    points: [
+      'Class 1 to Class 12, every core CBSE/NCERT subject.',
+      'Each chapter links to concept notes, practice questions and the full NCERT solution.',
+      'A short free financial-literacy track sits alongside the academic syllabus — budgeting and saving basics not covered in most school curricula.',
+    ],
+    cost: 'Free, no login required to browse or open a chapter.',
+    links: '<a href="/ncert-solutions" style="color:#0066cc;">Browse NCERT solutions by class →</a> · <a href="/class-1" style="color:#0066cc;">Jump to a specific class →</a>',
+  },
+  '/daily-challenges': {
+    h2: 'How the daily challenge works',
+    intro: 'One quiz per day, the same questions for every student who takes it that day, covering JEE, NEET, EAMCET and general school aptitude. Streaks and live rankings track how consistently you show up, not just how you scored once.',
+    points: [
+      'A new set of questions each day — the same set for everyone, so rankings are a genuine same-day comparison.',
+      'Streak tracking rewards showing up daily, which matters more for retention than any single high score.',
+      'Share your rank with friends to turn daily practice into something social rather than solitary.',
+    ],
+    cost: 'Free every day, no subscription and no cap on how many days you can play.',
+    links: '<a href="/live-quiz" style="color:#0066cc;">Try a live multiplayer quiz →</a> · <a href="/mock-tests" style="color:#0066cc;">Full-length mock tests →</a>',
+  },
+  '/preparation': {
+    h2: 'What the prep guides cover',
+    intro: 'Structured preparation guides for JEE Mains, NEET, EAMCET and CBSE board exams — built around what actually moves a score: which chapters carry the most weight, how to sequence revision, and the formulas that come up repeatedly.',
+    points: [
+      'Chapter weightage — which topics have historically carried the most marks, so revision time goes where it counts.',
+      'Study plans — a sequence to follow rather than a pile of resources with no order.',
+      'Formula references for quick recall during revision, not full derivations.',
+    ],
+    cost: 'Free, no signup required to read a guide.',
+    links: '<a href="/mock-tests" style="color:#0066cc;">Practice with mock tests →</a> · <a href="/formula-sheets" style="color:#0066cc;">Printable formula sheets →</a>',
+  },
+  '/blog': {
+    h2: 'What\'s on the blog',
+    intro: 'Study tips, chapter guides and exam-strategy posts for CBSE Class 5-12, JEE Mains, NEET and EAMCET students, refreshed weekly with whatever is currently relevant to the exam calendar.',
+    points: [
+      'Board-exam tips timed to when students are actually revising for them, not generic year-round advice.',
+      'Chapter-specific guides that go deeper than a syllabus list — what tends to be asked, and how.',
+      'Coverage of tools and platforms relevant to students, alongside pure exam content.',
+      'Posts mix evergreen guides (chapter breakdowns that stay useful year over year) with timely ones tied to a specific exam date or announcement, so the blog isn\'t only reactive to whatever is trending that week.',
+    ],
+    cost: 'Free to read, no login or subscription.',
+    links: '<a href="/updates" style="color:#0066cc;">Daily education news →</a> · <a href="/preparation" style="color:#0066cc;">Structured prep guides →</a>',
+  },
+  '/coding-challenges': {
+    h2: 'How the challenges work',
+    intro: 'Interactive coding challenges that run JavaScript directly in your browser — write code, run it, see the output immediately, and earn XP as you clear challenges.',
+    points: [
+      'No local setup — the code editor and runner are both in the browser.',
+      'Immediate feedback on whether your code produces the right output, rather than a wait for review.',
+      'XP and levels give a visible sense of progress across a series of challenges rather than one-off exercises.',
+      'Sits between a coding-basics course and a full project — short enough to fit in a spare 15 minutes, but harder than a copy-along tutorial since you have to produce the working code yourself.',
+    ],
+    cost: 'Free, unlimited attempts, no subscription tier gating harder challenges.',
+    links: '<a href="/mini-projects" style="color:#0066cc;">Build a full mini project instead →</a> · <a href="/coding-for-kids" style="color:#0066cc;">Start from the basics →</a>',
+  },
+  '/mini-projects': {
+    h2: 'What the projects are',
+    intro: '24 guided mini coding projects in Python, JavaScript, HTML and SQL — each one produces something that runs and does something visible, rather than an isolated exercise that only prints to a console.',
+    points: [
+      'Step-by-step instructions, so a beginner isn\'t left to infer the next step from a finished-project screenshot.',
+      'Spans four languages, so a student can see how the same kind of project (e.g. a small calculator or a to-do list) looks different in each one.',
+      'Aimed at Class 6 to Class 12, but usable by anyone starting from zero.',
+    ],
+    cost: 'Free, all 24 projects available without payment or signup.',
+    links: '<a href="/coding-challenges" style="color:#0066cc;">Smaller coding challenges →</a> · <a href="/web-development" style="color:#0066cc;">Full web development track →</a>',
+  },
+  '/computer-basics': {
+    h2: 'What\'s covered',
+    intro: 'Foundational computer literacy for Class 3 to Class 8 — hardware, software, how the internet works, and cyber safety — aligned to the CBSE/NCERT ICT syllabus rather than treated as a separate unrelated topic.',
+    points: [
+      'Hardware and software basics explained in plain terms before any jargon is introduced.',
+      'How the internet actually works, at a level appropriate for this age group.',
+      'Cyber safety folded in here, not left as an afterthought — see also <a href="/cyber-safety" style="color:#0066cc;">the dedicated Cyber Safety course</a> for more depth.',
+    ],
+    cost: 'Free, with quizzes included to check understanding at no extra cost.',
+    links: '<a href="/coding-for-kids" style="color:#0066cc;">Move on to actual coding →</a>',
+  },
+  '/cyber-safety': {
+    h2: 'What this course covers',
+    intro: 'Internet safety, cyberbullying awareness and online privacy for Class 5 to Class 10 — the practical, everyday risks a student is actually likely to encounter, not abstract security theory.',
+    points: [
+      'Recognising and responding to cyberbullying, including what to do and who to tell.',
+      'Online privacy basics — what not to share, and why a setting matters even when nothing has gone wrong yet.',
+      'Judging what\'s safe to click, download or engage with, in language suited to the age group.',
+      'Framed around what to do when something goes wrong, not just what to avoid — a student who has already been targeted needs a next step, not another warning.',
+    ],
+    cost: 'Free, the full course with no paid tier.',
+    links: '<a href="/computer-basics" style="color:#0066cc;">Computer basics →</a> · <a href="/ai-for-students" style="color:#0066cc;">AI for Students →</a>',
+  },
+  '/ai-for-students': {
+    h2: 'What\'s covered',
+    intro: 'An introduction to artificial intelligence for Class 8 to Class 12 — what AI actually is, the basics of machine learning, how tools like ChatGPT work at a conceptual level, and where AI careers lead.',
+    points: [
+      'AI and machine learning explained conceptually first, before any code.',
+      'A look at widely-used AI tools (like ChatGPT) — how they work, and their real limitations, not just how to use them.',
+      'Career paths in AI, for a student deciding what to study further.',
+    ],
+    cost: 'Free course, no signup required.',
+    links: '<a href="/ai-tutor" style="color:#0066cc;">Use the AI Tutor →</a> · <a href="/web-development" style="color:#0066cc;">Web Development track →</a>',
+  },
+  '/web-development': {
+    h2: 'What you\'ll build',
+    intro: 'Free web development for Class 8 to Class 12 — HTML, CSS and JavaScript taught through building actual websites rather than isolated syntax lessons.',
+    points: [
+      'Starts with HTML/CSS structure and styling, then adds JavaScript for interactivity.',
+      'Projects are real, viewable web pages, not just code snippets — seeing a page render is what makes the syntax stick.',
+      'No paid course or certificate required to access any part of it.',
+      'A natural next step after <a href="/coding-for-kids" style="color:#0066cc;">Coding for Kids</a> or <a href="/python-for-kids" style="color:#0066cc;">Python for Kids</a> for a student who wants to build something that lives on the actual web rather than a standalone script.',
+    ],
+    cost: 'Free, complete track with no subscription tier.',
+    links: '<a href="/mini-projects" style="color:#0066cc;">Guided mini projects →</a> · <a href="/coding-challenges" style="color:#0066cc;">Practice challenges →</a>',
+  },
+  '/gk-quiz': {
+    h2: 'What the quiz covers',
+    intro: '150+ general-knowledge questions spanning Indian history, geography, polity, static GK, current affairs and science — the same daily quiz for every student, refreshed for 2025-26 current events.',
+    points: [
+      'Indian history, geography and polity — the core of most competitive-exam GK sections.',
+      'Current affairs kept updated rather than frozen at whenever the page was first built.',
+      'Useful beyond school exams — relevant to SSC, banking and Olympiad-style GK sections too.',
+    ],
+    cost: 'Free daily quiz, Class 5 to Class 12, no login required.',
+    links: '<a href="/gk-facts" style="color:#0066cc;">Browse GK facts →</a> · <a href="/quiz-duel" style="color:#0066cc;">Challenge a friend →</a>',
+  },
+  '/career-predictor': {
+    h2: 'What the predictor covers',
+    intro: 'JEE Main and state-level (EAMCET, KCET, MHT-CET, WBJEE) rank and college prediction, a NEET marks-to-rank and MBBS college predictor across all categories, a career explorer with salary ranges, a stream-selection quiz, the 2026 exam calendar and a scholarships list — all estimates built from 2024 admission data, indicative rather than guaranteed.',
+    points: [
+      'Rank and college predictors for JEE Main plus the major state engineering exams, not just the national one.',
+      'NEET predictor covers marks-to-rank conversion and MBBS college estimates across all reservation categories.',
+      'A career-interest quiz for students who haven\'t picked a stream yet, and a salary-by-career explorer for those who have.',
+    ],
+    cost: 'Free — every predictor and the exam calendar are open with no signup wall. Estimates are indicative, based on the most recent year\'s admission data, and should be treated as a planning aid, not a guarantee.',
+    links: '<a href="/colleges" style="color:#0066cc;">Browse colleges directly →</a> · <a href="/scholarships" style="color:#0066cc;">Scholarship list →</a>',
+  },
+  '/english': {
+    h2: 'What\'s in the English section',
+    intro: 'Daily English practice built around four things students actually get tested or judged on: speaking, grammar, reading comprehension and vocabulary — plus IELTS-specific preparation for those planning to study abroad.',
+    points: [
+      'An AI speaking coach for conversational practice, since most classroom English teaching is reading/writing-heavy and speaking gets little dedicated time.',
+      'Grammar challenges and reading passages mapped to CBSE Class 9-10 requirements.',
+      'A vocabulary builder and NCERT story guides for the literature portion of the syllabus.',
+      'Separate IELTS preparation for students with study-abroad plans, distinct from the school-syllabus material.',
+    ],
+    cost: 'Free, all four areas open with no subscription.',
+    links: '<a href="/english-grammar" style="color:#0066cc;">Grammar practice →</a> · <a href="/english-writing" style="color:#0066cc;">Writing practice →</a> · <a href="/vocabulary" style="color:#0066cc;">Vocabulary builder →</a>',
+  },
+  '/live-quiz': {
+    h2: 'How Live Quiz works',
+    intro: 'A Kahoot-style multiplayer quiz a teacher can host for a whole class: students join with a shared PIN on their own device and answer in real time, with a live leaderboard everyone can see.',
+    points: [
+      'One host screen, students join from their phones with a room PIN — no app install.',
+      'Real-time leaderboard so the competitive element is visible to the whole class as it happens, not revealed only at the end.',
+      'Question banks span GK, Science, Maths, Reasoning and English, so a teacher isn\'t limited to one subject.',
+    ],
+    cost: 'Free to host and free to join, no per-session limit.',
+    links: '<a href="/quiz-duel" style="color:#0066cc;">1-on-1 quiz duel instead →</a> · <a href="/daily-challenges" style="color:#0066cc;">Daily solo challenge →</a>',
+  },
+  '/quiz-duel': {
+    h2: 'How Quiz Duel works',
+    intro: 'A fast, timed 1-on-1 GK quiz — 8 questions, against either the AI or a friend, built to be finished and shared in a couple of minutes rather than a long session.',
+    points: [
+      'Exactly 8 questions per duel, so a round has a clear, short end point.',
+      'Play against the AI when no one else is around, or challenge a specific friend.',
+      'Share the result on WhatsApp directly from the results screen.',
+    ],
+    cost: 'Free, unlimited duels, no signup required to play.',
+    links: '<a href="/live-quiz" style="color:#0066cc;">Host a full class quiz instead →</a> · <a href="/gk-quiz" style="color:#0066cc;">Practice GK solo →</a>',
+  },
+  '/embed': {
+    h2: 'What you can embed',
+    intro: 'Copy-paste badges and widgets that link back to Syllab\'s free study resources — built for a school website, a teacher\'s blog, or a classroom page that wants to point students toward free NCERT solutions and formula sheets without hosting the content itself.',
+    points: [
+      'Badges link to specific resource categories (NCERT solutions, formula sheets) rather than just the homepage, so the link is relevant to whatever page it sits on.',
+      'Copy-paste HTML, no account or approval process needed to use a badge.',
+      'Useful for a school that wants to point students to free supplementary material without building or maintaining that material itself.',
+    ],
+    cost: 'Free to use, no attribution fee or backlink requirement beyond the badge itself.',
+    links: '<a href="/formula-sheets" style="color:#0066cc;">Formula sheets to link to →</a> · <a href="/ncert-solutions" style="color:#0066cc;">NCERT solutions to link to →</a>',
+  },
+  '/calculators': {
+    h2: 'What the calculators do',
+    intro: 'Three specific calculators built around numbers Indian students actually need to work out regularly: converting marks to percentage, converting CGPA to percentage under the CBSE 9.5 rule (and back), and an attendance calculator that answers "how many classes can I skip and stay above 75%?"',
+    points: [
+      'CGPA-to-percentage conversion follows the official CBSE formula (Percentage = CGPA × 9.5), not an approximation.',
+      'The attendance calculator takes your current attended/total classes and a target percentage, then computes exactly how many more you can miss.',
+      'All three run instantly in the browser with no ads interrupting the result.',
+    ],
+    cost: 'Free, no signup, no ads.',
+    links: '<a href="/marks-tracker" style="color:#0066cc;">Track your marks over time →</a> · <a href="/tools" style="color:#0066cc;">All free tools →</a>',
+  },
+  '/maths-for-kids': {
+    h2: 'What\'s covered',
+    intro: 'Early-years maths for Pre-KG to Class 5 — counting, shapes, addition and multiplication tables — taught through games rather than worksheets alone, with printable worksheets available for offline practice.',
+    points: [
+      'Counting and number recognition for the youngest learners, building up to addition and subtraction.',
+      'Shape recognition presented visually rather than as text definitions.',
+      'Printable worksheets for parents or teachers who want an offline practice option alongside the games.',
+      'Multiplication tables build on the counting foundation once a child is ready, bridging into the chapter-based Maths that starts properly from Class 6.',
+    ],
+    cost: 'Free, Pre-KG to Class 5, no signup.',
+    links: '<a href="/maths-tables" style="color:#0066cc;">Multiplication tables →</a> · <a href="/worksheets" style="color:#0066cc;">More printable worksheets →</a>',
+  },
+  '/science-for-kids': {
+    h2: 'What\'s covered',
+    intro: 'Early-years science (EVS) for Pre-KG to Class 5 — animals, plants, the human body, weather and space — presented with animated diagrams and activities rather than plain text, since this age group learns better from something that moves.',
+    points: [
+      'Animals and plants covered with visuals, not just names and facts to memorise.',
+      'The human body and weather explained at an age-appropriate level of detail.',
+      'A first look at space and the solar system to build early curiosity.',
+      'Sets up the vocabulary and basic categories (living/non-living, seasons, body parts) that Class 6 Science then builds into full chapters.',
+    ],
+    cost: 'Free, Pre-KG to Class 5, no signup.',
+    links: '<a href="/gk-facts" style="color:#0066cc;">More fun facts →</a> · <a href="/kids" style="color:#0066cc;">All of Syllab Junior →</a>',
+  },
+  '/english-for-kids': {
+    h2: 'What\'s covered',
+    intro: 'Early English literacy for Pre-KG to Class 5 — alphabet, phonics, sight words, rhymes and stories, with audio so a child can listen along rather than needing to already read.',
+    points: [
+      'Alphabet and phonics as the foundation, before moving to sight words.',
+      'Rhymes and short stories with audio narration, for listening comprehension before independent reading.',
+      'Printable worksheets for offline handwriting and letter-recognition practice.',
+      'Listening comes before reading here deliberately — a child who has heard a word many times recognises it far faster once they start sounding out letters.',
+    ],
+    cost: 'Free, Pre-KG to Class 5, no signup.',
+    links: '<a href="/kids/rhymes" style="color:#0066cc;">Nursery rhymes with lyrics →</a> · <a href="/kids/stories" style="color:#0066cc;">Moral stories →</a>',
+  },
+  '/story-lessons': {
+    h2: 'How a chapter becomes a story',
+    intro: 'Every NCERT chapter across Class 1 to Class 12 is rewritten as a narrative that carries the same facts and concepts the textbook chapter covers, with voice narration so a lesson can be listened to rather than only read.',
+    points: [
+      'Each story maps directly to one NCERT chapter — nothing is simplified away, the facts are the same, just carried by a narrative instead of a list of bullet points.',
+      'Voice narration is included, useful for revision while doing something else, or for a student who finds listening easier than reading dense text.',
+      'Covers every subject and class the NCERT curriculum spans, not a curated subset.',
+    ],
+    cost: 'Free, no signup required to read or listen to any story.',
+    links: '<a href="/ncert-solutions" style="color:#0066cc;">The original NCERT chapter solutions →</a> · <a href="/kids/stories" style="color:#0066cc;">Shorter moral stories for younger kids →</a>',
+  },
+};
 for (const a of ALT_BRAND_LIST) {
   ROUTES.push({
     path: `/${a.slug}`,
@@ -3654,7 +3927,20 @@ const STUDY_CLUSTERS = [
 for (const c of STUDY_CLUSTERS) {
   // The Hindi concepts hub points at /concepts as its en-IN alternate. Without
   // the return pointer the pair is non-reciprocal and the annotation is ignored.
-  ROUTES.push({ path: c.base, ...(c.base === '/concepts' ? { hreflangAlt: [{ lang: 'hi-IN', href: `${SITE}/hi/concepts` }], bodyHtml: `<p><a href="/hi/concepts">इन विषयों को हिन्दी में पढ़ें — read these concepts in Hindi</a></p>` } : {}), title: `${c.name} — Free for Students | Syllab.in`, description: `${c.name} — ${c.data.length}+ free resources for Indian students. ${c.kw}.`, keywords: c.kw, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: c.name, url: `${SITE}${c.base}`, inLanguage: 'en-IN', isAccessibleForFree: true } });
+  ROUTES.push({
+    path: c.base,
+    ...(c.base === '/concepts'
+      ? { hreflangAlt: [{ lang: 'hi-IN', href: `${SITE}/hi/concepts` }], bodyHtml: `<p><a href="/hi/concepts">इन विषयों को हिन्दी में पढ़ें — read these concepts in Hindi</a></p>` }
+      // /what-to-study was the one cluster hub short enough (few enough
+      // entries) to fall under the 250-word floor once counted correctly --
+      // the others clear it on description length alone, so only this one
+      // needed a real body rather than the bare title/meta every cluster hub
+      // otherwise ships with.
+      : (c.base === '/what-to-study' ? { bodyHtml: `
+        <p class="speakable">${c.data.length} subject-wise marks-weightage guides — which chapters carry the most marks in each subject, so revision time goes where the exam actually rewards it.</p>
+        <ul>${c.data.map((x) => `<li><a href="/what-to-study/${x.slug}">${esc(c.label(x))}</a>${x.classLevel ? ` — Class ${esc(x.classLevel)}${x.subject ? ` ${esc(x.subject)}` : ''}` : ''}</li>`).join('')}</ul>
+        <p>Weightage shifts a little year to year, so treat this as a guide to where marks have historically concentrated, not a guarantee of this year's paper. Pair it with <a href="/important-questions">important questions</a> and <a href="/sample-papers">sample papers</a> for the same chapters.</p>` } : {})),
+    title: `${c.name} — Free for Students | Syllab.in`, description: `${c.name} — ${c.data.length}+ free resources for Indian students. ${c.kw}.`, keywords: c.kw, jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: c.name, url: `${SITE}${c.base}`, inLanguage: 'en-IN', isAccessibleForFree: true } });
   // Group for sibling internal links (by category/subject/class when available).
   const gKey = (x) => x.category || x.subject || x.classLevel || 'all';
   const byGroup = {};
@@ -3759,7 +4045,23 @@ for (const s of MED_STATES) {
     title: `Top Medical Colleges in ${s.name} (MBBS) — NEET Cutoffs & Fees 2026 | Syllab.in`,
     description: `Best MBBS medical colleges in ${s.name} — NEET cutoffs, MBBS fees, seats and admission process. ${s.blurb}`,
     keywords: `medical colleges in ${s.name}, MBBS colleges ${s.name}, NEET cutoff ${s.name}, ${s.name} government medical colleges, MBBS fees ${s.name}`,
-    bodyHtml: `<ul>${inState.map((c) => `<li><a href="/medical-colleges/${s.slug}/${c.slug}">${esc(c.name)}</a> — ${esc(c.city)}, ${esc(c.type)}; MBBS fees ${esc(c.feesPerYear)}/yr, ${c.mbbsSeats} seats, NEET: ${esc(c.neetCutoff)}</li>`).join('')}</ul>`,
+    bodyHtml: (() => {
+      // Small states have few colleges, so the bare list alone can run thin.
+      // Every number below is computed from inState (the same MED_COLLEGES
+      // data already shown per-college, not a new figure) rather than padded
+      // with filler text.
+      const govtCount = inState.filter((c) => /AIIMS|Government|Govt/i.test(c.type)).length;
+      const privateCount = inState.length - govtCount;
+      const totalSeats = inState.reduce((sum, c) => sum + (Number(c.mbbsSeats) || 0), 0);
+      return `
+        <p class="speakable">${s.name} has ${inState.length} medical college${inState.length === 1 ? '' : 's'} offering MBBS listed here — ${govtCount} government${govtCount ? '/AIIMS' : ''} and ${privateCount} private, with ${totalSeats.toLocaleString('en-IN')} MBBS seats between them (as listed on this page; always confirm the current year's seat matrix with the college or MCC before applying).</p>
+        ${s.blurb ? `<p>${esc(s.blurb)}</p>` : ''}
+        <h2>Medical colleges in ${esc(s.name)}</h2>
+        <ul>${inState.map((c) => `<li><a href="/medical-colleges/${s.slug}/${c.slug}">${esc(c.name)}</a> — ${esc(c.city)}, ${esc(c.type)}; MBBS fees ${esc(c.feesPerYear)}/yr, ${c.mbbsSeats} seats, NEET: ${esc(c.neetCutoff)}</li>`).join('')}</ul>
+        <h2>How MBBS admission works here</h2>
+        <p>Seats in ${esc(s.name)} are filled through NEET-UG: government seats mostly through state or All India Quota counselling depending on the college, and private/deemed seats through the college's own management or NRI quota alongside the counselling round. The NEET cutoff figures above are the closing rank or score from the most recent counselling round available, not a fixed number that repeats every year — cutoffs move with the number of applicants and available seats each cycle.</p>
+        <p><em>Fees, seats and cutoffs are indicative and change yearly — verify against the official NEET counselling brochure before making a decision.</em></p>`;
+    })(),
     jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `Medical Colleges in ${s.name}`, url: `${SITE}/medical-colleges/${s.slug}`, inLanguage: 'en-IN' },
   });
 }
@@ -4425,6 +4727,8 @@ ROUTES.push({
       <li><strong>AA large text</strong> (18px bold or 24px+) — at least 3:1.</li>
       <li><strong>AAA</strong> (enhanced) — at least 7:1.</li>
     </ul>
+    <h2>Why this matters beyond compliance</h2>
+    <p>Low contrast text isn't just a checklist item — it's genuinely harder to read for anyone with low vision, colour blindness, or simply a phone screen in bright sunlight. Checking a colour pair before shipping a design catches a problem that's expensive to fix once real content has been written against the wrong colours.</p>
     <p>The ratio ranges from 1:1 (identical) to 21:1 (black on white). 100% free, in your browser. Browse <a href="/tools">all free tools</a>.</p>`,
   jsonLd: [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Colour Contrast Checker', applicationCategory: 'DeveloperApplication', operatingSystem: 'Web', url: `${SITE}/contrast-checker`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
@@ -4446,6 +4750,8 @@ ROUTES.push({
       <li><strong>10-digit</strong> values are seconds; <strong>13-digit</strong> values are milliseconds.</li>
       <li>Output is shown in ISO 8601 and a readable UTC string; a Now button fills the current epoch.</li>
     </ul>
+    <h2>Why epoch instead of a calendar date</h2>
+    <p>A Unix timestamp is a single number, so it sorts and compares correctly without parsing a date string, and it's the same value regardless of which timezone the person reading it is in — useful when debugging logs, an API response, or a database field that stores time as an integer.</p>
     <p>100% free, in your browser. Browse <a href="/tools">all free tools</a>.</p>`,
   jsonLd: [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab Unix Timestamp Converter', applicationCategory: 'DeveloperApplication', operatingSystem: 'Web', url: `${SITE}/timestamp`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
@@ -4467,6 +4773,8 @@ ROUTES.push({
       <li><strong>Quote-aware</strong> — commas inside "quoted, fields" and escaped "" quotes are handled correctly.</li>
       <li>Copy the JSON with one click. Everything runs in your browser.</li>
     </ul>
+    <h2>When you'd use this</h2>
+    <p>Common for a school or college project pulling data from a spreadsheet export into a small web page or app that reads JSON — a marks list, an attendance sheet, a survey export — without installing anything or writing a parsing script by hand.</p>
     <p>100% free, private. Browse <a href="/tools">all free tools</a>.</p>`,
   jsonLd: [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Syllab CSV to JSON Converter', applicationCategory: 'DeveloperApplication', operatingSystem: 'Web', url: `${SITE}/csv-to-json`, inLanguage: 'en-IN', isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } },
@@ -4515,6 +4823,12 @@ ROUTES.push({
       <li><strong>Words</strong> and <strong>characters</strong> (with and without spaces).</li>
       <li><strong>Sentences, paragraphs and lines.</strong></li>
       <li><strong>Reading time</strong> (~200 words/min) and <strong>speaking time</strong> (~130 words/min).</li>
+    </ul>
+    <h2>Common uses</h2>
+    <ul>
+      <li><strong>Essay and assignment limits</strong> — most school assignments and board-exam answers specify a word range; paste your draft to check before submitting rather than guessing.</li>
+      <li><strong>Speech and presentation timing</strong> — the speaking-time estimate helps gauge whether a script fits a given time slot before rehearsing it out loud.</li>
+      <li><strong>Character limits</strong> — useful for anything with a hard cap, from a bio field to a caption, where "characters without spaces" and "with spaces" can differ enough to matter.</li>
     </ul>
     <p>Perfect for hitting essay word limits. Nothing is uploaded. 100% free. Listen to your text with <a href="/text-to-speech">Text-to-Speech</a>, or browse <a href="/tools">all free tools</a>.</p>`,
   jsonLd: [
@@ -5089,9 +5403,10 @@ for (const lang of CODE_LANGS) {
         title: `NCERT Solutions for Class ${cls} ${x.subject} — Chapter-wise (Free) | Syllab.in`,
         description: `Free NCERT solutions for Class ${cls} ${x.subject} — ${x.list.length} chapter${x.list.length > 1 ? 's' : ''} with every textbook question worked step by step. No login.`,
         keywords: `ncert solutions class ${cls} ${x.subject.toLowerCase()}, class ${cls} ${x.subject.toLowerCase()} chapter wise solutions, class ${cls} ${x.subject.toLowerCase()} ncert answers`,
-        bodyHtml: `<p class="speakable">${x.list.length} chapter${x.list.length > 1 ? 's' : ''} of Class ${cls} ${esc(x.subject)}, with the NCERT textbook questions worked through.</p>
+        bodyHtml: `<p class="speakable">${x.list.length} chapter${x.list.length > 1 ? 's' : ''} of Class ${cls} ${esc(x.subject)}, with the NCERT textbook questions worked through: ${x.list.map((c) => esc(c.title)).join(', ')}.</p>
           <ul>${x.list.map((c) => chapLink(`/ncert-solutions/class-${cls}/${slug}/${c.chapSlug}`, c.title, c.count)).join('')}</ul>
-          <p><a href="/ncert-solutions/class-${cls}">All Class ${cls} NCERT solutions →</a> · <a href="/mcqs">Chapter-wise MCQ practice →</a> · <a href="/revision-notes">Revision notes →</a></p>`,
+          <p>Each chapter page shows the working, not just the final answer — read <a href="/ncert-solutions/class-${cls}">all Class ${cls} NCERT solutions</a> for the full picture across every subject, use <a href="/mcqs">chapter-wise MCQ practice</a> to self-test once you've worked through a chapter, or skim <a href="/revision-notes">revision notes</a> the night before an exam.</p>
+          <p>Attempt the textbook question yourself before checking a chapter here. A method you produced under your own effort is what actually gets recalled in an exam; reading a worked answer first teaches recognition, not recall, and the two feel similar while revising but perform very differently in the exam hall.</p>`,
         jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'NCERT Solutions', item: `${SITE}/ncert-solutions` },
           { '@type': 'ListItem', position: 2, name: `Class ${cls}`, item: `${SITE}/ncert-solutions/class-${cls}` },
@@ -5133,8 +5448,9 @@ for (const lang of CODE_LANGS) {
         title: `${b.label} Class ${cl} Solutions — All Subjects, Chapter-wise (Free) | Syllab.in`,
         description: `Free ${b.label} Class ${cl} textbook solutions — ${cTotal} chapters across ${Object.values(subjects).map((x) => x.subject).join(' and ')}, worked question by question. No login.`,
         keywords: `${b.label.toLowerCase()} class ${cl} solutions, ${bSlug} class ${cl} textbook answers, ${b.label.toLowerCase()} class ${cl} chapter wise`,
-        bodyHtml: `<p class="speakable">${cTotal} chapters of ${esc(b.label)} Class ${cl}, across ${Object.keys(subjects).length} subject${Object.keys(subjects).length > 1 ? 's' : ''}.</p>
+        bodyHtml: `<p class="speakable">${cTotal} chapters of ${esc(b.label)} Class ${cl}, across ${Object.keys(subjects).length} subject${Object.keys(subjects).length > 1 ? 's' : ''}: ${Object.values(subjects).map((x) => x.subject).join(', ')}.</p>
           ${Object.entries(subjects).map(([sl, x]) => `<h2><a href="/state-board-solutions/${bSlug}/class-${cl}/${sl}">${esc(x.subject)}</a> (${x.list.length} chapters)</h2><ul>${x.list.map((c) => chapLink(`/state-board-solutions/${bSlug}/class-${cl}/${sl}/${c.chapSlug}`, c.title, (c.qa || []).length)).join('')}</ul>`).join('')}
+          <p>Every chapter here works the ${esc(b.label)} textbook's own questions step by step, so the wording and question order match what's actually assigned in class rather than a generic NCERT-based summary.</p>
           <p><a href="/state-board-solutions/${bSlug}">All ${esc(b.label)} solutions →</a></p>`,
         jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'State Board Solutions', item: `${SITE}/state-board-solutions` },
@@ -5149,8 +5465,9 @@ for (const lang of CODE_LANGS) {
           title: `${b.label} Class ${cl} ${x.subject} Solutions — Chapter-wise (Free) | Syllab.in`,
           description: `Free ${b.label} Class ${cl} ${x.subject} solutions — all ${x.list.length} chapters with the textbook questions answered. No login, no subscription.`,
           keywords: `${b.label.toLowerCase()} class ${cl} ${x.subject.toLowerCase()} solutions, ${bSlug} class ${cl} ${x.subject.toLowerCase()} answers`,
-          bodyHtml: `<p class="speakable">All ${x.list.length} chapters of ${esc(b.label)} Class ${cl} ${esc(x.subject)}, with the textbook questions answered.</p>
+          bodyHtml: `<p class="speakable">All ${x.list.length} chapters of ${esc(b.label)} Class ${cl} ${esc(x.subject)}, with the textbook questions answered: ${x.list.map((c) => esc(c.title)).join(', ')}.</p>
             <ul>${x.list.map((c) => chapLink(`/state-board-solutions/${bSlug}/class-${cl}/${sl}/${c.chapSlug}`, c.title, (c.qa || []).length)).join('')}</ul>
+            <p>These follow the ${esc(b.label)} textbook's own chapter order and wording rather than NCERT's, since the two syllabi diverge on where a topic sits and how deep it goes. Where a chapter here overlaps with an NCERT chapter of the same name, the working can still differ because the state board's own question set is what's answered.</p>
             <p><a href="/state-board-solutions/${bSlug}/class-${cl}">All ${esc(b.label)} Class ${cl} subjects →</a></p>`,
           jsonLd: { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'State Board Solutions', item: `${SITE}/state-board-solutions` },
@@ -5934,6 +6251,156 @@ function buildBodyContent(route) {
     `;
   }
 
+  else if (!route.bodyHtml && SKILL_HUB_BODIES[route.path]) {
+    const hub = SKILL_HUB_BODIES[route.path];
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">${esc(hub.h2)}</h2>
+        <p>${hub.intro}</p>
+        <ul style="margin: 0; padding-left: 1.5rem; color: #555; font-size: 0.95rem;">
+          ${hub.points.map((p) => `<li style="margin-bottom: 0.5rem;">${p}</li>`).join('')}
+        </ul>
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Cost and access</h2>
+        <p>${hub.cost}</p>
+        <p>${hub.links}</p>
+      </div>
+    `;
+  }
+  else if (!route.bodyHtml && route.path === '/practice') {
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">How practice mode works</h2>
+        <p>Pick a class, subject and NCERT chapter, and Syllab generates a timed set of chapter-wise MCQs on exactly that content. Answers are scored instantly with the correct option and a short explanation shown per question, so a wrong answer comes with the reasoning attached rather than just a red cross.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Mistake tracking</h2>
+        <p>Questions answered wrong are flagged so the same chapter's weak spots resurface in later practice sets instead of disappearing after one attempt — the goal is repeated exposure to what you actually got wrong, not just a fresh random quiz each time.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Coverage</h2>
+        <p>Chapter-wise MCQ practice is available across Class 1 to Class 12 for the CBSE/NCERT syllabus, free with no signup required to start a set.</p>
+
+        <p><a href="/mock-tests" style="color:#0066cc;">Full-length timed mock tests →</a> · <a href="/ncert-solutions" style="color:#0066cc;">NCERT chapter solutions →</a></p>
+      </div>
+    `;
+  }
+  else if (!route.bodyHtml && route.path === '/about') {
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Our vision</h2>
+        <p>Syllab was built to make high-quality education accessible to every student in India, from early school learning through advanced exam preparation — with geography and family income treated as barriers to remove, not conditions that decide who gets help.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">How the content is made and reviewed</h2>
+        <ul style="margin: 0; padding-left: 1.5rem; color: #555; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.5rem;"><strong>Aligned to the latest syllabus</strong> — CBSE/NCERT and state boards (Andhra Pradesh, Telangana, Karnataka, Maharashtra), kept current with the newest NCERT books.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Reviewed by educators</strong> — content is built with teacher input and checked for factual accuracy before it reaches students.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Step-by-step solutions</strong> — worked reasoning is shown, not just a final answer.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Free, no paywall</strong> — access doesn't depend on where a student lives or what their family can afford.</li>
+        </ul>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Spotted an error?</h2>
+        <p>Report it at <a href="/contact" style="color:#0066cc;">syllab.in/contact</a> — reported mistakes get fixed, not left standing because a page already shipped.</p>
+      </div>
+    `;
+  }
+  // Flagship feature hub pages (AI Tutor, Doubt Solver, Study Room, Coding
+  // for Kids, Python for Kids) — the site's actual differentiators against
+  // paid platforms. traffic-health's thin-page check was silently broken (it
+  // counted script-tag JS as prose, see its own history), so these sat at
+  // ~150-200 real words behind a passing check for months. Real content now,
+  // built from the same feature claims already in each route's own
+  // description/jsonLd above — nothing new invented, just written out.
+  else if (!route.bodyHtml && route.path === '/ai-tutor') {
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">What the AI Tutor actually does</h2>
+        <p>Syllab's AI Tutor is built around four things a student needs while studying alone: generating concept notes from a topic name, turning those notes into flashcards for revision, building practice MCQs to self-test, and scanning a homework question by photo for a step-by-step solution. All four work the same way for Class 1 through Class 12, aligned to the CBSE/NCERT syllabus.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">How to use it</h2>
+        <ol style="margin: 0; padding-left: 1.5rem; color: #555; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.5rem;">Type or say the topic ("photosynthesis", "quadratic equations") to get structured concept notes.</li>
+          <li style="margin-bottom: 0.5rem;">Convert any note into flashcards for spaced-repetition revision before a test.</li>
+          <li style="margin-bottom: 0.5rem;">Generate a short MCQ set on the same topic to check what actually stuck.</li>
+          <li style="margin-bottom: 0.5rem;">Stuck on a specific question instead of a topic? Use <a href="/doubt-solver" style="color:#0066cc;">the photo doubt solver</a> to scan it directly.</li>
+        </ol>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Why free, and what that means</h2>
+        <p>Paid tutoring apps put doubt-solving and personalised notes behind a subscription tier. Syllab's AI Tutor doesn't gate any of the four features above — no trial period, no card details, no login wall. The trade-off to be upfront about: this is an AI system, not a human tutor, so it's built for fast, on-demand help with a specific topic or question, not for the mentorship, motivation or live-class structure a human tutor provides.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Which classes and subjects</h2>
+        <p>Covers Class 1 to Class 12 across the core CBSE/NCERT subjects — Maths, Science, Social Science and English — with the same notes/flashcards/MCQ/doubt-solving workflow at every level, adjusted for the syllabus depth of that class.</p>
+      </div>
+    `;
+  }
+  else if (!route.bodyHtml && route.path === '/doubt-solver') {
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">How the photo doubt solver works</h2>
+        <p>Take a photo of a homework question — a maths problem, a physics numerical, a chemistry equation — and Syllab's AI reads the image and returns a full step-by-step written solution. There's no queue and no video to sit through: the answer is text, generated on demand, so you can jump straight to the step you're stuck on instead of watching a full explanation from the start.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">What it covers</h2>
+        <p>Maths, Physics, Chemistry and other academic problems for Class 1 to Class 12, including CBSE/NCERT textbook questions. Works best on a single, clearly-written question per photo rather than a full page of mixed problems.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Doubt solver vs. video-based apps</h2>
+        <p>Apps like Doubtnut built their model around matching your question to a pre-recorded video explanation — useful, but you wait for the match and then watch the whole video even if you only needed the last two steps. Syllab generates the written solution directly, so you get exactly the steps for your exact numbers, not a generic video for a similar-looking problem.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">When to use this vs. the AI Tutor</h2>
+        <p>Use the doubt solver when you have one specific question in front of you. Use the <a href="/ai-tutor" style="color:#0066cc;">AI Tutor</a> when you want to build notes or flashcards on a whole topic before a question ever comes up.</p>
+      </div>
+    `;
+  }
+  else if (!route.bodyHtml && route.path === '/study-room') {
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">What's in the Study Room</h2>
+        <ul style="margin: 0; padding-left: 1.5rem; color: #555; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.5rem;"><strong>Pomodoro focus timer</strong> — timed work/break cycles instead of an open-ended study session that quietly drifts.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Study ambience</strong> — background sound designed to mask distraction without becoming its own distraction.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Exam countdowns</strong> — for CBSE boards, JEE, NEET and other fixed exam dates, so the remaining days stay visible.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>A voice AI tutor</strong> — for a doubt that comes up mid-session, without leaving the room to open a separate tool.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Break reminders and a study-streak tracker</strong> — the two things that keep a study habit going past the first week.</li>
+        </ul>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Why a "room" instead of just a timer</h2>
+        <p>A timer alone doesn't address why sessions fall apart — usually it's a mid-session doubt that turns into ten minutes on the phone, or a session with no clear stopping point that just gets abandoned. The Study Room bundles the timer with the doubt-solving tutor and a visible countdown to the actual exam, so the reasons a session usually breaks are handled inside the same page.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Cost</h2>
+        <p>Every feature listed above — timer, ambience, countdowns, the voice tutor, streak tracking — is free with no subscription tier held back.</p>
+      </div>
+    `;
+  }
+  else if (!route.bodyHtml && route.path === '/coding-for-kids') {
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">How the coding path is structured</h2>
+        <p>Free coding for Class 3 to Class 8, structured so a child with zero programming background can start immediately. It begins with Scratch-style block coding — dragging logic blocks together to build small games and animations, which teaches sequencing and conditionals without needing to type syntax correctly. From there it moves into real typed code in Python and JavaScript once a child is comfortable with the underlying logic.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Why start with blocks, not typed code</h2>
+        <p>The biggest early barrier in coding isn't logic, it's syntax — a missing bracket or colon that a beginner can't diagnose. Block-based coding removes that barrier entirely so the actual skill being taught (breaking a problem into steps) isn't blocked by a typo. Typed languages come once that foundation is there — see <a href="/python-for-kids" style="color:#0066cc;">Python for Kids</a> for the next stage.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">What makes this different from paid coding platforms</h2>
+        <p>Coding-for-kids platforms are often sold as multi-month paid courses with live instructors. Syllab's version is self-paced and free — no instructor-led schedule, no course fee — which suits a child fitting coding practice around school rather than a fixed weekly class slot.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Age range and starting point</h2>
+        <p>Designed for Class 3 to Class 8. No prior experience is assumed — a child who has never coded before and a child who already knows basic Scratch can both start on the same page and move at their own pace.</p>
+      </div>
+    `;
+  }
+  else if (!route.bodyHtml && route.path === '/python-for-kids') {
+    richContent = `
+      <div style="margin-top: 1.5rem; line-height: 1.7;">
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Why Python specifically</h2>
+        <p>Python reads closer to plain English than most programming languages, which matters for a first typed language — a student can often guess what a line of Python does before being taught the rule. It's also the language most used in AI, data science and automation, so time spent learning it now carries directly into those fields later rather than being a "kids' language" that gets discarded.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">What's covered</h2>
+        <p>Free Python lessons and projects for Class 6 to Class 10 — variables, loops, conditionals, functions and simple projects that produce a visible result (a calculator, a small game, a text-based tool) rather than exercises that only print output to a console.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Before starting Python</h2>
+        <p>If a child hasn't coded at all before, <a href="/coding-for-kids" style="color:#0066cc;">Coding for Kids</a> (block-based, Class 3-8) is the gentler starting point — it builds the logic habits Python then applies with real syntax. A student already comfortable with blocks, or already in Class 6+, can start directly here.</p>
+
+        <h2 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem;">Cost</h2>
+        <p>Free for Class 6 to Class 10, with no separate fee for the project exercises.</p>
+      </div>
+    `;
+  }
   // Per-brand "free alternative to X" pages — these were shipping title/meta
   // only with zero body text, the highest-signal thin-page bug on the site:
   // /unacademy-alternative and /byjus-alternative already rank ~position 8-10
